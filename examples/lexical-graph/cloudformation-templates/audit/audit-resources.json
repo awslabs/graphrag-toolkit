@@ -1,0 +1,156 @@
+{
+  "description": "Resource types to discover in manual scan mode. Remove or add entries to control what the audit finds.",
+  "resource_types": [
+    {
+      "type": "neptune_clusters",
+      "label": "Neptune DB Clusters",
+      "enabled": true,
+      "service": "neptune",
+      "operation": "describe-db-clusters",
+      "jq_extract": ".DBClusters[].DBClusterIdentifier",
+      "logical_id": "NeptuneDBCluster",
+      "cfn_type": "AWS::Neptune::DBCluster"
+    },
+    {
+      "type": "neptune_instances",
+      "label": "Neptune DB Instances",
+      "enabled": true,
+      "service": "neptune",
+      "operation": "describe-db-instances",
+      "jq_extract": ".DBInstances[].DBInstanceIdentifier",
+      "logical_id": "NeptuneDBInstance",
+      "cfn_type": "AWS::Neptune::DBInstance"
+    },
+    {
+      "type": "neptune_analytics",
+      "label": "Neptune Analytics Graphs",
+      "enabled": true,
+      "service": "neptune-graph",
+      "operation": "list-graphs",
+      "jq_extract": ".graphs[].id",
+      "logical_id": "Graph",
+      "cfn_type": "AWS::NeptuneGraph::Graph"
+    },
+    {
+      "type": "opensearch_collections",
+      "label": "OpenSearch Serverless Collections",
+      "enabled": true,
+      "service": "opensearchserverless",
+      "operation": "list-collections",
+      "jq_extract": ".collectionSummaries[].id",
+      "logical_id": "OpenSearchServerless",
+      "cfn_type": "AWS::OpenSearchServerless::Collection"
+    },
+    {
+      "type": "opensearch_encryption_policies",
+      "label": "OpenSearch Encryption Policies",
+      "enabled": true,
+      "service": "opensearchserverless",
+      "operation": "list-security-policies --type encryption",
+      "jq_extract": ".securityPolicySummaries[].name",
+      "logical_id": "OSSEncryptionPolicy",
+      "cfn_type": "AWS::OpenSearchServerless::SecurityPolicy"
+    },
+    {
+      "type": "opensearch_network_policies",
+      "label": "OpenSearch Network Policies",
+      "enabled": true,
+      "service": "opensearchserverless",
+      "operation": "list-security-policies --type network",
+      "jq_extract": ".securityPolicySummaries[].name",
+      "logical_id": "OSSNetworkPolicy",
+      "cfn_type": "AWS::OpenSearchServerless::SecurityPolicy"
+    },
+    {
+      "type": "opensearch_access_policies",
+      "label": "OpenSearch Access Policies",
+      "enabled": true,
+      "service": "opensearchserverless",
+      "operation": "list-access-policies --type data",
+      "jq_extract": ".accessPolicySummaries[].name",
+      "logical_id": "OSSAccessPolicy",
+      "cfn_type": "AWS::OpenSearchServerless::AccessPolicy"
+    },
+    {
+      "type": "sagemaker_notebooks",
+      "label": "SageMaker Notebook Instances",
+      "enabled": true,
+      "service": "sagemaker",
+      "operation": "list-notebook-instances",
+      "jq_extract": ".NotebookInstances[].NotebookInstanceName",
+      "logical_id": "NeptuneNotebookInstance",
+      "cfn_type": "AWS::SageMaker::NotebookInstance"
+    },
+    {
+      "type": "s3_buckets",
+      "label": "S3 Buckets",
+      "enabled": true,
+      "service": "s3api",
+      "operation": "list-buckets",
+      "jq_extract": ".Buckets[].Name",
+      "logical_id": "S3Bucket",
+      "cfn_type": "AWS::S3::Bucket"
+    },
+    {
+      "type": "aurora_clusters",
+      "label": "Aurora PostgreSQL Clusters",
+      "enabled": false,
+      "service": "rds",
+      "operation": "describe-db-clusters",
+      "jq_extract": ".DBClusters[] | select(.Engine==\"aurora-postgresql\") | .DBClusterIdentifier",
+      "logical_id": "PostgresCluster",
+      "cfn_type": "AWS::RDS::DBCluster"
+    },
+    {
+      "type": "aurora_instances",
+      "label": "Aurora PostgreSQL Instances",
+      "enabled": false,
+      "service": "rds",
+      "operation": "describe-db-instances",
+      "jq_extract": ".DBInstances[] | select(.Engine==\"aurora-postgresql\") | .DBInstanceIdentifier",
+      "logical_id": "PostgresInstance",
+      "cfn_type": "AWS::RDS::DBInstance"
+    },
+    {
+      "type": "lambda_functions",
+      "label": "Lambda Functions",
+      "enabled": false,
+      "service": "lambda",
+      "operation": "list-functions",
+      "jq_extract": ".Functions[].FunctionName",
+      "logical_id": "LambdaFunction",
+      "cfn_type": "AWS::Lambda::Function"
+    },
+    {
+      "type": "iam_roles",
+      "label": "IAM Roles (non-service-linked)",
+      "enabled": false,
+      "service": "iam",
+      "operation": "list-roles",
+      "jq_extract": ".Roles[] | select(.Path != \"/aws-service-role/\") | .RoleName",
+      "logical_id": "IAMRole",
+      "cfn_type": "AWS::IAM::Role"
+    },
+    {
+      "type": "iam_policies",
+      "label": "IAM Customer Managed Policies",
+      "enabled": false,
+      "service": "iam",
+      "operation": "list-policies --scope Local",
+      "jq_extract": ".Policies[].PolicyName",
+      "logical_id": "IAMManagedPolicy",
+      "cfn_type": "AWS::IAM::ManagedPolicy"
+    },
+    {
+      "type": "vpc",
+      "label": "VPCs (non-default)",
+      "enabled": false,
+      "service": "ec2",
+      "operation": "describe-vpcs",
+      "jq_extract": ".Vpcs[] | select(.IsDefault == false) | .VpcId",
+      "logical_id": "VPC",
+      "cfn_type": "AWS::EC2::VPC",
+      "note": "VPC discovery also pulls subnets, security groups, NAT/IGW, and VPC endpoints"
+    }
+  ]
+}

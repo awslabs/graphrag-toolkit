@@ -221,5 +221,5 @@ class LlamaIndexPluginReaderConfig(ReaderProviderConfig):
     timeout_seconds: int = 120
     max_retries: int = 2
     retry_backoff_seconds: float = 2.0
-    fail_on_error: bool = False
+    fail_on_error: bool = True
     metadata_fn: Optional[Callable[[str], Dict[str, Any]]] = None

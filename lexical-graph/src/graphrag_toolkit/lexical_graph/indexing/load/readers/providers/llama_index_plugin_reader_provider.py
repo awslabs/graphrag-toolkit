@@ -25,6 +25,8 @@ Usage:
 """
 
 import importlib
+import os
+import re
 import signal
 import time
 from typing import Any, List, Optional
@@ -37,6 +39,12 @@ from graphrag_toolkit.lexical_graph.logging import logging
 from llama_index.core.schema import Document
 
 logger = logging.getLogger(__name__)
+
+# Item #4: Pattern for environment variable references in config values
+_ENV_VAR_PATTERN = re.compile(r'^\$([A-Z_][A-Z0-9_]*)$')
+
+# Item #7: Pattern for valid LlamaIndex package names (prevents typosquat suggestions)
+_VALID_PACKAGE_PATTERN = re.compile(r'^llama-index-readers?-[a-z0-9-]+$')
 
 
 class ReaderImportError(ImportError):
@@ -59,14 +67,24 @@ class LlamaIndexPluginReaderProvider:
 
     Features:
         - Dynamic import of any LlamaIndex reader package
+        - Namespace allowlist (prevents arbitrary module loading)
+        - Interface validation before instantiation
+        - Environment variable resolution in credentials ($VAR_NAME)
         - Configurable timeout (prevents hangs)
         - Retry with exponential backoff on transient failures
         - Graceful degradation (fail_on_error=False returns [] instead of raising)
-        - Structured logging at every decision point
+        - Structured logging at every decision point (never logs credential values)
         - Auth failure detection (recognizes 401/403 patterns)
         - Empty result warnings
         - Metadata enrichment support
     """
+
+    # Item #1: Namespace allowlist — only these module prefixes can be loaded.
+    # Subclass and override to allow custom reader namespaces.
+    ALLOWED_MODULE_PREFIXES = ("llama_index.readers.",)
+
+    # Item #3: Only these methods may be called on the reader instance.
+    ALLOWED_LOAD_METHODS = ("load_data", "lazy_load", "aload_data")
 
     # Known auth-related error patterns (case-insensitive matching)
     _AUTH_ERROR_PATTERNS = (
@@ -112,6 +130,51 @@ class LlamaIndexPluginReaderProvider:
                 "(e.g. 'llama-index-readers-confluence')"
             )
 
+    def _validate_module_path(self, module_path: str) -> None:
+        """Item #1: Validate module path against namespace allowlist before import.
+
+        Prevents arbitrary code execution via malicious module_path values.
+        Validation applies to the RESOLVED path (after _resolve_module_path).
+
+        Raises:
+            ReaderImportError: If module_path is not in allowed namespaces.
+        """
+        if not any(module_path.startswith(prefix) for prefix in self.ALLOWED_MODULE_PREFIXES):
+            raise ReaderImportError(
+                f"Module '{module_path}' is not in the allowed namespace. "
+                f"Allowed prefixes: {self.ALLOWED_MODULE_PREFIXES}. "
+                f"To allow custom namespaces, subclass and override ALLOWED_MODULE_PREFIXES."
+            )
+
+    def _resolve_env_vars(self, args: dict) -> dict:
+        """Item #4: Resolve $VAR_NAME references in dict values from environment.
+
+        Only resolves top-level string values matching $UPPER_CASE_NAME.
+        Nested dicts, non-string values, lowercase vars, and mid-string
+        dollar signs are passed through unchanged.
+
+        Raises:
+            ValueError: If a referenced environment variable is not set.
+        """
+        if not args:
+            return args
+        resolved = {}
+        for key, value in args.items():
+            if isinstance(value, str):
+                match = _ENV_VAR_PATTERN.match(value)
+                if match:
+                    env_name = match.group(1)
+                    env_value = os.environ.get(env_name)
+                    if env_value is None:
+                        raise ValueError(
+                            f"Config field '{key}' references ${env_name} "
+                            f"but it is not set in the environment"
+                        )
+                    resolved[key] = env_value
+                    continue
+            resolved[key] = value
+        return resolved
+
     def _resolve_module_path(self) -> str:
         """Resolve the Python module path from config.
 
@@ -128,9 +191,19 @@ class LlamaIndexPluginReaderProvider:
         return self._config.package.replace("-", "_")
 
     def _import_and_init_reader(self) -> None:
-        """Dynamically import the reader module and instantiate the reader class."""
+        """Dynamically import the reader module and instantiate the reader class.
+
+        Security measures:
+            - Item #1: Namespace allowlist validation before import
+            - Item #2: Interface validation before instantiation
+            - Item #4: Environment variable resolution for credentials
+            - Item #7: Safe package name validation in error messages
+        """
         module_path = self._resolve_module_path()
         class_name = self._config.reader_class
+
+        # Item #1: Validate namespace before importing
+        self._validate_module_path(module_path)
 
         logger.info(
             f"LlamaIndexPlugin: importing {class_name} from {module_path} "
@@ -140,11 +213,17 @@ class LlamaIndexPluginReaderProvider:
         try:
             module = importlib.import_module(module_path)
         except ImportError as e:
-            install_hint = self._config.package or module_path
-            msg = (
-                f"Failed to import '{module_path}'. "
-                f"Install the reader package: pip install {install_hint}"
-            )
+            # Item #7: Only suggest pip install for validated package names
+            if self._config.package and _VALID_PACKAGE_PATTERN.match(self._config.package):
+                msg = (
+                    f"Failed to import '{module_path}'. "
+                    f"Install the reader package: pip install {self._config.package}"
+                )
+            else:
+                msg = (
+                    f"Failed to import '{module_path}'. "
+                    f"Ensure the reader package is installed."
+                )
             logger.error(msg)
             raise ReaderImportError(msg) from e
 
@@ -159,10 +238,23 @@ class LlamaIndexPluginReaderProvider:
             logger.error(msg)
             raise ReaderImportError(msg) from e
 
-        # Instantiate the reader with init_args
-        init_args = self._config.init_args or {}
+        # Item #2: Interface validation BEFORE instantiation
+        if not callable(reader_cls):
+            raise ReaderImportError(f"'{class_name}' in '{module_path}' is not callable")
+
+        load_method_name = self._config.load_method or "load_data"
+        if not hasattr(reader_cls, load_method_name) and not hasattr(reader_cls, "lazy_load"):
+            raise ReaderImportError(
+                f"'{class_name}' does not implement '{load_method_name}()' or 'lazy_load()'. "
+                f"It may not be a LlamaIndex reader."
+            )
+
+        # Item #4: Resolve environment variables in init_args
+        init_args = self._resolve_env_vars(self._config.init_args or {})
+
         try:
             self._reader = reader_cls(**init_args)
+            # Item #5: Log keys only, NEVER values
             logger.info(
                 f"LlamaIndexPlugin: {class_name} initialized successfully "
                 f"(init_args keys: {list(init_args.keys())})"
@@ -221,6 +313,8 @@ class LlamaIndexPluginReaderProvider:
     def _resolve_load_function(self) -> Optional[Any]:
         """Resolve the callable load method from the reader instance.
 
+        Item #3: Validates load_method against ALLOWED_LOAD_METHODS.
+
         Returns:
             The load function, or None if resolution fails (with appropriate error/log).
         """
@@ -231,6 +325,16 @@ class LlamaIndexPluginReaderProvider:
             return None
 
         load_method_name = self._config.load_method or "load_data"
+
+        # Item #3: Restrict to safe method names only
+        if load_method_name not in self.ALLOWED_LOAD_METHODS:
+            msg = (
+                f"load_method '{load_method_name}' is not allowed. "
+                f"Permitted: {self.ALLOWED_LOAD_METHODS}"
+            )
+            logger.error(msg)
+            raise ValueError(msg)
+
         load_fn = getattr(self._reader, load_method_name, None)
 
         if load_fn is None:
@@ -248,9 +352,10 @@ class LlamaIndexPluginReaderProvider:
     def _build_load_args(self, input_source: Any = None) -> dict:
         """Assemble the keyword arguments for the load function.
 
+        Item #4: Resolves $VAR_NAME environment variable references in load_args.
         Merges configured load_args with an optional input_source.
         """
-        load_args = dict(self._config.load_args or {})
+        load_args = self._resolve_env_vars(dict(self._config.load_args or {}))
         if input_source is not None:
             load_args["input_source"] = input_source
         return load_args

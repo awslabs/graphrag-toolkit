@@ -1,0 +1,44 @@
+# ADR-0006: External Extraction, CPG-RAG-Owned Schema-Driven Build
+
+- **Status:** Proposed — client decision required
+- **Date:** 2026-06-29
+- **Stance:** We propose and inform; the client decides (ADR-0001 §1).
+- **Relates to:** ADR-0001 (D1 DRY/packaging), ADR-0004 (store strategy), ADR-0005 (embedding), requirements R3/R4/R9
+
+## Context
+Extraction is performed externally (Joern export + the client's Neo4j query/enrichment) and
+emits a predefined, schema-conformant artifact (the format contract). The toolkit already
+separates extract from build (lexical `extract()`/`build()`; document-graph
+extract→transform→build→load), so a build can consume an externally-produced extract. The
+lexical build's node builders are tuned to lexical node types, so CPG (different node model)
+requires a build tailored to the CPG schema.
+
+## Decision
+1. CPG-RAG owns a **build pipeline driven by a predefined external-extraction schema** and
+   validates incoming extracts against it (fail fast on mismatch).
+2. That build is **composed from existing toolkit primitives, not reimplemented** (DRY / D1):
+   - document-graph schema-driven build (`PipelineExecutor`: schema/mapping → typed
+     nodes/edges → Cypher → graph) + its validation primitives;
+   - codeproperty-graph `from_joern` + `DeltaIngestor` (skip-or-replace, tenant purge);
+   - lexical-graph `GraphStore`/`VectorStore`, with build-time embedding (toolkit owns
+     vectorization — ADR-0005).
+3. Net-new in CPG-RAG's build (the delta): the SemanticCodeUnit overlay builder (R4:
+   summary node + build-time embedding), the store-agnostic write-strategy resolver
+   (ADR-0004), and delta-manifest versioning incl. enrichment recipe (R5).
+4. The build is store-agnostic and depends only on toolkit abstractions; dependency
+   direction is domain → foundation (D1).
+
+## Consequences
+- CPG-RAG has an explicit, schema-validated integration boundary with the external extractor.
+- No build infrastructure is duplicated; CPG-RAG adds only domain orchestration + overlay +
+  strategy resolver + delta versioning.
+- The predefined extraction schema becomes a versioned contract shared by the external
+  extractor and CPG-RAG's build.
+
+## Non-goals
+- Not a new build engine. Not reusing the lexical node-builders for the CPG node model.
+
+## Open questions for the client
+1. Who owns and versions the predefined extraction schema (external extractor vs CPG-RAG)?
+2. Does the extract arrive as Joern JSON directly, or a client-transformed shape (determines the mapping layer)?
+3. Where is the schema validated — at extract-publish time, at build-ingest time, or both?

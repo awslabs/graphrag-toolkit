@@ -1,0 +1,291 @@
+{
+  "description": "Recommended resource scan for graphrag-toolkit CloudFormation templates. Covers ALL resource types defined across the 8 template variants (neptune-analytics, neptune-db, opensearch, aurora-postgres, s3-vectors).",
+  "source_templates": [
+    "graphrag-toolkit-neptune-analytics.json",
+    "graphrag-toolkit-neptune-analytics-opensearch-serverless.json",
+    "graphrag-toolkit-neptune-analytics-s3-vectors.json",
+    "graphrag-toolkit-neptune-analytics-aurora-postgres.json",
+    "graphrag-toolkit-neptune-db-opensearch-serverless.json",
+    "graphrag-toolkit-neptune-db-s3-vectors.json",
+    "graphrag-toolkit-neptune-db-aurora-postgres.json",
+    "graphrag-toolkit-neptune-db-aurora-postgres-existing-vpc.json"
+  ],
+  "resource_types": [
+    {
+      "type": "neptune_clusters",
+      "label": "Neptune DB Clusters",
+      "enabled": true,
+      "service": "neptune",
+      "operation": "describe-db-clusters",
+      "jq_extract": ".DBClusters[].DBClusterIdentifier",
+      "logical_id": "NeptuneDBCluster",
+      "cfn_type": "AWS::Neptune::DBCluster",
+      "templates": ["neptune-db-*"]
+    },
+    {
+      "type": "neptune_instances",
+      "label": "Neptune DB Instances",
+      "enabled": true,
+      "service": "neptune",
+      "operation": "describe-db-instances",
+      "jq_extract": ".DBInstances[].DBInstanceIdentifier",
+      "logical_id": "NeptuneDBInstance",
+      "cfn_type": "AWS::Neptune::DBInstance",
+      "templates": ["neptune-db-*"]
+    },
+    {
+      "type": "neptune_cluster_parameter_groups",
+      "label": "Neptune Cluster Parameter Groups",
+      "enabled": true,
+      "service": "neptune",
+      "operation": "describe-db-cluster-parameter-groups",
+      "jq_extract": ".DBClusterParameterGroups[].DBClusterParameterGroupName",
+      "logical_id": "NeptuneDBClusterParameterGroup",
+      "cfn_type": "AWS::Neptune::DBClusterParameterGroup",
+      "templates": ["neptune-db-*"]
+    },
+    {
+      "type": "neptune_parameter_groups",
+      "label": "Neptune DB Parameter Groups",
+      "enabled": true,
+      "service": "neptune",
+      "operation": "describe-db-parameter-groups",
+      "jq_extract": ".DBParameterGroups[].DBParameterGroupName",
+      "logical_id": "NeptuneDBParameterGroup",
+      "cfn_type": "AWS::Neptune::DBParameterGroup",
+      "templates": ["neptune-db-*"]
+    },
+    {
+      "type": "neptune_subnet_groups",
+      "label": "Neptune DB Subnet Groups",
+      "enabled": true,
+      "service": "neptune",
+      "operation": "describe-db-subnet-groups",
+      "jq_extract": ".DBSubnetGroups[].DBSubnetGroupName",
+      "logical_id": "NeptuneDBSubnetGroup",
+      "cfn_type": "AWS::Neptune::DBSubnetGroup",
+      "templates": ["neptune-db-*"]
+    },
+    {
+      "type": "neptune_analytics_graphs",
+      "label": "Neptune Analytics Graphs",
+      "enabled": true,
+      "service": "neptune-graph",
+      "operation": "list-graphs",
+      "jq_extract": ".graphs[].id",
+      "logical_id": "Graph",
+      "cfn_type": "AWS::NeptuneGraph::Graph",
+      "templates": ["neptune-analytics-*"]
+    },
+    {
+      "type": "opensearch_collections",
+      "label": "OpenSearch Serverless Collections",
+      "enabled": true,
+      "service": "opensearchserverless",
+      "operation": "list-collections",
+      "jq_extract": ".collectionSummaries[].id",
+      "logical_id": "OpenSearchServerless",
+      "cfn_type": "AWS::OpenSearchServerless::Collection",
+      "templates": ["*-opensearch-serverless"]
+    },
+    {
+      "type": "opensearch_encryption_policies",
+      "label": "OpenSearch Encryption Policies",
+      "enabled": true,
+      "service": "opensearchserverless",
+      "operation": "list-security-policies --type encryption",
+      "jq_extract": ".securityPolicySummaries[].name",
+      "logical_id": "OSSEncryptionPolicy",
+      "cfn_type": "AWS::OpenSearchServerless::SecurityPolicy",
+      "templates": ["*-opensearch-serverless"]
+    },
+    {
+      "type": "opensearch_network_policies",
+      "label": "OpenSearch Network Policies",
+      "enabled": true,
+      "service": "opensearchserverless",
+      "operation": "list-security-policies --type network",
+      "jq_extract": ".securityPolicySummaries[].name",
+      "logical_id": "OSSNetworkPolicy",
+      "cfn_type": "AWS::OpenSearchServerless::SecurityPolicy",
+      "templates": ["*-opensearch-serverless"]
+    },
+    {
+      "type": "opensearch_access_policies",
+      "label": "OpenSearch Access Policies",
+      "enabled": true,
+      "service": "opensearchserverless",
+      "operation": "list-access-policies --type data",
+      "jq_extract": ".accessPolicySummaries[].name",
+      "logical_id": "OSSAccessPolicy",
+      "cfn_type": "AWS::OpenSearchServerless::AccessPolicy",
+      "templates": ["*-opensearch-serverless"]
+    },
+    {
+      "type": "opensearch_vpc_endpoints",
+      "label": "OpenSearch Serverless VPC Endpoints",
+      "enabled": true,
+      "service": "opensearchserverless",
+      "operation": "list-vpc-endpoints",
+      "jq_extract": ".vpcEndpointSummaries[].id",
+      "logical_id": "OpenSearchServerlessVpcEndpoint",
+      "cfn_type": "AWS::OpenSearchServerless::VpcEndpoint",
+      "templates": ["*-opensearch-serverless"]
+    },
+    {
+      "type": "aurora_clusters",
+      "label": "Aurora PostgreSQL Clusters",
+      "enabled": true,
+      "service": "rds",
+      "operation": "describe-db-clusters",
+      "jq_extract": ".DBClusters[] | select(.Engine==\"aurora-postgresql\") | .DBClusterIdentifier",
+      "logical_id": "PostgresCluster",
+      "cfn_type": "AWS::RDS::DBCluster",
+      "templates": ["*-aurora-postgres*"]
+    },
+    {
+      "type": "aurora_instances",
+      "label": "Aurora PostgreSQL Instances",
+      "enabled": true,
+      "service": "rds",
+      "operation": "describe-db-instances",
+      "jq_extract": ".DBInstances[] | select(.Engine==\"aurora-postgresql\") | .DBInstanceIdentifier",
+      "logical_id": "PostgresInstance",
+      "cfn_type": "AWS::RDS::DBInstance",
+      "templates": ["*-aurora-postgres*"]
+    },
+    {
+      "type": "aurora_cluster_parameter_groups",
+      "label": "Aurora Cluster Parameter Groups",
+      "enabled": true,
+      "service": "rds",
+      "operation": "describe-db-cluster-parameter-groups",
+      "jq_extract": ".DBClusterParameterGroups[] | select(.DBParameterGroupFamily | startswith(\"aurora-postgresql\")) | .DBClusterParameterGroupName",
+      "logical_id": "PostgresClusterParameterGroup",
+      "cfn_type": "AWS::RDS::DBClusterParameterGroup",
+      "templates": ["*-aurora-postgres*"]
+    },
+    {
+      "type": "aurora_parameter_groups",
+      "label": "Aurora DB Parameter Groups",
+      "enabled": true,
+      "service": "rds",
+      "operation": "describe-db-parameter-groups",
+      "jq_extract": ".DBParameterGroups[] | select(.DBParameterGroupFamily | startswith(\"aurora-postgresql\")) | .DBParameterGroupName",
+      "logical_id": "PostgresDBParameterGroup",
+      "cfn_type": "AWS::RDS::DBParameterGroup",
+      "templates": ["*-aurora-postgres*"]
+    },
+    {
+      "type": "aurora_subnet_groups",
+      "label": "Aurora DB Subnet Groups",
+      "enabled": true,
+      "service": "rds",
+      "operation": "describe-db-subnet-groups",
+      "jq_extract": ".DBSubnetGroups[].DBSubnetGroupName",
+      "logical_id": "PostgresSubnetGroup",
+      "cfn_type": "AWS::RDS::DBSubnetGroup",
+      "templates": ["*-aurora-postgres*"]
+    },
+    {
+      "type": "s3_buckets",
+      "label": "S3 Buckets",
+      "enabled": true,
+      "service": "s3api",
+      "operation": "list-buckets",
+      "jq_extract": ".Buckets[].Name",
+      "logical_id": "S3Bucket",
+      "cfn_type": "AWS::S3::Bucket",
+      "templates": ["*-s3-vectors"]
+    },
+    {
+      "type": "sagemaker_notebooks",
+      "label": "SageMaker Notebook Instances",
+      "enabled": true,
+      "service": "sagemaker",
+      "operation": "list-notebook-instances",
+      "jq_extract": ".NotebookInstances[].NotebookInstanceName",
+      "logical_id": "NeptuneNotebookInstance",
+      "cfn_type": "AWS::SageMaker::NotebookInstance",
+      "templates": ["all"]
+    },
+    {
+      "type": "sagemaker_lifecycle_configs",
+      "label": "SageMaker Lifecycle Configs",
+      "enabled": true,
+      "service": "sagemaker",
+      "operation": "list-notebook-instance-lifecycle-configs",
+      "jq_extract": ".NotebookInstanceLifecycleConfigs[].NotebookInstanceLifecycleConfigName",
+      "logical_id": "NeptuneNotebookInstanceLifecycleConfig",
+      "cfn_type": "AWS::SageMaker::NotebookInstanceLifecycleConfig",
+      "templates": ["all"]
+    },
+    {
+      "type": "lambda_functions",
+      "label": "Lambda Functions",
+      "enabled": true,
+      "service": "lambda",
+      "operation": "list-functions",
+      "jq_extract": ".Functions[].FunctionName",
+      "logical_id": "LambdaFunction",
+      "cfn_type": "AWS::Lambda::Function",
+      "templates": ["all (Custom::CustomResource backing)"]
+    },
+    {
+      "type": "kms_keys",
+      "label": "KMS Keys",
+      "enabled": true,
+      "service": "kms",
+      "operation": "list-keys",
+      "jq_extract": ".Keys[].KeyId",
+      "logical_id": "KMSKey",
+      "cfn_type": "AWS::KMS::Key",
+      "templates": ["*-s3-vectors"]
+    },
+    {
+      "type": "iam_roles",
+      "label": "IAM Roles (non-service-linked)",
+      "enabled": true,
+      "service": "iam",
+      "operation": "list-roles",
+      "jq_extract": ".Roles[] | select(.Path != \"/aws-service-role/\") | .RoleName",
+      "logical_id": "IAMRole",
+      "cfn_type": "AWS::IAM::Role",
+      "templates": ["all"]
+    },
+    {
+      "type": "iam_policies",
+      "label": "IAM Customer Managed Policies",
+      "enabled": true,
+      "service": "iam",
+      "operation": "list-policies --scope Local",
+      "jq_extract": ".Policies[].PolicyName",
+      "logical_id": "IAMManagedPolicy",
+      "cfn_type": "AWS::IAM::ManagedPolicy",
+      "templates": ["all"]
+    },
+    {
+      "type": "vpc",
+      "label": "VPCs (non-default)",
+      "enabled": true,
+      "service": "ec2",
+      "operation": "describe-vpcs",
+      "jq_extract": ".Vpcs[] | select(.IsDefault == false) | .VpcId",
+      "logical_id": "VPC",
+      "cfn_type": "AWS::EC2::VPC",
+      "note": "Also discovers subnets, security groups, NAT/IGW, VPC endpoints for each VPC",
+      "templates": ["neptune-db-*, neptune-analytics-aurora-postgres"]
+    },
+    {
+      "type": "elastic_ips",
+      "label": "Elastic IPs",
+      "enabled": true,
+      "service": "ec2",
+      "operation": "describe-addresses",
+      "jq_extract": ".Addresses[].AllocationId",
+      "logical_id": "ElasticIP",
+      "cfn_type": "AWS::EC2::EIP",
+      "templates": ["neptune-db-*"]
+    }
+  ]
+}

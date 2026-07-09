@@ -524,7 +524,7 @@ class TestModuleResolution:
         """Explicit module_path is used over package derivation."""
         mock_module, _, _ = _mock_reader_module()
         config = _make_config(
-            module_path="my.custom.module",
+            module_path="llama_index.readers.custom",
             package="something-else",
         )
 
@@ -534,7 +534,7 @@ class TestModuleResolution:
             )
             LlamaIndexPluginReaderProvider(config)
 
-        mock_import.assert_called_once_with("my.custom.module")
+        mock_import.assert_called_once_with("llama_index.readers.custom")
 
     def test_derives_module_from_package_name(self):
         """Package name llama-index-readers-X → llama_index.readers.X."""
@@ -564,10 +564,10 @@ class TestLoadMethod:
     def test_uses_custom_load_method(self):
         """load_method config routes to the correct reader method."""
         mock_module, _, mock_reader = _mock_reader_module()
-        mock_reader.lazy_load_data = Mock(return_value=[
+        mock_reader.lazy_load = Mock(return_value=[
             Document(text="lazy doc", metadata={})
         ])
-        config = _make_config(load_method="lazy_load_data")
+        config = _make_config(load_method="lazy_load")
 
         with patch("importlib.import_module", return_value=mock_module):
             from graphrag_toolkit.lexical_graph.indexing.load.readers.providers.llama_index_plugin_reader_provider import (
@@ -577,20 +577,198 @@ class TestLoadMethod:
             docs = provider.read()
 
         assert len(docs) == 1
-        mock_reader.lazy_load_data.assert_called_once()
+        mock_reader.lazy_load.assert_called_once()
 
     def test_missing_load_method_fails_gracefully(self):
-        """Non-existent load method returns [] when fail_on_error=False."""
+        """Disallowed load_method raises ValueError (security: only allowed methods)."""
         mock_module, _, mock_reader = _mock_reader_module()
-        # Remove the method
-        del mock_reader.custom_method
-        config = _make_config(load_method="custom_method", fail_on_error=False)
+        config = _make_config(load_method="custom_method", fail_on_error=True)
 
         with patch("importlib.import_module", return_value=mock_module):
             from graphrag_toolkit.lexical_graph.indexing.load.readers.providers.llama_index_plugin_reader_provider import (
                 LlamaIndexPluginReaderProvider,
             )
             provider = LlamaIndexPluginReaderProvider(config)
-            docs = provider.read()
+            with pytest.raises(ValueError, match="not allowed"):
+                provider.read()
 
-        assert docs == []
+
+# ─── Security Hardening Tests (Items #1-7 from review) ────────────────────────
+
+from graphrag_toolkit.lexical_graph.indexing.load.readers.providers.llama_index_plugin_reader_provider import (
+    LlamaIndexPluginReaderProvider,
+    ReaderImportError,
+    ReaderAuthError,
+)
+
+
+class TestNamespaceAllowlist:
+    """Item #1: Verify namespace restriction prevents arbitrary module loading."""
+
+    def test_disallowed_module_raises(self):
+        """Module not in ALLOWED_MODULE_PREFIXES is rejected."""
+        config = _make_config(module_path="os", reader_class="system")
+        with pytest.raises(ReaderImportError, match="not in the allowed namespace"):
+            LlamaIndexPluginReaderProvider(config)
+
+    def test_shutil_blocked(self):
+        """Filesystem destruction via shutil.rmtree is prevented."""
+        config = _make_config(module_path="shutil", reader_class="rmtree")
+        with pytest.raises(ReaderImportError, match="not in the allowed namespace"):
+            LlamaIndexPluginReaderProvider(config)
+
+    def test_allowed_prefix_passes(self):
+        """Module in allowed namespace proceeds to import."""
+        mock_module, _, _ = _mock_reader_module()
+        config = _make_config(module_path="llama_index.readers.confluence")
+        with patch("importlib.import_module", return_value=mock_module):
+            provider = LlamaIndexPluginReaderProvider(config)
+            assert provider._reader is not None
+
+    def test_custom_subclass_extends_allowlist(self):
+        """Subclass can extend ALLOWED_MODULE_PREFIXES for custom namespaces."""
+        class MyProvider(LlamaIndexPluginReaderProvider):
+            ALLOWED_MODULE_PREFIXES = ("llama_index.readers.", "mycompany.readers.")
+
+        mock_module, _, _ = _mock_reader_module()
+        config = _make_config(module_path="mycompany.readers.internal")
+        with patch("importlib.import_module", return_value=mock_module):
+            provider = MyProvider(config)
+            assert provider._reader is not None
+
+
+class TestInterfaceValidation:
+    """Item #2: Verify interface check before instantiation."""
+
+    def test_non_callable_rejected(self):
+        """Non-callable attribute is rejected before constructor runs."""
+        mock_module = Mock()
+        mock_module.NotAClass = "just a string"
+        config = _make_config(module_path="llama_index.readers.test", reader_class="NotAClass")
+        with patch("importlib.import_module", return_value=mock_module):
+            with pytest.raises(ReaderImportError, match="is not callable"):
+                LlamaIndexPluginReaderProvider(config)
+
+    def test_missing_load_data_rejected(self):
+        """Class without load_data or lazy_load is rejected before instantiation."""
+        mock_module = Mock()
+        mock_cls = Mock()
+        mock_cls.load_data = None
+        del mock_cls.load_data
+        del mock_cls.lazy_load
+        mock_module.BadReader = mock_cls
+        config = _make_config(module_path="llama_index.readers.test", reader_class="BadReader")
+        with patch("importlib.import_module", return_value=mock_module):
+            with pytest.raises(ReaderImportError, match="does not implement"):
+                LlamaIndexPluginReaderProvider(config)
+
+
+class TestLoadMethodRestriction:
+    """Item #3: Only allowed methods can be called."""
+
+    def test_dunder_method_blocked(self):
+        """Dunder methods like __delattr__ cannot be called."""
+        mock_module, _, _ = _mock_reader_module()
+        config = _make_config(load_method="__delattr__")
+        with patch("importlib.import_module", return_value=mock_module):
+            provider = LlamaIndexPluginReaderProvider(config)
+            with pytest.raises(ValueError, match="not allowed"):
+                provider.read()
+
+    def test_arbitrary_method_blocked(self):
+        """Arbitrary method names are blocked."""
+        mock_module, _, _ = _mock_reader_module()
+        config = _make_config(load_method="execute_shell")
+        with patch("importlib.import_module", return_value=mock_module):
+            provider = LlamaIndexPluginReaderProvider(config)
+            with pytest.raises(ValueError, match="not allowed"):
+                provider.read()
+
+
+class TestEnvVarResolution:
+    """Item #4: $VAR_NAME references resolved from environment."""
+
+    def test_resolves_env_var(self, monkeypatch):
+        """$VAR_NAME is replaced with environment value."""
+        monkeypatch.setenv("MY_TOKEN", "secret123")
+        mock_module, mock_cls, _ = _mock_reader_module()
+        config = _make_config(init_args={"token": "$MY_TOKEN", "url": "https://example.com"})
+        with patch("importlib.import_module", return_value=mock_module):
+            LlamaIndexPluginReaderProvider(config)
+        # Verify the constructor received the resolved value
+        mock_cls.assert_called_once_with(token="secret123", url="https://example.com")
+
+    def test_missing_env_var_raises(self):
+        """Reference to unset env var raises ValueError."""
+        config = _make_config(init_args={"token": "$NONEXISTENT_VAR_XYZ"})
+        mock_module, _, _ = _mock_reader_module()
+        with patch("importlib.import_module", return_value=mock_module):
+            with pytest.raises(ValueError, match="not set in the environment"):
+                LlamaIndexPluginReaderProvider(config)
+
+    def test_non_env_string_unchanged(self):
+        """Strings without $ prefix are passed through unchanged."""
+        mock_module, mock_cls, _ = _mock_reader_module()
+        config = _make_config(init_args={"url": "https://example.com", "count": "5"})
+        with patch("importlib.import_module", return_value=mock_module):
+            LlamaIndexPluginReaderProvider(config)
+        mock_cls.assert_called_once_with(url="https://example.com", count="5")
+
+    def test_lowercase_dollar_not_resolved(self):
+        """$lowercase is not treated as env var (only $UPPER_CASE)."""
+        mock_module, mock_cls, _ = _mock_reader_module()
+        config = _make_config(init_args={"note": "$not_an_env_var"})
+        with patch("importlib.import_module", return_value=mock_module):
+            LlamaIndexPluginReaderProvider(config)
+        mock_cls.assert_called_once_with(note="$not_an_env_var")
+
+
+class TestCredentialLogging:
+    """Item #5: Credential values must never appear in logs."""
+
+    def test_credentials_not_logged(self, caplog):
+        """Secret values in init_args never appear in log output."""
+        import logging as stdlib_logging
+        secret = "super_secret_token_value_12345"
+        mock_module, _, _ = _mock_reader_module()
+        config = _make_config(init_args={"github_token": secret})
+        with caplog.at_level(stdlib_logging.DEBUG):
+            with patch("importlib.import_module", return_value=mock_module):
+                try:
+                    LlamaIndexPluginReaderProvider(config)
+                except Exception:
+                    pass
+        assert secret not in caplog.text, "Credential value leaked into logs"
+
+
+class TestPackageNameValidation:
+    """Item #7: Only suggest pip install for validated package names."""
+
+    def test_valid_package_gets_install_hint(self):
+        """Valid llama-index-readers-* package gets pip install suggestion."""
+        config = _make_config(
+            package="llama-index-readers-confluence",
+            module_path="llama_index.readers.confluence",
+        )
+        with pytest.raises(ReaderImportError, match="pip install llama-index-readers-confluence"):
+            LlamaIndexPluginReaderProvider(config)
+
+    def test_invalid_package_no_install_hint(self):
+        """Non-llama-index package does NOT get pip install suggestion."""
+        config = _make_config(
+            package="some-random-package",
+            module_path="llama_index.readers.random",
+        )
+        with pytest.raises(ReaderImportError) as exc_info:
+            LlamaIndexPluginReaderProvider(config)
+        assert "pip install" not in str(exc_info.value)
+
+    def test_arbitrary_package_no_install_hint(self):
+        """Completely arbitrary package name does NOT get pip install suggestion."""
+        config = _make_config(
+            package="evil-package",
+            module_path="llama_index.readers.evil",
+        )
+        with pytest.raises(ReaderImportError) as exc_info:
+            LlamaIndexPluginReaderProvider(config)
+        assert "pip install" not in str(exc_info.value)
