@@ -10,60 +10,11 @@ Covers:
   - Classic (faiss/nmslib) mappings are unchanged when nextgen is disabled
 """
 
-import sys
-import types
 from unittest.mock import MagicMock, patch
 
+from ._opensearch_test_support import install_opensearch_mocks, FakeRequestError as _RequestError
 
-def _install_opensearch_mocks():
-    import llama_index
-
-    fake_exceptions_mod = types.ModuleType("opensearchpy.exceptions")
-
-    class _NotFoundError(Exception):
-        def __init__(self, status_code=404, error="not found", info=None):
-            super().__init__(error)
-            self.status_code = status_code
-
-    class _RequestError(Exception):
-        def __init__(self, status_code=400, error="illegal_argument_exception", info=None):
-            super().__init__(error)
-            self.status_code = status_code
-            self.error = error
-            self.info = info
-
-    fake_exceptions_mod.NotFoundError = _NotFoundError
-    fake_exceptions_mod.RequestError = _RequestError
-
-    fake_opensearch_mod = types.ModuleType("opensearchpy")
-    fake_opensearch_mod.OpenSearch = MagicMock(name="OpenSearch")
-    fake_opensearch_mod.AsyncOpenSearch = MagicMock(name="AsyncOpenSearch")
-    fake_opensearch_mod.AWSV4SignerAsyncAuth = MagicMock(name="AWSV4SignerAsyncAuth")
-    fake_opensearch_mod.AsyncHttpConnection = MagicMock(name="AsyncHttpConnection")
-    fake_opensearch_mod.Urllib3AWSV4SignerAuth = MagicMock(name="Urllib3AWSV4SignerAuth")
-    fake_opensearch_mod.Urllib3HttpConnection = MagicMock(name="Urllib3HttpConnection")
-    fake_opensearch_mod.exceptions = fake_exceptions_mod
-
-    fake_llama_vs_mod = types.ModuleType("llama_index.vector_stores")
-    fake_llama_os_mod = types.ModuleType("llama_index.vector_stores.opensearch")
-
-    class _FakeOpensearchVectorClient:
-        _get_opensearch_version = None
-        _bulk_ingest_embeddings = None
-
-    fake_llama_os_mod.OpensearchVectorClient = _FakeOpensearchVectorClient
-    fake_llama_vs_mod.opensearch = fake_llama_os_mod
-    llama_index.vector_stores = fake_llama_vs_mod
-
-    sys.modules["opensearchpy"] = fake_opensearch_mod
-    sys.modules["opensearchpy.exceptions"] = fake_exceptions_mod
-    sys.modules["llama_index.vector_stores"] = fake_llama_vs_mod
-    sys.modules["llama_index.vector_stores.opensearch"] = fake_llama_os_mod
-
-    return _RequestError
-
-
-_RequestError = _install_opensearch_mocks()
+install_opensearch_mocks()
 
 import graphrag_toolkit.lexical_graph.storage.vector.opensearch_vector_indexes as ovi  # noqa: E402
 
@@ -141,11 +92,7 @@ def _run_index_exists_with_create_error(nextgen, request_error):
         mock_cfg.opensearch_serverless_nextgen = nextgen
         mock_cfg.opensearch_serverless_nextgen_compression = None
         mock_cfg.opensearch_engine = 'nmslib'
-        # `ovi.RequestError` is bound at whichever sibling test module first imports `ovi` in
-        # this test session, so its class identity isn't reliable here. Patch it to our own
-        # class for the duration of the call so `except RequestError` in the source matches.
-        with patch.object(ovi, "create_os_client", return_value=mock_client), \
-             patch.object(ovi, "RequestError", _RequestError):
+        with patch.object(ovi, "create_os_client", return_value=mock_client):
             try:
                 return ovi.index_exists("https://endpoint", "chunk", 1024, writeable=True), None
             except ValueError as e:
@@ -203,6 +150,15 @@ class TestNextGenIncompatibleFieldError:
         assert raised is None
         assert result is False
 
+    def test_field_name_mentioned_outside_the_rejection_pattern_not_raised(self):
+        # A bare substring check would misfire here; the field name only appears
+        # incidentally, not in the actual rejection phrasing.
+        info = {'error': {'reason': "Unknown option 'mode' in request body near 'engine' usage"}}
+        e = _RequestError(400, 'illegal_argument_exception', info)
+        result, raised = _run_index_exists_with_create_error(nextgen=False, request_error=e)
+        assert raised is None
+        assert result is False
+
 
 class TestIndexExistsLifecycle:
     """Pre-existing index_exists() behavior, unrelated to NextGen, exercised here since the
@@ -238,8 +194,7 @@ class TestIndexExistsLifecycle:
             mock_cfg.opensearch_serverless_nextgen = False
             mock_cfg.opensearch_serverless_nextgen_compression = None
             mock_cfg.opensearch_engine = 'nmslib'
-            with patch.object(ovi, "create_os_client", return_value=mock_client), \
-                 patch.object(ovi, "RequestError", _RequestError):
+            with patch.object(ovi, "create_os_client", return_value=mock_client):
                 try:
                     ovi.index_exists("https://endpoint", "chunk", 1024, writeable=True)
                 except ValueError:
