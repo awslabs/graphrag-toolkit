@@ -50,6 +50,7 @@ DEFAULT_INCLUDE_CLASSIFICATION_IN_ENTITY_ID = True
 DEFAULT_ENABLE_CACHE = False
 DEFAULT_METADATA_DATETIME_SUFFIXES = ['_date', '_datetime']
 DEFAULT_OPENSEARCH_ENGINE = 'nmslib'
+DEFAULT_OPENSEARCH_SERVERLESS_NEXTGEN = False
 DEFAULT_ENABLE_VERSIONING = False
 DEFAULT_CHUNK_EXTERNAL_PROPERTIES = None
 DEFAULT_LOCAL_OUTPUT_DIR = 'output'  # Local staging directory for batch files (use /tmp for EKS)
@@ -291,6 +292,8 @@ class _GraphRAGConfig:
     _enable_cache: Optional[bool] = None
     _metadata_datetime_suffixes: Optional[List[str]] = None
     _opensearch_engine: Optional[str] = None
+    _opensearch_serverless_nextgen: Optional[bool] = None
+    _opensearch_serverless_nextgen_compression: Optional[str] = None
     _enable_versioning = None
     _chunk_external_properties: Optional[Dict[str, str]] = None
     _local_output_dir: Optional[str] = None
@@ -1171,6 +1174,26 @@ class _GraphRAGConfig:
     @opensearch_engine.setter
     def opensearch_engine(self, opensearch_engine: str) -> None:
         self._opensearch_engine = opensearch_engine
+
+    @property
+    def opensearch_serverless_nextgen(self) -> bool:
+        if self._opensearch_serverless_nextgen is None:
+            self._opensearch_serverless_nextgen = string_to_bool(os.environ.get('OPENSEARCH_SERVERLESS_NEXTGEN'), DEFAULT_OPENSEARCH_SERVERLESS_NEXTGEN)
+        return self._opensearch_serverless_nextgen
+
+    @opensearch_serverless_nextgen.setter
+    def opensearch_serverless_nextgen(self, opensearch_serverless_nextgen: bool) -> None:
+        self._opensearch_serverless_nextgen = opensearch_serverless_nextgen
+
+    @property
+    def opensearch_serverless_nextgen_compression(self) -> Optional[str]:
+        if self._opensearch_serverless_nextgen_compression is None:
+            self._opensearch_serverless_nextgen_compression = os.environ.get('OPENSEARCH_SERVERLESS_NEXTGEN_COMPRESSION')
+        return self._opensearch_serverless_nextgen_compression
+
+    @opensearch_serverless_nextgen_compression.setter
+    def opensearch_serverless_nextgen_compression(self, opensearch_serverless_nextgen_compression: Optional[str]) -> None:
+        self._opensearch_serverless_nextgen_compression = opensearch_serverless_nextgen_compression
 
     @property
     def enable_versioning(self) -> bool:

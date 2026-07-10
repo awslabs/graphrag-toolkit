@@ -204,3 +204,54 @@ class TestGraphRAGConfigEnvironmentVariables:
                 assert GraphRAGConfig.build_batch_size == 7
         finally:
             GraphRAGConfig._build_batch_size = original
+
+    def test_opensearch_serverless_nextgen_defaults_false(self):
+        """Verify opensearch_serverless_nextgen defaults to False when unset."""
+        original = GraphRAGConfig._opensearch_serverless_nextgen
+        try:
+            with patch.dict(os.environ, {}, clear=False):
+                os.environ.pop('OPENSEARCH_SERVERLESS_NEXTGEN', None)
+                GraphRAGConfig._opensearch_serverless_nextgen = None
+                assert GraphRAGConfig.opensearch_serverless_nextgen is False
+        finally:
+            GraphRAGConfig._opensearch_serverless_nextgen = original
+
+    def test_opensearch_serverless_nextgen_from_env(self):
+        """Verify opensearch_serverless_nextgen reads from OPENSEARCH_SERVERLESS_NEXTGEN env var."""
+        original = GraphRAGConfig._opensearch_serverless_nextgen
+        try:
+            with patch.dict(os.environ, {'OPENSEARCH_SERVERLESS_NEXTGEN': 'true'}):
+                GraphRAGConfig._opensearch_serverless_nextgen = None
+                assert GraphRAGConfig.opensearch_serverless_nextgen is True
+        finally:
+            GraphRAGConfig._opensearch_serverless_nextgen = original
+
+    def test_opensearch_serverless_nextgen_setter(self):
+        """Verify opensearch_serverless_nextgen can be set directly."""
+        original = GraphRAGConfig._opensearch_serverless_nextgen
+        try:
+            GraphRAGConfig.opensearch_serverless_nextgen = True
+            assert GraphRAGConfig.opensearch_serverless_nextgen is True
+        finally:
+            GraphRAGConfig._opensearch_serverless_nextgen = original
+
+    def test_opensearch_serverless_nextgen_compression_defaults_none(self):
+        """Verify opensearch_serverless_nextgen_compression defaults to None when unset."""
+        original = GraphRAGConfig._opensearch_serverless_nextgen_compression
+        try:
+            with patch.dict(os.environ, {}, clear=False):
+                os.environ.pop('OPENSEARCH_SERVERLESS_NEXTGEN_COMPRESSION', None)
+                GraphRAGConfig._opensearch_serverless_nextgen_compression = None
+                assert GraphRAGConfig.opensearch_serverless_nextgen_compression is None
+        finally:
+            GraphRAGConfig._opensearch_serverless_nextgen_compression = original
+
+    def test_opensearch_serverless_nextgen_compression_from_env(self):
+        """Verify opensearch_serverless_nextgen_compression reads from its env var."""
+        original = GraphRAGConfig._opensearch_serverless_nextgen_compression
+        try:
+            with patch.dict(os.environ, {'OPENSEARCH_SERVERLESS_NEXTGEN_COMPRESSION': '8x'}):
+                GraphRAGConfig._opensearch_serverless_nextgen_compression = None
+                assert GraphRAGConfig.opensearch_serverless_nextgen_compression == '8x'
+        finally:
+            GraphRAGConfig._opensearch_serverless_nextgen_compression = original
