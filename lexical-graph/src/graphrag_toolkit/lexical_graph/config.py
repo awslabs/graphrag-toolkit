@@ -50,7 +50,7 @@ DEFAULT_INCLUDE_CLASSIFICATION_IN_ENTITY_ID = True
 DEFAULT_ENABLE_CACHE = False
 DEFAULT_METADATA_DATETIME_SUFFIXES = ['_date', '_datetime']
 DEFAULT_OPENSEARCH_ENGINE = 'nmslib'
-DEFAULT_OPENSEARCH_SERVERLESS_NEXTGEN = False
+DEFAULT_OPENSEARCH_SERVERLESS_NEXTGEN = None
 DEFAULT_ENABLE_VERSIONING = False
 DEFAULT_CHUNK_EXTERNAL_PROPERTIES = None
 DEFAULT_LOCAL_OUTPUT_DIR = 'output'  # Local staging directory for batch files (use /tmp for EKS)
@@ -1176,13 +1176,16 @@ class _GraphRAGConfig:
         self._opensearch_engine = opensearch_engine
 
     @property
-    def opensearch_serverless_nextgen(self) -> bool:
+    def opensearch_serverless_nextgen(self) -> Optional[bool]:
+        """None means unset: index_exists() auto-detects NextGen vs Classic by trying
+        Classic first and retrying with NextGen only if the collection rejects it. Set to
+        True/False (or the env var) to force one mapping and skip auto-detection."""
         if self._opensearch_serverless_nextgen is None:
             self._opensearch_serverless_nextgen = string_to_bool(os.environ.get('OPENSEARCH_SERVERLESS_NEXTGEN'), DEFAULT_OPENSEARCH_SERVERLESS_NEXTGEN)
         return self._opensearch_serverless_nextgen
 
     @opensearch_serverless_nextgen.setter
-    def opensearch_serverless_nextgen(self, opensearch_serverless_nextgen: bool) -> None:
+    def opensearch_serverless_nextgen(self, opensearch_serverless_nextgen: Optional[bool]) -> None:
         self._opensearch_serverless_nextgen = opensearch_serverless_nextgen
 
     @property

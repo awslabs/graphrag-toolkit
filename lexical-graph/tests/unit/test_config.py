@@ -205,14 +205,14 @@ class TestGraphRAGConfigEnvironmentVariables:
         finally:
             GraphRAGConfig._build_batch_size = original
 
-    def test_opensearch_serverless_nextgen_defaults_false(self):
-        """Verify opensearch_serverless_nextgen defaults to False when unset."""
+    def test_opensearch_serverless_nextgen_defaults_none_for_auto_detect(self):
+        """Verify opensearch_serverless_nextgen defaults to None (auto-detect) when unset."""
         original = GraphRAGConfig._opensearch_serverless_nextgen
         try:
             with patch.dict(os.environ, {}, clear=False):
                 os.environ.pop('OPENSEARCH_SERVERLESS_NEXTGEN', None)
                 GraphRAGConfig._opensearch_serverless_nextgen = None
-                assert GraphRAGConfig.opensearch_serverless_nextgen is False
+                assert GraphRAGConfig.opensearch_serverless_nextgen is None
         finally:
             GraphRAGConfig._opensearch_serverless_nextgen = original
 
@@ -226,12 +226,21 @@ class TestGraphRAGConfigEnvironmentVariables:
         finally:
             GraphRAGConfig._opensearch_serverless_nextgen = original
 
-    def test_opensearch_serverless_nextgen_setter(self):
-        """Verify opensearch_serverless_nextgen can be set directly."""
+    def test_opensearch_serverless_nextgen_setter_true(self):
+        """Verify opensearch_serverless_nextgen can be forced to True (skip auto-detect, force NextGen)."""
         original = GraphRAGConfig._opensearch_serverless_nextgen
         try:
             GraphRAGConfig.opensearch_serverless_nextgen = True
             assert GraphRAGConfig.opensearch_serverless_nextgen is True
+        finally:
+            GraphRAGConfig._opensearch_serverless_nextgen = original
+
+    def test_opensearch_serverless_nextgen_setter_false(self):
+        """Verify opensearch_serverless_nextgen can be forced to False (skip auto-detect, force Classic)."""
+        original = GraphRAGConfig._opensearch_serverless_nextgen
+        try:
+            GraphRAGConfig.opensearch_serverless_nextgen = False
+            assert GraphRAGConfig.opensearch_serverless_nextgen is False
         finally:
             GraphRAGConfig._opensearch_serverless_nextgen = original
 

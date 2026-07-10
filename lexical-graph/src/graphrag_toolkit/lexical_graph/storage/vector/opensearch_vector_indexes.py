@@ -253,12 +253,12 @@ def _is_nextgen_incompatible_field_error(e:'RequestError') -> bool:
     return match is not None and match.group(1) in _NEXTGEN_UNSUPPORTED_FIELDS
 
 
-def _build_index_mapping(dimensions) -> Dict:
-    """Builds the knn_vector index mapping for the current GraphRAGConfig engine settings:
-    NextGen (opensearch_serverless_nextgen), faiss, or nmslib (the default)."""
+def _build_index_mapping(dimensions, nextgen: bool) -> Dict:
+    """Builds the knn_vector index mapping: NextGen if nextgen is True, otherwise Classic
+    (faiss, or nmslib as the default)."""
     embedding_field = 'embedding'
 
-    if GraphRAGConfig.opensearch_serverless_nextgen:
+    if nextgen:
 
         embedding_mapping = {
             "type": "knn_vector",
@@ -323,28 +323,48 @@ def _build_index_mapping(dimensions) -> Dict:
     }
 
 
-def _handle_index_create_request_error(e:'RequestError', index_name, endpoint) -> None:
+def _handle_index_create_request_error(e:'RequestError', index_name, endpoint, nextgen: bool) -> None:
     """Classifies a RequestError from client.indices.create(). Returns normally (logged,
-    non-fatal) unless the collection rejected a Classic-only field, in which case it
-    raises an actionable ValueError."""
+    non-fatal) unless the collection rejected a Classic-only field with auto-detection
+    unable to help (nextgen was forced False), in which case it raises an actionable
+    ValueError."""
     if e.error == 'resource_already_exists_exception':
         logger.debug(f'OpenSearch index already exists [index_name: {index_name}, endpoint: {endpoint}]')
         return
 
-    # Guarded on the flag since the NextGen mapping branch never sends 'engine'/'mode' --
-    # a genuinely different illegal_argument_exception while nextgen=True shouldn't be
-    # misreported as a config hint.
-    if _is_nextgen_incompatible_field_error(e) and not GraphRAGConfig.opensearch_serverless_nextgen:
+    if _is_nextgen_incompatible_field_error(e) and not nextgen:
         raise ValueError(
             f"OpenSearch index creation failed [index_name: {index_name}, endpoint: {endpoint}] because "
             f"the target collection rejected a Classic-only field ({_request_error_reason(e)}). This "
             f"usually means the collection is an AOSS NextGen collection, which does not support the "
-            f"'engine' or 'mode' knn_vector parameters. Set GraphRAGConfig.opensearch_serverless_nextgen "
-            f"= True (or the OPENSEARCH_SERVERLESS_NEXTGEN environment variable) to use NextGen-compatible "
-            f"index mappings."
+            f"'engine' or 'mode' knn_vector parameters. GraphRAGConfig.opensearch_serverless_nextgen is "
+            f"explicitly set to False, which forces the Classic mapping and skips auto-detection -- unset "
+            f"it (or the OPENSEARCH_SERVERLESS_NEXTGEN env var) to auto-detect NextGen collections, or set "
+            f"it to True to force NextGen-compatible index mappings."
         ) from e
 
     logger.exception('Error creating an OpenSearch index')
+
+
+def _create_or_check_index(client, index_name, idx_conf, writeable, endpoint) -> bool:
+    exists = client.indices.exists(index=index_name)
+    if not exists and writeable:
+        logger.debug(f'Creating OpenSearch index [index_name: {index_name}, endpoint: {endpoint}]')
+        client.indices.create(index=index_name, body=idx_conf)
+        exists = True
+    return exists
+
+
+def _try_create_index(client, index_name, dimensions, writeable, endpoint, nextgen: bool, allow_retry: bool) -> bool:
+    idx_conf = _build_index_mapping(dimensions, nextgen)
+    try:
+        return _create_or_check_index(client, index_name, idx_conf, writeable, endpoint)
+    except RequestError as e:
+        if allow_retry and _is_nextgen_incompatible_field_error(e):
+            logger.debug(f'Classic mapping rejected by a NextGen collection, retrying with the NextGen mapping [index_name: {index_name}, endpoint: {endpoint}]')
+            return _try_create_index(client, index_name, dimensions, writeable, endpoint, nextgen=True, allow_retry=False)
+        _handle_index_create_request_error(e, index_name, endpoint, nextgen)
+        return False
 
 
 def index_exists(endpoint, index_name, dimensions, writeable) -> bool:
@@ -356,6 +376,12 @@ def index_exists(endpoint, index_name, dimensions, writeable) -> bool:
     the `writeable` flag is True, it will create an index using the provided
     dimensions and a predefined method for handling knn_vector elements.
 
+    Whether the index is created with a NextGen or Classic knn_vector mapping is
+    controlled by GraphRAGConfig.opensearch_serverless_nextgen. When that's unset
+    (None), this auto-detects: it tries the Classic mapping first and, if the
+    collection rejects it as NextGen-incompatible, retries once with the NextGen
+    mapping. Set the flag to True or False to force one mapping and skip detection.
+
     Args:
         endpoint: The OpenSearch endpoint to connect to.
         index_name: The name of the index to check for existence.
@@ -366,27 +392,21 @@ def index_exists(endpoint, index_name, dimensions, writeable) -> bool:
         bool: True if the index exists (or is created successfully), False otherwise.
 
     Raises:
-        ValueError: If index creation fails because a Classic-only knn_vector field
-            (engine/mode) was sent to an AOSS NextGen collection. See
-            GraphRAGConfig.opensearch_serverless_nextgen.
+        ValueError: If a Classic-only knn_vector field (engine/mode) was rejected by an
+            AOSS NextGen collection and GraphRAGConfig.opensearch_serverless_nextgen was
+            explicitly set to False, so auto-detection didn't get a chance to retry.
     """
     client = create_os_client(endpoint, pool_maxsize=1)
-    idx_conf = _build_index_mapping(dimensions)
-
-    index_exists = False
+    nextgen_override = GraphRAGConfig.opensearch_serverless_nextgen
 
     try:
-        index_exists = client.indices.exists(index=index_name)
-        if not index_exists and writeable:
-            logger.debug(f'Creating OpenSearch index [index_name: {index_name}, endpoint: {endpoint}]')
-            client.indices.create(index=index_name, body=idx_conf)
-            index_exists = True
-    except RequestError as e:
-        _handle_index_create_request_error(e, index_name, endpoint)
+        return _try_create_index(
+            client, index_name, dimensions, writeable, endpoint,
+            nextgen=bool(nextgen_override),
+            allow_retry=(nextgen_override is None),
+        )
     finally:
         client.close()
-
-    return index_exists
         
     
 def create_opensearch_vector_client(endpoint, index_name, dimensions, embed_model, client_kwargs=None):

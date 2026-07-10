@@ -7,7 +7,9 @@ Covers:
   - NextGen mapping omits the `method` block and moves `space_type` to the
     field level, with no `compression_level` unless configured
   - NextGen mapping includes `compression_level` when configured
-  - Classic (faiss/nmslib) mappings are unchanged when nextgen is disabled
+  - Classic (faiss/nmslib) mappings are unaffected when nextgen is forced False
+  - Auto-detection (nextgen unset): tries Classic first, retries once with NextGen
+    only if the collection rejects it
 """
 
 from unittest.mock import MagicMock, patch
@@ -158,6 +160,73 @@ class TestNextGenIncompatibleFieldError:
         result, raised = _run_index_exists_with_create_error(nextgen=False, request_error=e)
         assert raised is None
         assert result is False
+
+
+def _run_index_exists_with_create_side_effects(nextgen, side_effects):
+    """Run index_exists() where client.indices.create() has the given side_effects list
+    (one entry per call, in order). Returns (result, raised, mock_client)."""
+    mock_client = MagicMock()
+    mock_client.indices.exists.return_value = False
+    mock_client.indices.create.side_effect = side_effects
+
+    with patch.object(ovi, "GraphRAGConfig") as mock_cfg:
+        mock_cfg.opensearch_serverless_nextgen = nextgen
+        mock_cfg.opensearch_serverless_nextgen_compression = None
+        mock_cfg.opensearch_engine = 'nmslib'
+        with patch.object(ovi, "create_os_client", return_value=mock_client):
+            try:
+                return ovi.index_exists("https://endpoint", "chunk", 1024, writeable=True), None, mock_client
+            except ValueError as e:
+                return None, e, mock_client
+
+
+def _is_nextgen_body(body):
+    return "method" not in body["mappings"]["properties"]["embedding"]
+
+
+class TestAutoDetectRetry:
+    """opensearch_serverless_nextgen=None (unset) auto-detects: try Classic first, retry
+    once with NextGen only if the collection rejects it as NextGen-incompatible."""
+
+    def test_tries_classic_mapping_first(self):
+        result, raised, mock_client = _run_index_exists_with_create_side_effects(nextgen=None, side_effects=[None])
+        assert raised is None
+        assert result is True
+        assert mock_client.indices.create.call_count == 1
+        body = mock_client.indices.create.call_args.kwargs["body"]
+        assert not _is_nextgen_body(body)
+
+    def test_retries_with_nextgen_mapping_on_rejection(self):
+        e = _RequestError(400, 'illegal_argument_exception', _ENGINE_REJECTED_INFO)
+        result, raised, mock_client = _run_index_exists_with_create_side_effects(nextgen=None, side_effects=[e, None])
+        assert raised is None
+        assert result is True
+        assert mock_client.indices.create.call_count == 2
+        first_body = mock_client.indices.create.call_args_list[0].kwargs["body"]
+        second_body = mock_client.indices.create.call_args_list[1].kwargs["body"]
+        assert not _is_nextgen_body(first_body)
+        assert _is_nextgen_body(second_body)
+
+    def test_retries_at_most_once(self):
+        e = _RequestError(400, 'illegal_argument_exception', _ENGINE_REJECTED_INFO)
+        result, raised, mock_client = _run_index_exists_with_create_side_effects(nextgen=None, side_effects=[e, e])
+        assert raised is None
+        assert result is False
+        assert mock_client.indices.create.call_count == 2
+
+    def test_explicit_false_does_not_retry_and_raises(self):
+        e = _RequestError(400, 'illegal_argument_exception', _ENGINE_REJECTED_INFO)
+        result, raised, mock_client = _run_index_exists_with_create_side_effects(nextgen=False, side_effects=[e])
+        assert raised is not None
+        assert mock_client.indices.create.call_count == 1
+
+    def test_explicit_true_uses_nextgen_mapping_directly(self):
+        result, raised, mock_client = _run_index_exists_with_create_side_effects(nextgen=True, side_effects=[None])
+        assert raised is None
+        assert result is True
+        assert mock_client.indices.create.call_count == 1
+        body = mock_client.indices.create.call_args.kwargs["body"]
+        assert _is_nextgen_body(body)
 
 
 class TestIndexExistsLifecycle:
