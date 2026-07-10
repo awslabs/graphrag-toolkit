@@ -144,8 +144,14 @@ def repair_opensearch_vector_store(graph_store_info:str, vector_store_info:str, 
         for index_name in ALL_EMBEDDING_INDEXES:
             
             logger.info(f'Processing index [tenant_id: {tenant_id}, index: {index_name}, batch_size: {batch_size}]')
-            
-            if index_exists(tenant_id, index_name, vector_store):
+
+            try:
+                this_index_exists = index_exists(tenant_id, index_name, vector_store)
+            except ValueError as e:
+                logger.error(f'  Skipping index due to misconfiguration [tenant_id: {tenant_id}, index: {index_name}]: {e}')
+                continue
+
+            if this_index_exists:
                 
                 index_total_doc_ids = 0
                 index_total_deleted_doc_ids = 0
