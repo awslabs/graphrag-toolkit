@@ -225,7 +225,23 @@ def index_is_available(client, index_name):
 
     except Exception as err:
         return False
-    
+
+
+_NEXTGEN_UNSUPPORTED_FIELDS = ('engine', 'mode')
+
+
+def _request_error_reason(e:'RequestError') -> str:
+    info = e.info
+    if isinstance(info, dict):
+        return info.get('error', {}).get('reason', str(info))
+    return str(info or '')
+
+
+def _is_nextgen_incompatible_field_error(e:'RequestError') -> bool:
+    if e.error != 'illegal_argument_exception':
+        return False
+    reason = _request_error_reason(e)
+    return any(f"'{field}'" in reason for field in _NEXTGEN_UNSUPPORTED_FIELDS)
 
 
 def index_exists(endpoint, index_name, dimensions, writeable) -> bool:
@@ -250,7 +266,28 @@ def index_exists(endpoint, index_name, dimensions, writeable) -> bool:
 
     embedding_field = 'embedding'
 
-    if GraphRAGConfig.opensearch_engine.lower() == 'faiss':
+    if GraphRAGConfig.opensearch_serverless_nextgen:
+
+        embedding_mapping = {
+            "type": "knn_vector",
+            "dimension": dimensions,
+            "space_type": "l2",
+        }
+
+        if GraphRAGConfig.opensearch_serverless_nextgen_compression:
+            embedding_mapping["compression_level"] = GraphRAGConfig.opensearch_serverless_nextgen_compression
+
+        idx_conf = {
+            "settings": {"index": {"knn": True}},
+            "mappings": {
+                "date_detection": False,
+                "properties": {
+                    embedding_field: embedding_mapping,
+                }
+            }
+        }
+
+    elif GraphRAGConfig.opensearch_engine.lower() == 'faiss':
 
         method = {
             "name": "hnsw",
@@ -306,6 +343,18 @@ def index_exists(endpoint, index_name, dimensions, writeable) -> bool:
     except RequestError as e:
         if e.error == 'resource_already_exists_exception':
             logger.debug(f'OpenSearch index already exists [index_name: {index_name}, endpoint: {endpoint}]')
+        elif _is_nextgen_incompatible_field_error(e) and not GraphRAGConfig.opensearch_serverless_nextgen:
+            # The NextGen mapping branch above never sends 'engine'/'mode', so this can only
+            # happen with the Classic mapping. Guarded on the flag so a genuinely different
+            # illegal_argument_exception while nextgen=True isn't misreported as a config hint.
+            raise ValueError(
+                f"OpenSearch index creation failed [index_name: {index_name}, endpoint: {endpoint}] because "
+                f"the target collection rejected a Classic-only field ({_request_error_reason(e)}). This "
+                f"usually means the collection is an AOSS NextGen collection, which does not support the "
+                f"'engine' or 'mode' knn_vector parameters. Set GraphRAGConfig.opensearch_serverless_nextgen "
+                f"= True (or the OPENSEARCH_SERVERLESS_NEXTGEN environment variable) to use NextGen-compatible "
+                f"index mappings."
+            ) from e
         else:
             logger.exception('Error creating an OpenSearch index')
     finally:
