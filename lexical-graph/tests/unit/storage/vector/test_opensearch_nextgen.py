@@ -170,7 +170,7 @@ class TestNextGenIncompatibleFieldError:
 
     def test_raises_constructive_error_for_engine_field_rejection(self):
         e = _RequestError(400, 'illegal_argument_exception', _ENGINE_REJECTED_INFO)
-        result, raised = _run_index_exists_with_create_error(nextgen=False, request_error=e)
+        _, raised = _run_index_exists_with_create_error(nextgen=False, request_error=e)
         assert raised is not None, "expected a ValueError to be raised"
         assert 'opensearch_serverless_nextgen' in str(raised)
         assert raised.__cause__ is e
@@ -178,7 +178,7 @@ class TestNextGenIncompatibleFieldError:
     def test_raises_constructive_error_for_mode_field_rejection(self):
         info = {'error': {'reason': "Field parameter 'mode' is not supported"}}
         e = _RequestError(400, 'illegal_argument_exception', info)
-        result, raised = _run_index_exists_with_create_error(nextgen=False, request_error=e)
+        _, raised = _run_index_exists_with_create_error(nextgen=False, request_error=e)
         assert raised is not None, "expected a ValueError to be raised"
         assert 'opensearch_serverless_nextgen' in str(raised)
 
@@ -255,3 +255,14 @@ class TestRequestErrorReason:
 
     def test_falls_back_to_empty_string_when_info_is_none(self):
         assert ovi._request_error_reason(_RequestError(400, 'illegal_argument_exception', None)) == ""
+
+    def test_handles_info_error_as_plain_string(self):
+        info = {'error': 'some string message', 'status': 400}
+        assert ovi._request_error_reason(_RequestError(400, 'illegal_argument_exception', info)) == 'some string message'
+
+    def test_raises_valueerror_not_attributeerror_when_info_error_is_a_string(self):
+        info = {'error': "Field parameter 'engine' is not supported", 'status': 400}
+        e = _RequestError(400, 'illegal_argument_exception', info)
+        _, raised = _run_index_exists_with_create_error(nextgen=False, request_error=e)
+        assert raised is not None, "expected a ValueError to be raised, not an AttributeError"
+        assert 'opensearch_serverless_nextgen' in str(raised)

@@ -233,7 +233,10 @@ _NEXTGEN_UNSUPPORTED_FIELDS = ('engine', 'mode')
 def _request_error_reason(e:'RequestError') -> str:
     info = e.info
     if isinstance(info, dict):
-        return info.get('error', {}).get('reason', str(info))
+        error = info.get('error')
+        if isinstance(error, dict):
+            return error.get('reason', str(info))
+        return str(error) if error is not None else str(info)
     return str(info or '')
 
 
@@ -261,6 +264,11 @@ def index_exists(endpoint, index_name, dimensions, writeable) -> bool:
 
     Returns:
         bool: True if the index exists (or is created successfully), False otherwise.
+
+    Raises:
+        ValueError: If index creation fails because a Classic-only knn_vector field
+            (engine/mode) was sent to an AOSS NextGen collection. See
+            GraphRAGConfig.opensearch_serverless_nextgen.
     """
     client = create_os_client(endpoint, pool_maxsize=1)
 
@@ -597,6 +605,9 @@ class OpenSearchIndex(VectorIndex):
         Returns:
             OpensearchVectorClient: The initialized or cached OpenSearch vector
                 client instance.
+
+        Raises:
+            ValueError: See index_exists().
         """
         if self._client:
             if self._client._index != self.underlying_index_name():
@@ -721,6 +732,8 @@ class OpenSearchIndex(VectorIndex):
         Raises:
             IndexError:
                 If the index is marked as read-only.
+            ValueError:
+                See index_exists().
         """
         if not self.writeable:
             raise IndexError(f'Index {self.index_name} is read-only')
@@ -833,6 +846,9 @@ class OpenSearchIndex(VectorIndex):
         Returns:
             List[TopKResult]: A list of processed results containing the top-k nodes ordered by
                 relevance score.
+
+        Raises:
+            ValueError: See index_exists().
         """
         query_bundle = to_embedded_query(query_bundle, self.embed_model)
 
