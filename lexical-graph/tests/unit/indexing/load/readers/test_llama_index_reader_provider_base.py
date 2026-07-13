@@ -7,11 +7,22 @@ from unittest.mock import Mock
 from llama_index.core.schema import Document
 from llama_index.core.readers.base import BaseReader
 
-# Mock the providers module to avoid loading optional dependencies
-sys.modules['graphrag_toolkit.lexical_graph.indexing.load.readers.providers'] = Mock()
+# Temporarily mock the providers module so we can import
+# LlamaIndexReaderProviderBase without triggering imports of optional
+# dependencies (e.g. pandas, PyGithub).  The mock is removed immediately
+# after the import so it does not pollute sys.modules for other tests
+# that verify ImportError behavior of those same providers.
+_providers_key = 'graphrag_toolkit.lexical_graph.indexing.load.readers.providers'
+_original = sys.modules.get(_providers_key)
+sys.modules[_providers_key] = Mock()
 
 from graphrag_toolkit.lexical_graph.indexing.load.readers.llama_index_reader_provider_base import LlamaIndexReaderProviderBase
 from graphrag_toolkit.lexical_graph.indexing.load.readers.reader_provider_config_base import ReaderProviderConfig
+
+if _original is None:
+    del sys.modules[_providers_key]
+else:
+    sys.modules[_providers_key] = _original
 
 
 class TestLlamaIndexReaderProviderBaseInitialization:
