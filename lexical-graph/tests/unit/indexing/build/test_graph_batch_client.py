@@ -4,6 +4,7 @@
 import pytest
 from unittest.mock import Mock
 from graphrag_toolkit.lexical_graph.indexing.build.graph_batch_client import GraphBatchClient
+from graphrag_toolkit.lexical_graph.storage.graph import GraphOperation, Query, QueryTree
 
 
 class TestGraphBatchClientInitialization:
@@ -80,3 +81,43 @@ class TestGraphBatchClientNodeId:
         result = client.node_id('entityId')
         assert result == 'params.entityId'
         mock_neptune_store.node_id.assert_called_once_with('entityId')
+
+
+class TestGraphBatchClientOperations:
+    def test_batch_forwards_operation(self, mock_neptune_store):
+        client = GraphBatchClient(mock_neptune_store, True, 10)
+
+        client.execute_query_with_retry(
+            'UPSERT',
+            {'params': [{'chunk_id': 'c1'}]},
+            operation=GraphOperation.UPSERT_CHUNK,
+        )
+        client.apply_batch_operations()
+
+        kwargs = mock_neptune_store.execute_query_with_retry.call_args.kwargs
+        assert kwargs['operation'] is GraphOperation.UPSERT_CHUNK
+
+    def test_query_tree_batch_forwards_operation(self, mock_neptune_store):
+        client = GraphBatchClient(mock_neptune_store, True, 10)
+        tree = QueryTree(
+            'lookup',
+            Query('SELECT', operation=GraphOperation.FIND_COMPLEMENTS),
+        )
+
+        client.execute_query_with_retry(tree, {'params': [{'nId': 'e1'}]})
+        client.apply_batch_operations()
+
+        kwargs = mock_neptune_store.execute_query_with_retry.call_args.kwargs
+        assert kwargs['operation'] is GraphOperation.FIND_COMPLEMENTS
+
+    def test_empty_operation_is_a_noop(self, mock_neptune_store):
+        client = GraphBatchClient(mock_neptune_store, True, 10)
+
+        client.execute_query_with_retry(
+            'UNWIND $params AS params',
+            {'params': []},
+            operation=GraphOperation.LINK_FACT_ENTITY,
+        )
+        client.apply_batch_operations()
+
+        mock_neptune_store.execute_query_with_retry.assert_not_called()

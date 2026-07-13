@@ -14,6 +14,7 @@ from graphrag_toolkit.lexical_graph.storage.graph.query_tree import (
     QueryTree,
     _default_params_adapter,
 )
+from graphrag_toolkit.lexical_graph.storage.graph.graph_operation import GraphOperation
 
 
 class TestDefaultParamsAdapter:
@@ -87,6 +88,32 @@ class TestJob:
         job.run(store)
 
         store.assert_called_once_with('MATCH (n)', {'wrapped': 'raw'})
+
+    def test_run_drops_operation_context_for_native_query(self):
+        job = Job(Query('MATCH (n)'), params={})
+        store = MagicMock(return_value=[])
+
+        job.run(store, tenant_id='acme', correlation_id='request-1')
+
+        store.assert_called_once_with(
+            'MATCH (n)', {}, correlation_id='request-1',
+        )
+
+    def test_run_forwards_semantic_operation_and_context(self):
+        job = Job(
+            Query('MATCH (n)', operation=GraphOperation.GET_FACTS),
+            params={'statementIds': ['s1']},
+        )
+        store = MagicMock(return_value=[])
+
+        job.run(store, tenant_id='acme')
+
+        store.assert_called_once_with(
+            'MATCH (n)',
+            {'statementIds': ['s1']},
+            operation=GraphOperation.GET_FACTS,
+            tenant_id='acme',
+        )
 
 
 class TestQueryTree:

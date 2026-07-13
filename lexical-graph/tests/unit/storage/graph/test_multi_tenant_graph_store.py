@@ -10,6 +10,8 @@ from graphrag_toolkit.lexical_graph.storage.graph.dummy_graph_store import Dummy
 from graphrag_toolkit.lexical_graph.storage.graph.multi_tenant_graph_store import (
     MultiTenantGraphStore,
 )
+from graphrag_toolkit.lexical_graph.storage.graph.graph_operation import GraphOperation
+from graphrag_toolkit.lexical_graph.storage.graph.query_tree import Query, QueryTree
 
 
 def _wrap(tenant_value=None, labels=None):
@@ -65,6 +67,34 @@ class TestDelegation:
         called_query = inner.execute_query_with_retry.call_args.kwargs['query']
         assert '`Sourceacme__`' in called_query
         assert inner.execute_query_with_retry.call_args.kwargs['parameters'] == {'k': 1}
+        assert 'tenant_id' not in inner.execute_query_with_retry.call_args.kwargs
+
+    def test_operation_receives_tenant_id(self):
+        store, inner = _wrap(tenant_value='acme', labels=['Source'])
+
+        store.execute_query_with_retry(
+            'MATCH (n:`Source`)',
+            {'k': 1},
+            operation=GraphOperation.GET_FACTS,
+        )
+
+        kwargs = inner.execute_query_with_retry.call_args.kwargs
+        assert kwargs['operation'] is GraphOperation.GET_FACTS
+        assert kwargs['tenant_id'] == 'acme'
+
+    def test_query_tree_operations_receive_tenant_id(self):
+        store, inner = _wrap(tenant_value='acme', labels=['Source'])
+        inner.execute_query_with_retry.return_value = []
+        tree = QueryTree(
+            'lookup',
+            Query('MATCH (n:`Source`)', operation=GraphOperation.GET_FACTS),
+        )
+
+        list(store.execute_query_with_retry(tree, {'statementIds': ['s1']}))
+
+        kwargs = inner.execute_query_with_retry.call_args.kwargs
+        assert kwargs['operation'] is GraphOperation.GET_FACTS
+        assert kwargs['tenant_id'] == 'acme'
 
     def test_execute_query_rewrites_and_delegates(self):
         store, inner = _wrap(tenant_value='acme', labels=['Source'])
