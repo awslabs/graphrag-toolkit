@@ -95,21 +95,20 @@ jobs:
             examples/byokg-rag/byokg-notebooks-latest.zip
           retention-days: 30
 
+      - name: Generate checksums
+        working-directory: ${{ github.workspace }}
+        run: |
+          cd byokg-rag/dist && sha256sum *.whl *.tar.gz > SHA256SUMS && cd ${{ github.workspace }}
+          sha256sum examples/byokg-rag/byokg-notebooks-${{ steps.version.outputs.version }}.zip | sed 's|.*/||' >> byokg-rag/dist/SHA256SUMS
+
       - name: Attest build provenance
         uses: actions/attest-build-provenance@e8998f949152b193b063cb0ec769d69d929409be # v2.4.0
         with:
           subject-path: |
             byokg-rag/dist/*.whl
             byokg-rag/dist/*.tar.gz
+            byokg-rag/dist/SHA256SUMS
             examples/byokg-rag/byokg-notebooks-${{ steps.version.outputs.version }}.zip
-
-      - name: Generate checksums
-        run: |
-          sha256sum \
-            byokg-rag/dist/*.whl \
-            byokg-rag/dist/*.tar.gz \
-            examples/byokg-rag/byokg-notebooks-${{ steps.version.outputs.version }}.zip \
-            > byokg-rag/dist/SHA256SUMS
 
       - name: Attach artifacts to GitHub Pre-Release
         uses: softprops/action-gh-release@718ea10b132b3b2eba29c1007bb80653f286566b # v3

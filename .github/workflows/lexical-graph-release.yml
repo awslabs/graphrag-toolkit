@@ -122,23 +122,22 @@ jobs:
             done
           done
 
+      - name: Generate checksums
+        working-directory: ${{ github.workspace }}
+        run: |
+          cd lexical-graph/dist && sha256sum *.whl *.tar.gz > SHA256SUMS && cd ${{ github.workspace }}
+          sha256sum examples/lexical-graph/notebooks/lexical-graph-examples-${{ steps.version.outputs.version }}.zip | sed 's|.*/||' >> lexical-graph/dist/SHA256SUMS
+          sha256sum examples/lexical-graph-hybrid-dev/notebooks/lexical-graph-hybrid-dev-examples-${{ steps.version.outputs.version }}.zip | sed 's|.*/||' >> lexical-graph/dist/SHA256SUMS
+
       - name: Attest build provenance
         uses: actions/attest-build-provenance@e8998f949152b193b063cb0ec769d69d929409be # v2.4.0
         with:
           subject-path: |
             lexical-graph/dist/*.whl
             lexical-graph/dist/*.tar.gz
+            lexical-graph/dist/SHA256SUMS
             examples/lexical-graph/notebooks/lexical-graph-examples-${{ steps.version.outputs.version }}.zip
             examples/lexical-graph-hybrid-dev/notebooks/lexical-graph-hybrid-dev-examples-${{ steps.version.outputs.version }}.zip
-
-      - name: Generate checksums
-        run: |
-          sha256sum \
-            lexical-graph/dist/*.whl \
-            lexical-graph/dist/*.tar.gz \
-            examples/lexical-graph/notebooks/lexical-graph-examples-${{ steps.version.outputs.version }}.zip \
-            examples/lexical-graph-hybrid-dev/notebooks/lexical-graph-hybrid-dev-examples-${{ steps.version.outputs.version }}.zip \
-            > lexical-graph/dist/SHA256SUMS
 
       - name: Attach Artifacts to GitHub Release
         uses: softprops/action-gh-release@718ea10b132b3b2eba29c1007bb80653f286566b # v3
