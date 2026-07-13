@@ -9,7 +9,7 @@ from importlib.metadata import version, PackageNotFoundError
 
 from graphrag_toolkit.lexical_graph.metadata import FilterConfig
 from graphrag_toolkit.lexical_graph.versioning import VALID_FROM, VALID_TO, EXTRACT_TIMESTAMP, BUILD_TIMESTAMP, VERSION_INDEPENDENT_ID_FIELDS, TIMESTAMP_LOWER_BOUND, TIMESTAMP_UPPER_BOUND
-from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
+from graphrag_toolkit.lexical_graph.storage.graph import GraphOperation, GraphStore
 from graphrag_toolkit.lexical_graph.storage.vector.vector_store import VectorStore
 from graphrag_toolkit.lexical_graph.retrieval.query_context import KeywordProvider, KeywordVSSProvider, KeywordNLPProvider, KeywordProviderMode, PassThruKeywordProvider
 from graphrag_toolkit.lexical_graph.retrieval.query_context import EntityProvider, EntityVSSProvider, EntityContextProvider
@@ -145,7 +145,8 @@ class TraversalBasedBaseRetriever(BaseRetriever):
         statements_params = {
             'statementLimit': self.args.intermediate_limit,
             'limit': self.args.query_limit,
-            'statementIds': statement_ids
+            'statementIds': statement_ids,
+            '_include_chunk_details': self.args.include_chunk_details,
         }
 
         chunk_metadata = 'properties(c)' if self.args.include_chunk_details else '{}'
@@ -188,7 +189,7 @@ class TraversalBasedBaseRetriever(BaseRetriever):
             topics: topics
         }} as result ORDER BY result.score DESC LIMIT $limit'''
         
-        statements_results =  self.graph_store.execute_query(statements_cypher, statements_params)
+        statements_results =  self.graph_store.execute_query(statements_cypher, statements_params, operation=GraphOperation.GET_STATEMENTS)
     
         statement_facts_cypher = f'''// get facts for statements
         MATCH (f)-[:`__SUPPORTS__`]->(l:`__Statement__`)
@@ -199,7 +200,7 @@ class TraversalBasedBaseRetriever(BaseRetriever):
             'statementIds': statement_ids
         }
 
-        statement_facts_results = self.graph_store.execute_query(statement_facts_cypher, statement_facts_params)
+        statement_facts_results = self.graph_store.execute_query(statement_facts_cypher, statement_facts_params, operation=GraphOperation.GET_FACTS)
 
         statement_facts = {
             r['statementId']:r['facts'] for r in statement_facts_results

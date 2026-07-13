@@ -5,7 +5,7 @@ import logging
 from typing import Any
 
 from graphrag_toolkit.lexical_graph.indexing.model import Fact
-from graphrag_toolkit.lexical_graph.storage.graph import GraphStore, Query, QueryTree
+from graphrag_toolkit.lexical_graph.storage.graph import GraphOperation, GraphStore, Query, QueryTree
 from graphrag_toolkit.lexical_graph.indexing.build.graph_builder import GraphBuilder
 from graphrag_toolkit.lexical_graph.indexing.utils.fact_utils import string_complement_to_entity
 from graphrag_toolkit.lexical_graph.indexing.constants import LOCAL_ENTITY_CLASSIFICATION
@@ -43,7 +43,8 @@ class LocalEntityRewritesGraphBuilder(GraphBuilder):
                 WHERE {graph_client.node_id('n.entityId')} = params.n_id AND {graph_client.node_id('c.entityId')} = params.c_id
                 MERGE (s)-[:`__RELATION__`{{value:r.value}}]->(n)
                 MERGE (n)-[:`__OBJECT__`]->(f)
-                """
+                """,
+                operation=GraphOperation.COPY_COMPLEMENT_RELATIONSHIPS,
             )
 
             delete_complement_relationships = Query(
@@ -54,7 +55,8 @@ class LocalEntityRewritesGraphBuilder(GraphBuilder):
                 DELETE r1
                 DELETE r2
                 DETACH DELETE c
-                """
+                """,
+                operation=GraphOperation.DELETE_COMPLEMENT,
             )
                 
             if fact.subject:
@@ -72,7 +74,8 @@ class LocalEntityRewritesGraphBuilder(GraphBuilder):
                     child_queries=[
                         copy_complement_relationships_to_subject, 
                         delete_complement_relationships
-                    ]
+                    ],
+                    operation=GraphOperation.FIND_COMPLEMENTS,
                 )
 
                 params = {
@@ -98,7 +101,8 @@ class LocalEntityRewritesGraphBuilder(GraphBuilder):
                     child_queries=[
                         copy_complement_relationships_to_subject, 
                         delete_complement_relationships
-                    ]
+                    ],
+                    operation=GraphOperation.FIND_SUBJECTS,
                 )
 
                 params = {

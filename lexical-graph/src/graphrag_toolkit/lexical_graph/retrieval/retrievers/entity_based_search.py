@@ -7,7 +7,7 @@ from typing import List, Generator, Tuple, Any, Optional, Type
 
 from graphrag_toolkit.lexical_graph.metadata import FilterConfig
 from graphrag_toolkit.lexical_graph.retrieval.model import SearchResultCollection
-from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
+from graphrag_toolkit.lexical_graph.storage.graph import GraphOperation, GraphStore
 from graphrag_toolkit.lexical_graph.storage.vector.vector_store import VectorStore
 from graphrag_toolkit.lexical_graph.retrieval.processors import ProcessorBase, ProcessorArgs
 from graphrag_toolkit.lexical_graph.retrieval.retrievers.traversal_based_base_retriever import TraversalBasedBaseRetriever
@@ -164,7 +164,7 @@ class EntityBasedSearch(TraversalBasedBaseRetriever):
             'statementLimit': self.args.intermediate_limit
         }
 
-        results = self.graph_store.execute_query(cypher, properties)
+        results = self.graph_store.execute_query(cypher, properties, operation=GraphOperation.SEARCH_BY_ENTITIES)
         statement_ids = [r['l'] for r in results]
 
         return statement_ids
@@ -200,7 +200,7 @@ class EntityBasedSearch(TraversalBasedBaseRetriever):
             'statementLimit': self.args.intermediate_limit
         }
 
-        results = self.graph_store.execute_query(cypher, properties)
+        results = self.graph_store.execute_query(cypher, properties, operation=GraphOperation.SEARCH_BY_ENTITY)
         statement_ids = [r['l'] for r in results]
 
         return statement_ids

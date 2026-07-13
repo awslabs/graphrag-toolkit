@@ -5,7 +5,7 @@ import logging
 from typing import Any, Optional
 
 from graphrag_toolkit.lexical_graph.indexing.model import Fact
-from graphrag_toolkit.lexical_graph.storage.graph import GraphStore, Query, QueryTree
+from graphrag_toolkit.lexical_graph.storage.graph import GraphOperation, GraphStore, Query, QueryTree
 from graphrag_toolkit.lexical_graph.indexing.build.graph_builder import GraphBuilder
 from graphrag_toolkit.lexical_graph.indexing.constants import LOCAL_ENTITY_CLASSIFICATION
 from graphrag_toolkit.lexical_graph.indexing.utils.fact_utils import string_complement_to_entity
@@ -82,15 +82,26 @@ class FactGraphBuilder(GraphBuilder):
                 'MERGE (fact)-[:`__SUPPORTS__`]->(statement)'
             ]
 
+            subject_literal = None
+            if fact.subject.classification == LOCAL_ENTITY_CLASSIFICATION and not include_local_entities:
+                subject_literal = fact.subject.value
+
+            object_literal = None
+            if not fact.object and fact.complement and not include_local_entities:
+                object_literal = fact.complement.value
+
             properties = {
                 'statement_id': fact.statementId,
                 'fact_id': fact.factId,
-                'fact': node.text
+                'fact': node.text,
+                '_predicate': fact.predicate.value,
+                '_subject_literal': subject_literal,
+                '_object_literal': object_literal
             }
 
             query = '\n'.join(statements)
                 
-            graph_client.execute_query_with_retry(query, self._to_params(properties), max_attempts=5, max_wait=7)
+            graph_client.execute_query_with_retry(query, self._to_params(properties), max_attempts=5, max_wait=7, operation=GraphOperation.UPSERT_FACT)
 
             def insert_entity_fact_relationship(relationship_type:str, entity_id:Optional[str]=None):
 
@@ -107,10 +118,11 @@ class FactGraphBuilder(GraphBuilder):
                 if entity_id:
                     properties_e2f['fact_id'] = fact.factId
                     properties_e2f['entity_id'] = entity_id
+                    properties_e2f['_relationship_type'] = relationship_type
         
                 query_e2f = '\n'.join(statements_e2f)
                 
-                graph_client.execute_query_with_retry(query_e2f, self._to_params(properties_e2f), max_attempts=5, max_wait=7)
+                graph_client.execute_query_with_retry(query_e2f, self._to_params(properties_e2f), max_attempts=5, max_wait=7, operation=GraphOperation.LINK_FACT_ENTITY)
 
             
             insert_entity_fact_relationship('subject')

@@ -6,7 +6,7 @@ import statistics
 import json
 from typing import List, Dict
 
-from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
+from graphrag_toolkit.lexical_graph.storage.graph import GraphOperation, GraphStore
 from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import node_result
 from graphrag_toolkit.lexical_graph.retrieval.model import ScoredEntity, EntityContexts, EntityContext
 from graphrag_toolkit.lexical_graph.retrieval.processors import ProcessorArgs
@@ -69,7 +69,7 @@ class EntityContextProvider():
                     'numNeighbours': depth + 2
                 }
 
-                results = self.graph_store.execute_query(cypher, params)
+                results = self.graph_store.execute_query(cypher, params, operation=GraphOperation.FIND_ENTITY_NEIGHBORS)
 
                 new_entity_id_contexts = {}
 
@@ -138,7 +138,7 @@ class EntityContextProvider():
             'entityIds': list(neighbour_entity_ids)
         }
 
-        results = self.graph_store.execute_query(cypher, params)
+        results = self.graph_store.execute_query(cypher, params, operation=GraphOperation.SCORE_ENTITIES)
 
         neighbour_entities = [
             ScoredEntity.model_validate(result['result']) for result in results

@@ -4,7 +4,7 @@
 import logging
 from typing import Any
 
-from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
+from graphrag_toolkit.lexical_graph.storage.graph import GraphOperation, GraphStore
 from graphrag_toolkit.lexical_graph.indexing.build.graph_builder import GraphBuilder
 from graphrag_toolkit.lexical_graph.versioning import VALID_FROM, VALID_TO, VERSION_INDEPENDENT_ID_FIELDS
 from graphrag_toolkit.lexical_graph.versioning import EXTRACT_TIMESTAMP, BUILD_TIMESTAMP, PREV_VERSIONS
@@ -111,7 +111,8 @@ class SourceGraphBuilder(GraphBuilder):
             
             query = '\n'.join(statements)
             
-            graph_client.execute_query_with_retry(query, self._to_params(clean_metadata))
+            clean_metadata['_source_id'] = source_id
+            graph_client.execute_query_with_retry(query, self._to_params(clean_metadata), operation=GraphOperation.UPSERT_SOURCE)
 
             # prev_source_ids = source_metadata.get('prev_versions', [])
 

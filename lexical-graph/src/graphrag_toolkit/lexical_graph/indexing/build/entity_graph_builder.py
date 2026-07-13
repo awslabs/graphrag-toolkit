@@ -5,7 +5,7 @@ import logging
 from typing import Any
 
 from graphrag_toolkit.lexical_graph.indexing.model import Fact, Entity
-from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
+from graphrag_toolkit.lexical_graph.storage.graph import GraphOperation, GraphStore
 from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import search_string_from, label_from, new_query_var, escape_cypher_label
 from graphrag_toolkit.lexical_graph.indexing.build.graph_builder import GraphBuilder
 from graphrag_toolkit.lexical_graph.indexing.constants import DEFAULT_CLASSIFICATION, LOCAL_ENTITY_CLASSIFICATION
@@ -98,7 +98,7 @@ class EntityGraphBuilder(GraphBuilder):
 
                 query = '\n'.join(statements)
                 
-                graph_client.execute_query_with_retry(query, self._to_params(properties), max_attempts=5, max_wait=7)
+                graph_client.execute_query_with_retry(query, self._to_params(properties), max_attempts=5, max_wait=7, operation=GraphOperation.UPSERT_ENTITY)
 
             insert_for_entity(fact.subject)
 
@@ -125,7 +125,7 @@ class EntityGraphBuilder(GraphBuilder):
                     e_label = escape_cypher_label(label_from(entity.classification or DEFAULT_CLASSIFICATION))
                     e_comment = f'// awsqid:{e_id}-{e_label}'.replace('\r', ' ').replace('\n', ' ')
                     query_e = f"MERGE ({e_var}:`__Entity__`{{{graph_client.node_id('entityId')}: $entityId}}) SET {e_var} :`{e_label}` {e_comment}"
-                    graph_client.execute_query_with_retry(query_e, {'entityId': e_id}, max_attempts=5, max_wait=7)
+                    graph_client.execute_query_with_retry(query_e, {'entityId': e_id, '_classification': entity.classification or DEFAULT_CLASSIFICATION}, max_attempts=5, max_wait=7, operation=GraphOperation.ADD_ENTITY_TYPE)
 
                 insert_domain_entity(fact.subject)
 

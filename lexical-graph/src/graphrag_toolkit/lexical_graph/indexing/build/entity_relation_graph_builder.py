@@ -5,7 +5,7 @@ import logging
 from typing import Any
 
 from graphrag_toolkit.lexical_graph.indexing.model import Fact
-from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
+from graphrag_toolkit.lexical_graph.storage.graph import GraphOperation, GraphStore
 from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import relationship_name_from, new_query_var
 from graphrag_toolkit.lexical_graph.indexing.build.graph_builder import GraphBuilder
 from graphrag_toolkit.lexical_graph.indexing.utils.fact_utils import string_complement_to_entity
@@ -90,7 +90,7 @@ class EntityRelationGraphBuilder(GraphBuilder):
             
                 query = '\n'.join(statements)
                     
-                graph_client.execute_query_with_retry(query, self._to_params(properties), max_attempts=5, max_wait=7)
+                graph_client.execute_query_with_retry(query, self._to_params(properties), max_attempts=5, max_wait=7, operation=GraphOperation.LINK_ENTITIES)
 
                 # if include_domain_labels:
 
@@ -137,7 +137,7 @@ class EntityRelationGraphBuilder(GraphBuilder):
             
                 query = '\n'.join(statements)
                     
-                graph_client.execute_query_with_retry(query, self._to_params(properties), max_attempts=5, max_wait=7)
+                graph_client.execute_query_with_retry(query, self._to_params(properties), max_attempts=5, max_wait=7, operation=GraphOperation.LINK_ENTITIES)
 
                 # if include_domain_labels:
 

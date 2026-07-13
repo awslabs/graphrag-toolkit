@@ -5,7 +5,7 @@ import logging
 from typing import Any
 
 from graphrag_toolkit.lexical_graph.indexing.model import Statement
-from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
+from graphrag_toolkit.lexical_graph.storage.graph import GraphOperation, GraphStore
 from graphrag_toolkit.lexical_graph.indexing.build.graph_builder import GraphBuilder
 
 from llama_index.core.schema import BaseNode
@@ -83,7 +83,7 @@ class StatementGraphBuilder(GraphBuilder):
 
                 query = '\n'.join(statements)
 
-                graph_client.execute_query_with_retry(query, self._to_params(properties), max_attempts=5, max_wait=7)
+                graph_client.execute_query_with_retry(query, self._to_params(properties), max_attempts=5, max_wait=7, operation=GraphOperation.UPSERT_STATEMENT)
 
 
                 if statement.chunkId:
@@ -103,7 +103,7 @@ class StatementGraphBuilder(GraphBuilder):
 
                     query_c = '\n'.join(statements_c)
 
-                    graph_client.execute_query_with_retry(query_c, self._to_params(properties_c), max_attempts=5, max_wait=7)
+                    graph_client.execute_query_with_retry(query_c, self._to_params(properties_c), max_attempts=5, max_wait=7, operation=GraphOperation.LINK_STATEMENT_CHUNK)
 
                 if statement.topicId:
 
@@ -122,7 +122,7 @@ class StatementGraphBuilder(GraphBuilder):
 
                     query_t = '\n'.join(statements_t)
 
-                    graph_client.execute_query_with_retry(query_t, self._to_params(properties_t), max_attempts=5, max_wait=7)
+                    graph_client.execute_query_with_retry(query_t, self._to_params(properties_t), max_attempts=5, max_wait=7, operation=GraphOperation.LINK_STATEMENT_TOPIC)
 
                 if prev_statement:
 
@@ -141,7 +141,7 @@ class StatementGraphBuilder(GraphBuilder):
 
                     query_p = '\n'.join(statements_p)
 
-                    graph_client.execute_query_with_retry(query_p, self._to_params(properties_p), max_attempts=5, max_wait=7)
+                    graph_client.execute_query_with_retry(query_p, self._to_params(properties_p), max_attempts=5, max_wait=7, operation=GraphOperation.LINK_STATEMENTS)
 
         else:
             logger.warning(f'statement_id missing from statement node [node_id: {node.node_id}]')   

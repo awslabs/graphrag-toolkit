@@ -255,7 +255,7 @@ class NeptuneDatabaseGraphStoreFactory(GraphStoreFactoryMethod):
             graph_endpoint = graph_info[len(NEPTUNE_DATABASE):]
         elif graph_info.endswith(NEPTUNE_DB_DNS):
             graph_endpoint = graph_info
-        elif NEPTUNE_DB_DNS in graph_info:
+        elif NEPTUNE_DB_DNS in graph_info and not graph_info.startswith('sparql+'):
             graph_endpoint = graph_info.replace('https://', '')
 
         if graph_endpoint:

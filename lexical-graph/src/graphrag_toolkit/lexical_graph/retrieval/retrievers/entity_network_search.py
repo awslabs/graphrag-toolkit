@@ -8,7 +8,7 @@ from typing import List, Optional, Type
 
 from graphrag_toolkit.lexical_graph.metadata import FilterConfig
 from graphrag_toolkit.lexical_graph.retrieval.model import SearchResultCollection
-from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
+from graphrag_toolkit.lexical_graph.storage.graph import GraphOperation, GraphStore
 from graphrag_toolkit.lexical_graph.storage.vector.vector_store import VectorStore
 from graphrag_toolkit.lexical_graph.storage.vector.dummy_vector_index import DummyVectorIndex
 from graphrag_toolkit.lexical_graph.retrieval.processors import ProcessorBase, ProcessorArgs
@@ -62,12 +62,14 @@ class EntityNetworkSearch(TraversalBasedBaseRetriever):
     def _graph_search(self, node_id):
 
         if self.index_name == 'topic':
+            operation = GraphOperation.SEARCH_BY_TOPIC
             cypher = f'''// topic-based entity network search                                  
             MATCH (l)-[:`__BELONGS_TO__`]->(t:`__Topic__`)
             WHERE {self.graph_store.node_id("t.topicId")} = $nodeId
             RETURN DISTINCT {self.graph_store.node_id("l.statementId")} AS l LIMIT $statementLimit
             '''
         else:
+            operation = GraphOperation.SEARCH_BY_CHUNK
             cypher = f'''// chunk-based entity network search                                  
             MATCH (l)-[:`__BELONGS_TO__`]->()-[:`__MENTIONED_IN__`]->(c:`__Chunk__`)
             WHERE {self.graph_store.node_id("c.chunkId")} = $nodeId
@@ -79,7 +81,7 @@ class EntityNetworkSearch(TraversalBasedBaseRetriever):
             'statementLimit': self.args.intermediate_limit
         }
 
-        results = self.graph_store.execute_query(cypher, properties)
+        results = self.graph_store.execute_query(cypher, properties, operation=operation)
         statement_ids = [r['l'] for r in results]
 
         return statement_ids

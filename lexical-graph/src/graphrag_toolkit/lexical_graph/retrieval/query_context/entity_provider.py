@@ -4,7 +4,7 @@ import concurrent.futures
 import logging
 from typing import List, Iterator, cast, Optional
 
-from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
+from graphrag_toolkit.lexical_graph.storage.graph import GraphOperation, GraphStore
 from graphrag_toolkit.lexical_graph.metadata import FilterConfig
 from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import node_result, search_string_from, filter_config_to_opencypher_filters
 from graphrag_toolkit.lexical_graph.retrieval.model import ScoredEntity
@@ -57,7 +57,7 @@ class EntityProvider(EntityProviderBase):
                 'keyword': search_string_from(parts[0])
             }
 
-        results = self.graph_store.execute_query(cypher, params)
+        results = self.graph_store.execute_query(cypher, params, operation=GraphOperation.FIND_ENTITIES_BY_KEYWORD)
 
         entities = [
             ScoredEntity.model_validate(result['result'])
@@ -80,7 +80,9 @@ class EntityProvider(EntityProviderBase):
 
                 params = {
                     'keyword': search_string_from(parts[0]),
-                    'classification': parts[1]
+                    'classification': parts[1],
+                    '_starts_with': True,
+                    '_classification_starts_with': True,
                 }
             else:
                 cypher = f"""
@@ -95,10 +97,11 @@ class EntityProvider(EntityProviderBase):
                 }} AS result"""
 
                 params = {
-                    'keyword': search_string_from(parts[0])
+                    'keyword': search_string_from(parts[0]),
+                    '_starts_with': True,
                 }
 
-            results = self.graph_store.execute_query(cypher, params)
+            results = self.graph_store.execute_query(cypher, params, operation=GraphOperation.FIND_ENTITIES_BY_KEYWORD)
 
             entities = [
                 ScoredEntity.model_validate(result['result'])

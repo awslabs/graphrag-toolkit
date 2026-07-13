@@ -5,7 +5,7 @@ import logging
 from typing import Any
 
 from graphrag_toolkit.lexical_graph.indexing.model import Fact
-from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
+from graphrag_toolkit.lexical_graph.storage.graph import GraphOperation, GraphStore
 from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import label_from, relationship_name_from
 from graphrag_toolkit.lexical_graph.indexing.build.graph_builder import GraphBuilder
 from graphrag_toolkit.lexical_graph.indexing.constants import DEFAULT_CLASSIFICATION, LOCAL_ENTITY_CLASSIFICATION
@@ -116,7 +116,7 @@ class GraphSummaryBuilder(GraphBuilder):
 
                 query = '\n'.join(statements)
                     
-                graph_client.execute_query_with_retry(query, self._to_params(properties), max_attempts=10, max_wait=10)
+                graph_client.execute_query_with_retry(query, self._to_params(properties), max_attempts=10, max_wait=10, operation=GraphOperation.UPDATE_GRAPH_SUMMARY)
 
         else:
             logger.warning(f'fact_id missing from fact node [node_id: {node.node_id}]')

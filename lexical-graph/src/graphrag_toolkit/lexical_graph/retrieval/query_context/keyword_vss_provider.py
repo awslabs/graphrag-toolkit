@@ -7,7 +7,7 @@ from typing import List, Optional
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.utils import LLMCache, LLMCacheType
 from graphrag_toolkit.lexical_graph.metadata import FilterConfig
-from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
+from graphrag_toolkit.lexical_graph.storage.graph import GraphOperation, GraphStore
 from graphrag_toolkit.lexical_graph.storage.vector import VectorStore
 from graphrag_toolkit.lexical_graph.storage.vector import DummyVectorIndex
 from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import node_result
@@ -85,7 +85,7 @@ class KeywordVSSProvider(KeywordProviderBase):
             'nodeIds': node_ids
         }
 
-        results = self.graph_store.execute_query(cypher, parameters)
+        results = self.graph_store.execute_query(cypher, parameters, operation=GraphOperation.GET_CHUNKS)
 
         content = [result['content'] for result in results]
 
@@ -116,7 +116,7 @@ class KeywordVSSProvider(KeywordProviderBase):
                 'statementLimit': self.args.intermediate_limit
             }
 
-            results = self.graph_store.execute_query(cypher, parameters)
+            results = self.graph_store.execute_query(cypher, parameters, operation=GraphOperation.GET_TOPIC)
 
             return '\n'.join(format_statement(r) for r in results)
         

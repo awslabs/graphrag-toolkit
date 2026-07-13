@@ -3,6 +3,8 @@
 
 from typing import Any, List, Dict, Optional, Callable, Union, Iterable, Generator
 
+from .graph_operation import GraphOperation
+
 def _default_params_adapter(v):
 
     def _dedup(parameters:List):
@@ -26,19 +28,25 @@ class Query():
     def __init__(self, 
                  query:str, 
                  params_adapter:Optional[Callable[[Any], Dict]]=None,
-                 child_queries:Optional[List]=None):
+                 child_queries:Optional[List]=None,
+                 operation:Optional[GraphOperation]=None):
         self.query = query
         self.params_adapter = params_adapter or DEFAULT_PARAMS_ADAPTER
         self.child_queries = child_queries or []
+        self.operation = operation
 
 class Job():
     def __init__(self, query:Query, params:Any):
         self.query = query
         self.params = params
         
-    def run(self, graph_store_fn:Callable[[str, Dict], List[Any]]):
+    def run(self, graph_store_fn:Callable[[str, Dict], List[Any]], **kwargs):
         parameters = self.query.params_adapter(self.params)
-        return graph_store_fn(self.query.query, parameters)
+        if self.query.operation is not None:
+            kwargs['operation'] = self.query.operation
+        else:
+            kwargs.pop('tenant_id', None)
+        return graph_store_fn(self.query.query, parameters, **kwargs)
         
 class QueryTree():
     
@@ -46,7 +54,7 @@ class QueryTree():
         self.id = f'query-tree-{name}'
         self.root_query = root_query
         
-    def run(self, params, graph_store_fn:Callable[[str, Dict], List[Any]]) -> Iterable[Any]:
+    def run(self, params, graph_store_fn:Callable[[str, Dict], List[Any]], **kwargs) -> Iterable[Any]:
         
         job_queue = []
         
@@ -54,7 +62,7 @@ class QueryTree():
         
         while job:
         
-            results = job.run(graph_store_fn)
+            results = job.run(graph_store_fn, **kwargs)
             
             if job.query.child_queries:
                 for q in job.query.child_queries:

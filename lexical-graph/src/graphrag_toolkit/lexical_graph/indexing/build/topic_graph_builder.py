@@ -5,7 +5,7 @@ import logging
 from typing import Any
 
 from graphrag_toolkit.lexical_graph.indexing.model import Topic
-from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
+from graphrag_toolkit.lexical_graph.storage.graph import GraphOperation, GraphStore
 from graphrag_toolkit.lexical_graph.indexing.build.graph_builder import GraphBuilder
 
 from llama_index.core.schema import BaseNode
@@ -88,7 +88,7 @@ class TopicGraphBuilder(GraphBuilder):
 
             query = '\n'.join(statements)
 
-            graph_client.execute_query_with_retry(query, self._to_params(properties))
+            graph_client.execute_query_with_retry(query, self._to_params(properties), operation=GraphOperation.UPSERT_TOPIC)
 
         else:
             logger.warning(f'topic_id missing from topic node [node_id: {node.node_id}]') 
