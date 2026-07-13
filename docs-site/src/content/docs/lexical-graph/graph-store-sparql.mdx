@@ -1,0 +1,152 @@
+---
+title: RDF / SPARQL stores
+---
+
+The RDF / SPARQL contributor package stores the lexical graph in an existing
+SPARQL 1.1 query/update endpoint. Generic standards-compatible endpoints are the
+default; Amazon Neptune IAM authentication is an optional transport.
+
+The adapter executes native SPARQL. Builders and retrievers provide a
+backend-neutral operation identifier and structured parameters. Property-graph
+stores execute their native queries, while the RDF store selects the
+corresponding native SPARQL operation.
+
+### Install and register
+
+Install the contributor package from a repository checkout:
+
+```bash
+pip install ./lexical-graph-contrib/sparql
+```
+
+Register its factory before creating the graph store:
+
+```python
+from graphrag_toolkit.lexical_graph.storage import GraphStoreFactory
+from graphrag_toolkit_contrib.lexical_graph.storage.graph.sparql import (
+    SPARQLGraphStoreFactory,
+)
+
+GraphStoreFactory.register(SPARQLGraphStoreFactory)
+```
+
+Connect the graph store to an existing repository or dataset.
+
+### Generic endpoint
+
+Provide the query URL and, if different, the update URL:
+
+```python
+graph_store = GraphStoreFactory.for_graph_store(
+    'sparql+https://rdf.example.com/query',
+    update_endpoint='https://rdf.example.com/update',
+)
+```
+
+Supported schemes are:
+
+| Scheme | Endpoint transport |
+|---|---|
+| `sparql://host/path` | HTTP |
+| `sparql+http://host/path` | HTTP |
+| `sparql+s://host/path` | HTTPS |
+| `sparql+https://host/path` | HTTPS |
+| `sparql+neptune://host:8182` | HTTPS with Neptune IAM SigV4 |
+
+If `update_endpoint` is omitted, the query URL is used for both operations.
+
+HTTP Basic credentials can be passed in the URL, through `username` and
+`password`, or through the `SPARQL_USER` and `SPARQL_PASSWORD` environment
+variables. Custom headers support bearer tokens and endpoint-specific headers:
+
+```python
+graph_store = GraphStoreFactory.for_graph_store(
+    'sparql+https://rdf.example.com/query',
+    headers={'Authorization': 'Bearer token'},
+)
+```
+
+### Amazon Neptune IAM
+
+Install the optional botocore dependency:
+
+```bash
+pip install './lexical-graph-contrib/sparql[neptune]'
+```
+
+Then use the Neptune scheme and AWS region:
+
+```python
+graph_store = GraphStoreFactory.for_graph_store(
+    'sparql+neptune://my-cluster.cluster-abcdefghijkl.eu-central-1.neptune.amazonaws.com:8182',
+    region_name='eu-central-1',
+)
+```
+
+Each request is signed for the `neptune-db` service using credentials from
+botocore's standard provider chain. Credentials are resolved on every request,
+allowing botocore to refresh temporary role, web-identity, IAM Identity Center,
+ECS, and EC2 credentials. IAM transport requires HTTPS.
+
+The same transport is available as a plain RDFLib graph:
+
+```python
+from graphrag_toolkit_contrib.lexical_graph.storage.graph.sparql.neptune_iam import (
+    neptune_iam_graph,
+)
+
+graph = neptune_iam_graph(
+    'https://my-cluster.cluster-abcdefghijkl.eu-central-1.neptune.amazonaws.com:8182',
+    region_name='eu-central-1',
+)
+try:
+    rows = graph.query('SELECT * WHERE { ?s ?p ?o } LIMIT 10')
+finally:
+    graph.close()
+```
+
+### Namespaces and tenants
+
+The default schema namespace is
+`https://awslabs.github.io/graphrag-toolkit/lexical#`; the default instance
+namespace is `https://awslabs.github.io/graphrag-toolkit/lexical/`.
+
+Customize them only when creating a new dataset:
+
+```python
+graph_store = GraphStoreFactory.for_graph_store(
+    'sparql+https://rdf.example.com/query',
+    update_endpoint='https://rdf.example.com/update',
+    lexical_prefix='gt',
+    lexical_schema_namespace='https://example.com/graph/schema#',
+    lexical_instance_namespace='https://example.com/graph/data/',
+)
+```
+
+Every tenant, including the default tenant, uses a deterministic named graph.
+Writes target that graph explicitly, and reads select it with the standard
+SPARQL Protocol `default-graph-uri` parameter.
+
+### RDF model
+
+Sources, chunks, topics, statements, facts, and entities retain their existing
+lexical-graph identities. A node becomes a deterministic IRI with an RDF class
+and `lg:id`; node properties become literal-valued predicates. Simple edges
+become RDF predicates.
+
+Extracted facts record their subject, predicate, and object directly:
+
+```turtle
+<fact/f1> a lg:Fact ;
+    lg:subject <entity/amazon> ;
+    lg:predicate <relation/produces> ;
+    lg:object <entity/ec2> ;
+    lg:supports <statement/s1> ;
+    lg:value "Amazon PRODUCES EC2" .
+
+<relation/produces> a lg:Relation ;
+    lg:value "PRODUCES" .
+```
+
+This is the toolkit's fact model, with the fact resource carrying its subject,
+predicate, object, and supporting statement.
