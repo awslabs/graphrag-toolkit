@@ -41,7 +41,7 @@ If you're running on AWS, you must run your application in an AWS region contain
 
 You will need to install additional dependencies for specific graph and vector store backends:
 
-#### Amazon OpenSearch Serverless
+#### OpenSearch (Amazon OpenSearch Serverless or self-managed)
 
 ```bash
 $ pip install opensearch-py llama-index-vector-stores-opensearch
@@ -69,10 +69,13 @@ Pass a connection string to `GraphStoreFactory.for_graph_store()` or `VectorStor
 | Neptune Database (graph) | `neptune-db://<hostname>` or any hostname ending `.neptune.amazonaws.com` |
 | Neo4j (graph) | `bolt://`, `bolt+ssc://`, `bolt+s://`, `neo4j://`, `neo4j+ssc://`, or `neo4j+s://` URLs |
 | OpenSearch Serverless (vector) | `aoss://<url>` |
+| OpenSearch, self-managed (vector) | `opensearch://<url>` |
 | Neptune Analytics (vector) | `neptune-graph://<graph-id>` |
 | pgvector (vector) | constructed via `PGVectorIndexFactory` |
 | S3 Vectors (vector) | constructed via `S3VectorIndexFactory` |
 | Dummy / no-op | `None` or any unrecognised string — falls back to `DummyGraphStore` / `DummyVectorIndex` |
+
+A self-managed OpenSearch endpoint (`opensearch://<url>`) connects with HTTP basic auth from the `OPENSEARCH_USERNAME` / `OPENSEARCH_PASSWORD` environment variables, or with no auth if neither is set — unlike `aoss://`, it never uses AWS SigV4. `opensearch://localhost:9200` defaults to `https://localhost:9200`; use `opensearch://http://localhost:9200` for a plain-HTTP endpoint.
 
 ## Example of use
 
