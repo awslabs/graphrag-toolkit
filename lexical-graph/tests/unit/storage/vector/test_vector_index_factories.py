@@ -4,7 +4,7 @@
 """Tests for vector index factory try_create methods.
 
 Covers:
-  - OpenSearchVectorIndexFactory.try_create (aoss://, https://...aoss, no match)
+  - OpenSearchVectorIndexFactory.try_create (aoss://, https://...aoss, opensearch://, no match)
   - PGVectorIndexFactory.try_create (postgres://, postgresql://, no match)
   - S3VectorIndexFactory.try_create (s3vectors://, no match)
 """
@@ -66,6 +66,76 @@ class TestOpenSearchVectorIndexFactory:
                 "https://abc.us-east-1.aoss.amazonaws.com"
             )
             assert result is not None
+
+    def test_try_create_opensearch_prefix_returns_indexes(self):
+        from graphrag_toolkit.lexical_graph.storage.vector.opensearch_vector_index_factory import OpenSearchVectorIndexFactory
+
+        mock_index = MagicMock()
+        mock_cls = MagicMock()
+        mock_cls.for_index.return_value = mock_index
+
+        with patch.dict("sys.modules", {
+            "graphrag_toolkit.lexical_graph.storage.vector.opensearch_vector_indexes": MagicMock(
+                OpenSearchIndex=mock_cls
+            )
+        }):
+            factory = OpenSearchVectorIndexFactory()
+            result = factory.try_create(
+                ["chunk", "statement"],
+                "opensearch://localhost:9200"
+            )
+            assert result is not None
+            assert len(result) == 2
+            _, kwargs = mock_cls.for_index.call_args
+            assert kwargs.get("is_local") is True
+
+    def test_try_create_opensearch_prefix_defaults_to_https(self):
+        from graphrag_toolkit.lexical_graph.storage.vector.opensearch_vector_index_factory import OpenSearchVectorIndexFactory
+
+        mock_cls = MagicMock()
+        mock_cls.for_index.return_value = MagicMock()
+
+        with patch.dict("sys.modules", {
+            "graphrag_toolkit.lexical_graph.storage.vector.opensearch_vector_indexes": MagicMock(
+                OpenSearchIndex=mock_cls
+            )
+        }):
+            factory = OpenSearchVectorIndexFactory()
+            factory.try_create(["chunk"], "opensearch://localhost:9200")
+            args, _ = mock_cls.for_index.call_args
+            assert args[1] == "https://localhost:9200"
+
+    def test_try_create_opensearch_prefix_preserves_explicit_scheme(self):
+        from graphrag_toolkit.lexical_graph.storage.vector.opensearch_vector_index_factory import OpenSearchVectorIndexFactory
+
+        mock_cls = MagicMock()
+        mock_cls.for_index.return_value = MagicMock()
+
+        with patch.dict("sys.modules", {
+            "graphrag_toolkit.lexical_graph.storage.vector.opensearch_vector_indexes": MagicMock(
+                OpenSearchIndex=mock_cls
+            )
+        }):
+            factory = OpenSearchVectorIndexFactory()
+            factory.try_create(["chunk"], "opensearch://http://localhost:9200")
+            args, _ = mock_cls.for_index.call_args
+            assert args[1] == "http://localhost:9200"
+
+    def test_try_create_aoss_prefix_does_not_set_is_local(self):
+        from graphrag_toolkit.lexical_graph.storage.vector.opensearch_vector_index_factory import OpenSearchVectorIndexFactory
+
+        mock_cls = MagicMock()
+        mock_cls.for_index.return_value = MagicMock()
+
+        with patch.dict("sys.modules", {
+            "graphrag_toolkit.lexical_graph.storage.vector.opensearch_vector_indexes": MagicMock(
+                OpenSearchIndex=mock_cls
+            )
+        }):
+            factory = OpenSearchVectorIndexFactory()
+            factory.try_create(["chunk"], "aoss://https://abc.us-east-1.aoss.amazonaws.com")
+            _, kwargs = mock_cls.for_index.call_args
+            assert kwargs.get("is_local") is not True
 
 
 # ---------------------------------------------------------------------------

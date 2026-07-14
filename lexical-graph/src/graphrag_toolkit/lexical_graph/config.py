@@ -291,6 +291,8 @@ class _GraphRAGConfig:
     _enable_cache: Optional[bool] = None
     _metadata_datetime_suffixes: Optional[List[str]] = None
     _opensearch_engine: Optional[str] = None
+    _opensearch_username: Optional[str] = None
+    _opensearch_password: Optional[str] = None
     _enable_versioning = None
     _chunk_external_properties: Optional[Dict[str, str]] = None
     _local_output_dir: Optional[str] = None
@@ -1171,6 +1173,31 @@ class _GraphRAGConfig:
     @opensearch_engine.setter
     def opensearch_engine(self, opensearch_engine: str) -> None:
         self._opensearch_engine = opensearch_engine
+
+    @property
+    def opensearch_username(self) -> Optional[str]:
+        """Basic-auth username for a local (non-AWS) OpenSearch endpoint. Unset (None)
+        means no basic auth is applied -- used with a local OpenSearch instance that has
+        no security plugin configured."""
+        if self._opensearch_username is None:
+            self._opensearch_username = os.environ.get('OPENSEARCH_USERNAME')
+        return self._opensearch_username
+
+    @opensearch_username.setter
+    def opensearch_username(self, opensearch_username: Optional[str]) -> None:
+        self._opensearch_username = opensearch_username
+
+    @property
+    def opensearch_password(self) -> Optional[str]:
+        """Basic-auth password for a local (non-AWS) OpenSearch endpoint. See
+        opensearch_username."""
+        if self._opensearch_password is None:
+            self._opensearch_password = os.environ.get('OPENSEARCH_PASSWORD')
+        return self._opensearch_password
+
+    @opensearch_password.setter
+    def opensearch_password(self, opensearch_password: Optional[str]) -> None:
+        self._opensearch_password = opensearch_password
 
     @property
     def enable_versioning(self) -> bool:
