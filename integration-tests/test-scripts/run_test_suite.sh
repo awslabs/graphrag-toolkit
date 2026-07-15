@@ -54,9 +54,6 @@ if [[ "$DO_SETUP" = true ]]; then
         pip install $BYOKG_RAG_INSTALL_URI
     fi
 
-    echo "Installing byokg_rag dependencies"
-    pip install -r graphrag_toolkit/byokg_rag/requirements.txt
-
     if [[ "$LEXICAL_GRAPH_INSTALL_URI" ]]; then
         echo "Installing lexical graph from $LEXICAL_GRAPH_INSTALL_URI"
         if [[ "$LEXICAL_GRAPH_INSTALL_URI" == s3://* && "$LEXICAL_GRAPH_INSTALL_URI" == *.whl ]]; then
@@ -71,38 +68,28 @@ if [[ "$DO_SETUP" = true ]]; then
         else
             pip install $LEXICAL_GRAPH_INSTALL_URI
         fi
-    else
-        echo "Installing lexical graph from local install"
-        pip install -r graphrag_toolkit/lexical_graph/requirements.txt
     fi
-    
-    echo "Installing integration test dependencies"
-    pip install -r graphrag_toolkit/requirements-integ-test.txt
-    
+
+    echo "Installing all dependencies in a single pass for consistent resolution"
+    pip install \
+        -r graphrag_toolkit/byokg_rag/requirements.txt \
+        -r graphrag_toolkit/lexical_graph/requirements.txt \
+        -r graphrag_toolkit/requirements-integ-test.txt
+
     #if [[ "$USE_GPU" == "True" ]]; then
-    #    pip install --upgrade cmake 
+    #    pip install --upgrade cmake
     #    pip install --extra-index-url https://pypi.fury.io/arrow-nightlies/ --prefer-binary --pre pyarrow
     #    pip install torch FlagEmbedding
     #fi
-    
+
     pushd falkordb
         pip install .
     popd
 
     mkdir test-results
     mkdir test-logs
-    
+
     python -m spacy download en_core_web_sm
-    
-    # Ensure boto3 and botocore are from the same release. Other packages
-    # (e.g. aiobotocore via s3fs) can downgrade botocore without touching boto3,
-    # leaving an incompatible pair that crashes on import.
-    BOTO3_VER=$(python -c "import importlib.metadata; print(importlib.metadata.version('boto3'))")
-    BOTOCORE_VER=$(python -c "import importlib.metadata; print(importlib.metadata.version('botocore'))")
-    if [[ "$BOTO3_VER" != "$BOTOCORE_VER" ]]; then
-        echo "WARNING: boto3==$BOTO3_VER and botocore==$BOTOCORE_VER are mismatched. Reinstalling compatible pair."
-        pip install --force-reinstall "boto3==$BOTOCORE_VER" "botocore==$BOTOCORE_VER"
-    fi
 
     python --version
     pip list

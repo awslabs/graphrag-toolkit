@@ -18,30 +18,66 @@ PROJECT_ROOT = Path(__file__).resolve().parents[3]
 
 INTEG_REQUIREMENTS = PROJECT_ROOT / "integration-tests" / "requirements-integ-test.txt"
 
-LIBRARY_REQUIREMENTS = (
+BYOKG_RAG_REQUIREMENTS = (
+    PROJECT_ROOT / "byokg-rag" / "src" / "graphrag_toolkit"
+    / "byokg_rag" / "requirements.txt"
+)
+
+LEXICAL_GRAPH_REQUIREMENTS = (
     PROJECT_ROOT / "lexical-graph" / "src" / "graphrag_toolkit"
     / "lexical_graph" / "requirements.txt"
 )
 
 
+def _filter_requirements(path):
+    """Read a requirements file, stripping pip options like --only-binary."""
+    lines = []
+    for line in path.read_text().splitlines():
+        stripped = line.strip()
+        if stripped.startswith("--") or not stripped or stripped.startswith("#"):
+            continue
+        lines.append(stripped)
+    return lines
+
+
 @pytest.fixture(scope="module")
 def resolved_versions():
-    """Dry-run pip install to resolve final versions for all dependencies."""
+    """Dry-run pip install to resolve final versions for all dependencies.
+
+    Mirrors the single-pass install in run_test_suite.sh which resolves
+    all three requirements files together.
+    """
     if not INTEG_REQUIREMENTS.exists():
         pytest.skip(f"Integration requirements not found: {INTEG_REQUIREMENTS}")
 
-    req_files = ["-r", str(INTEG_REQUIREMENTS)]
-    if LIBRARY_REQUIREMENTS.exists():
-        req_files += ["-r", str(LIBRARY_REQUIREMENTS)]
+    packages = _filter_requirements(INTEG_REQUIREMENTS)
+    if BYOKG_RAG_REQUIREMENTS.exists():
+        packages += _filter_requirements(BYOKG_RAG_REQUIREMENTS)
+    if LEXICAL_GRAPH_REQUIREMENTS.exists():
+        packages += _filter_requirements(LEXICAL_GRAPH_REQUIREMENTS)
 
-    result = subprocess.run(
-        [
-            sys.executable, "-m", "pip", "install",
-            "--dry-run", "--report", "-",
-        ] + req_files,
-        capture_output=True,
-        text=True,
-    )
+    import tempfile
+    import json
+
+    with tempfile.NamedTemporaryFile(mode="w", suffix=".txt", delete=False) as f:
+        f.write("\n".join(packages))
+        tmp_req = f.name
+
+    tmp_report = tmp_req + ".json"
+
+    try:
+        result = subprocess.run(
+            [
+                sys.executable, "-m", "pip", "install",
+                "--dry-run", "--quiet", "--ignore-installed",
+                "--report", tmp_report,
+                "-r", tmp_req,
+            ],
+            capture_output=True,
+            text=True,
+        )
+    finally:
+        Path(tmp_req).unlink(missing_ok=True)
 
     if result.returncode != 0:
         pytest.fail(
@@ -49,8 +85,8 @@ def resolved_versions():
             f"{result.stderr}"
         )
 
-    import json
-    report = json.loads(result.stdout)
+    report = json.loads(Path(tmp_report).read_text())
+    Path(tmp_report).unlink(missing_ok=True)
 
     versions = {}
     for item in report.get("install", []):
