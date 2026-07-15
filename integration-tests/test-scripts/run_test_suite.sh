@@ -99,6 +99,16 @@ if [[ "$DO_SETUP" = true ]]; then
     
     python -m spacy download en_core_web_sm
     
+    # Ensure boto3 and botocore are from the same release. Other packages
+    # (e.g. aiobotocore via s3fs) can downgrade botocore without touching boto3,
+    # leaving an incompatible pair that crashes on import.
+    BOTO3_VER=$(python -c "import importlib.metadata; print(importlib.metadata.version('boto3'))")
+    BOTOCORE_VER=$(python -c "import importlib.metadata; print(importlib.metadata.version('botocore'))")
+    if [[ "$BOTO3_VER" != "$BOTOCORE_VER" ]]; then
+        echo "WARNING: boto3==$BOTO3_VER and botocore==$BOTOCORE_VER are mismatched. Aligning boto3 to botocore version."
+        pip install "boto3==$BOTOCORE_VER" "botocore==$BOTOCORE_VER"
+    fi
+
     python --version
     pip list
 fi
