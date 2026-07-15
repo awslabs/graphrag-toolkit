@@ -76,13 +76,8 @@ if [[ "$DO_SETUP" = true ]]; then
         pip install -r graphrag_toolkit/lexical_graph/requirements.txt
     fi
     
-    pip install opensearch-py llama-index-vector-stores-opensearch
-    pip install psycopg2-binary pgvector
-    pip install neo4j
-    pip install llama-index-readers-web
-    pip install llama-index-readers-file
-    pip install llama-index-readers-s3
-    pip install torch sentence_transformers
+    echo "Installing integration test dependencies"
+    pip install -r graphrag_toolkit/requirements-integ-test.txt
     
     #if [[ "$USE_GPU" == "True" ]]; then
     #    pip install --upgrade cmake 
@@ -102,11 +97,14 @@ if [[ "$DO_SETUP" = true ]]; then
     # Ensure boto3 and botocore are from the same release. Other packages
     # (e.g. aiobotocore via s3fs) can downgrade botocore without touching boto3,
     # leaving an incompatible pair that crashes on import.
+    # boto3 declares botocore as a dependency with an exact pin (e.g. boto3==1.35.0
+    # requires botocore==1.35.0), so pinning botocore and using >= for boto3 lets
+    # pip resolve the matching boto3 release automatically.
     BOTO3_VER=$(python -c "import importlib.metadata; print(importlib.metadata.version('boto3'))")
     BOTOCORE_VER=$(python -c "import importlib.metadata; print(importlib.metadata.version('botocore'))")
     if [[ "$BOTO3_VER" != "$BOTOCORE_VER" ]]; then
-        echo "WARNING: boto3==$BOTO3_VER and botocore==$BOTOCORE_VER are mismatched. Aligning boto3 to botocore version."
-        pip install "boto3==$BOTOCORE_VER" "botocore==$BOTOCORE_VER"
+        echo "WARNING: boto3==$BOTO3_VER and botocore==$BOTOCORE_VER are mismatched. Reinstalling compatible pair."
+        pip install --force-reinstall --no-deps "boto3>=$BOTOCORE_VER" "botocore==$BOTOCORE_VER"
     fi
 
     python --version

@@ -1,0 +1,10 @@
+neo4j>=5.0.0
+opensearch-py>=2.4.0
+llama-index-vector-stores-opensearch>=0.1.0
+llama-index-readers-web>=0.1.0
+llama-index-readers-file>=0.1.0
+llama-index-readers-s3>=0.1.0
+psycopg2-binary>=2.9.0
+pgvector>=0.2.0
+sentence-transformers>=2.2.0
+torch>=2.0.0

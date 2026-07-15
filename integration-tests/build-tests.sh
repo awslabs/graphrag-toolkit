@@ -273,6 +273,7 @@ fi
 
 cp -r $GRAPHRAG_TOOLKIT_DIR/lexical-graph-contrib/* graphrag-toolkit
 cp -r $GRAPHRAG_TOOLKIT_DIR/byokg-rag/src/* graphrag-toolkit
+cp $GRAPHRAG_TOOLKIT_DIR/integration-tests/requirements-integ-test.txt graphrag-toolkit/
 cp -r $GRAPHRAG_TOOLKIT_DIR/examples/lexical-graph/notebooks/* lexical-graph-examples
 cp -r $GRAPHRAG_TOOLKIT_DIR/examples/byokg-rag/* lexical-graph-examples
 cp -r ./../test-scripts/* lexical-graph-examples
