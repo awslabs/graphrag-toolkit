@@ -51,7 +51,18 @@ if [[ "$DO_SETUP" = true ]]; then
 
     if [[ "$BYOKG_RAG_INSTALL_URI" ]]; then
         echo "Installing byokg_rag from $BYOKG_RAG_INSTALL_URI"
-        pip install $BYOKG_RAG_INSTALL_URI
+        if [[ "$BYOKG_RAG_INSTALL_URI" == s3://* && "$BYOKG_RAG_INSTALL_URI" == *.whl ]]; then
+            WHEEL_FILENAME=$(basename "$BYOKG_RAG_INSTALL_URI")
+            echo "Downloading wheel from S3: $BYOKG_RAG_INSTALL_URI"
+            if ! aws s3 cp "$BYOKG_RAG_INSTALL_URI" "./$WHEEL_FILENAME"; then
+                echo "ERROR: Failed to download wheel from S3: $BYOKG_RAG_INSTALL_URI"
+                exit 1
+            fi
+            pip install "./$WHEEL_FILENAME"
+            rm -f "./$WHEEL_FILENAME"
+        else
+            pip install $BYOKG_RAG_INSTALL_URI
+        fi
     fi
 
     if [[ "$LEXICAL_GRAPH_INSTALL_URI" ]]; then
@@ -74,7 +85,7 @@ if [[ "$DO_SETUP" = true ]]; then
     pip install \
         -r graphrag_toolkit/byokg_rag/requirements.txt \
         -r graphrag_toolkit/lexical_graph/requirements.txt \
-        -r graphrag_toolkit/requirements-integ-test.txt
+        -r requirements-integ-test.txt
 
     #if [[ "$USE_GPU" == "True" ]]; then
     #    pip install --upgrade cmake
