@@ -18,7 +18,7 @@ from llama_index.core.vector_stores.types import MetadataFilters
 
 from graphrag_toolkit.lexical_graph.metadata import FilterConfig, is_datetime_key, format_datetime
 from graphrag_toolkit.lexical_graph.versioning import  VALID_FROM, VALID_TO, TIMESTAMP_LOWER_BOUND, TIMESTAMP_UPPER_BOUND
-from graphrag_toolkit.lexical_graph.config import GraphRAGConfig, EmbeddingType
+from graphrag_toolkit.lexical_graph.config import GraphRAGConfig, EmbeddingType, OpenSearchServerlessGeneration
 from graphrag_toolkit.lexical_graph.storage.vector import VectorIndex, to_embedded_query
 from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
 from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
@@ -337,10 +337,10 @@ def _handle_index_create_request_error(e:'RequestError', index_name, endpoint, n
             f"OpenSearch index creation failed [index_name: {index_name}, endpoint: {endpoint}] because "
             f"the target collection rejected a Classic-only field ({_request_error_reason(e)}). This "
             f"usually means the collection is an AOSS NextGen collection, which does not support the "
-            f"'engine' or 'mode' knn_vector parameters. GraphRAGConfig.opensearch_serverless_nextgen is "
-            f"explicitly set to False, which forces the Classic mapping and skips auto-detection -- unset "
-            f"it (or the OPENSEARCH_SERVERLESS_NEXTGEN env var) to auto-detect NextGen collections, or set "
-            f"it to True to force NextGen-compatible index mappings."
+            f"'engine' or 'mode' knn_vector parameters. GraphRAGConfig.opensearch_serverless_generation is "
+            f"explicitly set to CLASSIC, which forces the Classic mapping and skips auto-detection -- unset "
+            f"it (or the OPENSEARCH_SERVERLESS_GENERATION env var) to auto-detect NextGen collections, or set "
+            f"it to NEXTGEN to force NextGen-compatible index mappings."
         ) from e
 
     logger.exception('Error creating an OpenSearch index')
@@ -377,10 +377,11 @@ def index_exists(endpoint, index_name, dimensions, writeable) -> bool:
     dimensions and a predefined method for handling knn_vector elements.
 
     Whether the index is created with a NextGen or Classic knn_vector mapping is
-    controlled by GraphRAGConfig.opensearch_serverless_nextgen. When that's unset
+    controlled by GraphRAGConfig.opensearch_serverless_generation. When that's unset
     (None), this auto-detects: it tries the Classic mapping first and, if the
     collection rejects it as NextGen-incompatible, retries once with the NextGen
-    mapping. Set the flag to True or False to force one mapping and skip detection.
+    mapping. Set it to OpenSearchServerlessGeneration.CLASSIC or .NEXTGEN to force
+    one mapping and skip detection.
 
     Args:
         endpoint: The OpenSearch endpoint to connect to.
@@ -393,17 +394,17 @@ def index_exists(endpoint, index_name, dimensions, writeable) -> bool:
 
     Raises:
         ValueError: If a Classic-only knn_vector field (engine/mode) was rejected by an
-            AOSS NextGen collection and GraphRAGConfig.opensearch_serverless_nextgen was
-            explicitly set to False, so auto-detection didn't get a chance to retry.
+            AOSS NextGen collection and GraphRAGConfig.opensearch_serverless_generation was
+            explicitly set to CLASSIC, so auto-detection didn't get a chance to retry.
     """
     client = create_os_client(endpoint, pool_maxsize=1)
-    nextgen_override = GraphRAGConfig.opensearch_serverless_nextgen
+    generation = GraphRAGConfig.opensearch_serverless_generation
 
     try:
         return _try_create_index(
             client, index_name, dimensions, writeable, endpoint,
-            nextgen=bool(nextgen_override),
-            allow_retry=(nextgen_override is None),
+            nextgen=(generation == OpenSearchServerlessGeneration.NEXTGEN),
+            allow_retry=(generation is None),
         )
     finally:
         client.close()

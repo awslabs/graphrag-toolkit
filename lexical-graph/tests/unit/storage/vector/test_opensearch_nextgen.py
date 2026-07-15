@@ -19,6 +19,15 @@ from ._opensearch_test_support import install_opensearch_mocks, FakeRequestError
 install_opensearch_mocks()
 
 import graphrag_toolkit.lexical_graph.storage.vector.opensearch_vector_indexes as ovi  # noqa: E402
+from graphrag_toolkit.lexical_graph.config import OpenSearchServerlessGeneration  # noqa: E402
+
+
+def _generation(nextgen):
+    """Map the tri-state test param to a generation override: True -> NEXTGEN,
+    False -> CLASSIC, None -> unset (auto-detect)."""
+    if nextgen is None:
+        return None
+    return OpenSearchServerlessGeneration.NEXTGEN if nextgen else OpenSearchServerlessGeneration.CLASSIC
 
 
 def _capture_index_create_body(nextgen, compression=None, engine='nmslib'):
@@ -27,7 +36,7 @@ def _capture_index_create_body(nextgen, compression=None, engine='nmslib'):
     mock_client.indices.exists.return_value = False
 
     with patch.object(ovi, "GraphRAGConfig") as mock_cfg:
-        mock_cfg.opensearch_serverless_nextgen = nextgen
+        mock_cfg.opensearch_serverless_generation = _generation(nextgen)
         mock_cfg.opensearch_serverless_nextgen_compression = compression
         mock_cfg.opensearch_engine = engine
         with patch.object(ovi, "create_os_client", return_value=mock_client):
@@ -91,7 +100,7 @@ def _run_index_exists_with_create_error(nextgen, request_error):
     mock_client.indices.create.side_effect = request_error
 
     with patch.object(ovi, "GraphRAGConfig") as mock_cfg:
-        mock_cfg.opensearch_serverless_nextgen = nextgen
+        mock_cfg.opensearch_serverless_generation = _generation(nextgen)
         mock_cfg.opensearch_serverless_nextgen_compression = None
         mock_cfg.opensearch_engine = 'nmslib'
         with patch.object(ovi, "create_os_client", return_value=mock_client):
@@ -121,7 +130,7 @@ class TestNextGenIncompatibleFieldError:
         e = _RequestError(400, 'illegal_argument_exception', _ENGINE_REJECTED_INFO)
         _, raised = _run_index_exists_with_create_error(nextgen=False, request_error=e)
         assert raised is not None, "expected a ValueError to be raised"
-        assert 'opensearch_serverless_nextgen' in str(raised)
+        assert 'opensearch_serverless_generation' in str(raised)
         assert raised.__cause__ is e
 
     def test_raises_constructive_error_for_mode_field_rejection(self):
@@ -129,7 +138,7 @@ class TestNextGenIncompatibleFieldError:
         e = _RequestError(400, 'illegal_argument_exception', info)
         _, raised = _run_index_exists_with_create_error(nextgen=False, request_error=e)
         assert raised is not None, "expected a ValueError to be raised"
-        assert 'opensearch_serverless_nextgen' in str(raised)
+        assert 'opensearch_serverless_generation' in str(raised)
 
     def test_does_not_raise_when_nextgen_already_enabled(self):
         # Our NextGen mapping never sends 'engine'/'mode', so this scenario shouldn't occur in
@@ -170,7 +179,7 @@ def _run_index_exists_with_create_side_effects(nextgen, side_effects):
     mock_client.indices.create.side_effect = side_effects
 
     with patch.object(ovi, "GraphRAGConfig") as mock_cfg:
-        mock_cfg.opensearch_serverless_nextgen = nextgen
+        mock_cfg.opensearch_serverless_generation = _generation(nextgen)
         mock_cfg.opensearch_serverless_nextgen_compression = None
         mock_cfg.opensearch_engine = 'nmslib'
         with patch.object(ovi, "create_os_client", return_value=mock_client):
@@ -185,7 +194,7 @@ def _is_nextgen_body(body):
 
 
 class TestAutoDetectRetry:
-    """opensearch_serverless_nextgen=None (unset) auto-detects: try Classic first, retry
+    """opensearch_serverless_generation=None (unset) auto-detects: try Classic first, retry
     once with NextGen only if the collection rejects it as NextGen-incompatible."""
 
     def test_tries_classic_mapping_first(self):
@@ -238,7 +247,7 @@ class TestIndexExistsLifecycle:
         mock_client.indices.exists.return_value = True
 
         with patch.object(ovi, "GraphRAGConfig") as mock_cfg:
-            mock_cfg.opensearch_serverless_nextgen = False
+            mock_cfg.opensearch_serverless_generation = OpenSearchServerlessGeneration.CLASSIC
             mock_cfg.opensearch_engine = 'nmslib'
             with patch.object(ovi, "create_os_client", return_value=mock_client):
                 result = ovi.index_exists("https://endpoint", "chunk", 1024, writeable=True)
@@ -260,7 +269,7 @@ class TestIndexExistsLifecycle:
         mock_client.indices.create.side_effect = e
 
         with patch.object(ovi, "GraphRAGConfig") as mock_cfg:
-            mock_cfg.opensearch_serverless_nextgen = False
+            mock_cfg.opensearch_serverless_generation = OpenSearchServerlessGeneration.CLASSIC
             mock_cfg.opensearch_serverless_nextgen_compression = None
             mock_cfg.opensearch_engine = 'nmslib'
             with patch.object(ovi, "create_os_client", return_value=mock_client):
@@ -289,4 +298,4 @@ class TestRequestErrorReason:
         e = _RequestError(400, 'illegal_argument_exception', info)
         _, raised = _run_index_exists_with_create_error(nextgen=False, request_error=e)
         assert raised is not None, "expected a ValueError to be raised, not an AttributeError"
-        assert 'opensearch_serverless_nextgen' in str(raised)
+        assert 'opensearch_serverless_generation' in str(raised)
