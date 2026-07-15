@@ -119,7 +119,7 @@ pip install .
 Or install from GitHub:
 
 ```bash
-pip install https://github.com/awslabs/graphrag-toolkit/archive/refs/tags/v3.15.5.zip#subdirectory=byokg-rag
+pip install https://github.com/awslabs/graphrag-toolkit/archive/refs/tags/v3.18.0.zip#subdirectory=byokg-rag
 ```
 
 NOTE: The version number will vary based on the latest GitHub release.
