@@ -82,9 +82,11 @@ if [[ "$DO_SETUP" = true ]]; then
     fi
 
     echo "Installing all dependencies in a single pass for consistent resolution"
+    grep -v '^--' graphrag_toolkit/byokg_rag/requirements.txt > /tmp/byokg_rag_deps.txt
+    grep -v '^--' graphrag_toolkit/lexical_graph/requirements.txt > /tmp/lexical_graph_deps.txt
     pip install \
-        -r graphrag_toolkit/byokg_rag/requirements.txt \
-        -r graphrag_toolkit/lexical_graph/requirements.txt \
+        -r /tmp/byokg_rag_deps.txt \
+        -r /tmp/lexical_graph_deps.txt \
         -r requirements-integ-test.txt
 
     #if [[ "$USE_GPU" == "True" ]]; then
