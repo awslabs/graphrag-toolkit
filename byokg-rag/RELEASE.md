@@ -52,13 +52,13 @@ This triggers the [BYOKG-RAG Pre-Release](/.github/workflows/byokg-rag-prereleas
 To install the pre-release wheel from the GitHub release:
 
 ```bash
-pip install https://github.com/awslabs/graphrag-toolkit/releases/download/graphrag-byokg%2FvX.Y.Z.devN/graphrag_toolkit_byokg_rag-X.Y.Z.devN-py3-none-any.whl
+pip install https://github.com/awslabs/graphrag-toolkit/releases/download/graphrag-byokg%2FvX.Y.Z.devN/graphrag_byokg-X.Y.Z.devN-py3-none-any.whl
 ```
 
 For example, to install `v1.2.0.dev1`:
 
 ```bash
-pip install https://github.com/awslabs/graphrag-toolkit/releases/download/graphrag-byokg%2Fv1.2.0.dev1/graphrag_toolkit_byokg_rag-1.2.0.dev0-py3-none-any.whl
+pip install https://github.com/awslabs/graphrag-toolkit/releases/download/graphrag-byokg%2Fv1.2.0.dev1/graphrag_byokg-1.2.0.dev0-py3-none-any.whl
 ```
 
 #### To run the unit tests locally:
@@ -74,7 +74,7 @@ The wheel artefacts should be tested against a well known release test suite to 
 
 ```bash
 cd integration-tests
-sh build-tests.sh --test-file byokg.short --byokg-rag-wheel /path/to/graphrag_toolkit_byokg_rag-X.Y.Z-py3-none-any.whl --toolkit-dir /path/to/graphrag-toolkit
+sh build-tests.sh --test-file byokg.short --byokg-rag-wheel /path/to/graphrag_byokg-X.Y.Z-py3-none-any.whl --toolkit-dir /path/to/graphrag-toolkit
 ```
 
 #### Attach integration test results to the github-release
@@ -108,7 +108,7 @@ Update the GitHub release to remove the pre-release label, promoting it to a ful
 Install the published package from PyPI:
 
 ```bash
-pip install graphrag-toolkit-byokg-rag==X.Y.Z
+pip install graphrag-byokg==X.Y.Z
 ```
 
 Sanity checks should be completed against the PyPI release artefacts to verify the package installs and functions correctly.

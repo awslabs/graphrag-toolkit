@@ -13,7 +13,7 @@ body:
     id: version
     attributes:
       label: Package version
-      description: Output of `pip show graphrag-lexical-graph` or `pip show graphrag-toolkit-byokg-rag`
+      description: Output of `pip show graphrag-lexical-graph` or `pip show graphrag-byokg`
       placeholder: "0.8.0"
     validations:
       required: true

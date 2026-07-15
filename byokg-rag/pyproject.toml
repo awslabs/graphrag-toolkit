@@ -6,8 +6,8 @@ build-backend = "hatchling.build"
 packages = ["src/graphrag_toolkit"]
 
 [project]
-name = "graphrag-toolkit-byokg-rag"
-version = "3.18.0"
+name = "graphrag-byokg"
+version = "3.18.1"
 description = "AWS GraphRAG Toolkit, BYOKG RAG"
 readme = "README.md"
 requires-python = ">=3.10"
