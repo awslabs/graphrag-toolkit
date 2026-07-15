@@ -1176,9 +1176,9 @@ class _GraphRAGConfig:
 
     @property
     def opensearch_username(self) -> Optional[str]:
-        """Basic-auth username for a local (non-AWS) OpenSearch endpoint. Unset (None)
-        means no basic auth is applied -- used with a local OpenSearch instance that has
-        no security plugin configured."""
+        """Basic-auth username for an OpenSearch endpoint that isn't Amazon OpenSearch
+        Serverless (AOSS). Unset (None) means no basic auth is applied -- used with an
+        OpenSearch instance that has no security plugin configured."""
         if self._opensearch_username is None:
             self._opensearch_username = os.environ.get('OPENSEARCH_USERNAME')
         return self._opensearch_username
@@ -1189,8 +1189,8 @@ class _GraphRAGConfig:
 
     @property
     def opensearch_password(self) -> Optional[str]:
-        """Basic-auth password for a local (non-AWS) OpenSearch endpoint. See
-        opensearch_username."""
+        """Basic-auth password for an OpenSearch endpoint that isn't Amazon OpenSearch
+        Serverless (AOSS). See opensearch_username."""
         if self._opensearch_password is None:
             self._opensearch_password = os.environ.get('OPENSEARCH_PASSWORD')
         return self._opensearch_password

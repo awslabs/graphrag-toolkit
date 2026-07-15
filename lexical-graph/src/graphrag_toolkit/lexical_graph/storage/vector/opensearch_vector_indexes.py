@@ -116,9 +116,9 @@ class DummyAuth:
 DEFAULT_POOL_MAXSIZE = 32
 
 def _local_http_auth():
-    """HTTP basic-auth tuple for a local OpenSearch endpoint from
-    GraphRAGConfig.opensearch_username/opensearch_password, or None if either is unset
-    (a local instance with no security plugin configured)."""
+    """HTTP basic-auth tuple for an OpenSearch endpoint (not Amazon OpenSearch
+    Serverless) from GraphRAGConfig.opensearch_username/opensearch_password, or None if
+    either is unset (an instance with no security plugin configured)."""
     username = GraphRAGConfig.opensearch_username
     password = GraphRAGConfig.opensearch_password
     if username and password:
@@ -133,15 +133,17 @@ def create_os_client(endpoint, is_local=False, **kwargs):
 
     By default the client is configured to use AWS Signature Version 4 authentication,
     signed with credentials from a pre-configured session and region. When is_local is
-    True, this instead connects to a self-managed OpenSearch instance: HTTP basic auth
-    from GraphRAGConfig.opensearch_username/opensearch_password if both are set,
-    otherwise no auth. The AWS session and region are never touched on the local path.
+    True, this instead connects to an OpenSearch endpoint that isn't Amazon OpenSearch
+    Serverless (AOSS): HTTP basic auth from
+    GraphRAGConfig.opensearch_username/opensearch_password if both are set, otherwise
+    no auth. The AWS session and region are never touched on this path.
 
     Args:
         endpoint: str
             The OpenSearch endpoint URL to connect to.
         is_local: bool
-            True for a self-managed (non-AWS) OpenSearch endpoint; skips SigV4.
+            True for an OpenSearch endpoint that isn't Amazon OpenSearch Serverless
+            (AOSS); skips SigV4.
         **kwargs: Any
             Additional keyword arguments passed to the OpenSearch client.
             ``pool_maxsize`` defaults to :data:`DEFAULT_POOL_MAXSIZE` when unset.
@@ -182,14 +184,16 @@ def create_os_async_client(endpoint, is_local=False, **kwargs):
     Creates an asynchronous OpenSearch client.
 
     By default this authenticates with AWS Signature Version 4. When is_local is True,
-    it connects to a self-managed OpenSearch instance instead: HTTP basic auth from
+    it connects to an OpenSearch endpoint that isn't Amazon OpenSearch Serverless
+    (AOSS) instead: HTTP basic auth from
     GraphRAGConfig.opensearch_username/opensearch_password if both are set, otherwise no
-    auth. The AWS session and region are never touched on the local path.
+    auth. The AWS session and region are never touched on this path.
 
     Args:
         endpoint: The URL of the OpenSearch cluster endpoint.
         is_local: bool
-            True for a self-managed (non-AWS) OpenSearch endpoint; skips SigV4.
+            True for an OpenSearch endpoint that isn't Amazon OpenSearch Serverless
+            (AOSS); skips SigV4.
         **kwargs: Optional parameters for customizing the AsyncOpenSearch client.
             ``pool_maxsize`` defaults to :data:`DEFAULT_POOL_MAXSIZE` when unset.
 
@@ -264,9 +268,10 @@ def index_exists(endpoint, index_name, dimensions, writeable, is_local=False, cl
         index_name: The name of the index to check for existence.
         dimensions: The number of dimensions for the knn_vector in the index.
         writeable: Flag indicating whether to create the index if it does not exist.
-        is_local: True for a self-managed (non-AWS) OpenSearch endpoint; skips SigV4.
+        is_local: True for an OpenSearch endpoint that isn't Amazon OpenSearch
+            Serverless (AOSS); skips SigV4.
         client_kwargs: Optional dict of keyword arguments passed through to the
-            OpenSearch client (e.g. ``{"use_ssl": False}`` for a plain-HTTP local
+            OpenSearch client (e.g. ``{"use_ssl": False}`` for a plain-HTTP
             endpoint). ``pool_maxsize`` defaults to 1 unless overridden here.
 
     Returns:
@@ -341,7 +346,7 @@ def index_exists(endpoint, index_name, dimensions, writeable, is_local=False, cl
     return index_exists
         
     
-def create_opensearch_vector_client(endpoint, index_name, dimensions, embed_model, client_kwargs=None, is_local=False):
+def create_opensearch_vector_client(endpoint, index_name, dimensions, embed_model, is_local=False, client_kwargs=None):
     """
     Creates an OpenSearch vector client for interacting with an OpenSearch cluster.
 
@@ -354,14 +359,14 @@ def create_opensearch_vector_client(endpoint, index_name, dimensions, embed_mode
         index_name: Name of the index to be used for storing vectors.
         dimensions: Dimensions of the vector space used for embeddings.
         embed_model: Embedding model associated with the vectors.
+        is_local: True for an OpenSearch endpoint that isn't Amazon OpenSearch
+            Serverless (AOSS); skips SigV4 and marks the underlying client as non-AOSS
+            (refresh() is called after bulk ingest).
         client_kwargs: Optional dict of keyword arguments passed through to both the
             synchronous and asynchronous OpenSearch clients (e.g.
             ``{"pool_maxsize": 10, "timeout": 60}``). Defaults that are already set
             on the clients (``use_ssl``, ``verify_certs``, ``connection_class``,
             ``timeout``, ``max_retries``, ``retry_on_timeout``) can be overridden here.
-        is_local: True for a self-managed (non-AWS) OpenSearch endpoint; skips SigV4
-            and marks the underlying client as non-AOSS (refresh() is called after
-            bulk ingest, matching a self-managed cluster's behavior).
 
     Returns:
         OpensearchVectorClient: A configured OpenSearch vector client instance.
@@ -508,7 +513,7 @@ class OpenSearchIndex(VectorIndex):
             client instance for interacting with OpenSearch, initialized on demand.
     """
     @staticmethod
-    def for_index(index_name, endpoint, embed_model=None, dimensions=None, client_kwargs=None, is_local=False):
+    def for_index(index_name, endpoint, embed_model=None, dimensions=None, is_local=False, client_kwargs=None):
         """
         Creates and returns an instance of OpenSearchIndex using the provided parameters.
 
@@ -525,11 +530,12 @@ class OpenSearchIndex(VectorIndex):
                 the configuration specified in GraphRAGConfig.
             dimensions (Optional[int]): The dimensions to be used for the embeddings.
                 Defaults to the configuration specified in GraphRAGConfig.
+            is_local (bool): True for an OpenSearch endpoint that isn't Amazon
+                OpenSearch Serverless (AOSS); skips AWS SigV4 signing in favor of HTTP
+                basic auth or no auth.
             client_kwargs (Optional[Dict[str, Any]]): Optional dict of keyword arguments
                 forwarded to the underlying synchronous and asynchronous OpenSearch
                 clients (e.g. ``{"pool_maxsize": 10, "timeout": 60}``).
-            is_local (bool): True for a self-managed (non-AWS) OpenSearch endpoint;
-                skips AWS SigV4 signing in favor of HTTP basic auth or no auth.
 
         Returns:
             OpenSearchIndex: An instance of OpenSearchIndex initialized with the
@@ -538,15 +544,15 @@ class OpenSearchIndex(VectorIndex):
         embed_model = embed_model or GraphRAGConfig.embed_model
         dimensions = dimensions or GraphRAGConfig.embed_dimensions
 
-        return OpenSearchIndex(index_name=index_name, endpoint=endpoint, dimensions=dimensions, embed_model=embed_model, client_kwargs=client_kwargs, is_local=is_local)
+        return OpenSearchIndex(index_name=index_name, endpoint=endpoint, dimensions=dimensions, embed_model=embed_model, is_local=is_local, client_kwargs=client_kwargs)
 
     endpoint:str
     index_name:str
     dimensions:int
     embed_model:EmbeddingType
     model_config = ConfigDict(arbitrary_types_allowed=True)
-    client_kwargs:Optional[Dict[str, Any]]=None
     is_local:bool=False
+    client_kwargs:Optional[Dict[str, Any]]=None
 
     _client: OpensearchVectorClient = PrivateAttr(default=None)
 
@@ -595,8 +601,8 @@ class OpenSearchIndex(VectorIndex):
                     self.underlying_index_name(),
                     self.dimensions,
                     self.embed_model,
-                    client_kwargs=self.client_kwargs,
                     is_local=self.is_local,
+                    client_kwargs=self.client_kwargs,
                 )
             else:
                 self._client = DummyOpensearchVectorClient()
