@@ -399,6 +399,11 @@ def index_exists(endpoint, index_name, dimensions, writeable) -> bool:
     """
     client = create_os_client(endpoint, pool_maxsize=1)
     generation = GraphRAGConfig.opensearch_serverless_generation
+    # When unset, generation is detected reactively: try Classic, retry NextGen on
+    # rejection (see _try_create_index). A deterministic alternative is the AOSS
+    # BatchGetCollectionGroup `generation` field, but it needs boto3>=1.43.17 and
+    # aoss:BatchGetCollection[Group] on every client role, so it's deferred with an
+    # AccessDenied fallback to this reactive path. See awslabs/graphrag-toolkit#399.
 
     try:
         return _try_create_index(
