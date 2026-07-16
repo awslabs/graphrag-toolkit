@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 
 OPENSEARCH_SERVERLESS = 'aoss://'
 OPENSEARCH_SERVERLESS_DNS = 'aoss.amazonaws.com'
-OPENSEARCH_LOCAL = 'opensearch://'
+OPENSEARCH = 'opensearch://'
 
 class OpenSearchVectorIndexFactory(VectorIndexFactoryMethod):
     """Factory class for creating OpenSearch vector indexes.
@@ -44,23 +44,23 @@ class OpenSearchVectorIndexFactory(VectorIndexFactoryMethod):
                 names and endpoint configuration, or None if no suitable endpoint is found.
         """
         endpoint = None
-        is_local = False
+        is_serverless = True
         if vector_index_info.startswith(OPENSEARCH_SERVERLESS):
             endpoint = vector_index_info[len(OPENSEARCH_SERVERLESS):]
             if not endpoint.startswith('https://') and not endpoint.startswith('http://'):
                 endpoint = f'https://{endpoint}'
-        elif vector_index_info.startswith(OPENSEARCH_LOCAL):
-            endpoint = vector_index_info[len(OPENSEARCH_LOCAL):]
+        elif vector_index_info.startswith(OPENSEARCH):
+            endpoint = vector_index_info[len(OPENSEARCH):]
             if not endpoint.startswith('https://') and not endpoint.startswith('http://'):
                 endpoint = f'https://{endpoint}'
-            is_local = True
+            is_serverless = False
         elif vector_index_info.startswith('https://') and vector_index_info.endswith(OPENSEARCH_SERVERLESS_DNS):
             endpoint = vector_index_info
         if endpoint:
             try:
                 from graphrag_toolkit.lexical_graph.storage.vector.opensearch_vector_indexes import OpenSearchIndex
-                logger.debug(f'Opening OpenSearch vector indexes [index_names: {index_names}, endpoint: {endpoint}, is_local: {is_local}]')
-                return [OpenSearchIndex.for_index(index_name, endpoint, is_local=is_local, **kwargs) for index_name in index_names]
+                logger.debug(f'Opening OpenSearch vector indexes [index_names: {index_names}, endpoint: {endpoint}, is_serverless: {is_serverless}]')
+                return [OpenSearchIndex.for_index(index_name, endpoint, is_serverless=is_serverless, **kwargs) for index_name in index_names]
             except ImportError as e:
                 raise e
 
