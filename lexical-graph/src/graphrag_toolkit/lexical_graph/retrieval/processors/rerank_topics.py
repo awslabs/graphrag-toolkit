@@ -20,7 +20,7 @@ import logging
 import time
 from typing import List, Dict
 
-import boto3
+from botocore.config import Config
 
 from graphrag_toolkit.lexical_graph import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.retrieval.processors.processor_base import ProcessorBase
@@ -50,8 +50,12 @@ class RerankTopics(ProcessorBase):
         return [scored.get(t, 0.0) for t in texts]
 
     def _score_with_bedrock(self, texts: List[str], query: QueryBundle) -> List[float]:
-        region = boto3.Session().region_name or getattr(GraphRAGConfig, 'aws_region', None) or 'us-east-1'
-        client = boto3.client('bedrock-agent-runtime', region_name=region)
+        session = GraphRAGConfig.session
+        region = session.region_name or GraphRAGConfig.aws_region or 'us-east-1'
+        client_kwargs = {'region_name': region}
+        if self.args.bedrock_reranker_client_config is not None:
+            client_kwargs['config'] = Config(**self.args.bedrock_reranker_client_config)
+        client = session.client('bedrock-agent-runtime', **client_kwargs)
         model_arn = f'arn:aws:bedrock:{region}::foundation-model/{GraphRAGConfig.bedrock_reranking_model}'
         sources = [{'type': 'INLINE', 'inlineDocumentSource': {'type': 'TEXT', 'textDocument': {'text': t}}}
                    for t in texts]
