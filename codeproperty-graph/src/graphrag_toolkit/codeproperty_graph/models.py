@@ -18,7 +18,7 @@ Supported languages: Java, JavaScript/TypeScript, Python, C/C++, Go, PHP,
 """
 
 from dataclasses import dataclass, field
-from typing import Dict, Any, Optional
+from typing import Dict, Any, List, Optional
 
 
 @dataclass
@@ -93,6 +93,30 @@ class CPGNode:
             properties=props,
         )
 
+    @classmethod
+    def from_artifact(cls, raw: dict) -> "CPGNode":
+        """Create a CPGNode from a portable CPG artifact schema entry.
+
+        Args:
+            raw: Dict with keys: cpg_node_id, node_type, labels, repo_id,
+                 commit_sha, file_path, fully_qualified_name, name,
+                 line_start, line_end, code_hash, properties.
+
+        Returns:
+            CPGNode with artifact fields mapped to typed fields.
+        """
+        return cls(
+            id=raw.get("cpg_node_id", ""),
+            node_type=raw.get("node_type", "UNKNOWN"),
+            full_name=raw.get("fully_qualified_name", ""),
+            hash=raw.get("code_hash", ""),
+            filename=raw.get("file_path", ""),
+            name=raw.get("name", ""),
+            line_number=raw.get("line_start"),
+            line_number_end=raw.get("line_end"),
+            properties=raw.get("properties", {}),
+        )
+
 
 @dataclass
 class CPGEdge:
@@ -139,6 +163,24 @@ class CPGEdge:
             properties=raw.get("properties", {}),
         )
 
+    @classmethod
+    def from_artifact(cls, raw: dict) -> "CPGEdge":
+        """Create a CPGEdge from a portable CPG artifact schema entry.
+
+        Args:
+            raw: Dict with keys: edge_id, source_cpg_node_id,
+                 target_cpg_node_id, edge_type, properties.
+
+        Returns:
+            CPGEdge with artifact fields mapped.
+        """
+        return cls(
+            source_id=raw.get("source_cpg_node_id", ""),
+            target_id=raw.get("target_cpg_node_id", ""),
+            edge_type=raw.get("edge_type", "UNKNOWN"),
+            properties=raw.get("properties", {}),
+        )
+
 
 @dataclass
 class Manifest:
@@ -162,3 +204,110 @@ class Manifest:
     edge_count: int = 0
     language: str = ""
     method_signatures: Dict[str, str] = field(default_factory=dict)  # full_name → hash
+
+
+@dataclass
+class VectorRecord:
+    """An embedding vector associated with a CPG node.
+
+    Used for semantic search over code elements (methods, types, etc.).
+    """
+
+    cpg_node_id: str
+    embedding_target: str
+    embedding_model: str
+    embedding_dimensions: int
+    similarity_function: str
+    embedding_text_hash: str
+    vector: List[float] = field(default_factory=list)
+
+    @classmethod
+    def from_artifact(cls, raw: dict) -> "VectorRecord":
+        """Create a VectorRecord from a portable artifact schema entry.
+
+        Args:
+            raw: Dict with keys: cpg_node_id, embedding_target, embedding_model,
+                 embedding_dimensions, similarity_function, embedding_text_hash, vector.
+
+        Returns:
+            VectorRecord with artifact fields mapped.
+        """
+        return cls(
+            cpg_node_id=raw.get("cpg_node_id", ""),
+            embedding_target=raw.get("embedding_target", ""),
+            embedding_model=raw.get("embedding_model", ""),
+            embedding_dimensions=raw.get("embedding_dimensions", 0),
+            similarity_function=raw.get("similarity_function", ""),
+            embedding_text_hash=raw.get("embedding_text_hash", ""),
+            vector=raw.get("vector", []),
+        )
+
+
+@dataclass
+class SummaryRecord:
+    """An LLM-generated summary associated with a CPG node.
+
+    Used for natural-language descriptions of code elements.
+    """
+
+    cpg_node_id: str
+    summary_type: str
+    text: str
+    generation_model: str
+    generation_prompt_version: str
+
+    @classmethod
+    def from_artifact(cls, raw: dict) -> "SummaryRecord":
+        """Create a SummaryRecord from a portable artifact schema entry.
+
+        Args:
+            raw: Dict with keys: cpg_node_id, summary_type, text,
+                 generation_model, generation_prompt_version.
+
+        Returns:
+            SummaryRecord with artifact fields mapped.
+        """
+        return cls(
+            cpg_node_id=raw.get("cpg_node_id", ""),
+            summary_type=raw.get("summary_type", ""),
+            text=raw.get("text", ""),
+            generation_model=raw.get("generation_model", ""),
+            generation_prompt_version=raw.get("generation_prompt_version", ""),
+        )
+
+
+@dataclass
+class CodeSliceRecord:
+    """A code slice (excerpt) associated with a CPG node.
+
+    Represents extracted code fragments for analysis or display.
+    """
+
+    cpg_node_id: str
+    slice_type: str
+    code: str
+    language: str
+    line_start: Optional[int] = None
+    line_end: Optional[int] = None
+    file_path: str = ""
+
+    @classmethod
+    def from_artifact(cls, raw: dict) -> "CodeSliceRecord":
+        """Create a CodeSliceRecord from a portable artifact schema entry.
+
+        Args:
+            raw: Dict with keys: cpg_node_id, slice_type, code, language,
+                 line_start, line_end, file_path.
+
+        Returns:
+            CodeSliceRecord with artifact fields mapped.
+        """
+        return cls(
+            cpg_node_id=raw.get("cpg_node_id", ""),
+            slice_type=raw.get("slice_type", ""),
+            code=raw.get("code", ""),
+            language=raw.get("language", ""),
+            line_start=raw.get("line_start"),
+            line_end=raw.get("line_end"),
+            file_path=raw.get("file_path", ""),
+        )

@@ -7,20 +7,17 @@ packages = ["src/graphrag_toolkit"]
 
 [project]
 name = "graphrag-toolkit-codeproperty-graph"
-version = "0.1.0"
+version = "0.4.2"
 description = "AWS GraphRAG Toolkit, Code Property Graph — delta-aware CPG ingestion"
 readme = "README.md"
 requires-python = ">=3.10"
 license = "Apache-2.0"
 dependencies = [
-  "graphrag-toolkit-document-graph>=3.0.0",
+  "graphrag-lexical-graph>=3.18.0",
   "boto3>=1.26.0",
 ]
 
 [project.optional-dependencies]
-graphrag = [
-  "graphrag-toolkit-lexical-graph>=3.18.0",
-]
 dev = [
   "pytest>=7.0",
   "pytest-cov>=4.0",
