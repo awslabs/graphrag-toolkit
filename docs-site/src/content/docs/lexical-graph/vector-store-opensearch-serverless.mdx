@@ -149,3 +149,16 @@ with VectorStoreFactory.for_vector_store(
 ```
 
 Unlike `aoss://` (Amazon OpenSearch Serverless), an `opensearch://` endpoint never uses AWS SigV4. It connects with HTTP basic auth from the `OPENSEARCH_USERNAME` and `OPENSEARCH_PASSWORD` environment variables (or `GraphRAGConfig.opensearch_username` / `GraphRAGConfig.opensearch_password`), or with no auth if neither is set. If you omit the scheme from the endpoint (e.g. `opensearch://localhost:9200`), it defaults to `https://`.
+
+The `opensearch://` prefix targets OpenSearch instances that don't use AWS authentication (basic auth or no auth). A managed Amazon OpenSearch Service domain that authenticates with IAM is not supported through this prefix yet.
+
+For a local Docker or Finch container over plain HTTP, use `opensearch://http://localhost:9200`. For an endpoint with a self-signed TLS certificate, disable certificate verification by passing `client_kwargs`:
+
+```python
+with VectorStoreFactory.for_vector_store(
+  'opensearch://https://localhost:9200',
+  index_names=['chunk'],
+  client_kwargs={'verify_certs': False}
+) as vector_store:
+    ...
+```

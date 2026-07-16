@@ -75,7 +75,7 @@ Pass a connection string to `GraphStoreFactory.for_graph_store()` or `VectorStor
 | S3 Vectors (vector) | constructed via `S3VectorIndexFactory` |
 | Dummy / no-op | `None` or any unrecognised string — falls back to `DummyGraphStore` / `DummyVectorIndex` |
 
-An `opensearch://<url>` endpoint connects with HTTP basic auth from the `OPENSEARCH_USERNAME` / `OPENSEARCH_PASSWORD` environment variables, or with no auth if neither is set — unlike `aoss://` (Amazon OpenSearch Serverless), it never uses AWS SigV4. `opensearch://localhost:9200` defaults to `https://localhost:9200`; use `opensearch://http://localhost:9200` for a plain-HTTP endpoint.
+An `opensearch://<url>` endpoint connects with HTTP basic auth from the `OPENSEARCH_USERNAME` / `OPENSEARCH_PASSWORD` environment variables, or with no auth if neither is set — unlike `aoss://` (Amazon OpenSearch Serverless), it never uses AWS SigV4. `opensearch://localhost:9200` defaults to `https://localhost:9200`; use `opensearch://http://localhost:9200` for a plain-HTTP endpoint. For a self-signed TLS certificate, pass `client_kwargs={'verify_certs': False}` to `VectorStoreFactory.for_vector_store`. The `opensearch://` prefix targets instances without AWS authentication; a managed Amazon OpenSearch Service domain using IAM auth is not supported through this prefix yet.
 
 ## Example of use
 
