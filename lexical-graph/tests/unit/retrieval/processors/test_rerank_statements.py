@@ -3,7 +3,8 @@
 
 """Tests for retrieval/processors/rerank_statements."""
 
-from unittest.mock import MagicMock, Mock, patch
+import logging
+from unittest.mock import Mock, patch
 
 import pytest
 from llama_index.core.schema import QueryBundle
@@ -24,6 +25,7 @@ from graphrag_toolkit.lexical_graph.retrieval.processors.rerank_statements impor
     RerankStatements,
     default_reranking_source_metadata_fn,
 )
+from graphrag_toolkit.lexical_graph.retrieval.processors.reranker_chain import KNOWN_RERANKERS
 
 
 def _collection_with_statements():
@@ -146,6 +148,21 @@ class TestProcessResults:
         result = processor._process_results(collection, QueryBundle('q'))
         assert result is collection
 
+    def test_none_reranker_short_circuits_before_formatting_values(self):
+        source_metadata_fn = Mock()
+        processor = RerankStatements(
+            ProcessorArgs(
+                reranker='none',
+                debug_results=[],
+                reranking_source_metadata_fn=source_metadata_fn,
+            ),
+            FilterConfig(),
+        )
+        collection = _collection_with_statements()
+        result = processor._process_results(collection, QueryBundle('q'))
+        assert result is collection
+        source_metadata_fn.assert_not_called()
+
     def test_no_reranker_value_returns_results_unchanged(self):
         processor = RerankStatements(
             ProcessorArgs(reranker=None, debug_results=[]), FilterConfig(),
@@ -224,3 +241,343 @@ class TestProcessResults:
         statements = result.results[0].topics[0].statements
         assert {s.score for s in statements} == {0.3, 0.7}
         assert statements[0].score >= statements[1].score
+
+    def test_reranker_chain_uses_first_successful_reranker(self):
+        processor = RerankStatements(
+            ProcessorArgs(reranker=['bedrock', 'tfidf'], debug_results=[], max_statements=10),
+            FilterConfig(),
+        )
+        with patch.object(processor, '_score_values_with_bedrock') as bedrock_scorer, \
+             patch.object(processor, '_score_values_with_tfidf') as tfidf_scorer:
+            bedrock_scorer.side_effect = lambda values, *_a, **_kw: {
+                values[0]: 0.3, values[1]: 0.7,
+            }
+            result = processor._process_results(
+                _collection_with_statements(), QueryBundle('q'),
+            )
+        bedrock_scorer.assert_called_once()
+        tfidf_scorer.assert_not_called()
+        statements = result.results[0].topics[0].statements
+        assert {s.score for s in statements} == {0.3, 0.7}
+
+    def test_reranker_chain_falls_back_after_exception(self, caplog):
+        processor = RerankStatements(
+            ProcessorArgs(reranker=['bedrock', 'tfidf'], debug_results=[], max_statements=10),
+            FilterConfig(),
+        )
+        failure = RuntimeError('throttled')
+        caplog.set_level(logging.WARNING, logger=mod.__name__)
+        with patch.object(processor, '_score_values_with_bedrock') as bedrock_scorer, \
+             patch.object(processor, '_score_values_with_tfidf') as tfidf_scorer:
+            bedrock_scorer.side_effect = failure
+            tfidf_scorer.side_effect = lambda values, *_a, **_kw: {
+                values[0]: 0.4, values[1]: 0.9,
+            }
+            result = processor._process_results(
+                _collection_with_statements(), QueryBundle('q'),
+            )
+        bedrock_scorer.assert_called_once()
+        tfidf_scorer.assert_called_once()
+        statements = result.results[0].topics[0].statements
+        assert statements[0].score == 0.9
+        assert statements[1].score == 0.4
+        warning = next(
+            record for record in caplog.records
+            if record.levelno == logging.WARNING and 'Reranking with bedrock failed' in record.getMessage()
+        )
+        assert warning.getMessage() == 'Reranking with bedrock failed (RuntimeError); trying tfidf'
+        assert warning.exc_info is not None
+        assert warning.exc_info[1] is failure
+
+    def test_reranker_chain_empty_score_map_is_terminal(self, caplog):
+        fallback_policy = Mock(return_value=True)
+        processor = RerankStatements(
+            ProcessorArgs(
+                reranker=['bedrock', 'tfidf'],
+                reranker_fallback_policy=fallback_policy,
+                debug_results=[],
+                max_statements=10,
+            ),
+            FilterConfig(),
+        )
+        caplog.set_level(logging.ERROR, logger=mod.__name__)
+        with patch.object(processor, '_score_values_with_bedrock') as bedrock_scorer, \
+             patch.object(processor, '_score_values_with_tfidf') as tfidf_scorer:
+            bedrock_scorer.return_value = {}
+            result = processor._process_results(
+                _collection_with_statements(), QueryBundle('q'),
+            )
+        bedrock_scorer.assert_called_once()
+        tfidf_scorer.assert_not_called()
+        fallback_policy.assert_not_called()
+        assert any(
+            record.levelno == logging.ERROR
+            and record.getMessage()
+            == 'Reranking with bedrock returned an empty score map; all statements will be dropped'
+            for record in caplog.records
+        )
+        assert result.results == []
+
+    def test_object_fallback_policy_is_rejected(self):
+        class PolicyObject:
+            def should_fallback(self, reranker, *, error=None):
+                return True
+
+        args = ProcessorArgs(
+            reranker=['bedrock', 'tfidf'],
+            reranker_fallback_policy=PolicyObject(),
+            debug_results=[],
+        )
+        with pytest.raises(TypeError):
+            RerankStatements(args, FilterConfig())
+
+    def test_reranker_chain_can_fall_back_to_none(self, caplog):
+        processor = RerankStatements(
+            ProcessorArgs(reranker=['bedrock', 'none'], debug_results=[], max_statements=10),
+            FilterConfig(),
+        )
+        collection = _collection_with_statements()
+        caplog.set_level(logging.WARNING, logger=mod.__name__)
+        with patch.object(processor, '_score_values_with_bedrock') as bedrock_scorer, \
+             patch.object(processor, '_score_values_with_tfidf') as tfidf_scorer:
+            bedrock_scorer.side_effect = RuntimeError('throttled')
+            result = processor._process_results(collection, QueryBundle('q'))
+        bedrock_scorer.assert_called_once()
+        tfidf_scorer.assert_not_called()
+        assert any(
+            record.levelno == logging.WARNING
+            and record.getMessage() == 'Reranking with bedrock failed (RuntimeError); trying none'
+            for record in caplog.records
+        )
+        assert result is collection
+
+    def test_policy_denied_failure_does_not_reach_none(self):
+        fallback_policy = Mock(return_value=False)
+        processor = RerankStatements(
+            ProcessorArgs(
+                reranker=['bedrock', 'none'],
+                reranker_fallback_policy=fallback_policy,
+                debug_results=[],
+                max_statements=10,
+            ),
+            FilterConfig(),
+        )
+        failure = RuntimeError('not eligible for fallback')
+        with patch.object(processor, '_score_values_with_bedrock', side_effect=failure):
+            with pytest.raises(RuntimeError) as raised:
+                processor._process_results(
+                    _collection_with_statements(), QueryBundle('q'),
+                )
+        assert raised.value is failure
+        fallback_policy.assert_called_once_with('bedrock', error=failure)
+
+    def test_terminal_reranker_exception_propagates(self):
+        policy_calls = []
+
+        def fallback_only_from_bedrock(reranker, *, error=None):
+            policy_calls.append((reranker, error))
+            return reranker == 'bedrock'
+
+        processor = RerankStatements(
+            ProcessorArgs(
+                reranker=['bedrock', 'tfidf'],
+                reranker_fallback_policy=fallback_only_from_bedrock,
+                debug_results=[],
+                max_statements=10,
+            ),
+            FilterConfig(),
+        )
+        bedrock_failure = RuntimeError('retryable failure')
+        terminal_failure = RuntimeError('terminal failure')
+        with patch.object(processor, '_score_values_with_bedrock') as bedrock_scorer, \
+             patch.object(processor, '_score_values_with_tfidf') as tfidf_scorer:
+            bedrock_scorer.side_effect = bedrock_failure
+            tfidf_scorer.side_effect = terminal_failure
+            with pytest.raises(RuntimeError) as raised:
+                processor._process_results(
+                    _collection_with_statements(), QueryBundle('q'),
+                )
+        assert raised.value is terminal_failure
+        assert policy_calls == [('bedrock', bedrock_failure)]
+
+    def test_terminal_exception_propagates_by_default(self):
+        processor = RerankStatements(
+            ProcessorArgs(reranker=['bedrock', 'tfidf'], debug_results=[], max_statements=10),
+            FilterConfig(),
+        )
+        with patch.object(processor, '_score_values_with_bedrock') as bedrock_scorer, \
+             patch.object(processor, '_score_values_with_tfidf') as tfidf_scorer:
+            bedrock_scorer.side_effect = RuntimeError('retryable failure')
+            tfidf_scorer.side_effect = RuntimeError('terminal failure')
+            with pytest.raises(RuntimeError, match='terminal failure'):
+                processor._process_results(
+                    _collection_with_statements(), QueryBundle('q'),
+                )
+        bedrock_scorer.assert_called_once()
+        tfidf_scorer.assert_called_once()
+
+    def test_custom_fallback_policy_can_stop_fallback(self):
+        calls = []
+
+        def fallback_policy(reranker, *, error=None):
+            calls.append(reranker)
+            return False
+
+        processor = RerankStatements(
+            ProcessorArgs(
+                reranker=['bedrock', 'tfidf'],
+                reranker_fallback_policy=fallback_policy,
+                debug_results=[],
+                max_statements=10,
+            ),
+            FilterConfig(),
+        )
+        with patch.object(processor, '_score_values_with_bedrock') as bedrock_scorer, \
+             patch.object(processor, '_score_values_with_tfidf') as tfidf_scorer:
+            bedrock_scorer.side_effect = RuntimeError('do not fallback')
+            with pytest.raises(RuntimeError):
+                processor._process_results(
+                    _collection_with_statements(), QueryBundle('q'),
+                )
+        assert calls == ['bedrock']
+        tfidf_scorer.assert_not_called()
+
+    def test_three_reranker_chain_stops_at_middle_success(self):
+        processor = RerankStatements(
+            ProcessorArgs(reranker=['bedrock', 'tfidf', 'model'], debug_results=[], max_statements=10),
+            FilterConfig(),
+        )
+        with patch.object(processor, '_score_values_with_bedrock') as bedrock_scorer, \
+             patch.object(processor, '_score_values_with_tfidf') as tfidf_scorer, \
+             patch.object(processor, '_score_values') as model_scorer:
+            bedrock_scorer.side_effect = RuntimeError('throttled')
+            tfidf_scorer.side_effect = lambda values, *_a, **_kw: {values[0]: 0.5, values[1]: 0.8}
+            result = processor._process_results(_collection_with_statements(), QueryBundle('q'))
+        bedrock_scorer.assert_called_once()
+        tfidf_scorer.assert_called_once()
+        model_scorer.assert_not_called()
+        statements = result.results[0].topics[0].statements
+        assert statements[0].score == 0.8
+
+    def test_three_reranker_chain_reaches_third_after_two_failures(self):
+        processor = RerankStatements(
+            ProcessorArgs(
+                reranker=['bedrock', 'tfidf', 'model'],
+                debug_results=[],
+                max_statements=10,
+            ),
+            FilterConfig(),
+        )
+        with patch.object(processor, '_score_values_with_bedrock') as bedrock_scorer, \
+             patch.object(processor, '_score_values_with_tfidf') as tfidf_scorer, \
+             patch.object(processor, '_score_values') as model_scorer:
+            bedrock_scorer.side_effect = RuntimeError('first failure')
+            tfidf_scorer.side_effect = RuntimeError('second failure')
+            model_scorer.side_effect = lambda values, *_a, **_kw: {
+                values[0]: 0.2, values[1]: 0.95,
+            }
+            result = processor._process_results(
+                _collection_with_statements(), QueryBundle('q'),
+            )
+        bedrock_scorer.assert_called_once()
+        tfidf_scorer.assert_called_once()
+        model_scorer.assert_called_once()
+        statements = result.results[0].topics[0].statements
+        assert [statement.score for statement in statements] == [0.95, 0.2]
+
+    def test_all_rerankers_fail_with_last_exception(self):
+        policy_calls = []
+
+        def fallback_policy(reranker, *, error=None):
+            policy_calls.append((reranker, error))
+            return True
+
+        processor = RerankStatements(
+            ProcessorArgs(
+                reranker=['bedrock', 'tfidf', 'model'],
+                reranker_fallback_policy=fallback_policy,
+                debug_results=[],
+                max_statements=10,
+            ),
+            FilterConfig(),
+        )
+        bedrock_failure = RuntimeError('first failure')
+        tfidf_failure = RuntimeError('second failure')
+        model_failure = RuntimeError('last failure')
+        with patch.object(processor, '_score_values_with_bedrock', side_effect=bedrock_failure), \
+             patch.object(processor, '_score_values_with_tfidf', side_effect=tfidf_failure), \
+             patch.object(processor, '_score_values', side_effect=model_failure):
+            with pytest.raises(RuntimeError) as raised:
+                processor._process_results(
+                    _collection_with_statements(), QueryBundle('q'),
+                )
+        assert raised.value is model_failure
+        assert policy_calls == [
+            ('bedrock', bedrock_failure),
+            ('tfidf', tfidf_failure),
+        ]
+
+    def test_successful_reranking_logs_only_at_debug(self, caplog):
+        processor = RerankStatements(
+            ProcessorArgs(reranker=['bedrock', 'tfidf'], debug_results=[], max_statements=10),
+            FilterConfig(),
+        )
+        caplog.set_level(logging.DEBUG, logger=mod.__name__)
+        with patch.object(processor, '_score_values_with_bedrock', return_value={'value': 1.0}), \
+             patch.object(processor, '_score_values_with_tfidf') as tfidf_scorer:
+            result = processor._score_values_with_chain(
+                ['value'], QueryBundle('q'), _entity_contexts(),
+            )
+        assert result == {'value': 1.0}
+        tfidf_scorer.assert_not_called()
+        success_records = [
+            record for record in caplog.records
+            if record.getMessage() == 'Reranking succeeded with bedrock'
+        ]
+        assert len(success_records) == 1
+        assert success_records[0].levelno == logging.DEBUG
+        assert not any(
+            record.levelno == logging.INFO and 'Reranking succeeded' in record.getMessage()
+            for record in caplog.records
+        )
+
+    def test_policy_exception_propagates(self):
+        def broken_policy(reranker, *, error=None):
+            raise KeyError('broken policy')
+
+        processor = RerankStatements(
+            ProcessorArgs(
+                reranker=['bedrock', 'tfidf'],
+                reranker_fallback_policy=broken_policy,
+                debug_results=[],
+                max_statements=10,
+            ),
+            FilterConfig(),
+        )
+        with patch.object(processor, '_score_values_with_bedrock') as bedrock_scorer, \
+             patch.object(processor, '_score_values_with_tfidf') as tfidf_scorer:
+            bedrock_scorer.side_effect = RuntimeError('throttled')
+            with pytest.raises(KeyError):
+                processor._process_results(
+                    _collection_with_statements(), QueryBundle('q'),
+                )
+        tfidf_scorer.assert_not_called()
+
+
+class TestKnownRerankerCoverage:
+    @pytest.mark.parametrize('reranker', [r for r in KNOWN_RERANKERS if r != 'none'])
+    def test_every_known_reranker_dispatches_to_a_scorer(self, reranker):
+        # Drift guard: a name added to KNOWN_RERANKERS without a matching entry
+        # in _score_values_with_chain's scorer registry passes chain validation
+        # but silently skips reranking at query time.
+        processor = RerankStatements(
+            ProcessorArgs(reranker=[reranker], debug_results=[], max_statements=10),
+            FilterConfig(),
+        )
+        with patch.object(processor, '_score_values', return_value={'v': 1.0}), \
+             patch.object(processor, '_score_values_with_tfidf', return_value={'v': 1.0}), \
+             patch.object(processor, '_score_values_with_bedrock', return_value={'v': 1.0}):
+            scored = processor._score_values_with_chain(
+                ['v'], QueryBundle('q'), EntityContexts(contexts=[], keywords=[]),
+            )
+        assert scored == {'v': 1.0}, f'no scorer wired up for reranker "{reranker}"'
