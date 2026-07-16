@@ -20,6 +20,7 @@
       "Default": "neptune-db-aoss",
       "AllowedValues": [
         "neptune-db-aoss",
+        "neptune-db-aoss-nextgen",
         "neptune-db-postgresql",
         "neptune-db-s3vectors",
         "neptune-graph",
@@ -94,6 +95,15 @@
     "EnvTypeMap": {
       "neptune-db-aoss": {
         "TemplateName": "graphrag-toolkit-neptune-db-opensearch-serverless.json",
+        "IncludeEngineVersion": "True",
+        "IncludeSSHCIDR": "False",
+        "IncludeNeptuneInstanceType": "True",
+        "IncludeAllowPublicAccess": "True",
+        "IncludeDbPassword": "False",
+        "IncludeExistingVpc": "True"
+      },
+      "neptune-db-aoss-nextgen": {
+        "TemplateName": "graphrag-toolkit-neptune-db-opensearch-nextgen-serverless.json",
         "IncludeEngineVersion": "True",
         "IncludeSSHCIDR": "False",
         "IncludeNeptuneInstanceType": "True",
