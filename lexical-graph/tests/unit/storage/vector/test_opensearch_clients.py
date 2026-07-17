@@ -239,6 +239,42 @@ class TestCreateOsClientLocal:
                 assert kwargs["http_auth"] is None
                 assert any("Only one of" in r.message for r in caplog.records)
 
+    def test_schemeless_endpoint_defaults_to_ssl(self):
+        with patch.object(ovi, "GraphRAGConfig") as mock_cfg:
+            mock_cfg.opensearch_username = None
+            mock_cfg.opensearch_password = None
+            with patch.object(ovi, "OpenSearch") as mock_os:
+                ovi.create_os_client("localhost:9200", is_sigv4_auth=False)
+                _, kwargs = mock_os.call_args
+                assert kwargs["use_ssl"] is True
+
+    def test_http_scheme_disables_ssl(self):
+        with patch.object(ovi, "GraphRAGConfig") as mock_cfg:
+            mock_cfg.opensearch_username = None
+            mock_cfg.opensearch_password = None
+            with patch.object(ovi, "OpenSearch") as mock_os:
+                ovi.create_os_client("http://localhost:9200", is_sigv4_auth=False)
+                _, kwargs = mock_os.call_args
+                assert kwargs["use_ssl"] is False
+
+    def test_http_scheme_disables_ssl_async(self):
+        with patch.object(ovi, "GraphRAGConfig") as mock_cfg:
+            mock_cfg.opensearch_username = None
+            mock_cfg.opensearch_password = None
+            with patch.object(ovi, "AsyncOpenSearch") as mock_os:
+                ovi.create_os_async_client("http://localhost:9200", is_sigv4_auth=False)
+                _, kwargs = mock_os.call_args
+                assert kwargs["use_ssl"] is False
+
+    def test_use_ssl_kwarg_overrides_scheme_default(self):
+        with patch.object(ovi, "GraphRAGConfig") as mock_cfg:
+            mock_cfg.opensearch_username = None
+            mock_cfg.opensearch_password = None
+            with patch.object(ovi, "OpenSearch") as mock_os:
+                ovi.create_os_client("http://localhost:9200", is_sigv4_auth=False, use_ssl=True)
+                _, kwargs = mock_os.call_args
+                assert kwargs["use_ssl"] is True
+
     def test_local_never_touches_aws_session_or_sigv4(self):
         with patch.object(ovi, "GraphRAGConfig") as mock_cfg:
             mock_cfg.opensearch_username = None

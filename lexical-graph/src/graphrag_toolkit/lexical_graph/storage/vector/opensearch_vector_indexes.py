@@ -154,6 +154,7 @@ def create_os_client(endpoint, is_sigv4_auth=True, **kwargs):
             A configured client instance for interacting with OpenSearch.
 
     """
+    # TODO(#407): support auth methods beyond SigV4 and basic auth
     if not is_sigv4_auth:
         auth = _basic_http_auth()
     else:
@@ -165,7 +166,9 @@ def create_os_client(endpoint, is_sigv4_auth=True, **kwargs):
         auth = Urllib3AWSV4SignerAuth(credentials, region, service)
 
     defaults = {
-        'use_ssl': True,
+        # opensearch-py only honors the endpoint scheme for https://; an http://
+        # endpoint would otherwise still connect over TLS via this default.
+        'use_ssl': not endpoint.startswith('http://'),
         'verify_certs': True,
         'connection_class': Urllib3HttpConnection,
         'timeout': 300,
@@ -201,6 +204,7 @@ def create_os_async_client(endpoint, is_sigv4_auth=True, **kwargs):
     Returns:
         AsyncOpenSearch: An instantiated asynchronous OpenSearch client.
     """
+    # TODO(#407): support auth methods beyond SigV4 and basic auth
     if not is_sigv4_auth:
         auth = _basic_http_auth()
     else:
@@ -212,7 +216,9 @@ def create_os_async_client(endpoint, is_sigv4_auth=True, **kwargs):
         auth = AWSV4SignerAsyncAuth(credentials, region, service)
 
     defaults = {
-        'use_ssl': True,
+        # opensearch-py only honors the endpoint scheme for https://; an http://
+        # endpoint would otherwise still connect over TLS via this default.
+        'use_ssl': not endpoint.startswith('http://'),
         'verify_certs': True,
         'connection_class': AsyncHttpConnection,
         'timeout': 300,
@@ -699,7 +705,8 @@ class OpenSearchIndex(VectorIndex):
                 self._client = None
 
         if not self._client:
-            if index_exists(self.endpoint, self.underlying_index_name(), self.dimensions, self.writeable, is_sigv4_auth=self.is_sigv4_auth, client_kwargs=self.client_kwargs):
+            does_index_exist = index_exists(self.endpoint, self.underlying_index_name(), self.dimensions, self.writeable, is_sigv4_auth=self.is_sigv4_auth, client_kwargs=self.client_kwargs)
+            if does_index_exist:
                 self._client = create_opensearch_vector_client(
                     self.endpoint,
                     self.underlying_index_name(),

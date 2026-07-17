@@ -51,8 +51,8 @@ class OpenSearchVectorIndexFactory(VectorIndexFactoryMethod):
                 endpoint = f'https://{endpoint}'
         elif vector_index_info.startswith(OPENSEARCH):
             endpoint = vector_index_info[len(OPENSEARCH):]
-            if not endpoint.startswith('https://') and not endpoint.startswith('http://'):
-                endpoint = f'https://{endpoint}'
+            if not endpoint:
+                raise ValueError(f'Empty endpoint in OpenSearch vector store connection info: {vector_index_info}')
             is_sigv4_auth = False
         elif vector_index_info.startswith('https://') and vector_index_info.endswith(OPENSEARCH_SERVERLESS_DNS):
             endpoint = vector_index_info

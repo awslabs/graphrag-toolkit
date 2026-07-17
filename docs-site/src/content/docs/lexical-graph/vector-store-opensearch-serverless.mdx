@@ -134,7 +134,7 @@ Field descriptions:
 
 ### Connecting to an OpenSearch vector store
 
-You can also use OpenSearch directly as a vector store, instead of Amazon OpenSearch Serverless — in a Docker or Finch container, on an EC2 instance, or on your own infrastructure. graphrag-toolkit connects to it with the [opensearch-py](https://pypi.org/project/opensearch-py/) client. Supply a connection string that begins `opensearch://`, followed by the endpoint:
+You can use [OpenSearch](https://opensearch.org) directly as a vector store — in a Docker or Finch container, on an EC2 instance, or on your own infrastructure. graphrag-toolkit connects to it with the [opensearch-py](https://pypi.org/project/opensearch-py/) client. Supply a connection string that begins with `opensearch://`, followed by the endpoint:
 
 ```python
 from graphrag_toolkit.lexical_graph.storage import VectorStoreFactory
@@ -148,11 +148,11 @@ with VectorStoreFactory.for_vector_store(
     ...
 ```
 
-Unlike `aoss://` (Amazon OpenSearch Serverless), an `opensearch://` endpoint never uses AWS SigV4. It connects with HTTP basic auth from the `OPENSEARCH_USERNAME` and `OPENSEARCH_PASSWORD` environment variables (or `GraphRAGConfig.opensearch_username` / `GraphRAGConfig.opensearch_password`), or with no auth if neither is set. OpenSearch runs with SSL enabled by default, so if you omit the scheme (e.g. `opensearch://localhost:9200`) the endpoint defaults to `https://`.
+The endpoint doesn't need a scheme: `opensearch://localhost:9200` connects over SSL, the toolkit's default (matching OpenSearch, which ships with SSL enabled). Use an explicit `http://` scheme for a plain-HTTP instance: `opensearch://http://localhost:9200`. An endpoint without a port defaults to 9200; for an endpoint on port 443, include the port or an `https://` scheme.
 
-The `opensearch://` prefix targets OpenSearch instances that don't use AWS authentication (basic auth or no auth). A managed Amazon OpenSearch Service domain that authenticates with IAM is not supported through this prefix yet ([tracked in #407](https://github.com/awslabs/graphrag-toolkit/issues/407)).
+The client authenticates with HTTP basic auth from the `OPENSEARCH_USERNAME` and `OPENSEARCH_PASSWORD` environment variables (or `GraphRAGConfig.opensearch_username` / `GraphRAGConfig.opensearch_password`), or with no auth if neither is set.
 
-For a local Docker or Finch container over plain HTTP, use `opensearch://http://localhost:9200`. For an endpoint with a self-signed TLS certificate, disable certificate verification by passing `client_kwargs`:
+Any `client_kwargs` you pass to `VectorStoreFactory.for_vector_store` are forwarded to the opensearch-py client, so all of its [connection options](https://opensearch-project.github.io/opensearch-py/api-ref/clients/opensearch_client.html) — certificate verification, CA bundles, timeouts — are available. For example, for an endpoint with a self-signed TLS certificate:
 
 ```python
 with VectorStoreFactory.for_vector_store(
@@ -162,3 +162,7 @@ with VectorStoreFactory.for_vector_store(
 ) as vector_store:
     ...
 ```
+
+#### Limitations
+
+Authentication methods other than basic auth, including SigV4 for IAM-authenticated domains, are not supported yet ([#407](https://github.com/awslabs/graphrag-toolkit/issues/407)).
