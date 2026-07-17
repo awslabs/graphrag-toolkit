@@ -4,6 +4,7 @@
 
 import json
 import logging
+import re
 import time
 import uuid
 from typing import List, Any, Optional, Iterable, Dict
@@ -17,7 +18,7 @@ from llama_index.core.vector_stores.types import MetadataFilters
 
 from graphrag_toolkit.lexical_graph.metadata import FilterConfig, is_datetime_key, format_datetime
 from graphrag_toolkit.lexical_graph.versioning import  VALID_FROM, VALID_TO, TIMESTAMP_LOWER_BOUND, TIMESTAMP_UPPER_BOUND
-from graphrag_toolkit.lexical_graph.config import GraphRAGConfig, EmbeddingType
+from graphrag_toolkit.lexical_graph.config import GraphRAGConfig, EmbeddingType, OpenSearchServerlessGeneration
 from graphrag_toolkit.lexical_graph.storage.vector import VectorIndex, to_embedded_query
 from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
 from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
@@ -251,36 +252,58 @@ def index_is_available(client, index_name):
 
     except Exception as err:
         return False
-    
 
 
-def index_exists(endpoint, index_name, dimensions, writeable, is_sigv4_auth=True, client_kwargs=None) -> bool:
-    """
-    Checks if an OpenSearch index exists, and optionally creates it if it does not exist.
+_NEXTGEN_UNSUPPORTED_FIELDS = ('engine', 'mode')
 
-    This function uses the specified endpoint to establish a connection to an
-    OpenSearch client. If the index specified by `index_name` does not exist and
-    the `writeable` flag is True, it will create an index using the provided
-    dimensions and a predefined method for handling knn_vector elements.
+# A bare substring check on the field name would also match it appearing incidentally
+# elsewhere in a longer message, so match the exact rejection phrasing instead.
+_UNSUPPORTED_FIELD_PATTERN = re.compile(r"Field parameter '(\w+)' is not supported")
 
-    Args:
-        endpoint: The OpenSearch endpoint to connect to.
-        index_name: The name of the index to check for existence.
-        dimensions: The number of dimensions for the knn_vector in the index.
-        writeable: Flag indicating whether to create the index if it does not exist.
-        is_sigv4_auth: True (default) for Amazon OpenSearch Serverless (AOSS). False for
-            an OpenSearch endpoint that isn't AOSS; skips SigV4.
-        client_kwargs: Optional dict of keyword arguments passed through to the
-            OpenSearch client (e.g. ``{"use_ssl": False}`` for a plain-HTTP
-            endpoint). ``pool_maxsize`` defaults to 1 unless overridden here.
 
-    Returns:
-        bool: True if the index exists (or is created successfully), False otherwise.
-    """
-    client_kwargs = {'pool_maxsize': 1, **(client_kwargs or {})}
-    client = create_os_client(endpoint, is_sigv4_auth=is_sigv4_auth, **client_kwargs)
+def _request_error_reason(e:'RequestError') -> str:
+    info = e.info
+    if isinstance(info, dict):
+        error = info.get('error')
+        if isinstance(error, dict):
+            return error.get('reason', str(info))
+        return str(error) if error is not None else str(info)
+    return str(info or '')
 
+
+def _is_nextgen_incompatible_field_error(e:'RequestError') -> bool:
+    if e.error != 'illegal_argument_exception':
+        return False
+    reason = _request_error_reason(e)
+    match = _UNSUPPORTED_FIELD_PATTERN.search(reason)
+    return match is not None and match.group(1) in _NEXTGEN_UNSUPPORTED_FIELDS
+
+
+def _build_index_mapping(dimensions, nextgen: bool) -> Dict:
+    """Builds the knn_vector index mapping: NextGen if nextgen is True, otherwise Classic
+    (faiss, or nmslib as the default)."""
     embedding_field = 'embedding'
+
+    if nextgen:
+
+        embedding_mapping = {
+            "type": "knn_vector",
+            "dimension": dimensions,
+            "space_type": "l2",
+        }
+
+        if GraphRAGConfig.opensearch_serverless_nextgen_compression:
+            embedding_mapping["compression_level"] = GraphRAGConfig.opensearch_serverless_nextgen_compression
+
+        return {
+            "settings": {"index": {"knn": True}},
+            "mappings": {
+                "date_detection": False,
+                "properties": {
+                    embedding_field: embedding_mapping,
+                }
+            }
+        }
 
     if GraphRAGConfig.opensearch_engine.lower() == 'faiss':
 
@@ -290,7 +313,7 @@ def index_exists(endpoint, index_name, dimensions, writeable, is_sigv4_auth=True
             "engine": "faiss"
         }
 
-        idx_conf = {
+        return {
             "settings": {"index": {"knn": True}},
             "mappings": {
                 "date_detection": False,
@@ -304,46 +327,124 @@ def index_exists(endpoint, index_name, dimensions, writeable, is_sigv4_auth=True
             }
         }
 
-    else:
+    method = {
+        "name": "hnsw",
+        "space_type": "l2",
+        "engine": "nmslib",
+        "parameters": {"ef_construction": 256, "m": 48},
+    }
 
-        method = {
-            "name": "hnsw",
-            "space_type": "l2",
-            "engine": "nmslib",
-            "parameters": {"ef_construction": 256, "m": 48},
-        }
-
-        idx_conf = {
-            "settings": {"index": {"knn": True, "knn.algo_param.ef_search": 100}},
-            "mappings": {
-                "date_detection": False,
-                "properties": {
-                    embedding_field: {
-                        "type": "knn_vector",
-                        "dimension": dimensions,
-                        "method": method,
-                    },
-                }
+    return {
+        "settings": {"index": {"knn": True, "knn.algo_param.ef_search": 100}},
+        "mappings": {
+            "date_detection": False,
+            "properties": {
+                embedding_field: {
+                    "type": "knn_vector",
+                    "dimension": dimensions,
+                    "method": method,
+                },
             }
         }
+    }
 
-    index_exists = False
+
+def _handle_index_create_request_error(e:'RequestError', index_name, endpoint, nextgen: bool) -> None:
+    """Classifies a RequestError from client.indices.create(). Returns normally (logged,
+    non-fatal) unless the collection rejected a Classic-only field with auto-detection
+    unable to help (nextgen was forced False), in which case it raises an actionable
+    ValueError."""
+    if e.error == 'resource_already_exists_exception':
+        logger.debug(f'OpenSearch index already exists [index_name: {index_name}, endpoint: {endpoint}]')
+        return
+
+    if _is_nextgen_incompatible_field_error(e) and not nextgen:
+        raise ValueError(
+            f"OpenSearch index creation failed [index_name: {index_name}, endpoint: {endpoint}] because "
+            f"the target collection rejected a Classic-only field ({_request_error_reason(e)}). This "
+            f"usually means the collection is an AOSS NextGen collection, which does not support the "
+            f"'engine' or 'mode' knn_vector parameters. GraphRAGConfig.opensearch_serverless_generation is "
+            f"explicitly set to CLASSIC, which forces the Classic mapping and skips auto-detection -- unset "
+            f"it (or the OPENSEARCH_SERVERLESS_GENERATION env var) to auto-detect NextGen collections, or set "
+            f"it to NEXTGEN to force NextGen-compatible index mappings."
+        ) from e
+
+    logger.exception('Error creating an OpenSearch index')
+
+
+def _create_or_check_index(client, index_name, idx_conf, writeable, endpoint) -> bool:
+    exists = client.indices.exists(index=index_name)
+    if not exists and writeable:
+        logger.debug(f'Creating OpenSearch index [index_name: {index_name}, endpoint: {endpoint}]')
+        client.indices.create(index=index_name, body=idx_conf)
+        exists = True
+    return exists
+
+
+def _try_create_index(client, index_name, dimensions, writeable, endpoint, nextgen: bool, allow_retry: bool) -> bool:
+    idx_conf = _build_index_mapping(dimensions, nextgen)
+    try:
+        return _create_or_check_index(client, index_name, idx_conf, writeable, endpoint)
+    except RequestError as e:
+        if allow_retry and _is_nextgen_incompatible_field_error(e):
+            logger.debug(f'Classic mapping rejected by a NextGen collection, retrying with the NextGen mapping [index_name: {index_name}, endpoint: {endpoint}]')
+            return _try_create_index(client, index_name, dimensions, writeable, endpoint, nextgen=True, allow_retry=False)
+        _handle_index_create_request_error(e, index_name, endpoint, nextgen)
+        return False
+
+
+def index_exists(endpoint, index_name, dimensions, writeable, is_sigv4_auth=True, client_kwargs=None) -> bool:
+    """
+    Checks if an OpenSearch index exists, and optionally creates it if it does not exist.
+
+    This function uses the specified endpoint to establish a connection to an
+    OpenSearch client. If the index specified by `index_name` does not exist and
+    the `writeable` flag is True, it will create an index using the provided
+    dimensions and a predefined method for handling knn_vector elements.
+
+    Whether the index is created with a NextGen or Classic knn_vector mapping is
+    controlled by GraphRAGConfig.opensearch_serverless_generation. When that's unset
+    (None), this auto-detects: it tries the Classic mapping first and, if the
+    collection rejects it as NextGen-incompatible, retries once with the NextGen
+    mapping. Set it to OpenSearchServerlessGeneration.CLASSIC or .NEXTGEN to force
+    one mapping and skip detection.
+
+    Args:
+        endpoint: The OpenSearch endpoint to connect to.
+        index_name: The name of the index to check for existence.
+        dimensions: The number of dimensions for the knn_vector in the index.
+        writeable: Flag indicating whether to create the index if it does not exist.
+        is_sigv4_auth: True (default) for Amazon OpenSearch Serverless (AOSS). False for
+            an OpenSearch endpoint that isn't AOSS; skips SigV4.
+        client_kwargs: Optional dict of keyword arguments passed through to the
+            OpenSearch client (e.g. ``{"use_ssl": False}`` for a plain-HTTP endpoint).
+            ``pool_maxsize`` defaults to 1 unless overridden here.
+
+    Returns:
+        bool: True if the index exists (or is created successfully), False otherwise.
+
+    Raises:
+        ValueError: If a Classic-only knn_vector field (engine/mode) was rejected by an
+            AOSS NextGen collection and GraphRAGConfig.opensearch_serverless_generation was
+            explicitly set to CLASSIC, so auto-detection didn't get a chance to retry.
+    """
+    client_kwargs = {'pool_maxsize': 1, **(client_kwargs or {})}
+    client = create_os_client(endpoint, is_sigv4_auth=is_sigv4_auth, **client_kwargs)
+    generation = GraphRAGConfig.opensearch_serverless_generation
+    # When unset, generation is detected reactively: try Classic, retry NextGen on
+    # rejection (see _try_create_index). A deterministic alternative is the AOSS
+    # BatchGetCollectionGroup `generation` field, but it needs boto3>=1.43.17 and
+    # aoss:BatchGetCollection[Group] on every client role, so it's deferred with an
+    # AccessDenied fallback to this reactive path. See awslabs/graphrag-toolkit#399.
 
     try:
-        index_exists = client.indices.exists(index=index_name)
-        if not index_exists and writeable:
-            logger.debug(f'Creating OpenSearch index [index_name: {index_name}, endpoint: {endpoint}]')
-            client.indices.create(index=index_name, body=idx_conf)
-            index_exists = True
-    except RequestError as e:
-        if e.error == 'resource_already_exists_exception':
-            logger.debug(f'OpenSearch index already exists [index_name: {index_name}, endpoint: {endpoint}]')
-        else:
-            logger.exception('Error creating an OpenSearch index')
+        return _try_create_index(
+            client, index_name, dimensions, writeable, endpoint,
+            nextgen=(generation == OpenSearchServerlessGeneration.NEXTGEN),
+            allow_retry=(generation is None),
+        )
     finally:
         client.close()
-
-    return index_exists
         
     
 def create_opensearch_vector_client(endpoint, index_name, dimensions, embed_model, is_sigv4_auth=True, client_kwargs=None):
@@ -587,6 +688,9 @@ class OpenSearchIndex(VectorIndex):
         Returns:
             OpensearchVectorClient: The initialized or cached OpenSearch vector
                 client instance.
+
+        Raises:
+            ValueError: See index_exists().
         """
         if self._client:
             if self._client._index != self.underlying_index_name():
@@ -712,6 +816,8 @@ class OpenSearchIndex(VectorIndex):
         Raises:
             IndexError:
                 If the index is marked as read-only.
+            ValueError:
+                See index_exists().
         """
         if not self.writeable:
             raise IndexError(f'Index {self.index_name} is read-only')
@@ -824,6 +930,9 @@ class OpenSearchIndex(VectorIndex):
         Returns:
             List[TopKResult]: A list of processed results containing the top-k nodes ordered by
                 relevance score.
+
+        Raises:
+            ValueError: See index_exists().
         """
         query_bundle = to_embedded_query(query_bundle, self.embed_model)
 

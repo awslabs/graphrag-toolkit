@@ -51,11 +51,19 @@ if [[ "$DO_SETUP" = true ]]; then
 
     if [[ "$BYOKG_RAG_INSTALL_URI" ]]; then
         echo "Installing byokg_rag from $BYOKG_RAG_INSTALL_URI"
-        pip install $BYOKG_RAG_INSTALL_URI
+        if [[ "$BYOKG_RAG_INSTALL_URI" == s3://* && "$BYOKG_RAG_INSTALL_URI" == *.whl ]]; then
+            WHEEL_FILENAME=$(basename "$BYOKG_RAG_INSTALL_URI")
+            echo "Downloading wheel from S3: $BYOKG_RAG_INSTALL_URI"
+            if ! aws s3 cp "$BYOKG_RAG_INSTALL_URI" "./$WHEEL_FILENAME"; then
+                echo "ERROR: Failed to download wheel from S3: $BYOKG_RAG_INSTALL_URI"
+                exit 1
+            fi
+            pip install "./$WHEEL_FILENAME"
+            rm -f "./$WHEEL_FILENAME"
+        else
+            pip install $BYOKG_RAG_INSTALL_URI
+        fi
     fi
-
-    echo "Installing byokg_rag dependencies"
-    pip install -r graphrag_toolkit/byokg_rag/requirements.txt
 
     if [[ "$LEXICAL_GRAPH_INSTALL_URI" ]]; then
         echo "Installing lexical graph from $LEXICAL_GRAPH_INSTALL_URI"
@@ -71,34 +79,31 @@ if [[ "$DO_SETUP" = true ]]; then
         else
             pip install $LEXICAL_GRAPH_INSTALL_URI
         fi
-    else
-        echo "Installing lexical graph from local install"
-        pip install -r graphrag_toolkit/lexical_graph/requirements.txt
     fi
-    
-    pip install opensearch-py llama-index-vector-stores-opensearch
-    pip install psycopg2-binary pgvector
-    pip install neo4j
-    pip install llama-index-readers-web
-    pip install llama-index-readers-file
-    pip install llama-index-readers-s3
-    pip install torch sentence_transformers
-    
+
+    echo "Installing all dependencies in a single pass for consistent resolution"
+    grep -v '^--' graphrag_toolkit/byokg_rag/requirements.txt > /tmp/byokg_rag_deps.txt
+    grep -v '^--' graphrag_toolkit/lexical_graph/requirements.txt > /tmp/lexical_graph_deps.txt
+    pip install \
+        -r /tmp/byokg_rag_deps.txt \
+        -r /tmp/lexical_graph_deps.txt \
+        -r requirements-integ-test.txt
+
     #if [[ "$USE_GPU" == "True" ]]; then
-    #    pip install --upgrade cmake 
+    #    pip install --upgrade cmake
     #    pip install --extra-index-url https://pypi.fury.io/arrow-nightlies/ --prefer-binary --pre pyarrow
     #    pip install torch FlagEmbedding
     #fi
-    
+
     pushd falkordb
         pip install .
     popd
 
     mkdir test-results
     mkdir test-logs
-    
+
     python -m spacy download en_core_web_sm
-    
+
     python --version
     pip list
 fi

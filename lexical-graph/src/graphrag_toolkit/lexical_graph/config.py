@@ -14,6 +14,7 @@ from botocore.exceptions import SSOTokenLoadError
 
 import threading
 import logging
+from enum import Enum
 from dataclasses import dataclass, field
 from typing import Optional, Union, Dict, Set, List
 from boto3 import Session as Boto3Session
@@ -50,6 +51,7 @@ DEFAULT_INCLUDE_CLASSIFICATION_IN_ENTITY_ID = True
 DEFAULT_ENABLE_CACHE = False
 DEFAULT_METADATA_DATETIME_SUFFIXES = ['_date', '_datetime']
 DEFAULT_OPENSEARCH_ENGINE = 'nmslib'
+DEFAULT_OPENSEARCH_SERVERLESS_GENERATION = None
 DEFAULT_ENABLE_VERSIONING = False
 DEFAULT_CHUNK_EXTERNAL_PROPERTIES = None
 DEFAULT_LOCAL_OUTPUT_DIR = 'output'  # Local staging directory for batch files (use /tmp for EKS)
@@ -95,6 +97,33 @@ def string_to_bool(s, default_value: bool):
         or None.
     """
     return s.lower() in ['true'] if s else default_value
+
+
+class OpenSearchServerlessGeneration(str, Enum):
+    """AOSS collection generation. Values match the ``generation`` field returned by the
+    OpenSearch Serverless ``BatchGetCollectionGroup`` API, so a member can be compared
+    against that field directly."""
+    CLASSIC = 'CLASSIC'
+    NEXTGEN = 'NEXTGEN'
+
+    @classmethod
+    def parse(cls, value):
+        """Coerce a value to a generation. ``None`` or ``''`` means unset (auto-detect).
+        Accepts an enum member or a case-insensitive string (``'classic'``/``'nextgen'``).
+        Raises ValueError for anything else."""
+        if value is None or value == '':
+            return None
+        if isinstance(value, cls):
+            return value
+        try:
+            return cls(str(value).strip().upper())
+        except ValueError as e:
+            valid = ', '.join(m.value for m in cls)
+            raise ValueError(
+                f"Invalid OpenSearch Serverless generation '{value}'. Expected one of {valid} "
+                f"(case-insensitive), or unset for auto-detection."
+            ) from e
+
 
 class ResilientClient:
     """
@@ -293,6 +322,8 @@ class _GraphRAGConfig:
     _opensearch_engine: Optional[str] = None
     _opensearch_username: Optional[str] = None
     _opensearch_password: Optional[str] = None
+    _opensearch_serverless_generation: Optional['OpenSearchServerlessGeneration'] = None
+    _opensearch_serverless_nextgen_compression: Optional[str] = None
     _enable_versioning = None
     _chunk_external_properties: Optional[Dict[str, str]] = None
     _local_output_dir: Optional[str] = None
@@ -1198,6 +1229,32 @@ class _GraphRAGConfig:
     @opensearch_password.setter
     def opensearch_password(self, opensearch_password: Optional[str]) -> None:
         self._opensearch_password = opensearch_password
+
+    @property
+    def opensearch_serverless_generation(self) -> Optional['OpenSearchServerlessGeneration']:
+        """Unset (None) auto-detects Classic vs NextGen: index_exists() tries the Classic
+        mapping first and retries with NextGen only if the collection rejects it. Set to
+        OpenSearchServerlessGeneration.CLASSIC or .NEXTGEN (or the OPENSEARCH_SERVERLESS_GENERATION
+        env var, 'classic'/'nextgen') to force one mapping and skip auto-detection."""
+        if self._opensearch_serverless_generation is None:
+            self._opensearch_serverless_generation = OpenSearchServerlessGeneration.parse(
+                os.environ.get('OPENSEARCH_SERVERLESS_GENERATION', DEFAULT_OPENSEARCH_SERVERLESS_GENERATION)
+            )
+        return self._opensearch_serverless_generation
+
+    @opensearch_serverless_generation.setter
+    def opensearch_serverless_generation(self, opensearch_serverless_generation) -> None:
+        self._opensearch_serverless_generation = OpenSearchServerlessGeneration.parse(opensearch_serverless_generation)
+
+    @property
+    def opensearch_serverless_nextgen_compression(self) -> Optional[str]:
+        if self._opensearch_serverless_nextgen_compression is None:
+            self._opensearch_serverless_nextgen_compression = os.environ.get('OPENSEARCH_SERVERLESS_NEXTGEN_COMPRESSION')
+        return self._opensearch_serverless_nextgen_compression
+
+    @opensearch_serverless_nextgen_compression.setter
+    def opensearch_serverless_nextgen_compression(self, opensearch_serverless_nextgen_compression: Optional[str]) -> None:
+        self._opensearch_serverless_nextgen_compression = opensearch_serverless_nextgen_compression
 
     @property
     def enable_versioning(self) -> bool:

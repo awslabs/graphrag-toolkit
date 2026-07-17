@@ -39,7 +39,7 @@ except RuntimeError as e:
     pass  
 
 from .tenant_id import TenantId, DEFAULT_TENANT_ID, DEFAULT_TENANT_NAME, TenantIdType, to_tenant_id
-from .config import GraphRAGConfig as GraphRAGConfig, LLMType, EmbeddingType
+from .config import GraphRAGConfig as GraphRAGConfig, LLMType, EmbeddingType, OpenSearchServerlessGeneration
 from .errors import ModelError, BatchJobError, IndexError, GraphQueryError, ConfigurationError
 from .logging import set_logging_config, set_advanced_logging_config
 from .lexical_graph_query_engine import LexicalGraphQueryEngine

@@ -10,6 +10,7 @@ import os
 from unittest.mock import Mock, patch
 from graphrag_toolkit.lexical_graph.config import (
     GraphRAGConfig,
+    OpenSearchServerlessGeneration,
     _is_json_string,
     string_to_bool,
     DEFAULT_EXTRACTION_MODEL,
@@ -264,3 +265,81 @@ class TestGraphRAGConfigEnvironmentVariables:
             assert GraphRAGConfig.opensearch_password == 'custom-pass'
         finally:
             GraphRAGConfig._opensearch_password = original
+    def test_opensearch_serverless_generation_defaults_none_for_auto_detect(self):
+        """opensearch_serverless_generation defaults to None (auto-detect) when unset."""
+        original = GraphRAGConfig._opensearch_serverless_generation
+        try:
+            with patch.dict(os.environ, {}, clear=False):
+                os.environ.pop('OPENSEARCH_SERVERLESS_GENERATION', None)
+                GraphRAGConfig._opensearch_serverless_generation = None
+                assert GraphRAGConfig.opensearch_serverless_generation is None
+        finally:
+            GraphRAGConfig._opensearch_serverless_generation = original
+
+    def test_opensearch_serverless_generation_from_env_nextgen(self):
+        """Reads NEXTGEN from OPENSEARCH_SERVERLESS_GENERATION (case-insensitive)."""
+        original = GraphRAGConfig._opensearch_serverless_generation
+        try:
+            with patch.dict(os.environ, {'OPENSEARCH_SERVERLESS_GENERATION': 'nextgen'}):
+                GraphRAGConfig._opensearch_serverless_generation = None
+                assert GraphRAGConfig.opensearch_serverless_generation is OpenSearchServerlessGeneration.NEXTGEN
+        finally:
+            GraphRAGConfig._opensearch_serverless_generation = original
+
+    def test_opensearch_serverless_generation_from_env_classic(self):
+        """Reads CLASSIC from OPENSEARCH_SERVERLESS_GENERATION."""
+        original = GraphRAGConfig._opensearch_serverless_generation
+        try:
+            with patch.dict(os.environ, {'OPENSEARCH_SERVERLESS_GENERATION': 'CLASSIC'}):
+                GraphRAGConfig._opensearch_serverless_generation = None
+                assert GraphRAGConfig.opensearch_serverless_generation is OpenSearchServerlessGeneration.CLASSIC
+        finally:
+            GraphRAGConfig._opensearch_serverless_generation = original
+
+    def test_opensearch_serverless_generation_setter_nextgen(self):
+        """Setter forces NEXTGEN (skip auto-detect)."""
+        original = GraphRAGConfig._opensearch_serverless_generation
+        try:
+            GraphRAGConfig.opensearch_serverless_generation = OpenSearchServerlessGeneration.NEXTGEN
+            assert GraphRAGConfig.opensearch_serverless_generation is OpenSearchServerlessGeneration.NEXTGEN
+        finally:
+            GraphRAGConfig._opensearch_serverless_generation = original
+
+    def test_opensearch_serverless_generation_setter_accepts_string(self):
+        """Setter coerces a case-insensitive string to the enum."""
+        original = GraphRAGConfig._opensearch_serverless_generation
+        try:
+            GraphRAGConfig.opensearch_serverless_generation = 'classic'
+            assert GraphRAGConfig.opensearch_serverless_generation is OpenSearchServerlessGeneration.CLASSIC
+        finally:
+            GraphRAGConfig._opensearch_serverless_generation = original
+
+    def test_opensearch_serverless_generation_invalid_raises(self):
+        """An unrecognized generation value raises ValueError."""
+        original = GraphRAGConfig._opensearch_serverless_generation
+        try:
+            with pytest.raises(ValueError):
+                GraphRAGConfig.opensearch_serverless_generation = 'quantum'
+        finally:
+            GraphRAGConfig._opensearch_serverless_generation = original
+
+    def test_opensearch_serverless_nextgen_compression_defaults_none(self):
+        """Verify opensearch_serverless_nextgen_compression defaults to None when unset."""
+        original = GraphRAGConfig._opensearch_serverless_nextgen_compression
+        try:
+            with patch.dict(os.environ, {}, clear=False):
+                os.environ.pop('OPENSEARCH_SERVERLESS_NEXTGEN_COMPRESSION', None)
+                GraphRAGConfig._opensearch_serverless_nextgen_compression = None
+                assert GraphRAGConfig.opensearch_serverless_nextgen_compression is None
+        finally:
+            GraphRAGConfig._opensearch_serverless_nextgen_compression = original
+
+    def test_opensearch_serverless_nextgen_compression_from_env(self):
+        """Verify opensearch_serverless_nextgen_compression reads from its env var."""
+        original = GraphRAGConfig._opensearch_serverless_nextgen_compression
+        try:
+            with patch.dict(os.environ, {'OPENSEARCH_SERVERLESS_NEXTGEN_COMPRESSION': '8x'}):
+                GraphRAGConfig._opensearch_serverless_nextgen_compression = None
+                assert GraphRAGConfig.opensearch_serverless_nextgen_compression == '8x'
+        finally:
+            GraphRAGConfig._opensearch_serverless_nextgen_compression = original

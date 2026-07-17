@@ -146,15 +146,11 @@ def create_config(config:Optional[str]=None):
 
     config_args.setdefault('max_pool_connections', DEFAULT_MAX_POOL_CONNECTIONS)
 
-    return Config(
-        retries={
-            'total_max_attempts': 1,
-            'mode': 'standard'
-        },
-        read_timeout=600,
-        user_agent_appid=f'graphrag-lexical-graph-{toolkit_version}',
-        **config_args
-    )
+    config_args.setdefault('read_timeout', 600)
+    config_args.setdefault('retries', {'total_max_attempts': 1, 'mode': 'standard'})
+    config_args.setdefault('user_agent_appid', f'graphrag-lexical-graph-{toolkit_version}')
+
+    return Config(**config_args)
 
 def create_property_assigment_fn_for_neptune(key:str, value:Any) -> Callable[[str], str]:
     """
