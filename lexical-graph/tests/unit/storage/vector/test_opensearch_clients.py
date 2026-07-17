@@ -8,7 +8,7 @@ Covers:
   - create_os_async_client (returns AsyncOpenSearch instance)
   - create_opensearch_vector_client (success, NotFoundError retry)
   - OpenSearchIndex.client property (index exists, index does not exist)
-  - create_os_client/create_os_async_client is_serverless=False path (basic auth, no auth, no SigV4)
+  - create_os_client/create_os_async_client is_sigv4_auth=False path (basic auth, no auth, no SigV4)
 """
 
 import sys
@@ -239,7 +239,7 @@ class TestOpenSearchIndexClientProperty:
 
 
 # ---------------------------------------------------------------------------
-# create_os_client / create_os_async_client: is_serverless=False path
+# create_os_client / create_os_async_client: is_sigv4_auth=False path
 # ---------------------------------------------------------------------------
 
 class TestCreateOsClientLocal:
@@ -251,7 +251,7 @@ class TestCreateOsClientLocal:
             mock_cfg.opensearch_username = "admin"
             mock_cfg.opensearch_password = "secret"
             with patch.object(ovi, "OpenSearch", return_value=mock_os_instance) as mock_os:
-                result = ovi.create_os_client("https://localhost:9200", is_serverless=False)
+                result = ovi.create_os_client("https://localhost:9200", is_sigv4_auth=False)
                 assert result is mock_os_instance
                 _, kwargs = mock_os.call_args
                 assert kwargs["http_auth"] == ("admin", "secret")
@@ -263,7 +263,7 @@ class TestCreateOsClientLocal:
             mock_cfg.opensearch_username = None
             mock_cfg.opensearch_password = None
             with patch.object(ovi, "OpenSearch", return_value=mock_os_instance) as mock_os:
-                ovi.create_os_client("https://localhost:9200", is_serverless=False)
+                ovi.create_os_client("https://localhost:9200", is_sigv4_auth=False)
                 _, kwargs = mock_os.call_args
                 assert kwargs["http_auth"] is None
 
@@ -273,7 +273,7 @@ class TestCreateOsClientLocal:
             mock_cfg.opensearch_password = None
             with patch.object(ovi, "OpenSearch") as mock_os:
                 with caplog.at_level("WARNING", logger="graphrag_toolkit.lexical_graph.storage.vector.opensearch_vector_indexes"):
-                    ovi.create_os_client("https://localhost:9200", is_serverless=False)
+                    ovi.create_os_client("https://localhost:9200", is_sigv4_auth=False)
                 _, kwargs = mock_os.call_args
                 assert kwargs["http_auth"] is None
                 assert any("Only one of" in r.message for r in caplog.records)
@@ -284,7 +284,7 @@ class TestCreateOsClientLocal:
             mock_cfg.opensearch_password = "secret"
             with patch.object(ovi, "OpenSearch") as mock_os:
                 with caplog.at_level("WARNING", logger="graphrag_toolkit.lexical_graph.storage.vector.opensearch_vector_indexes"):
-                    ovi.create_os_client("https://localhost:9200", is_serverless=False)
+                    ovi.create_os_client("https://localhost:9200", is_sigv4_auth=False)
                 _, kwargs = mock_os.call_args
                 assert kwargs["http_auth"] is None
                 assert any("Only one of" in r.message for r in caplog.records)
@@ -295,11 +295,11 @@ class TestCreateOsClientLocal:
             mock_cfg.opensearch_password = None
             with patch.object(ovi, "OpenSearch"):
                 with patch.object(ovi, "Urllib3AWSV4SignerAuth") as mock_sigv4:
-                    ovi.create_os_client("https://localhost:9200", is_serverless=False)
+                    ovi.create_os_client("https://localhost:9200", is_sigv4_auth=False)
                     mock_sigv4.assert_not_called()
                     mock_cfg.session.assert_not_called()
 
-    def test_default_is_serverless_true_preserves_sigv4(self):
+    def test_default_is_sigv4_auth_true_preserves_sigv4(self):
         mock_session = MagicMock()
         mock_session.get_credentials.return_value = MagicMock()
 
@@ -321,7 +321,7 @@ class TestCreateOsAsyncClientLocal:
             mock_cfg.opensearch_username = "admin"
             mock_cfg.opensearch_password = "secret"
             with patch.object(ovi, "AsyncOpenSearch", return_value=mock_async_instance) as mock_async:
-                result = ovi.create_os_async_client("https://localhost:9200", is_serverless=False)
+                result = ovi.create_os_async_client("https://localhost:9200", is_sigv4_auth=False)
                 assert result is mock_async_instance
                 _, kwargs = mock_async.call_args
                 assert kwargs["http_auth"] == ("admin", "secret")
@@ -331,7 +331,7 @@ class TestCreateOsAsyncClientLocal:
             mock_cfg.opensearch_username = None
             mock_cfg.opensearch_password = None
             with patch.object(ovi, "AsyncOpenSearch") as mock_async:
-                ovi.create_os_async_client("https://localhost:9200", is_serverless=False)
+                ovi.create_os_async_client("https://localhost:9200", is_sigv4_auth=False)
                 _, kwargs = mock_async.call_args
                 assert kwargs["http_auth"] is None
 
@@ -341,25 +341,25 @@ class TestCreateOsAsyncClientLocal:
             mock_cfg.opensearch_password = None
             with patch.object(ovi, "AsyncOpenSearch"):
                 with patch.object(ovi, "AWSV4SignerAsyncAuth") as mock_sigv4:
-                    ovi.create_os_async_client("https://localhost:9200", is_serverless=False)
+                    ovi.create_os_async_client("https://localhost:9200", is_sigv4_auth=False)
                     mock_sigv4.assert_not_called()
                     mock_cfg.session.assert_not_called()
 
 
 class TestCreateOpensearchVectorClientLocal:
 
-    def test_is_serverless_threaded_to_both_clients(self):
+    def test_is_sigv4_auth_threaded_to_both_clients(self):
         with patch.object(ovi, "OpensearchVectorClient", return_value=MagicMock()):
             with patch.object(ovi, "create_os_client", return_value=MagicMock()) as mock_sync:
                 with patch.object(ovi, "create_os_async_client", return_value=MagicMock()) as mock_async:
                     with patch.object(ovi, "index_is_available", return_value=True):
                         ovi.create_opensearch_vector_client(
-                            "https://localhost:9200", "my-index", 1024, MagicMock(), is_serverless=False
+                            "https://localhost:9200", "my-index", 1024, MagicMock(), is_sigv4_auth=False
                         )
-                        assert mock_sync.call_args.kwargs.get("is_serverless") is False
-                        assert mock_async.call_args.kwargs.get("is_serverless") is False
+                        assert mock_sync.call_args.kwargs.get("is_sigv4_auth") is False
+                        assert mock_async.call_args.kwargs.get("is_sigv4_auth") is False
 
-    def test_non_serverless_sets_non_aoss_dummy_auth_service(self):
+    def test_non_sigv4_auth_sets_non_aoss_dummy_auth_service(self):
         captured = {}
 
         def fake_vector_client(*args, **kwargs):
@@ -371,11 +371,11 @@ class TestCreateOpensearchVectorClientLocal:
                 with patch.object(ovi, "create_os_async_client", return_value=MagicMock()):
                     with patch.object(ovi, "index_is_available", return_value=True):
                         ovi.create_opensearch_vector_client(
-                            "https://localhost:9200", "my-index", 1024, MagicMock(), is_serverless=False
+                            "https://localhost:9200", "my-index", 1024, MagicMock(), is_sigv4_auth=False
                         )
                         assert captured["http_auth"].service != "aoss"
 
-    def test_default_is_serverless_true_keeps_aoss_dummy_auth_service(self):
+    def test_default_is_sigv4_auth_true_keeps_aoss_dummy_auth_service(self):
         captured = {}
 
         def fake_vector_client(*args, **kwargs):
@@ -403,25 +403,25 @@ class TestOpenSearchIndexClientPropertyLocal:
             embed_model=MagicMock(),
             tenant_id=TenantId(),
             writeable=False,
-            is_serverless=False,
+            is_sigv4_auth=False,
             _client=None,
         )
 
-    def test_client_property_threads_is_serverless_to_index_exists(self):
+    def test_client_property_threads_is_sigv4_auth_to_index_exists(self):
         index = self._make_local_index()
 
         with patch.object(ovi, "index_exists", return_value=False) as mock_index_exists:
             index.client
-            assert mock_index_exists.call_args.kwargs.get("is_serverless") is False
+            assert mock_index_exists.call_args.kwargs.get("is_sigv4_auth") is False
 
-    def test_client_property_threads_is_serverless_to_vector_client(self):
+    def test_client_property_threads_is_sigv4_auth_to_vector_client(self):
         index = self._make_local_index()
         mock_vector_client = MagicMock()
 
         with patch.object(ovi, "index_exists", return_value=True):
             with patch.object(ovi, "create_opensearch_vector_client", return_value=mock_vector_client) as mock_create:
                 index.client
-                assert mock_create.call_args.kwargs.get("is_serverless") is False
+                assert mock_create.call_args.kwargs.get("is_sigv4_auth") is False
 
     def test_client_property_threads_client_kwargs_to_index_exists(self):
         from graphrag_toolkit.lexical_graph.tenant_id import TenantId
@@ -432,7 +432,7 @@ class TestOpenSearchIndexClientPropertyLocal:
             embed_model=MagicMock(),
             tenant_id=TenantId(),
             writeable=False,
-            is_serverless=False,
+            is_sigv4_auth=False,
             client_kwargs={"use_ssl": False, "verify_certs": False},
             _client=None,
         )
@@ -462,13 +462,13 @@ class TestIndexExistsClientKwargs:
     def test_client_kwargs_forwarded_to_create_os_client(self):
         with patch.object(ovi, "create_os_client", return_value=self._mock_client()) as mock_create:
             ovi.index_exists(
-                "http://localhost:9200", "my-index", 1024, writeable=False, is_serverless=False,
+                "http://localhost:9200", "my-index", 1024, writeable=False, is_sigv4_auth=False,
                 client_kwargs={"use_ssl": False, "verify_certs": False},
             )
             _, kwargs = mock_create.call_args
             assert kwargs["use_ssl"] is False
             assert kwargs["verify_certs"] is False
-            assert kwargs["is_serverless"] is False
+            assert kwargs["is_sigv4_auth"] is False
 
     def test_client_kwargs_can_override_default_pool_maxsize(self):
         with patch.object(ovi, "create_os_client", return_value=self._mock_client()) as mock_create:

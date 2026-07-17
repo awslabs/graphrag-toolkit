@@ -44,7 +44,7 @@ class OpenSearchVectorIndexFactory(VectorIndexFactoryMethod):
                 names and endpoint configuration, or None if no suitable endpoint is found.
         """
         endpoint = None
-        is_serverless = True
+        is_sigv4_auth = True
         if vector_index_info.startswith(OPENSEARCH_SERVERLESS):
             endpoint = vector_index_info[len(OPENSEARCH_SERVERLESS):]
             if not endpoint.startswith('https://') and not endpoint.startswith('http://'):
@@ -53,14 +53,14 @@ class OpenSearchVectorIndexFactory(VectorIndexFactoryMethod):
             endpoint = vector_index_info[len(OPENSEARCH):]
             if not endpoint.startswith('https://') and not endpoint.startswith('http://'):
                 endpoint = f'https://{endpoint}'
-            is_serverless = False
+            is_sigv4_auth = False
         elif vector_index_info.startswith('https://') and vector_index_info.endswith(OPENSEARCH_SERVERLESS_DNS):
             endpoint = vector_index_info
         if endpoint:
             try:
                 from graphrag_toolkit.lexical_graph.storage.vector.opensearch_vector_indexes import OpenSearchIndex
-                logger.debug(f'Opening OpenSearch vector indexes [index_names: {index_names}, endpoint: {endpoint}, is_serverless: {is_serverless}]')
-                return [OpenSearchIndex.for_index(index_name, endpoint, is_serverless=is_serverless, **kwargs) for index_name in index_names]
+                logger.debug(f'Opening OpenSearch vector indexes [index_names: {index_names}, endpoint: {endpoint}, is_sigv4_auth: {is_sigv4_auth}]')
+                return [OpenSearchIndex.for_index(index_name, endpoint, is_sigv4_auth=is_sigv4_auth, **kwargs) for index_name in index_names]
             except ImportError as e:
                 raise e
 

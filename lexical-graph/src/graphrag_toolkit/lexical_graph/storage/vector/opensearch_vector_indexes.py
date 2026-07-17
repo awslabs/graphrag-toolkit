@@ -127,13 +127,13 @@ def _basic_http_auth():
         logger.warning('Only one of opensearch_username/opensearch_password is set; connecting without basic auth')
     return None
 
-def create_os_client(endpoint, is_serverless=True, **kwargs):
+def create_os_client(endpoint, is_sigv4_auth=True, **kwargs):
     """
     Creates an OpenSearch client.
 
-    By default (is_serverless True) the client targets Amazon OpenSearch Serverless
+    By default (is_sigv4_auth True) the client targets Amazon OpenSearch Serverless
     (AOSS) and authenticates with AWS Signature Version 4, signed with credentials from
-    a pre-configured session and region. When is_serverless is False, this instead
+    a pre-configured session and region. When is_sigv4_auth is False, this instead
     connects to an OpenSearch endpoint that isn't AOSS: HTTP basic auth from
     GraphRAGConfig.opensearch_username/opensearch_password if both are set, otherwise
     no auth. The AWS session and region are never touched on that path.
@@ -141,7 +141,7 @@ def create_os_client(endpoint, is_serverless=True, **kwargs):
     Args:
         endpoint: str
             The OpenSearch endpoint URL to connect to.
-        is_serverless: bool
+        is_sigv4_auth: bool
             True (default) for Amazon OpenSearch Serverless (AOSS), signed with SigV4.
             False for an OpenSearch endpoint that isn't AOSS; skips SigV4.
         **kwargs: Any
@@ -153,7 +153,7 @@ def create_os_client(endpoint, is_serverless=True, **kwargs):
             A configured client instance for interacting with OpenSearch.
 
     """
-    if not is_serverless:
+    if not is_sigv4_auth:
         auth = _basic_http_auth()
     else:
         session = GraphRAGConfig.session
@@ -179,19 +179,19 @@ def create_os_client(endpoint, is_serverless=True, **kwargs):
         **{**defaults, **kwargs},
     )
 
-def create_os_async_client(endpoint, is_serverless=True, **kwargs):
+def create_os_async_client(endpoint, is_sigv4_auth=True, **kwargs):
     """
     Creates an asynchronous OpenSearch client.
 
-    By default (is_serverless True) this targets Amazon OpenSearch Serverless (AOSS) and
-    authenticates with AWS Signature Version 4. When is_serverless is False, it connects
+    By default (is_sigv4_auth True) this targets Amazon OpenSearch Serverless (AOSS) and
+    authenticates with AWS Signature Version 4. When is_sigv4_auth is False, it connects
     to an OpenSearch endpoint that isn't AOSS instead: HTTP basic auth from
     GraphRAGConfig.opensearch_username/opensearch_password if both are set, otherwise no
     auth. The AWS session and region are never touched on that path.
 
     Args:
         endpoint: The URL of the OpenSearch cluster endpoint.
-        is_serverless: bool
+        is_sigv4_auth: bool
             True (default) for Amazon OpenSearch Serverless (AOSS), signed with SigV4.
             False for an OpenSearch endpoint that isn't AOSS; skips SigV4.
         **kwargs: Optional parameters for customizing the AsyncOpenSearch client.
@@ -200,7 +200,7 @@ def create_os_async_client(endpoint, is_serverless=True, **kwargs):
     Returns:
         AsyncOpenSearch: An instantiated asynchronous OpenSearch client.
     """
-    if not is_serverless:
+    if not is_sigv4_auth:
         auth = _basic_http_auth()
     else:
         session = GraphRAGConfig.session
@@ -254,7 +254,7 @@ def index_is_available(client, index_name):
     
 
 
-def index_exists(endpoint, index_name, dimensions, writeable, is_serverless=True, client_kwargs=None) -> bool:
+def index_exists(endpoint, index_name, dimensions, writeable, is_sigv4_auth=True, client_kwargs=None) -> bool:
     """
     Checks if an OpenSearch index exists, and optionally creates it if it does not exist.
 
@@ -268,7 +268,7 @@ def index_exists(endpoint, index_name, dimensions, writeable, is_serverless=True
         index_name: The name of the index to check for existence.
         dimensions: The number of dimensions for the knn_vector in the index.
         writeable: Flag indicating whether to create the index if it does not exist.
-        is_serverless: True (default) for Amazon OpenSearch Serverless (AOSS). False for
+        is_sigv4_auth: True (default) for Amazon OpenSearch Serverless (AOSS). False for
             an OpenSearch endpoint that isn't AOSS; skips SigV4.
         client_kwargs: Optional dict of keyword arguments passed through to the
             OpenSearch client (e.g. ``{"use_ssl": False}`` for a plain-HTTP
@@ -278,7 +278,7 @@ def index_exists(endpoint, index_name, dimensions, writeable, is_serverless=True
         bool: True if the index exists (or is created successfully), False otherwise.
     """
     client_kwargs = {'pool_maxsize': 1, **(client_kwargs or {})}
-    client = create_os_client(endpoint, is_serverless=is_serverless, **client_kwargs)
+    client = create_os_client(endpoint, is_sigv4_auth=is_sigv4_auth, **client_kwargs)
 
     embedding_field = 'embedding'
 
@@ -346,7 +346,7 @@ def index_exists(endpoint, index_name, dimensions, writeable, is_serverless=True
     return index_exists
         
     
-def create_opensearch_vector_client(endpoint, index_name, dimensions, embed_model, is_serverless=True, client_kwargs=None):
+def create_opensearch_vector_client(endpoint, index_name, dimensions, embed_model, is_sigv4_auth=True, client_kwargs=None):
     """
     Creates an OpenSearch vector client for interacting with an OpenSearch cluster.
 
@@ -359,7 +359,7 @@ def create_opensearch_vector_client(endpoint, index_name, dimensions, embed_mode
         index_name: Name of the index to be used for storing vectors.
         dimensions: Dimensions of the vector space used for embeddings.
         embed_model: Embedding model associated with the vectors.
-        is_serverless: True (default) for Amazon OpenSearch Serverless (AOSS). False for
+        is_sigv4_auth: True (default) for Amazon OpenSearch Serverless (AOSS). False for
             an OpenSearch endpoint that isn't AOSS; skips SigV4 and marks the underlying
             client as non-AOSS (refresh() is called after bulk ingest).
         client_kwargs: Optional dict of keyword arguments passed through to both the
@@ -380,7 +380,7 @@ def create_opensearch_vector_client(endpoint, index_name, dimensions, embed_mode
 
     client_kwargs = client_kwargs or {}
 
-    logger.debug(f'Creating OpenSearch vector client [index_name={index_name}, endpoint: {endpoint}, embed_model={embed_model}, dimensions={dimensions}, client_kwargs={client_kwargs}, is_serverless={is_serverless}]')
+    logger.debug(f'Creating OpenSearch vector client [index_name={index_name}, endpoint: {endpoint}, embed_model={embed_model}, dimensions={dimensions}, client_kwargs={client_kwargs}, is_sigv4_auth={is_sigv4_auth}]')
 
     client = None
     retry_count = 0
@@ -392,9 +392,9 @@ def create_opensearch_vector_client(endpoint, index_name, dimensions, embed_mode
                 dimensions,
                 embedding_field=embedding_field,
                 text_field=text_field,
-                os_client=create_os_client(endpoint, is_serverless=is_serverless, **client_kwargs),
-                os_async_client=create_os_async_client(endpoint, is_serverless=is_serverless, **client_kwargs),
-                http_auth=DummyAuth(service='aoss') if is_serverless else DummyAuth(service='opensearch')
+                os_client=create_os_client(endpoint, is_sigv4_auth=is_sigv4_auth, **client_kwargs),
+                os_async_client=create_os_async_client(endpoint, is_sigv4_auth=is_sigv4_auth, **client_kwargs),
+                http_auth=DummyAuth(service='aoss') if is_sigv4_auth else DummyAuth(service='opensearch')
             )
 
             start = time.time()
@@ -513,7 +513,7 @@ class OpenSearchIndex(VectorIndex):
             client instance for interacting with OpenSearch, initialized on demand.
     """
     @staticmethod
-    def for_index(index_name, endpoint, embed_model=None, dimensions=None, is_serverless=True, client_kwargs=None):
+    def for_index(index_name, endpoint, embed_model=None, dimensions=None, is_sigv4_auth=True, client_kwargs=None):
         """
         Creates and returns an instance of OpenSearchIndex using the provided parameters.
 
@@ -530,7 +530,7 @@ class OpenSearchIndex(VectorIndex):
                 the configuration specified in GraphRAGConfig.
             dimensions (Optional[int]): The dimensions to be used for the embeddings.
                 Defaults to the configuration specified in GraphRAGConfig.
-            is_serverless (bool): True (default) for Amazon OpenSearch Serverless
+            is_sigv4_auth (bool): True (default) for Amazon OpenSearch Serverless
                 (AOSS). False for an OpenSearch endpoint that isn't AOSS; skips AWS SigV4
                 signing in favor of HTTP basic auth or no auth.
             client_kwargs (Optional[Dict[str, Any]]): Optional dict of keyword arguments
@@ -544,14 +544,14 @@ class OpenSearchIndex(VectorIndex):
         embed_model = embed_model or GraphRAGConfig.embed_model
         dimensions = dimensions or GraphRAGConfig.embed_dimensions
 
-        return OpenSearchIndex(index_name=index_name, endpoint=endpoint, dimensions=dimensions, embed_model=embed_model, is_serverless=is_serverless, client_kwargs=client_kwargs)
+        return OpenSearchIndex(index_name=index_name, endpoint=endpoint, dimensions=dimensions, embed_model=embed_model, is_sigv4_auth=is_sigv4_auth, client_kwargs=client_kwargs)
 
     endpoint:str
     index_name:str
     dimensions:int
     embed_model:EmbeddingType
     model_config = ConfigDict(arbitrary_types_allowed=True)
-    is_serverless:bool=True
+    is_sigv4_auth:bool=True
     client_kwargs:Optional[Dict[str, Any]]=None
 
     _client: OpensearchVectorClient = PrivateAttr(default=None)
@@ -595,13 +595,13 @@ class OpenSearchIndex(VectorIndex):
                 self._client = None
 
         if not self._client:
-            if index_exists(self.endpoint, self.underlying_index_name(), self.dimensions, self.writeable, is_serverless=self.is_serverless, client_kwargs=self.client_kwargs):
+            if index_exists(self.endpoint, self.underlying_index_name(), self.dimensions, self.writeable, is_sigv4_auth=self.is_sigv4_auth, client_kwargs=self.client_kwargs):
                 self._client = create_opensearch_vector_client(
                     self.endpoint,
                     self.underlying_index_name(),
                     self.dimensions,
                     self.embed_model,
-                    is_serverless=self.is_serverless,
+                    is_sigv4_auth=self.is_sigv4_auth,
                     client_kwargs=self.client_kwargs,
                 )
             else:
@@ -609,7 +609,7 @@ class OpenSearchIndex(VectorIndex):
         return self._client
 
     def index_exists(self):
-        return index_exists(self.endpoint, self.underlying_index_name(), self.dimensions, self.writeable, is_serverless=self.is_serverless, client_kwargs=self.client_kwargs)
+        return index_exists(self.endpoint, self.underlying_index_name(), self.dimensions, self.writeable, is_sigv4_auth=self.is_sigv4_auth, client_kwargs=self.client_kwargs)
         
     def _clean_id(self, s):
         """
