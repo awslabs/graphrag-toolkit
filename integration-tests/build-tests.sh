@@ -219,13 +219,23 @@ if [[ "$TEST_FILE" ]]; then
   files=$(echo $TEST_FILE | tr "," "\n")
   for f in $files
   do
+    suite_file="$f"
+    if [[ ! -f "$suite_file" ]]; then
+      alt_path="../benchmarks/datasets/$f"
+      if [[ -f "$alt_path" ]]; then
+        suite_file="$alt_path"
+      else
+        echo "ERROR: Suite file not found: $f (searched CWD and ../benchmarks/datasets/)"
+        exit 1
+      fi
+    fi
   	while IFS= read -r line || [[ -n "$line" ]]; do
   			if [[ "$TESTS" ]]; then
   				TESTS+=" $line"
   			else
   				TESTS+="$line"
   			fi
-  	done < $f
+  	done < $suite_file
   done
 fi
 
@@ -299,6 +309,7 @@ cp -r $GRAPHRAG_TOOLKIT_DIR/examples/lexical-graph/notebooks/* lexical-graph-exa
 cp -r $GRAPHRAG_TOOLKIT_DIR/examples/byokg-rag/* lexical-graph-examples
 cp -r ./../test-scripts/* lexical-graph-examples
 cp -r ./../source-data lexical-graph-examples/source-data
+cp -r $GRAPHRAG_TOOLKIT_DIR/benchmarks lexical-graph-examples/benchmarks
 
 # Include benchmark data if local dir is specified and no S3 URI is provided
 # Only copies dataset subdirectories that match the tests being run

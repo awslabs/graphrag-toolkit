@@ -8,14 +8,14 @@ from contextlib import nullcontext
 from typing import Dict, Any, Optional, List
 import logging
 
-from graphrag_toolkit_tests.integration_test_base import IntegrationTestBase
-from graphrag_toolkit_tests.integration_test_handler import IntegrationTestHandler
-from graphrag_toolkit_tests.benchmark_utils.s3_utils import sync_benchmark_data_from_s3
-from graphrag_toolkit_tests.benchmark_utils.retriever_factory import create_query_engine, get_retriever_config, ByoKGQueryEngineWrapper
-from graphrag_toolkit_tests.benchmark_utils.token_tracker import TokenTrackingLLMCache, extract_token_usage
-from graphrag_toolkit_tests.benchmark_utils.metrics_summary import compute_metrics_summary
-from graphrag_toolkit_tests.benchmark_utils.hop_classifier import classify_hop
-from graphrag_toolkit_tests.benchmark_utils.agentic_retriever import AgenticRetriever, AgenticQueryResult
+from benchmarks.scripts.integration_test_base import IntegrationTestBase
+from benchmarks.scripts.integration_test_handler import IntegrationTestHandler
+from benchmarks.utils.s3_utils import sync_benchmark_data_from_s3
+from benchmarks.utils.retriever_factory import create_query_engine, get_retriever_config, ByoKGQueryEngineWrapper
+from benchmarks.utils.token_tracker import TokenTrackingLLMCache, extract_token_usage
+from benchmarks.utils.metrics_summary import compute_metrics_summary
+from benchmarks.utils.hop_classifier import classify_hop
+from benchmarks.utils.agentic_retriever import AgenticRetriever, AgenticQueryResult
 
 from graphrag_toolkit.lexical_graph import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.storage import GraphStoreFactory, VectorStoreFactory

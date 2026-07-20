@@ -11,7 +11,7 @@ from hypothesis import given, settings
 from hypothesis import strategies as st
 from hypothesis.strategies import lists, integers, floats, fixed_dictionaries
 
-from graphrag_toolkit_tests.benchmark_utils.metrics_summary import (
+from benchmarks.utils.metrics_summary import (
     _compute_latency_stats,
     compute_metrics_summary,
     BEDROCK_PRICING,
@@ -262,7 +262,7 @@ class TestAggregateCostComputationProperty:
         }
 
         with patch(
-            'graphrag_toolkit_tests.benchmark_utils.metrics_summary.BEDROCK_PRICING',
+            'benchmarks.utils.metrics_summary.BEDROCK_PRICING',
             patched_pricing,
         ):
             result = compute_metrics_summary(

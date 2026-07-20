@@ -12,7 +12,7 @@ from unittest.mock import Mock, patch, MagicMock
 
 import pytest
 
-from graphrag_toolkit_tests.benchmark_utils.token_tracker import (
+from benchmarks.utils.token_tracker import (
     TokenTrackingLLMCache,
     extract_token_usage,
 )
@@ -314,7 +314,7 @@ class TestTokenTrackingLLMCachePredict:
 from hypothesis import given, settings
 from hypothesis.strategies import integers, text
 
-from graphrag_toolkit_tests.benchmark_utils.token_tracker import estimate_token_count
+from benchmarks.utils.token_tracker import estimate_token_count
 
 
 class TestEstimateTokenCount:

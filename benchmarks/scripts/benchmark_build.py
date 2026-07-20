@@ -6,9 +6,9 @@ from contextlib import nullcontext
 from typing import Dict, Any, Optional
 import logging
 
-from graphrag_toolkit_tests.integration_test_base import IntegrationTestBase
-from graphrag_toolkit_tests.integration_test_handler import IntegrationTestHandler
-from graphrag_toolkit_tests.benchmark_utils.s3_utils import sync_benchmark_data_from_s3
+from benchmarks.scripts.integration_test_base import IntegrationTestBase
+from benchmarks.scripts.integration_test_handler import IntegrationTestHandler
+from benchmarks.utils.s3_utils import sync_benchmark_data_from_s3
 
 from graphrag_toolkit.lexical_graph import LexicalGraphIndex
 from graphrag_toolkit.lexical_graph import GraphRAGConfig
