@@ -134,12 +134,12 @@ Field descriptions:
 
 ### Connecting to an OpenSearch vector store
 
-You can use [OpenSearch](https://opensearch.org) directly as a vector store — in a Docker or Finch container, on an EC2 instance, or on your own infrastructure. graphrag-toolkit connects to it with the [opensearch-py](https://pypi.org/project/opensearch-py/) client. Supply a connection string that begins with `opensearch://`, followed by the endpoint:
+You can use [OpenSearch](https://opensearch.org) directly as a vector store — in a Docker or Finch container, on an EC2 instance, or on your own infrastructure. graphrag-toolkit connects to it with the [opensearch-py](https://pypi.org/project/opensearch-py/) client. Pass the endpoint as an `http://` or `https://` URL:
 
 ```python
 from graphrag_toolkit.lexical_graph.storage import VectorStoreFactory
 
-opensearch_connection_info = 'opensearch://localhost:9200'
+opensearch_connection_info = 'https://localhost:9200'
 
 with VectorStoreFactory.for_vector_store(
   opensearch_connection_info,
@@ -148,7 +148,7 @@ with VectorStoreFactory.for_vector_store(
     ...
 ```
 
-The endpoint doesn't need a scheme: `opensearch://localhost:9200` connects over SSL, the toolkit's default (matching OpenSearch, which ships with SSL enabled). Use an explicit `http://` scheme for a plain-HTTP instance: `opensearch://http://localhost:9200`. An endpoint without a port defaults to 9200; for an endpoint on port 443, include the port or an `https://` scheme.
+Any `https://`/`http://` endpoint that isn't an Amazon OpenSearch Serverless domain is treated as a self-managed OpenSearch cluster (use the `aoss://` prefix for Serverless). Use `https://` to connect over SSL, the toolkit's default (matching OpenSearch, which ships with SSL enabled), or `http://` for a plain-HTTP instance. An endpoint without a port defaults to 9200.
 
 A default local OpenSearch (Docker or Finch) uses a self-signed certificate, so the example above fails certificate verification until you either trust its CA or disable verification with `client_kwargs={'verify_certs': False}` (see the self-signed example below). Certificate verification stays on by default.
 
@@ -158,7 +158,7 @@ Any `client_kwargs` you pass to `VectorStoreFactory.for_vector_store` are forwar
 
 ```python
 with VectorStoreFactory.for_vector_store(
-  'opensearch://https://localhost:9200',
+  'https://localhost:9200',
   index_names=['chunk'],
   client_kwargs={'verify_certs': False}
 ) as vector_store:

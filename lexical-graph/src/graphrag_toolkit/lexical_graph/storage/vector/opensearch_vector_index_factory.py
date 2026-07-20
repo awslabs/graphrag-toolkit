@@ -10,7 +10,6 @@ logger = logging.getLogger(__name__)
 
 OPENSEARCH_SERVERLESS = 'aoss://'
 OPENSEARCH_SERVERLESS_DNS = 'aoss.amazonaws.com'
-OPENSEARCH = 'opensearch://'
 
 class OpenSearchVectorIndexFactory(VectorIndexFactoryMethod):
     """Factory class for creating OpenSearch vector indexes.
@@ -51,13 +50,13 @@ class OpenSearchVectorIndexFactory(VectorIndexFactoryMethod):
                 raise ValueError(f'Empty endpoint in OpenSearch Serverless vector store connection info: {vector_index_info}')
             if not endpoint.startswith('https://') and not endpoint.startswith('http://'):
                 endpoint = f'https://{endpoint}'
-        elif vector_index_info.startswith(OPENSEARCH):
-            endpoint = vector_index_info[len(OPENSEARCH):]
-            if not endpoint:
-                raise ValueError(f'Empty endpoint in OpenSearch vector store connection info: {vector_index_info}')
-            is_sigv4_auth = False
         elif vector_index_info.startswith('https://') and vector_index_info.endswith(OPENSEARCH_SERVERLESS_DNS):
             endpoint = vector_index_info
+        elif vector_index_info.startswith('https://') or vector_index_info.startswith('http://'):
+            # Any other http(s) endpoint is a self-managed (non-AOSS) OpenSearch cluster,
+            # so no prefix is required; aoss:// and bare AOSS domains are handled above.
+            endpoint = vector_index_info
+            is_sigv4_auth = False
         if endpoint:
             # is_sigv4_auth is derived from the connection-string scheme above; drop any
             # caller-supplied duplicate so it doesn't collide with the keyword below.

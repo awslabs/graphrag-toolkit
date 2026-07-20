@@ -69,7 +69,7 @@ Pass a connection string to `GraphStoreFactory.for_graph_store()` or `VectorStor
 | Neptune Database (graph) | `neptune-db://<hostname>` or any hostname ending `.neptune.amazonaws.com` |
 | Neo4j (graph) | `bolt://`, `bolt+ssc://`, `bolt+s://`, `neo4j://`, `neo4j+ssc://`, or `neo4j+s://` URLs |
 | Amazon OpenSearch Serverless / AOSS (vector) | `aoss://<url>` |
-| OpenSearch (vector) | `opensearch://<url>` |
+| OpenSearch (vector) | `https://<url>` or `http://<url>` |
 | Neptune Analytics (vector) | `neptune-graph://<graph-id>` |
 | pgvector (vector) | constructed via `PGVectorIndexFactory` |
 | S3 Vectors (vector) | constructed via `S3VectorIndexFactory` |

@@ -4,7 +4,7 @@
 """Tests for vector index factory try_create methods.
 
 Covers:
-  - OpenSearchVectorIndexFactory.try_create (aoss://, https://...aoss, opensearch://, no match)
+  - OpenSearchVectorIndexFactory.try_create (aoss://, https://...aoss, http(s):// endpoint, no match)
   - PGVectorIndexFactory.try_create (postgres://, postgresql://, no match)
   - S3VectorIndexFactory.try_create (s3vectors://, no match)
 """
@@ -66,8 +66,12 @@ class TestOpenSearchVectorIndexFactory:
                 "https://abc.us-east-1.aoss.amazonaws.com"
             )
             assert result is not None
+            # a bare AOSS domain must stay on SigV4 — this branch is matched ahead of
+            # the generic https:// branch, so the ordering is load-bearing
+            _, kwargs = mock_cls.for_index.call_args
+            assert kwargs.get("is_sigv4_auth") is True
 
-    def test_try_create_opensearch_prefix_returns_indexes(self):
+    def test_try_create_https_endpoint_returns_indexes(self):
         from graphrag_toolkit.lexical_graph.storage.vector.opensearch_vector_index_factory import OpenSearchVectorIndexFactory
 
         mock_index = MagicMock()
@@ -82,14 +86,16 @@ class TestOpenSearchVectorIndexFactory:
             factory = OpenSearchVectorIndexFactory()
             result = factory.try_create(
                 ["chunk", "statement"],
-                "opensearch://localhost:9200"
+                "https://localhost:9200"
             )
             assert result is not None
             assert len(result) == 2
-            _, kwargs = mock_cls.for_index.call_args
+            args, kwargs = mock_cls.for_index.call_args
+            # endpoint passed through verbatim, no prefix stripping, non-AOSS auth
+            assert args[1] == "https://localhost:9200"
             assert kwargs.get("is_sigv4_auth") is False
 
-    def test_try_create_opensearch_prefix_passes_schemeless_endpoint_through(self):
+    def test_try_create_http_endpoint_passes_through_and_sets_non_sigv4(self):
         from graphrag_toolkit.lexical_graph.storage.vector.opensearch_vector_index_factory import OpenSearchVectorIndexFactory
 
         mock_cls = MagicMock()
@@ -101,33 +107,26 @@ class TestOpenSearchVectorIndexFactory:
             )
         }):
             factory = OpenSearchVectorIndexFactory()
-            factory.try_create(["chunk"], "opensearch://localhost:9200")
-            args, _ = mock_cls.for_index.call_args
-            assert args[1] == "localhost:9200"
-
-    def test_try_create_opensearch_prefix_preserves_explicit_scheme(self):
-        from graphrag_toolkit.lexical_graph.storage.vector.opensearch_vector_index_factory import OpenSearchVectorIndexFactory
-
-        mock_cls = MagicMock()
-        mock_cls.for_index.return_value = MagicMock()
-
-        with patch.dict("sys.modules", {
-            "graphrag_toolkit.lexical_graph.storage.vector.opensearch_vector_indexes": MagicMock(
-                OpenSearchIndex=mock_cls
-            )
-        }):
-            factory = OpenSearchVectorIndexFactory()
-            factory.try_create(["chunk"], "opensearch://http://localhost:9200")
-            args, _ = mock_cls.for_index.call_args
+            factory.try_create(["chunk"], "http://localhost:9200")
+            args, kwargs = mock_cls.for_index.call_args
             assert args[1] == "http://localhost:9200"
+            assert kwargs.get("is_sigv4_auth") is False
 
-    def test_try_create_opensearch_prefix_empty_endpoint_raises(self):
-        import pytest
+    def test_try_create_schemeless_endpoint_returns_none(self):
+        # Without the opensearch:// prefix, a schemeless endpoint is no longer claimed
+        # by this factory; the caller must supply an http:// or https:// scheme.
         from graphrag_toolkit.lexical_graph.storage.vector.opensearch_vector_index_factory import OpenSearchVectorIndexFactory
 
         factory = OpenSearchVectorIndexFactory()
-        with pytest.raises(ValueError, match="Empty endpoint"):
-            factory.try_create(["chunk"], "opensearch://")
+        assert factory.try_create(["chunk"], "localhost:9200") is None
+
+    def test_try_create_opensearch_prefix_no_longer_matched(self):
+        # opensearch:// was removed; such a string should fall through (return None)
+        # so the dispatch reports it as unrecognized rather than mis-routing.
+        from graphrag_toolkit.lexical_graph.storage.vector.opensearch_vector_index_factory import OpenSearchVectorIndexFactory
+
+        factory = OpenSearchVectorIndexFactory()
+        assert factory.try_create(["chunk"], "opensearch://localhost:9200") is None
 
     def test_try_create_aoss_prefix_sets_is_sigv4_auth_true(self):
         from graphrag_toolkit.lexical_graph.storage.vector.opensearch_vector_index_factory import OpenSearchVectorIndexFactory
@@ -165,7 +164,7 @@ class TestOpenSearchVectorIndexFactory:
             )
         }):
             factory = OpenSearchVectorIndexFactory()
-            factory.try_create(["chunk"], "opensearch://localhost:9200", is_sigv4_auth=True)
+            factory.try_create(["chunk"], "https://localhost:9200", is_sigv4_auth=True)
             _, kwargs = mock_cls.for_index.call_args
             assert kwargs.get("is_sigv4_auth") is False
 
