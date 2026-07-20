@@ -150,6 +150,8 @@ with VectorStoreFactory.for_vector_store(
 
 The endpoint doesn't need a scheme: `opensearch://localhost:9200` connects over SSL, the toolkit's default (matching OpenSearch, which ships with SSL enabled). Use an explicit `http://` scheme for a plain-HTTP instance: `opensearch://http://localhost:9200`. An endpoint without a port defaults to 9200; for an endpoint on port 443, include the port or an `https://` scheme.
 
+A default local OpenSearch (Docker or Finch) uses a self-signed certificate, so the example above fails certificate verification until you either trust its CA or disable verification with `client_kwargs={'verify_certs': False}` (see the self-signed example below). Certificate verification stays on by default.
+
 The client authenticates with HTTP basic auth from the `OPENSEARCH_USERNAME` and `OPENSEARCH_PASSWORD` environment variables (or `GraphRAGConfig.opensearch_username` / `GraphRAGConfig.opensearch_password`), or with no auth if neither is set.
 
 Any `client_kwargs` you pass to `VectorStoreFactory.for_vector_store` are forwarded to the opensearch-py client, so all of its [connection options](https://opensearch-project.github.io/opensearch-py/api-ref/clients/opensearch_client.html) — certificate verification, CA bundles, timeouts — are available. For example, for an endpoint with a self-signed TLS certificate:

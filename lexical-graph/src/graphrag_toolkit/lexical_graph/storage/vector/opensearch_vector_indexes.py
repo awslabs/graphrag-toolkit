@@ -15,6 +15,7 @@ from llama_index.core.schema import BaseNode, NodeWithScore, QueryBundle
 from llama_index.core.vector_stores.types import  VectorStoreQueryResult, VectorStoreQueryMode, MetadataFilters, MetadataFilter
 from llama_index.core.indices.utils import embed_nodes
 from llama_index.core.vector_stores.types import MetadataFilters
+from llama_index.core.async_utils import asyncio_run
 
 from graphrag_toolkit.lexical_graph.metadata import FilterConfig, is_datetime_key, format_datetime
 from graphrag_toolkit.lexical_graph.versioning import  VALID_FROM, VALID_TO, TIMESTAMP_LOWER_BOUND, TIMESTAMP_UPPER_BOUND
@@ -165,10 +166,14 @@ def create_os_client(endpoint, is_sigv4_auth=True, **kwargs):
 
         auth = Urllib3AWSV4SignerAuth(credentials, region, service)
 
+    # SigV4 requests must always go over TLS. On the non-AOSS path honor an explicit
+    # http:// scheme and default to TLS otherwise. A caller can still override via client_kwargs.
+    use_ssl = kwargs.get('use_ssl', True if is_sigv4_auth else not endpoint.lower().startswith('http://'))
+    if auth and not use_ssl:
+        logger.warning('Connecting with authentication over plain HTTP; credentials will be sent unencrypted')
+
     defaults = {
-        # opensearch-py only honors the endpoint scheme for https://; an http://
-        # endpoint would otherwise still connect over TLS via this default.
-        'use_ssl': not endpoint.startswith('http://'),
+        'use_ssl': use_ssl,
         'verify_certs': True,
         'connection_class': Urllib3HttpConnection,
         'timeout': 300,
@@ -215,10 +220,12 @@ def create_os_async_client(endpoint, is_sigv4_auth=True, **kwargs):
 
         auth = AWSV4SignerAsyncAuth(credentials, region, service)
 
+    use_ssl = kwargs.get('use_ssl', True if is_sigv4_auth else not endpoint.lower().startswith('http://'))
+    if auth and not use_ssl:
+        logger.warning('Connecting with authentication over plain HTTP; credentials will be sent unencrypted')
+
     defaults = {
-        # opensearch-py only honors the endpoint scheme for https://; an http://
-        # endpoint would otherwise still connect over TLS via this default.
-        'use_ssl': not endpoint.startswith('http://'),
+        'use_ssl': use_ssl,
         'verify_certs': True,
         'connection_class': AsyncHttpConnection,
         'timeout': 300,
@@ -399,7 +406,7 @@ def _try_create_index(client, index_name, dimensions, writeable, endpoint, nextg
         return False
 
 
-def index_exists(endpoint, index_name, dimensions, writeable, is_sigv4_auth=True, client_kwargs=None) -> bool:
+def index_exists(endpoint, index_name, dimensions, writeable, client_kwargs=None, *, is_sigv4_auth=True) -> bool:
     """
     Checks if an OpenSearch index exists, and optionally creates it if it does not exist.
 
@@ -453,7 +460,7 @@ def index_exists(endpoint, index_name, dimensions, writeable, is_sigv4_auth=True
         client.close()
         
     
-def create_opensearch_vector_client(endpoint, index_name, dimensions, embed_model, is_sigv4_auth=True, client_kwargs=None):
+def create_opensearch_vector_client(endpoint, index_name, dimensions, embed_model, client_kwargs=None, *, is_sigv4_auth=True):
     """
     Creates an OpenSearch vector client for interacting with an OpenSearch cluster.
 
@@ -520,7 +527,11 @@ def create_opensearch_vector_client(endpoint, index_name, dimensions, embed_mode
                 logger.debug(f'Index online [index_name: {index_name}, endpoint: {endpoint}, elapsed_seconds: {elapsed}]')
             else:
                 logger.debug(f'Index not yet available, recreating client [index_name: {index_name}, endpoint: {endpoint}, elapsed_seconds: {elapsed}]')
+                # Close both clients before recreating; the async client holds its own
+                # connection pool, so dropping it without closing would leak on every
+                # retry while the index finishes provisioning.
                 client._os_client.close()
+                asyncio_run(client._os_async_client.close())
                 client = None
 
         except NotFoundError as err:
@@ -620,7 +631,7 @@ class OpenSearchIndex(VectorIndex):
             client instance for interacting with OpenSearch, initialized on demand.
     """
     @staticmethod
-    def for_index(index_name, endpoint, embed_model=None, dimensions=None, is_sigv4_auth=True, client_kwargs=None):
+    def for_index(index_name, endpoint, embed_model=None, dimensions=None, client_kwargs=None, *, is_sigv4_auth=True):
         """
         Creates and returns an instance of OpenSearchIndex using the provided parameters.
 

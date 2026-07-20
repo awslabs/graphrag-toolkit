@@ -140,6 +140,49 @@ class TestCreateOpensearchVectorClient:
                         assert result is mock_vector_client
                         assert call_count["n"] == 2
 
+    def test_closes_async_client_when_not_available_then_recreates(self):
+        # Index unavailable on the first attempt, available on the second. The first
+        # attempt's clients must both be closed before recreating, so the AsyncOpenSearch
+        # connection pool is not leaked while the index finishes provisioning.
+        first_client = MagicMock()
+        second_client = MagicMock()
+
+        with patch.object(ovi, "OpensearchVectorClient", side_effect=[first_client, second_client]):
+            with patch.object(ovi, "create_os_client", return_value=MagicMock()):
+                with patch.object(ovi, "create_os_async_client", return_value=MagicMock()):
+                    with patch.object(ovi, "index_is_available", side_effect=[False, True]):
+                        # (start, elapsed-init, elapsed-in-loop) per attempt; the 60 forces
+                        # the first attempt's inner wait to exit as not-available.
+                        with patch.object(ovi.time, "time", side_effect=[0, 0, 60, 0, 0, 0]):
+                            with patch.object(ovi.time, "sleep"):
+                                with patch.object(ovi, "asyncio_run") as mock_async_run:
+                                    result = ovi.create_opensearch_vector_client(
+                                        "https://endpoint", "my-index", 1024, MagicMock()
+                                    )
+                                    assert result is second_client
+                                    # first attempt's sync client closed directly, async client
+                                    # closed via asyncio_run(...close()) — no leak
+                                    assert first_client._os_client.close.called
+                                    assert mock_async_run.called
+
+    def test_client_kwargs_positional_binds_to_client_kwargs_not_sigv4(self):
+        captured = {}
+
+        def fake_create_os_client(endpoint, is_sigv4_auth=True, **kwargs):
+            captured.update(kwargs)
+            captured["is_sigv4_auth"] = is_sigv4_auth
+            return MagicMock()
+
+        with patch.object(ovi, "OpensearchVectorClient", return_value=MagicMock()):
+            with patch.object(ovi, "create_os_client", side_effect=fake_create_os_client):
+                with patch.object(ovi, "create_os_async_client", return_value=MagicMock()):
+                    with patch.object(ovi, "index_is_available", return_value=True):
+                        ovi.create_opensearch_vector_client(
+                            "https://endpoint", "my-index", 1024, MagicMock(), {"timeout": 99}
+                        )
+                        assert captured.get("timeout") == 99
+                        assert captured.get("is_sigv4_auth") is True
+
 
 # ---------------------------------------------------------------------------
 # OpenSearchIndex.client property
@@ -257,6 +300,49 @@ class TestCreateOsClientLocal:
                 _, kwargs = mock_os.call_args
                 assert kwargs["use_ssl"] is False
 
+    def test_uppercase_http_scheme_disables_ssl(self):
+        # opensearch-py lowercases the scheme, so an uppercase http:// must also
+        # be detected as plain HTTP rather than defaulting to TLS.
+        with patch.object(ovi, "GraphRAGConfig") as mock_cfg:
+            mock_cfg.opensearch_username = None
+            mock_cfg.opensearch_password = None
+            with patch.object(ovi, "OpenSearch") as mock_os:
+                ovi.create_os_client("HTTP://localhost:9200", is_sigv4_auth=False)
+                _, kwargs = mock_os.call_args
+                assert kwargs["use_ssl"] is False
+
+    def test_sigv4_auth_forces_ssl_even_for_http_endpoint(self):
+        # A SigV4-signed request must never go over plaintext, regardless of an
+        # explicit http:// scheme on the endpoint.
+        mock_session = MagicMock()
+        mock_session.get_credentials.return_value = MagicMock()
+        with patch.object(ovi, "GraphRAGConfig") as mock_cfg:
+            mock_cfg.session = mock_session
+            mock_cfg.aws_region = "us-east-1"
+            with patch.object(ovi, "OpenSearch") as mock_os:
+                with patch.object(ovi, "Urllib3AWSV4SignerAuth"):
+                    ovi.create_os_client("http://my-collection.aoss.amazonaws.com", is_sigv4_auth=True)
+                    _, kwargs = mock_os.call_args
+                    assert kwargs["use_ssl"] is True
+
+    def test_basic_auth_over_plain_http_warns(self, caplog):
+        with patch.object(ovi, "GraphRAGConfig") as mock_cfg:
+            mock_cfg.opensearch_username = "admin"
+            mock_cfg.opensearch_password = "secret"
+            with patch.object(ovi, "OpenSearch"):
+                with caplog.at_level("WARNING", logger="graphrag_toolkit.lexical_graph.storage.vector.opensearch_vector_indexes"):
+                    ovi.create_os_client("http://localhost:9200", is_sigv4_auth=False)
+                assert any("unencrypted" in r.message for r in caplog.records)
+
+    def test_basic_auth_over_https_does_not_warn(self, caplog):
+        with patch.object(ovi, "GraphRAGConfig") as mock_cfg:
+            mock_cfg.opensearch_username = "admin"
+            mock_cfg.opensearch_password = "secret"
+            with patch.object(ovi, "OpenSearch"):
+                with caplog.at_level("WARNING", logger="graphrag_toolkit.lexical_graph.storage.vector.opensearch_vector_indexes"):
+                    ovi.create_os_client("https://localhost:9200", is_sigv4_auth=False)
+                assert not any("unencrypted" in r.message for r in caplog.records)
+
     def test_http_scheme_disables_ssl_async(self):
         with patch.object(ovi, "GraphRAGConfig") as mock_cfg:
             mock_cfg.opensearch_username = None
@@ -330,6 +416,36 @@ class TestCreateOsAsyncClientLocal:
                     ovi.create_os_async_client("https://localhost:9200", is_sigv4_auth=False)
                     mock_sigv4.assert_not_called()
                     mock_cfg.session.assert_not_called()
+
+    def test_uppercase_http_scheme_disables_ssl_async(self):
+        with patch.object(ovi, "GraphRAGConfig") as mock_cfg:
+            mock_cfg.opensearch_username = None
+            mock_cfg.opensearch_password = None
+            with patch.object(ovi, "AsyncOpenSearch") as mock_async:
+                ovi.create_os_async_client("HTTP://localhost:9200", is_sigv4_auth=False)
+                _, kwargs = mock_async.call_args
+                assert kwargs["use_ssl"] is False
+
+    def test_sigv4_auth_forces_ssl_even_for_http_endpoint_async(self):
+        mock_session = MagicMock()
+        mock_session.get_credentials.return_value = MagicMock()
+        with patch.object(ovi, "GraphRAGConfig") as mock_cfg:
+            mock_cfg.session = mock_session
+            mock_cfg.aws_region = "us-east-1"
+            with patch.object(ovi, "AsyncOpenSearch") as mock_async:
+                with patch.object(ovi, "AWSV4SignerAsyncAuth"):
+                    ovi.create_os_async_client("http://my-collection.aoss.amazonaws.com", is_sigv4_auth=True)
+                    _, kwargs = mock_async.call_args
+                    assert kwargs["use_ssl"] is True
+
+    def test_basic_auth_over_plain_http_warns_async(self, caplog):
+        with patch.object(ovi, "GraphRAGConfig") as mock_cfg:
+            mock_cfg.opensearch_username = "admin"
+            mock_cfg.opensearch_password = "secret"
+            with patch.object(ovi, "AsyncOpenSearch"):
+                with caplog.at_level("WARNING", logger="graphrag_toolkit.lexical_graph.storage.vector.opensearch_vector_indexes"):
+                    ovi.create_os_async_client("http://localhost:9200", is_sigv4_auth=False)
+                assert any("unencrypted" in r.message for r in caplog.records)
 
 
 class TestCreateOpensearchVectorClientLocal:

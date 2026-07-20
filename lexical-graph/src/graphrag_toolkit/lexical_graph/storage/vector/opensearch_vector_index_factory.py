@@ -47,6 +47,8 @@ class OpenSearchVectorIndexFactory(VectorIndexFactoryMethod):
         is_sigv4_auth = True
         if vector_index_info.startswith(OPENSEARCH_SERVERLESS):
             endpoint = vector_index_info[len(OPENSEARCH_SERVERLESS):]
+            if not endpoint:
+                raise ValueError(f'Empty endpoint in OpenSearch Serverless vector store connection info: {vector_index_info}')
             if not endpoint.startswith('https://') and not endpoint.startswith('http://'):
                 endpoint = f'https://{endpoint}'
         elif vector_index_info.startswith(OPENSEARCH):
@@ -57,6 +59,9 @@ class OpenSearchVectorIndexFactory(VectorIndexFactoryMethod):
         elif vector_index_info.startswith('https://') and vector_index_info.endswith(OPENSEARCH_SERVERLESS_DNS):
             endpoint = vector_index_info
         if endpoint:
+            # is_sigv4_auth is derived from the connection-string scheme above; drop any
+            # caller-supplied duplicate so it doesn't collide with the keyword below.
+            kwargs.pop('is_sigv4_auth', None)
             try:
                 from graphrag_toolkit.lexical_graph.storage.vector.opensearch_vector_indexes import OpenSearchIndex
                 logger.debug(f'Opening OpenSearch vector indexes [index_names: {index_names}, endpoint: {endpoint}, is_sigv4_auth: {is_sigv4_auth}]')
