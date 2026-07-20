@@ -190,3 +190,37 @@ class UniversalDirectoryReaderConfig(ReaderProviderConfig):
     bucket_name: Optional[str] = None
     key_prefix: Optional[str] = None
     collection_id: Optional[str] = None
+
+
+# Generic LlamaIndex plugin reader
+@dataclass
+class LlamaIndexPluginReaderConfig(ReaderProviderConfig):
+    """Configuration for the generic LlamaIndex reader plugin.
+    
+    Wraps any reader from the LlamaIndex ecosystem with just configuration.
+    See: https://developers.llamaindex.ai/python/framework-api-reference/readers/
+    
+    Args:
+        package: pip package name (e.g. "llama-index-readers-confluence")
+        module_path: Full Python module path (e.g. "llama_index.readers.confluence")
+        reader_class: Class name to import (e.g. "ConfluenceReader")
+        init_args: Dict of keyword arguments for the reader constructor
+        load_method: Method to call for loading (default: "load_data")
+        load_args: Dict of keyword arguments for the load method
+        timeout_seconds: Max seconds for the read operation (default: 120)
+        max_retries: Number of retries on transient failures (default: 2)
+        retry_backoff_seconds: Initial backoff between retries (default: 2.0)
+        fail_on_error: If False, return [] on failure instead of raising (default: False)
+        metadata_fn: Optional function to enrich document metadata
+    """
+    package: str = ""
+    module_path: str = ""
+    reader_class: str = ""
+    init_args: Optional[Dict[str, Any]] = None
+    load_method: str = "load_data"
+    load_args: Optional[Dict[str, Any]] = None
+    timeout_seconds: int = 120
+    max_retries: int = 2
+    retry_backoff_seconds: float = 2.0
+    fail_on_error: bool = True
+    metadata_fn: Optional[Callable[[str], Dict[str, Any]]] = None

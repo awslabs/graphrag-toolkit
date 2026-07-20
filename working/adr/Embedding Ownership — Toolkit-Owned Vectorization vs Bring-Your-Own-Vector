@@ -1,0 +1,38 @@
+# ADR-0005: Embedding Ownership — Toolkit-Owned Vectorization vs Bring-Your-Own-Vector
+
+- **Status:** Proposed — client decision required
+- **Date:** 2026-06-29
+- **Stance:** We propose and inform; the client decides (ADR-0001 §1).
+- **Relates to:** ADR-0001 (D2), ADR-0004, requirements.md R2/R4
+
+## Context
+The client has a module that reads CPG from Neo4j, produces a unit, vectorises it, and writes
+the vector in-graph. The toolkit's `VectorStore` write path (`add_embeddings`) instead OWNS
+vectorisation: it embeds node text via the configured `embed_model`; there is no first-class
+API to store a supplied vector as-is. Critically, the toolkit also embeds the QUERY at read
+time with the same `embed_model`, so stored vectors and query vectors must come from the same
+model or similarity search is invalid.
+
+## Decision (recommended)
+Toolkit owns vectorisation. The client provides the `SemanticCodeUnit` summary TEXT; the
+toolkit embeds at index and query time with one configured `embed_model`. The client's chosen
+embedding model is configured AS the toolkit's `embed_model` via the model seam (ADR-0001 D2),
+so the client keeps their model without a separate pre-vectorisation step. The client's
+existing vectorise-and-write step is retired for the toolkit path.
+
+## Alternative (only if required)
+Bring-your-own-vector: a supported write path that stores a pre-computed embedding without
+re-embedding. Hard constraints: (a) the same model MUST be pinned as the query-time embedder;
+(b) dimension must match the index. Higher complexity; not the default.
+
+## Consequences
+- Recommended path keeps index/query embeddings consistent (correctness) and reuses the
+  toolkit as designed while still using the client's model.
+- `document-graph` writes graph nodes/edges (Neptune), not OpenSearch vectors; the overlay
+  embedding (R4) spans a graph-node write plus a `VectorStore` write — the seam ADR-0004 covers.
+- BYO-vector path would require the toolkit to enforce a model-parity contract.
+
+## Open questions for the client
+1. Must existing vectors be reused, or is regenerating via the toolkit acceptable?
+2. Which embedding model must be the toolkit `embed_model`, and is it injectable as a `BaseEmbedding`?
+3. If BYO-vector is required, who guarantees query-time model parity?
