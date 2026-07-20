@@ -82,6 +82,7 @@ if [[ "$#" -gt 0 ]]; then
     echo "  --embeddings-model <Embeddings model id>"
     echo "  --embeddings-dimensions <Embeddings dimensions>"
     echo "  --lexical-graph-wheel <path to local .whl file to upload to S3 and install>"
+    echo "  --byokg-rag-wheel <path to local .whl file to upload to S3 and install>"
     echo "  --ssh-cidr <SSH CIDR block (default: auto-detected IP/32, use 0.0.0.0/0 for open access)>"
     echo "  --benchmark-data-dir <local directory containing benchmark data to upload>"
     echo "  --benchmark-data-s3-uri <S3 URI for benchmark data (synced at runtime instead of uploading)>"
@@ -155,6 +156,7 @@ while [[ "$#" -gt 0 ]]; do
 				--lexical-graph-install) LEXICAL_GRAPH_INSTALL_URI="$2"; shift ;;
 				--lexical-graph-wheel) LEXICAL_GRAPH_WHEEL="$2"; shift ;;
 				--byokg-rag-install) BYOKG_RAG_INSTALL_URI="$2"; shift ;;
+				--byokg-rag-wheel) BYOKG_RAG_WHEEL="$2"; shift ;;
         --bucket) BUCKET_NAME="$2"; shift ;;
         --region) REGION_NAME="$2"; shift ;;
 				--env-type) ENV_TYPE="$2"; shift ;;
@@ -266,6 +268,25 @@ if [[ "$LEXICAL_GRAPH_WHEEL" ]]; then
     LEXICAL_GRAPH_INSTALL_URI="$S3_ROOT/packages/$WHEEL_FILENAME"
 fi
 
+if [[ "$BYOKG_RAG_WHEEL" ]]; then
+    if [[ "$BYOKG_RAG_INSTALL_URI" ]]; then
+        echo "ERROR: --byokg-rag-wheel and --byokg-rag-install are mutually exclusive."
+        exit 1
+    fi
+    if [[ ! -f "$BYOKG_RAG_WHEEL" ]]; then
+        echo "ERROR: Wheel file not found: $BYOKG_RAG_WHEEL"
+        exit 1
+    fi
+    if [[ "$BYOKG_RAG_WHEEL" != *.whl ]]; then
+        echo "ERROR: --byokg-rag-wheel expects a .whl file, got: $BYOKG_RAG_WHEEL"
+        exit 1
+    fi
+    WHEEL_FILENAME=$(basename "$BYOKG_RAG_WHEEL")
+    echo "Copying wheel $WHEEL_FILENAME into packages for S3 upload..."
+    cp "$BYOKG_RAG_WHEEL" graphrag/assets/packages/"$WHEEL_FILENAME"
+    BYOKG_RAG_INSTALL_URI="$S3_ROOT/packages/$WHEEL_FILENAME"
+fi
+
 if [[ -z "$LEXICAL_GRAPH_INSTALL_URI" ]]; then
     # Only copy source code to test notebook if install URI not supplied
 	cp -r $GRAPHRAG_TOOLKIT_DIR/lexical-graph/src/* graphrag-toolkit
@@ -273,6 +294,7 @@ fi
 
 cp -r $GRAPHRAG_TOOLKIT_DIR/lexical-graph-contrib/* graphrag-toolkit
 cp -r $GRAPHRAG_TOOLKIT_DIR/byokg-rag/src/* graphrag-toolkit
+cp $GRAPHRAG_TOOLKIT_DIR/integration-tests/requirements-integ-test.txt graphrag-toolkit/
 cp -r $GRAPHRAG_TOOLKIT_DIR/examples/lexical-graph/notebooks/* lexical-graph-examples
 cp -r $GRAPHRAG_TOOLKIT_DIR/examples/byokg-rag/* lexical-graph-examples
 cp -r ./../test-scripts/* lexical-graph-examples
@@ -393,6 +415,7 @@ echo ""
 echo "----------------------------------------------------"
 echo "GRAPHRAG_TOOLKIT_DIR     : $GRAPHRAG_TOOLKIT_DIR"
 echo "LEXICAL_GRAPH_WHEEL      : $LEXICAL_GRAPH_WHEEL"
+echo "BYOKG_RAG_WHEEL          : $BYOKG_RAG_WHEEL"
 echo "LEXICAL_GRAPH_INSTALL_URI: $LEXICAL_GRAPH_INSTALL_URI"
 echo "BYOKG_RAG_INSTALL_URI    : $BYOKG_RAG_INSTALL_URI"
 echo "ENV_TYPE                 : $ENV_TYPE"

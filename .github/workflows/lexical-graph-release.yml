@@ -16,6 +16,8 @@ on:
 
 permissions:
   contents: write
+  attestations: write
+  id-token: write
 
 jobs:
   release-build:
@@ -33,12 +35,12 @@ jobs:
       - uses: actions/checkout@v7
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: "3.x"
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v7
+        uses: astral-sh/setup-uv@11f9893b081a58869d3b5fccaea48c9e9e46f990 # v8.3.2
 
       - name: Create virtual environment
         run: uv venv .venv
@@ -120,8 +122,25 @@ jobs:
             done
           done
 
+      - name: Generate checksums
+        working-directory: ${{ github.workspace }}
+        run: |
+          cd lexical-graph/dist && sha256sum *.whl *.tar.gz > SHA256SUMS && cd ${{ github.workspace }}
+          sha256sum examples/lexical-graph/notebooks/lexical-graph-examples-${{ steps.version.outputs.version }}.zip | sed 's|.*/||' >> lexical-graph/dist/SHA256SUMS
+          sha256sum examples/lexical-graph-hybrid-dev/notebooks/lexical-graph-hybrid-dev-examples-${{ steps.version.outputs.version }}.zip | sed 's|.*/||' >> lexical-graph/dist/SHA256SUMS
+
+      - name: Attest build provenance
+        uses: actions/attest-build-provenance@0f67c3f4856b2e3261c31976d6725780e5e4c373 # v4.1.1
+        with:
+          subject-path: |
+            lexical-graph/dist/*.whl
+            lexical-graph/dist/*.tar.gz
+            lexical-graph/dist/SHA256SUMS
+            examples/lexical-graph/notebooks/lexical-graph-examples-${{ steps.version.outputs.version }}.zip
+            examples/lexical-graph-hybrid-dev/notebooks/lexical-graph-hybrid-dev-examples-${{ steps.version.outputs.version }}.zip
+
       - name: Attach Artifacts to GitHub Release
-        uses: softprops/action-gh-release@v3
+        uses: softprops/action-gh-release@3d0d9888cb7fd7b750713d6e236d1fcb99157228 # v3
         with:
           files: |
             lexical-graph/dist/*
@@ -137,16 +156,19 @@ jobs:
     needs: release-build
     permissions:
       id-token: write
+      attestations: write
     environment:
       name: pypi
       url: https://pypi.org/project/graphrag-lexical-graph/${{ needs.release-build.outputs.version }}
     steps:
       - name: Download build artifacts
-        uses: actions/download-artifact@v8
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
           name: lexical-graph-dist
           path: dist/
       - name: Remove non-versioned dist copies
         run: rm -f dist/*-latest.*
       - name: Publish to PyPI
-        uses: pypa/gh-action-pypi-publish@release/v1
+        uses: pypa/gh-action-pypi-publish@ba38be9e461d3875417946c167d0b5f3d385a247 # release/v1
+        with:
+          attestations: true

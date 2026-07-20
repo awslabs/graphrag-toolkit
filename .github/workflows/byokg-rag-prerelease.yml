@@ -8,6 +8,8 @@ on:
 
 permissions:
   contents: write
+  attestations: write
+  id-token: write
 
 jobs:
   pre-release-build:
@@ -24,12 +26,12 @@ jobs:
       - uses: actions/checkout@v7
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: "3.x"
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v7
+        uses: astral-sh/setup-uv@11f9893b081a58869d3b5fccaea48c9e9e46f990 # v8.3.2
 
       - name: Create virtual environment
         run: uv venv .venv
@@ -93,8 +95,23 @@ jobs:
             examples/byokg-rag/byokg-notebooks-latest.zip
           retention-days: 30
 
+      - name: Generate checksums
+        working-directory: ${{ github.workspace }}
+        run: |
+          cd byokg-rag/dist && sha256sum *.whl *.tar.gz > SHA256SUMS && cd ${{ github.workspace }}
+          sha256sum examples/byokg-rag/byokg-notebooks-${{ steps.version.outputs.version }}.zip | sed 's|.*/||' >> byokg-rag/dist/SHA256SUMS
+
+      - name: Attest build provenance
+        uses: actions/attest-build-provenance@0f67c3f4856b2e3261c31976d6725780e5e4c373 # v4.1.1
+        with:
+          subject-path: |
+            byokg-rag/dist/*.whl
+            byokg-rag/dist/*.tar.gz
+            byokg-rag/dist/SHA256SUMS
+            examples/byokg-rag/byokg-notebooks-${{ steps.version.outputs.version }}.zip
+
       - name: Attach artifacts to GitHub Pre-Release
-        uses: softprops/action-gh-release@v3
+        uses: softprops/action-gh-release@3d0d9888cb7fd7b750713d6e236d1fcb99157228 # v3
         with:
           files: |
             byokg-rag/dist/*

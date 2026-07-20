@@ -31,6 +31,10 @@ class GitHubReaderProvider:
     def read(self, input_source) -> List[Document]:
         """Read GitHub repository documents with metadata handling."""
         
+        if not self.github_config.github_token:
+            logger.warning("No GitHub token configured — skipping GitHub read. "
+                          "Set github_token in GitHubReaderConfig to enable.")
+            return []
 
         if not input_source:
             logger.error("No input source provided to GitHubReaderProvider")

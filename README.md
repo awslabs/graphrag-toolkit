@@ -1,6 +1,6 @@
 ## GraphRAG Toolkit
 
-[![PyPI - lexical-graph](https://img.shields.io/pypi/v/graphrag-lexical-graph?label=graphrag-lexical-graph)](https://pypi.org/project/graphrag-lexical-graph/) [![PyPI - byokg-rag](https://img.shields.io/pypi/v/graphrag-toolkit-byokg-rag?label=graphrag-toolkit-byokg-rag)](https://pypi.org/project/graphrag-toolkit-byokg-rag/) [![License](https://img.shields.io/badge/license-Apache--2.0-green)](LICENSE)
+[![PyPI - lexical-graph](https://img.shields.io/pypi/v/graphrag-lexical-graph?label=graphrag-lexical-graph)](https://pypi.org/project/graphrag-lexical-graph/) [![PyPI - graphrag-byokg](https://img.shields.io/pypi/v/graphrag-byokg?label=graphrag-byokg)](https://pypi.org/project/graphrag-byokg/) [![License](https://img.shields.io/badge/license-Apache--2.0-green)](LICENSE)
 
 > Check out the graphrag-toolkit Docs found here: [Start here!](https://awslabs.github.io/graphrag-toolkit/)
 

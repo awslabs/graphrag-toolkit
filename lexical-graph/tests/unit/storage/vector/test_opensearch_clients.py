@@ -10,62 +10,12 @@ Covers:
   - OpenSearchIndex.client property (index exists, index does not exist)
 """
 
-import sys
-import types
 import pytest
 from unittest.mock import MagicMock, patch
 
+from ._opensearch_test_support import install_opensearch_mocks, FakeNotFoundError as _NotFoundError
 
-# ---------------------------------------------------------------------------
-# Bootstrap: inject fake opensearch modules before the source module loads
-# ---------------------------------------------------------------------------
-
-def _install_opensearch_mocks():
-    """Install fake opensearch modules into sys.modules so the source can import."""
-    import llama_index
-
-    fake_exceptions_mod = types.ModuleType("opensearchpy.exceptions")
-
-    class _NotFoundError(Exception):
-        def __init__(self, status_code=404, error="not found", info=None):
-            super().__init__(error)
-            self.status_code = status_code
-
-    class _RequestError(Exception):
-        pass
-
-    fake_exceptions_mod.NotFoundError = _NotFoundError
-    fake_exceptions_mod.RequestError = _RequestError
-
-    fake_opensearch_mod = types.ModuleType("opensearchpy")
-    fake_opensearch_mod.OpenSearch = MagicMock(name="OpenSearch")
-    fake_opensearch_mod.AsyncOpenSearch = MagicMock(name="AsyncOpenSearch")
-    fake_opensearch_mod.AWSV4SignerAsyncAuth = MagicMock(name="AWSV4SignerAsyncAuth")
-    fake_opensearch_mod.AsyncHttpConnection = MagicMock(name="AsyncHttpConnection")
-    fake_opensearch_mod.Urllib3AWSV4SignerAuth = MagicMock(name="Urllib3AWSV4SignerAuth")
-    fake_opensearch_mod.Urllib3HttpConnection = MagicMock(name="Urllib3HttpConnection")
-    fake_opensearch_mod.exceptions = fake_exceptions_mod
-
-    fake_llama_vs_mod = types.ModuleType("llama_index.vector_stores")
-    fake_llama_os_mod = types.ModuleType("llama_index.vector_stores.opensearch")
-
-    class _FakeOpensearchVectorClient:
-        _get_opensearch_version = None
-        _bulk_ingest_embeddings = None
-
-    fake_llama_os_mod.OpensearchVectorClient = _FakeOpensearchVectorClient
-    fake_llama_vs_mod.opensearch = fake_llama_os_mod
-    llama_index.vector_stores = fake_llama_vs_mod
-
-    sys.modules["opensearchpy"] = fake_opensearch_mod
-    sys.modules["opensearchpy.exceptions"] = fake_exceptions_mod
-    sys.modules["llama_index.vector_stores"] = fake_llama_vs_mod
-    sys.modules["llama_index.vector_stores.opensearch"] = fake_llama_os_mod
-
-    return _NotFoundError
-
-
-_NotFoundError = _install_opensearch_mocks()
+install_opensearch_mocks()
 
 # Now import the module under test (mocks are in place)
 import graphrag_toolkit.lexical_graph.storage.vector.opensearch_vector_indexes as ovi  # noqa: E402

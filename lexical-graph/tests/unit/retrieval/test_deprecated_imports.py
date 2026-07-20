@@ -144,7 +144,8 @@ class TestUnknownAttributeRaises:
             getattr(module, 'TotallyFakeName')
 
     @given(name=st.text(min_size=1, max_size=30).filter(
-        lambda n: n not in _ALL_DEPRECATED_NAMES and n not in _NON_DEPRECATED_NAMES and n.isidentifier()
+        lambda n: n not in _ALL_DEPRECATED_NAMES and n not in _NON_DEPRECATED_NAMES
+        and n.isidentifier() and not (n.startswith('__') and n.endswith('__'))
     ))
     @settings(max_examples=20)
     def test_random_names_raise_attribute_error(self, name):

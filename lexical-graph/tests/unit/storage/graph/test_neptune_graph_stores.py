@@ -387,6 +387,27 @@ class TestCreateConfig:
         cfg = create_config()
         assert 'graphrag-lexical-graph' in cfg.user_agent_appid
 
+    @pytest.mark.parametrize(
+        "config_key, config_value, cfg_attr",
+        [
+            ('read_timeout', 30, 'read_timeout'),
+            (
+                'retries',
+                {'total_max_attempts': 3, 'mode': 'adaptive'},
+                'retries',
+            ),
+            ('user_agent_appid', 'custom-app', 'user_agent_appid'),
+        ],
+    )
+    def test_user_args_override_default_config_kwargs_without_type_error(
+        self,
+        config_key,
+        config_value,
+        cfg_attr,
+    ):
+        cfg = create_config(_json.dumps({config_key: config_value}))
+        assert getattr(cfg, cfg_attr) == config_value
+
 
 class TestCreatePropertyAssignmentFn:
     def test_non_datetime_key_returns_identity(self):
