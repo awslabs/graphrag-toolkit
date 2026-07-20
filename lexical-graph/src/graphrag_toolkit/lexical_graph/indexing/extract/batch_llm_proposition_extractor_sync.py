@@ -80,7 +80,9 @@ class BatchLLMPropositionExtractorSync(BatchExtractorBase):
     def _update_node(self, node:TextNode, node_metadata_map):
         if node.node_id in node_metadata_map:
             proposition_data = node_metadata_map[node.node_id]
-            if isinstance(proposition_data, list):
+            if proposition_data is None:
+                node.metadata[PROPOSITIONS_KEY] = []
+            elif isinstance(proposition_data, list):
                 node.metadata[PROPOSITIONS_KEY] = proposition_data
             else:
                 propositions = proposition_data.split('\n')

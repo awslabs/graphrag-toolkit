@@ -29,6 +29,8 @@ QA_FILE_MAP = {
     'cuad': ['qa.json'],
     'cuad-prototype': ['qa.json'],
     'pga': ['pga_bio.json', 'pga_stat.json'],
+    'pga_bio': ['pga_bio.json'],
+    'pga_stat': ['pga_stat.json'],
     'concurrentqa': ['qa.json'],
     'concurrentqa-prototype': ['qa.json'],
     'wikihow': ['qa.json'],
@@ -39,8 +41,10 @@ BENCHMARK_DATA_DIR = 'source-data'
 
 def load_qa_pairs(data_dir: str, dataset: str, qa_files: List[str], limit: Optional[int] = None):
     pairs = []
+    # pga_bio and pga_stat share the 'pga' data directory
+    data_subdir = 'pga' if dataset.startswith('pga') else dataset
     for f in qa_files:
-        path = os.path.join(data_dir, dataset, f)
+        path = os.path.join(data_dir, data_subdir, f)
         with open(path) as fh:
             pairs.extend(json.load(fh))
     if limit:
@@ -386,11 +390,13 @@ class PgaBenchmarkQuery(IntegrationTestBase):
         retriever_id = os.environ.get('BENCHMARK_RETRIEVER', 'traversal')
         agentic_max_iterations = int(os.environ.get('AGENTIC_MAX_ITERATIONS', '3'))
         byokg_max_iterations = int(os.environ.get('BYOKG_MAX_ITERATIONS', '2'))
+        # Allow overriding to pga_bio or pga_stat for split evaluation
+        dataset_name = os.environ.get('BENCHMARK_DATASET', 'pga')
 
         run_benchmark_query(
             handler,
             params,
-            dataset='pga',
+            dataset=dataset_name,
             data_dir=BENCHMARK_DATA_DIR,
             graph_store_conn=os.environ.get('GRAPH_STORE'),
             vector_store_conn=os.environ.get('VECTOR_STORE'),
