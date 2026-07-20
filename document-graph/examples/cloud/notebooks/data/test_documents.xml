@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<documents>
+  <document>
+    <id>1</id>
+    <title>AWS Lambda Introduction</title>
+    <content>AWS Lambda is a serverless computing service that lets you run code without provisioning or managing servers. You pay only for the compute time you consume. Lambda runs your code on a high-availability compute infrastructure and performs all of the administration of the compute resources.</content>
+    <category>technology</category>
+    <author>AWS Documentation</author>
+    <date>2024-01-15</date>
+    <tags>serverless,lambda,aws,computing</tags>
+    <language>en</language>
+    <source_url>https://docs.aws.amazon.com/lambda/</source_url>
+    <metadata>
+      <service>lambda</service>
+      <complexity>beginner</complexity>
+    </metadata>
+  </document>
+  <document>
+    <id>2</id>
+    <title>Machine Learning Basics</title>
+    <content>Machine learning is a subset of artificial intelligence that enables computers to learn and make decisions from data without being explicitly programmed. It involves algorithms that can identify patterns in data and make predictions or classifications.</content>
+    <category>education</category>
+    <author>Dr. Sarah Johnson</author>
+    <date>2024-01-20</date>
+    <tags>machine-learning,ai,data-science,algorithms</tags>
+    <language>en</language>
+    <source_url>https://example.com/ml-basics</source_url>
+    <metadata>
+      <difficulty>intermediate</difficulty>
+      <field>computer_science</field>
+    </metadata>
+  </document>
+  <document>
+    <id>3</id>
+    <title>Cybersecurity Best Practices</title>
+    <content>Implementing strong cybersecurity measures is crucial for protecting sensitive data. Key practices include using multi-factor authentication, regular software updates, employee training, network segmentation, and incident response planning.</content>
+    <category>security</category>
+    <author>John Smith</author>
+    <date>2024-01-25</date>
+    <tags>cybersecurity,security,data-protection,best-practices</tags>
+    <language>en</language>
+    <source_url>https://security-blog.com/best-practices</source_url>
+    <metadata>
+      <industry>cybersecurity</industry>
+      <audience>enterprise</audience>
+    </metadata>
+  </document>
+  <document>
+    <id>4</id>
+    <title>Climate Change Impact</title>
+    <content>Climate change refers to long-term shifts in global temperatures and weather patterns. While climate variations are natural, scientific evidence shows that human activities have been the main driver of climate change since the 1800s.</content>
+    <category>environment</category>
+    <author>Environmental Research Institute</author>
+    <date>2024-02-01</date>
+    <tags>climate-change,environment,sustainability,global-warming</tags>
+    <language>en</language>
+    <source_url>https://climate-research.org/impact</source_url>
+    <metadata>
+      <topic>environmental_science</topic>
+      <urgency>high</urgency>
+    </metadata>
+  </document>
+  <document>
+    <id>5</id>
+    <title>Quantum Computing Fundamentals</title>
+    <content>Quantum computing harnesses quantum mechanical phenomena to process information in fundamentally different ways than classical computers. Quantum bits (qubits) can exist in superposition states, enabling parallel processing capabilities.</content>
+    <category>technology</category>
+    <author>Prof. Michael Chen</author>
+    <date>2024-02-05</date>
+    <tags>quantum-computing,physics,technology,qubits</tags>
+    <language>en</language>
+    <source_url>https://quantum-journal.com/fundamentals</source_url>
+    <metadata>
+      <complexity>advanced</complexity>
+      <field>quantum_physics</field>
+    </metadata>
+  </document>
+  <document>
+    <id>6</id>
+    <title>Healthy Cooking Tips</title>
+    <content>Maintaining a healthy diet starts with proper cooking techniques. Use fresh ingredients, limit processed foods, incorporate plenty of vegetables, choose lean proteins, and use healthy cooking methods like steaming, grilling, or baking instead of frying.</content>
+    <category>health</category>
+    <author>Nutritionist Lisa Brown</author>
+    <date>2024-02-10</date>
+    <tags>health,nutrition,cooking,wellness,diet</tags>
+    <language>en</language>
+    <source_url>https://health-magazine.com/cooking-tips</source_url>
+    <metadata>
+      <category>lifestyle</category>
+      <target_audience>general_public</target_audience>
+    </metadata>
+  </document>
+  <document>
+    <id>7</id>
+    <title>Financial Planning Strategies</title>
+    <content>Effective financial planning involves setting clear goals, creating a budget, building an emergency fund, investing wisely, and regularly reviewing your financial situation. Start early and be consistent with your savings and investment approach.</content>
+    <category>finance</category>
+    <author>Financial Advisor Mark Wilson</author>
+    <date>2024-02-15</date>
+    <tags>finance,investment,budgeting,savings,planning</tags>
+    <language>en</language>
+    <source_url>https://finance-advisor.com/strategies</source_url>
+    <metadata>
+      <expertise_level>beginner_to_intermediate</expertise_level>
+      <topic>personal_finance</topic>
+    </metadata>
+  </document>
+  <document>
+    <id>8</id>
+    <title>Space Exploration History</title>
+    <content>Space exploration began in the mid-20th century with the launch of Sputnik 1 in 1957. Major milestones include the first human in space (Yuri Gagarin, 1961), the moon landing (Apollo 11, 1969), and the development of space stations and Mars rovers.</content>
+    <category>science</category>
+    <author>Space History Museum</author>
+    <date>2024-02-20</date>
+    <tags>space,exploration,history,nasa,astronomy</tags>
+    <language>en</language>
+    <source_url>https://space-museum.org/history</source_url>
+    <metadata>
+      <era>20th_21st_century</era>
+      <field>aerospace</field>
+    </metadata>
+  </document>
+  <document>
+    <id>9</id>
+    <title>Sustainable Energy Solutions</title>
+    <content>Renewable energy sources like solar, wind, and hydroelectric power are becoming increasingly important for reducing carbon emissions. These technologies offer clean alternatives to fossil fuels and are becoming more cost-effective.</content>
+    <category>environment</category>
+    <author>Green Energy Consortium</author>
+    <date>2024-02-25</date>
+    <tags>renewable-energy,sustainability,solar,wind,environment</tags>
+    <language>en</language>
+    <source_url>https://green-energy.org/solutions</source_url>
+    <metadata>
+      <focus>renewable_energy</focus>
+      <impact>environmental</impact>
+    </metadata>
+  </document>
+  <document>
+    <id>10</id>
+    <title>Digital Marketing Trends</title>
+    <content>Digital marketing continues to evolve with new technologies and consumer behaviors. Key trends include personalization, video content, social media marketing, influencer partnerships, and data-driven decision making.</content>
+    <category>business</category>
+    <author>Marketing Expert Jane Davis</author>
+    <date>2024-03-01</date>
+    <tags>digital-marketing,social-media,trends,business,advertising</tags>
+    <language>en</language>
+    <source_url>https://marketing-trends.com/2024</source_url>
+    <metadata>
+      <industry>marketing</industry>
+      <year>2024</year>
+    </metadata>
+  </document>
+  <document>
+    <id>11</id>
+    <title>Artificial Intelligence Ethics</title>
+    <content>As AI systems become more prevalent, ethical considerations become crucial. Key issues include bias in algorithms, privacy concerns, job displacement, transparency in decision-making, and the need for responsible AI development.</content>
+    <category>technology</category>
+    <author>AI Ethics Committee</author>
+    <date>2024-03-05</date>
+    <tags>ai,ethics,technology,society,responsibility</tags>
+    <language>en</language>
+    <source_url>https://ai-ethics.org/guidelines</source_url>
+    <metadata>
+      <importance>critical</importance>
+      <stakeholders>global</stakeholders>
+    </metadata>
+  </document>
+  <document>
+    <id>12</id>
+    <title>Urban Planning Principles</title>
+    <content>Effective urban planning creates sustainable, livable communities. Key principles include mixed-use development, public transportation, green spaces, affordable housing, and community engagement in the planning process.</content>
+    <category>urban-development</category>
+    <author>City Planning Department</author>
+    <date>2024-03-10</date>
+    <tags>urban-planning,city-development,sustainability,community</tags>
+    <language>en</language>
+    <source_url>https://city-planning.gov/principles</source_url>
+    <metadata>
+      <scope>municipal</scope>
+      <focus>sustainable_development</focus>
+    </metadata>
+  </document>
+  <document>
+    <id>13</id>
+    <title>Data Breach Incident Report</title>
+    <content>On March 15th, our security team detected unauthorized access to customer data. The breach affected 1,247 users including John Doe (SSN: 123-45-6789, email: john.doe@email.com), Jane Smith (phone: 555-123-4567), and server logs from IP address 192.168.1.100. Credit card 4532-1234-5678-9012 was also compromised. Immediate containment measures were implemented.</content>
+    <category>security</category>
+    <author>Security Team Lead</author>
+    <date>2024-03-15</date>
+    <tags>data-breach,security,incident,pii</tags>
+    <language>en</language>
+    <source_url>https://internal-security.com/incident-001</source_url>
+    <metadata>
+      <severity>high</severity>
+      <affected_users>1247</affected_users>
+      <containment_status>complete</containment_status>
+    </metadata>
+  </document>
+  <document>
+    <id>14</id>
+    <title>Machien Lerning Algoritms</title>
+    <content>Machien lerning algoritms are becomming more sofisticated every day. Thier ability to proces large amounts of data and identyfy paterns is truely remarkabel. However, ther are stil chalenges with bias and interpretabilty that need to be adressed.</content>
+    <category>technology</category>
+    <author>Dr. Alex Thompson</author>
+    <date>2024-03-20</date>
+    <tags>machine-learning,algorithms,ai,spelling-errors</tags>
+    <language>en</language>
+    <source_url>https://ml-research.edu/algorithms</source_url>
+    <metadata>
+      <quality>poor_spelling</quality>
+      <needs_correction>true</needs_correction>
+    </metadata>
+  </document>
+  <document>
+    <id>15</id>
+    <title>API Configuration Guide</title>
+    <content>To configure the API endpoint, use the following JSON structure: {"endpoint": "https://api.example.com/v1", "auth": {"type": "bearer", "token": "sk-1234567890abcdef"}, "timeout": 30000, "retries": 3, "headers": {"Content-Type": "application/json", "User-Agent": "MyApp/1.0"}}. This configuration ensures proper authentication and error handling.</content>
+    <category>technical</category>
+    <author>DevOps Engineer</author>
+    <date>2024-03-25</date>
+    <tags>api,configuration,json,development</tags>
+    <language>en</language>
+    <source_url>https://dev-docs.com/api-config</source_url>
+    <metadata>
+      <format>json_embedded</format>
+      <complexity>intermediate</complexity>
+    </metadata>
+  </document>
+  <document>
+    <id>16</id>
+    <title>Mixed Language Content</title>
+    <content>This document contains multiple languages. English: Hello world! Spanish: ¡Hola mundo! French: Bonjour le monde! German: Hallo Welt! Japanese: こんにちは世界！Chinese: 你好世界！Russian: Привет мир! Arabic: مرحبا بالعالم! This tests language detection capabilities.</content>
+    <category>linguistics</category>
+    <author>Language Research Team</author>
+    <date>2024-04-01</date>
+    <tags>multilingual,language-detection,international</tags>
+    <language>mixed</language>
+    <source_url>https://lang-research.org/mixed-content</source_url>
+    <metadata>
+      <languages>en,es,fr,de,ja,zh,ru,ar</languages>
+      <test_type>language_detection</test_type>
+    </metadata>
+  </document>
+  <document>
+    <id>17</id>
+    <title>Toxic Content Example</title>
+    <content>This content contains inappropriate language and offensive terms that should be filtered out. Words like damn, hell, and other profanity need to be detected and handled appropriately by content moderation systems. This tests toxicity detection.</content>
+    <category>content-moderation</category>
+    <author>Content Safety Team</author>
+    <date>2024-04-05</date>
+    <tags>toxicity,content-moderation,filtering</tags>
+    <language>en</language>
+    <source_url>https://safety.example.com/toxic-test</source_url>
+    <metadata>
+      <toxicity_level>moderate</toxicity_level>
+      <requires_filtering>true</requires_filtering>
+    </metadata>
+  </document>
+  <document>
+    <id>18</id>
+    <title>Sentiment Analysis Test</title>
+    <content>I absolutely LOVE this amazing product! It's fantastic, wonderful, and brings me so much joy! 😊❤️ However, I also hate waiting for delivery and the customer service was terrible and disappointing. Mixed emotions here - both positive and negative feelings combined.</content>
+    <category>product-review</category>
+    <author>Customer Reviewer</author>
+    <date>2024-04-10</date>
+    <tags>sentiment,emotions,mixed-feelings,product-review</tags>
+    <language>en</language>
+    <source_url>https://reviews.com/mixed-sentiment</source_url>
+    <metadata>
+      <sentiment>mixed</sentiment>
+      <positive_score>0.7</positive_score>
+      <negative_score>0.4</negative_score>
+    </metadata>
+  </document>
+  <document>
+    <id>19</id>
+    <title>Code Injection Attempt</title>
+    <content>This field contains potential code: &lt;script&gt;alert('XSS')&lt;/script&gt; and SQL injection: '; DROP TABLE users; -- and command injection: $(rm -rf /) and other malicious content that should be sanitized and detected by security filters.</content>
+    <category>security-test</category>
+    <author>Security Tester</author>
+    <date>2024-04-15</date>
+    <tags>security,injection,xss,sql-injection,sanitization</tags>
+    <language>en</language>
+    <source_url>https://security-test.com/injection-test</source_url>
+    <metadata>
+      <threat_level>high</threat_level>
+      <injection_types>xss,sql,command</injection_types>
+    </metadata>
+  </document>
+  <document>
+    <id>20</id>
+    <title>Long Text Performance Test</title>
+    <content>This is an extremely long document designed to test performance with large text processing. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</content>
+    <category>performance</category>
+    <author>Performance Tester</author>
+    <date>2024-04-20</date>
+    <tags>performance,long-text,processing,load-test</tags>
+    <language>en</language>
+    <source_url>https://perf-test.com/long-content</source_url>
+    <metadata>
+      <text_length>1200</text_length>
+      <test_type>performance</test_type>
+      <processing_time_target>&lt;5s</processing_time_target>
+    </metadata>
+  </document>
+</documents>

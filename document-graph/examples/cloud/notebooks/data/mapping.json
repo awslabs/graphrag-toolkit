@@ -1,0 +1,387 @@
+{
+  "schema_version": "1.0",
+  "transformations": [
+    {
+      "rule_name": "evidence_1",
+      "type": "json",
+      "csv_property_name": "Evidence",
+      "parent": [
+        "Evidence"
+      ]
+    },
+    {
+      "rule_name": "resource_1",
+      "type": "json",
+      "csv_property_name": "Resource original JSON",
+      "parent": [
+        "Resource"
+      ]
+    }
+  ],
+  "graph": {
+    "edges": [
+      {
+        "Resource": {
+          "RAISES": "Issue",
+          "BELONGS_TO": "Project",
+          "LOCATED_IN": "CSP",
+          "INCLUDED_IN": "Subscription"
+        }
+      },
+      {
+        "Issue": {
+          "POSSESSES": "Threat",
+          "SUPPORTED_BY": "Evidence",
+          "CONTRIBUTES_TO": "Risk",
+          "HAS_A": "Control"
+        }
+      }
+    ],
+    "nodes": [
+      {
+        "Threat": {
+          "type": "node",
+          "property": {
+            "name": "threat_type",
+            "csv_map": "Threats"
+          }
+        }
+      },
+      {
+        "Risk": {
+          "type": "node",
+          "property": {
+            "name": "risk_type",
+            "csv_map": "Risks"
+          }
+        }
+      },
+      {
+        "Resource": {
+          "type": "node",
+          "property": {
+            "name": "resource_id",
+            "csv_map": "Resource vertex ID"
+          }
+        }
+      },
+      {
+        "Issue": {
+          "type": "node",
+          "property": {
+            "name": "issue_id",
+            "csv_map": "Issue ID"
+          }
+        }
+      },
+      {
+        "Evidence": {
+          "type": "node",
+          "property": {
+            "name": "evidence_id",
+            "type": "uuid"
+          }
+        }
+      },
+      {
+        "Project": {
+          "type": "node",
+          "property": {
+            "name": "project_id",
+            "csv_map": "Project IDs"
+          }
+        }
+      },
+      {
+        "Subscription": {
+          "type": "node",
+          "property": {
+            "name": "subscription_id",
+            "csv_map": "Subscription ID"
+          }
+        }
+      },
+      {
+        "CSP": {
+          "type": "node",
+          "property": {
+            "name": "platform",
+            "csv_map": "Resource Platform"
+          }
+        }
+      },
+      {
+        "Control": {
+          "type": "node",
+          "property": {
+            "name": "control_id",
+            "csv_map": "Control ID"
+          }
+        }
+      }
+
+    ]
+  },
+  "csv_columns": [
+    {
+      "csv_property_name": "Created At",
+      "type": "property",
+      "arrow_property_name": "detected_at",
+      "parents": [
+        "Issue"
+      ]
+    },
+    {
+      "csv_property_name": "Title",
+      "type": "property",
+      "arrow_property_name": "title",
+      "parents": [
+        "Issue"
+      ]
+    },
+    {
+      "csv_property_name": "Severity",
+      "type": "property",
+      "arrow_property_name": "severity",
+      "parents": [
+        "Issue"
+      ]
+    },
+    {
+      "csv_property_name": "Status",
+      "type": "property",
+      "arrow_property_name": "status",
+      "parents": [
+        "Issue"
+      ]
+    },
+    {
+      "csv_property_name": "Description",
+      "type": "property",
+      "arrow_property_name": "description",
+      "parents": [
+        "Issue"
+      ]
+    },
+    {
+      "csv_property_name": "Resource Type",
+      "type": "property",
+      "arrow_property_name": "resource_type",
+      "parents": [
+        "Resource"
+      ]
+    },
+    {
+      "csv_property_name": "Resource external ID",
+      "type": "property",
+      "arrow_property_name": "arn_or_uri",
+      "parents": [
+        "Resource"
+      ]
+    },
+    {
+      "csv_property_name": "Project Names",
+      "type": "property",
+      "arrow_property_name": "name",
+      "parents": [
+        "Project"
+      ]
+    },
+    {
+      "csv_property_name": "Resolved Time",
+      "type": "property",
+      "arrow_property_name": "resolved_at",
+      "parents": [
+        "Issue"
+      ]
+    },
+    {
+      "csv_property_name": "Resolution",
+      "type": "property",
+      "arrow_property_name": "resolution",
+      "parents": [
+        "Issue"
+      ]
+    },
+    {
+      "csv_property_name": "Control ID",
+      "type": "property",
+      "arrow_property_name": "control_id",
+      "parents": [
+        "Control"
+      ]
+    },
+    {
+      "csv_property_name": "Resource Name",
+      "type": "property",
+      "arrow_property_name": "name",
+      "parents": [
+        "Resource"
+      ]
+    },
+    {
+      "csv_property_name": "Resource Region",
+      "type": "property",
+      "arrow_property_name": "region",
+      "parents": [
+        "Resource"
+      ]
+    },
+    {
+      "csv_property_name": "Resource Status",
+      "type": "property",
+      "arrow_property_name": "status",
+      "parents": [
+        "Resource"
+      ]
+    },
+    {
+      "csv_property_name": "Resource Platform",
+      "type": "property",
+      "arrow_property_name": "platform",
+      "parents": [
+        "Resource"
+      ]
+    },
+    {
+      "csv_property_name": "Resource OS",
+      "type": "property",
+      "arrow_property_name": "os",
+      "parents": [
+        "Resource"
+      ]
+    },
+    {
+      "csv_property_name": "Resource original JSON",
+      "type": "transformation",
+      "rules": [
+        "resource_1"
+      ]
+    },
+    {
+      "csv_property_name": "Ticket URLs",
+      "type": "property",
+      "arrow_property_name": "ticket_url",
+      "parents": [
+        "Issue"
+      ]
+    },
+    {
+      "csv_property_name": "Note",
+      "type": "property",
+      "arrow_property_name": "note",
+      "parents": [
+        "Issue"
+      ]
+    },
+    {
+      "csv_property_name": "Due At",
+      "type": "property",
+      "arrow_property_name": "due_at",
+      "parents": [
+        "Issue"
+      ]
+    },
+    {
+      "csv_property_name": "Remediation Recommendation",
+      "type": "property",
+      "arrow_property_name": "remediation",
+      "parents": [
+        "Issue"
+      ]
+    },
+    {
+      "csv_property_name": "Subscription Name",
+      "type": "property",
+      "arrow_property_name": "name",
+      "parents": [
+        "Subscription"
+      ]
+    },
+    {
+      "csv_property_name": "Wiz URL",
+      "type": "property",
+      "arrow_property_name": "wiz_url",
+      "parents": [
+        "Issue"
+      ]
+    },
+    {
+      "csv_property_name": "Cloud Provider URL",
+      "type": "property",
+      "arrow_property_name": "url",
+      "parents": [
+        "CSP"
+      ]
+    },
+    {
+      "csv_property_name": "Resource Tags",
+      "type": "property",
+      "arrow_property_name": "tags",
+      "parents": [
+        "Resource"
+      ]
+    },
+    {
+      "csv_property_name": "Kubernetes Cluster",
+      "type": "property",
+      "arrow_property_name": "kubernetes_cluster",
+      "parents": [
+        "Resource"
+      ]
+    },
+    {
+      "csv_property_name": "Kubernetes Namespace",
+      "type": "property",
+      "arrow_property_name": "kubernetes_namespace",
+      "parents": [
+        "Resource"
+      ]
+    },
+    {
+      "csv_property_name": "Container Service",
+      "type": "property",
+      "arrow_property_name": "container_service",
+      "parents": [
+        "Resource"
+      ]
+    },
+    {
+      "csv_property_name": "Provider ID",
+      "type": "node",
+      "arrow_property_name": "provider_id",
+      "name": "Resource"
+    },
+    {
+      "csv_property_name": "Threats",
+      "type": "property",
+      "arrow_property_name": "threat_type",
+      "parents": [
+        "Threat"
+      ]
+    },
+    {
+      "csv_property_name": "Status Changed At",
+      "type": "property",
+      "arrow_property_name": "status_changed_at",
+      "parents": [
+        "Issue"
+      ]
+    },
+    {
+      "csv_property_name": "Updated At",
+      "type": "property",
+      "arrow_property_name": "updated_at",
+      "parents": [
+        "Issue"
+      ]
+    },
+    {
+      "csv_property_name": "Evidence",
+      "type": "transformation",
+      "rules": [
+        "evidence_1"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+Extract relevant security tags and categories from the following evidence data. Return as comma-separated values:
+
+{text}
+
+Focus on extracting tags for:
+- Evidence types (e.g., DATABASE, FIREWALL, CONFIGURATION_FINDING)
+- Security domains (e.g., access-control, encryption, compliance)
+- Severity levels and risk categories

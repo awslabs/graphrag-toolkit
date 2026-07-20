@@ -1,0 +1,6 @@
+citation_id,citing_paper,cited_paper,citation_type,citation_count,publication_year
+C001,P001,P003,reference,1,2023
+C002,P002,P001,citation,1,2023
+C003,P001,P002,reference,1,2023
+C004,P003,P001,citation,2,2022
+C005,P002,P003,reference,1,2023

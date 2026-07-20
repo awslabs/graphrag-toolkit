@@ -1,0 +1,6 @@
+id,name,email,role,account_id
+u1,Alice,alice@corp.com,admin,a1
+u2,Bob,bob@corp.com,analyst,a1
+u3,Charlie,charlie@corp.com,viewer,a2
+u4,Diana,diana@corp.com,admin,a2
+u5,Eve,eve@corp.com,analyst,a3

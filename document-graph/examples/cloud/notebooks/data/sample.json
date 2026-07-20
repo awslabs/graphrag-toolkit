@@ -1,0 +1,106 @@
+{
+  "schema_id": "research_paper_etl_v1",
+  "extract": {
+    "source_type": "document_graph",
+    "source_config": {
+      "format": "json",
+      "encoding": "utf-8"
+    },
+    "fields": [
+      {
+        "name": "paper_id",
+        "type": "string",
+        "required": true,
+        "source_path": "nodes[?type=='Document'].id"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": true,
+        "source_path": "nodes[?type=='Document'].properties.title"
+      }
+    ]
+  },
+  "transform": {
+    "chunking": {
+      "enabled": true,
+      "chunk_size": 1000,
+      "overlap": 200,
+      "strategy": "sentence"
+    },
+    "metadata_mapping": {
+      "document_id": "paper_id",
+      "title": "title",
+      "source": "extract"
+    },
+    "entity_extraction": {
+      "enabled": true,
+      "types": [
+        "PERSON",
+        "ORGANIZATION",
+        "CONCEPT"
+      ],
+      "model": "spacy_en_core_web_sm"
+    },
+    "normalize": {
+      "text_cleaning": true,
+      "lowercase": false,
+      "remove_punctuation": false,
+      "remove_stopwords": false
+    }
+  },
+  "load": {
+    "document_node": {
+      "type": "Document",
+      "id_field": "paper_id",
+      "properties": [
+        "title",
+        "authors",
+        "year"
+      ],
+      "labels": [
+        "Document",
+        "ResearchPaper"
+      ]
+    },
+    "section_node": {
+      "type": "Section",
+      "id_field": "section_id",
+      "properties": [
+        "title",
+        "content",
+        "order"
+      ],
+      "labels": [
+        "Section",
+        "DocumentSection"
+      ]
+    },
+    "relationships": {
+      "document_to_section": {
+        "type": "HAS_SECTION",
+        "from": "document_node",
+        "to": "section_node",
+        "properties": [
+          "order",
+          "section_type"
+        ]
+      },
+      "section_to_entity": {
+        "type": "MENTIONS",
+        "from": "section_node",
+        "to": "entity_node",
+        "properties": [
+          "confidence",
+          "position"
+        ]
+      }
+    }
+  },
+  "metadata": {
+    "version": "1.0",
+    "created_at": "2024-01-15T10:30:00Z",
+    "description": "ETL schema for research paper document graph",
+    "domain": "academic_research"
+  }
+}

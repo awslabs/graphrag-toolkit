@@ -1,0 +1,100 @@
+{
+  "authors": [
+    {
+      "author_id": "A001",
+      "name": "Dr. John Smith",
+      "email": "j.smith@university.edu",
+      "affiliation": "Stanford University",
+      "department": "Computer Science",
+      "h_index": 45,
+      "research_interests": ["graph neural networks", "machine learning", "knowledge graphs"],
+      "orcid": "0000-0001-2345-6789",
+      "publications_count": 127,
+      "recent_papers": ["P001"]
+    },
+    {
+      "author_id": "A002", 
+      "name": "Dr. Alice Johnson",
+      "email": "a.johnson@tech.edu",
+      "affiliation": "MIT",
+      "department": "EECS",
+      "h_index": 38,
+      "research_interests": ["neural networks", "deep learning", "AI systems"],
+      "orcid": "0000-0002-3456-7890",
+      "publications_count": 89,
+      "recent_papers": ["P001"]
+    },
+    {
+      "author_id": "A003",
+      "name": "Dr. Michael Brown", 
+      "email": "m.brown@research.org",
+      "affiliation": "Google Research",
+      "department": "AI Research",
+      "h_index": 52,
+      "research_interests": ["knowledge representation", "graph algorithms", "semantic web"],
+      "orcid": "0000-0003-4567-8901",
+      "publications_count": 156,
+      "recent_papers": ["P001"]
+    },
+    {
+      "author_id": "A004",
+      "name": "Dr. Lisa Davis",
+      "email": "l.davis@ai.edu",
+      "affiliation": "Carnegie Mellon University",
+      "department": "Language Technologies Institute",
+      "h_index": 41,
+      "research_interests": ["RAG systems", "question answering", "information retrieval"],
+      "orcid": "0000-0004-5678-9012",
+      "publications_count": 94,
+      "recent_papers": ["P002"]
+    },
+    {
+      "author_id": "A005",
+      "name": "Dr. Kevin Wilson",
+      "email": "k.wilson@nlp.edu",
+      "affiliation": "University of Washington",
+      "department": "Linguistics",
+      "h_index": 33,
+      "research_interests": ["natural language processing", "semantic search", "computational linguistics"],
+      "orcid": "0000-0005-6789-0123",
+      "publications_count": 67,
+      "recent_papers": ["P002"]
+    },
+    {
+      "author_id": "A006",
+      "name": "Dr. Rachel Taylor",
+      "email": "r.taylor@systems.edu",
+      "affiliation": "UC Berkeley",
+      "department": "Computer Science",
+      "h_index": 29,
+      "research_interests": ["distributed systems", "database systems", "hybrid architectures"],
+      "orcid": "0000-0006-7890-1234",
+      "publications_count": 78,
+      "recent_papers": ["P002"]
+    },
+    {
+      "author_id": "A007",
+      "name": "Dr. Paul Anderson",
+      "email": "p.anderson@db.edu",
+      "affiliation": "University of California San Diego",
+      "department": "Database Systems Lab",
+      "h_index": 47,
+      "research_interests": ["graph databases", "multi-tenancy", "database security"],
+      "orcid": "0000-0007-8901-2345",
+      "publications_count": 112,
+      "recent_papers": ["P003"]
+    },
+    {
+      "author_id": "A008",
+      "name": "Dr. Maria Garcia",
+      "email": "m.garcia@security.edu",
+      "affiliation": "Georgia Tech",
+      "department": "Cybersecurity",
+      "h_index": 35,
+      "research_interests": ["database security", "access control", "privacy"],
+      "orcid": "0000-0008-9012-3456",
+      "publications_count": 89,
+      "recent_papers": ["P003"]
+    }
+  ]
+}
