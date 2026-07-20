@@ -329,3 +329,30 @@ class TestFilterConfigToOpencypherFilters:
         )
         result = filter_config_to_opencypher_filters(config)
         assert "source.category = 'tech'" in result
+
+
+    def test_empty_filters_list_returns_empty_string(self):
+        """Regression test for issue #408.
+        
+        When MetadataFilters has an empty filters list, parse_metadata_filters_recursive
+        should return '' (empty string) instead of '()' (empty parentheses).
+        
+        Without this fix, the VersionManager generates invalid Cypher:
+          WHERE () AND coalesce(...)
+        which Neptune Database rejects with MalformedQueryException.
+        """
+        filters = MetadataFilters(
+            filters=[],
+            condition=FilterCondition.AND,
+        )
+        result = parse_metadata_filters_recursive(filters)
+        assert result == ''
+
+    def test_empty_filters_list_or_condition_returns_empty_string(self):
+        """Same as above but with OR condition."""
+        filters = MetadataFilters(
+            filters=[],
+            condition=FilterCondition.OR,
+        )
+        result = parse_metadata_filters_recursive(filters)
+        assert result == ''

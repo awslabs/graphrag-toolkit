@@ -298,6 +298,9 @@ def parse_metadata_filters_recursive(metadata_filters:MetadataFilters) -> str:
         else:
             raise ValueError(f'Invalid metadata filter type: {type(metadata_filter)}')
         
+    if not filter_strs:
+        return ''
+
     if metadata_filters.condition == FilterCondition.NOT:
         return f"(NOT {' '.join(filter_strs)})"
     elif metadata_filters.condition == FilterCondition.AND or metadata_filters.condition == FilterCondition.OR:
