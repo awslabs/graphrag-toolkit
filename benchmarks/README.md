@@ -21,22 +21,21 @@ The benchmarking pipeline has up to four stages:
 
 ## Configuration
 
-Create a `.env` file based on the benchmark-specific template:
+Benchmarks are deployed using `integration-tests/build-tests.sh`. Create a `.env` file in the `integration-tests/` directory:
 
 ```bash
-cd benchmarks
+cd integration-tests
 cp env.template .env
 # Edit .env with your bucket name, region, and benchmark preferences
 ```
 
-The benchmark deployment still uses `integration-tests/build-tests.sh`, so source the `.env` file before running:
+The `benchmarks/env.template` documents the benchmark-specific variables (a subset of the full `integration-tests/env.template`). Key benchmark variables:
 
-```bash
-cd ../integration-tests
-source ../benchmarks/.env
-```
-
-See `benchmarks/env.template` for all available benchmark configuration options. Note: benchmark variables are a subset of those in `integration-tests/env.template` — only variables relevant to benchmarking are included.
+- `BENCHMARK_DATA_S3_URI` — S3 URI containing your benchmark datasets
+- `BENCHMARK_DATA_DIR` — Local directory with benchmark data (alternative to S3)
+- `BENCHMARK_QA_LIMIT` — Limit QA pairs for quick prototype runs
+- `BENCHMARK_IS_PROTOTYPE` — Use prototype (small) datasets
+- `EXISTING_VPC_ID` / `EXISTING_SUBNET_IDS` — Reuse an existing VPC to avoid quota limits
 
 ## S3 Data Layout
 
