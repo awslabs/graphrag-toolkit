@@ -1,0 +1,135 @@
+# Self-contained image published as ortecha/graphrag-toolkit-rdf.
+#
+# Same environment as the local-dev "dev" Jupyter stack (Dockerfile.dev), but
+# the toolkit + RDF/SPARQL contrib are BAKED IN — no runtime bind-mount or
+# editable-install step is required. It works standalone once pulled.
+#
+# The dependency prefix below is byte-identical to Dockerfile.dev so the layer
+# cache is shared with the dev image build.
+#
+# Build context MUST be the repo root:
+#   docker build \
+#     -f examples/lexical-graph-local-dev/docker/jupyter/Dockerfile.hub \
+#     -t ortecha/graphrag-toolkit-rdf:latest .
+
+FROM jupyter/minimal-notebook
+
+USER root
+
+# Install mamba in base environment, upgrade pip, and preinstall build tools
+RUN conda install -n base -c conda-forge mamba -y && \
+    mamba update -n base -c defaults conda -y && \
+    rm -rf /opt/conda/lib/python3.11/site-packages/backports* && \
+    pip install --upgrade pip setuptools wheel build backports.tarfile && \
+    mkdir -p /tmp/pip-cache && chmod 777 /tmp/pip-cache && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# Set pip cache to avoid warning: 'pip cache not writable'
+ENV PIP_CACHE_DIR=/tmp/pip-cache
+
+USER $NB_UID
+
+# Neo4j driver (lazy import, required by all notebooks via Neo4jGraphStoreFactory)
+# psycopg2-binary + pgvector (required for PGVector store)
+RUN pip install --no-cache-dir neo4j psycopg2-binary pgvector
+
+# NLTK (imported in 00-Setup before any pip install cell)
+RUN pip install --no-cache-dir nltk && \
+    python -c "import nltk; nltk.download('punkt', quiet=True); nltk.download('stopwords', quiet=True)"
+
+# Core packages (required before notebook pip install cells run)
+RUN pip install --no-cache-dir \
+    nest_asyncio \
+    python-dotenv \
+    matplotlib \
+    plotly
+
+# LlamaIndex readers (hard imports in lexical-graph source).
+# Run as root: some reader deps upgrade packages preinstalled in the base conda
+# env (root-owned), which fails for the jovyan user with 'Permission denied: RECORD'.
+USER root
+RUN pip install --no-cache-dir \
+    llama-index-readers-web \
+    llama-index-readers-file \
+    llama-index-readers-github \
+    llama-index-readers-json \
+    llama-index-readers-structured-data \
+    llama-index-readers-s3 \
+    pymupdf
+
+# Build tools for packages requiring C compilation (e.g. lru-dict)
+RUN apt-get update && apt-get install -y --no-install-recommends build-essential && rm -rf /var/lib/apt/lists/*
+USER jovyan
+
+# ---------------------------------------------------------------------------
+# Bake in the toolkit + RDF/SPARQL contrib.
+# ---------------------------------------------------------------------------
+# Copied to the same paths the dev stack bind-mounts, so notebook 00-Setup
+# detects "development mode" and does NOT pull the upstream PyPI package over
+# this fork's code.
+USER root
+COPY lexical-graph /home/jovyan/lexical-graph
+COPY lexical-graph-contrib/sparql /home/jovyan/lexical-graph-contrib/sparql
+
+# Install editable, as root (avoids the RECORD permission issue above). The
+# source lives in the image, so imports work with no runtime setup step.
+# lexical-graph first: the sparql contrib depends on it.
+RUN pip install --no-cache-dir -e /home/jovyan/lexical-graph && \
+    pip install --no-cache-dir -e /home/jovyan/lexical-graph-contrib/sparql
+
+# Bake in the example notebooks (secrets + heavy/generated dirs are excluded via
+# .dockerignore).
+COPY examples/lexical-graph-local-dev/notebooks /home/jovyan/notebooks
+
+# Hand the baked-in files to the runtime user.
+RUN chown -R $NB_UID:$NB_GID \
+    /home/jovyan/lexical-graph \
+    /home/jovyan/lexical-graph-contrib \
+    /home/jovyan/notebooks
+
+# ---------------------------------------------------------------------------
+# Embed pgvector (the vector store) with an EMPTY graphrag DB.
+# RDFox (the graph store) stays external; pgvector ships inside this image so
+# `docker run` gives a self-contained toolkit env that only needs a SPARQL
+# endpoint pointed at it. The DB carries schema + extensions only — no data.
+# ---------------------------------------------------------------------------
+USER root
+ENV PATH="/usr/lib/postgresql/14/bin:${PATH}"
+ENV PGDATA=/home/jovyan/.pgdata
+
+# PostgreSQL 14 + contrib (pg_trgm) + dev headers to build the pgvector extension.
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        postgresql postgresql-contrib postgresql-server-dev-14 git ca-certificates && \
+    rm -rf /var/lib/apt/lists/*
+
+# Build + install pgvector against the installed PostgreSQL 14.
+RUN git clone --depth 1 --branch v0.8.0 https://github.com/pgvector/pgvector.git /tmp/pgvector && \
+    make -C /tmp/pgvector PG_CONFIG=/usr/lib/postgresql/14/bin/pg_config && \
+    make -C /tmp/pgvector PG_CONFIG=/usr/lib/postgresql/14/bin/pg_config install && \
+    rm -rf /tmp/pgvector
+
+RUN mkdir -p "$PGDATA" && chown -R $NB_UID:$NB_GID "$PGDATA"
+
+USER $NB_UID
+# Initialize an EMPTY cluster and graphrag DB: vector + pg_trgm extensions and
+# the graphrag schema, but NO tables and NO data. The toolkit creates its own
+# tables at ingest time.
+RUN initdb -D "$PGDATA" -U postgres --auth-host=trust --auth-local=trust --encoding=UTF8 && \
+    echo "listen_addresses='127.0.0.1'" >> "$PGDATA/postgresql.conf" && \
+    echo "unix_socket_directories='/tmp'" >> "$PGDATA/postgresql.conf" && \
+    pg_ctl -D "$PGDATA" -o "-p 5432" -w start && \
+    createdb -h 127.0.0.1 -p 5432 -U postgres graphrag && \
+    psql -h 127.0.0.1 -p 5432 -U postgres -d graphrag -c \
+      "CREATE EXTENSION IF NOT EXISTS vector; CREATE EXTENSION IF NOT EXISTS pg_trgm; CREATE SCHEMA IF NOT EXISTS graphrag;" && \
+    pg_ctl -D "$PGDATA" -w stop
+
+# Default the vector store to the embedded pgvector (override at runtime).
+ENV VECTOR_STORE="postgresql://postgres:password@localhost:5432/graphrag"
+
+WORKDIR /home/jovyan
+EXPOSE 8888 5432
+
+# Start the embedded PostgreSQL, then JupyterLab (no-auth, matching the dev
+# stack). NOTE: no-auth Jupyter — intended for local / trusted use.
+CMD ["bash", "-lc", "pg_ctl -D /home/jovyan/.pgdata -o '-p 5432' -w start || true; exec start-notebook.sh --NotebookApp.token='' --NotebookApp.password='' --NotebookApp.disable_check_xsrf=True"]
