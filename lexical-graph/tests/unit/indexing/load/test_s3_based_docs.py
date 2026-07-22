@@ -425,3 +425,82 @@ class TestS3DownloaderCommonPrefixes:
             for obj in page.get('CommonPrefixes', [])
         ]
         assert source_doc_prefixes == ['p/c/doc1/']
+
+
+class TestS3ChunkDownloaderParallelListing:
+    """S3ChunkDownloader.download() lists each document's chunks concurrently
+    while preserving document order."""
+
+    @staticmethod
+    def _paginate_side_effect(layout):
+        """Return a paginate() stub: the collection-level call (Delimiter='/')
+        yields the source-doc prefixes; a per-prefix call yields that prefix's
+        chunk keys."""
+        def paginate(**kwargs):
+            if kwargs.get('Delimiter') == '/':
+                return [{'CommonPrefixes': [{'Prefix': p} for p in layout]}]
+            return [{'Contents': [{'Key': k} for k in layout[kwargs['Prefix']]]}]
+        return paginate
+
+    @patch('graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs.GraphRAGConfig')
+    def test_preserves_document_and_chunk_order(self, mock_config):
+        """Each yielded SourceDocument carries its own chunks, and documents
+        yield in prefix order — the concurrent listing must not reorder them."""
+        layout = {
+            'p/c/doc-a/': ['p/c/doc-a/c1.json', 'p/c/doc-a/c2.json'],
+            'p/c/doc-b/': ['p/c/doc-b/c1.json'],
+            'p/c/doc-c/': ['p/c/doc-c/c1.json', 'p/c/doc-c/c2.json', 'p/c/doc-c/c3.json'],
+        }
+
+        mock_s3 = MagicMock()
+        mock_config.s3 = mock_s3
+        mock_config.extraction_num_threads_per_worker = 4
+        paginator = MagicMock()
+        paginator.paginate.side_effect = self._paginate_side_effect(layout)
+        mock_s3.get_paginator.return_value = paginator
+
+        downloader = S3ChunkDownloader(
+            key_prefix='p', collection_id='c', bucket_name='b',
+            fn=lambda node: node,
+        )
+        # Identity download: a chunk node's id is its key, so we can assert order.
+        with patch.object(
+            S3ChunkDownloader, '_download_chunk',
+            side_effect=lambda key, client: TextNode(id_=key, text=''),
+        ):
+            docs = list(downloader.download())
+
+        got = [[n.id_ for n in d.nodes] for d in docs]
+        assert got == list(layout.values())
+
+    @patch('graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs.GraphRAGConfig')
+    def test_listing_is_concurrent_not_serial(self, mock_config):
+        """The per-document list calls run concurrently. A Barrier that only
+        releases when all listing threads arrive at once passes on the parallel
+        implementation and times out (BrokenBarrierError) on a serial one."""
+        import threading
+
+        num_threads = 4
+        prefixes = [f'p/c/doc-{i}/' for i in range(num_threads)]
+        barrier = threading.Barrier(num_threads, timeout=10)
+
+        def paginate(**kwargs):
+            if kwargs.get('Delimiter') == '/':
+                return [{'CommonPrefixes': [{'Prefix': p} for p in prefixes]}]
+            barrier.wait()  # raises BrokenBarrierError on timeout if calls are serial
+            return [{'Contents': []}]
+
+        mock_s3 = MagicMock()
+        mock_config.s3 = mock_s3
+        mock_config.extraction_num_threads_per_worker = num_threads
+        paginator = MagicMock()
+        paginator.paginate.side_effect = paginate
+        mock_s3.get_paginator.return_value = paginator
+
+        downloader = S3ChunkDownloader(
+            key_prefix='p', collection_id='c', bucket_name='b',
+            fn=lambda node: node,
+        )
+        # Completes only if the num_threads listing calls overlap in time.
+        docs = list(downloader.download())
+        assert len(docs) == num_threads
