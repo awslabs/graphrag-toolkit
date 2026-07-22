@@ -158,6 +158,8 @@ topic: topic
    - Do not provide any other explanatory text
    - Extract only information explicitly stated in the propositions
 
+{schema_constraints}
+
 Adhere strictly to the provided instructions. Non-compliance will result in termination.
    
 <propositions>
@@ -229,4 +231,77 @@ Classification1
 Classification2
 Classification3
 </entity_classifications>
+"""
+
+EXTRACT_TOPICS_JSON_PROMPT = """
+You are a top-tier algorithm designed for extracting information in structured formats to build a knowledge graph.
+Your input consists of carefully crafted propositions - simple, atomic, and decontextualized statements. Your task is to:
+   1. Organize these propositions into topics
+   2. Extract entities and their attributes
+   3. Identify relationships between entities
+
+Try to capture as much information from the text as possible without sacrificing accuracy. Do not add any information that is not explicitly mentioned in the input propositions.
+
+## Topic Extraction:
+   1. Read the entire set of propositions and then extract a list of specific topics. Topic names should provide a clear, highly descriptive summary of the content.
+      - Compare each topic with the list of Preferred Topics. If a preferred topic matches the new topic in its meaning and specificity, use the preferred topic.
+   2. Each proposition must be assigned to at least one topic.
+
+## Entity Extraction:
+   1. Extract all named entities mentioned in the propositions within each topic.
+   2. DO NOT treat numerical values, dates, times, measurements, or object attributes as entities.
+   3. Classify each entity using the Preferred Entity Classifications when possible.
+   4. Use the most complete identifier for each entity. Avoid articles at the beginning.
+
+## Relationship and Attribute Extraction:
+   1. Extract relationships between entity pairs as: subject, predicate, object.
+   2. Extract entity attributes as: subject, predicate (attribute name), complement (attribute value).
+   3. Use general, timeless, uppercase relationship/attribute names with underscores.
+
+{schema_constraints}
+
+## Response Format:
+Respond with a JSON object matching this exact schema:
+```json
+{{
+  "topics": [
+    {{
+      "value": "topic name",
+      "entities": [
+        {{"value": "entity name", "classification": "EntityType"}}
+      ],
+      "statements": [
+        {{
+          "value": "exact proposition text",
+          "facts": [
+            {{
+              "subject": {{"value": "entity name", "classification": "EntityType"}},
+              "predicate": {{"value": "RELATIONSHIP_NAME"}},
+              "object": {{"value": "entity name", "classification": "EntityType"}}
+            }}
+          ]
+        }}
+      ]
+    }}
+  ]
+}}
+```
+
+## Strict Compliance:
+   - Use propositions exactly as provided
+   - Assign every proposition to at least one topic
+   - Respond ONLY with valid JSON, no other text
+   - Extract only information explicitly stated in the propositions
+
+<propositions>
+{text}
+</propositions>
+
+<preferredTopics>
+{preferred_topics}
+</preferredTopics>
+
+<preferredEntityClassifications>
+{preferred_entity_classifications}
+</preferredEntityClassifications>
 """
