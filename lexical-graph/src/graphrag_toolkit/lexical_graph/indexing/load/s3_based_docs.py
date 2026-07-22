@@ -293,26 +293,37 @@ class S3ChunkDownloader(BaseComponent):
 
         logger.debug(f'Started getting source documents from S3 [bucket: {self.bucket_name}, collection_path: {collection_path}, num_prefixes: {len(source_doc_prefixes)}]')
 
-        with concurrent.futures.ThreadPoolExecutor(max_workers=GraphRAGConfig.extraction_num_threads_per_worker) as executor:
+        num_threads = GraphRAGConfig.extraction_num_threads_per_worker
 
-            for source_doc_prefix in source_doc_prefixes:
-                
-                chunk_pages = paginator.paginate(Bucket=self.bucket_name, Prefix=source_doc_prefix)
-                
-                chunk_keys = [
-                    chunk_obj['Key']
-                    for chunk_page in chunk_pages
-                    for chunk_obj in chunk_page['Contents'] 
-                ]
+        def _list_chunk_keys(source_doc_prefix):
+            chunk_pages = s3_client.get_paginator('list_objects_v2').paginate(
+                Bucket=self.bucket_name, Prefix=source_doc_prefix
+            )
+            return [
+                chunk_obj['Key']
+                for chunk_page in chunk_pages
+                for chunk_obj in chunk_page.get('Contents', [])
+            ]
 
-                nodes = list(executor.map(
+        # List each document's chunks concurrently. The per-document
+        # list_objects_v2 calls previously ran one at a time on the main thread
+        # and were a large part of readback. executor.map keeps yield order.
+        with concurrent.futures.ThreadPoolExecutor(max_workers=num_threads) as list_executor, \
+             concurrent.futures.ThreadPoolExecutor(max_workers=num_threads) as download_executor:
+
+            for source_doc_prefix, chunk_keys in zip(
+                source_doc_prefixes,
+                list_executor.map(_list_chunk_keys, source_doc_prefixes)
+            ):
+
+                nodes = list(download_executor.map(
                     self._download_chunk,
                     chunk_keys,
                     repeat(s3_client)
                 ))
 
                 logger.debug(f'Yielding source document [source: {source_doc_prefix}, num_nodes: {len(nodes)}]')
-            
+
                 yield SourceDocument(nodes=nodes)
 
 class S3ChunkUploader(BaseComponent):
