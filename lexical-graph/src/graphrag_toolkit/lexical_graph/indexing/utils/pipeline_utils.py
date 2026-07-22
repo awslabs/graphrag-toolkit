@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 from pipe import Pipe
+import multiprocessing
 from concurrent.futures import ProcessPoolExecutor
 from functools import partial
 from typing import List, Optional, Sequence, Any, cast, Callable, Generator, Union
@@ -36,7 +37,16 @@ def run_pipeline(
         **kwargs
     )
 
-    with ProcessPoolExecutor(max_workers=num_workers) as p:
+    # Use the "spawn" start method rather than the platform default ("fork" on
+    # Linux). A forked worker inherits any lock held by a non-forking parent
+    # thread in a permanently-locked state; when a per-document logging thread
+    # (e.g. S3BasedDocs(for_jsonl=True)) holds the log file's BufferedWriter
+    # lock at fork time, the worker deadlocks on its first log call. "spawn"
+    # starts workers from a clean interpreter, eliminating inherited-lock hazards.
+    with ProcessPoolExecutor(
+        max_workers=num_workers,
+        mp_context=multiprocessing.get_context('spawn'),
+    ) as p:
         processed_node_batches = p.map(transform, node_batches)
         
     for processed_node_batch in processed_node_batches:
