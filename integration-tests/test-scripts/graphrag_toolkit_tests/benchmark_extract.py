@@ -14,7 +14,7 @@ from graphrag_toolkit.lexical_graph import GraphRAGConfig, IndexingConfig
 from graphrag_toolkit.lexical_graph.storage import GraphStoreFactory
 from graphrag_toolkit.lexical_graph.storage import VectorStoreFactory
 from graphrag_toolkit.lexical_graph.storage.graph import NonRedactedGraphQueryLogFormatting
-from graphrag_toolkit.lexical_graph.indexing.load import FileBasedDocs
+from graphrag_toolkit.lexical_graph.indexing.load import FileBasedDocs, S3BasedDocs
 from graphrag_toolkit.lexical_graph.indexing.extract import BatchConfig
 
 from llama_index.core import SimpleDirectoryReader
@@ -69,9 +69,25 @@ def run_benchmark_extract(handler: IntegrationTestHandler,
         )
         indexing_config = IndexingConfig(batch_config=batch_config)
 
-    extracted_docs = FileBasedDocs(
-        docs_directory=os.path.join(data_dir, dataset_name, 'extracted'),
-        collection_id=dataset_name
+    doc_store = os.environ.get('BENCHMARK_DOC_STORE', 'file').lower()
+    if doc_store == 's3':
+        extracted_docs = S3BasedDocs(
+            region=os.environ['AWS_REGION_NAME'],
+            bucket_name=os.environ['S3_RESULTS_BUCKET'],
+            key_prefix=f'{os.environ["S3_RESULTS_PREFIX"]}/doc-store/{dataset_name}',
+            collection_id=None,
+            for_jsonl=os.environ.get('BENCHMARK_S3_JSONL', 'false').lower() == 'true'
+        )
+    else:
+        extracted_docs = FileBasedDocs(
+            docs_directory=os.path.join(data_dir, dataset_name, 'extracted'),
+            collection_id=dataset_name
+        )
+
+    logger.info(
+        f'Doc store: {type(extracted_docs).__name__} '
+        f'(for_jsonl={getattr(extracted_docs, "for_jsonl", "n/a")}) '
+        f'collection_id={extracted_docs.collection_id}'
     )
 
     with (
