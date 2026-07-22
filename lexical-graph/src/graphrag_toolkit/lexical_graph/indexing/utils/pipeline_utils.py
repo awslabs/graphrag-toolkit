@@ -37,12 +37,8 @@ def run_pipeline(
         **kwargs
     )
 
-    # Use the "spawn" start method rather than the platform default ("fork" on
-    # Linux). A forked worker inherits any lock held by a non-forking parent
-    # thread in a permanently-locked state; when a per-document logging thread
-    # (e.g. S3BasedDocs(for_jsonl=True)) holds the log file's BufferedWriter
-    # lock at fork time, the worker deadlocks on its first log call. "spawn"
-    # starts workers from a clean interpreter, eliminating inherited-lock hazards.
+    # Use "spawn": a forked worker can inherit a held lock (e.g. a logging
+    # thread's) and deadlock. Spawn starts workers from a clean interpreter.
     with ProcessPoolExecutor(
         max_workers=num_workers,
         mp_context=multiprocessing.get_context('spawn'),
