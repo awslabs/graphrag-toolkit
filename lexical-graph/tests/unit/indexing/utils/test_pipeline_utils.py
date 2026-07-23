@@ -93,9 +93,12 @@ class TestRunPipeline:
                 mock_executor.return_value = mock_pool
                 
                 results = list(run_pipeline(mock_pipeline, node_batches, num_workers=1))
-                
+
                 assert len(results) == 1
-                mock_executor.assert_called_once_with(max_workers=1)
+                mock_executor.assert_called_once()
+                _, call_kwargs = mock_executor.call_args
+                assert call_kwargs['max_workers'] == 1
+                assert call_kwargs['mp_context'].get_start_method() == 'spawn'
     
     def test_run_pipeline_with_cache(self):
         """Verify run_pipeline uses cache when not disabled."""
