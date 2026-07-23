@@ -10,9 +10,10 @@ import threading
 import uuid
 import concurrent.futures
 
+from collections import deque
 from os.path import join
 from datetime import datetime
-from itertools import repeat
+from itertools import repeat, islice
 from threading import Semaphore
 from typing import List, Any, Generator, Optional, Dict, Callable
 
@@ -295,32 +296,44 @@ class S3ChunkDownloader(BaseComponent):
 
         num_threads = GraphRAGConfig.extraction_num_threads_per_worker
 
-        def _list_chunk_keys(source_doc_prefix):
-            chunk_pages = s3_client.get_paginator('list_objects_v2').paginate(
-                Bucket=self.bucket_name, Prefix=source_doc_prefix
+        # download_executor is the outer context so it outlives list_executor,
+        # whose tasks submit downloads onto it.
+        with concurrent.futures.ThreadPoolExecutor(max_workers=num_threads) as download_executor, \
+             concurrent.futures.ThreadPoolExecutor(max_workers=num_threads) as list_executor:
+
+            def _list_and_dispatch(source_doc_prefix):
+                # List a document's chunks (reusing the stateless paginator) and
+                # dispatch their downloads, so consecutive documents overlap.
+                chunk_pages = paginator.paginate(Bucket=self.bucket_name, Prefix=source_doc_prefix)
+                chunk_keys = [
+                    chunk_obj['Key']
+                    for chunk_page in chunk_pages
+                    for chunk_obj in chunk_page.get('Contents', [])
+                ]
+                return [
+                    download_executor.submit(self._download_chunk, chunk_key, s3_client)
+                    for chunk_key in chunk_keys
+                ]
+
+            # Bounded sliding window: at most num_threads listings in flight, so
+            # peak memory tracks the window, not the whole collection.
+            remaining_prefixes = iter(source_doc_prefixes)
+            in_flight = deque(
+                (source_doc_prefix, list_executor.submit(_list_and_dispatch, source_doc_prefix))
+                for source_doc_prefix in islice(remaining_prefixes, num_threads)
             )
-            return [
-                chunk_obj['Key']
-                for chunk_page in chunk_pages
-                for chunk_obj in chunk_page.get('Contents', [])
-            ]
 
-        # List each document's chunks concurrently. The per-document
-        # list_objects_v2 calls previously ran one at a time on the main thread
-        # and were a large part of readback. executor.map keeps yield order.
-        with concurrent.futures.ThreadPoolExecutor(max_workers=num_threads) as list_executor, \
-             concurrent.futures.ThreadPoolExecutor(max_workers=num_threads) as download_executor:
+            while in_flight:
+                source_doc_prefix, listing = in_flight.popleft()
+                download_futures = listing.result()
 
-            for source_doc_prefix, chunk_keys in zip(
-                source_doc_prefixes,
-                list_executor.map(_list_chunk_keys, source_doc_prefixes)
-            ):
+                next_prefix = next(remaining_prefixes, None)
+                if next_prefix is not None:
+                    in_flight.append(
+                        (next_prefix, list_executor.submit(_list_and_dispatch, next_prefix))
+                    )
 
-                nodes = list(download_executor.map(
-                    self._download_chunk,
-                    chunk_keys,
-                    repeat(s3_client)
-                ))
+                nodes = [download_future.result() for download_future in download_futures]
 
                 logger.debug(f'Yielding source document [source: {source_doc_prefix}, num_nodes: {len(nodes)}]')
 

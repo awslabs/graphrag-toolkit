@@ -504,3 +504,58 @@ class TestS3ChunkDownloaderParallelListing:
         # Completes only if the num_threads listing calls overlap in time.
         docs = list(downloader.download())
         assert len(docs) == num_threads
+
+    @patch('graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs.GraphRAGConfig')
+    def test_listing_window_is_bounded(self, mock_config):
+        """A consumer stalled on document 0 must not let listing run ahead
+        through the whole collection: at most num_threads listings in flight."""
+        import threading
+
+        num_threads = 2
+        num_docs = 20
+        prefixes = [f'p/c/doc-{i}/' for i in range(num_docs)]
+        listed = []
+        listed_lock = threading.Lock()
+        first_download_started = threading.Event()
+        release_first_download = threading.Event()
+
+        def paginate(**kwargs):
+            if kwargs.get('Delimiter') == '/':
+                return [{'CommonPrefixes': [{'Prefix': p} for p in prefixes]}]
+            with listed_lock:
+                listed.append(kwargs['Prefix'])
+            return [{'Contents': [{'Key': kwargs['Prefix'] + 'c0.json'}]}]
+
+        mock_s3 = MagicMock()
+        mock_config.s3 = mock_s3
+        mock_config.extraction_num_threads_per_worker = num_threads
+        paginator = MagicMock()
+        paginator.paginate.side_effect = paginate
+        mock_s3.get_paginator.return_value = paginator
+
+        downloader = S3ChunkDownloader(
+            key_prefix='p', collection_id='c', bucket_name='b',
+            fn=lambda node: node,
+        )
+
+        def _download(key, client):
+            # Block the first chunk download so the consumer stalls on document 0.
+            if not first_download_started.is_set():
+                first_download_started.set()
+                release_first_download.wait(timeout=10)
+            return TextNode(id_=key, text='')
+
+        with patch.object(S3ChunkDownloader, '_download_chunk', side_effect=_download):
+            gen = downloader.download()
+            next(gen)  # pulls doc 0; blocks inside its download until released
+            assert first_download_started.wait(timeout=10)
+            with listed_lock:
+                listed_while_stalled = len(listed)
+            release_first_download.set()
+            list(gen)  # drain the rest cleanly
+
+        assert listed_while_stalled <= num_threads + 1, (
+            f'listing ran ahead unboundedly: {listed_while_stalled} of {num_docs} '
+            f'documents listed while the consumer was stalled on document 0'
+        )
+        assert len(listed) == num_docs
