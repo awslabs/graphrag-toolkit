@@ -10,9 +10,10 @@ import threading
 import uuid
 import concurrent.futures
 
+from collections import deque
 from os.path import join
 from datetime import datetime
-from itertools import repeat
+from itertools import repeat, islice
 from threading import Semaphore
 from typing import List, Any, Generator, Optional, Dict, Callable
 
@@ -293,26 +294,49 @@ class S3ChunkDownloader(BaseComponent):
 
         logger.debug(f'Started getting source documents from S3 [bucket: {self.bucket_name}, collection_path: {collection_path}, num_prefixes: {len(source_doc_prefixes)}]')
 
-        with concurrent.futures.ThreadPoolExecutor(max_workers=GraphRAGConfig.extraction_num_threads_per_worker) as executor:
+        num_threads = GraphRAGConfig.extraction_num_threads_per_worker
 
-            for source_doc_prefix in source_doc_prefixes:
-                
+        # download_executor is the outer context so it outlives list_executor,
+        # whose tasks submit downloads onto it.
+        with concurrent.futures.ThreadPoolExecutor(max_workers=num_threads) as download_executor, \
+             concurrent.futures.ThreadPoolExecutor(max_workers=num_threads) as list_executor:
+
+            def _list_and_dispatch(source_doc_prefix):
+                # List a document's chunks (reusing the stateless paginator) and
+                # dispatch their downloads, so consecutive documents overlap.
                 chunk_pages = paginator.paginate(Bucket=self.bucket_name, Prefix=source_doc_prefix)
-                
                 chunk_keys = [
                     chunk_obj['Key']
                     for chunk_page in chunk_pages
-                    for chunk_obj in chunk_page['Contents'] 
+                    for chunk_obj in chunk_page.get('Contents', [])
+                ]
+                return [
+                    download_executor.submit(self._download_chunk, chunk_key, s3_client)
+                    for chunk_key in chunk_keys
                 ]
 
-                nodes = list(executor.map(
-                    self._download_chunk,
-                    chunk_keys,
-                    repeat(s3_client)
-                ))
+            # Bounded sliding window: at most num_threads listings in flight, so
+            # peak memory tracks the window, not the whole collection.
+            remaining_prefixes = iter(source_doc_prefixes)
+            in_flight = deque(
+                (source_doc_prefix, list_executor.submit(_list_and_dispatch, source_doc_prefix))
+                for source_doc_prefix in islice(remaining_prefixes, num_threads)
+            )
+
+            while in_flight:
+                source_doc_prefix, listing = in_flight.popleft()
+                download_futures = listing.result()
+
+                next_prefix = next(remaining_prefixes, None)
+                if next_prefix is not None:
+                    in_flight.append(
+                        (next_prefix, list_executor.submit(_list_and_dispatch, next_prefix))
+                    )
+
+                nodes = [download_future.result() for download_future in download_futures]
 
                 logger.debug(f'Yielding source document [source: {source_doc_prefix}, num_nodes: {len(nodes)}]')
-            
+
                 yield SourceDocument(nodes=nodes)
 
 class S3ChunkUploader(BaseComponent):
