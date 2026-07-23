@@ -378,6 +378,12 @@ fi
 if [[ "$BENCHMARK_IS_PROTOTYPE" ]]; then
 	echo "export BENCHMARK_IS_PROTOTYPE=$BENCHMARK_IS_PROTOTYPE" >> lexical-graph-examples/.env.testing
 fi
+if [[ "$BENCHMARK_DOC_STORE" ]]; then
+	echo "export BENCHMARK_DOC_STORE=$BENCHMARK_DOC_STORE" >> lexical-graph-examples/.env.testing
+fi
+if [[ "$BENCHMARK_S3_JSONL" ]]; then
+	echo "export BENCHMARK_S3_JSONL=$BENCHMARK_S3_JSONL" >> lexical-graph-examples/.env.testing
+fi
 
 zip -r graphrag-toolkit.zip graphrag-toolkit # zip under directory
 
