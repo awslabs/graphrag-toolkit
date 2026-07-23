@@ -206,6 +206,65 @@ class TestGraphRAGConfigEnvironmentVariables:
         finally:
             GraphRAGConfig._build_batch_size = original
 
+    def test_opensearch_username_defaults_none(self):
+        """Verify opensearch_username defaults to None when unset."""
+        original = GraphRAGConfig._opensearch_username
+        try:
+            with patch.dict(os.environ, {}, clear=False):
+                os.environ.pop('OPENSEARCH_USERNAME', None)
+                GraphRAGConfig._opensearch_username = None
+                assert GraphRAGConfig.opensearch_username is None
+        finally:
+            GraphRAGConfig._opensearch_username = original
+
+    def test_opensearch_username_from_env(self):
+        """Verify opensearch_username reads from OPENSEARCH_USERNAME env var."""
+        original = GraphRAGConfig._opensearch_username
+        try:
+            with patch.dict(os.environ, {'OPENSEARCH_USERNAME': 'admin'}):
+                GraphRAGConfig._opensearch_username = None
+                assert GraphRAGConfig.opensearch_username == 'admin'
+        finally:
+            GraphRAGConfig._opensearch_username = original
+
+    def test_opensearch_username_setter(self):
+        """Verify opensearch_username can be set directly."""
+        original = GraphRAGConfig._opensearch_username
+        try:
+            GraphRAGConfig.opensearch_username = 'custom-user'
+            assert GraphRAGConfig.opensearch_username == 'custom-user'
+        finally:
+            GraphRAGConfig._opensearch_username = original
+
+    def test_opensearch_password_defaults_none(self):
+        """Verify opensearch_password defaults to None when unset."""
+        original = GraphRAGConfig._opensearch_password
+        try:
+            with patch.dict(os.environ, {}, clear=False):
+                os.environ.pop('OPENSEARCH_PASSWORD', None)
+                GraphRAGConfig._opensearch_password = None
+                assert GraphRAGConfig.opensearch_password is None
+        finally:
+            GraphRAGConfig._opensearch_password = original
+
+    def test_opensearch_password_from_env(self):
+        """Verify opensearch_password reads from OPENSEARCH_PASSWORD env var."""
+        original = GraphRAGConfig._opensearch_password
+        try:
+            with patch.dict(os.environ, {'OPENSEARCH_PASSWORD': 'secret'}):
+                GraphRAGConfig._opensearch_password = None
+                assert GraphRAGConfig.opensearch_password == 'secret'
+        finally:
+            GraphRAGConfig._opensearch_password = original
+
+    def test_opensearch_password_setter(self):
+        """Verify opensearch_password can be set directly."""
+        original = GraphRAGConfig._opensearch_password
+        try:
+            GraphRAGConfig.opensearch_password = 'custom-pass'
+            assert GraphRAGConfig.opensearch_password == 'custom-pass'
+        finally:
+            GraphRAGConfig._opensearch_password = original
     def test_opensearch_serverless_generation_defaults_none_for_auto_detect(self):
         """opensearch_serverless_generation defaults to None (auto-detect) when unset."""
         original = GraphRAGConfig._opensearch_serverless_generation
