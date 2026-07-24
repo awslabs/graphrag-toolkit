@@ -18,12 +18,16 @@ from graphrag_toolkit_tests.benchmark_utils.agentic_retriever import AgenticRetr
 from graphrag_toolkit.lexical_graph.retrieval.retrievers import (
     ChunkBasedSearch,
     ChunkBasedSemanticSearch,
+    ChunkCosineSimilaritySearch,
     EntityBasedSearch,
     EntityNetworkSearch,
     RerankingBeamGraphSearch,
+    SemanticChunkBeamGraphSearch,
+    SemanticGuidedChunkRetriever,
     SemanticGuidedRetriever,
     StatementCosineSimilaritySearch,
     TopicBasedSearch,
+    TopicBeamSearch,
 )
 from graphrag_toolkit.lexical_graph.retrieval.retrievers.composite_traversal_based_retriever import (
     WeightedTraversalBasedRetriever,
@@ -40,6 +44,8 @@ VALID_RETRIEVER_IDS = [
     'chunk_based_semantic',
     'semantic_guided',
     'semantic-path_weighted',
+    'topic-beam-chunk_only',
+    'topic_beam_search',
     'agentic',
     'byokg_agentic',
 ]
@@ -60,9 +66,11 @@ SUB_RETRIEVER_IDS = list(_SUB_RETRIEVER_MAP)
 _SUB_RETRIEVER_PROCESSOR_ARGS = {
     'reranker': 'tfidf',
     'vss_top_k': 10,
-    'max_search_results': 5,
+    'max_search_results': 10,
     'max_statements': 200,
     'derive_subqueries': False,
+    'max_context_tokens': 3000,
+    'token_truncation_mode': 'per_topic_cap',
 }
 
 
@@ -127,6 +135,12 @@ def create_query_engine(
 
     if retriever_id == 'semantic-path_weighted':
         return _create_semantic_path_weighted(graph_store, vector_store, llm=llm)
+
+    if retriever_id == 'topic-beam-chunk_only':
+        return _create_topic_beam_chunk_only(graph_store, vector_store, llm=llm)
+
+    if retriever_id == 'topic_beam_search':
+        return _create_topic_beam_search(graph_store, vector_store, llm=llm)
 
     if retriever_id == 'agentic':
         return AgenticRetriever(
@@ -204,6 +218,58 @@ def _create_semantic_path_weighted(graph_store, vector_store, llm=None) -> Lexic
                 graph_store=graph_store,
             ),
         ],
+    )
+
+    return LexicalGraphQueryEngine(
+        graph_store,
+        vector_store,
+        retriever=retriever,
+        context_format='bedrock_xml',
+        **({"llm": llm} if llm else {}),
+    )
+
+
+def _create_topic_beam_chunk_only(graph_store, vector_store, llm=None) -> LexicalGraphQueryEngine:
+    """
+    Creates a query engine using chunk-level beam search (SemanticChunkBeamGraphSearch).
+    Seeds from chunk vector index via ChunkCosineSimilaritySearch (top_k=50),
+    then beam-searches entity graph (width=10, depth=3) to find related chunks.
+    Best correctness in Phase 1 benchmarks, competitive latency.
+    """
+    retriever = SemanticGuidedChunkRetriever(
+        vector_store=vector_store,
+        graph_store=graph_store,
+        retrievers=[
+            ChunkCosineSimilaritySearch(
+                vector_store=vector_store,
+                graph_store=graph_store,
+            ),
+            SemanticChunkBeamGraphSearch(
+                vector_store=vector_store,
+                graph_store=graph_store,
+            ),
+        ],
+    )
+
+    return LexicalGraphQueryEngine(
+        graph_store,
+        vector_store,
+        retriever=retriever,
+        context_format='bedrock_xml',
+        **({"llm": llm} if llm else {}),
+    )
+
+
+def _create_topic_beam_search(graph_store, vector_store, llm=None) -> LexicalGraphQueryEngine:
+    """
+    Creates a query engine using TopicBeamSearch (PR #318).
+    Seeds from topic vector index (top_k=50), beam-searches topic graph via
+    same-chunk/adjacent-chunk co-occurrence edges (width=100, depth=6),
+    uses path_weighted scoring. Uses stored topic embeddings.
+    """
+    retriever = TopicBeamSearch(
+        vector_store=vector_store,
+        graph_store=graph_store,
     )
 
     return LexicalGraphQueryEngine(
