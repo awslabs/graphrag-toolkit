@@ -1,6 +1,9 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
+import threading
+import time
+
 import pytest
 from unittest.mock import Mock, patch, MagicMock
 from llama_index.core.schema import TextNode
@@ -478,8 +481,6 @@ class TestS3ChunkDownloaderParallelListing:
         """The per-document list calls run concurrently. A Barrier that only
         releases when all listing threads arrive at once passes on the parallel
         implementation and times out (BrokenBarrierError) on a serial one."""
-        import threading
-
         num_threads = 4
         prefixes = [f'p/c/doc-{i}/' for i in range(num_threads)]
         barrier = threading.Barrier(num_threads, timeout=10)
@@ -508,9 +509,12 @@ class TestS3ChunkDownloaderParallelListing:
     @patch('graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs.GraphRAGConfig')
     def test_listing_window_is_bounded(self, mock_config):
         """A consumer stalled on document 0 must not let listing run ahead
-        through the whole collection: at most num_threads listings in flight."""
-        import threading
+        through the whole collection: at most num_threads listings in flight.
 
+        The generator body runs in the consumer's thread, so the consumer is
+        driven from a background thread here — that lets the main thread read
+        the listing count *while* the consumer is genuinely stalled inside
+        document 0's download, rather than after the fact via a timeout."""
         num_threads = 2
         num_docs = 20
         prefixes = [f'p/c/doc-{i}/' for i in range(num_docs)]
@@ -542,20 +546,106 @@ class TestS3ChunkDownloaderParallelListing:
             # Block the first chunk download so the consumer stalls on document 0.
             if not first_download_started.is_set():
                 first_download_started.set()
-                release_first_download.wait(timeout=10)
+                release_first_download.wait()
             return TextNode(id_=key, text='')
 
-        with patch.object(S3ChunkDownloader, '_download_chunk', side_effect=_download):
-            gen = downloader.download()
-            next(gen)  # pulls doc 0; blocks inside its download until released
+        docs = []
+
+        def consume():
+            with patch.object(S3ChunkDownloader, '_download_chunk', side_effect=_download):
+                docs.extend(downloader.download())
+
+        # daemon: if download() ever deadlocks, the assert below fails and the
+        # process still exits, rather than the thread outliving pytest.
+        consumer = threading.Thread(target=consume, daemon=True)
+        consumer.start()
+        try:
+            # Wait until the consumer is genuinely stalled inside document 0's
+            # download, then give any unbounded run-ahead a chance to list every
+            # prefix before measuring.
             assert first_download_started.wait(timeout=10)
+            time.sleep(0.2)
             with listed_lock:
                 listed_while_stalled = len(listed)
+        finally:
             release_first_download.set()
-            list(gen)  # drain the rest cleanly
+            consumer.join(timeout=10)
 
+        assert not consumer.is_alive(), 'consumer thread did not finish'
         assert listed_while_stalled <= num_threads + 1, (
             f'listing ran ahead unboundedly: {listed_while_stalled} of {num_docs} '
             f'documents listed while the consumer was stalled on document 0'
         )
         assert len(listed) == num_docs
+
+    @patch('graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs.GraphRAGConfig')
+    def test_downloads_are_lazy_per_document(self, mock_config):
+        """Chunk downloads must be dispatched one document at a time. While the
+        consumer is stalled on document 0, no chunk of a later document may have
+        started downloading — otherwise look-ahead payloads accumulate in memory
+        and an abandoned generator pays for downloads it never consumes.
+
+        This fails against eager dispatch (downloads submitted at listing time),
+        where the whole listing window's downloads fire before document 0 is
+        consumed."""
+        num_threads = 4
+        num_docs = 10
+        prefixes = [f'p/c/doc-{i}/' for i in range(num_docs)]
+        layout = {p: [p + 'c0.json', p + 'c1.json'] for p in prefixes}
+        downloaded = []
+        downloaded_lock = threading.Lock()
+        first_download_started = threading.Event()
+        release_first_download = threading.Event()
+
+        def paginate(**kwargs):
+            if kwargs.get('Delimiter') == '/':
+                return [{'CommonPrefixes': [{'Prefix': p} for p in prefixes]}]
+            return [{'Contents': [{'Key': k} for k in layout[kwargs['Prefix']]]}]
+
+        mock_s3 = MagicMock()
+        mock_config.s3 = mock_s3
+        mock_config.extraction_num_threads_per_worker = num_threads
+        paginator = MagicMock()
+        paginator.paginate.side_effect = paginate
+        mock_s3.get_paginator.return_value = paginator
+
+        downloader = S3ChunkDownloader(
+            key_prefix='p', collection_id='c', bucket_name='b',
+            fn=lambda node: node,
+        )
+
+        def _download(key, client):
+            with downloaded_lock:
+                downloaded.append(key)
+            if key == 'p/c/doc-0/c0.json':
+                first_download_started.set()
+                release_first_download.wait()
+            return TextNode(id_=key, text='')
+
+        docs = []
+
+        def consume():
+            with patch.object(S3ChunkDownloader, '_download_chunk', side_effect=_download):
+                docs.extend(downloader.download())
+
+        # daemon: if download() ever deadlocks, the assert below fails and the
+        # process still exits, rather than the thread outliving pytest.
+        consumer = threading.Thread(target=consume, daemon=True)
+        consumer.start()
+        try:
+            assert first_download_started.wait(timeout=10)
+            time.sleep(0.2)  # give any eager look-ahead downloads time to fire
+            with downloaded_lock:
+                downloaded_while_stalled = list(downloaded)
+        finally:
+            release_first_download.set()
+            consumer.join(timeout=10)
+
+        assert not consumer.is_alive(), 'consumer thread did not finish'
+        later_doc_downloads = [
+            key for key in downloaded_while_stalled
+            if not key.startswith('p/c/doc-0/')
+        ]
+        assert later_doc_downloads == [], (
+            f'downloads dispatched ahead for unconsumed documents: {later_doc_downloads}'
+        )

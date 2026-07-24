@@ -296,44 +296,45 @@ class S3ChunkDownloader(BaseComponent):
 
         num_threads = GraphRAGConfig.extraction_num_threads_per_worker
 
-        # download_executor is the outer context so it outlives list_executor,
-        # whose tasks submit downloads onto it.
         with concurrent.futures.ThreadPoolExecutor(max_workers=num_threads) as download_executor, \
              concurrent.futures.ThreadPoolExecutor(max_workers=num_threads) as list_executor:
 
-            def _list_and_dispatch(source_doc_prefix):
-                # List a document's chunks (reusing the stateless paginator) and
-                # dispatch their downloads, so consecutive documents overlap.
+            def _list_chunk_keys(source_doc_prefix):
+                # Listing only: no downloads dispatched here, so peak resident 
+                # chunk data stays one document's worth rather than the whole window's.
                 chunk_pages = paginator.paginate(Bucket=self.bucket_name, Prefix=source_doc_prefix)
-                chunk_keys = [
+                return [
                     chunk_obj['Key']
                     for chunk_page in chunk_pages
                     for chunk_obj in chunk_page.get('Contents', [])
                 ]
-                return [
-                    download_executor.submit(self._download_chunk, chunk_key, s3_client)
-                    for chunk_key in chunk_keys
-                ]
 
-            # Bounded sliding window: at most num_threads listings in flight, so
-            # peak memory tracks the window, not the whole collection.
+            # Bounded sliding window: at most num_threads listings prefetch ahead,
+            # so listing overlaps downloading without reading the whole collection.
             remaining_prefixes = iter(source_doc_prefixes)
             in_flight = deque(
-                (source_doc_prefix, list_executor.submit(_list_and_dispatch, source_doc_prefix))
+                (source_doc_prefix, list_executor.submit(_list_chunk_keys, source_doc_prefix))
                 for source_doc_prefix in islice(remaining_prefixes, num_threads)
             )
 
             while in_flight:
                 source_doc_prefix, listing = in_flight.popleft()
-                download_futures = listing.result()
+                chunk_keys = listing.result()
 
                 next_prefix = next(remaining_prefixes, None)
                 if next_prefix is not None:
                     in_flight.append(
-                        (next_prefix, list_executor.submit(_list_and_dispatch, next_prefix))
+                        (next_prefix, list_executor.submit(_list_chunk_keys, next_prefix))
                     )
 
-                nodes = [download_future.result() for download_future in download_futures]
+                # Download the current document's chunks only, then yield, so at
+                # most one document's chunk data is resident at a time and an
+                # abandoned generator dispatches no downloads for unconsumed docs.
+                nodes = list(download_executor.map(
+                    self._download_chunk,
+                    chunk_keys,
+                    repeat(s3_client),
+                ))
 
                 logger.debug(f'Yielding source document [source: {source_doc_prefix}, num_nodes: {len(nodes)}]')
 
