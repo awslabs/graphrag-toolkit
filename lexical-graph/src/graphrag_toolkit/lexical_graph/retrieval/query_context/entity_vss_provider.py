@@ -5,7 +5,7 @@ import logging
 from typing import List, Optional
 
 from graphrag_toolkit.lexical_graph.metadata import FilterConfig
-from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
+from graphrag_toolkit.lexical_graph.storage.graph import GraphOperation, GraphStore
 from graphrag_toolkit.lexical_graph.storage.vector import VectorStore
 from graphrag_toolkit.lexical_graph.storage.vector import DummyVectorIndex
 from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import node_result
@@ -43,6 +43,7 @@ class EntityVSSProvider(EntityProviderBase):
     def _get_entities_for_nodes(self, node_ids:List[str]) -> List[ScoredEntity]:
 
         if self.index_name == 'topic':
+            operation = GraphOperation.FIND_ENTITIES_BY_TOPICS
             cypher = f"""
             // get entities for topic ids
             MATCH (t:`__Topic__`)<-[:`__BELONGS_TO__`]-(:`__Statement__`)
@@ -58,6 +59,7 @@ class EntityVSSProvider(EntityProviderBase):
             }} AS result
             """
         else:
+            operation = GraphOperation.FIND_ENTITIES_BY_CHUNKS
             cypher = f"""
             // get entities for chunk ids
             MATCH (c:`__Chunk__`)<-[:`__MENTIONED_IN__`]-(:`__Statement__`)
@@ -78,7 +80,7 @@ class EntityVSSProvider(EntityProviderBase):
             'limit': self.args.intermediate_limit
         }
 
-        results = self.graph_store.execute_query(cypher, parameters)
+        results = self.graph_store.execute_query(cypher, parameters, operation=operation)
 
         scored_entities = [
             ScoredEntity.model_validate(result['result'])

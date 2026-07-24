@@ -1,0 +1,54 @@
+# .dockerignore for building the self-contained Docker Hub image
+# `ortecha/graphrag-toolkit-rdf` (see
+# examples/lexical-graph-local-dev/docker/jupyter/Dockerfile.hub).
+#
+# The build context is the repo ROOT, but only three paths are COPYd into the
+# image: lexical-graph/, lexical-graph-contrib/sparql/, and the example
+# notebooks. Everything else here just keeps the context small and — for the
+# notebooks — keeps secrets and heavy generated data OUT of a published image.
+#
+# NOTE: the dev stack (start-containers.sh --dev) builds from the ./jupyter
+# context, so it is unaffected by this file.
+
+# --- VCS, CI, tooling, OS cruft ---
+.git
+.github
+.gitignore
+.gitallowed
+.pre-commit-config.yaml
+**/.DS_Store
+**/.ipynb_checkpoints
+**/__pycache__
+**/*.pyc
+**/.pytest_cache
+**/htmlcov
+**/.coverage
+**/*.egg-info
+
+# --- Local virtualenvs ---
+.venv
+.venv-*
+**/.venv
+
+# --- Repo areas this image does not use ---
+graphrag-ui
+inputs
+byokg-rag
+benchmark-tests
+integration-tests
+docs-site
+images
+examples/lexical-graph-hybrid-dev
+examples/lexical-graph-local-dev/docker
+
+# --- Tests (not needed at runtime) ---
+lexical-graph/tests
+lexical-graph-contrib/sparql/tests
+lexical-graph-contrib/falkordb
+
+# --- Secrets + heavy/generated notebook data (do NOT bake into a published image) ---
+examples/lexical-graph-local-dev/notebooks/.env
+examples/lexical-graph-local-dev/notebooks/nltk_data
+examples/lexical-graph-local-dev/notebooks/artifacts
+examples/lexical-graph-local-dev/notebooks/soup
+examples/lexical-graph-local-dev/notebooks/extracted
