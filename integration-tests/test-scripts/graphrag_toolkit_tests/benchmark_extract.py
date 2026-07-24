@@ -71,6 +71,14 @@ def run_benchmark_extract(handler: IntegrationTestHandler,
 
     doc_store = os.environ.get('BENCHMARK_DOC_STORE', 'file').lower()
     if doc_store == 's3':
+        missing = [
+            var for var in ('AWS_REGION_NAME', 'S3_RESULTS_BUCKET', 'S3_RESULTS_PREFIX')
+            if not os.environ.get(var)
+        ]
+        if missing:
+            raise ValueError(
+                f"BENCHMARK_DOC_STORE=s3 requires {', '.join(missing)} to be set"
+            )
         extracted_docs = S3BasedDocs(
             region=os.environ['AWS_REGION_NAME'],
             bucket_name=os.environ['S3_RESULTS_BUCKET'],
