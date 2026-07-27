@@ -105,3 +105,4 @@ class BatchTopicExtractorSync(BatchExtractorBase):
         else:
             node.metadata[TOPICS_KEY] = {'topics': []}
         return node
+
