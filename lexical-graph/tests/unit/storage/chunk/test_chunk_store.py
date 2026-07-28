@@ -15,16 +15,19 @@ class TestChunkStoreContract:
         with pytest.raises(TypeError):
             ChunkStore()
 
-    def test_subclass_missing_get_cannot_instantiate(self):
-        class IncompleteChunkStore(ChunkStore):
+    def test_subclass_omitting_get_can_instantiate_and_uses_default(self):
+        class ChunkStoreWithoutGet(ChunkStore):
             def put(self, chunk_id, text):
                 pass
 
             def get_batch(self, chunk_ids):
-                return {}
+                known = {'chunk-1': 'text-chunk-1'}
+                return {chunk_id: known[chunk_id] for chunk_id in chunk_ids if chunk_id in known}
 
-        with pytest.raises(TypeError):
-            IncompleteChunkStore()
+        store = ChunkStoreWithoutGet()
+
+        assert store.get('chunk-1') == 'text-chunk-1'
+        assert store.get('missing-chunk') is None
 
     def test_subclass_missing_put_cannot_instantiate(self):
         class IncompleteChunkStore(ChunkStore):

@@ -15,12 +15,11 @@ class ChunkStore(abc.ABC):
     (the graph itself, S3, or any other object store).
     """
 
-    @abc.abstractmethod
     def get(self, chunk_id: str) -> Optional[str]:
         """
         Return the text for a single chunk, or None if it isn't found.
         """
-        raise NotImplementedError
+        return self.get_batch([chunk_id]).get(chunk_id)
 
     @abc.abstractmethod
     def put(self, chunk_id: str, text: str) -> None:

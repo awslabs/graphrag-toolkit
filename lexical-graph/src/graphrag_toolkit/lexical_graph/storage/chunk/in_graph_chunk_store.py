@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import logging
-from typing import Dict, List, Optional
+from typing import Dict, List
 
 from graphrag_toolkit.lexical_graph.storage.chunk.chunk_store import ChunkStore
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
@@ -30,9 +30,6 @@ class InGraphChunkStore(ChunkStore):
 
     def __init__(self, graph_client: GraphStore):
         self.graph_client = graph_client
-
-    def get(self, chunk_id: str) -> Optional[str]:
-        return self.get_batch([chunk_id]).get(chunk_id)
 
     def get_batch(self, chunk_ids: List[str]) -> Dict[str, str]:
         if not chunk_ids:
