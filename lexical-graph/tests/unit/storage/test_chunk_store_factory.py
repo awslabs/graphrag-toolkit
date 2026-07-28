@@ -74,6 +74,21 @@ class TestChunkStoreFactoryForChunkStore:
         with pytest.raises(ValueError, match="InGraphChunkStoreFactory requires a graph_store"):
             ChunkStoreFactory.for_chunk_store(None)
 
+    def test_factory_accepts_a_duck_typed_graph_client(self):
+        # GraphBatchClient (the object real builders pass as graph_client) does
+        # not subclass GraphStore, only duck-types it - the factory must not
+        # reject it via isinstance.
+        class DuckTypedGraphClient:
+            def node_id(self, name):
+                return name
+
+            def execute_query_with_retry(self, query, params, **kwargs):
+                pass
+
+        result = ChunkStoreFactory.for_chunk_store(None, graph_store=DuckTypedGraphClient())
+
+        assert isinstance(result, InGraphChunkStore)
+
 
 class TestChunkStoreFactoryCustomFactory:
 

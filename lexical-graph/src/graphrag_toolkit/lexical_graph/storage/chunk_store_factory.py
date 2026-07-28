@@ -6,7 +6,6 @@ from typing import Union, Type, Dict
 
 from graphrag_toolkit.lexical_graph.storage.chunk import ChunkStore, ChunkStoreFactoryMethod
 from graphrag_toolkit.lexical_graph.storage.chunk.in_graph_chunk_store import InGraphChunkStore
-from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
 
 logger = logging.getLogger(__name__)
 
@@ -26,7 +25,7 @@ class InGraphChunkStoreFactory(ChunkStoreFactoryMethod):
             return None
 
         graph_store = kwargs.get('graph_store')
-        if not isinstance(graph_store, GraphStore):
+        if graph_store is None:
             raise ValueError('InGraphChunkStoreFactory requires a graph_store keyword argument.')
 
         return InGraphChunkStore(graph_store)
