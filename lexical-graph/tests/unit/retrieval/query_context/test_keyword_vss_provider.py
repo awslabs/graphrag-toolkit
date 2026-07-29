@@ -58,14 +58,18 @@ class TestKeywordVSSProvider:
 
     def test_get_chunk_content_returns_content_strings(self):
         provider, store, _ = _provider(use_chunk_index=True)
-        store.execute_query.return_value = [{'content': 'foo'}, {'content': 'bar'}]
-        result = provider._get_chunk_content(['c1', 'c2'])
-        assert result == ['foo', 'bar']
+        with patch.object(mod, 'ChunkStoreFactory') as mock_factory:
+            mock_factory.for_chunk_store.return_value.get_batch.return_value = {'c1': 'foo', 'c2': 'bar'}
+            result = provider._get_chunk_content(['c1', 'c2'])
+        mock_factory.for_chunk_store.assert_called_once_with(graph_store=store)
+        mock_factory.for_chunk_store.return_value.get_batch.assert_called_once_with(['c1', 'c2'])
+        assert sorted(result) == ['bar', 'foo']
 
     def test_get_content_dispatches_by_index_name(self):
         provider, store, _ = _provider(use_chunk_index=True)
-        store.execute_query.return_value = [{'content': 'hello'}]
-        assert provider._get_content(['c1']) == ['hello']
+        with patch.object(mod, 'ChunkStoreFactory') as mock_factory:
+            mock_factory.for_chunk_store.return_value.get_batch.return_value = {'c1': 'hello'}
+            assert provider._get_content(['c1']) == ['hello']
 
     def test_get_keywords_from_content_splits_response(self):
         provider, _, llm = _provider(llm_response='apple\norange\n')

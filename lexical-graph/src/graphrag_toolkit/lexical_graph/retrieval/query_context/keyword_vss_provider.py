@@ -8,6 +8,7 @@ from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.utils import LLMCache, LLMCacheType
 from graphrag_toolkit.lexical_graph.metadata import FilterConfig
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
+from graphrag_toolkit.lexical_graph.storage.chunk_store_factory import ChunkStoreFactory
 from graphrag_toolkit.lexical_graph.storage.vector import VectorStore
 from graphrag_toolkit.lexical_graph.storage.vector import DummyVectorIndex
 from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import node_result
@@ -73,23 +74,10 @@ class KeywordVSSProvider(KeywordProviderBase):
         return node_ids
     
     def _get_chunk_content(self, node_ids:List[str]) -> List[str]:
-        
-        cypher = f"""
-        // get chunk content
-        MATCH (c:`__Chunk__`)
-        WHERE {self.graph_store.node_id("c.chunkId")} in $nodeIds
-        RETURN c.value AS content
-        """
 
-        parameters = {
-            'nodeIds': node_ids
-        }
+        chunk_store = ChunkStoreFactory.for_chunk_store(graph_store=self.graph_store)
 
-        results = self.graph_store.execute_query(cypher, parameters)
-
-        content = [result['content'] for result in results]
-
-        return content
+        return list(chunk_store.get_batch(node_ids).values())
     
     def _get_topic_content(self, node_ids:List[str]) -> List[str]:
 

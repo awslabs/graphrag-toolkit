@@ -184,3 +184,87 @@ class TestGetStatementsByTopicAndSource:
         statement = topic['statements'][0]
         assert statement['facts'] == ['f1', 'f2']
         assert statement['score'] == 2
+
+    def test_include_chunk_details_uses_value_already_in_metadata(self):
+        # properties(c) already brought back chunk.value in metadata for the
+        # in-graph backend - use it directly instead of a redundant second
+        # ChunkStore round trip for the same text.
+        retriever, store = _retriever(include_chunk_details=True)
+        store.execute_query.side_effect = [
+            [{'result': {
+                'source': {'sourceId': 's1'},
+                'topics': [{
+                    'topic': 'T',
+                    'topicId': 't1',
+                    'chunks': [
+                        {'chunkId': 'c1', 'value': None, 'metadata': {'value': 'real chunk text', 'page': 3}},
+                    ],
+                    'statements': [],
+                }],
+                'score': 1,
+            }}],
+            [],
+        ]
+
+        with patch.object(mod, 'ChunkStoreFactory') as mock_factory:
+            result = retriever.get_statements_by_topic_and_source(['stmt-1'])
+
+        mock_factory.for_chunk_store.assert_not_called()
+
+        chunk = result[0]['result']['topics'][0]['chunks'][0]
+        assert chunk['value'] == 'real chunk text'
+        assert 'value' not in chunk['metadata']
+        assert chunk['metadata']['page'] == 3
+
+    def test_include_chunk_details_falls_back_to_chunk_store_when_metadata_has_no_value(self):
+        # Backend where chunk text isn't stored as a graph property at all
+        # (e.g. a future S3-backed ChunkStore) - properties(c) has no
+        # 'value' key, so fetch it via ChunkStore instead.
+        retriever, store = _retriever(include_chunk_details=True)
+        store.execute_query.side_effect = [
+            [{'result': {
+                'source': {'sourceId': 's1'},
+                'topics': [{
+                    'topic': 'T',
+                    'topicId': 't1',
+                    'chunks': [
+                        {'chunkId': 'c1', 'value': None, 'metadata': {'page': 3}},
+                    ],
+                    'statements': [],
+                }],
+                'score': 1,
+            }}],
+            [],
+        ]
+
+        with patch.object(mod, 'ChunkStoreFactory') as mock_factory:
+            mock_factory.for_chunk_store.return_value.get_batch.return_value = {'c1': 'fetched chunk text'}
+            result = retriever.get_statements_by_topic_and_source(['stmt-1'])
+
+        mock_factory.for_chunk_store.assert_called_once_with(graph_store=store)
+        mock_factory.for_chunk_store.return_value.get_batch.assert_called_once_with(['c1'])
+
+        chunk = result[0]['result']['topics'][0]['chunks'][0]
+        assert chunk['value'] == 'fetched chunk text'
+        assert chunk['metadata']['page'] == 3
+
+    def test_no_chunk_store_lookup_when_chunk_details_not_requested(self):
+        retriever, store = _retriever()
+        store.execute_query.side_effect = [
+            [{'result': {
+                'source': {'sourceId': 's1'},
+                'topics': [{
+                    'topic': 'T',
+                    'topicId': 't1',
+                    'chunks': [{'chunkId': 'c1', 'value': None, 'metadata': {}}],
+                    'statements': [],
+                }],
+                'score': 1,
+            }}],
+            [],
+        ]
+
+        with patch.object(mod, 'ChunkStoreFactory') as mock_factory:
+            retriever.get_statements_by_topic_and_source(['stmt-1'])
+
+        mock_factory.for_chunk_store.assert_not_called()

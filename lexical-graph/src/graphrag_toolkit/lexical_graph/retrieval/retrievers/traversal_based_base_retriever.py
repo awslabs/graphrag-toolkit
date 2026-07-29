@@ -10,6 +10,7 @@ from importlib.metadata import version, PackageNotFoundError
 from graphrag_toolkit.lexical_graph.metadata import FilterConfig
 from graphrag_toolkit.lexical_graph.versioning import VALID_FROM, VALID_TO, EXTRACT_TIMESTAMP, BUILD_TIMESTAMP, VERSION_INDEPENDENT_ID_FIELDS, TIMESTAMP_LOWER_BOUND, TIMESTAMP_UPPER_BOUND
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
+from graphrag_toolkit.lexical_graph.storage.chunk_store_factory import ChunkStoreFactory
 from graphrag_toolkit.lexical_graph.storage.vector.vector_store import VectorStore
 from graphrag_toolkit.lexical_graph.retrieval.query_context import KeywordProvider, KeywordVSSProvider, KeywordNLPProvider, KeywordProviderMode, PassThruKeywordProvider
 from graphrag_toolkit.lexical_graph.retrieval.query_context import EntityProvider, EntityVSSProvider, EntityContextProvider
@@ -213,6 +214,37 @@ class TraversalBasedBaseRetriever(BaseRetriever):
                     if facts:
                         statement['facts'] = facts
                         statement['score'] = len(facts)
+
+        if self.args.include_chunk_details:
+
+            all_chunks = [
+                chunk
+                for statements_result in statements_results
+                for topic in statements_result['result']['topics']
+                for chunk in topic['chunks']
+            ]
+
+            if all_chunks:
+                # properties(c) (queried above as chunk metadata) already
+                # includes chunk.value for the in-graph backend - use it
+                # directly rather than paying for a second round trip to
+                # fetch the same text via ChunkStore. Only backends that
+                # don't store text as a graph property (e.g. a future
+                # S3-backed ChunkStore) need the ChunkStore.get_batch() call.
+                chunks_needing_fetch = []
+                for chunk in all_chunks:
+                    value = chunk['metadata'].pop('value', None)
+                    if value is not None:
+                        chunk['value'] = value
+                    else:
+                        chunks_needing_fetch.append(chunk)
+
+                if chunks_needing_fetch:
+                    chunk_store = ChunkStoreFactory.for_chunk_store(graph_store=self.graph_store)
+                    chunk_text_by_id = chunk_store.get_batch([chunk['chunkId'] for chunk in chunks_needing_fetch])
+
+                    for chunk in chunks_needing_fetch:
+                        chunk['value'] = chunk_text_by_id.get(chunk['chunkId'])
 
         return statements_results
     

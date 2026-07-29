@@ -77,7 +77,21 @@ class GraphBatchClient():
             Any: The ID of the node as returned by the `graph_client`.
         """
         return self.graph_client.node_id(id_name)
-    
+
+    def execute_query(self, query, parameters={}, **kwargs):
+        """
+        Executes a read query via the underlying graph client. Reads aren't
+        batched, so this passes straight through rather than queuing.
+
+        Args:
+            query: The query to execute.
+            parameters: Query parameters.
+
+        Returns:
+            The graph client's query result.
+        """
+        return self.graph_client.execute_query(query, parameters, **kwargs)
+
     def property_assigment_fn(self, key:str, value:Any) -> Callable[[str], str]:
         """
         Assigns a property to a specified key and returns a function to retrieve the property.

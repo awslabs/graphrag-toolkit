@@ -80,3 +80,19 @@ class TestGraphBatchClientNodeId:
         result = client.node_id('entityId')
         assert result == 'params.entityId'
         mock_neptune_store.node_id.assert_called_once_with('entityId')
+
+
+class TestGraphBatchClientExecuteQuery:
+    """Tests for execute_query delegation (reads aren't batched)."""
+
+    def test_execute_query_delegates_to_graph_client(self, mock_neptune_store):
+        """Verify execute_query passes straight through to the underlying graph client."""
+        mock_neptune_store.execute_query = Mock(return_value=[{'result': 'row'}])
+        client = GraphBatchClient(
+            graph_client=mock_neptune_store,
+            batch_writes_enabled=True,
+            batch_write_size=10,
+        )
+        result = client.execute_query('MATCH (n) RETURN n', {'a': 1})
+        assert result == [{'result': 'row'}]
+        mock_neptune_store.execute_query.assert_called_once_with('MATCH (n) RETURN n', {'a': 1})

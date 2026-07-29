@@ -5,6 +5,7 @@ import logging
 from typing import Any
 
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
+from graphrag_toolkit.lexical_graph.storage.chunk_store_factory import ChunkStoreFactory
 from graphrag_toolkit.lexical_graph.indexing.build.graph_builder import GraphBuilder
 
 from llama_index.core.schema import BaseNode
@@ -57,33 +58,35 @@ class ChunkGraphBuilder(GraphBuilder):
 
             logger.debug(f'Inserting chunk [chunk_id: {chunk_id}]')
 
-            statements_c = [
-                '// insert chunks',
-                'UNWIND $params AS params',
-                f'MERGE (chunk:`__Chunk__`{{{graph_client.node_id("chunkId")}: params.chunk_id}})'
-            ]
+            chunk_store = ChunkStoreFactory.for_chunk_store(graph_store=graph_client)
+            chunk_store.put(chunk_id, node.text)
 
-            chunk_property_setters = [
-                'chunk.value = params.text'
-            ]
-            
-            properties_c = {
-                'chunk_id': chunk_id,
-                'text': node.text
-            }
+            chunk_property_setters = []
+            properties_c = {'chunk_id': chunk_id}
 
-            # Add external properties if present
+            # Add external properties if present. 'chunkId' and 'value' are
+            # skipped: chunkId is the merge key, and value is chunk text,
+            # already written via chunk_store.put() above - a metadata field
+            # named 'value' must not overwrite it.
             for key, value in chunk_metadata.items():
-                if key != 'chunkId':  # Skip the ID field
+                if key not in ('chunkId', 'value'):
                     chunk_property_setters.append(f'chunk.{key} = params.{key}')
                     properties_c[key] = value
 
-            setter_statement = f"ON CREATE SET {', '.join(chunk_property_setters)} ON MATCH SET {', '.join(chunk_property_setters)}" 
-            statements_c.append(setter_statement)
+            if chunk_property_setters:
 
-            query_c = '\n'.join(statements_c)
+                statements_c = [
+                    '// insert chunk metadata',
+                    'UNWIND $params AS params',
+                    f'MERGE (chunk:`__Chunk__`{{{graph_client.node_id("chunkId")}: params.chunk_id}})'
+                ]
 
-            graph_client.execute_query_with_retry(query_c, self._to_params(properties_c), max_attempts=5, max_wait=7)
+                setter_statement = f"ON CREATE SET {', '.join(chunk_property_setters)} ON MATCH SET {', '.join(chunk_property_setters)}"
+                statements_c.append(setter_statement)
+
+                query_c = '\n'.join(statements_c)
+
+                graph_client.execute_query_with_retry(query_c, self._to_params(properties_c), max_attempts=5, max_wait=7)
 
             source_info = node.relationships.get(NodeRelationship.SOURCE, None)
 
