@@ -304,7 +304,7 @@ verify_aws_setup()
 - **Data transfer**: Free within same region
 
 **DynamoDB Costs:**
-- **On-demand**: ~$1.25 per million writes
+- **On-demand**: ~$0.625 per million writes
 - **Storage**: ~$0.25 per GB/month
 
 ### Cost Optimization
