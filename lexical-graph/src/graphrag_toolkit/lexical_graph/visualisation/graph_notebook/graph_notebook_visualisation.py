@@ -178,7 +178,8 @@ def get_sources_query(tenant_id, source_ids:Optional[List[str]]=None, filter:Opt
         where_clauses.append(filter_config_to_opencypher_filters(to_metadata_filter(filter)))
     if source_ids:
         where_clauses.append(f'(id(source) in {str(source_ids)})')
-    
+
+    where_clauses = [clause for clause in where_clauses if clause]
     where_clause = '' if not where_clauses else f"WHERE {' OR '.join(where_clauses)}"
         
           
@@ -586,5 +587,3 @@ class GraphNotebookVisualisation():
         cypher = get_schema_query(to_tenant_id(tenant_id))
         
         g.oc(line, cell=cypher, local_ns={}) 
-        
-       
