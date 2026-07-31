@@ -15,10 +15,10 @@ ChunkStoreFactoryMethodType = Union[ChunkStoreFactoryMethod, Type[ChunkStoreFact
 
 class InGraphChunkStoreFactory(ChunkStoreFactoryMethod):
     """
-    Fallback factory: creates an InGraphChunkStore when no other chunk
-    store backend recognizes chunk_info, preserving today's behavior.
-    Always tried last by ChunkStoreFactory, the same way
-    DummyGraphStoreFactory is the last-resort fallback for GraphStoreFactory.
+    Default factory: creates an InGraphChunkStore when no chunk_info is
+    given, preserving today's behavior for callers that don't configure a
+    chunk store. Returns None for any non-empty chunk_info, so it never
+    swallows a backend URI that a registered factory was meant to handle.
     """
     def try_create(self, chunk_info: str, **kwargs) -> ChunkStore:
         if chunk_info:
@@ -39,10 +39,14 @@ class ChunkStoreFactory():
     """
     Factory class for registering and creating ChunkStore objects.
 
-    Mirrors GraphStoreFactory: registered factory methods are tried in
-    order until one recognizes the given chunk_info and returns a
-    ChunkStore. InGraphChunkStoreFactory is always tried last, as the
-    fallback of last resort, regardless of registration order.
+    Registered factory methods are tried in registration order until one
+    recognizes the given chunk_info and returns a ChunkStore. If none do
+    and chunk_info is empty, InGraphChunkStoreFactory supplies the
+    default in-graph store; if none do and chunk_info is non-empty, that
+    is an error and ValueError is raised.
+
+    Note this differs from GraphStoreFactory, which has no default at all
+    and raises for empty graph_info as well as unrecognized graph_info.
     """
     @staticmethod
     def register(factory_type: ChunkStoreFactoryMethodType):

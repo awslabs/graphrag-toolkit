@@ -10,6 +10,7 @@ in-graph factory, and custom factory registration.
 import pytest
 from unittest.mock import Mock
 
+from graphrag_toolkit.lexical_graph.storage import chunk_store_factory
 from graphrag_toolkit.lexical_graph.storage.chunk_store_factory import ChunkStoreFactory
 from graphrag_toolkit.lexical_graph.storage.chunk import (
     ChunkStore,
@@ -17,6 +18,17 @@ from graphrag_toolkit.lexical_graph.storage.chunk import (
     InGraphChunkStore,
 )
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
+
+
+@pytest.fixture(autouse=True)
+def isolate_chunk_store_registry():
+    """Registrations live in a module-level dict, so without this a test
+    that registers a broadly-matching factory changes what every later
+    test sees."""
+    saved = dict(chunk_store_factory._chunk_store_factories)
+    yield
+    chunk_store_factory._chunk_store_factories.clear()
+    chunk_store_factory._chunk_store_factories.update(saved)
 
 
 class TestChunkStoreFactoryRegister:
@@ -69,6 +81,13 @@ class TestChunkStoreFactoryForChunkStore:
     def test_factory_invalid_type_raises_error(self):
         with pytest.raises(ValueError, match="Unrecognized chunk store info"):
             ChunkStoreFactory.for_chunk_store("invalid://unknown")
+
+    def test_in_graph_default_not_used_for_unrecognized_chunk_info(self):
+        # The in-graph store is the default for empty chunk_info only. An
+        # unrecognized backend URI is an error, not something to silently
+        # fall back on - a typo'd URI should fail loudly.
+        with pytest.raises(ValueError, match="Unrecognized chunk store info"):
+            ChunkStoreFactory.for_chunk_store('unknown://somewhere', graph_store=Mock(spec=GraphStore))
 
     def test_factory_missing_graph_store_kwarg_raises_specific_error(self):
         with pytest.raises(ValueError, match="InGraphChunkStoreFactory requires a graph_store"):
