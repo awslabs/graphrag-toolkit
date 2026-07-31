@@ -18,14 +18,18 @@ class InGraphChunkStore(ChunkStore):
     ChunkStore interface so other backends (e.g. S3) can be swapped in
     without changing callers.
 
-    Scope: this store only reads and writes chunk text (`chunk.value`).
-    get_batch() matches the existence semantics of
-    retrieval.utils.chunk_utils.get_chunks_query() (a chunk without a
-    valid `__EXTRACTED_FROM__` link to a `__Source__` is excluded), but it
-    does not return other chunk properties or source metadata, and put()
-    does not set the arbitrary per-chunk metadata properties
+    Scope: this store only reads and writes chunk text (`chunk.value`). A
+    chunk with no stored value is omitted from get_batch(). Chunks are
+    matched on chunk id alone, deliberately: put() writes only the text
+    and never creates the `__EXTRACTED_FROM__` link to a `__Source__`, so
+    requiring that link on read would make text written through this
+    store invisible to a read from it. Callers that need source-linked
+    chunks specifically should filter on their own query.
+
+    This store does not return other chunk properties or source metadata,
+    and put() does not set the arbitrary per-chunk metadata properties
     ChunkGraphBuilder.build() writes. Those remain the concern of
-    ChunkGraphBuilder and get_chunks_query, not of ChunkStore.
+    ChunkGraphBuilder and callers that need them, not of ChunkStore.
     """
 
     def __init__(self, graph_client: GraphStore):
@@ -36,7 +40,7 @@ class InGraphChunkStore(ChunkStore):
             return {}
 
         query = f'''
-        MATCH (chunk:`__Chunk__`)-[:`__EXTRACTED_FROM__`]->(:`__Source__`) WHERE {self.graph_client.node_id("chunk.chunkId")} in $chunk_ids
+        MATCH (chunk:`__Chunk__`) WHERE {self.graph_client.node_id("chunk.chunkId")} in $chunk_ids
         RETURN {{
             {node_result('chunk', self.graph_client.node_id("chunk.chunkId"), properties=['value'])}
         }} AS result

@@ -69,6 +69,20 @@ class TestInGraphChunkStoreGetBatch:
         assert store.get_batch([]) == {}
         graph_client.execute_query.assert_not_called()
 
+    def test_get_batch_does_not_require_a_source_relationship(self):
+        graph_client = Mock(spec=GraphStore)
+        graph_client.node_id.side_effect = format_id
+        graph_client.execute_query.return_value = [
+            {'result': {'chunk': {'chunkId': 'chunk-1', 'value': 'text one'}}},
+        ]
+
+        store = InGraphChunkStore(graph_client)
+
+        assert store.get_batch(['chunk-1']) == {'chunk-1': 'text one'}
+
+        query = graph_client.execute_query.call_args.args[0]
+        assert 'EXTRACTED_FROM' not in query
+
 
 class TestInGraphChunkStorePut:
 
