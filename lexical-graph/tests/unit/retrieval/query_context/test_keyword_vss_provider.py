@@ -56,20 +56,35 @@ class TestKeywordVSSProvider:
             result = provider._get_node_ids(QueryBundle('q'))
         assert result == ['t1', 't2']
 
-    def test_get_chunk_content_returns_content_strings(self):
-        provider, store, _ = _provider(use_chunk_index=True)
+    def test_chunk_store_is_resolved_once_at_construction(self):
         with patch.object(mod, 'ChunkStoreFactory') as mock_factory:
-            mock_factory.for_chunk_store.return_value.get_batch.return_value = {'c1': 'foo', 'c2': 'bar'}
-            result = provider._get_chunk_content(['c1', 'c2'])
+            provider, store, _ = _provider(use_chunk_index=True)
         mock_factory.for_chunk_store.assert_called_once_with(graph_store=store)
-        mock_factory.for_chunk_store.return_value.get_batch.assert_called_once_with(['c1', 'c2'])
-        assert sorted(result) == ['bar', 'foo']
+        assert provider.chunk_store is mock_factory.for_chunk_store.return_value
+
+    def test_get_chunk_content_returns_content_strings(self):
+        provider, _, _ = _provider(use_chunk_index=True)
+        provider.chunk_store = MagicMock()
+        provider.chunk_store.get_batch.return_value = {'c1': 'foo', 'c2': 'bar'}
+
+        result = provider._get_chunk_content(['c1', 'c2'])
+
+        provider.chunk_store.get_batch.assert_called_once_with(['c1', 'c2'])
+        assert result == ['foo', 'bar']
+
+    def test_get_chunk_content_keeps_node_id_order_and_skips_misses(self):
+        provider, _, _ = _provider(use_chunk_index=True)
+        provider.chunk_store = MagicMock()
+        # Backend returns its own order and has nothing for 'missing'.
+        provider.chunk_store.get_batch.return_value = {'c2': 'bar', 'c1': 'foo'}
+
+        assert provider._get_chunk_content(['c1', 'missing', 'c2']) == ['foo', 'bar']
 
     def test_get_content_dispatches_by_index_name(self):
-        provider, store, _ = _provider(use_chunk_index=True)
-        with patch.object(mod, 'ChunkStoreFactory') as mock_factory:
-            mock_factory.for_chunk_store.return_value.get_batch.return_value = {'c1': 'hello'}
-            assert provider._get_content(['c1']) == ['hello']
+        provider, _, _ = _provider(use_chunk_index=True)
+        provider.chunk_store = MagicMock()
+        provider.chunk_store.get_batch.return_value = {'c1': 'hello'}
+        assert provider._get_content(['c1']) == ['hello']
 
     def test_get_keywords_from_content_splits_response(self):
         provider, _, llm = _provider(llm_response='apple\norange\n')

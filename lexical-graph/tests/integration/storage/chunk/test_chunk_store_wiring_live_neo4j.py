@@ -74,8 +74,10 @@ class TestChunkStoreLiveWiring:
     def test_write_then_read_via_keyword_vss_provider(self, graph_client):
         self._write_chunk(graph_client, 'chunk-live-2', 'the quick brown fox', 'source-live-2')
 
+        # Bypasses __init__, which needs a vector store this test has no use for.
         provider = KeywordVSSProvider.__new__(KeywordVSSProvider)
         provider.graph_store = graph_client
+        provider.chunk_store = ChunkStoreFactory.for_chunk_store(graph_store=graph_client)
 
         content = provider._get_chunk_content(['chunk-live-2'])
 

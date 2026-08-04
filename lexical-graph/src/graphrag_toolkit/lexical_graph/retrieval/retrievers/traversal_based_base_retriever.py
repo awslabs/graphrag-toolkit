@@ -121,6 +121,7 @@ class TraversalBasedBaseRetriever(BaseRetriever):
         
         self.graph_store = graph_store
         self.vector_store = vector_store
+        self.chunk_store = ChunkStoreFactory.for_chunk_store(graph_store=graph_store)
         if processors is not None:
             self.processors = processors
         else:
@@ -240,8 +241,7 @@ class TraversalBasedBaseRetriever(BaseRetriever):
                         chunks_needing_fetch.append(chunk)
 
                 if chunks_needing_fetch:
-                    chunk_store = ChunkStoreFactory.for_chunk_store(graph_store=self.graph_store)
-                    chunk_text_by_id = chunk_store.get_batch([chunk['chunkId'] for chunk in chunks_needing_fetch])
+                    chunk_text_by_id = self.chunk_store.get_batch([chunk['chunkId'] for chunk in chunks_needing_fetch])
 
                     for chunk in chunks_needing_fetch:
                         chunk['value'] = chunk_text_by_id.get(chunk['chunkId'])

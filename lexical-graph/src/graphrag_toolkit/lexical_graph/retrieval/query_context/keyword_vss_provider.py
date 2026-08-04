@@ -11,7 +11,6 @@ from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
 from graphrag_toolkit.lexical_graph.storage.chunk_store_factory import ChunkStoreFactory
 from graphrag_toolkit.lexical_graph.storage.vector import VectorStore
 from graphrag_toolkit.lexical_graph.storage.vector import DummyVectorIndex
-from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import node_result
 from graphrag_toolkit.lexical_graph.retrieval.model import ScoredEntity
 from graphrag_toolkit.lexical_graph.retrieval.utils.vector_utils import get_diverse_vss_elements
 from graphrag_toolkit.lexical_graph.retrieval.query_context.keyword_provider_base import KeywordProviderBase
@@ -51,6 +50,7 @@ class KeywordVSSProvider(KeywordProviderBase):
         self.graph_store = graph_store
         self.vector_store = vector_store
         self.filter_config = filter_config
+        self.chunk_store = ChunkStoreFactory.for_chunk_store(graph_store=graph_store)
 
         self.index_name = 'topic' if not isinstance(vector_store.get_index('topic'), DummyVectorIndex) else 'chunk'
 
@@ -75,9 +75,11 @@ class KeywordVSSProvider(KeywordProviderBase):
     
     def _get_chunk_content(self, node_ids:List[str]) -> List[str]:
 
-        chunk_store = ChunkStoreFactory.for_chunk_store(graph_store=self.graph_store)
+        # Keyed lookup rather than .values(): node_ids arrives in VSS relevance
+        # order, and the store returns whatever order the backend does.
+        chunk_text_by_id = self.chunk_store.get_batch(node_ids)
 
-        return list(chunk_store.get_batch(node_ids).values())
+        return [chunk_text_by_id[node_id] for node_id in node_ids if node_id in chunk_text_by_id]
     
     def _get_topic_content(self, node_ids:List[str]) -> List[str]:
 

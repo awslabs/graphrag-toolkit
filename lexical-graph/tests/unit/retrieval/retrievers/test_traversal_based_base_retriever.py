@@ -206,10 +206,11 @@ class TestGetStatementsByTopicAndSource:
             [],
         ]
 
-        with patch.object(mod, 'ChunkStoreFactory') as mock_factory:
-            result = retriever.get_statements_by_topic_and_source(['stmt-1'])
+        retriever.chunk_store = MagicMock()
 
-        mock_factory.for_chunk_store.assert_not_called()
+        result = retriever.get_statements_by_topic_and_source(['stmt-1'])
+
+        retriever.chunk_store.get_batch.assert_not_called()
 
         chunk = result[0]['result']['topics'][0]['chunks'][0]
         assert chunk['value'] == 'real chunk text'
@@ -237,12 +238,12 @@ class TestGetStatementsByTopicAndSource:
             [],
         ]
 
-        with patch.object(mod, 'ChunkStoreFactory') as mock_factory:
-            mock_factory.for_chunk_store.return_value.get_batch.return_value = {'c1': 'fetched chunk text'}
-            result = retriever.get_statements_by_topic_and_source(['stmt-1'])
+        retriever.chunk_store = MagicMock()
+        retriever.chunk_store.get_batch.return_value = {'c1': 'fetched chunk text'}
 
-        mock_factory.for_chunk_store.assert_called_once_with(graph_store=store)
-        mock_factory.for_chunk_store.return_value.get_batch.assert_called_once_with(['c1'])
+        result = retriever.get_statements_by_topic_and_source(['stmt-1'])
+
+        retriever.chunk_store.get_batch.assert_called_once_with(['c1'])
 
         chunk = result[0]['result']['topics'][0]['chunks'][0]
         assert chunk['value'] == 'fetched chunk text'
@@ -264,7 +265,14 @@ class TestGetStatementsByTopicAndSource:
             [],
         ]
 
-        with patch.object(mod, 'ChunkStoreFactory') as mock_factory:
-            retriever.get_statements_by_topic_and_source(['stmt-1'])
+        retriever.chunk_store = MagicMock()
 
-        mock_factory.for_chunk_store.assert_not_called()
+        retriever.get_statements_by_topic_and_source(['stmt-1'])
+
+        retriever.chunk_store.get_batch.assert_not_called()
+
+    def test_chunk_store_is_resolved_once_at_construction(self):
+        with patch.object(mod, 'ChunkStoreFactory') as mock_factory:
+            retriever, store = _retriever()
+        mock_factory.for_chunk_store.assert_called_once_with(graph_store=store)
+        assert retriever.chunk_store is mock_factory.for_chunk_store.return_value
