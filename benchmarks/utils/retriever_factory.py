@@ -14,7 +14,7 @@ from typing import Optional, Union
 
 from graphrag_toolkit.lexical_graph import LexicalGraphQueryEngine
 
-from graphrag_toolkit_tests.benchmark_utils.agentic_retriever import AgenticRetriever
+from benchmarks.utils.agentic_retriever import AgenticRetriever
 from graphrag_toolkit.lexical_graph.retrieval.retrievers import (
     ChunkBasedSearch,
     ChunkBasedSemanticSearch,

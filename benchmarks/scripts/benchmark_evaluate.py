@@ -17,9 +17,9 @@ import os
 import unittest
 from typing import Dict, Any, Optional, List
 
-from graphrag_toolkit_tests.integration_test_base import IntegrationTestBase
-from graphrag_toolkit_tests.integration_test_handler import IntegrationTestHandler
-from graphrag_toolkit_tests.benchmark_utils.run_evaluation import evaluate_responses
+from benchmarks.scripts.integration_test_base import IntegrationTestBase
+from benchmarks.scripts.integration_test_handler import IntegrationTestHandler
+from benchmarks.utils.run_evaluation import evaluate_responses
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
