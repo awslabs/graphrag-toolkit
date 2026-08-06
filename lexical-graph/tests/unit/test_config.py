@@ -11,6 +11,7 @@ from unittest.mock import Mock, patch
 from graphrag_toolkit.lexical_graph.config import (
     GraphRAGConfig,
     OpenSearchServerlessGeneration,
+    ResilientClient,
     _is_json_string,
     string_to_bool,
     DEFAULT_EXTRACTION_MODEL,
@@ -19,8 +20,48 @@ from graphrag_toolkit.lexical_graph.config import (
     DEFAULT_EXTRACTION_NUM_WORKERS,
     DEFAULT_EXTRACTION_BATCH_SIZE,
     DEFAULT_BUILD_NUM_WORKERS,
-    DEFAULT_BUILD_BATCH_SIZE
+    DEFAULT_BUILD_BATCH_SIZE,
+    BOTOCORE_DEFAULT_MAX_POOL_CONNECTIONS
 )
+
+
+class TestS3ConnectionPoolSizing:
+    """The S3 client's connection pool has to cover listing and downloading at
+    the configured thread count. botocore's default of 10 throttles well below
+    the thread counts the extract stage uses."""
+
+    def _client_for(self, service_name, num_threads):
+        config = Mock()
+        config.extraction_num_threads_per_worker = num_threads
+        client = ResilientClient.__new__(ResilientClient)
+        client.config = config
+        client.service_name = service_name
+        return client
+
+    def test_s3_pool_covers_both_sides_of_the_thread_count(self):
+        client = self._client_for('s3', 32)
+
+        assert client._client_config().max_pool_connections == 64
+
+    def test_s3_pool_never_drops_below_the_botocore_default(self):
+        # 2 x the default 4 threads is 8, which would be a regression on
+        # botocore's own default of 10.
+        client = self._client_for('s3', 4)
+
+        assert client._client_config().max_pool_connections == BOTOCORE_DEFAULT_MAX_POOL_CONNECTIONS
+
+    def test_other_services_keep_the_botocore_defaults(self):
+        assert self._client_for('bedrock', 32)._client_config() is None
+
+    def test_client_is_created_with_the_sized_config(self):
+        client = self._client_for('s3', 16)
+        session = Mock()
+        client.config.session = session
+
+        client._create_client()
+
+        passed = session.client.call_args.kwargs['config']
+        assert passed.max_pool_connections == 32
 
 
 class TestHelperFunctions:
