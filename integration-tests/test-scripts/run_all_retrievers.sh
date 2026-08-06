@@ -6,7 +6,7 @@
 # for every retriever in the list.
 #
 # Usage: bash run_all_retrievers.sh <dataset>
-#   dataset: one of cuad, concurrentqa, pga, wikihow
+#   dataset: one of cuad, concurrentqa, pga_bio, pga_stat, wikihow
 #
 # This script is designed to run ON the SageMaker notebook after the initial
 # setup (run_test_suite.sh handles setup). It sources .env.testing for
@@ -38,11 +38,12 @@ case "$DATASET" in
     QUERY_CLASS="benchmark_query.ConcurrentQaBenchmarkQuery"
     EVAL_CLASS="benchmark_evaluate.ConcurrentQaBenchmarkEvaluate"
     ;;
-  pga)
+  pga|pga_bio|pga_stat)
     EXTRACT_CLASS="benchmark_extract.PgaBenchmarkExtract"
     BUILD_CLASS="benchmark_build.PgaBenchmarkBuild"
     QUERY_CLASS="benchmark_query.PgaBenchmarkQuery"
     EVAL_CLASS="benchmark_evaluate.PgaBenchmarkEvaluate"
+    export BENCHMARK_DATASET="$DATASET"
     ;;
   wikihow)
     EXTRACT_CLASS="benchmark_extract.WikihowBenchmarkExtract"
@@ -51,7 +52,7 @@ case "$DATASET" in
     EVAL_CLASS="benchmark_evaluate.WikihowBenchmarkEvaluate"
     ;;
   *)
-    echo "ERROR: Unknown dataset '$DATASET'. Use one of: cuad, concurrentqa, pga, wikihow"
+    echo "ERROR: Unknown dataset '$DATASET'. Use one of: cuad, concurrentqa, pga_bio, pga_stat, wikihow"
     exit 1
     ;;
 esac
