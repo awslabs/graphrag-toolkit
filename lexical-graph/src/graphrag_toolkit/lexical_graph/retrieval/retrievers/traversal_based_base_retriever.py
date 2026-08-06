@@ -7,6 +7,7 @@ import time
 from typing import List, Any, Type, Optional
 from importlib.metadata import version, PackageNotFoundError
 
+from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.metadata import FilterConfig
 from graphrag_toolkit.lexical_graph.versioning import VALID_FROM, VALID_TO, EXTRACT_TIMESTAMP, BUILD_TIMESTAMP, VERSION_INDEPENDENT_ID_FIELDS, TIMESTAMP_LOWER_BOUND, TIMESTAMP_UPPER_BOUND
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
@@ -121,7 +122,7 @@ class TraversalBasedBaseRetriever(BaseRetriever):
         
         self.graph_store = graph_store
         self.vector_store = vector_store
-        self.chunk_store = ChunkStoreFactory.for_chunk_store(graph_store=graph_store)
+        self.chunk_store = ChunkStoreFactory.for_chunk_store(GraphRAGConfig.chunk_store, graph_store=graph_store)
         if processors is not None:
             self.processors = processors
         else:

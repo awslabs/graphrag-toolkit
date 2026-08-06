@@ -160,8 +160,26 @@ class TestChunkGraphBuilding:
         ) as mock_for_chunk_store:
             builder.build(node, client)
 
-        mock_for_chunk_store.assert_called_once_with(graph_store=client)
+        mock_for_chunk_store.assert_called_once_with(None, graph_store=client)
         mock_chunk_store.put.assert_called_once_with('chunk_001', 'Sample text')
+
+    def test_build_passes_the_configured_chunk_store_to_the_factory(self):
+        """A configured backend has to reach the factory, or the opt-in does nothing."""
+        builder = ChunkGraphBuilder()
+        node = self._make_chunk_node(chunk_id='chunk_001', text='Sample text')
+
+        client = self._make_graph_client()
+
+        with patch(
+            'graphrag_toolkit.lexical_graph.indexing.build.chunk_graph_builder.ChunkStoreFactory.for_chunk_store',
+            return_value=Mock(),
+        ) as mock_for_chunk_store, patch(
+            'graphrag_toolkit.lexical_graph.indexing.build.chunk_graph_builder.GraphRAGConfig'
+        ) as mock_config:
+            mock_config.chunk_store = 's3://my-bucket/chunks'
+            builder.build(node, client)
+
+        mock_for_chunk_store.assert_called_once_with('s3://my-bucket/chunks', graph_store=client)
 
     def test_build_skips_metadata_query_when_no_extra_properties(self):
         """Verify build doesn't issue an empty SET query when there's no extra chunk metadata."""

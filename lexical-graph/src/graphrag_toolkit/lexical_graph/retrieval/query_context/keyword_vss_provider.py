@@ -50,7 +50,7 @@ class KeywordVSSProvider(KeywordProviderBase):
         self.graph_store = graph_store
         self.vector_store = vector_store
         self.filter_config = filter_config
-        self.chunk_store = ChunkStoreFactory.for_chunk_store(graph_store=graph_store)
+        self.chunk_store = ChunkStoreFactory.for_chunk_store(GraphRAGConfig.chunk_store, graph_store=graph_store)
 
         self.index_name = 'topic' if not isinstance(vector_store.get_index('topic'), DummyVectorIndex) else 'chunk'
 

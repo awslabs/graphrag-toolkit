@@ -70,6 +70,12 @@ The following parameter applies only when using Amazon OpenSearch Serverless as 
 | ------------- | ------------- | ------------- | ------------- |
 | `opensearch_engine` | OpenSearch kNN engine | `nmslib` | `OPENSEARCH_ENGINE` |
 
+The following parameter controls where chunk text is stored:
+
+| Parameter | Description | Default | Environment Variable |
+| ------------- | ------------- | ------------- | ------------- |
+| `chunk_store` | Connection string for the store that holds chunk text (see [Chunk text storage](#chunk-text-storage)) | *None* | `CHUNK_STORE` |
+
 The following parameters configure local filesystem paths for container/EKS deployments:
 
 | Parameter | Description | Default | Environment Variable |
@@ -203,6 +209,26 @@ The lexical-graph uses microbatching to progress source data through the extract
   - In the build stage, chunks from the extract stage are broken down into smaller *indexable* nodes representing sources, chunks, topics, statements and facts. These indexable nodes are then processed by the graph construction and vector indexing handlers.
 
 The `batch_writes_enabled` configuration parameter determines whether all of the indexable nodes derived from a batch of incoming chunks are written to the graph and vector stores singly, or as a bulk operation. Bulk/batch operations tend to improve the throughput of the build stage, at the expense of some additonal latency with regard to this data becoming available to query.
+
+#### Chunk text storage
+
+By default, chunk text is stored as a `value` property on each `__Chunk__` node in the graph. That keeps everything in one place, but on a large corpus the text dominates graph memory, and every traversal that touches a chunk node carries it.
+
+Set `chunk_store` to move chunk text to S3 instead:
+
+```python
+GraphRAGConfig.chunk_store = 's3://my-bucket/chunks'
+```
+
+The connection string takes an optional prefix and an optional `kmsKeyArn` query parameter. Objects are server-side encrypted with `AES256` by default, or with `aws:kms` when a key is supplied:
+
+```python
+GraphRAGConfig.chunk_store = 's3://my-bucket/chunks?kmsKeyArn=arn:aws:kms:us-east-1:111122223333:key/1234abcd'
+```
+
+Each chunk is written to a key derived from its chunk id, so reads never list the bucket. Reads that don't find a chunk in S3 fall back to the graph, which means text written before you set `chunk_store` is still returned. Existing graphs keep working with no migration step; chunks written from that point on go to S3.
+
+Leave `chunk_store` unset to keep chunk text on the graph node.
 
 #### Caching Amazon Bedrock LLM responses
 

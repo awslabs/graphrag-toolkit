@@ -59,8 +59,16 @@ class TestKeywordVSSProvider:
     def test_chunk_store_is_resolved_once_at_construction(self):
         with patch.object(mod, 'ChunkStoreFactory') as mock_factory:
             provider, store, _ = _provider(use_chunk_index=True)
-        mock_factory.for_chunk_store.assert_called_once_with(graph_store=store)
+        mock_factory.for_chunk_store.assert_called_once_with(None, graph_store=store)
         assert provider.chunk_store is mock_factory.for_chunk_store.return_value
+
+    def test_configured_chunk_store_is_passed_to_the_factory(self):
+        with patch.object(mod, 'ChunkStoreFactory') as mock_factory, \
+                patch.object(mod, 'GraphRAGConfig') as mock_config:
+            mock_config.chunk_store = 's3://my-bucket/chunks'
+            provider, store, _ = _provider(use_chunk_index=True)
+
+        mock_factory.for_chunk_store.assert_called_once_with('s3://my-bucket/chunks', graph_store=store)
 
     def test_get_chunk_content_returns_content_strings(self):
         provider, _, _ = _provider(use_chunk_index=True)

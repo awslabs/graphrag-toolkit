@@ -3,14 +3,36 @@
 
 import logging
 from typing import Union, Type, Dict, Optional
+from urllib.parse import urlparse, parse_qs
 
 from graphrag_toolkit.lexical_graph.storage.chunk import ChunkStore, ChunkStoreFactoryMethod
 from graphrag_toolkit.lexical_graph.storage.chunk.in_graph_chunk_store import InGraphChunkStore
+from graphrag_toolkit.lexical_graph.storage.chunk.s3_chunk_store import S3ChunkStore
 
 logger = logging.getLogger(__name__)
 
 ChunkStoreType = Union[str, ChunkStore]
 ChunkStoreFactoryMethodType = Union[ChunkStoreFactoryMethod, Type[ChunkStoreFactoryMethod]]
+
+S3 = 's3://'
+
+
+def parse_s3_connection_string(connection_string):
+    parsed = urlparse(connection_string)
+
+    bucket_name = parsed.hostname
+
+    prefix = parsed.path[1:] if parsed.path else None
+    if prefix:
+        while prefix.endswith('/'):
+            prefix = prefix[:-1]
+    prefix = prefix if prefix else None
+
+    kms_key_arn = parse_qs(parsed.query).get('kmsKeyArn', None) if parsed.query else None
+    if kms_key_arn:
+        kms_key_arn = kms_key_arn if not isinstance(kms_key_arn, list) else kms_key_arn[0]
+
+    return (bucket_name, prefix, kms_key_arn)
 
 
 class InGraphChunkStoreFactory(ChunkStoreFactoryMethod):
@@ -31,7 +53,39 @@ class InGraphChunkStoreFactory(ChunkStoreFactoryMethod):
         return InGraphChunkStore(graph_store)
 
 
-_chunk_store_factories: Dict[str, ChunkStoreFactoryMethod] = {}
+class S3ChunkStoreFactory(ChunkStoreFactoryMethod):
+    """
+    Creates an S3ChunkStore from an `s3://bucket/prefix` connection string,
+    optionally with a `?kmsKeyArn=` query parameter.
+
+    The store is given an InGraphChunkStore fallback when a graph_store is
+    available, so chunk text written before a migration - still inline on the
+    graph node - is still readable.
+    """
+    def try_create(self, chunk_info: str, **kwargs) -> Optional[ChunkStore]:
+        if not chunk_info or not chunk_info.startswith(S3):
+            return None
+
+        (bucket_name, prefix, kms_key_arn) = parse_s3_connection_string(chunk_info)
+
+        graph_store = kwargs.get('graph_store')
+        fallback = InGraphChunkStore(graph_store) if graph_store is not None else None
+
+        logger.debug(f'Opening S3 chunk store [bucket: {bucket_name}, prefix: {prefix}, dual_read: {fallback is not None}]')
+
+        return S3ChunkStore(
+            bucket_name=bucket_name,
+            prefix=prefix,
+            kms_key_arn=kms_key_arn,
+            fallback=fallback
+        )
+
+
+_chunk_store_factories: Dict[str, ChunkStoreFactoryMethod] = {
+    c.__name__: c() for c in [
+        S3ChunkStoreFactory,
+    ]
+}
 _default_chunk_store_factory = InGraphChunkStoreFactory()
 
 
