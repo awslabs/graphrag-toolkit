@@ -110,7 +110,7 @@ fi
 
 # If BENCHMARK_ALL_RETRIEVERS is set, run extract+build once then loop query+evaluate per retriever
 if [[ "$BENCHMARK_ALL_RETRIEVERS" == "true" ]]; then
-    bash run_all_retrievers.sh "$BENCHMARK_DATASET"
+    bash benchmarks/scripts/run_all_retrievers.sh "$BENCHMARK_DATASET"
 else
     python test_suite.py "${REMAINING_ARGS[@]}"
 fi
