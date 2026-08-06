@@ -1,6 +1,7 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
+import contextlib
 import threading
 import time
 
@@ -649,3 +650,43 @@ class TestS3ChunkDownloaderParallelListing:
         assert later_doc_downloads == [], (
             f'downloads dispatched ahead for unconsumed documents: {later_doc_downloads}'
         )
+
+    @patch('graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs.GraphRAGConfig')
+    def test_listing_error_propagates_to_consumer(self, mock_config):
+        """A failure while listing a document's chunks must surface to the
+        consumer rather than being swallowed by executor shutdown, and must not
+        corrupt documents already yielded before the failing one."""
+        prefixes = ['p/c/doc-0/', 'p/c/doc-1/', 'p/c/doc-2/']
+
+        def paginate(**kwargs):
+            if kwargs.get('Delimiter') == '/':
+                return [{'CommonPrefixes': [{'Prefix': p} for p in prefixes]}]
+            if kwargs['Prefix'] == 'p/c/doc-1/':
+                raise RuntimeError('transient S3 listing error')
+            return [{'Contents': [{'Key': kwargs['Prefix'] + 'c0.json'}]}]
+
+        mock_s3 = MagicMock()
+        mock_config.s3 = mock_s3
+        mock_config.extraction_num_threads_per_worker = 2
+        paginator = MagicMock()
+        paginator.paginate.side_effect = paginate
+        mock_s3.get_paginator.return_value = paginator
+
+        downloader = S3ChunkDownloader(
+            key_prefix='p', collection_id='c', bucket_name='b',
+            fn=lambda node: node,
+        )
+
+        with patch.object(
+            S3ChunkDownloader, '_download_chunk',
+            side_effect=lambda key, client: TextNode(id_=key, text=''),
+        ):
+            with contextlib.closing(downloader.download()) as gen:
+                # doc-0 lists and downloads cleanly and is yielded.
+                first = next(gen)
+                assert [n.id_ for n in first.nodes] == ['p/c/doc-0/c0.json']
+
+                # doc-1's listing raised, and that surfaces rather than being lost
+                # while the executors unwind.
+                with pytest.raises(RuntimeError, match='transient S3 listing error'):
+                    next(gen)
