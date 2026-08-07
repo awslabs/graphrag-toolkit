@@ -55,22 +55,30 @@ class TestPDFReaderConfig:
     def test_initialization_with_defaults(self):
         """Verify PDFReaderConfig initializes with defaults."""
         config = PDFReaderConfig()
-        
+
         assert config.return_full_document is False
+        assert config.extract_tables is True
         assert config.metadata_fn is None
-    
+
     def test_initialization_with_custom_values(self):
         """Verify initialization with custom values."""
         def custom_fn(path):
             return {"source": path}
-        
+
         config = PDFReaderConfig(
             return_full_document=True,
+            extract_tables=False,
             metadata_fn=custom_fn
         )
-        
+
         assert config.return_full_document is True
+        assert config.extract_tables is False
         assert config.metadata_fn == custom_fn
+
+    def test_extract_tables_field_is_present(self):
+        """AdvancedPDFReaderProvider reads this in __init__, so dropping it is an
+        AttributeError at construction. This assertion needs no pymupdf."""
+        assert 'extract_tables' in {f.name for f in fields(PDFReaderConfig)}
 
 
 class TestDocxReaderConfig:

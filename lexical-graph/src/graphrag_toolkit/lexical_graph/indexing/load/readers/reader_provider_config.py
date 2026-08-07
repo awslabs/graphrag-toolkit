@@ -10,6 +10,7 @@ from graphrag_toolkit.lexical_graph.indexing.load.readers.reader_provider_config
 @dataclass
 class PDFReaderConfig(ReaderProviderConfig):
     return_full_document: bool = False
+    extract_tables: bool = True  # AdvancedPDFReaderProvider only: parse tables to markdown
     metadata_fn: Optional[Callable[[str], Dict[str, Any]]] = None
 
 @dataclass
