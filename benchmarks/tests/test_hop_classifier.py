@@ -8,7 +8,7 @@ Property-based tests for the hop_classifier module.
 from hypothesis import given, settings
 from hypothesis.strategies import text, dictionaries, one_of, integers, none, floats, just
 
-from graphrag_toolkit_tests.benchmark_utils.hop_classifier import (
+from benchmarks.utils.hop_classifier import (
     classify_hop,
     VALID_CLASSIFICATIONS,
 )

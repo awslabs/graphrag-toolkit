@@ -79,6 +79,7 @@ if [[ "$#" -gt 0 ]]; then
 		echo "  --topic <SNS topic name>"
 		echo "  --extraction-llm <Model id or profile name>"
     echo "  --response-llm <Model id or profile name>"
+    echo "  --judge-llm <Model id for evaluation judge>"
     echo "  --embeddings-model <Embeddings model id>"
     echo "  --embeddings-dimensions <Embeddings dimensions>"
     echo "  --lexical-graph-wheel <path to local .whl file to upload to S3 and install>"
@@ -141,6 +142,10 @@ if [[ -z "$TEST_RESPONSE_LLM" ]]; then
 	TEST_RESPONSE_LLM="us.anthropic.claude-sonnet-4-6"
 fi
 
+if [[ -z "$BENCHMARK_JUDGE_LLM" ]]; then
+	BENCHMARK_JUDGE_LLM="us.anthropic.claude-sonnet-4-6"
+fi
+
 if [[ -z "$NEPTUNE_INSTANCE_TYPE" ]]; then
 	NEPTUNE_INSTANCE_TYPE="db.r8g.large"
 fi
@@ -169,6 +174,7 @@ while [[ "$#" -gt 0 ]]; do
 				--topic) TOPIC="$2"; shift ;;
 				--extraction-llm) TEST_EXTRACTION_LLM="$2"; shift ;;
         --response-llm) TEST_RESPONSE_LLM="$2"; shift ;;
+        --judge-llm) BENCHMARK_JUDGE_LLM="$2"; shift ;;
         --embeddings-model) EMBEDDINGS_MODEL="$2"; shift ;;
         --embeddings-dimensions) EMBEDDINGS_DIMENSIONS="$2"; shift ;;
 				--toolkit-dir) GRAPHRAG_TOOLKIT_DIR="$2"; shift ;;
@@ -219,13 +225,24 @@ if [[ "$TEST_FILE" ]]; then
   files=$(echo $TEST_FILE | tr "," "\n")
   for f in $files
   do
+    suite_file="$f"
+    if [[ ! -f "$suite_file" ]]; then
+      base_name=$(basename "$f")
+      alt_path="../benchmarks/datasets/$base_name"
+      if [[ -f "$alt_path" ]]; then
+        suite_file="$alt_path"
+      else
+        echo "ERROR: Suite file not found: $f (searched CWD and ../benchmarks/datasets/)"
+        exit 1
+      fi
+    fi
   	while IFS= read -r line || [[ -n "$line" ]]; do
   			if [[ "$TESTS" ]]; then
   				TESTS+=" $line"
   			else
   				TESTS+="$line"
   			fi
-  	done < $f
+  	done < $suite_file
   done
 fi
 
@@ -299,6 +316,7 @@ cp -r $GRAPHRAG_TOOLKIT_DIR/examples/lexical-graph/notebooks/* lexical-graph-exa
 cp -r $GRAPHRAG_TOOLKIT_DIR/examples/byokg-rag/* lexical-graph-examples
 cp -r ./../test-scripts/* lexical-graph-examples
 cp -r ./../source-data lexical-graph-examples/source-data
+cp -r $GRAPHRAG_TOOLKIT_DIR/benchmarks lexical-graph-examples/benchmarks
 
 # Include benchmark data if local dir is specified and no S3 URI is provided
 # Only copies dataset subdirectories that match the tests being run
@@ -350,6 +368,7 @@ echo "export BATCH_INFERENCE_ROLE=$BATCH_INFERENCE_ROLE" >> lexical-graph-exampl
 echo "export FAIL_FAST=$FAIL_FAST" >> lexical-graph-examples/.env.testing
 echo "export TEST_EXTRACTION_LLM=$TEST_EXTRACTION_LLM" >> lexical-graph-examples/.env.testing
 echo "export TEST_RESPONSE_LLM=$TEST_RESPONSE_LLM" >> lexical-graph-examples/.env.testing
+echo "export BENCHMARK_JUDGE_LLM=$BENCHMARK_JUDGE_LLM" >> lexical-graph-examples/.env.testing
 echo "export INCLUDE_CLASSIFICATION_IN_ENTITY_ID=False" >> lexical-graph-examples/.env.testing
 if [[ "$TESTS" ]]; then
 	echo "export TESTS='$TESTS'" >> lexical-graph-examples/.env.testing

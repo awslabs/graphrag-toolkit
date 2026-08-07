@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 from pipe import Pipe
+import multiprocessing
 from concurrent.futures import ProcessPoolExecutor
 from functools import partial
 from typing import List, Optional, Sequence, Any, cast, Callable, Generator, Union
@@ -36,7 +37,12 @@ def run_pipeline(
         **kwargs
     )
 
-    with ProcessPoolExecutor(max_workers=num_workers) as p:
+    # Use "spawn": a forked worker can inherit a held lock (e.g. a logging
+    # thread's) and deadlock. Spawn starts workers from a clean interpreter.
+    with ProcessPoolExecutor(
+        max_workers=num_workers,
+        mp_context=multiprocessing.get_context('spawn'),
+    ) as p:
         processed_node_batches = p.map(transform, node_batches)
         
     for processed_node_batch in processed_node_batches:

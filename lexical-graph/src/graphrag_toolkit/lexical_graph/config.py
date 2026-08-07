@@ -41,6 +41,10 @@ DEFAULT_EMBEDDINGS_DIMENSIONS = 1024
 DEFAULT_EXTRACTION_NUM_WORKERS = 2
 DEFAULT_EXTRACTION_BATCH_SIZE = 4
 DEFAULT_EXTRACTION_NUM_THREADS_PER_WORKER = 4
+# botocore's own default. Not a chosen value - it's the floor the S3 pool is
+# never sized below. Distinct from DEFAULT_MAX_POOL_CONNECTIONS in
+# neptune_graph_stores, which is that client's chosen size.
+BOTOCORE_DEFAULT_MAX_POOL_CONNECTIONS = 10
 DEFAULT_BUILD_NUM_WORKERS = 2
 DEFAULT_BUILD_BATCH_SIZE = 4
 DEFAULT_BUILD_BATCH_WRITE_SIZE = 25
@@ -153,6 +157,26 @@ class ResilientClient:
         self._lock = threading.Lock()
 
 
+    def _client_config(self):
+        """
+        Build the botocore config for this service, or None to take the defaults.
+
+        S3 listing and downloading now run concurrently, so peak connections
+        reach twice the configured thread count. botocore's default pool of 10
+        sits well under the thread counts the extract stage uses, and once the
+        pool is exhausted botocore discards and reopens connections, which
+        costs back the concurrency it was given.
+
+        Returns:
+            Config: A botocore config for S3, or None for other services
+        """
+        if self.service_name != 's3':
+            return None
+
+        num_threads = self.config.extraction_num_threads_per_worker
+
+        return Config(max_pool_connections=max(BOTOCORE_DEFAULT_MAX_POOL_CONNECTIONS, num_threads * 2))
+
     def _create_client(self):
         """
         Create a new boto3 client using the config's session.
@@ -164,7 +188,7 @@ class ResilientClient:
             RuntimeError: If the AWS SSO token is missing or expired
         """
         try:
-            return self.config.session.client(self.service_name)
+            return self.config.session.client(self.service_name, config=self._client_config())
         except SSOTokenLoadError as e:
             raise RuntimeError(
                 f"[ResilientClient] SSO token is missing or expired for profile '{self.config.aws_profile}'.\n"

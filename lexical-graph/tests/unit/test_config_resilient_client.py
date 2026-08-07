@@ -42,6 +42,8 @@ class TestResilientClientCreateClient:
         mock_config = MagicMock()
         mock_boto_client = MagicMock()
         mock_config.session.client.return_value = mock_boto_client
+        # sizes the S3 connection pool, so it has to be a real number
+        mock_config.extraction_num_threads_per_worker = 4
 
         rc = ResilientClient.__new__(ResilientClient)
         rc.config = mock_config
@@ -50,13 +52,14 @@ class TestResilientClientCreateClient:
 
         result = rc._create_client()
         assert result is mock_boto_client
-        mock_config.session.client.assert_called_once_with("s3")
+        assert mock_config.session.client.call_args.args == ("s3",)
 
     def test_create_client_sso_token_error_raises_runtime(self):
         from graphrag_toolkit.lexical_graph.config import ResilientClient
 
         mock_config = MagicMock()
         mock_config.aws_profile = "my-profile"
+        mock_config.extraction_num_threads_per_worker = 4
         mock_config.session.client.side_effect = SSOTokenLoadError(error_msg="token expired")
 
         rc = ResilientClient.__new__(ResilientClient)
