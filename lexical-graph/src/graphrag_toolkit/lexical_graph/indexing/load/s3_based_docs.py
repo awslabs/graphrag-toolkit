@@ -1,6 +1,7 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
+import contextlib
 import io
 import json
 import logging
@@ -10,9 +11,10 @@ import threading
 import uuid
 import concurrent.futures
 
+from collections import deque
 from os.path import join
 from datetime import datetime
-from itertools import repeat
+from itertools import repeat, islice
 from threading import Semaphore
 from typing import List, Any, Generator, Optional, Dict, Callable
 
@@ -276,7 +278,15 @@ class S3ChunkDownloader(BaseComponent):
             return self.fn(TextNode.from_json(data))
 
     def download(self):
+        """
+        Yield one SourceDocument per source-document prefix in the collection.
 
+        Two thread pools stay open across the yields, so they shut down when the
+        generator is closed rather than when the loop ends. Consume it fully, or
+        close it - `with contextlib.closing(...)` or an explicit `.close()` - if
+        you might stop early. Abandoning it without closing leaves the pools for
+        the garbage collector to reclaim.
+        """
         s3_client = GraphRAGConfig.s3
 
         collection_path = join(self.key_prefix,  self.collection_id, '')
@@ -284,35 +294,59 @@ class S3ChunkDownloader(BaseComponent):
         paginator = s3_client.get_paginator('list_objects_v2')
         source_doc_pages = paginator.paginate(Bucket=self.bucket_name, Prefix=collection_path, Delimiter='/')
 
-        source_doc_prefixes = [ 
-            source_doc_obj['Prefix'] 
-            for source_doc_page in source_doc_pages 
+        source_doc_prefixes = [
+            source_doc_obj['Prefix']
+            for source_doc_page in source_doc_pages
             for source_doc_obj in source_doc_page.get('CommonPrefixes', [])
-             
+
         ]
 
         logger.debug(f'Started getting source documents from S3 [bucket: {self.bucket_name}, collection_path: {collection_path}, num_prefixes: {len(source_doc_prefixes)}]')
 
-        with concurrent.futures.ThreadPoolExecutor(max_workers=GraphRAGConfig.extraction_num_threads_per_worker) as executor:
+        num_threads = GraphRAGConfig.extraction_num_threads_per_worker
 
-            for source_doc_prefix in source_doc_prefixes:
-                
+        with concurrent.futures.ThreadPoolExecutor(max_workers=num_threads) as download_executor, \
+             concurrent.futures.ThreadPoolExecutor(max_workers=num_threads) as list_executor:
+
+            def _list_chunk_keys(source_doc_prefix):
+                # Listing only: no downloads dispatched here, so peak resident 
+                # chunk data stays one document's worth rather than the whole window's.
                 chunk_pages = paginator.paginate(Bucket=self.bucket_name, Prefix=source_doc_prefix)
-                
-                chunk_keys = [
+                return [
                     chunk_obj['Key']
                     for chunk_page in chunk_pages
-                    for chunk_obj in chunk_page['Contents'] 
+                    for chunk_obj in chunk_page.get('Contents', [])
                 ]
 
-                nodes = list(executor.map(
+            # Bounded sliding window: at most num_threads listings prefetch ahead,
+            # so listing overlaps downloading without reading the whole collection.
+            remaining_prefixes = iter(source_doc_prefixes)
+            in_flight = deque(
+                (source_doc_prefix, list_executor.submit(_list_chunk_keys, source_doc_prefix))
+                for source_doc_prefix in islice(remaining_prefixes, num_threads)
+            )
+
+            while in_flight:
+                source_doc_prefix, listing = in_flight.popleft()
+                chunk_keys = listing.result()
+
+                next_prefix = next(remaining_prefixes, None)
+                if next_prefix is not None:
+                    in_flight.append(
+                        (next_prefix, list_executor.submit(_list_chunk_keys, next_prefix))
+                    )
+
+                # Download the current document's chunks only, then yield, so at
+                # most one document's chunk data is resident at a time and an
+                # abandoned generator dispatches no downloads for unconsumed docs.
+                nodes = list(download_executor.map(
                     self._download_chunk,
                     chunk_keys,
-                    repeat(s3_client)
+                    repeat(s3_client),
                 ))
 
                 logger.debug(f'Yielding source document [source: {source_doc_prefix}, num_nodes: {len(nodes)}]')
-            
+
                 yield SourceDocument(nodes=nodes)
 
 class S3ChunkUploader(BaseComponent):
@@ -474,9 +508,15 @@ class S3BasedDocs(NodeHandler):
         start = time.time()
         doc_count = 0
 
-        for doc in self._downloader.download():
-            doc_count += 1
-            yield(doc)
+        # download() holds thread pools open across its yields, so closing it is
+        # what shuts them down. Wrapping it here means a consumer that stops
+        # early - `for doc in docs: break` - unwinds the pools through this
+        # generator's own GeneratorExit, rather than waiting on the garbage
+        # collector to finalize an abandoned generator.
+        with contextlib.closing(self._downloader.download()) as docs:
+            for doc in docs:
+                doc_count += 1
+                yield(doc)
 
         end = time.time()
 
