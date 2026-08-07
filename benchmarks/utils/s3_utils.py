@@ -4,6 +4,8 @@ import os
 import subprocess
 import logging
 
+from benchmarks.utils.dataset_config import get_data_subdir
+
 logger = logging.getLogger(__name__)
 
 
@@ -11,17 +13,22 @@ def sync_benchmark_data_from_s3(dataset: str, data_dir: str):
     """
     If BENCHMARK_DATA_S3_URI is set and the local dataset directory doesn't exist,
     sync the dataset from S3.
+
+    PGA splits (pga_bio, pga_stat) share a single 'pga' directory in S3 and locally,
+    so the mapping is applied here to stay consistent with load_qa_pairs().
     """
     s3_uri = os.environ.get('BENCHMARK_DATA_S3_URI')
     if not s3_uri:
         return
 
-    local_dataset_dir = os.path.join(data_dir, dataset)
+    sync_dataset = get_data_subdir(dataset)
+
+    local_dataset_dir = os.path.join(data_dir, sync_dataset)
     if os.path.exists(local_dataset_dir):
         logger.info(f'Dataset directory already exists: {local_dataset_dir}')
         return
 
-    s3_dataset_uri = s3_uri.rstrip('/') + '/' + dataset + '/'
+    s3_dataset_uri = s3_uri.rstrip('/') + '/' + sync_dataset + '/'
     logger.info(f'Syncing benchmark data from {s3_dataset_uri} to {local_dataset_dir}')
     os.makedirs(local_dataset_dir, exist_ok=True)
     try:
