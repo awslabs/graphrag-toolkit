@@ -20,6 +20,7 @@ from typing import Dict, Any, Optional, List
 from benchmarks.scripts.integration_test_base import IntegrationTestBase
 from benchmarks.scripts.integration_test_handler import IntegrationTestHandler
 from benchmarks.utils.run_evaluation import evaluate_responses
+from benchmarks.utils.s3_utils import upload_benchmark_results_to_s3
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -93,6 +94,9 @@ def run_benchmark_evaluate(handler: IntegrationTestHandler, params: Dict[str, An
         handler.add_output(metric, score)
 
     params['benchmark_scores'] = scores
+
+    # Persist results to S3 before assertions so they survive assertion failures
+    upload_benchmark_results_to_s3(dataset, retriever_id)
 
     class BenchmarkEvaluateAssertions(unittest.TestCase):
         @classmethod

@@ -3,6 +3,9 @@
 import os
 import subprocess
 import logging
+import mimetypes
+
+import boto3
 
 logger = logging.getLogger(__name__)
 
@@ -37,3 +40,113 @@ def sync_benchmark_data_from_s3(dataset: str, data_dir: str):
             'AWS CLI not found. Install it or unset BENCHMARK_DATA_S3_URI.'
         )
     logger.info(f'Sync complete: {local_dataset_dir}')
+
+
+def _content_type_for_file(filepath: str) -> str:
+    """Return the appropriate Content-Type for a benchmark result file."""
+    ext = os.path.splitext(filepath)[1].lower()
+    if ext in ('.json', '.jsonl'):
+        return 'application/json'
+    # Fall back to mimetypes guess, defaulting to text/plain
+    guessed, _ = mimetypes.guess_type(filepath)
+    return guessed if guessed else 'text/plain'
+
+
+def upload_benchmark_results_to_s3(
+    dataset: str,
+    retriever_id: str,
+    results_dir: str = 'benchmark-results',
+) -> None:
+    """
+    Upload benchmark results for a specific dataset/retriever to S3.
+
+    Reads S3 destination from environment variables:
+        S3_RESULTS_BUCKET: Target S3 bucket name
+        S3_RESULTS_PREFIX: Key prefix within the bucket
+
+    Uploads all files under ``<results_dir>/<dataset>/<retriever_id>/`` to
+    ``s3://<bucket>/<prefix>/benchmark-results/<dataset>/<retriever_id>/``.
+
+    If S3_RESULTS_BUCKET is not set, logs a warning and returns without error.
+
+    Args:
+        dataset: Dataset key (e.g. 'cuad', 'pga', 'concurrentqa').
+        retriever_id: Retriever identifier (e.g. 'traversal', 'topic_beam_search').
+        results_dir: Root directory containing benchmark results. Defaults to
+            'benchmark-results'.
+    """
+    bucket = os.environ.get('S3_RESULTS_BUCKET')
+    if not bucket:
+        logger.warning(
+            'S3_RESULTS_BUCKET not set — skipping benchmark results upload to S3'
+        )
+        return
+
+    prefix = os.environ.get('S3_RESULTS_PREFIX', '').strip('/')
+
+    local_dir = os.path.join(results_dir, dataset, retriever_id)
+    if not os.path.isdir(local_dir):
+        logger.warning(f'Results directory does not exist: {local_dir} — nothing to upload')
+        return
+
+    s3_key_base = '/'.join(
+        part for part in [prefix, 'benchmark-results', dataset, retriever_id] if part
+    )
+
+    client = boto3.client('s3')
+    uploaded_count = 0
+
+    for dirpath, _dirnames, filenames in os.walk(local_dir):
+        for filename in filenames:
+            local_path = os.path.join(dirpath, filename)
+            relative_path = os.path.relpath(local_path, local_dir)
+            s3_key = f'{s3_key_base}/{relative_path}'
+            content_type = _content_type_for_file(local_path)
+
+            logger.info(f'Uploading {local_path} -> s3://{bucket}/{s3_key}')
+            client.upload_file(
+                local_path,
+                bucket,
+                s3_key,
+                ExtraArgs={
+                    'ServerSideEncryption': 'AES256',
+                    'ContentType': content_type,
+                },
+            )
+            uploaded_count += 1
+
+    s3_uri = f's3://{bucket}/{s3_key_base}/'
+    logger.info(
+        f'Upload complete: {uploaded_count} file(s) uploaded to {s3_uri}'
+    )
+
+
+def upload_all_benchmark_results_to_s3(results_dir: str = 'benchmark-results') -> None:
+    """
+    Upload all benchmark results across all datasets and retrievers to S3.
+
+    Walks the ``<results_dir>/`` directory expecting the structure
+    ``<results_dir>/<dataset>/<retriever_id>/`` and uploads each retriever's
+    results via :func:`upload_benchmark_results_to_s3`.
+
+    Useful for bulk upload after running multiple retrievers (e.g. at the end of
+    run_all_retrievers.sh).
+
+    Args:
+        results_dir: Root directory containing benchmark results. Defaults to
+            'benchmark-results'.
+    """
+    if not os.path.isdir(results_dir):
+        logger.warning(f'Results directory does not exist: {results_dir} — nothing to upload')
+        return
+
+    for dataset in sorted(os.listdir(results_dir)):
+        dataset_path = os.path.join(results_dir, dataset)
+        if not os.path.isdir(dataset_path):
+            continue
+        for retriever_id in sorted(os.listdir(dataset_path)):
+            retriever_path = os.path.join(dataset_path, retriever_id)
+            if not os.path.isdir(retriever_path):
+                continue
+            logger.info(f'Uploading results for dataset={dataset}, retriever={retriever_id}')
+            upload_benchmark_results_to_s3(dataset, retriever_id, results_dir)
