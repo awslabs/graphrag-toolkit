@@ -95,11 +95,13 @@ class BatchTopicExtractorSync(BatchExtractorBase):
     def _update_node(self, node:TextNode, node_metadata_map):
         if node.node_id in node_metadata_map:
             topic_data = node_metadata_map[node.node_id]
-            if isinstance(topic_data, dict):
+            if topic_data is None:
+                node.metadata[TOPICS_KEY] = {'topics': []}
+            elif isinstance(topic_data, dict):
                 node.metadata[TOPICS_KEY] = topic_data
             else:
                 (topics, _) = parse_extracted_topics(topic_data)
                 node.metadata[TOPICS_KEY] = topics.model_dump()             
         else:
-            node.metadata[TOPICS_KEY] = []
+            node.metadata[TOPICS_KEY] = {'topics': []}
         return node
