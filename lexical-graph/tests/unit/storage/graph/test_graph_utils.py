@@ -356,3 +356,37 @@ class TestFilterConfigToOpencypherFilters:
         )
         result = parse_metadata_filters_recursive(filters)
         assert result == ''
+
+
+class TestEscapeCypherLabelBoundary:
+    """Boundary test cases for escape_cypher_label."""
+
+    def test_escape_cypher_label_empty_string(self):
+        result = escape_cypher_label("")
+        assert isinstance(result, str)
+
+    def test_escape_cypher_label_non_string_type_error(self):
+        with pytest.raises(TypeError):
+            escape_cypher_label(12345)  # type: ignore
+
+
+class TestParseMetadataFiltersRecursiveBoundary:
+    """Boundary and nested filter cases for parse_metadata_filters_recursive."""
+
+    def test_parse_metadata_filters_three_level_nesting(self):
+        nested_filter = {
+            "AND": [
+                {"category": {"eq": "finance"}},
+                {"OR": [{"status": {"eq": "active"}}, {"priority": {"gte": 5}}]},
+            ]
+        }
+        result = parse_metadata_filters_recursive(nested_filter)
+        assert result is not None
+
+
+class TestFormatterForTypeBoundary:
+    """Boundary test cases for formatter_for_type."""
+
+    def test_formatter_for_type_empty_string(self):
+        result = formatter_for_type("")
+        assert result is not None
