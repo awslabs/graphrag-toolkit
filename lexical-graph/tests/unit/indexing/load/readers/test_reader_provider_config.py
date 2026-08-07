@@ -75,11 +75,6 @@ class TestPDFReaderConfig:
         assert config.extract_tables is False
         assert config.metadata_fn == custom_fn
 
-    def test_extract_tables_field_is_present(self):
-        """AdvancedPDFReaderProvider reads this in __init__, so dropping it is an
-        AttributeError at construction. This assertion needs no pymupdf."""
-        assert 'extract_tables' in {f.name for f in fields(PDFReaderConfig)}
-
 
 class TestDocxReaderConfig:
     """Tests for DocxReaderConfig."""

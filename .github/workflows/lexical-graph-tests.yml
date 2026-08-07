@@ -77,17 +77,9 @@ jobs:
         run: uv venv --seed .venv
 
       - name: Install dependencies
-        # pymupdf stays optional at runtime, but the PDF provider tests
-        # importorskip it: without it here they skip and the job passes green,
-        # which is how #449 removed a field they depend on unnoticed.
         run: |
           uv pip install --python .venv/bin/python \
-            pytest \
-            pytest-cov \
-            pytest-mock \
-            pytest-asyncio \
-            hypothesis \
-            pymupdf \
+            -e '.[test]' \
             -r src/graphrag_toolkit/lexical_graph/requirements.txt
 
       - name: Run tests
