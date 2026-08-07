@@ -24,8 +24,8 @@ test = [
     "pytest-mock>=3.10.0",
     "pytest-asyncio>=0.21.0",
     "hypothesis>=6.0.0",
-    # Optional at runtime. The AdvancedPDFReaderProvider tests importorskip it
-    # and skip silently without it. Pinned to keep CI reproducible.
+    # Optional at runtime; the PDF provider tests importorskip it and skip
+    # silently without it. Pinned to keep CI reproducible.
     "pymupdf==1.27.2.3",
 ]
 dev = [
