@@ -125,3 +125,37 @@ def upload_benchmark_results_to_s3(
             f'Failed to upload benchmark results to S3 — continuing without upload',
             exc_info=True,
         )
+
+
+def upload_all_benchmark_results_to_s3(results_dir: str = 'benchmark-results') -> None:
+    """
+    Upload all benchmark results across all datasets and retrievers to S3.
+
+    Walks the ``<results_dir>/`` directory expecting the structure
+    ``<results_dir>/<dataset>/<retriever_id>/`` and uploads each retriever's
+    results via :func:`upload_benchmark_results_to_s3`.
+
+    Useful for bulk upload at the end of run_all_retrievers.sh where we want
+    to persist everything in one pass.
+
+    Args:
+        results_dir: Root directory containing benchmark results. Defaults to
+            'benchmark-results'.
+    """
+    if not os.path.isdir(results_dir):
+        logger.warning(f'Results directory does not exist: {results_dir} — nothing to upload')
+        return
+
+    for dataset in sorted(os.listdir(results_dir)):
+        dataset_path = os.path.join(results_dir, dataset)
+        if not os.path.isdir(dataset_path):
+            continue
+        for retriever_id in sorted(os.listdir(dataset_path)):
+            retriever_path = os.path.join(dataset_path, retriever_id)
+            if not os.path.isdir(retriever_path):
+                continue
+            logger.info(f'Uploading results for dataset={dataset}, retriever={retriever_id}')
+            upload_benchmark_results_to_s3(
+                local_dir=retriever_path,
+                s3_sub_path=f'{dataset}/{retriever_id}',
+            )
