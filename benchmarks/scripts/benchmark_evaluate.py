@@ -96,7 +96,10 @@ def run_benchmark_evaluate(handler: IntegrationTestHandler, params: Dict[str, An
     params['benchmark_scores'] = scores
 
     # Persist results to S3 before assertions so they survive assertion failures
-    upload_benchmark_results_to_s3(dataset, retriever_id)
+    upload_benchmark_results_to_s3(
+        local_dir=results_dir,
+        s3_sub_path=f'{dataset}/{retriever_id}',
+    )
 
     class BenchmarkEvaluateAssertions(unittest.TestCase):
         @classmethod

@@ -53,27 +53,28 @@ def _content_type_for_file(filepath: str) -> str:
 
 
 def upload_benchmark_results_to_s3(
-    dataset: str,
-    retriever_id: str,
-    results_dir: str = 'benchmark-results',
+    local_dir: str,
+    s3_sub_path: str,
 ) -> None:
     """
-    Upload benchmark results for a specific dataset/retriever to S3.
+    Upload benchmark results from a local directory to S3.
 
     Reads S3 destination from environment variables:
         S3_RESULTS_BUCKET: Target S3 bucket name
         S3_RESULTS_PREFIX: Key prefix within the bucket
 
-    Uploads all files under ``<results_dir>/<dataset>/<retriever_id>/`` to
-    ``s3://<bucket>/<prefix>/benchmark-results/<dataset>/<retriever_id>/``.
+    Uploads all files under ``local_dir`` to
+    ``s3://<bucket>/<prefix>/benchmark-results/<s3_sub_path>/``.
 
     If S3_RESULTS_BUCKET is not set, logs a warning and returns without error.
+    If upload fails (credentials, permissions, network), logs a warning and
+    returns without raising — an upload failure must not take down a passing run.
 
     Args:
-        dataset: Dataset key (e.g. 'cuad', 'pga', 'concurrentqa').
-        retriever_id: Retriever identifier (e.g. 'traversal', 'topic_beam_search').
-        results_dir: Root directory containing benchmark results. Defaults to
-            'benchmark-results'.
+        local_dir: Absolute or relative path to the directory to upload
+            (e.g. the results_dir already computed by the caller).
+        s3_sub_path: The sub-path under ``benchmark-results/`` in the S3 key
+            (e.g. 'cuad/traversal' or 'pga_bio/topic_beam_search').
     """
     bucket = os.environ.get('S3_RESULTS_BUCKET')
     if not bucket:
@@ -84,69 +85,43 @@ def upload_benchmark_results_to_s3(
 
     prefix = os.environ.get('S3_RESULTS_PREFIX', '').strip('/')
 
-    local_dir = os.path.join(results_dir, dataset, retriever_id)
     if not os.path.isdir(local_dir):
         logger.warning(f'Results directory does not exist: {local_dir} — nothing to upload')
         return
 
     s3_key_base = '/'.join(
-        part for part in [prefix, 'benchmark-results', dataset, retriever_id] if part
+        part for part in [prefix, 'benchmark-results', s3_sub_path] if part
     )
 
-    client = boto3.client('s3')
-    uploaded_count = 0
+    try:
+        client = boto3.client('s3')
+        uploaded_count = 0
 
-    for dirpath, _dirnames, filenames in os.walk(local_dir):
-        for filename in filenames:
-            local_path = os.path.join(dirpath, filename)
-            relative_path = os.path.relpath(local_path, local_dir)
-            s3_key = f'{s3_key_base}/{relative_path}'
-            content_type = _content_type_for_file(local_path)
+        for dirpath, _dirnames, filenames in os.walk(local_dir):
+            for filename in filenames:
+                local_path = os.path.join(dirpath, filename)
+                relative_path = os.path.relpath(local_path, local_dir)
+                s3_key = f'{s3_key_base}/{relative_path}'
+                content_type = _content_type_for_file(local_path)
 
-            logger.info(f'Uploading {local_path} -> s3://{bucket}/{s3_key}')
-            client.upload_file(
-                local_path,
-                bucket,
-                s3_key,
-                ExtraArgs={
-                    'ServerSideEncryption': 'AES256',
-                    'ContentType': content_type,
-                },
-            )
-            uploaded_count += 1
+                logger.info(f'Uploading {local_path} -> s3://{bucket}/{s3_key}')
+                client.upload_file(
+                    local_path,
+                    bucket,
+                    s3_key,
+                    ExtraArgs={
+                        'ServerSideEncryption': 'AES256',
+                        'ContentType': content_type,
+                    },
+                )
+                uploaded_count += 1
 
-    s3_uri = f's3://{bucket}/{s3_key_base}/'
-    logger.info(
-        f'Upload complete: {uploaded_count} file(s) uploaded to {s3_uri}'
-    )
-
-
-def upload_all_benchmark_results_to_s3(results_dir: str = 'benchmark-results') -> None:
-    """
-    Upload all benchmark results across all datasets and retrievers to S3.
-
-    Walks the ``<results_dir>/`` directory expecting the structure
-    ``<results_dir>/<dataset>/<retriever_id>/`` and uploads each retriever's
-    results via :func:`upload_benchmark_results_to_s3`.
-
-    Useful for bulk upload after running multiple retrievers (e.g. at the end of
-    run_all_retrievers.sh).
-
-    Args:
-        results_dir: Root directory containing benchmark results. Defaults to
-            'benchmark-results'.
-    """
-    if not os.path.isdir(results_dir):
-        logger.warning(f'Results directory does not exist: {results_dir} — nothing to upload')
-        return
-
-    for dataset in sorted(os.listdir(results_dir)):
-        dataset_path = os.path.join(results_dir, dataset)
-        if not os.path.isdir(dataset_path):
-            continue
-        for retriever_id in sorted(os.listdir(dataset_path)):
-            retriever_path = os.path.join(dataset_path, retriever_id)
-            if not os.path.isdir(retriever_path):
-                continue
-            logger.info(f'Uploading results for dataset={dataset}, retriever={retriever_id}')
-            upload_benchmark_results_to_s3(dataset, retriever_id, results_dir)
+        s3_uri = f's3://{bucket}/{s3_key_base}/'
+        logger.info(
+            f'Upload complete: {uploaded_count} file(s) uploaded to {s3_uri}'
+        )
+    except Exception:
+        logger.warning(
+            f'Failed to upload benchmark results to S3 — continuing without upload',
+            exc_info=True,
+        )
