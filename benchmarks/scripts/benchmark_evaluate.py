@@ -185,17 +185,18 @@ class PgaBenchmarkEvaluate(IntegrationTestBase):
         return 'Evaluate PGA benchmark responses using LLM-as-judge correctness and IDK metrics'
 
     def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
+        dataset_name = os.environ.get('BENCHMARK_DATASET', 'pga')
         retriever_id = os.environ.get('BENCHMARK_RETRIEVER', 'traversal')
 
         responses_path = params.get('benchmark_responses_path',
                                     os.path.join('benchmark-results',
-                                                 'pga',
+                                                 dataset_name,
                                                  retriever_id))
 
         run_benchmark_evaluate(
             handler,
             params,
-            dataset='pga',
+            dataset=dataset_name,
             responses_path=responses_path,
             metrics=['correctness', 'idk'],
         )
