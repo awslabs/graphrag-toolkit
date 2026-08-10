@@ -19,6 +19,17 @@ if [[ -z "$DATASET" ]]; then
     exit 1
 fi
 
+# Guard: --delete-on-pass is incompatible with multi-retriever mode because
+# test_suite.py deletes the stack on the first passing run, leaving subsequent
+# retrievers without infrastructure.
+if [[ "${DELETE_ON_PASS:-}" == "True" || "${DELETE_ON_PASS:-}" == "true" ]]; then
+    echo "ERROR: BENCHMARK_ALL_RETRIEVERS is incompatible with DELETE_ON_PASS=True."
+    echo "  The stack would be torn down after the first passing retriever,"
+    echo "  leaving remaining retrievers without infrastructure."
+    echo "  Please set DELETE_ON_PASS=False or omit --delete-on-pass."
+    exit 1
+fi
+
 # Map dataset argument to test class name prefixes
 case "$DATASET" in
     cuad)

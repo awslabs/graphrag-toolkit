@@ -49,7 +49,7 @@ class TestSubRetrieverFactoryCorrectnessProperty:
     entity_network, chunk_based_semantic}, the factory SHALL create a
     CompositeTraversalBasedRetriever with exactly one retriever of the corresponding
     type, weight 1.0, and ProcessorArgs with reranker='tfidf', vss_top_k=10,
-    max_search_results=5, max_statements=200, derive_subqueries=False.
+    max_search_results=10, max_statements=200, derive_subqueries=False.
     """
 
     @settings(max_examples=100)
@@ -58,7 +58,7 @@ class TestSubRetrieverFactoryCorrectnessProperty:
         """
         For each sub-retriever ID, verify the factory calls for_traversal_based_search
         with exactly one retriever of the corresponding type, weight 1.0, and correct
-        ProcessorArgs (reranker='tfidf', vss_top_k=10, max_search_results=5,
+        ProcessorArgs (reranker='tfidf', vss_top_k=10, max_search_results=10,
         max_statements=200, derive_subqueries=False).
         """
         mock_graph_store = MagicMock()
@@ -123,8 +123,8 @@ class TestSubRetrieverFactoryCorrectnessProperty:
                 f"Expected vss_top_k=10 for '{retriever_id}', "
                 f"got vss_top_k={call_kwargs.get('vss_top_k')}"
             )
-            assert call_kwargs.get('max_search_results') == 5, (
-                f"Expected max_search_results=5 for '{retriever_id}', "
+            assert call_kwargs.get('max_search_results') == 10, (
+                f"Expected max_search_results=10 for '{retriever_id}', "
                 f"got max_search_results={call_kwargs.get('max_search_results')}"
             )
             assert call_kwargs.get('max_statements') == 200, (
