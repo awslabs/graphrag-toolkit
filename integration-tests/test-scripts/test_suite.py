@@ -264,15 +264,20 @@ def run_test_suite():
         
         if result == 'PASS' and delete_on_pass:
             delete_stack(stack_id, delete_stack_role)
-            
+
+        return result
             
     else:
         print('Exiting tests because of CloudFormation failure')
+        return 'FAIL'
 
 
 if __name__ == '__main__':
     start = time.time()
-    run_test_suite()
+    result = run_test_suite()
     end = time.time()
 
     print(end-start)
+
+    if result == 'FAIL':
+        sys.exit(1)
