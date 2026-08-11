@@ -77,14 +77,12 @@ jobs:
         run: uv venv --seed .venv
 
       - name: Install dependencies
+        # Separate commands: requirements.txt opens with `--only-binary :all:`,
+        # which would block building the local package if combined.
         run: |
           uv pip install --python .venv/bin/python \
-            pytest \
-            pytest-cov \
-            pytest-mock \
-            pytest-asyncio \
-            hypothesis \
             -r src/graphrag_toolkit/lexical_graph/requirements.txt
+          uv pip install --python .venv/bin/python -e '.[test]'
 
       - name: Run tests
         id: run_tests

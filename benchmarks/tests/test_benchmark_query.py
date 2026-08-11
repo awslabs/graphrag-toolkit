@@ -349,7 +349,7 @@ class TestRetrieverConfigReproducibility:
         recorded for the sub-retrievers that set them."""
         hp = get_retriever_config(retriever_id)['hyperparameters']
         assert hp['max_statements'] == 200
-        assert hp['max_search_results'] == 5
+        assert hp['max_search_results'] == 10
         assert hp['vss_top_k'] == 10
 
     @settings(max_examples=50)

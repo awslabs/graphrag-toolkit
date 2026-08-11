@@ -108,7 +108,12 @@ if [[ "$DO_SETUP" = true ]]; then
     pip list
 fi
 
-python test_suite.py "${REMAINING_ARGS[@]}"
+if [[ "${BENCHMARK_ALL_RETRIEVERS:-}" == "true" ]]; then
+    echo "Running all-retrievers benchmark loop for dataset: ${BENCHMARK_DATASET:-}"
+    bash benchmarks/scripts/run_all_retrievers.sh "$BENCHMARK_DATASET"
+else
+    python test_suite.py "${REMAINING_ARGS[@]}"
+fi
 
 popd
 
