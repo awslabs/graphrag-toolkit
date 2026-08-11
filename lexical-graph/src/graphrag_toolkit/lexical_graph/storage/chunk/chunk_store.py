@@ -21,6 +21,9 @@ class ChunkStore(abc.ABC):
         """
         return self.get_batch([chunk_id]).get(chunk_id)
 
+    # TODO: add a put_batch to this interface. ChunkGraphBuilder calls put()
+    # once per chunk, so writes stay serial. Reads already batch and thread,
+    # so the write path is where the remaining ingestion cost sits.
     @abc.abstractmethod
     def put(self, chunk_id: str, text: str) -> None:
         """

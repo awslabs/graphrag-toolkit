@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import abc
+from typing import Optional
 
 from graphrag_toolkit.lexical_graph.storage.chunk.chunk_store import ChunkStore
 
@@ -16,7 +17,7 @@ class ChunkStoreFactoryMethod(abc.ABC):
     factory.
     """
     @abc.abstractmethod
-    def try_create(self, chunk_info: str, **kwargs) -> ChunkStore:
+    def try_create(self, chunk_info: str, **kwargs) -> Optional[ChunkStore]:
         """
         Attempt to create a ChunkStore from chunk_info. Return None if this
         factory doesn't recognize chunk_info.

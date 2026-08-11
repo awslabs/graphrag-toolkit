@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import logging
-from typing import Union, Type, Dict
+from typing import Union, Type, Dict, Optional
 
 from graphrag_toolkit.lexical_graph.storage.chunk import ChunkStore, ChunkStoreFactoryMethod
 from graphrag_toolkit.lexical_graph.storage.chunk.in_graph_chunk_store import InGraphChunkStore
@@ -20,7 +20,7 @@ class InGraphChunkStoreFactory(ChunkStoreFactoryMethod):
     chunk store. Returns None for any non-empty chunk_info, so it never
     swallows a backend URI that a registered factory was meant to handle.
     """
-    def try_create(self, chunk_info: str, **kwargs) -> ChunkStore:
+    def try_create(self, chunk_info: str, **kwargs) -> Optional[ChunkStore]:
         if chunk_info:
             return None
 
