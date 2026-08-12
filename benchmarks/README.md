@@ -35,6 +35,8 @@ The `benchmarks/env.template` documents the benchmark-specific variables (a subs
 - `BENCHMARK_DATA_DIR` — Local directory with benchmark data (alternative to S3)
 - `BENCHMARK_QA_LIMIT` — Limit QA pairs for quick prototype runs
 - `BENCHMARK_IS_PROTOTYPE` — Use prototype (small) datasets
+- `BENCHMARK_DOC_STORE` — Where extracted documents are staged between extract and build: `file` (default) or `s3`
+- `BENCHMARK_S3_JSONL` — With `BENCHMARK_DOC_STORE=s3`, store one JSONL object per source document instead of one per chunk
 - `EXISTING_VPC_ID` / `EXISTING_SUBNET_IDS` — Reuse an existing VPC to avoid quota limits
 
 ## S3 Data Layout

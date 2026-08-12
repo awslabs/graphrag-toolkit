@@ -14,7 +14,7 @@ from graphrag_toolkit.lexical_graph import GraphRAGConfig, IndexingConfig
 from graphrag_toolkit.lexical_graph.storage import GraphStoreFactory
 from graphrag_toolkit.lexical_graph.storage import VectorStoreFactory
 from graphrag_toolkit.lexical_graph.storage.graph import NonRedactedGraphQueryLogFormatting
-from graphrag_toolkit.lexical_graph.indexing.load import FileBasedDocs
+from graphrag_toolkit.lexical_graph.indexing.load import FileBasedDocs, S3BasedDocs
 from graphrag_toolkit.lexical_graph.indexing.extract import BatchConfig
 
 from llama_index.core import SimpleDirectoryReader
@@ -22,6 +22,27 @@ from llama_index.core import SimpleDirectoryReader
 logger = logging.getLogger(__name__)
 
 BENCHMARK_DATA_DIR = 'source-data'
+
+
+def _count_source_docs(extracted_docs) -> int:
+    """
+    Count extracted source documents without pulling their contents back.
+
+    Iterating S3BasedDocs downloads every object it lists - ~16.5k GETs on the
+    WikiHow run purely to produce a number. Source documents are one key prefix
+    each in both layouts, so a delimiter listing counts them without bodies.
+    """
+    if not isinstance(extracted_docs, S3BasedDocs):
+        return sum(1 for _ in extracted_docs)
+
+    collection_path = os.path.join(
+        extracted_docs.key_prefix, extracted_docs.collection_id, ''
+    )
+    pages = GraphRAGConfig.s3.get_paginator('list_objects_v2').paginate(
+        Bucket=extracted_docs.bucket_name, Prefix=collection_path, Delimiter='/'
+    )
+
+    return sum(len(page.get('CommonPrefixes', [])) for page in pages)
 
 
 def run_benchmark_extract(handler: IntegrationTestHandler,
@@ -51,11 +72,37 @@ def run_benchmark_extract(handler: IntegrationTestHandler,
 
     sync_benchmark_data_from_s3(dataset_name, data_dir)
 
+    doc_store = os.environ.get('BENCHMARK_DOC_STORE', 'file').lower()
+
+    # Check both paths' variables before anything dereferences os.environ with
+    # bracket access, or the batch block's bare KeyError fires first.
+    required_vars = set()
+    if use_batch:
+        required_vars.update(
+            ('AWS_REGION_NAME', 'S3_RESULTS_BUCKET', 'S3_RESULTS_PREFIX', 'BATCH_INFERENCE_ROLE')
+        )
+    if doc_store == 's3':
+        required_vars.update(('AWS_REGION_NAME', 'S3_RESULTS_BUCKET', 'S3_RESULTS_PREFIX'))
+
+    missing = sorted(var for var in required_vars if not os.environ.get(var))
+    if missing:
+        raise ValueError(
+            f'use_batch={use_batch}, BENCHMARK_DOC_STORE={doc_store} '
+            f'requires {", ".join(missing)} to be set'
+        )
+
     GraphRAGConfig.extraction_llm = os.environ.get(
         'TEST_EXTRACTION_LLM', 'us.anthropic.claude-sonnet-4-6'
     )
     GraphRAGConfig.extraction_batch_size = 15000
     GraphRAGConfig.extraction_num_workers = 2
+
+    # The harness exports AWS_REGION_NAME, but boto3 clients take their region
+    # from GraphRAGConfig. The region= argument on BatchConfig and S3BasedDocs is
+    # stored and never read, so without this they can target the wrong region.
+    aws_region = os.environ.get('AWS_REGION_NAME')
+    if aws_region:
+        GraphRAGConfig.aws_region = aws_region
 
     indexing_config = None
     if use_batch:
@@ -69,9 +116,24 @@ def run_benchmark_extract(handler: IntegrationTestHandler,
         )
         indexing_config = IndexingConfig(batch_config=batch_config)
 
-    extracted_docs = FileBasedDocs(
-        docs_directory=os.path.join(data_dir, dataset_name, 'extracted'),
-        collection_id=dataset_name
+    if doc_store == 's3':
+        extracted_docs = S3BasedDocs(
+            region=os.environ['AWS_REGION_NAME'],
+            bucket_name=os.environ['S3_RESULTS_BUCKET'],
+            key_prefix=f'{os.environ["S3_RESULTS_PREFIX"]}/doc-store/{dataset_name}',
+            collection_id=None,
+            for_jsonl=os.environ.get('BENCHMARK_S3_JSONL', 'false').lower() == 'true'
+        )
+    else:
+        extracted_docs = FileBasedDocs(
+            docs_directory=os.path.join(data_dir, dataset_name, 'extracted'),
+            collection_id=dataset_name
+        )
+
+    logger.info(
+        f'Doc store: {type(extracted_docs).__name__} '
+        f'(for_jsonl={getattr(extracted_docs, "for_jsonl", "n/a")}) '
+        f'collection_id={extracted_docs.collection_id}'
     )
 
     with (
@@ -91,7 +153,7 @@ def run_benchmark_extract(handler: IntegrationTestHandler,
 
         graph_index.extract(docs, handler=extracted_docs, show_progress=True)
 
-    num_extracted = sum(1 for _ in extracted_docs)
+    num_extracted = _count_source_docs(extracted_docs)
     handler.add_output('num_extracted_docs', num_extracted)
     handler.add_output('collection_id', extracted_docs.collection_id)
 
