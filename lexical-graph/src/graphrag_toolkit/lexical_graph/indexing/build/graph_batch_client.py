@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import logging
-from typing import Dict, Any, List, Callable
+from typing import Dict, Any, List, Callable, Optional
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore, Query, QueryTree
 
 BATCH_MAX_ATTEMPTS = 10
@@ -78,7 +78,7 @@ class GraphBatchClient():
         """
         return self.graph_client.node_id(id_name)
 
-    def execute_query(self, query, parameters={}, **kwargs):
+    def execute_query(self, query, parameters={}, correlation_id:Optional[str]=None):
         """
         Executes a read query via the underlying graph client. Reads aren't
         batched, so this passes straight through rather than queuing.
@@ -86,11 +86,12 @@ class GraphBatchClient():
         Args:
             query: The query to execute.
             parameters: Query parameters.
+            correlation_id: Optional id used to correlate the query in logs.
 
         Returns:
             The graph client's query result.
         """
-        return self.graph_client.execute_query(query, parameters, **kwargs)
+        return self.graph_client.execute_query(query, parameters, correlation_id)
 
     def property_assigment_fn(self, key:str, value:Any) -> Callable[[str], str]:
         """

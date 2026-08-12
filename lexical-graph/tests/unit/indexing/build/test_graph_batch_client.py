@@ -95,4 +95,25 @@ class TestGraphBatchClientExecuteQuery:
         )
         result = client.execute_query('MATCH (n) RETURN n', {'a': 1})
         assert result == [{'result': 'row'}]
-        mock_neptune_store.execute_query.assert_called_once_with('MATCH (n) RETURN n', {'a': 1})
+        mock_neptune_store.execute_query.assert_called_once_with('MATCH (n) RETURN n', {'a': 1}, None)
+
+    def test_execute_query_forwards_correlation_id(self, mock_neptune_store):
+        """Verify the correlation id GraphStore.execute_query accepts reaches it."""
+        mock_neptune_store.execute_query = Mock(return_value=[])
+        client = GraphBatchClient(
+            graph_client=mock_neptune_store,
+            batch_writes_enabled=True,
+            batch_write_size=10,
+        )
+        client.execute_query('MATCH (n) RETURN n', {}, correlation_id='abc123')
+        mock_neptune_store.execute_query.assert_called_once_with('MATCH (n) RETURN n', {}, 'abc123')
+
+    def test_execute_query_rejects_unsupported_kwargs(self, mock_neptune_store):
+        """GraphStore.execute_query takes no **kwargs, so neither does this passthrough."""
+        client = GraphBatchClient(
+            graph_client=mock_neptune_store,
+            batch_writes_enabled=True,
+            batch_write_size=10,
+        )
+        with pytest.raises(TypeError):
+            client.execute_query('MATCH (n) RETURN n', {}, max_attempts=3)

@@ -6,7 +6,8 @@ Neo4j instance. Mocked unit tests can't catch a malformed Cypher query or a
 graph client that doesn't duck-type the way a factory expects - both bugs
 this test's ancestor scratch runs actually caught during development.
 
-Skipped unless NEO4J_TEST_URI is set. To run locally:
+Skipped unless NEO4J_TEST_URI is set, and fails rather than runs if that URI
+points at a database that already holds data. To run locally:
 
     finch run -d --name chunk-store-test -p 7687:7687 \\
         -e NEO4J_AUTH=neo4j/testpassword123 neo4j:5
@@ -50,8 +51,23 @@ class _ConcreteRetriever(TraversalBasedBaseRetriever):
 @pytest.fixture
 def graph_client():
     client = GraphStoreFactory.for_graph_store(NEO4J_TEST_URI)
-    client.execute_query('MATCH (n) DETACH DELETE n', {})
+
+    rows = client.execute_query('MATCH (n) RETURN count(n) AS node_count', {})
+    node_count = rows[0]['node_count'] if rows else 0
+    if node_count:
+        pytest.fail(
+            f'NEO4J_TEST_URI points at a database that is not empty (node count: '
+            f'{node_count}). This test writes and deletes chunk and source nodes, so it '
+            f'only runs against an empty database. Point NEO4J_TEST_URI at a throwaway '
+            f'instance.'
+        )
+
     yield client
+
+    # Safe to delete unconditionally: the check above proved the database was empty, so
+    # everything here now was written by this test. These tests seed topic and statement
+    # nodes as well as the chunks and sources ChunkGraphBuilder writes, so deleting by
+    # label would leave residue behind every time that set grows.
     client.execute_query('MATCH (n) DETACH DELETE n', {})
 
 
