@@ -15,6 +15,9 @@ class UpdateChunkMetadata(ProcessorBase):
     def _process_results(self, search_results:SearchResultCollection, query:QueryBundle) -> SearchResultCollection:
         def update_chunks(topic:Topic):
             for chunk in topic.chunks:
+                # TraversalBasedBaseRetriever's get_statements_by_topic_and_source()
+                # already promotes 'value' out of metadata when it's available, so
+                # this is usually a no-op for that path.
                 value = chunk.metadata.pop('value', None)
                 chunk.metadata.pop('chunkId', None)
                 if value:

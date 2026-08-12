@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import pytest
-from unittest.mock import Mock
+from unittest.mock import Mock, patch
 from graphrag_toolkit.lexical_graph.indexing.build.chunk_graph_builder import ChunkGraphBuilder
 from llama_index.core.schema import NodeRelationship
 
@@ -109,6 +109,68 @@ class TestChunkGraphBuilding:
         client = self._make_graph_client()
         builder.build(node, client)
 
-        # Verify the chunk insert query includes the custom property
-        first_call_params = client.execute_query_with_retry.call_args_list[0][0][1]
-        assert first_call_params['params'][0].get('custom_prop') == 'custom_value'
+        # The custom property is set in its own query, separate from the
+        # chunk-text write (which routes through ChunkStore.put()).
+        calls_with_custom_prop = [
+            call for call in client.execute_query_with_retry.call_args_list
+            if call[0][1]['params'] and call[0][1]['params'][0].get('custom_prop') == 'custom_value'
+        ]
+        assert len(calls_with_custom_prop) == 1
+
+    def test_build_with_metadata_value_key_does_not_overwrite_chunk_text(self):
+        """A chunk_metadata key literally named 'value' must not clobber the chunk text ChunkStore.put() writes."""
+        builder = ChunkGraphBuilder()
+        node = self._make_chunk_node(chunk_id='chunk_001', text='Sample text')
+        node.metadata['chunk']['metadata'] = {'value': 'attacker-controlled', 'other_prop': 'kept'}
+
+        client = self._make_graph_client()
+        mock_chunk_store = Mock()
+
+        with patch(
+            'graphrag_toolkit.lexical_graph.indexing.build.chunk_graph_builder.ChunkStoreFactory.for_chunk_store',
+            return_value=mock_chunk_store,
+        ):
+            builder.build(node, client)
+
+        mock_chunk_store.put.assert_called_once_with('chunk_001', 'Sample text')
+
+        # the metadata-only query must never touch chunk.value
+        for call in client.execute_query_with_retry.call_args_list:
+            query = call[0][0]
+            assert 'chunk.value' not in query
+
+        # other_prop still gets set as usual
+        calls_with_other_prop = [
+            call for call in client.execute_query_with_retry.call_args_list
+            if call[0][1]['params'] and call[0][1]['params'][0].get('other_prop') == 'kept'
+        ]
+        assert len(calls_with_other_prop) == 1
+
+    def test_build_writes_chunk_text_via_chunk_store(self):
+        """Verify build routes chunk text through ChunkStoreFactory/ChunkStore.put()."""
+        builder = ChunkGraphBuilder()
+        node = self._make_chunk_node(chunk_id='chunk_001', text='Sample text')
+
+        client = self._make_graph_client()
+        mock_chunk_store = Mock()
+
+        with patch(
+            'graphrag_toolkit.lexical_graph.indexing.build.chunk_graph_builder.ChunkStoreFactory.for_chunk_store',
+            return_value=mock_chunk_store,
+        ) as mock_for_chunk_store:
+            builder.build(node, client)
+
+        mock_for_chunk_store.assert_called_once_with(graph_store=client)
+        mock_chunk_store.put.assert_called_once_with('chunk_001', 'Sample text')
+
+    def test_build_skips_metadata_query_when_no_extra_properties(self):
+        """Verify build doesn't issue an empty SET query when there's no extra chunk metadata."""
+        builder = ChunkGraphBuilder()
+        node = self._make_chunk_node()
+
+        client = self._make_graph_client()
+        builder.build(node, client)
+
+        # chunk-text write (via ChunkStore) + source relationship = 2, no
+        # separate (and otherwise-empty) metadata SET query.
+        assert client.execute_query_with_retry.call_count == 2
