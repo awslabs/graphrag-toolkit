@@ -8,7 +8,8 @@ catch a query that is well-formed but matches the wrong thing. A store
 whose put() output its own get_batch() can't see is exactly that failure,
 and it only shows up against a real graph.
 
-Skipped unless NEO4J_TEST_URI is set. To run locally:
+Skipped unless NEO4J_TEST_URI is set, and fails rather than runs if that URI
+points at a database that already holds data. To run locally:
 
     finch run -d --name chunk-store-test -p 7687:7687 \\
         -e NEO4J_AUTH=neo4j/testpassword123 neo4j:5
@@ -35,9 +36,21 @@ pytestmark = pytest.mark.skipif(
 @pytest.fixture
 def graph_client():
     client = GraphStoreFactory.for_graph_store(NEO4J_TEST_URI)
-    client.execute_query('MATCH (n) DETACH DELETE n', {})
+
+    rows = client.execute_query('MATCH (n) RETURN count(n) AS node_count', {})
+    node_count = rows[0]['node_count'] if rows else 0
+    if node_count:
+        pytest.fail(
+            f'NEO4J_TEST_URI points at a database that is not empty (node count: '
+            f'{node_count}). This test writes and deletes chunk nodes, so it only runs '
+            f'against an empty database. Point NEO4J_TEST_URI at a throwaway instance.'
+        )
+
     yield client
-    client.execute_query('MATCH (n) DETACH DELETE n', {})
+
+    # Safe to delete unconditionally: the database was empty above, and this test
+    # only ever creates __Chunk__ nodes.
+    client.execute_query('MATCH (chunk:`__Chunk__`) DETACH DELETE chunk', {})
 
 
 @pytest.fixture
