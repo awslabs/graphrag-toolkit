@@ -396,11 +396,13 @@ After running all retrievers, generate `comparison_report.json` at `benchmark-re
    }
    ```
 
-2. Add QA file mapping in `benchmarks/scripts/benchmark_query.py`:
+2. Add QA file mapping in `benchmarks/utils/dataset_config.py`:
    ```python
    QA_FILE_MAP = {
        ...
-       'my-dataset': ['qa.json'],
+       'my-dataset': {'files': ['qa.json']},
+       # For a split that shares a parent directory:
+       # 'my-dataset_subset': {'files': ['subset.json'], 'parent': 'my-dataset'},
    }
    ```
 

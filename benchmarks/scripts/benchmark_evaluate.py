@@ -20,6 +20,7 @@ from typing import Dict, Any, Optional, List
 from benchmarks.scripts.integration_test_base import IntegrationTestBase
 from benchmarks.scripts.integration_test_handler import IntegrationTestHandler
 from benchmarks.utils.run_evaluation import evaluate_responses
+from benchmarks.utils.s3_utils import upload_benchmark_results_to_s3
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -93,6 +94,12 @@ def run_benchmark_evaluate(handler: IntegrationTestHandler, params: Dict[str, An
         handler.add_output(metric, score)
 
     params['benchmark_scores'] = scores
+
+    # Persist results to S3 before assertions so they survive assertion failures
+    upload_benchmark_results_to_s3(
+        local_dir=results_dir,
+        s3_sub_path=f'{dataset}/{retriever_id}',
+    )
 
     class BenchmarkEvaluateAssertions(unittest.TestCase):
         @classmethod
@@ -185,17 +192,18 @@ class PgaBenchmarkEvaluate(IntegrationTestBase):
         return 'Evaluate PGA benchmark responses using LLM-as-judge correctness and IDK metrics'
 
     def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
+        dataset_name = os.environ.get('BENCHMARK_DATASET', 'pga')
         retriever_id = os.environ.get('BENCHMARK_RETRIEVER', 'traversal')
 
         responses_path = params.get('benchmark_responses_path',
                                     os.path.join('benchmark-results',
-                                                 'pga',
+                                                 dataset_name,
                                                  retriever_id))
 
         run_benchmark_evaluate(
             handler,
             params,
-            dataset='pga',
+            dataset=dataset_name,
             responses_path=responses_path,
             metrics=['correctness', 'idk'],
         )
