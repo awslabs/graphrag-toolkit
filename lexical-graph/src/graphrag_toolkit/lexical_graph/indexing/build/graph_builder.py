@@ -5,6 +5,7 @@ import abc
 from typing import Dict, Any
 
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
+from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import to_params
 
 from llama_index.core.schema import BaseComponent, BaseNode
 
@@ -36,7 +37,7 @@ class GraphBuilder(BaseComponent):
         Returns:
             Dict: A dictionary wrapping the input as a value under the key `'params'`.
         """
-        return { 'params': [p] if p else [] }
+        return to_params(p)
 
     @classmethod
     @abc.abstractmethod

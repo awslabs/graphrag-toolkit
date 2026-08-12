@@ -3,7 +3,7 @@
 
 import re
 import string
-from typing import Any, List, Optional, Callable
+from typing import Any, Dict, List, Optional, Callable
 import uuid
 
 from graphrag_toolkit.lexical_graph.metadata import FilterConfig, type_name_for_key_value, format_datetime
@@ -15,6 +15,13 @@ SEARCH_STRING_PATTERN = re.compile(r'([^\s\w]|_)+')
 
 def new_query_var():
     return f'n{uuid.uuid4().hex}'
+
+def to_params(p: Dict) -> Dict:
+    """
+    Wraps a parameter dict as the `params` list expected by
+    `UNWIND $params AS params`-style Cypher queries.
+    """
+    return {'params': [p] if p else []}
 
 def search_string_from(value:str):
     """
