@@ -64,7 +64,7 @@ def node_parameters(node, **extra_properties):
     }
 
 
-def merge_query(label):
+def node_merge_query(label):
     """
     Build the MERGE query for a node with the given label.
 
@@ -158,12 +158,12 @@ def test_add_node_idempotence_property(node):
     parameters = node_parameters(node)
 
     # Add node first time
-    store.execute_query(merge_query(node['label']), parameters)
+    store.execute_query(node_merge_query(node['label']), parameters)
     count_after_first = store.get_node_count()
     node_after_first = store.get_node(node['id'])
     
     # Add same node second time (should be idempotent)
-    store.execute_query(merge_query(node['label']), parameters)
+    store.execute_query(node_merge_query(node['label']), parameters)
     count_after_second = store.get_node_count()
     node_after_second = store.get_node(node['id'])
     
@@ -199,7 +199,7 @@ def test_add_node_multiple_times_idempotence_property(node):
 
     # Add node multiple times
     for _ in range(5):
-        store.execute_query(merge_query(node['label']), parameters)
+        store.execute_query(node_merge_query(node['label']), parameters)
     
     # Property: Should have exactly one node
     assert store.get_node_count() == 1, \
@@ -235,10 +235,10 @@ def test_add_different_nodes_not_idempotent_property(node1, node2):
     store = InMemoryGraphStoreForTesting()
     
     # Add first node
-    store.execute_query(merge_query(node1['label']), node_parameters(node1))
+    store.execute_query(node_merge_query(node1['label']), node_parameters(node1))
 
     # Add second node
-    store.execute_query(merge_query(node2['label']), node_parameters(node2))
+    store.execute_query(node_merge_query(node2['label']), node_parameters(node2))
     
     # Property: Should have two distinct nodes
     assert store.get_node_count() == 2, \
@@ -264,12 +264,12 @@ def test_add_node_with_updated_properties_idempotence_property(node):
     store = InMemoryGraphStoreForTesting()
     
     # Add node with initial properties
-    store.execute_query(merge_query(node['label']), node_parameters(node))
+    store.execute_query(node_merge_query(node['label']), node_parameters(node))
 
     # Add the same node again, this time carrying a property it did not have
     # before. 'updated' is passed as an extra property rather than alongside
     # 'id', so a generated property of the same name cannot mask it.
-    store.execute_query(merge_query(node['label']), node_parameters(node, updated=True))
+    store.execute_query(node_merge_query(node['label']), node_parameters(node, updated=True))
     
     # Property: Should still have exactly one node
     assert store.get_node_count() == 1, \
