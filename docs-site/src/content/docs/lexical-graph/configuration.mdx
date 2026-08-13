@@ -212,7 +212,7 @@ The `batch_writes_enabled` configuration parameter determines whether all of the
 
 #### Chunk text storage
 
-By default, chunk text is stored as a `value` property on each `__Chunk__` node in the graph. That keeps everything in one place, but on a large corpus the text dominates graph memory, and every traversal that touches a chunk node carries it.
+By default, chunk text is stored as a `value` property on each `__Chunk__` node in the graph. That keeps everything in one place, but for more optimal storage, use the chunk_store option to store the text in an external source.
 
 Set `chunk_store` to move chunk text to S3 instead:
 
@@ -220,7 +220,7 @@ Set `chunk_store` to move chunk text to S3 instead:
 GraphRAGConfig.chunk_store = 's3://my-bucket/chunks'
 ```
 
-The connection string takes an optional prefix and an optional `kmsKeyArn` query parameter. Objects are server-side encrypted with `AES256` by default, or with `aws:kms` when a key is supplied:
+The connection string takes an optional prefix (`s3://my-bucket` and `s3://my-bucket/chunks` are both valid; with a prefix, objects are written under `chunks/`), and a `?` separates the optional `kmsKeyArn` query parameter. Objects are server-side encrypted with `AES256` by default, or with `aws:kms` when a key is supplied:
 
 ```python
 GraphRAGConfig.chunk_store = 's3://my-bucket/chunks?kmsKeyArn=arn:aws:kms:us-east-1:111122223333:key/1234abcd'
