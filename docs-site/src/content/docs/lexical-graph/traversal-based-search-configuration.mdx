@@ -20,6 +20,7 @@ title: Traversal-Based Search Configuration
     - [When to use different retrievers](#when-to-use-different-retrievers)
   - [Reranking strategy](#reranking-strategy)
     - [reranker](#reranker)
+    - [bedrock_reranker_client_config](#bedrock_reranker_client_config)
     - [Choosing a reranker strategy](#choosing-a-reranker-strategy)
     - [Troubleshooting reranking results](#troubleshooting-reranking-results)
   - [Graph and vector search parameters](#graph-and-vector-search-parameters)
@@ -186,6 +187,7 @@ Reranking is managed through a single parameter:
 Parameters options:
 
   - `model`: Uses a LlamaIndex-based `SentenceReranker` to rerank all statements in the result set
+  - `bedrock`: Uses AWS Bedrock API for reranking. Requires AWS credentials and can be configured with `bedrock_reranker_client_config`
   - `tfidf` (default): Applies a term frequency-inverse document frequency measure to rank statements 
   - `None`: Disables the reranking feature completely
 
@@ -202,6 +204,25 @@ query_engine = LexicalGraphQueryEngine.for_traversal_based_search(
     graph_store, 
     vector_store,
     reranker='model'
+)
+```
+
+##### `bedrock_reranker_client_config`
+
+An optional mapping of arguments for [`botocore.config.Config`](https://botocore.amazonaws.com/v1/documentation/api/latest/reference/config.html). It applies only to the `bedrock-agent-runtime` clients created for statement- and topic-level Bedrock reranking. Each processor creates its own client from the mapping; the shared boto3 session and other AWS clients are not modified. The default is `None`, which passes no explicit `Config`.
+
+```python
+args = ProcessorArgs(
+    reranker='bedrock',
+    topic_reranker='bedrock',
+    bedrock_reranker_client_config={
+        'connect_timeout': 2,
+        'read_timeout': 2,
+        'retries': {
+            'total_max_attempts': 1,
+            'mode': 'standard',
+        },
+    },
 )
 ```
 

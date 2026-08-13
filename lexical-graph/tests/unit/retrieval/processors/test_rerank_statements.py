@@ -6,6 +6,7 @@
 from unittest.mock import MagicMock, Mock, patch
 
 import pytest
+from botocore.config import Config
 from llama_index.core.schema import QueryBundle
 
 from graphrag_toolkit.lexical_graph.metadata import FilterConfig
@@ -119,22 +120,98 @@ class TestScoreValuesWithModel:
 
 
 class TestScoreValuesWithBedrock:
-    def test_maps_results_back_to_values(self):
+    def test_configures_session_client_and_preserves_request(self):
+        client_config = {
+            'connect_timeout': 2,
+            'read_timeout': 3,
+            'retries': {'total_max_attempts': 1, 'mode': 'standard'},
+        }
+        processor = RerankStatements(
+            ProcessorArgs(
+                reranker='bedrock',
+                debug_results=[],
+                max_statements=5,
+                bedrock_reranker_client_config=client_config,
+            ),
+            FilterConfig(),
+        )
+        session = MagicMock()
+        session.region_name = 'us-east-1'
+        client = session.client.return_value
+        client.rerank.return_value = {
+            'results': [{'index': 0, 'relevanceScore': 0.7}],
+        }
+
+        with patch.object(mod, 'GraphRAGConfig') as config:
+            config.session = session
+            config.bedrock_reranking_model = 'model-x'
+            out = processor._score_values_with_bedrock(
+                ['a', 'b'], QueryBundle('q'), _entity_contexts(),
+            )
+
+        assert out == {'a': 0.7}
+        session.client.assert_called_once()
+        service_name, = session.client.call_args.args
+        client_kwargs = session.client.call_args.kwargs
+        assert service_name == 'bedrock-agent-runtime'
+        assert client_kwargs['region_name'] == 'us-east-1'
+        assert isinstance(client_kwargs['config'], Config)
+        assert client_kwargs['config'].connect_timeout == 2
+        assert client_kwargs['config'].read_timeout == 3
+        assert client_kwargs['config'].retries == {
+            'total_max_attempts': 1,
+            'mode': 'standard',
+        }
+        client.rerank.assert_called_once_with(
+            queries=[{'type': 'TEXT', 'textQuery': {'text': 'q'}}],
+            sources=[
+                {
+                    'type': 'INLINE',
+                    'inlineDocumentSource': {
+                        'type': 'TEXT',
+                        'textDocument': {'text': 'a'},
+                    },
+                },
+                {
+                    'type': 'INLINE',
+                    'inlineDocumentSource': {
+                        'type': 'TEXT',
+                        'textDocument': {'text': 'b'},
+                    },
+                },
+            ],
+            rerankingConfiguration={
+                'type': 'BEDROCK_RERANKING_MODEL',
+                'bedrockRerankingConfiguration': {
+                    'numberOfResults': 2,
+                    'modelConfiguration': {
+                        'modelArn': (
+                            'arn:aws:bedrock:us-east-1::foundation-model/model-x'
+                        ),
+                    },
+                },
+            },
+        )
+
+    def test_omitted_config_does_not_pass_botocore_config(self):
         processor = RerankStatements(
             ProcessorArgs(reranker='bedrock', debug_results=[], max_statements=5),
             FilterConfig(),
         )
-        with patch.object(mod, 'boto3') as boto3_mod, \
-             patch.object(mod, 'GraphRAGConfig') as config:
-            boto3_mod.Session.return_value.region_name = 'us-east-1'
+        session = MagicMock()
+        session.region_name = 'us-east-1'
+        session.client.return_value.rerank.return_value = {'results': []}
+
+        with patch.object(mod, 'GraphRAGConfig') as config:
+            config.session = session
             config.bedrock_reranking_model = 'model-x'
-            boto3_mod.client.return_value.rerank.return_value = {
-                'results': [{'index': 0, 'relevanceScore': 0.7}],
-            }
-            out = processor._score_values_with_bedrock(
-                ['a', 'b'], QueryBundle('q'), _entity_contexts(),
+            processor._score_values_with_bedrock(
+                ['a'], QueryBundle('q'), _entity_contexts(),
             )
-        assert out == {'a': 0.7}
+
+        session.client.assert_called_once_with(
+            'bedrock-agent-runtime', region_name='us-east-1',
+        )
 
 
 class TestProcessResults:
