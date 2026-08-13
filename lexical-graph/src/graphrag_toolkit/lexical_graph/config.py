@@ -1225,8 +1225,7 @@ class _GraphRAGConfig:
 
         Set `s3://bucket/prefix` (optionally `?kmsKeyArn=...`) to move chunk
         text to S3. Reads fall back to the graph, so text written before the
-        switch is still returned. S3-specific by design: a future backend
-        (OpenSearch, say) gets its own setting rather than overloading this one.
+        switch is still returned.
         """
         if self._s3_chunk_store is None:
             self._s3_chunk_store = os.environ.get('S3_CHUNK_STORE', None)
