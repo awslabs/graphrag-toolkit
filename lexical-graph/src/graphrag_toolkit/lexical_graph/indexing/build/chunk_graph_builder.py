@@ -78,7 +78,14 @@ class ChunkGraphBuilder(GraphBuilder):
             logger.debug(f'Inserting chunk [chunk_id: {chunk_id}]')
 
             chunk_store = self._chunk_store_for(graph_client)
-            chunk_store.put(chunk_id, node.text)
+
+            # Under a batch client the write is buffered and flushed with the
+            # batch via put_batch; a plain graph store writes immediately.
+            buffer_chunk_write = getattr(graph_client, 'buffer_chunk_write', None)
+            if buffer_chunk_write:
+                buffer_chunk_write(chunk_store, chunk_id, node.text)
+            else:
+                chunk_store.put(chunk_id, node.text)
 
             chunk_property_setters = []
             properties_c = {'chunk_id': chunk_id}

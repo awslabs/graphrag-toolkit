@@ -4,6 +4,7 @@
 import pytest
 from unittest.mock import Mock, patch
 from graphrag_toolkit.lexical_graph.indexing.build.chunk_graph_builder import ChunkGraphBuilder
+from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
 from llama_index.core.schema import NodeRelationship
 
 
@@ -24,7 +25,10 @@ class TestChunkGraphBuilding:
     """Tests for chunk graph building functionality."""
 
     def _make_graph_client(self):
-        client = Mock()
+        # spec'd so the mock does not auto-create buffer_chunk_write, which
+        # only a GraphBatchClient has - these tests exercise the plain-store
+        # path where build() calls chunk_store.put() directly.
+        client = Mock(spec=GraphStore)
         client.node_id = Mock(side_effect=lambda field: f'params.{field}')
         client.execute_query_with_retry = Mock()
         return client

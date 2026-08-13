@@ -49,6 +49,7 @@ class GraphBatchClient():
         self.query_trees:Dict[str, QueryTree] = {}
         self.all_nodes = []
         self.parameterless_queries:Dict[str, str] = {}
+        self.chunk_writes:Dict[Any, Dict[str, str]] = {}
 
     @property
     def tenant_id(self):
@@ -148,6 +149,26 @@ class GraphBatchClient():
                 self.batches[query.id].extend(properties['params'])
             else:
                 raise ValueError(f'Invalid query type. Expected string or Query Tree but received {type(query).__name__}.')
+
+    def buffer_chunk_write(self, chunk_store, chunk_id:str, text:str):
+        """
+        Queue chunk text to be written when the batch is applied, or write it
+        immediately when batch writes are disabled.
+
+        Buffered writes flush through the store's `put_batch` before the graph
+        batches run. For a store whose writes are themselves graph queries
+        (InGraphChunkStore), that one query queues into this client's own batch
+        and executes with the rest; an external store (S3ChunkStore) writes
+        concurrently at flush time. Flushing before the graph batches also means
+        a failed external write aborts the flush while the graph is still
+        untouched - chunk text without a node is re-written on retry, whereas a
+        node without its text would surface as a missing chunk at query time.
+        """
+        if not self.batch_writes_enabled:
+            chunk_store.put(chunk_id, text)
+            return
+
+        self.chunk_writes.setdefault(chunk_store, {})[chunk_id] = text
 
     def allow_yield(self, node):
         """
@@ -286,6 +307,13 @@ class GraphBatchClient():
         Returns:
             list: A list of all nodes resulting from the operations.
         """
+
+        # Chunk text first, and before iterating self.batches: an in-graph
+        # store's put_batch queues its query into self.batches, so it has to
+        # land before the loop below reads them.
+        for chunk_store, chunks in self.chunk_writes.items():
+            chunk_store.put_batch(chunks)
+        self.chunk_writes = {}
 
         failed_batches = []
 
