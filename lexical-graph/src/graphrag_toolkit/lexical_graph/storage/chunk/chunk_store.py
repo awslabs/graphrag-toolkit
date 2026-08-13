@@ -34,10 +34,8 @@ class ChunkStore(abc.ABC):
 
         Concrete rather than abstract, so an implementation that predates
         this method keeps working; the default writes one chunk at a time.
-        Backends should override it, because the single-chunk write is where
-        the remaining ingestion cost sits: measured over 5000 chunks, serial
-        S3 writes run 96.6 ms/chunk against 8.0 ms/chunk in-graph, while
-        batched reads at raised concurrency run 2.14 ms/chunk.
+        Backends should override it - per-chunk writes pay a full round trip
+        each, and ingestion batches are large.
         """
         for chunk_id, text in chunks.items():
             self.put(chunk_id, text)

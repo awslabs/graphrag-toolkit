@@ -88,7 +88,7 @@ class S3ChunkStore(ChunkStore):
         The default comes from `extraction_num_threads_per_worker`, which is an
         extraction-time setting: `get_batch` also runs on the retrieval path,
         where that number has no particular meaning. Pass `num_threads` to size
-        it independently until retrieval has a concurrency setting of its own.
+        it independently.
         """
         configured = self.num_threads or GraphRAGConfig.extraction_num_threads_per_worker
 
@@ -163,8 +163,6 @@ class S3ChunkStore(ChunkStore):
 
         S3 has no multi-object write, so a batch is still one PUT per chunk;
         what changes is that they overlap instead of running end to end.
-        Measured over 5000 chunks, serial writes run 96.6 ms/chunk against
-        8.0 ms/chunk in-graph, and that gap is what this closes.
 
         Any failed write propagates. A partial batch would otherwise leave
         chunk text in S3 with no matching graph node and nothing to say which
