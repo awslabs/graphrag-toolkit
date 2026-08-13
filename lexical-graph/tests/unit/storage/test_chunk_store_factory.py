@@ -16,6 +16,7 @@ from graphrag_toolkit.lexical_graph.storage.chunk import (
     ChunkStore,
     ChunkStoreFactoryMethod,
     InGraphChunkStore,
+    S3ChunkStore,
 )
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
 
@@ -107,6 +108,52 @@ class TestChunkStoreFactoryForChunkStore:
         result = ChunkStoreFactory.for_chunk_store(None, graph_store=DuckTypedGraphClient())
 
         assert isinstance(result, InGraphChunkStore)
+
+
+class TestS3ChunkStoreFactory:
+
+    def test_s3_uri_creates_an_s3_chunk_store(self):
+        result = ChunkStoreFactory.for_chunk_store('s3://my-bucket/chunks', graph_store=Mock(spec=GraphStore))
+
+        assert isinstance(result, S3ChunkStore)
+        assert result.bucket_name == 'my-bucket'
+        assert result.prefix == 'chunks'
+
+    def test_s3_uri_without_a_prefix_is_accepted(self):
+        result = ChunkStoreFactory.for_chunk_store('s3://my-bucket', graph_store=Mock(spec=GraphStore))
+
+        assert result.bucket_name == 'my-bucket'
+        assert result.prefix is None
+
+    def test_kms_key_arn_is_read_from_the_query_string(self):
+        key_arn = 'arn:aws:kms:us-east-1:123456789012:key/12345678'
+
+        result = ChunkStoreFactory.for_chunk_store(
+            f's3://my-bucket/chunks?kmsKeyArn={key_arn}',
+            graph_store=Mock(spec=GraphStore),
+        )
+
+        assert result.kms_key_arn == key_arn
+
+    def test_fallback_is_wired_to_the_in_graph_store(self):
+        # Dual read: chunks written before a migration are still inline on the
+        # graph node, so the S3 store has to be able to reach them.
+        graph_client = Mock(spec=GraphStore)
+
+        result = ChunkStoreFactory.for_chunk_store('s3://my-bucket/chunks', graph_store=graph_client)
+
+        assert isinstance(result.fallback, InGraphChunkStore)
+        assert result.fallback.graph_client is graph_client
+
+    def test_s3_store_without_a_graph_store_has_no_fallback(self):
+        result = ChunkStoreFactory.for_chunk_store('s3://my-bucket/chunks')
+
+        assert isinstance(result, S3ChunkStore)
+        assert result.fallback is None
+
+    def test_non_s3_info_is_left_to_other_factories(self):
+        with pytest.raises(ValueError, match="Unrecognized chunk store info"):
+            ChunkStoreFactory.for_chunk_store('unknown://somewhere', graph_store=Mock(spec=GraphStore))
 
 
 class TestChunkStoreFactoryCustomFactory:

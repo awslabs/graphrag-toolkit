@@ -4,6 +4,7 @@
 import logging
 from typing import Any
 
+from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
 from graphrag_toolkit.lexical_graph.storage.chunk_store_factory import ChunkStoreFactory
 from graphrag_toolkit.lexical_graph.indexing.build.graph_builder import GraphBuilder
@@ -39,7 +40,25 @@ class ChunkGraphBuilder(GraphBuilder):
             str: A string representing the index key 'chunk'.
         """
         return 'chunk'
-    
+
+    def _chunk_store_for(self, graph_client: GraphStore):
+        """
+        Resolve the chunk store once per graph client rather than once per node.
+
+        `build()` takes its client as an argument, so unlike KeywordVSSProvider
+        and TraversalBasedBaseRetriever this builder cannot resolve the store at
+        construction. Keyed on the client so a different one still gets its own
+        store, which matters because the S3 backend wires an in-graph fallback
+        around whichever client it was built with.
+        """
+        if getattr(self, '_chunk_store_client', None) is not graph_client:
+            self._chunk_store = ChunkStoreFactory.for_chunk_store(
+                GraphRAGConfig.s3_chunk_store, graph_store=graph_client
+            )
+            self._chunk_store_client = graph_client
+
+        return self._chunk_store
+
     def build(self, node:BaseNode, graph_client: GraphStore, **kwargs:Any):
         """
         Builds and inserts a chunk node along with its relationships into a graph database. Handles the
@@ -58,8 +77,15 @@ class ChunkGraphBuilder(GraphBuilder):
 
             logger.debug(f'Inserting chunk [chunk_id: {chunk_id}]')
 
-            chunk_store = ChunkStoreFactory.for_chunk_store(graph_store=graph_client)
-            chunk_store.put(chunk_id, node.text)
+            chunk_store = self._chunk_store_for(graph_client)
+
+            # Under a batch client the write is buffered and flushed with the
+            # batch via put_batch; a plain graph store writes immediately.
+            buffer_chunk_write = getattr(graph_client, 'buffer_chunk_write', None)
+            if buffer_chunk_write:
+                buffer_chunk_write(chunk_store, chunk_id, node.text)
+            else:
+                chunk_store.put(chunk_id, node.text)
 
             chunk_property_setters = []
             properties_c = {'chunk_id': chunk_id}

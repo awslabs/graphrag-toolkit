@@ -348,6 +348,7 @@ class _GraphRAGConfig:
     _opensearch_serverless_nextgen_compression: Optional[str] = None
     _enable_versioning = None
     _chunk_external_properties: Optional[Dict[str, str]] = None
+    _s3_chunk_store: Optional[str] = None
     _local_output_dir: Optional[str] = None
     _log_output_dir: Optional[str] = None
 
@@ -1215,6 +1216,25 @@ class _GraphRAGConfig:
     @bedrock_reranking_model.setter
     def bedrock_reranking_model(self, bedrock_reranking_model: str) -> None:
         self._bedrock_reranking_model = bedrock_reranking_model
+
+    @property
+    def s3_chunk_store(self) -> Optional[str]:
+        """
+        S3 connection string for the store that holds chunk text, or None to
+        keep it on the graph node as `chunk.value`.
+
+        Set `s3://bucket/prefix` (optionally `?kmsKeyArn=...`) to move chunk
+        text to S3. Reads fall back to the graph, so text written before the
+        switch is still returned.
+        """
+        if self._s3_chunk_store is None:
+            self._s3_chunk_store = os.environ.get('S3_CHUNK_STORE', None)
+
+        return self._s3_chunk_store
+
+    @s3_chunk_store.setter
+    def s3_chunk_store(self, s3_chunk_store: Optional[str]) -> None:
+        self._s3_chunk_store = s3_chunk_store
 
     @property
     def opensearch_engine(self) -> str:
