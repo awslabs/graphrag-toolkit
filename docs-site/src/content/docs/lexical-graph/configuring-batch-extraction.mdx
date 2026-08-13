@@ -20,7 +20,10 @@ title: Configuring Batch Extraction
       - [security_group_ids](#security_group_ids)
     - [File management](#file-management)
       - [delete_on_success](#delete_on_success)
+    - [Auto-tuning](#auto-tuning)
+      - [auto_tune](#auto_tune)
   - [Optimizing batch extraction performance](#optimizing-batch-extraction-performance)
+  - [Auto-tuning batch extraction](#auto-tuning-batch-extraction)
 
 ### Overview
 
@@ -78,11 +81,17 @@ An array of security group IDs within your VPC for protecting batch inference jo
 
 Controls whether input and output JSON files are automatically deleted from the local filesystem after successful batch job completion. By default, this is set to `True`. Note that this setting does not affect files stored in S3, which are preserved regardless.
 
+#### Auto-tuning
+
+##### `auto_tune`
+
+When set to `True`, enables [auto-tuning batch extraction](#auto-tuning-batch-extraction). Instead of pulling a fixed number of source documents per iteration, the framework streams and chunks documents incrementally, filling `GraphRAGConfig.extraction_num_workers` buckets up to `max_batch_size` chunks each before submitting a round of batch jobs. For small inputs it consolidates chunks into the fewest jobs needed. With auto-tuning enabled you only need to specify `extraction_num_workers` and `max_batch_size`; `extraction_batch_size` becomes a derived value (if you set it explicitly, it acts as an optional upper bound on the number of documents consumed per round). The default is `False`.
+
 ### Optimizing batch extraction performance
 
 The most important settings for controlling batch extraction performance are:
 
-  - `GraphRAGConfig.extraction_batch_size`: Sets how many source documents go to the extraction pipeline. When calculating this value, consider that the total number of chunks (source documents × average chunks per document) should be sufficient to fill your planned simultaneous batch jobs.
+  - `GraphRAGConfig.extraction_batch_size`: Sets how many source documents go to the extraction pipeline. When calculating this value, consider that the total number of chunks (source documents × average chunks per document) should be sufficient to fill your planned simultaneous batch jobs. If you enable [auto-tuning](#auto-tuning-batch-extraction), you no longer need to calculate this value — the framework derives it for you.
   - `GraphRAGConfig.extraction_num_workers`: Sets how many CPUs run batch jobs simultaneously.
   - `BatchConfig.max_num_concurrent_batches`: Sets how many concurrent batch jobs each worker runs.
   - `BatchConfig.max_batch_size`: Sets the maximum number of chunks per batch job.
@@ -94,3 +103,33 @@ To maximize the efficiency of batch extraction, follow these three key principle
   - **Leverage parallel processing** Take advantage of parallel job execution using `GraphRAGConfig.extraction_num_workers` and `BatchConfig.max_num_concurrent_batches`. The total number of jobs (number of workers × number of concurrent batches) must stay within Bedrock's quota of 20 combined in-progress and submitted batch inference jobs per region. If you exceed this limit, additional jobs will wait in the queue until capacity becomes available.
 
 Each batch inference job submitted to Amazon Bedrock must contain at least 100 records. If a batch job contains fewer than 100 records, batch extraction falls back to performing chunk-by-chunk extraction. (Batch extraction will also fall back to performing chunk-by-chunk extraction if there are a last few records left over after processing one or more batches containing `max_batch_size` records.) The batch extraction process issues a warning whenever it begins processing a set of records chunk-by-chunk.
+
+### Auto-tuning batch extraction
+
+The performance guidance above requires you to reason about the relationship between `extraction_batch_size` (source documents pulled per iteration), the average number of chunks per document, `extraction_num_workers`, and `max_batch_size` in order to keep batch jobs well-utilized. Getting this wrong produces either many small, under-utilized jobs (slow, because of per-job overhead and the sub-100-record fallback) or jobs that need to be re-split.
+
+Auto-tuning removes this manual calculation. Set `auto_tune=True` on your `BatchConfig`:
+
+```python
+batch_config = BatchConfig(
+    role_arn=batch_inference_role,
+    region=aws_region_name,
+    bucket_name=s3_results_bucket,
+    max_batch_size=25000,
+    max_num_concurrent_batches=3,
+    auto_tune=True,
+)
+```
+
+With auto-tuning enabled, the framework:
+
+  - **Streams and chunks documents incrementally** rather than materializing a fixed `extraction_batch_size` of documents up front.
+  - **Accumulates chunks in document order and packs them contiguously into jobs of `max_batch_size`** — the same count-based packing the fixed-`batch_size` path already uses — so every job except the last of a round is filled to `max_batch_size`.
+  - **Submits a round of up to `extraction_num_workers` jobs** once the accumulated chunks reach `extraction_num_workers × max_batch_size` (or before a document would overshoot that capacity), then resumes pulling documents for the next round.
+  - **Consolidates on exhaustion**: the remaining chunks are sliced into the minimum number of jobs (`ceil(remaining / max_batch_size)`, at most `extraction_num_workers`). If the final remainder is below the 100-record Bedrock minimum, it is merged into the previous round's last job (which may then slightly exceed `max_batch_size`, by at most 99 records, exactly as the fixed-`batch_size` path does) so it is still batched — unless that merge would push the job past Bedrock's hard per-job record limit, in which case the tail is left as its own round. Only a corpus small enough that it never fills a single round falls back to chunk-by-chunk extraction.
+
+Under auto-tuning you only need to specify `extraction_num_workers` and `max_batch_size`. `extraction_batch_size` becomes a derived value; if you set it explicitly it is treated as an optional upper bound on the number of documents consumed per round (useful for bounding memory). The extracted output is equivalent to the fixed-`batch_size` path for the same input — auto-tuning changes how jobs are sized and submitted, not the extraction results.
+
+**Concurrency under auto-tuning.** Auto-tuning submits up to `extraction_num_workers` batch jobs per round (each up to `max_batch_size` records) and treats `extraction_num_workers` as the unit of job concurrency. `BatchConfig.max_num_concurrent_batches` — which governs per-worker job concurrency in the fixed-`batch_size` path — is **not used** when auto-tuning is enabled. Size `extraction_num_workers` with Bedrock's per-region quota on in-progress and submitted batch jobs in mind.
+
+**Document integrity and large documents.** A document's chunks may be split across job boundaries (and, for very large documents, across rounds), exactly as in the fixed-`batch_size` path. Output integrity is preserved by `source_id`-keyed storage, which reassembles each document from its chunks regardless of how they were batched — so splitting does not fragment results. The framework still flushes a round before a document would overshoot capacity, keeping a document within one round when it fits. If a single document produces more chunks than a full round's capacity (`extraction_num_workers × max_batch_size`), it is split across rounds and the framework logs a warning; increase `max_batch_size` or `extraction_num_workers` to keep such documents within a single round.

@@ -114,6 +114,83 @@ class TestBatchConfigDefaults:
         assert config.security_group_ids == []
 
 
+class TestBatchConfigAutoTune:
+    """Tests for the auto_tune flag and max_batch_size validation."""
+
+    def test_default_auto_tune_is_false(self):
+        """Verify auto_tune defaults to False so existing constructions are unaffected."""
+        config = BatchConfig(
+            role_arn="arn:aws:iam::123456789012:role/test-role",
+            region="us-east-1",
+            bucket_name="test-bucket"
+        )
+
+        assert config.auto_tune is False
+
+    def test_auto_tune_can_be_enabled(self):
+        """Verify auto_tune can be set to True."""
+        config = BatchConfig(
+            role_arn="arn:aws:iam::123456789012:role/test-role",
+            region="us-east-1",
+            bucket_name="test-bucket",
+            auto_tune=True
+        )
+
+        assert config.auto_tune is True
+
+    def test_construction_without_auto_tune_field_still_works(self):
+        """Verify omitting auto_tune keeps prior behavior (backward compatibility)."""
+        config = BatchConfig(
+            role_arn="arn:aws:iam::123456789012:role/test-role",
+            region="us-east-1",
+            bucket_name="test-bucket",
+            max_batch_size=10000,
+            max_num_concurrent_batches=5,
+            delete_on_success=False
+        )
+
+        assert config.auto_tune is False
+        assert config.max_batch_size == 10000
+
+    def test_max_batch_size_below_minimum_raises(self):
+        """Verify max_batch_size below BEDROCK_MIN_BATCH_SIZE (100) raises ValueError."""
+        with pytest.raises(ValueError):
+            BatchConfig(
+                role_arn="arn:aws:iam::123456789012:role/test-role",
+                region="us-east-1",
+                bucket_name="test-bucket",
+                max_batch_size=99
+            )
+
+    def test_max_batch_size_above_maximum_raises(self):
+        """Verify max_batch_size above BEDROCK_MAX_BATCH_SIZE (50000) raises ValueError."""
+        with pytest.raises(ValueError):
+            BatchConfig(
+                role_arn="arn:aws:iam::123456789012:role/test-role",
+                region="us-east-1",
+                bucket_name="test-bucket",
+                max_batch_size=50001
+            )
+
+    def test_max_batch_size_at_bounds_is_valid(self):
+        """Verify max_batch_size exactly at the Bedrock bounds is accepted."""
+        min_config = BatchConfig(
+            role_arn="arn:aws:iam::123456789012:role/test-role",
+            region="us-east-1",
+            bucket_name="test-bucket",
+            max_batch_size=100
+        )
+        max_config = BatchConfig(
+            role_arn="arn:aws:iam::123456789012:role/test-role",
+            region="us-east-1",
+            bucket_name="test-bucket",
+            max_batch_size=50000
+        )
+
+        assert min_config.max_batch_size == 100
+        assert max_config.max_batch_size == 50000
+
+
 class TestBatchConfigNetworkSettings:
     """Tests for BatchConfig network configuration."""
     
