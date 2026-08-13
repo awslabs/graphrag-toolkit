@@ -445,6 +445,7 @@ class TestObservabilityIntegration:
     def test_publisher_initialization_sets_up_handlers(self, mock_settings, mock_queue_class):
         """Verify FMObservabilityPublisher sets up handlers on initialization."""
         mock_queue_instance = Mock()
+        mock_queue_instance.get = Mock(side_effect=queue.Empty)
         mock_queue_class.return_value = mock_queue_instance
         mock_callback_manager = Mock()
         mock_settings.callback_manager = mock_callback_manager
@@ -466,6 +467,7 @@ class TestObservabilityIntegration:
     def test_publisher_context_manager(self, mock_settings, mock_queue_class):
         """Verify FMObservabilityPublisher works as context manager."""
         mock_queue_instance = Mock()
+        mock_queue_instance.get = Mock(side_effect=queue.Empty)
         mock_queue_class.return_value = mock_queue_instance
         mock_callback_manager = Mock()
         mock_settings.callback_manager = mock_callback_manager
@@ -478,7 +480,35 @@ class TestObservabilityIntegration:
         # After exiting context, should be closed
         assert publisher.allow_continue is False
 
-    
+    @patch('graphrag_toolkit.lexical_graph.utils.fm_observability.Settings')
+    def test_close_stops_the_current_poller(self, mock_settings):
+        """close() must synchronously stop the running poller, not just flip allow_continue."""
+        mock_settings.callback_manager = Mock()
+
+        publisher = FMObservabilityPublisher(subscribers=[], interval_seconds=30.0)
+        live_poller = publisher.poller
+
+        publisher.close()
+
+        assert live_poller._discontinue.is_set()
+        live_poller.join(timeout=5)
+        assert not live_poller.is_alive()
+
+    @patch('graphrag_toolkit.lexical_graph.utils.fm_observability.Settings')
+    def test_publish_stats_does_not_replace_poller_after_close(self, mock_settings):
+        """A publish_stats() tick firing after close() must not leave a fresh, unstopped poller."""
+        mock_settings.callback_manager = Mock()
+
+        publisher = FMObservabilityPublisher(subscribers=[], interval_seconds=30.0)
+        original_poller = publisher.poller
+
+        publisher.close()
+        # Simulate the in-flight Timer (scheduled before close()) firing afterwards.
+        publisher.publish_stats()
+
+        assert publisher.poller is original_poller
+        assert publisher.poller._discontinue.is_set()
+
     @patch('graphrag_toolkit.lexical_graph.utils.fm_observability._fm_observability_queue')
     def test_handler_event_end_puts_event_in_queue(self, mock_queue):
         """Verify FMObservabilityHandler puts completed events in queue."""
