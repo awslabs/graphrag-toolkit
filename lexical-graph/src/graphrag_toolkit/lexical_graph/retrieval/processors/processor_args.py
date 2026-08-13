@@ -1,7 +1,7 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
-from typing import Dict, Any
+from typing import Any, Dict, Mapping
 
 class ProcessorArgs():
     """ProcessorArgs is a configuration class for managing various options and
@@ -22,6 +22,8 @@ class ProcessorArgs():
             from the main query.
         debug_results (list): A list for storing intermediate debug results.
         reranker (str): Defines the reranking strategy to be employed.
+        bedrock_reranker_client_config (Mapping[str, Any] | None): Optional
+            botocore client configuration used only for Bedrock reranking.
         max_statements (int): The maximum number of statements to process.
         max_search_results (int): The maximum number of search results to
             retrieve.
@@ -53,6 +55,8 @@ class ProcessorArgs():
         ecs_max_entities_per_context (int): Restriction on how many entities
             are considered per context.
     """
+    bedrock_reranker_client_config: Mapping[str, Any] | None
+
     def __init__(self, **kwargs):
         
         self.expand_entities = kwargs.get('expand_entities', True)
@@ -61,6 +65,7 @@ class ProcessorArgs():
         self.derive_subqueries = kwargs.get('derive_subqueries', False)
         self.debug_results = kwargs.get('debug_results', [])
         self.reranker = kwargs.get('reranker', 'tfidf')
+        self.bedrock_reranker_client_config = kwargs.get('bedrock_reranker_client_config', None)
         self.disaggregate_results = kwargs.get('disaggregate_results', False)
         self.max_statements = kwargs.get('max_statements', 200)
         self.max_search_results = kwargs.get('max_search_results', 5)

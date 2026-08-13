@@ -3,10 +3,10 @@
 
 import logging
 import time
-import boto3
 import json
 from typing import List, Dict
 from dateutil.parser import parse
+from botocore.config import Config
 
 from graphrag_toolkit.lexical_graph.metadata import FilterConfig
 from graphrag_toolkit.lexical_graph import GraphRAGConfig
@@ -154,9 +154,13 @@ class RerankStatements(ProcessorBase):
             else f'{query.query_str} (keywords: {extras})'
         )
 
-        region = boto3.Session().region_name
+        session = GraphRAGConfig.session
+        region = session.region_name
+        client_kwargs = {'region_name': region}
+        if self.args.bedrock_reranker_client_config is not None:
+            client_kwargs['config'] = Config(**self.args.bedrock_reranker_client_config)
 
-        bedrock_agent_runtime = boto3.client('bedrock-agent-runtime', region_name=region)
+        bedrock_agent_runtime = session.client('bedrock-agent-runtime', **client_kwargs)
         
         modelId = GraphRAGConfig.bedrock_reranking_model
         model_package_arn = f"arn:aws:bedrock:{region}::foundation-model/{modelId}"
@@ -314,5 +318,4 @@ class RerankStatements(ProcessorBase):
             return self._apply_to_topics(search_result, rerank_statements, source_str=source_str)
         
         return self._apply_to_search_results(search_results, rerank_search_result)
-
 

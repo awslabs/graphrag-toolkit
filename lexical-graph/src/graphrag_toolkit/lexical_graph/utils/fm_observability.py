@@ -525,6 +525,7 @@ class FMObservabilityPublisher():
         self.subscribers = subscribers
         self.interval_seconds = interval_seconds
         self.allow_continue = True
+        self._lock = threading.Lock()
         self.poller = FMObservabilityQueuePoller()
         self.poller.start()
 
@@ -534,17 +535,19 @@ class FMObservabilityPublisher():
 
     def close(self):
         """
-        Disables the continuation functionality by updating the internal flag.
+        Disables the continuation functionality and stops the current poller.
 
         This method prevents further continuation of a process by setting the
-        `allow_continue` attribute to `False`. Once invoked, the attribute will
-        indicate that continuation should not occur.
+        `allow_continue` attribute to `False` and synchronously stopping the
+        currently running poller thread, so no poller is left running past close().
 
         Attributes:
             allow_continue (bool): Indicates whether continuation is permitted or not.
                 Set to `False` to disable continuation.
         """
-        self.allow_continue = False
+        with self._lock:
+            self.allow_continue = False
+            self.poller.stop()
 
     def __enter__(self):
         """
@@ -578,16 +581,17 @@ class FMObservabilityPublisher():
         Returns:
             None
         """
-        stats = self.poller.stop()
-        self.poller = FMObservabilityQueuePoller()
-        self.poller.start()
-        if self.allow_continue:
-            logging.debug('Scheduling new poller')
-            t = threading.Timer(self.interval_seconds, self.publish_stats)
-            t.daemon = True
-            t.start()
-        else:
-            logging.debug('Shutting down publisher')
+        with self._lock:
+            stats = self.poller.stop()
+            if self.allow_continue:
+                self.poller = FMObservabilityQueuePoller()
+                self.poller.start()
+                logging.debug('Scheduling new poller')
+                t = threading.Timer(self.interval_seconds, self.publish_stats)
+                t.daemon = True
+                t.start()
+            else:
+                logging.debug('Shutting down publisher')
         for subscriber in self.subscribers:
             subscriber.on_new_stats(stats)
 
