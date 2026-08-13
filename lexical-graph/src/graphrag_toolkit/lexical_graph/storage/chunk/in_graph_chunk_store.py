@@ -56,7 +56,19 @@ class InGraphChunkStore(ChunkStore):
         }
 
     def put(self, chunk_id: str, text: str) -> None:
-        logger.debug(f'Writing chunk text to graph [chunk_id: {chunk_id}]')
+        self.put_batch({chunk_id: text})
+
+    def put_batch(self, chunks: Dict[str, str]) -> None:
+        """
+        Write every chunk in a single query.
+
+        The statement already UNWINDs its parameters, so a batch is the same
+        query over a longer list rather than one round trip per chunk.
+        """
+        if not chunks:
+            return
+
+        logger.debug(f'Writing chunk text to graph [num_chunks: {len(chunks)}]')
 
         query = f'''
         // write chunk value
@@ -65,6 +77,13 @@ class InGraphChunkStore(ChunkStore):
         ON CREATE SET chunk.value = params.text
         ON MATCH SET chunk.value = params.text
         '''
-        params = to_params({'chunk_id': chunk_id, 'text': text})
+
+        # Built directly rather than via to_params(), which wraps a single dict.
+        params = {
+            'params': [
+                {'chunk_id': chunk_id, 'text': text}
+                for chunk_id, text in chunks.items()
+            ]
+        }
 
         self.graph_client.execute_query_with_retry(query, params, max_attempts=5, max_wait=7)

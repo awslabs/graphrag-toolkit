@@ -22,15 +22,24 @@ def parse_s3_connection_string(connection_string):
 
     bucket_name = parsed.hostname
 
+    # `s3:///prefix` parses with no hostname and would otherwise build a store
+    # against bucket None, failing later at the first call with an error that
+    # says nothing about the connection string.
+    if not bucket_name:
+        raise ValueError(
+            f'Invalid S3 connection string, no bucket name: {connection_string}. '
+            'Expected s3://bucket/prefix.'
+        )
+
     prefix = parsed.path[1:] if parsed.path else None
     if prefix:
         while prefix.endswith('/'):
             prefix = prefix[:-1]
     prefix = prefix if prefix else None
 
-    kms_key_arn = parse_qs(parsed.query).get('kmsKeyArn', None) if parsed.query else None
-    if kms_key_arn:
-        kms_key_arn = kms_key_arn if not isinstance(kms_key_arn, list) else kms_key_arn[0]
+    # parse_qs always returns a list for a present key, so take the first value.
+    kms_key_arns = parse_qs(parsed.query).get('kmsKeyArn') if parsed.query else None
+    kms_key_arn = kms_key_arns[0] if kms_key_arns else None
 
     return (bucket_name, prefix, kms_key_arn)
 

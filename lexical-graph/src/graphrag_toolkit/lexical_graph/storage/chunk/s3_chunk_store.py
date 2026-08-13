@@ -35,11 +35,32 @@ class S3ChunkStore(ChunkStore):
                  bucket_name: str,
                  prefix: Optional[str] = None,
                  kms_key_arn: Optional[str] = None,
-                 fallback: Optional[ChunkStore] = None):
+                 fallback: Optional[ChunkStore] = None,
+                 num_threads: Optional[int] = None):
+        if not bucket_name:
+            raise ValueError('S3ChunkStore requires a bucket name.')
+
         self.bucket_name = bucket_name
         self.prefix = prefix.strip('/') if prefix else None
         self.kms_key_arn = kms_key_arn
         self.fallback = fallback
+        self.num_threads = num_threads
+
+    def _num_workers(self, num_items: int) -> int:
+        """
+        Threads to use for a batch of `num_items` objects.
+
+        Never more threads than objects, so a two-chunk read does not spin up
+        thirty-two of them.
+
+        The default comes from `extraction_num_threads_per_worker`, which is an
+        extraction-time setting: `get_batch` also runs on the retrieval path,
+        where that number has no particular meaning. Pass `num_threads` to size
+        it independently until retrieval has a concurrency setting of its own.
+        """
+        configured = self.num_threads or GraphRAGConfig.extraction_num_threads_per_worker
+
+        return max(1, min(num_items, configured))
 
     def _key(self, chunk_id: str) -> str:
         return f'{self.prefix}/{chunk_id}.txt' if self.prefix else f'{chunk_id}.txt'
@@ -60,7 +81,7 @@ class S3ChunkStore(ChunkStore):
         s3_client = GraphRAGConfig.s3
         found = {}
 
-        with concurrent.futures.ThreadPoolExecutor(max_workers=GraphRAGConfig.extraction_num_threads_per_worker) as executor:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=self._num_workers(len(chunk_ids))) as executor:
 
             futures = {
                 executor.submit(self._get_chunk, chunk_id, s3_client): chunk_id
@@ -81,10 +102,7 @@ class S3ChunkStore(ChunkStore):
 
         return found
 
-    def put(self, chunk_id: str, text: str) -> None:
-        # Serial, per the batched-write TODO on ChunkStore. Measured over 5000
-        # chunks: 96.6 ms/chunk here against 8.0 ms/chunk in-graph, while batched
-        # reads at raised concurrency run 2.14 ms/chunk.
+    def _put_chunk(self, chunk_id: str, text: str, s3_client) -> None:
         key = self._key(chunk_id)
 
         logger.debug(f'Writing chunk text to S3 [bucket: {self.bucket_name}, key: {key}]')
@@ -102,4 +120,35 @@ class S3ChunkStore(ChunkStore):
         else:
             params['ServerSideEncryption'] = 'AES256'
 
-        GraphRAGConfig.s3.put_object(**params)
+        s3_client.put_object(**params)
+
+    def put(self, chunk_id: str, text: str) -> None:
+        self._put_chunk(chunk_id, text, GraphRAGConfig.s3)
+
+    def put_batch(self, chunks: Dict[str, str]) -> None:
+        """
+        Write several chunks concurrently.
+
+        S3 has no multi-object write, so a batch is still one PUT per chunk;
+        what changes is that they overlap instead of running end to end.
+        Measured over 5000 chunks, serial writes run 96.6 ms/chunk against
+        8.0 ms/chunk in-graph, and that gap is what this closes.
+
+        Any failed write propagates. A partial batch would otherwise leave
+        chunk text in S3 with no matching graph node and nothing to say which
+        chunks were missed.
+        """
+        if not chunks:
+            return
+
+        s3_client = GraphRAGConfig.s3
+
+        with concurrent.futures.ThreadPoolExecutor(max_workers=self._num_workers(len(chunks))) as executor:
+
+            futures = [
+                executor.submit(self._put_chunk, chunk_id, text, s3_client)
+                for chunk_id, text in chunks.items()
+            ]
+
+            for future in concurrent.futures.as_completed(futures):
+                future.result()
