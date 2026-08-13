@@ -180,7 +180,7 @@ class TestChunkGraphBuilding:
         ) as mock_for_chunk_store, patch(
             'graphrag_toolkit.lexical_graph.indexing.build.chunk_graph_builder.GraphRAGConfig'
         ) as mock_config:
-            mock_config.chunk_store = 's3://my-bucket/chunks'
+            mock_config.s3_chunk_store = 's3://my-bucket/chunks'
             builder.build(node, client)
 
         mock_for_chunk_store.assert_called_once_with('s3://my-bucket/chunks', graph_store=client)

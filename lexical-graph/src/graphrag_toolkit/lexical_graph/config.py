@@ -348,7 +348,7 @@ class _GraphRAGConfig:
     _opensearch_serverless_nextgen_compression: Optional[str] = None
     _enable_versioning = None
     _chunk_external_properties: Optional[Dict[str, str]] = None
-    _chunk_store: Optional[str] = None
+    _s3_chunk_store: Optional[str] = None
     _local_output_dir: Optional[str] = None
     _log_output_dir: Optional[str] = None
 
@@ -1218,23 +1218,24 @@ class _GraphRAGConfig:
         self._bedrock_reranking_model = bedrock_reranking_model
 
     @property
-    def chunk_store(self) -> Optional[str]:
+    def s3_chunk_store(self) -> Optional[str]:
         """
-        Connection string for the store that holds chunk text, or None to keep
-        it on the graph node as `chunk.value`.
+        S3 connection string for the store that holds chunk text, or None to
+        keep it on the graph node as `chunk.value`.
 
         Set `s3://bucket/prefix` (optionally `?kmsKeyArn=...`) to move chunk
-        text to S3 and keep it out of graph memory. Reads fall back to the
-        graph, so text written before the switch is still returned.
+        text to S3. Reads fall back to the graph, so text written before the
+        switch is still returned. S3-specific by design: a future backend
+        (OpenSearch, say) gets its own setting rather than overloading this one.
         """
-        if self._chunk_store is None:
-            self._chunk_store = os.environ.get('CHUNK_STORE', None)
+        if self._s3_chunk_store is None:
+            self._s3_chunk_store = os.environ.get('S3_CHUNK_STORE', None)
 
-        return self._chunk_store
+        return self._s3_chunk_store
 
-    @chunk_store.setter
-    def chunk_store(self, chunk_store: Optional[str]) -> None:
-        self._chunk_store = chunk_store
+    @s3_chunk_store.setter
+    def s3_chunk_store(self, s3_chunk_store: Optional[str]) -> None:
+        self._s3_chunk_store = s3_chunk_store
 
     @property
     def opensearch_engine(self) -> str:

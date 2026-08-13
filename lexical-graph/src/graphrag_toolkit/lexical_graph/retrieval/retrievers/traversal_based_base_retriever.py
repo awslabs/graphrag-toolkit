@@ -122,7 +122,7 @@ class TraversalBasedBaseRetriever(BaseRetriever):
         
         self.graph_store = graph_store
         self.vector_store = vector_store
-        self.chunk_store = ChunkStoreFactory.for_chunk_store(GraphRAGConfig.chunk_store, graph_store=graph_store)
+        self.chunk_store = ChunkStoreFactory.for_chunk_store(GraphRAGConfig.s3_chunk_store, graph_store=graph_store)
         if processors is not None:
             self.processors = processors
         else:

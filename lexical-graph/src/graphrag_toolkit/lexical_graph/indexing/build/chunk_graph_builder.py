@@ -53,7 +53,7 @@ class ChunkGraphBuilder(GraphBuilder):
         """
         if getattr(self, '_chunk_store_client', None) is not graph_client:
             self._chunk_store = ChunkStoreFactory.for_chunk_store(
-                GraphRAGConfig.chunk_store, graph_store=graph_client
+                GraphRAGConfig.s3_chunk_store, graph_store=graph_client
             )
             self._chunk_store_client = graph_client
 

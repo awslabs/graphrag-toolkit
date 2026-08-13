@@ -65,7 +65,7 @@ class TestKeywordVSSProvider:
     def test_configured_chunk_store_is_passed_to_the_factory(self):
         with patch.object(mod, 'ChunkStoreFactory') as mock_factory, \
                 patch.object(mod, 'GraphRAGConfig') as mock_config:
-            mock_config.chunk_store = 's3://my-bucket/chunks'
+            mock_config.s3_chunk_store = 's3://my-bucket/chunks'
             provider, store, _ = _provider(use_chunk_index=True)
 
         mock_factory.for_chunk_store.assert_called_once_with('s3://my-bucket/chunks', graph_store=store)
