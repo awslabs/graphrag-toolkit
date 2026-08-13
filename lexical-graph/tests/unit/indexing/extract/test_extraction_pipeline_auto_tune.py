@@ -12,7 +12,6 @@ incremental chunking, bucket filling, round submission, and consolidation.
 import pytest
 from unittest.mock import patch
 from llama_index.core.llms import MockLLM
-from llama_index.core.node_parser import SentenceSplitter
 from llama_index.core.schema import Document, TextNode, NodeRelationship, RelatedNodeInfo
 
 from graphrag_toolkit.lexical_graph.utils import LLMCache
@@ -345,10 +344,10 @@ class TestAutoTunedRounds:
 
 
 class TestDocumentContiguity:
-    """Verify that a document's chunks stay contiguous through extraction and
-    output reconstruction, using the real chunking prefix, the real
-    _emit_extracted / _source_documents_from_base_nodes reconstruction, and an
-    extractor stub that reproduces BatchExtractorBase's sort-by-node-id."""
+    """Verify a document's chunks reconstruct into a single output SourceDocument,
+    even when the extractor reorders nodes by id. Uses the real _emit_extracted /
+    _source_documents_from_base_nodes reconstruction and an extractor stub that
+    reproduces BatchExtractorBase's sort-by-node-id."""
 
     def _run_with_realistic_extractor(self, pipeline, docs):
         captured_rounds = []
@@ -371,16 +370,10 @@ class TestDocumentContiguity:
         # with the extractor reordering nodes by id, each input document must
         # reconstruct into exactly one output SourceDocument (no fragmentation).
         pipeline = ExtractionPipeline(
-            components=[
-                SentenceSplitter(chunk_size=60, chunk_overlap=10),
-                make_batch_extractor(auto_tune=True, max_batch_size=100),
-            ],
+            components=[make_batch_extractor(auto_tune=True, max_batch_size=100)],
             num_workers=2,
         )
-        docs = [
-            Document(text=(f"Document {d}. " + "sentence text here. " * 40), id_=f"doc-{d}")
-            for d in range(8)
-        ]
+        docs = make_multichunk_documents([40] * 8)  # 8 sources, 320 chunks, >1 round
 
         output, rounds = self._run_with_realistic_extractor(pipeline, docs)
 
