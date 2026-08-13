@@ -79,6 +79,10 @@ jobs:
       - name: Install dependencies
         # Separate commands: requirements.txt opens with `--only-binary :all:`,
         # which would block building the local package if combined.
+        env:
+          # Copy instead of hardlink into the venv so bundled data files have
+          # st_nlink=1; nltk's pathsec check refuses to open multiply-linked files.
+          UV_LINK_MODE: copy
         run: |
           uv pip install --python .venv/bin/python \
             -r src/graphrag_toolkit/lexical_graph/requirements.txt
