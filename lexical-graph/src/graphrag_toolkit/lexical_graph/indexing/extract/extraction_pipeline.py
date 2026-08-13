@@ -620,7 +620,11 @@ class ExtractionPipeline():
         # round (each up to max_batch_size) and the unit of job concurrency. It
         # supersedes max_num_concurrent_batches, which is the per-worker job
         # concurrency of the fixed-batch path.
-        filler = BucketFiller(num_workers=self.num_workers, max_batch_size=max_batch_size)
+        filler = BucketFiller(
+            num_workers=self.num_workers,
+            max_batch_size=max_batch_size,
+            min_batch_size=BEDROCK_MIN_BATCH_SIZE,
+        )
 
         # round_state is mutable so the nested closures see updates.
         round_state = {'num': 0, 'docs': 0}
@@ -672,14 +676,15 @@ class ExtractionPipeline():
             if not chunks:
                 continue
 
-            # Flush the current round before appending a document that would
-            # overshoot round capacity, so the document is not split across
-            # rounds while the flushed round stays near-full. Also honour an
-            # explicit batch_size as a cap on documents consumed per round.
+            # Flush before a document that would overshoot round capacity, so it
+            # isn't split across rounds, or when an explicit batch_size caps the
+            # documents per round. Don't flush a buffer below the Bedrock minimum:
+            # that would strand a sub-minimum round on synchronous extraction, so
+            # carry it forward to fill the round instead.
             over_doc_cap = docs_per_round_cap is not None and round_state['docs'] >= docs_per_round_cap
             if over_doc_cap:
                 yield from flush(trigger='batch_size_cap')
-            elif filler.would_overshoot(len(chunks)):
+            elif filler.would_overshoot(len(chunks)) and filler.pending() >= BEDROCK_MIN_BATCH_SIZE:
                 yield from flush(trigger='full')
 
             if len(chunks) > filler.round_capacity:

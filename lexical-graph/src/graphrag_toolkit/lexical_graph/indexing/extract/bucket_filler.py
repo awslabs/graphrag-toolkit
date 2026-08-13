@@ -12,7 +12,9 @@ class BucketFiller:
     Collects document chunks in arrival order and slices them into Bedrock batch
     jobs of up to ``max_batch_size`` chunks, mirroring the fixed-``batch_size``
     path's ``node_batcher``/``split_nodes`` packing: jobs are filled to
-    ``max_batch_size`` and only the last job in a round holds the remainder.
+    ``max_batch_size``. As ``split_nodes`` does, a trailing job below
+    ``min_batch_size`` is folded into the previous job rather than emitted as an
+    under-minimum job that falls back to synchronous extraction.
 
     It deliberately does NOT balance occupancy across jobs or keep a document's
     chunks within a single job: balancing under-fills jobs, and per-document
@@ -22,14 +24,17 @@ class BucketFiller:
     Driven by ``ExtractionPipeline._extract_auto_tuned``.
     """
 
-    def __init__(self, num_workers: int, max_batch_size: int):
+    def __init__(self, num_workers: int, max_batch_size: int, min_batch_size: int = 1):
         if num_workers < 1:
             raise ValueError(f'num_workers must be >= 1 (got {num_workers})')
         if max_batch_size < 1:
             raise ValueError(f'max_batch_size must be >= 1 (got {max_batch_size})')
+        if min_batch_size < 1:
+            raise ValueError(f'min_batch_size must be >= 1 (got {min_batch_size})')
 
         self.num_workers = num_workers
         self.max_batch_size = max_batch_size
+        self.min_batch_size = min_batch_size
         self.round_capacity = num_workers * max_batch_size
         self._buffer: List[BaseNode] = []
 
@@ -57,13 +62,12 @@ class BucketFiller:
     def drain_round(self) -> List[List[BaseNode]]:
         """Slice up to one round's worth of buffered chunks into contiguous jobs.
 
-        Takes at most ``round_capacity`` chunks off the front of the buffer and
-        slices them into jobs of up to ``max_batch_size`` -- at most
-        ``num_workers`` jobs, each filled to ``max_batch_size`` except the last,
-        which holds the remainder. Any chunks beyond one round's capacity (only
-        possible for a single document larger than ``round_capacity``) remain
-        buffered for the next round. Returns an empty list when the buffer is
-        empty.
+        Takes at most ``round_capacity`` chunks off the front and slices them
+        into up to ``num_workers`` jobs of ``max_batch_size``. A trailing job
+        below ``min_batch_size`` is folded into the previous job (as
+        ``split_nodes`` does); a whole round below ``min_batch_size`` has no
+        previous job and is returned as one small job. Chunks beyond
+        ``round_capacity`` stay buffered. Returns [] when the buffer is empty.
         """
         if not self._buffer:
             return []
@@ -71,7 +75,15 @@ class BucketFiller:
         take = self._buffer[:self.round_capacity]
         self._buffer = self._buffer[self.round_capacity:]
 
-        return [
+        jobs = [
             take[i:i + self.max_batch_size]
             for i in range(0, len(take), self.max_batch_size)
         ]
+
+        # Mirror split_nodes: never leave a trailing job below the minimum when
+        # there is a prior job to absorb it.
+        if len(jobs) > 1 and len(jobs[-1]) < self.min_batch_size:
+            tail = jobs.pop()
+            jobs[-1].extend(tail)
+
+        return jobs

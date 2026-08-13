@@ -228,11 +228,11 @@ class TestAutoTunedRounds:
         assert sum(len(b) for r in rounds for b in r) == 5
 
     def test_sub_min_tail_merges_into_previous_round(self):
-        # num_workers=1, max_batch_size=100. Doc A (60) flushes when doc B (60)
-        # would overshoot; the held round is [60]. Doc B's 60-chunk tail is
-        # < BEDROCK_MIN(100), so it merges into the held round's last job -> a
-        # single 120-chunk job, which is batched rather than two sub-min rounds
-        # that would both fall back to synchronous extraction.
+        # num_workers=1, max_batch_size=100. Doc A (60) is below the Bedrock
+        # minimum, so doc B (60) overshooting does NOT flush it as a sub-min
+        # round; both accumulate, the round drains 100, and the 20-chunk tail
+        # merges back into it -> a single 120-chunk job, batched rather than two
+        # sub-min rounds that would both fall back to synchronous extraction.
         pipeline = ExtractionPipeline(
             components=[make_batch_extractor(auto_tune=True, max_batch_size=100)],
             num_workers=1,
@@ -310,6 +310,40 @@ class TestAutoTunedRounds:
         assert [len(b) for b in rounds[1]] == [100]
         assert len(output) == 300
 
+    def test_consolidation_round_never_emits_sub_min_job(self):
+        # num_workers=3, max_batch_size=100 -> capacity 300. 210 chunks fill no
+        # round, so they all drain in one consolidation round. Naive slicing
+        # would give [100, 100, 10] (the 10 falls back to sync extraction);
+        # split_nodes-style tail-merge gives [100, 110] instead - no sub-min job
+        # even though the round total (210) is well above the minimum.
+        pipeline = ExtractionPipeline(
+            components=[make_batch_extractor(auto_tune=True, max_batch_size=100)],
+            num_workers=3,
+        )
+        docs = make_source_documents(210)
+        _, rounds = self._run(pipeline, docs)
+
+        submitted = [len(b) for r in rounds for b in r]
+        assert sum(submitted) == 210
+        assert all(size >= 100 for size in submitted), rounds
+        assert [len(b) for b in rounds[0]] == [100, 110]
+
+    def test_overshoot_flush_never_emits_sub_min_job(self):
+        # num_workers=3, max_batch_size=100 -> capacity 300. A 80-chunk doc then
+        # a 250-chunk doc. The 80-chunk buffer is below the minimum, so the
+        # 250-chunk doc overshooting does not strand it as an [80] round; the
+        # docs are packed together into full rounds with the tail merged.
+        pipeline = ExtractionPipeline(
+            components=[make_batch_extractor(auto_tune=True, max_batch_size=100)],
+            num_workers=3,
+        )
+        docs = make_multichunk_documents([80, 250])
+        _, rounds = self._run(pipeline, docs)
+
+        submitted = [len(b) for r in rounds for b in r]
+        assert sum(submitted) == 330
+        assert all(size >= 100 for size in submitted), rounds
+
     def test_multichunk_documents_all_chunks_processed(self):
         pipeline = ExtractionPipeline(
             components=[make_batch_extractor(auto_tune=True, max_batch_size=100)],
@@ -336,7 +370,11 @@ class TestAutoTunedRounds:
             # Every job except the last in the round is exactly max_batch_size.
             for job in r[:-1]:
                 assert len(job) == 100
-            assert 0 < len(r[-1]) <= 100
+            # The last job of a round holds the remainder and, when that would be
+            # below the Bedrock minimum, absorbs it (as split_nodes' tail-merge
+            # does), so it can exceed max_batch_size but never by more than the
+            # minimum. It is never itself sub-minimum.
+            assert 100 <= len(r[-1]) <= 100 + 100
         # Total jobs should be close to the theoretical minimum (1400/100 = 14),
         # not inflated by under-filling. Allow a small slack for round tails.
         total_jobs = sum(len(r) for r in rounds)

@@ -126,3 +126,65 @@ class TestOversizedDocument:
         # Two full rounds of [100,100] then a final [50]
         assert [[len(j) for j in r] for r in rounds] == [[100, 100], [100, 100]]
         assert [len(j) for j in final] == [50]
+
+
+class TestSubMinimumTailMerge:
+    """drain_round must fold a trailing sub-minimum job into the previous job
+    (as split_nodes does), so a round with >= min_batch_size chunks never emits
+    an under-minimum job that would fall back to synchronous extraction."""
+
+    def test_min_batch_size_defaults_to_one_and_does_not_merge(self):
+        # Backwards-compatible default: no minimum, so plain slicing is retained.
+        filler = BucketFiller(num_workers=3, max_batch_size=100)
+        filler.add_document_chunks(make_chunks(210))
+        assert [len(j) for j in filler.drain_round()] == [100, 100, 10]
+
+    def test_invalid_min_batch_size_raises(self):
+        with pytest.raises(ValueError):
+            BucketFiller(num_workers=2, max_batch_size=100, min_batch_size=0)
+
+    def test_trailing_sub_min_job_folds_into_previous(self):
+        # 210 chunks, max 100, min 100 -> [100, 110] (the 10-tail merges), matching
+        # split_nodes rather than [100, 100, 10].
+        filler = BucketFiller(num_workers=3, max_batch_size=100, min_batch_size=100)
+        filler.add_document_chunks(make_chunks(210))
+        jobs = filler.drain_round()
+        assert [len(j) for j in jobs] == [100, 110]
+        assert all(len(j) >= 100 for j in jobs)
+
+    def test_two_job_round_with_sub_min_tail_folds_to_one_job(self):
+        # 180 chunks, max 100, min 100 -> [100, 80] would leave an 80-tail; merges
+        # into a single 180 job.
+        filler = BucketFiller(num_workers=2, max_batch_size=100, min_batch_size=100)
+        filler.add_document_chunks(make_chunks(180))
+        assert [len(j) for j in filler.drain_round()] == [180]
+
+    def test_exact_multiple_is_unaffected(self):
+        filler = BucketFiller(num_workers=3, max_batch_size=100, min_batch_size=100)
+        filler.add_document_chunks(make_chunks(300))
+        assert [len(j) for j in filler.drain_round()] == [100, 100, 100]
+
+    def test_tail_just_below_minimum_merges_at_minimum_stays(self):
+        # min < max makes the boundary explicit: a 49-tail (< min 50) merges,
+        # a 50-tail (== min 50) is a valid job and stays.
+        below = BucketFiller(num_workers=2, max_batch_size=100, min_batch_size=50)
+        below.add_document_chunks(make_chunks(149))
+        assert [len(j) for j in below.drain_round()] == [149]
+
+        at_min = BucketFiller(num_workers=2, max_batch_size=100, min_batch_size=50)
+        at_min.add_document_chunks(make_chunks(150))
+        assert [len(j) for j in at_min.drain_round()] == [100, 50]
+
+    def test_whole_round_below_minimum_stays_single_small_job(self):
+        # No previous job to merge into: a genuinely sub-min round is returned as
+        # one small job for the driver / sync fallback to handle.
+        filler = BucketFiller(num_workers=3, max_batch_size=100, min_batch_size=100)
+        filler.add_document_chunks(make_chunks(60))
+        assert [len(j) for j in filler.drain_round()] == [60]
+
+    def test_order_preserved_after_merge(self):
+        filler = BucketFiller(num_workers=3, max_batch_size=100, min_batch_size=100)
+        added = make_chunks(210)
+        filler.add_document_chunks(added)
+        jobs = filler.drain_round()
+        assert flat_ids(jobs) == [n.node_id for n in added]
