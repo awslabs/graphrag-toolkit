@@ -20,6 +20,8 @@ from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 from llama_index.core.schema import QueryBundle, NodeWithScore, TextNode
 from llama_index.core.node_parser import TokenTextSplitter
 
+from graphrag_toolkit.lexical_graph.retrieval.processors.reranker_chain import normalize_reranker_chain
+
 logger = logging.getLogger(__name__)
 
 def default_reranking_source_metadata_fn(source:Source):
@@ -52,13 +54,25 @@ def default_reranking_source_metadata_fn(source:Source):
     return ', '.join([format_value(v) for v in source.metadata.values()])
 
 class RerankStatements(ProcessorBase):
-    """
+    """Rerank the final statements in a search result collection.
 
+    ``reranker`` may specify one strategy or an ordered fallback chain. A
+    fallback policy is consulted after a scorer raises and before the next
+    strategy is attempted. ``None`` or ``'none'`` disables statement reranking;
+    entity reranking is an independent TF-IDF stage.
     """
     def __init__(self, args:ProcessorArgs, filter_config:FilterConfig, reranking_model=None):
         self.reranking_model = reranking_model or GraphRAGConfig.reranking_model
         super().__init__(args, filter_config)
         self.reranking_source_metadata_fn = self.args.reranking_source_metadata_fn or default_reranking_source_metadata_fn
+        self.reranker_chain = normalize_reranker_chain(self.args.reranker)
+        fallback_policy = getattr(self.args, 'reranker_fallback_policy', None)
+        if fallback_policy is not None and not callable(fallback_policy):
+            raise TypeError(
+                f'reranker_fallback_policy must be a callable accepting '
+                f'(reranker, *, error=None), got {type(fallback_policy).__name__}'
+            )
+        self.reranker_fallback_policy = fallback_policy
 
     def _score_values_with_tfidf(self, values:List[str], query:QueryBundle, entity_contexts:EntityContexts):
         """
@@ -205,13 +219,80 @@ class RerankStatements(ProcessorBase):
             for result in results
         }
 
+    def _should_fallback(self, reranker:str, *, error=None) -> bool:
+        if self.reranker_fallback_policy is None:
+            return True
+
+        try:
+            return bool(self.reranker_fallback_policy(reranker, error=error))
+        except Exception:
+            logger.error(
+                f'reranker_fallback_policy raised an exception for reranker '
+                f'"{reranker}"; re-raising',
+                exc_info=True
+            )
+            raise
+
+    def _score_values_with_chain(self, values:List[str], query:QueryBundle, entity_contexts:EntityContexts):
+        """Score values with the first successful statement reranker.
+
+        Raised exceptions may advance to the next strategy when the fallback
+        policy permits. A returned empty score map is a successful, terminal
+        response: it is logged at error level and returned without consulting
+        the fallback policy. Once reached, ``'none'`` performs no scoring and
+        returns ``None``.
+        """
+        reranker_chain = self.reranker_chain
+        if not reranker_chain:
+            return None
+
+        reranker_registry = {
+            'model': self._score_values,
+            'tfidf': self._score_values_with_tfidf,
+            'bedrock': self._score_values_with_bedrock
+        }
+
+        for i, reranker in enumerate(reranker_chain):
+            has_next = i < len(reranker_chain) - 1
+
+            if reranker == 'none':
+                return None
+
+            if reranker not in reranker_registry:
+                # Only the unvalidated legacy single-string form can reach here.
+                logger.warning(f'Unknown reranker "{reranker}"; skipping reranking')
+                return None
+
+            try:
+                scored_values = reranker_registry[reranker](values, query, entity_contexts)
+            except Exception as e:
+                if not has_next:
+                    raise
+                if not self._should_fallback(reranker, error=e):
+                    raise
+                next_reranker = reranker_chain[i + 1]
+                logger.warning(
+                    f'Reranking with {reranker} failed ({type(e).__name__}); '
+                    f'trying {next_reranker}',
+                    exc_info=True
+                )
+                continue
+
+            if not scored_values:
+                logger.error(f'Reranking with {reranker} returned an empty score map; all statements will be dropped')
+            else:
+                logger.debug(f'Reranking succeeded with {reranker}')
+
+            return scored_values
+
     def _process_results(self, search_results:SearchResultCollection, query:QueryBundle) -> SearchResultCollection:
         """
-        Processes search results by reranking statements within each topic based on their relevance scores.
+        Rerank statements within each topic based on their relevance scores.
 
-        This method processes a set of search results, and if a reranking approach is specified,
-        it calculates scores for the statements within topics using the supplied query and entities.
-        It then reranks statements based on the computed scores and updates the search results accordingly.
+        The configured chain applies only to this final statement stage. Entity
+        reranking occurs independently with TF-IDF. A score map is terminal even
+        when empty; an empty map therefore drops every statement without trying
+        another fallback.
 
         Args:
             search_results (SearchResultCollection): A collection of search results that contain topics
@@ -224,9 +305,14 @@ class RerankStatements(ProcessorBase):
             topic are reranked based on the relevance scores computed by the specified reranking method.
 
         Raises:
-            Any exception raised during the reranking process will propagate to the caller.
+            Exceptions raised by the final (or only) reranker propagate to the
+            caller. Earlier rerankers fall back when the configured policy
+            permits it (by default, on any exception). Reaching a final
+            ``'none'`` also requires the policy to permit the preceding failure;
+            ``'none'`` itself performs no scoring and cannot raise.
         """
-        if not self.args.reranker or self.args.reranker.lower() == 'none':
+        reranker_chain = self.reranker_chain
+        if not reranker_chain or reranker_chain[0] == 'none':
             return search_results
        
         values_to_score = []
@@ -245,16 +331,13 @@ class RerankStatements(ProcessorBase):
         
         start = time.time()
 
-        scored_values = None
-        
-        reranker = self.args.reranker.lower()
-        if reranker == 'model':
-            scored_values = self._score_values(values_to_score, query, search_results.entity_contexts)
-        elif reranker == 'tfidf':
-            scored_values = self._score_values_with_tfidf(values_to_score, query, search_results.entity_contexts)
-        elif reranker == 'bedrock':
-            scored_values = self._score_values_with_bedrock(values_to_score, query, search_results.entity_contexts)
-        else:
+        scored_values = self._score_values_with_chain(
+            values_to_score,
+            query,
+            search_results.entity_contexts
+        )
+
+        if scored_values is None:
             return search_results
 
         end = time.time()
@@ -268,21 +351,7 @@ class RerankStatements(ProcessorBase):
             logger.debug('Scored values:\n' + '\n--------------\n'.join([str(scored_value) for scored_value in scored_values.items()]))
 
         def rerank_statements(topic:Topic, source_str:str):
-            """
-            Represents a processor that reranks statements within topics based on their scores.
-
-            This class is used to process and reorder statements in a `SearchResultCollection`
-            object using scores associated with the statements. Statements are filtered and
-            sorted in descending order by their scores.
-
-            Attributes:
-                No attributes are defined directly for this class.
-
-            Methods:
-                _process_results: Processes the search results to rerank the statements based
-                    on their scores.
-
-            """
+            """Apply scores to one topic, dropping statements without scores."""
             topic_str = topic.topic
             surviving_statements = []
             for statement in topic.statements:
@@ -295,24 +364,8 @@ class RerankStatements(ProcessorBase):
             return topic
 
         def rerank_search_result(index:int, search_result:SearchResult):
-            """
-            Re-ranks search results based on specific criteria and applies modifications to their
-            topics using a metadata source function and a specified reranking method. This
-            processor works by overriding the `_process_results` method and provides the
-            necessary mechanisms to handle individual search results in a collection.
-
-            Methods:
-                _process_results: Processes a collection of search results and applies the reranking
-                to individual entries based on the provided query.
-
-            Args:
-                index (int): Position index of the search result to rerank within the collection.
-                search_result (SearchResult): Individual search result object containing the
-                    data to be reranked.
-            """
+            """Apply statement reranking to one search result."""
             source_str = self.reranking_source_metadata_fn(search_result.source)
             return self._apply_to_topics(search_result, rerank_statements, source_str=source_str)
         
         return self._apply_to_search_results(search_results, rerank_search_result)
-
-

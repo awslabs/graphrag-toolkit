@@ -21,7 +21,15 @@ class ProcessorArgs():
         derive_subqueries (bool): Specifies if subqueries should be derived
             from the main query.
         debug_results (list): A list for storing intermediate debug results.
-        reranker (str): Defines the reranking strategy to be employed.
+        reranker (str or list): Defines the final statement reranking strategy
+            or ordered fallback strategies. ``None`` or ``'none'`` disables
+            statement reranking only; entity reranking independently uses
+            TF-IDF.
+        reranker_fallback_policy (Optional[Callable]): Optional function for
+            statement reranker chains, called as
+            ``fallback_policy(reranker, *, error=None)``, that decides whether
+            a reranker exception should fall back to the next strategy,
+            including ``'none'``. Defaults to falling back on any exception.
         max_statements (int): The maximum number of statements to process.
         max_search_results (int): The maximum number of search results to
             retrieve.
@@ -61,6 +69,7 @@ class ProcessorArgs():
         self.derive_subqueries = kwargs.get('derive_subqueries', False)
         self.debug_results = kwargs.get('debug_results', [])
         self.reranker = kwargs.get('reranker', 'tfidf')
+        self.reranker_fallback_policy = kwargs.get('reranker_fallback_policy', None)
         self.disaggregate_results = kwargs.get('disaggregate_results', False)
         self.max_statements = kwargs.get('max_statements', 200)
         self.max_search_results = kwargs.get('max_search_results', 5)

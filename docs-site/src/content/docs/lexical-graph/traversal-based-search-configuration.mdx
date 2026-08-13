@@ -174,20 +174,55 @@ ___
 
 ### Reranking strategy
 
-Traversal-based search incorporates reranking at two key points during the retrieval process:
+Traversal-based search incorporates two independent reranking stages:
 
-  - When generating entity network contexts, both entities and entity networks are reranked
-  - Before finalizing search results, the complete set of statements undergoes reranking
+  - When generating entity network contexts, entities are always reranked with TF-IDF
+  - Before finalizing search results, the complete set of statements can be reranked with a configured strategy
 
-Reranking is managed through a single parameter:
+The `reranker` and `reranker_fallback_policy` parameters control only the final statement reranking stage. They do not change entity reranking.
 
 #####  `reranker`
 
 Parameters options:
 
   - `model`: Uses a LlamaIndex-based `SentenceReranker` to rerank all statements in the result set
-  - `tfidf` (default): Applies a term frequency-inverse document frequency measure to rank statements 
-  - `None`: Disables the reranking feature completely
+  - `bedrock`: Uses the configured Amazon Bedrock reranking model to rerank all statements in the result set
+  - `tfidf` (default): Applies a term frequency-inverse document frequency measure to rank statements
+  - `None` or `none`: Disables final statement reranking; entity reranking still uses TF-IDF
+
+You can also pass an ordered list of rerankers to try them in sequence. This is useful when you want to prefer a model-based reranker, but fall back to the built-in `tfidf` reranker if the first reranker raises an exception.
+
+```python
+query_engine = LexicalGraphQueryEngine.for_traversal_based_search(
+    graph_store,
+    vector_store,
+    reranker=['bedrock', 'tfidf']
+)
+```
+
+Reranker names in a chain are validated before reranking runs; unknown names raise a `ValueError` on the first query. By default, chained rerankers fall back to the next strategy on any exception. To restrict this to specific failures, provide a `reranker_fallback_policy` function; the reranker falls back only when the function returns `True`. An exception from the final reranker in a chain always propagates to the caller, just as with a single reranker.
+
+Use `none` by itself to disable statement reranking, or as the final item in a chain to return unreranked statements when an earlier reranker fails. The preceding failure must be allowed by `reranker_fallback_policy` before the chain can reach `none`; otherwise, the original exception propagates. Once reached, `none` performs no scoring and cannot raise.
+
+```python
+def fallback_on_throttling(reranker, *, error=None):
+    response = getattr(error, 'response', None)
+    if not isinstance(response, dict):
+        return False
+    code = response.get('Error', {}).get('Code')
+    return code in {'ThrottlingException', 'TooManyRequestsException'}
+
+query_engine = LexicalGraphQueryEngine.for_traversal_based_search(
+    graph_store,
+    vector_store,
+    reranker=['bedrock', 'tfidf'],
+    reranker_fallback_policy=fallback_on_throttling
+)
+```
+
+Fallback is decided per query, so a reranker that fails on one query is attempted again on the next; transient conditions such as throttling recover automatically once they clear server-side.
+
+A reranker that returns an empty score map has completed without raising, so the result is terminal: the empty map is logged as an error, no fallback is attempted, and all statements are dropped.
 
 The tfidf-based option is significantly faster than the model-based approach. To use the model reranker, you must first install the following additional dependencies:
 
