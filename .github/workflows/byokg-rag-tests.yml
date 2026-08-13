@@ -77,6 +77,10 @@ jobs:
         run: uv venv --seed .venv
 
       - name: Install dependencies
+        env:
+          # Copy instead of hardlink into the venv so bundled data files have
+          # st_nlink=1; nltk's pathsec check refuses to open multiply-linked files.
+          UV_LINK_MODE: copy
         run: |
           uv pip install --python .venv/bin/python \
             pytest \
