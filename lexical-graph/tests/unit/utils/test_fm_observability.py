@@ -445,6 +445,9 @@ class TestObservabilityIntegration:
     def test_publisher_initialization_sets_up_handlers(self, mock_settings, mock_queue_class):
         """Verify FMObservabilityPublisher sets up handlers on initialization."""
         mock_queue_instance = Mock()
+        # Poll rather than spin: a bare Mock returns a truthy child immediately,
+        # turning the poller's one-second get() into a busy loop.
+        mock_queue_instance.get.side_effect = queue.Empty
         mock_queue_class.return_value = mock_queue_instance
         mock_callback_manager = Mock()
         mock_settings.callback_manager = mock_callback_manager
@@ -466,6 +469,9 @@ class TestObservabilityIntegration:
     def test_publisher_context_manager(self, mock_settings, mock_queue_class):
         """Verify FMObservabilityPublisher works as context manager."""
         mock_queue_instance = Mock()
+        # Poll rather than spin: a bare Mock returns a truthy child immediately,
+        # turning the poller's one-second get() into a busy loop.
+        mock_queue_instance.get.side_effect = queue.Empty
         mock_queue_class.return_value = mock_queue_instance
         mock_callback_manager = Mock()
         mock_settings.callback_manager = mock_callback_manager
@@ -478,7 +484,63 @@ class TestObservabilityIntegration:
         # After exiting context, should be closed
         assert publisher.allow_continue is False
 
-    
+    @patch('graphrag_toolkit.lexical_graph.utils.fm_observability.Queue')
+    @patch('graphrag_toolkit.lexical_graph.utils.fm_observability.Settings')
+    def test_close_stops_poller_thread(self, mock_settings, mock_queue_class):
+        """Verify close() stops the poller instead of leaving it running."""
+        mock_queue_instance = Mock()
+        mock_queue_instance.get.side_effect = queue.Empty
+        mock_queue_class.return_value = mock_queue_instance
+        mock_settings.callback_manager = Mock()
+
+        publisher = FMObservabilityPublisher(subscribers=[], interval_seconds=30.0)
+        poller = publisher.poller
+        assert poller.is_alive()
+
+        publisher.close()
+
+        poller.join(timeout=5)
+        assert poller._discontinue.is_set()
+        assert not poller.is_alive()
+
+    @patch('graphrag_toolkit.lexical_graph.utils.fm_observability.Queue')
+    @patch('graphrag_toolkit.lexical_graph.utils.fm_observability.Settings')
+    def test_no_replacement_poller_after_close(self, mock_settings, mock_queue_class):
+        """Verify a timer firing after close() does not start a new poller."""
+        mock_queue_instance = Mock()
+        mock_queue_instance.get.side_effect = queue.Empty
+        mock_queue_class.return_value = mock_queue_instance
+        mock_settings.callback_manager = Mock()
+
+        publisher = FMObservabilityPublisher(subscribers=[], interval_seconds=0.2)
+        poller = publisher.poller
+        publisher.close()
+
+        # Let the timer scheduled in __init__ fire.
+        time.sleep(0.6)
+
+        assert publisher.poller is poller
+        assert not poller.is_alive()
+
+    @patch('graphrag_toolkit.lexical_graph.utils.fm_observability.Queue')
+    @patch('graphrag_toolkit.lexical_graph.utils.fm_observability.Settings')
+    def test_close_publishes_final_stats_once(self, mock_settings, mock_queue_class):
+        """Verify close() publishes final stats to subscribers exactly once."""
+        mock_queue_instance = Mock()
+        mock_queue_instance.get.side_effect = queue.Empty
+        mock_queue_class.return_value = mock_queue_instance
+        mock_settings.callback_manager = Mock()
+
+        subscriber = Mock(spec=FMObservabilitySubscriber)
+        publisher = FMObservabilityPublisher(subscribers=[subscriber], interval_seconds=30.0)
+
+        publisher.close()
+        publisher.close()
+
+        assert subscriber.on_new_stats.call_count == 1
+        assert isinstance(subscriber.on_new_stats.call_args[0][0], FMObservabilityStats)
+
+
     @patch('graphrag_toolkit.lexical_graph.utils.fm_observability._fm_observability_queue')
     def test_handler_event_end_puts_event_in_queue(self, mock_queue):
         """Verify FMObservabilityHandler puts completed events in queue."""
