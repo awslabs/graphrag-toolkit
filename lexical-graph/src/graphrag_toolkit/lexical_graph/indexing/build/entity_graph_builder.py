@@ -124,8 +124,8 @@ class EntityGraphBuilder(GraphBuilder):
                     e_id = entity.entityId
                     e_label = escape_cypher_label(label_from(entity.classification or DEFAULT_CLASSIFICATION))
                     e_comment = f'// awsqid:{e_id}-{e_label}'.replace('\r', ' ').replace('\n', ' ')
-                    query_e = f"MERGE ({e_var}:`__Entity__`{{{graph_client.node_id('entityId')}: $entityId}}) SET {e_var} :`{e_label}` {e_comment}"
-                    graph_client.execute_query_with_retry(query_e, {'entityId': e_id}, max_attempts=5, max_wait=7)
+                    query_e = f"UNWIND $params AS params MERGE ({e_var}:`__Entity__`{{{graph_client.node_id('entityId')}: params.entityId}}) SET {e_var} :`{e_label}` {e_comment}"
+                    graph_client.execute_query_with_retry(query_e, self._to_params({'entityId': e_id}), max_attempts=5, max_wait=7)
 
                 insert_domain_entity(fact.subject)
 
