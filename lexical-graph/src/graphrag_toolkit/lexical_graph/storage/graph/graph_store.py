@@ -11,6 +11,7 @@ from typing import Callable, List, Dict, Any, Optional, Union, Tuple
 
 from graphrag_toolkit.lexical_graph import TenantId, GraphQueryError
 from graphrag_toolkit.lexical_graph.storage.graph.query_tree import QueryTree
+from graphrag_toolkit.lexical_graph.storage.graph.graph_query_operation import GraphQueryOperation
 
 from llama_index.core.bridge.pydantic import BaseModel, Field
 
@@ -67,7 +68,7 @@ class NodeId:
 
     def __str__(self):
         return self.value
-    
+
 def format_id(id_name:str):
     """
     Parses and formats the given ID string into a NodeId object.
@@ -390,7 +391,7 @@ class GraphStore(BaseModel):
     def unretriable_exception_types(self) -> Tuple:
         return ()
 
-    def execute_query_with_retry(self, query:str, parameters:Dict[str, Any], max_attempts=3, max_wait=5, **kwargs) -> Dict[str, Any]:
+    def execute_query_with_retry(self, query:str, parameters:Dict[str, Any], max_attempts=3, max_wait=5, operation:Optional[GraphQueryOperation]=None, **kwargs) -> Dict[str, Any]:
         """
         Executes a database query with a retry mechanism, allowing multiple attempts with delays between them.
 
@@ -414,8 +415,9 @@ class GraphStore(BaseModel):
 
         """
         correlation_id = uuid.uuid4().hex[:5]
-        if 'correlation_id' in kwargs:
-            correlation_id = f'{kwargs["correlation_id"]}/{correlation_id}'
+        supplied_correlation_id = kwargs.get('correlation_id')
+        if supplied_correlation_id:
+            correlation_id = f'{supplied_correlation_id}/{correlation_id}'
         kwargs['correlation_id'] = correlation_id
 
         log_entry_parameters = self.log_formatting.format_log_entry(f'{correlation_id}/*', query, parameters)
@@ -435,9 +437,11 @@ class GraphStore(BaseModel):
                     attempt_number += 1
                     attempt.retry_state.attempt_number
                     if isinstance(query, str):
+                        if operation is not None:
+                            return self._execute_operation(operation, query, parameters, **kwargs)
                         return self._execute_query(query, parameters, **kwargs)
                     elif isinstance(query, QueryTree):
-                        return query.run(parameters, self.execute_query_with_retry)
+                        return query.run(parameters, self.execute_query_with_retry, **kwargs)
                     else:
                         raise ValueError(f'Invalid query type. Expected string or Query Tree but received {type(query).__name__}.')
             
@@ -496,22 +500,19 @@ class GraphStore(BaseModel):
         """
         return lambda x: x
     
-    def execute_query(self, query:QUERY_TYPE, parameters={}, correlation_id:Optional[str]=None) -> List[Any]:
-        if correlation_id:
-            return self.execute_query_with_retry(
-                query=query, 
-                parameters=parameters,
-                max_attempts=1, 
-                max_wait=0, 
-                correlation_id=correlation_id
-            )
-        else:
-            return self.execute_query_with_retry(
-                query=query, 
-                parameters=parameters,
-                max_attempts=1, 
-                max_wait=0
-            )
+    def execute_query(self, query:QUERY_TYPE, parameters={}, correlation_id:Optional[str]=None, operation:Optional[GraphQueryOperation]=None) -> List[Any]:
+        return self.execute_query_with_retry(
+            query=query,
+            parameters=parameters,
+            max_attempts=1,
+            max_wait=0,
+            correlation_id=correlation_id,
+            operation=operation,
+        )
+
+    def _execute_operation(self, operation:GraphQueryOperation, query:str, parameters:Dict[str, Any], correlation_id=None, **kwargs) -> List[Any]:
+        """Execute the existing native query for stores without an override."""
+        return self._execute_query(query, parameters, correlation_id=correlation_id)
 
     
     @abc.abstractmethod
@@ -528,10 +529,6 @@ class GraphStore(BaseModel):
             A dictionary containing the results of the executed Cypher query.
         """
         raise NotImplementedError
-    
+
     def init(self, graph_store=None):
         pass
-
-
-
-    
