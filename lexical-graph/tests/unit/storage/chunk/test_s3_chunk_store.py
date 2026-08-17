@@ -59,6 +59,68 @@ class TestS3ChunkStoreKeys:
         assert s3_client.put_object.call_args.kwargs['Key'] == 'chunk-1.txt'
 
 
+class TestS3ChunkStoreKeyValidation:
+    """A separator in a chunk id would escape the configured prefix and let a
+    crafted id touch any *.txt object in the bucket."""
+
+    @pytest.mark.parametrize('bad_id', [
+        '',
+        '   ',
+        '../secret',
+        'a/b',
+        '/leading',
+        'trailing/',
+        'a\\b',
+        'has\x00null',
+        'has\nnewline',
+    ])
+    def test_unsafe_chunk_id_is_rejected_on_get(self, s3_client, bad_id):
+        store = _store()
+
+        with pytest.raises(ValueError):
+            store.get(bad_id)
+
+        s3_client.get_object.assert_not_called()
+
+    @pytest.mark.parametrize('bad_id', ['../secret', 'a/b', 'has\x00null'])
+    def test_unsafe_chunk_id_is_rejected_on_put(self, s3_client, bad_id):
+        store = _store()
+
+        with pytest.raises(ValueError):
+            store.put(bad_id, 'text')
+
+        s3_client.put_object.assert_not_called()
+
+    @pytest.mark.parametrize('chunk_id', [
+        'aws::0a1b2c3d:4e5f:6a7b8c9d',   # default tenant
+        'aws:foo..bar:4e5f:6a7b8c9d',    # tenant ids allow consecutive periods
+    ])
+    def test_real_chunk_ids_are_accepted(self, s3_client, chunk_id):
+        # No separator, so nothing to escape - colons and dots are fine.
+        store = _store()
+        s3_client.get_object.return_value = _body('text')
+
+        store.get(chunk_id)
+
+        assert s3_client.get_object.call_args.kwargs['Key'] == f'{PREFIX}/{chunk_id}.txt'
+
+
+class TestS3ChunkStoreDownloadCap:
+
+    def test_object_over_the_cap_raises_rather_than_loading_into_memory(self, s3_client):
+        store = _store(max_chunk_bytes=8)
+        s3_client.get_object.return_value = _body('x' * 9)
+
+        with pytest.raises(ValueError):
+            store.get('c1')
+
+    def test_object_at_the_cap_is_returned(self, s3_client):
+        store = _store(max_chunk_bytes=8)
+        s3_client.get_object.return_value = _body('x' * 8)
+
+        assert store.get('c1') == 'x' * 8
+
+
 class TestS3ChunkStoreRoundTrip:
 
     def test_put_then_get_returns_the_text(self, s3_client):

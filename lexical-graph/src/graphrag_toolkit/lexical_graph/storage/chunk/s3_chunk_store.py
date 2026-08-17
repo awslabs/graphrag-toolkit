@@ -47,6 +47,10 @@ def parse_s3_connection_string(connection_string):
 # Codes S3 and S3-compatible endpoints use for an object that isn't there.
 MISSING_KEY_CODES = ('NoSuchKey', '404')
 
+# Cap on a single chunk download, so an unexpectedly large object can't be
+# pulled fully into memory across the read thread pool.
+DEFAULT_MAX_CHUNK_BYTES = 50 * 1024 * 1024
+
 
 class S3ChunkStore(ChunkStore):
     """
@@ -68,7 +72,8 @@ class S3ChunkStore(ChunkStore):
                  prefix: Optional[str] = None,
                  kms_key_arn: Optional[str] = None,
                  fallback: Optional[ChunkStore] = None,
-                 num_threads: Optional[int] = None):
+                 num_threads: Optional[int] = None,
+                 max_chunk_bytes: int = DEFAULT_MAX_CHUNK_BYTES):
         if not bucket_name:
             raise ValueError('S3ChunkStore requires a bucket name.')
 
@@ -77,6 +82,7 @@ class S3ChunkStore(ChunkStore):
         self.kms_key_arn = kms_key_arn
         self.fallback = fallback
         self.num_threads = num_threads
+        self.max_chunk_bytes = max_chunk_bytes
 
     def _num_workers(self, num_items: int) -> int:
         """
@@ -94,17 +100,43 @@ class S3ChunkStore(ChunkStore):
 
         return max(1, min(num_items, configured))
 
+    @staticmethod
+    def _validate_chunk_id(chunk_id: str) -> None:
+        """
+        Reject chunk ids that could escape the configured prefix.
+
+        The key is f'{prefix}/{chunk_id}.txt', so a separator in the id opens a
+        new path segment and lets a crafted id touch any *.txt object in the
+        bucket. Real ids are IdGenerator hashes and hold no separators.
+        """
+        if not chunk_id or not chunk_id.strip():
+            raise ValueError('chunk_id must be a non-empty string.')
+        if '/' in chunk_id or '\\' in chunk_id:
+            raise ValueError(f'chunk_id must not contain a path separator: {chunk_id!r}')
+        if any(ord(c) < 0x20 or ord(c) == 0x7f for c in chunk_id):
+            raise ValueError(f'chunk_id must not contain control characters: {chunk_id!r}')
+
     def _key(self, chunk_id: str) -> str:
+        self._validate_chunk_id(chunk_id)
         return f'{self.prefix}/{chunk_id}.txt' if self.prefix else f'{chunk_id}.txt'
 
     def _get_chunk(self, chunk_id: str, s3_client) -> Optional[str]:
+        key = self._key(chunk_id)
         try:
-            response = s3_client.get_object(Bucket=self.bucket_name, Key=self._key(chunk_id))
+            response = s3_client.get_object(Bucket=self.bucket_name, Key=key)
         except ClientError as e:
             if e.response.get('Error', {}).get('Code') in MISSING_KEY_CODES:
                 return None
             raise
-        return response['Body'].read().decode('UTF-8')
+        # Read one byte past the cap to detect an over-limit object without
+        # pulling the whole thing into memory.
+        body = response['Body'].read(self.max_chunk_bytes + 1)
+        if len(body) > self.max_chunk_bytes:
+            raise ValueError(
+                f'Chunk text at [bucket: {self.bucket_name}, key: {key}] exceeds the '
+                f'maximum of {self.max_chunk_bytes} bytes.'
+            )
+        return body.decode('UTF-8')
 
     def get_batch(self, chunk_ids: List[str]) -> Dict[str, str]:
         if not chunk_ids:
