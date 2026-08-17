@@ -61,7 +61,10 @@ def _domain_query(client):
 
 def test_domain_entity_query_is_escaped_and_parameterised():
     """The real builder emits the escaped label (not the raw label-wrap) and binds
-    entityId as a parameter instead of inlining it as a string literal."""
+    entityId as a parameter instead of inlining it as a string literal.
+
+    The id is bound through the batch client's ``UNWIND $params AS params`` form
+    (``params.entityId``), not inlined, so a crafted id cannot break out either."""
     client = _CapturingClient()
     EntityGraphBuilder().build(
         _fact_node(),
@@ -76,7 +79,8 @@ def test_domain_entity_query_is_escaped_and_parameterised():
     raw = label_from(MALICIOUS_CLASSIFICATION)
     assert f':`{safe}`' in query
     assert f':`{raw}`' not in query
-    assert '$entityId' in query
+    assert 'UNWIND $params AS params' in query
+    assert 'params.entityId' in query
     assert f"'{ENTITY_ID}'" not in query
 
 
