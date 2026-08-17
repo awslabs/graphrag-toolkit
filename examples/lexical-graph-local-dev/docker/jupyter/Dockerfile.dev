@@ -32,6 +32,7 @@ RUN pip install --no-cache-dir \
     plotly
 
 # LlamaIndex readers (hard imports in lexical-graph source)
+USER root
 RUN pip install --no-cache-dir \
     llama-index-readers-web \
     llama-index-readers-file \
@@ -42,6 +43,8 @@ RUN pip install --no-cache-dir \
     pymupdf
 
 # Build tools for packages requiring C compilation (e.g. lru-dict)
-USER root
-RUN apt-get update && apt-get install -y --no-install-recommends build-essential && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y --no-install-recommends build-essential && \
+    rm -rf /var/lib/apt/lists/* && \
+    fix-permissions "${CONDA_DIR}" && \
+    fix-permissions "/home/${NB_USER}"
 USER jovyan
