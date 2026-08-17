@@ -372,7 +372,7 @@ echo "export BATCH_INFERENCE_ROLE=$BATCH_INFERENCE_ROLE" >> lexical-graph-exampl
 echo "export FAIL_FAST=$FAIL_FAST" >> lexical-graph-examples/.env.testing
 echo "export TEST_EXTRACTION_LLM=$TEST_EXTRACTION_LLM" >> lexical-graph-examples/.env.testing
 echo "export TEST_RESPONSE_LLM=$TEST_RESPONSE_LLM" >> lexical-graph-examples/.env.testing
-echo "export BENCHMARK_JUDGE_LLM=$BENCHMARK_JUDGE_LLM" >> lexical-graph-examples/.env.testing
+printf 'export BENCHMARK_JUDGE_LLM=%q\n' "$BENCHMARK_JUDGE_LLM" >> lexical-graph-examples/.env.testing
 echo "export INCLUDE_CLASSIFICATION_IN_ENTITY_ID=False" >> lexical-graph-examples/.env.testing
 if [[ "$TESTS" ]]; then
 	echo "export TESTS='$TESTS'" >> lexical-graph-examples/.env.testing
@@ -396,22 +396,22 @@ if [[ "$BENCHMARK_DATA_DIR" ]] && [[ -z "$BENCHMARK_DATA_S3_URI" ]]; then
 	echo "export BENCHMARK_DATA_DIR='data'" >> lexical-graph-examples/.env.testing
 fi
 if [[ "$BENCHMARK_QA_LIMIT" ]]; then
-	echo "export BENCHMARK_QA_LIMIT=$BENCHMARK_QA_LIMIT" >> lexical-graph-examples/.env.testing
+	printf 'export BENCHMARK_QA_LIMIT=%q\n' "$BENCHMARK_QA_LIMIT" >> lexical-graph-examples/.env.testing
 fi
 if [[ "$BENCHMARK_IS_PROTOTYPE" ]]; then
-	echo "export BENCHMARK_IS_PROTOTYPE=$BENCHMARK_IS_PROTOTYPE" >> lexical-graph-examples/.env.testing
+	printf 'export BENCHMARK_IS_PROTOTYPE=%q\n' "$BENCHMARK_IS_PROTOTYPE" >> lexical-graph-examples/.env.testing
 fi
 if [[ "${BENCHMARK_ALL_RETRIEVERS:-}" ]]; then
-	echo "export BENCHMARK_ALL_RETRIEVERS=$BENCHMARK_ALL_RETRIEVERS" >> lexical-graph-examples/.env.testing
+	printf 'export BENCHMARK_ALL_RETRIEVERS=%q\n' "$BENCHMARK_ALL_RETRIEVERS" >> lexical-graph-examples/.env.testing
 fi
 if [[ "${BENCHMARK_DATASET:-}" ]]; then
-	echo "export BENCHMARK_DATASET=$BENCHMARK_DATASET" >> lexical-graph-examples/.env.testing
+	printf 'export BENCHMARK_DATASET=%q\n' "$BENCHMARK_DATASET" >> lexical-graph-examples/.env.testing
 fi
 if [[ "$BENCHMARK_DOC_STORE" ]]; then
-	echo "export BENCHMARK_DOC_STORE=$BENCHMARK_DOC_STORE" >> lexical-graph-examples/.env.testing
+	printf 'export BENCHMARK_DOC_STORE=%q\n' "$BENCHMARK_DOC_STORE" >> lexical-graph-examples/.env.testing
 fi
 if [[ "$BENCHMARK_S3_JSONL" ]]; then
-	echo "export BENCHMARK_S3_JSONL=$BENCHMARK_S3_JSONL" >> lexical-graph-examples/.env.testing
+	printf 'export BENCHMARK_S3_JSONL=%q\n' "$BENCHMARK_S3_JSONL" >> lexical-graph-examples/.env.testing
 fi
 
 zip -r graphrag-toolkit.zip graphrag-toolkit # zip under directory
