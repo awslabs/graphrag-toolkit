@@ -5,6 +5,7 @@ import logging
 import asyncio
 from typing import Tuple, List, Optional, Sequence, Dict
 
+from graphrag_toolkit.lexical_graph.indexing.utils.llm_concurrency import run_blocking
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.utils import LLMCache, LLMCacheType
 from graphrag_toolkit.lexical_graph.indexing.utils.topic_utils import parse_extracted_topics, format_list, format_text
@@ -210,7 +211,7 @@ class TopicExtractor(BaseExtractor):
                 #exclude_cache_keys=['preferred_entity_classifications', 'preferred_topics']
             )
         
-        coro = asyncio.to_thread(blocking_llm_call)
+        coro = run_blocking(blocking_llm_call, self.num_workers)
         
         raw_response = await coro
 

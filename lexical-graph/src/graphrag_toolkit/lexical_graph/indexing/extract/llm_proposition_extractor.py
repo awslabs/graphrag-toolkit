@@ -5,6 +5,7 @@ import logging
 import asyncio
 from typing import List, Optional, Sequence, Dict
 
+from graphrag_toolkit.lexical_graph.indexing.utils.llm_concurrency import run_blocking
 from graphrag_toolkit.lexical_graph.utils import LLMCache, LLMCacheType
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.indexing.model import Propositions
@@ -203,7 +204,7 @@ propositions: {proposition_collection}
                 exclude_cache_keys=['source_info']
             )
         
-        coro = asyncio.to_thread(blocking_llm_call)
+        coro = run_blocking(blocking_llm_call, self.num_workers)
         
         raw_response = await coro
 
