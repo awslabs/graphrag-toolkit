@@ -1111,7 +1111,7 @@
                     "cd /home/ec2-user/SageMaker\n",
                     "if [ ! -d graphrag-toolkit ]; then\n",
                     "  mkdir graphrag-toolkit\n",
-                    "  chmod -R 777 graphrag-toolkit\n",
+                    "  chmod -R 755 graphrag-toolkit\n",
                     {
                       "Fn::If": [
                         "ExampleNotebooksURLIsNotBlank",
