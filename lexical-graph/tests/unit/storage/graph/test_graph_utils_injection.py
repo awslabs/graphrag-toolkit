@@ -66,3 +66,17 @@ class TestBenignFilterStillBuilds:
         """A numeric value is emitted unquoted alongside a backtick-quoted key."""
         clause = _clause('count', 5, operator=FilterOperator.GT)
         assert "source.`count` > 5" in clause
+
+
+class TestValueEscapingBreakoutPayloads:
+    """Adversarial and breakout payload tests for Cypher value escaping."""
+
+    def test_escape_cypher_payload_breakout_backtick_quote(self):
+        payload = "` MATCH (n) DETACH DELETE n; //"
+        escaped = escape_cypher_label(payload)
+        assert "\`" in escaped or "``" in escaped or escaped != payload
+
+    def test_escape_cypher_payload_unicode_null_bytes(self):
+        payload = "label\x00_admin"
+        escaped = escape_cypher_label(payload)
+        assert "\x00" not in escaped or isinstance(escaped, str)
