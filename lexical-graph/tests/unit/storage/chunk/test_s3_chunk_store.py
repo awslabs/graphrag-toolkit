@@ -107,18 +107,43 @@ class TestS3ChunkStoreKeyValidation:
 
 class TestS3ChunkStoreDownloadCap:
 
-    def test_object_over_the_cap_raises_rather_than_loading_into_memory(self, s3_client):
+    def test_object_over_the_cap_is_skipped_like_a_miss(self, s3_client):
+        # Skipping (not raising) keeps one oversized chunk from failing the
+        # whole batch, matching the missing-key path.
         store = _store(max_chunk_bytes=8)
         s3_client.get_object.return_value = _body('x' * 9)
 
-        with pytest.raises(ValueError):
-            store.get('c1')
+        assert store.get_batch(['c1']) == {}
+
+    def test_object_over_the_cap_falls_back_like_a_miss(self, s3_client):
+        fallback = Mock(spec=ChunkStore)
+        fallback.get_batch.return_value = {'c1': 'from graph'}
+        store = _store(max_chunk_bytes=8, fallback=fallback)
+        s3_client.get_object.return_value = _body('x' * 9)
+
+        assert store.get_batch(['c1']) == {'c1': 'from graph'}
+
+    def test_oversized_object_stream_is_closed(self, s3_client):
+        # A bounded read doesn't drain the stream, so it must be closed or the
+        # connection never returns to the pool.
+        store = _store(max_chunk_bytes=8)
+        body = _body('x' * 9)
+        s3_client.get_object.return_value = body
+
+        store.get('c1')
+
+        body['Body'].close.assert_called_once()
 
     def test_object_at_the_cap_is_returned(self, s3_client):
         store = _store(max_chunk_bytes=8)
         s3_client.get_object.return_value = _body('x' * 8)
 
         assert store.get('c1') == 'x' * 8
+
+    def test_non_positive_cap_is_rejected(self, s3_client):
+        # 0 reads like "no cap" but would reject every non-empty chunk.
+        with pytest.raises(ValueError):
+            _store(max_chunk_bytes=0)
 
 
 class TestS3ChunkStoreRoundTrip:

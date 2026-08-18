@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import concurrent.futures
+import contextlib
 from urllib.parse import urlparse, parse_qs
 import logging
 from typing import Dict, List, Optional
@@ -76,6 +77,8 @@ class S3ChunkStore(ChunkStore):
                  max_chunk_bytes: int = DEFAULT_MAX_CHUNK_BYTES):
         if not bucket_name:
             raise ValueError('S3ChunkStore requires a bucket name.')
+        if max_chunk_bytes <= 0:
+            raise ValueError('max_chunk_bytes must be positive.')
 
         self.bucket_name = bucket_name
         self.prefix = prefix.strip('/') if prefix else None
@@ -105,9 +108,12 @@ class S3ChunkStore(ChunkStore):
         """
         Reject chunk ids that could escape the configured prefix.
 
-        The key is f'{prefix}/{chunk_id}.txt', so a separator in the id opens a
-        new path segment and lets a crafted id touch any *.txt object in the
-        bucket. Real ids are IdGenerator hashes and hold no separators.
+        S3 keys are literal, so a prefix-scoped IAM policy would still match
+        `prefix/../secret.txt`. But botocore puts path segments on the wire
+        unencoded, so a normalizing proxy or an S3-compatible endpoint reached
+        through `endpoint_url` can collapse `../` before the request gets to
+        S3, escaping the prefix with IAM none the wiser. Blocking separators
+        stops that; real ids are IdGenerator hashes and hold none.
         """
         if not chunk_id or not chunk_id.strip():
             raise ValueError('chunk_id must be a non-empty string.')
@@ -128,15 +134,20 @@ class S3ChunkStore(ChunkStore):
             if e.response.get('Error', {}).get('Code') in MISSING_KEY_CODES:
                 return None
             raise
-        # Read one byte past the cap to detect an over-limit object without
-        # pulling the whole thing into memory.
-        body = response['Body'].read(self.max_chunk_bytes + 1)
-        if len(body) > self.max_chunk_bytes:
-            raise ValueError(
-                f'Chunk text at [bucket: {self.bucket_name}, key: {key}] exceeds the '
-                f'maximum of {self.max_chunk_bytes} bytes.'
+        # Read one byte past the cap to size-check without pulling the whole
+        # object into memory; closing() returns the connection to the pool on
+        # every path, including the oversized one where the stream isn't drained.
+        with contextlib.closing(response['Body']) as body:
+            data = body.read(self.max_chunk_bytes + 1)
+        if len(data) > self.max_chunk_bytes:
+            # Treat oversize as a miss, like a missing key: skip it so one bad
+            # chunk doesn't fail the whole batch, and let the fallback answer.
+            logger.warning(
+                f'Skipping oversized chunk [bucket: {self.bucket_name}, key: {key}, '
+                f'max_bytes: {self.max_chunk_bytes}]'
             )
-        return body.decode('UTF-8')
+            return None
+        return data.decode('UTF-8')
 
     def get_batch(self, chunk_ids: List[str]) -> Dict[str, str]:
         if not chunk_ids:
