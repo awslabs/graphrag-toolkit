@@ -37,6 +37,7 @@ from graphrag_toolkit.lexical_graph.indexing.load.readers.reader_provider_config
 )
 from graphrag_toolkit.lexical_graph.logging import logging
 from llama_index.core.schema import Document
+from llama_index.core.readers.base import BaseReader
 
 logger = logging.getLogger(__name__)
 
@@ -85,6 +86,8 @@ class LlamaIndexPluginReaderProvider:
 
     # Item #3: Only these methods may be called on the reader instance.
     ALLOWED_LOAD_METHODS = ("load_data", "lazy_load", "aload_data")
+
+    ALLOWED_ENV_VARS = ()
 
     # Known auth-related error patterns (case-insensitive matching)
     _AUTH_ERROR_PATTERNS = (
@@ -149,12 +152,13 @@ class LlamaIndexPluginReaderProvider:
     def _resolve_env_vars(self, args: dict) -> dict:
         """Item #4: Resolve $VAR_NAME references in dict values from environment.
 
-        Only resolves top-level string values matching $UPPER_CASE_NAME.
-        Nested dicts, non-string values, lowercase vars, and mid-string
-        dollar signs are passed through unchanged.
+        Only resolves top-level string values matching $UPPER_CASE_NAME, and
+        only for names in ALLOWED_ENV_VARS. Nested dicts, non-string values,
+        lowercase vars, and mid-string dollar signs are passed through unchanged.
 
         Raises:
-            ValueError: If a referenced environment variable is not set.
+            ValueError: If a referenced variable is not permitted, or is
+                permitted but not set in the environment.
         """
         if not args:
             return args
@@ -164,6 +168,12 @@ class LlamaIndexPluginReaderProvider:
                 match = _ENV_VAR_PATTERN.match(value)
                 if match:
                     env_name = match.group(1)
+                    if env_name not in self.ALLOWED_ENV_VARS:
+                        raise ValueError(
+                            f"Config field '{key}' references ${env_name}, which is not "
+                            f"in the permitted set. Subclass and override ALLOWED_ENV_VARS "
+                            f"to allow it."
+                        )
                     env_value = os.environ.get(env_name)
                     if env_value is None:
                         raise ValueError(
@@ -238,15 +248,12 @@ class LlamaIndexPluginReaderProvider:
             logger.error(msg)
             raise ReaderImportError(msg) from e
 
-        # Item #2: Interface validation BEFORE instantiation
-        if not callable(reader_cls):
-            raise ReaderImportError(f"'{class_name}' in '{module_path}' is not callable")
-
-        load_method_name = self._config.load_method or "load_data"
-        if not hasattr(reader_cls, load_method_name) and not hasattr(reader_cls, "lazy_load"):
+        # Item #2: Require an actual LlamaIndex reader. getattr on the module is
+        # otherwise unrestricted - any callable in an allowed module would pass -
+        # so pin it to a BaseReader subclass.
+        if not (isinstance(reader_cls, type) and issubclass(reader_cls, BaseReader)):
             raise ReaderImportError(
-                f"'{class_name}' does not implement '{load_method_name}()' or 'lazy_load()'. "
-                f"It may not be a LlamaIndex reader."
+                f"'{class_name}' in '{module_path}' is not a LlamaIndex BaseReader subclass"
             )
 
         # Item #4: Resolve environment variables in init_args
