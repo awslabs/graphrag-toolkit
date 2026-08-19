@@ -29,7 +29,7 @@ cp env.template .env
 # Edit .env with your bucket name, region, and benchmark preferences
 ```
 
-The `benchmarks/env.template` documents the benchmark-specific variables (a subset of the full `integration-tests/env.template`). Key benchmark variables:
+See `integration-tests/env.template` for the full list of configuration variables. Key benchmark variables:
 
 - `BENCHMARK_DATA_S3_URI` — S3 URI containing your benchmark datasets
 - `BENCHMARK_DATA_DIR` — Local directory with benchmark data (alternative to S3)
