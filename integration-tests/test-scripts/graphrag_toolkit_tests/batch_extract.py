@@ -28,11 +28,45 @@ def get_metadata(data):
     metadata['category'] = data.get('category', None)
     return metadata
 
+def apply_extraction_doc_limit(docs):
+    """Optionally cap the number of source documents used for extraction.
+
+    Controlled by the BENCHMARK_EXTRACT_DOC_LIMIT environment variable (set
+    directly, via .env / .env.testing, or through the build-tests.sh
+    --benchmark-extract-doc-limit flag). When it is a positive integer, only
+    the first N documents are extracted and the rest are skipped; when it is
+    unset, empty, or non-positive, all documents are extracted as normal.
+
+    Capping the input list here — before extract() is called — is worker-count
+    agnostic: extraction concurrency (num_workers) operates on whatever
+    documents remain in the list, so this behaves identically for single- and
+    multi-threaded runs. Downstream assertions and the batch_build.BuildFromS3
+    step read len(docs) after capping, so expected counts stay consistent.
+    """
+    raw_limit = os.environ.get('BENCHMARK_EXTRACT_DOC_LIMIT', '').strip()
+    if not raw_limit:
+        return docs
+
+    try:
+        limit = int(raw_limit)
+    except ValueError:
+        raise ValueError(
+            f"BENCHMARK_EXTRACT_DOC_LIMIT must be an integer, but got '{raw_limit}'"
+        )
+
+    if limit <= 0 or limit >= len(docs):
+        return docs
+
+    print(f'[benchmark] BENCHMARK_EXTRACT_DOC_LIMIT set: extracting first {limit} of {len(docs)} documents')
+    return docs[:limit]
+
 class BatchExtractToS3(IntegrationTestBase):
     
     @property
     def description(self):
-        return 'Extract propositions and topics from Neptune documentation using Bedrock batch inference, and save to S3'
+        return ('Baseline batch extraction: extract propositions and topics from the local Neptune docs '
+                'corpus (source-data/corpus-modified.json) using Bedrock batch inference with a fixed '
+                'batch_size (100), save to S3; output feeds batch_build.BuildFromS3')
         
     def _run_test(self, handler:IntegrationTestHandler, params:Dict[str, Any]):
         
@@ -88,7 +122,8 @@ class BatchExtractToS3(IntegrationTestBase):
 
             reader = JSONArrayReader(text_fn=get_text, metadata_fn=get_metadata)
             docs = reader.load_data('./source-data/corpus-modified.json')
-            
+            docs = apply_extraction_doc_limit(docs)
+
             graph_index = LexicalGraphIndex(
                 graph_store, 
                 vector_store,
@@ -120,7 +155,10 @@ class BatchExtractAutoTuneToS3(IntegrationTestBase):
 
     @property
     def description(self):
-        return 'Extract propositions and topics using auto-tuning Bedrock batch inference (num_workers + max_batch_size only), and save to S3'
+        return ('Like BatchExtractToS3 over the same local corpus, but auto-tunes batch_size '
+                '(auto_tune=True; user sets only num_workers + max_batch_size, no fixed batch_size or '
+                'max_num_concurrent_batches); writes to the same extracted/ prefix so output feeds '
+                'batch_build.BuildFromS3')
 
     def _run_test(self, handler:IntegrationTestHandler, params:Dict[str, Any]):
 
@@ -179,6 +217,7 @@ class BatchExtractAutoTuneToS3(IntegrationTestBase):
 
             reader = JSONArrayReader(text_fn=get_text, metadata_fn=get_metadata)
             docs = reader.load_data('./source-data/corpus-modified.json')
+            docs = apply_extraction_doc_limit(docs)
 
             graph_index = LexicalGraphIndex(
                 graph_store,
@@ -218,14 +257,32 @@ class BatchExtractSmallBatchToS3(IntegrationTestBase):
 
     @property
     def description(self):
-        return 'Extract propositions and topics with a deliberately small fixed batch_size (baseline for the auto-tuning comparison), and save to S3'
+        return ('Like BatchExtractToS3 over the same local corpus, but with a deliberately small fixed '
+                'batch_size (10) that under-fills batch jobs; the mis-chosen baseline for comparing job '
+                'count/fill against the auto-tune run (correctness is unaffected)')
 
     def _run_test(self, handler:IntegrationTestHandler, params:Dict[str, Any]):
 
         GraphRAGConfig.extraction_llm = os.environ.get('TEST_EXTRACTION_LLM', 'anthropic.claude-sonnet-4-6')
         # A small batch_size under-fills batch jobs: 10 docs per outer batch,
         # split across 2 workers, is far below num_workers x max_batch_size.
-        GraphRAGConfig.extraction_batch_size = 10
+        extraction_batch_size = 10
+
+        # This test's only unique value is as the under-fill baseline for the
+        # auto-tune comparison, which needs the small batch_size to produce more
+        # than one (under-filled) batch job. A benchmark cap at or below the
+        # batch_size yields a single partial job — indistinguishable from what
+        # auto-tuning would produce — so there is no comparison signal. Skip
+        # (rather than report a misleading pass); correctness of the small-batch
+        # path is already covered by BatchExtractToS3 over the same corpus.
+        doc_limit = os.environ.get('BENCHMARK_EXTRACT_DOC_LIMIT', '').strip()
+        if doc_limit.isdigit() and 0 < int(doc_limit) <= extraction_batch_size:
+            print(f'Skipping BatchExtractSmallBatchToS3: BENCHMARK_EXTRACT_DOC_LIMIT={doc_limit} '
+                  f'is <= batch_size ({extraction_batch_size}); the under-fill comparison has no signal')
+            handler.skip()
+            return
+
+        GraphRAGConfig.extraction_batch_size = extraction_batch_size
         GraphRAGConfig.extraction_num_workers = 2
 
         s3_results_bucket = os.environ['S3_RESULTS_BUCKET']
@@ -277,6 +334,11 @@ class BatchExtractSmallBatchToS3(IntegrationTestBase):
 
             reader = JSONArrayReader(text_fn=get_text, metadata_fn=get_metadata)
             docs = reader.load_data('./source-data/corpus-modified.json')
+            # A benchmark cap reduces the corpus for a fast run. The extreme case
+            # (cap <= batch_size, a single under-filled job with no comparison
+            # signal) is skipped above; between that and the full corpus the fill
+            # comparison is progressively less pronounced but still present.
+            docs = apply_extraction_doc_limit(docs)
 
             graph_index = LexicalGraphIndex(
                 graph_store,
@@ -309,7 +371,9 @@ class BatchExtractFromS3ToS3(IntegrationTestBase):
 
     @property
     def description(self):
-        return 'Extract propositions and topics from documents in S3 using Bedrock batch inference, and save to S3'
+        return ('Like BatchExtractToS3 but reads a different, larger source dataset (NTSB docs) from S3 via '
+                'S3Reader instead of the local JSON corpus, at larger scale (batch_size 600, num_workers 4, '
+                'max_batch_size 10000); saves to S3')
         
     def _run_test(self, handler:IntegrationTestHandler, params:Dict[str, Any]):
         
@@ -368,7 +432,8 @@ class BatchExtractFromS3ToS3(IntegrationTestBase):
                 prefix='ntsb'
             )
             docs = reader.load_data()
-            
+            docs = apply_extraction_doc_limit(docs)
+
             graph_index = LexicalGraphIndex(
                 graph_store, 
                 vector_store,

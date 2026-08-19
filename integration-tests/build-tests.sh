@@ -184,6 +184,7 @@ while [[ "$#" -gt 0 ]]; do
         --benchmark-data-dir) BENCHMARK_DATA_DIR="$2"; shift ;;
         --benchmark-data-s3-uri) BENCHMARK_DATA_S3_URI="$2"; shift ;;
         --benchmark-qa-limit) BENCHMARK_QA_LIMIT="$2"; shift ;;
+        --benchmark-extract-doc-limit) BENCHMARK_EXTRACT_DOC_LIMIT="$2"; shift ;;
         --benchmark-prototype) BENCHMARK_IS_PROTOTYPE=true ;;
         --benchmark-all-retrievers) BENCHMARK_ALL_RETRIEVERS=true ;;
         --benchmark-dataset) BENCHMARK_DATASET="$2"; shift ;;
@@ -398,6 +399,9 @@ fi
 if [[ "$BENCHMARK_QA_LIMIT" ]]; then
 	echo "export BENCHMARK_QA_LIMIT=$BENCHMARK_QA_LIMIT" >> lexical-graph-examples/.env.testing
 fi
+if [[ "${BENCHMARK_EXTRACT_DOC_LIMIT:-}" ]]; then
+	echo "export BENCHMARK_EXTRACT_DOC_LIMIT=$BENCHMARK_EXTRACT_DOC_LIMIT" >> lexical-graph-examples/.env.testing
+fi
 if [[ "$BENCHMARK_IS_PROTOTYPE" ]]; then
 	echo "export BENCHMARK_IS_PROTOTYPE=$BENCHMARK_IS_PROTOTYPE" >> lexical-graph-examples/.env.testing
 fi
@@ -473,6 +477,7 @@ echo "TESTS                    : $TESTS"
 echo "BENCHMARK_DATA_DIR       : $BENCHMARK_DATA_DIR"
 echo "BENCHMARK_DATA_S3_URI    : $BENCHMARK_DATA_S3_URI"
 echo "BENCHMARK_QA_LIMIT       : $BENCHMARK_QA_LIMIT"
+echo "BENCHMARK_EXTRACT_DOC_LIMIT : ${BENCHMARK_EXTRACT_DOC_LIMIT:-}"
 echo "BENCHMARK_ALL_RETRIEVERS : ${BENCHMARK_ALL_RETRIEVERS:-}"
 echo "BENCHMARK_DATASET        : ${BENCHMARK_DATASET:-}"
 echo "EXISTING_VPC_ID          : $EXISTING_VPC_ID"
