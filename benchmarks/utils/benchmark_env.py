@@ -14,6 +14,9 @@ os.environ.get(name, 'true') read that empty string as a choice nobody made.
 Omitting the default makes the variable required. A benchmark that would
 otherwise measure the wrong thing should fail at startup instead of returning a
 plausible number.
+
+A supplied default is returned unchanged, so `env_int(name, None)` yields None
+for an absent variable rather than coercing it.
 """
 
 from typing import Any, Optional
@@ -96,3 +99,18 @@ def env_int(name: str, default: Any = _REQUIRED) -> int:
         return int(raw)
     except ValueError:
         raise ValueError(f'{name}={raw!r} is not an integer.') from None
+
+
+def env_string(name: str, default: Any = _REQUIRED) -> str:
+    """
+    Read a string environment variable.
+
+    Args:
+        name: Variable to read.
+        default: Value to use when unset or empty. Omit to make it required.
+
+    Raises:
+        ValueError: The variable is required and absent.
+    """
+    raw = _raw(name, default)
+    return default if raw is None else raw

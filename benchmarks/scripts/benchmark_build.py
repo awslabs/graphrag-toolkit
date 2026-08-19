@@ -8,6 +8,7 @@ import logging
 
 from benchmarks.scripts.integration_test_base import IntegrationTestBase
 from benchmarks.scripts.integration_test_handler import IntegrationTestHandler
+from benchmarks.utils.benchmark_env import env_bool
 from benchmarks.utils.s3_utils import sync_benchmark_data_from_s3
 
 from graphrag_toolkit.lexical_graph import LexicalGraphIndex
@@ -130,8 +131,8 @@ class CuadBenchmarkBuild(IntegrationTestBase):
     def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
         graph_store_conn = os.environ.get('GRAPH_STORE')
         vector_store_conn = os.environ.get('VECTOR_STORE')
-        is_prototype = os.environ.get('BENCHMARK_IS_PROTOTYPE')
-        if is_prototype == 'true':
+        is_prototype = env_bool('BENCHMARK_IS_PROTOTYPE', False)
+        if is_prototype:
             dataset_name = 'cuad-prototype' 
         else:
             dataset_name = 'cuad'
@@ -148,8 +149,8 @@ class ConcurrentQaBenchmarkBuild(IntegrationTestBase):
     def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
         graph_store_conn = os.environ.get('GRAPH_STORE')
         vector_store_conn = os.environ.get('VECTOR_STORE')
-        is_prototype = os.environ.get('BENCHMARK_IS_PROTOTYPE')
-        if is_prototype == 'true':
+        is_prototype = env_bool('BENCHMARK_IS_PROTOTYPE', False)
+        if is_prototype:
             dataset_name = 'concurrentqa-prototype'
         else:
             dataset_name = 'concurrentqa'

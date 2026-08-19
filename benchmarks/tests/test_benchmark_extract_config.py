@@ -20,7 +20,7 @@ import pathlib
 
 import pytest
 
-from benchmarks.utils.benchmark_env import env_bool, env_int
+from benchmarks.utils.benchmark_env import env_bool, env_int, env_string
 
 SCRIPT = (
     pathlib.Path(__file__).resolve().parents[1] / 'scripts' / 'benchmark_extract.py'
@@ -57,6 +57,17 @@ def _defaults_by_param(fn):
         a.arg: (defaults[i - offset] if i >= offset else None)
         for i, a in enumerate(args)
     }
+
+
+def _env_bool_calls(scope, name=None):
+    """Every env_bool call in `scope`, optionally filtered to one variable."""
+    calls = [
+        n for n in ast.walk(scope)
+        if isinstance(n, ast.Call) and getattr(n.func, 'id', None) == 'env_bool'
+    ]
+    if name is None:
+        return calls
+    return [c for c in calls if c.args and getattr(c.args[0], 'value', None) == name]
 
 
 def _call_kwargs(class_name, callee='run_benchmark_extract'):
@@ -134,6 +145,27 @@ class TestEnvInt:
             env_int('X_NUM', 2)
 
 
+class TestEnvString:
+
+    def test_returns_default_when_unset(self, monkeypatch):
+        monkeypatch.delenv('X_STR', raising=False)
+        assert env_string('X_STR', 'fallback') == 'fallback'
+
+    def test_empty_string_falls_back_to_default(self, monkeypatch):
+        # An empty model id would otherwise reach Bedrock verbatim.
+        monkeypatch.setenv('X_STR', '   ')
+        assert env_string('X_STR', 'fallback') == 'fallback'
+
+    def test_returns_value(self, monkeypatch):
+        monkeypatch.setenv('X_STR', 'us.anthropic.claude-sonnet-4-6')
+        assert env_string('X_STR', 'fallback') == 'us.anthropic.claude-sonnet-4-6'
+
+    def test_omitting_default_makes_the_variable_required(self, monkeypatch):
+        monkeypatch.delenv('X_STR', raising=False)
+        with pytest.raises(ValueError, match='X_STR'):
+            env_string('X_STR')
+
+
 # --------------------------------------- structural: benchmark_extract.py
 
 
@@ -168,11 +200,7 @@ class TestInferenceModeIsExplicit:
     )
     def test_call_site_does_not_default_the_env_read(self, class_name):
         run_test = _function('_run_test', scope=_class(class_name))
-        for node in ast.walk(run_test):
-            if not isinstance(node, ast.Call):
-                continue
-            if getattr(node.func, 'id', None) != 'env_bool':
-                continue
+        for node in _env_bool_calls(run_test, 'BENCHMARK_USE_BATCH'):
             # Any second argument re-arms the trap, literal or not: a
             # module constant is an ast.Name and used to slip through.
             assert not node.args[1:] and not node.keywords, (
@@ -183,9 +211,8 @@ class TestInferenceModeIsExplicit:
         # Keys off BENCHMARK_IS_PROTOTYPE instead. Asserted so the exemption
         # is deliberate rather than a test that passes vacuously.
         run_test = _function('_run_test', scope=_class('ConcurrentQaBenchmarkExtract'))
-        calls = [n for n in ast.walk(run_test)
-                 if isinstance(n, ast.Call) and getattr(n.func, 'id', None) == 'env_bool']
-        assert not calls
+        assert not _env_bool_calls(run_test, 'BENCHMARK_USE_BATCH')
+        assert _env_bool_calls(run_test, 'BENCHMARK_IS_PROTOTYPE')
 
 
 class TestExtractionConfigIsOverridable:
@@ -223,13 +250,17 @@ class TestVariableNameIsPinned:
         / 'integration-tests' / 'build-tests.sh'
     )
 
-    def test_call_sites_read_the_expected_name(self):
-        names = set()
-        for node in ast.walk(_tree()):
-            if isinstance(node, ast.Call) and getattr(node.func, 'id', None) == 'env_bool':
-                names.add(node.args[0].value)
-        assert names == {'BENCHMARK_USE_BATCH'}, (
-            f'unexpected env_bool variable name(s): {sorted(names)}'
+    EXPECTED_BOOL_VARS = {
+        'BENCHMARK_USE_BATCH',
+        'BENCHMARK_IS_PROTOTYPE',
+        'BENCHMARK_S3_JSONL',
+    }
+
+    def test_call_sites_read_the_expected_names(self):
+        names = {c.args[0].value for c in _env_bool_calls(_tree())}
+        assert names == self.EXPECTED_BOOL_VARS, (
+            f'unexpected env_bool variable name(s): '
+            f'{sorted(names ^ self.EXPECTED_BOOL_VARS)}'
         )
 
     def test_harness_exports_the_same_name(self):

@@ -7,7 +7,7 @@ from typing import Dict, Any, Optional
 
 from benchmarks.scripts.integration_test_base import IntegrationTestBase
 from benchmarks.scripts.integration_test_handler import IntegrationTestHandler
-from benchmarks.utils.benchmark_env import env_bool, env_int
+from benchmarks.utils.benchmark_env import env_bool, env_int, env_string
 from benchmarks.utils.s3_utils import sync_benchmark_data_from_s3
 
 from graphrag_toolkit.lexical_graph import LexicalGraphIndex
@@ -65,7 +65,7 @@ def apply_extraction_config():
     if aws_region:
         GraphRAGConfig.aws_region = aws_region
 
-    GraphRAGConfig.extraction_llm = os.environ.get(
+    GraphRAGConfig.extraction_llm = env_string(
         'TEST_EXTRACTION_LLM', 'us.anthropic.claude-sonnet-4-6'
     )
     GraphRAGConfig.extraction_batch_size = env_int('EXTRACTION_BATCH_SIZE', 15000)
@@ -150,7 +150,7 @@ def run_benchmark_extract(handler: IntegrationTestHandler,
             bucket_name=os.environ['S3_RESULTS_BUCKET'],
             key_prefix=f'{os.environ["S3_RESULTS_PREFIX"]}/doc-store/{dataset_name}',
             collection_id=None,
-            for_jsonl=os.environ.get('BENCHMARK_S3_JSONL', 'false').lower() == 'true'
+            for_jsonl=env_bool('BENCHMARK_S3_JSONL', False)
         )
     else:
         extracted_docs = FileBasedDocs(
@@ -210,10 +210,10 @@ class ConcurrentQaBenchmarkExtract(IntegrationTestBase):
         return 'Extract propositions and topics from ConcurrentQA documents'
 
     def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
-        is_prototype = os.environ.get('BENCHMARK_IS_PROTOTYPE')
-        dataset_name = 'concurrentqa-prototype' if is_prototype == 'true' else 'concurrentqa'
-        expected_docs = 2 if is_prototype == 'true' else 13501
-        use_batch = is_prototype != 'true'
+        is_prototype = env_bool('BENCHMARK_IS_PROTOTYPE', False)
+        dataset_name = 'concurrentqa-prototype' if is_prototype else 'concurrentqa'
+        expected_docs = 2 if is_prototype else 13501
+        use_batch = not is_prototype
 
         run_benchmark_extract(handler, dataset_name, BENCHMARK_DATA_DIR,
                               expected_docs=expected_docs, use_batch=use_batch)
