@@ -33,6 +33,15 @@ def _validate_s3_path(s3_path):
         )
 
 
+# region is interpolated into the CALL neptune.load() Cypher too, so allowlist it.
+_REGION_PATTERN = re.compile(r'^[a-z0-9-]+$')
+
+
+def _validate_region(region):
+    if region is None or not _REGION_PATTERN.match(region):
+        raise ValueError(f"Invalid AWS region: '{region}'. Must match [a-z0-9-].")
+
+
 # Escape backticks before a label is interpolated into a backtick-quoted Cypher
 # identifier. Doubling is Cypher's escape rule; without it a label containing a
 # backtick could break out of the identifier and inject Cypher.
@@ -251,10 +260,13 @@ class NeptuneAnalyticsGraphStore(BaseNeptuneGraphStore):
 
 
         if region is None:
+            self.region = None
             self.__detect_region()
         else:
             self.region = region
-        assert self.region is not None, "region needs to be passed in or inferrable from current environment"
+        if self.region is None:
+            raise ValueError("region needs to be passed in or inferrable from current environment")
+        _validate_region(self.region)
         self.session = boto3.Session(region_name=self.region)
         self.neptune_client = self.session.client('neptune-graph', region_name=self.region)
         self.s3_client = self.session.client('s3', region_name=self.region)
@@ -291,7 +303,8 @@ class NeptuneAnalyticsGraphStore(BaseNeptuneGraphStore):
 
         """
 
-        assert format in ['NTRIPLES', 'CSV', 'OPEN_CYPHER'], "format must be either 'NTRIPLES' or 'CSV' or 'OPEN_CYPHER'"
+        if format not in ('NTRIPLES', 'CSV', 'OPEN_CYPHER'):
+            raise ValueError("format must be one of 'NTRIPLES', 'CSV', 'OPEN_CYPHER'")
         _validate_s3_path(s3_path)
 
         if csv_file is not None:

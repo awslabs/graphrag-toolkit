@@ -15,6 +15,7 @@ from graphrag_toolkit.byokg_rag.graphstore.neptune import (
     NeptuneDBGraphStore,
     BaseNeptuneGraphStore,
     _validate_s3_path,
+    _validate_region,
     _escape_cypher_label,
 )
 
@@ -308,7 +309,7 @@ class TestNeptuneAnalyticsGraphStore:
             region='us-west-2'
         )
         
-        with pytest.raises(AssertionError, match="format must be either"):
+        with pytest.raises(ValueError, match="format must be"):
             store.read_from_csv(s3_path='s3://test-bucket/data.csv', format='INVALID')
     
     @patch('graphrag_toolkit.byokg_rag.graphstore.neptune.boto3.Session')
@@ -1281,6 +1282,73 @@ class TestValidateS3Path:
     def test_rejects_empty_string(self):
         with pytest.raises(ValueError, match='Invalid s3_path'):
             _validate_s3_path('')
+
+
+class TestValidateRegion:
+    """region is interpolated into the CALL neptune.load() Cypher alongside
+    s3_path, so it must be allowlisted too."""
+
+    @pytest.mark.parametrize('region', ['us-east-1', 'eu-west-2', 'us-gov-west-1'])
+    def test_accepts_valid_regions(self, region):
+        _validate_region(region)
+
+    def test_accepts_every_region_botocore_knows(self):
+        import botocore.session
+
+        sess = botocore.session.get_session()
+        regions = {
+            r
+            for partition in sess.get_available_partitions()
+            for svc in sess.get_available_services()
+            for r in sess.get_available_regions(svc, partition_name=partition)
+        }
+        assert regions  # sanity: botocore returned something
+        for region in regions:
+            _validate_region(region)
+
+    @pytest.mark.parametrize('region', [
+        pytest.param(None, id='none'),
+        pytest.param('', id='empty'),
+        pytest.param('US-EAST-1', id='uppercase'),
+        pytest.param("us-east-1', format:'CSV'}) DETACH DELETE n //", id='cypher-breakout'),
+        pytest.param('us east 1', id='space'),
+    ])
+    def test_rejects_invalid_regions(self, region):
+        with pytest.raises(ValueError, match='Invalid AWS region'):
+            _validate_region(region)
+
+
+class TestNeptuneAnalyticsRegionValidation:
+    """The store must reject a malicious region at construction, before it can
+    reach the load Cypher."""
+
+    @patch('graphrag_toolkit.byokg_rag.graphstore.neptune.boto3.Session')
+    def test_constructor_rejects_malicious_region(self, mock_session, mock_neptune_client, mock_s3_client):
+        mock_session_instance = Mock()
+        mock_session.return_value = mock_session_instance
+        mock_session_instance.client.side_effect = lambda service, **kwargs: {
+            'neptune-graph': mock_neptune_client,
+            's3': mock_s3_client,
+        }[service]
+
+        with pytest.raises(ValueError, match='Invalid AWS region'):
+            NeptuneAnalyticsGraphStore(
+                graph_identifier='test-graph-id',
+                region="us-east-1', format:'CSV'}) DETACH DELETE n //",
+            )
+
+    @patch('graphrag_toolkit.byokg_rag.graphstore.neptune.boto3.Session')
+    @patch.dict('os.environ', {'AWS_REGION': "us-east-1'}) DETACH DELETE n //"})
+    def test_constructor_rejects_malicious_region_from_env(self, mock_session, mock_neptune_client, mock_s3_client):
+        mock_session_instance = Mock()
+        mock_session.return_value = mock_session_instance
+        mock_session_instance.client.side_effect = lambda service, **kwargs: {
+            'neptune-graph': mock_neptune_client,
+            's3': mock_s3_client,
+        }[service]
+
+        with pytest.raises(ValueError, match='Invalid AWS region'):
+            NeptuneAnalyticsGraphStore(graph_identifier='test-graph-id')
 
 
 class TestReadFromCsvValidatesS3Path:
