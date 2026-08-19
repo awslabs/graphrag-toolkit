@@ -6,6 +6,7 @@ from typing import Any
 
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
+from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import escape_cypher_label
 from graphrag_toolkit.lexical_graph.storage.chunk_store_factory import ChunkStoreFactory
 from graphrag_toolkit.lexical_graph.indexing.build.graph_builder import GraphBuilder
 
@@ -96,7 +97,8 @@ class ChunkGraphBuilder(GraphBuilder):
             # named 'value' must not overwrite it.
             for key, value in chunk_metadata.items():
                 if key not in ('chunkId', 'value'):
-                    chunk_property_setters.append(f'chunk.{key} = params.{key}')
+                    escaped_key = escape_cypher_label(key)
+                    chunk_property_setters.append(f'chunk.`{escaped_key}` = params.`{escaped_key}`')
                     properties_c[key] = value
 
             if chunk_property_setters:

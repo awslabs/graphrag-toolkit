@@ -185,6 +185,57 @@ class TestChunkGraphBuilding:
 
         mock_for_chunk_store.assert_called_once_with('s3://my-bucket/chunks', graph_store=client)
 
+    def _metadata_setter_query(self, client):
+        """The single query that carries the ON CREATE/ON MATCH SET clauses."""
+        setters = [
+            call[0][0] for call in client.execute_query_with_retry.call_args_list
+            if 'ON CREATE SET' in call[0][0]
+        ]
+        assert len(setters) == 1
+        return setters[0]
+
+    def test_build_escapes_backticks_in_property_key(self):
+        """A property key is a Cypher identifier, not a bound value, so a key
+        with a backtick must be backtick-quoted with the backtick doubled or it
+        can break out of the SET clause and inject Cypher."""
+        builder = ChunkGraphBuilder()
+        node = self._make_chunk_node()
+        malicious = 'x` = 1 WITH chunk MATCH (n) DETACH DELETE n //'
+        node.metadata['chunk']['metadata'] = {malicious: 'v'}
+
+        client = self._make_graph_client()
+        with patch(
+            'graphrag_toolkit.lexical_graph.indexing.build.chunk_graph_builder.ChunkStoreFactory.for_chunk_store',
+            return_value=Mock(),
+        ):
+            builder.build(node, client)
+
+        query = self._metadata_setter_query(client)
+        # Backtick doubled inside a backtick-quoted identifier, on both sides.
+        assert 'chunk.`x`` = 1 WITH chunk MATCH (n) DETACH DELETE n //`' in query
+        assert 'params.`x`` = 1 WITH chunk MATCH (n) DETACH DELETE n //`' in query
+        # The raw, unquoted breakout form must not reach the query.
+        assert 'chunk.x`' not in query
+        # Value is still bound as a parameter under the original key.
+        params = client.execute_query_with_retry.call_args_list[0][0][1]['params'][0]
+        assert params[malicious] == 'v'
+
+    def test_build_backtick_quotes_a_plain_property_key(self):
+        """A legitimate key is still backtick-quoted, producing valid Cypher."""
+        builder = ChunkGraphBuilder()
+        node = self._make_chunk_node()
+        node.metadata['chunk']['metadata'] = {'custom_prop': 'custom_value'}
+
+        client = self._make_graph_client()
+        with patch(
+            'graphrag_toolkit.lexical_graph.indexing.build.chunk_graph_builder.ChunkStoreFactory.for_chunk_store',
+            return_value=Mock(),
+        ):
+            builder.build(node, client)
+
+        query = self._metadata_setter_query(client)
+        assert 'chunk.`custom_prop` = params.`custom_prop`' in query
+
     def test_build_skips_metadata_query_when_no_extra_properties(self):
         """Verify build doesn't issue an empty SET query when there's no extra chunk metadata."""
         builder = ChunkGraphBuilder()
