@@ -690,3 +690,130 @@ class TestS3ChunkDownloaderParallelListing:
                 # while the executors unwind.
                 with pytest.raises(RuntimeError, match='transient S3 listing error'):
                     next(gen)
+
+
+from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
+
+
+def _doc(source_id, num_chunks, index_key_chunks=0):
+    """A stand-in source document whose chunks the uploader will write."""
+    nodes = [
+        TextNode(text=f'{source_id}-chunk-{i}', id_=f'{source_id}-chunk-{i}')
+        for i in range(num_chunks)
+    ]
+    for i in range(index_key_chunks):
+        skipped = TextNode(text='skip', id_=f'{source_id}-index-{i}')
+        skipped.metadata[INDEX_KEY] = {'index': 'chunk'}
+        nodes.append(skipped)
+
+    doc = Mock()
+    doc.nodes = nodes
+    doc.source_id.return_value = source_id
+    return doc
+
+
+@contextlib.contextmanager
+def _uploader_with(num_threads, on_put):
+    """Run S3ChunkUploader against an instrumented put_object."""
+    uploader = S3ChunkUploader(bucket_name='test-bucket', collection_prefix='prefix/collection')
+    with patch(
+        'graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs.GraphRAGConfig'
+    ) as config:
+        config.extraction_num_threads_per_worker = num_threads
+        config.s3 = MagicMock()
+        config.s3.put_object = on_put
+        yield uploader
+
+
+class TestS3ChunkUploaderConcurrency:
+    """Uploads for several documents are in flight at once."""
+
+    def test_uploads_overlap_across_documents(self):
+        """
+        Waiting for each document before submitting the next capped in-flight
+        uploads at that document's chunk count. With one chunk per document
+        that is a single upload at a time, whatever the pool size.
+        """
+        # Releases only if this many uploads are in flight together, so a
+        # one-at-a-time uploader cannot satisfy it.
+        barrier = threading.Barrier(4)
+        peak = 0
+        inflight = 0
+        lock = threading.Lock()
+
+        def on_put(**kwargs):
+            nonlocal peak, inflight
+            with lock:
+                inflight += 1
+                peak = max(peak, inflight)
+            with contextlib.suppress(threading.BrokenBarrierError):
+                barrier.wait(timeout=5)
+            with lock:
+                inflight -= 1
+
+        with _uploader_with(8, on_put) as uploader:
+            docs = [_doc(f'src-{i}', 1) for i in range(8)]
+            list(uploader.upload(docs))
+
+        assert peak >= 4
+
+    def test_yields_documents_in_order(self):
+        with _uploader_with(4, lambda **kwargs: None) as uploader:
+            docs = [_doc(f'src-{i}', 2) for i in range(10)]
+            yielded = list(uploader.upload(docs))
+
+        assert [d.source_id() for d in yielded] == [f'src-{i}' for i in range(10)]
+
+    def test_every_chunk_is_uploaded_once(self):
+        keys = []
+        lock = threading.Lock()
+
+        def on_put(**kwargs):
+            with lock:
+                keys.append(kwargs['Key'])
+
+        with _uploader_with(4, on_put) as uploader:
+            docs = [_doc(f'src-{i}', 3) for i in range(10)]
+            list(uploader.upload(docs))
+
+        assert len(keys) == 30
+        assert len(set(keys)) == 30
+
+    def test_document_is_yielded_only_after_its_own_chunks_are_written(self):
+        """The durability contract a consumer already relies on."""
+        written = set()
+        lock = threading.Lock()
+
+        def on_put(**kwargs):
+            time.sleep(0.01)
+            with lock:
+                written.add(kwargs['Key'])
+
+        with _uploader_with(8, on_put) as uploader:
+            docs = [_doc(f'src-{i}', 3) for i in range(8)]
+            for doc in uploader.upload(docs):
+                source_id = doc.source_id()
+                with lock:
+                    for i in range(3):
+                        assert f'prefix/collection/{source_id}/{source_id}-chunk-{i}.json' in written
+
+    def test_index_key_chunks_are_skipped(self):
+        keys = []
+
+        def on_put(**kwargs):
+            keys.append(kwargs['Key'])
+
+        with _uploader_with(4, on_put) as uploader:
+            list(uploader.upload([_doc('src-0', 2, index_key_chunks=3)]))
+
+        assert len(keys) == 2
+
+    def test_a_failed_chunk_does_not_stop_the_stream(self):
+        def on_put(**kwargs):
+            if 'src-1' in kwargs['Key']:
+                raise RuntimeError('upload failed')
+
+        with _uploader_with(4, on_put) as uploader:
+            yielded = list(uploader.upload([_doc(f'src-{i}', 2) for i in range(4)]))
+
+        assert [d.source_id() for d in yielded] == [f'src-{i}' for i in range(4)]

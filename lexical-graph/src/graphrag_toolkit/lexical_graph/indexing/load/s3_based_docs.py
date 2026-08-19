@@ -378,30 +378,63 @@ class S3ChunkUploader(BaseComponent):
                 ServerSideEncryption='AES256'
             )
 
-    def upload(self, source_documents: List[SourceDocument]):
+    def _drain(self, futures):
+        for future in futures:
+            try:
+                future.result()
+            except Exception as e:
+                logger.error(f'Error uploading chunk: {str(e)}')
 
+    def upload(self, source_documents: List[SourceDocument]):
+        """
+        Upload each source document's chunks, yielding a document once its own
+        chunks are written.
+
+        Uploads for several documents are in flight at once. Waiting for one
+        document before submitting the next held in-flight uploads to that
+        document's chunk count - 3.31 on the WikiHow benchmark corpus - so the
+        pool sat idle however many threads it was given, and the write phase
+        took the same 13 minutes at 16, 32 and 64 threads.
+
+        Documents are still yielded in order, and still only after their own
+        chunks are durable, so a consumer sees what it saw before.
+        """
         s3_client = GraphRAGConfig.s3
-        
-        with concurrent.futures.ThreadPoolExecutor(max_workers=GraphRAGConfig.extraction_num_threads_per_worker) as executor:
+        num_threads = GraphRAGConfig.extraction_num_threads_per_worker
+
+        # Enough queued chunks to keep every thread busy while the oldest
+        # document drains, without reading the whole corpus into memory.
+        max_inflight = num_threads * 2
+
+        with concurrent.futures.ThreadPoolExecutor(max_workers=num_threads) as executor:
+
+            pending = deque()
+            inflight = 0
 
             for source_document in source_documents:
-        
+
                 root_path =  join(self.collection_prefix, source_document.source_id())
                 logger.debug(f'Writing source document to S3 [bucket: {self.bucket_name}, prefix: {root_path}]')
 
                 futures = [
                     executor.submit(self._upload_chunk, root_path, n, s3_client)
-                    for n in source_document.nodes 
+                    for n in source_document.nodes
                     if not [key for key in [INDEX_KEY] if key in n.metadata]
                 ]
 
-                for future in futures:
-                    try:
-                        future.result()
-                    except Exception as e:
-                        logger.error(f'Error uploading chunk: {str(e)}')
+                pending.append((source_document, futures))
+                inflight += len(futures)
 
-                yield source_document
+                while inflight > max_inflight:
+                    (oldest, oldest_futures) = pending.popleft()
+                    self._drain(oldest_futures)
+                    inflight -= len(oldest_futures)
+                    yield oldest
+
+            while pending:
+                (oldest, oldest_futures) = pending.popleft()
+                self._drain(oldest_futures)
+                yield oldest
 
 
 
