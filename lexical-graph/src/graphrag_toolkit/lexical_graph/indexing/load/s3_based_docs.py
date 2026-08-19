@@ -114,9 +114,18 @@ class S3DocUploader(BaseComponent):
     bucket_name:str
     collection_prefix:str
     s3_encryption_key_id:Optional[str]=None
+    num_threads:Optional[int]=None
     _semaphore:Semaphore = PrivateAttr(default=None)
     _queue:queue.Queue = PrivateAttr(default=None)
     
+    def _num_threads(self):
+        """
+        Threads the caller asked for, or whatever this process can see.
+
+        The fallback keeps a directly-constructed uploader working as before.
+        """
+        return self.num_threads or GraphRAGConfig.extraction_num_threads_per_worker
+
     def _upload_doc(self, root_path:str, doc:SourceDocument, s3_client):
 
         doc_output_path = join(root_path, f'{doc.source_id()}-{uuid.uuid4().hex[:5]}.jsonl')
@@ -181,7 +190,7 @@ class S3DocUploader(BaseComponent):
         
         try:
 
-            with concurrent.futures.ThreadPoolExecutor(max_workers=GraphRAGConfig.extraction_num_threads_per_worker) as executor:
+            with concurrent.futures.ThreadPoolExecutor(max_workers=self._num_threads()) as executor:
 
                 count = 0
 
@@ -354,6 +363,15 @@ class S3ChunkUploader(BaseComponent):
     bucket_name:str
     collection_prefix:str
     s3_encryption_key_id:Optional[str]=None
+    num_threads:Optional[int]=None
+
+    def _num_threads(self):
+        """
+        Threads the caller asked for, or whatever this process can see.
+
+        The fallback keeps a directly-constructed uploader working as before.
+        """
+        return self.num_threads or GraphRAGConfig.extraction_num_threads_per_worker
 
     def _upload_chunk(self, root_path:str, n:TextNode, s3_client):
         chunk_output_path = join(root_path, f'{n.node_id}.json')
@@ -400,7 +418,7 @@ class S3ChunkUploader(BaseComponent):
         chunks are durable, so a consumer sees what it saw before.
         """
         s3_client = GraphRAGConfig.s3
-        num_threads = GraphRAGConfig.extraction_num_threads_per_worker
+        num_threads = self._num_threads()
 
         # Enough queued chunks to keep every thread busy while the oldest
         # document drains, without reading the whole corpus into memory.
@@ -447,6 +465,7 @@ class S3BasedDocs(NodeHandler):
     s3_encryption_key_id:Optional[str]=None
     metadata_keys:Optional[List[str]]=None
     for_jsonl:Optional[bool]=False
+    num_threads:Optional[int]=None
 
     _uploader:Any = PrivateAttr(default=None)
     _downloader:Any = PrivateAttr(default=None)
@@ -458,8 +477,17 @@ class S3BasedDocs(NodeHandler):
                  collection_id:Optional[str]=None,
                  s3_encryption_key_id:Optional[str]=None, 
                  metadata_keys:Optional[List[str]]=None,
-                 for_jsonl:Optional[bool]=False):
-        
+                 for_jsonl:Optional[bool]=False,
+                 num_threads:Optional[int]=None):
+
+        # Resolved here rather than where the uploader is built. __init__ runs
+        # in the process that configured GraphRAGConfig; accept() runs in a
+        # worker spawned by run_pipeline, which inherits no parent memory and
+        # reads back the default however the parent was configured. Carrying the
+        # value as a field pickles it with the handler, the same trip an
+        # extractor's num_workers already survives.
+        num_threads = num_threads or GraphRAGConfig.extraction_num_threads_per_worker
+
         super().__init__(
             region=region,
             bucket_name=bucket_name,
@@ -467,7 +495,8 @@ class S3BasedDocs(NodeHandler):
             collection_id=collection_id or datetime.now().strftime('%Y%m%d-%H%M%S'),
             s3_encryption_key_id=s3_encryption_key_id,
             metadata_keys=metadata_keys,
-            for_jsonl=for_jsonl
+            for_jsonl=for_jsonl,
+            num_threads=num_threads
         )
 
     def docs(self):
@@ -573,14 +602,16 @@ class S3BasedDocs(NodeHandler):
                 self._uploader = S3DocUploader(
                     bucket_name=self.bucket_name, 
                     collection_prefix=collection_prefix,
-                    s3_encryption_key_id=self.s3_encryption_key_id
+                    s3_encryption_key_id=self.s3_encryption_key_id,
+                    num_threads=self.num_threads
                 )
                 
             else:
                 self._uploader = S3ChunkUploader(
                     bucket_name=self.bucket_name, 
                     collection_prefix=collection_prefix,
-                    s3_encryption_key_id=self.s3_encryption_key_id
+                    s3_encryption_key_id=self.s3_encryption_key_id,
+                    num_threads=self.num_threads
                 )
         
         for doc in self._uploader.upload(source_documents):

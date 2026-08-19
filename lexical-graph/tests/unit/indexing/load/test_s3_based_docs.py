@@ -817,3 +817,71 @@ class TestS3ChunkUploaderConcurrency:
             yielded = list(uploader.upload([_doc(f'src-{i}', 2) for i in range(4)]))
 
         assert [d.source_id() for d in yielded] == [f'src-{i}' for i in range(4)]
+
+
+class TestUploadThreadPropagation:
+    """
+    The thread count has to reach the process that does the uploading.
+
+    S3BasedDocs is built where GraphRAGConfig was configured; accept() runs in a
+    worker spawned by run_pipeline, which sees the default instead.
+    """
+
+    def _handler(self, configured_threads, num_threads=None):
+        with patch(
+            'graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs.GraphRAGConfig'
+        ) as config:
+            config.extraction_num_threads_per_worker = configured_threads
+            return S3BasedDocs(
+                region='us-east-1',
+                bucket_name='test-bucket',
+                key_prefix='prefix',
+                num_threads=num_threads,
+            )
+
+    def test_thread_count_is_captured_at_construction(self):
+        handler = self._handler(64)
+
+        assert handler.num_threads == 64
+
+    def test_explicit_thread_count_wins_over_config(self):
+        handler = self._handler(64, num_threads=8)
+
+        assert handler.num_threads == 8
+
+    def test_uploader_keeps_the_count_when_the_process_sees_the_default(self):
+        """Stands in for the spawned worker: same handler, config back at 4."""
+        handler = self._handler(64)
+
+        peak = 0
+        inflight = 0
+        lock = threading.Lock()
+
+        def on_put(**kwargs):
+            nonlocal peak, inflight
+            with lock:
+                inflight += 1
+                peak = max(peak, inflight)
+            time.sleep(0.02)
+            with lock:
+                inflight -= 1
+
+        with patch(
+            'graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs.GraphRAGConfig'
+        ) as config:
+            config.extraction_num_threads_per_worker = 4
+            config.s3 = MagicMock()
+            config.s3.put_object = on_put
+            list(handler.accept([_doc(f'src-{i}', 2) for i in range(64)]))
+
+        assert handler._uploader.num_threads == 64
+        assert peak > 4
+
+    def test_uploader_falls_back_to_config_when_built_directly(self):
+        uploader = S3ChunkUploader(bucket_name='b', collection_prefix='p')
+
+        with patch(
+            'graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs.GraphRAGConfig'
+        ) as config:
+            config.extraction_num_threads_per_worker = 7
+            assert uploader._num_threads() == 7
