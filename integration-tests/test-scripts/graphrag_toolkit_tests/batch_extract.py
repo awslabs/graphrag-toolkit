@@ -64,7 +64,7 @@ class BatchExtractToS3(IntegrationTestBase):
     
     @property
     def description(self):
-        return ('Baseline batch extraction: extract propositions and topics from the local Neptune docs '
+        return ('Baseline batch extraction: extract propositions and topics from the local docs '
                 'corpus (source-data/corpus-modified.json) using Bedrock batch inference with a fixed '
                 'batch_size (100), save to S3; output feeds batch_build.BuildFromS3')
         

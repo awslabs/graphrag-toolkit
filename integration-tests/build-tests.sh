@@ -88,6 +88,7 @@ if [[ "$#" -gt 0 ]]; then
     echo "  --benchmark-data-dir <local directory containing benchmark data to upload>"
     echo "  --benchmark-data-s3-uri <S3 URI for benchmark data (synced at runtime instead of uploading)>"
     echo "  --benchmark-qa-limit <max number of QA pairs to evaluate (for prototype runs)>"
+    echo "  --benchmark-extract-doc-limit <cap the number of source documents extracted by the batch_extract.py tests (only the first N docs are extracted); speeds up benchmark runs>"
     echo "  --benchmark-prototype"
     echo "  --benchmark-all-retrievers  Run all retrievers in a single pass (loops query+evaluate per retriever)"
     echo "  --benchmark-dataset <dataset>  Dataset for all-retrievers mode (cuad|concurrentqa|pga|pga_bio|pga_stat|wikihow)"
