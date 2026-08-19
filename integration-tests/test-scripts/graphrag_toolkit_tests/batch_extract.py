@@ -134,7 +134,7 @@ class BatchExtractAutoTuneToS3(IntegrationTestBase):
         aws_region_name = os.environ['AWS_REGION_NAME']
         batch_inference_role = os.environ['BATCH_INFERENCE_ROLE']
         batch_inference_prefix = f'{s3_results_prefix}/batch-inference-auto-tune'
-        extracted_prefix = f'{s3_results_prefix}/extracted-auto-tune'
+        extracted_prefix = f'{s3_results_prefix}/extracted'
 
         extracted_docs = S3BasedDocs(
             region=aws_region_name,
@@ -190,7 +190,10 @@ class BatchExtractAutoTuneToS3(IntegrationTestBase):
 
             collection_id = extracted_docs.collection_id
 
-            params['auto_tune_batch_collection_id'] = collection_id
+            # Use the same param keys as BatchExtractToS3 so that batch_build.BuildFromS3
+            # picks up this collection and its expected doc count as the next step.
+            params['batch_collection_id'] = collection_id
+            params['multihop_expected_num_batch_docs'] = len(docs)
 
             class BatchExtractAutoTuneAssertions(unittest.TestCase):
 
