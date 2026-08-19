@@ -7,6 +7,7 @@ from typing import Dict, Any, Optional
 
 from benchmarks.scripts.integration_test_base import IntegrationTestBase
 from benchmarks.scripts.integration_test_handler import IntegrationTestHandler
+from benchmarks.utils.benchmark_env import env_bool, env_int
 from benchmarks.utils.s3_utils import sync_benchmark_data_from_s3
 
 from graphrag_toolkit.lexical_graph import LexicalGraphIndex
@@ -45,11 +46,58 @@ def _count_source_docs(extracted_docs) -> int:
     return sum(len(page.get('CommonPrefixes', [])) for page in pages)
 
 
+def apply_extraction_config():
+    """
+    Apply the benchmark's extraction settings to GraphRAGConfig from the
+    environment.
+
+    extraction_batch_size and extraction_num_workers used to be hardcoded here,
+    which overrode the environment and made a worker sweep report the same
+    number at every point on the curve. GraphRAGConfig reads both itself, but
+    that is not enough: its own defaults differ from the benchmark's
+    (extraction_batch_size defaults to 4, not 15000), and its
+    int(os.environ.get(...)) raises on the empty string the harness exports for
+    an unset allowlisted variable.
+    """
+    # Must precede extraction_llm, whose assignment builds a BedrockConverse
+    # and fails outright if no region is configured yet.
+    aws_region = os.environ.get('AWS_REGION_NAME')
+    if aws_region:
+        GraphRAGConfig.aws_region = aws_region
+
+    GraphRAGConfig.extraction_llm = os.environ.get(
+        'TEST_EXTRACTION_LLM', 'us.anthropic.claude-sonnet-4-6'
+    )
+    GraphRAGConfig.extraction_batch_size = env_int('EXTRACTION_BATCH_SIZE', 15000)
+    GraphRAGConfig.extraction_num_workers = env_int('EXTRACTION_NUM_WORKERS', 2)
+
+
+def build_indexing_config(use_batch: bool, dataset_name: str) -> Optional[IndexingConfig]:
+    """
+    Build the indexing config for the chosen inference mode.
+
+    Returns None for on-demand inference, which is what makes use_batch=False
+    actually change what runs rather than only what gets logged.
+    """
+    if not use_batch:
+        return None
+
+    batch_config = BatchConfig(
+        region=os.environ['AWS_REGION_NAME'],
+        bucket_name=os.environ['S3_RESULTS_BUCKET'],
+        key_prefix=f'{os.environ["S3_RESULTS_PREFIX"]}/batch-extract/{dataset_name}',
+        role_arn=os.environ['BATCH_INFERENCE_ROLE'],
+        max_batch_size=40000,
+        max_num_concurrent_batches=1
+    )
+    return IndexingConfig(batch_config=batch_config)
+
+
 def run_benchmark_extract(handler: IntegrationTestHandler,
                           dataset_name: str,
                           data_dir: str,
                           expected_docs: int,
-                          use_batch: bool = True):
+                          use_batch: bool):
     """
     Extracts propositions and topics from benchmark dataset documents.
 
@@ -66,7 +114,9 @@ def run_benchmark_extract(handler: IntegrationTestHandler,
         dataset_name: Dataset key (e.g. 'concurrentqa', 'wikihow', 'pga').
         data_dir: Root path to the benchmark data directory.
         expected_docs: Expected number of source documents (for assertion).
-        use_batch: Whether to use Bedrock batch inference (default: True).
+        use_batch: Whether to use Bedrock batch inference. No default -
+            every caller states its mode, because batch wall time measures
+            queue wait rather than pipeline throughput.
     """
     input_path = os.path.join(data_dir, dataset_name, 'documents')
 
@@ -91,30 +141,8 @@ def run_benchmark_extract(handler: IntegrationTestHandler,
             f'requires {", ".join(missing)} to be set'
         )
 
-    GraphRAGConfig.extraction_llm = os.environ.get(
-        'TEST_EXTRACTION_LLM', 'us.anthropic.claude-sonnet-4-6'
-    )
-    GraphRAGConfig.extraction_batch_size = 15000
-    GraphRAGConfig.extraction_num_workers = 2
-
-    # The harness exports AWS_REGION_NAME, but boto3 clients take their region
-    # from GraphRAGConfig. The region= argument on BatchConfig and S3BasedDocs is
-    # stored and never read, so without this they can target the wrong region.
-    aws_region = os.environ.get('AWS_REGION_NAME')
-    if aws_region:
-        GraphRAGConfig.aws_region = aws_region
-
-    indexing_config = None
-    if use_batch:
-        batch_config = BatchConfig(
-            region=os.environ['AWS_REGION_NAME'],
-            bucket_name=os.environ['S3_RESULTS_BUCKET'],
-            key_prefix=f'{os.environ["S3_RESULTS_PREFIX"]}/batch-extract/{dataset_name}',
-            role_arn=os.environ['BATCH_INFERENCE_ROLE'],
-            max_batch_size=40000,
-            max_num_concurrent_batches=1
-        )
-        indexing_config = IndexingConfig(batch_config=batch_config)
+    apply_extraction_config()
+    indexing_config = build_indexing_config(use_batch, dataset_name)
 
     if doc_store == 's3':
         extracted_docs = S3BasedDocs(
@@ -179,7 +207,7 @@ class ConcurrentQaBenchmarkExtract(IntegrationTestBase):
 
     @property
     def description(self):
-        return 'Extract propositions and topics from ConcurrentQA documents using batch inference'
+        return 'Extract propositions and topics from ConcurrentQA documents'
 
     def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
         is_prototype = os.environ.get('BENCHMARK_IS_PROTOTYPE')
@@ -187,24 +215,31 @@ class ConcurrentQaBenchmarkExtract(IntegrationTestBase):
         expected_docs = 2 if is_prototype == 'true' else 13501
         use_batch = is_prototype != 'true'
 
-        run_benchmark_extract(handler, dataset_name, BENCHMARK_DATA_DIR, expected_docs, use_batch)
+        run_benchmark_extract(handler, dataset_name, BENCHMARK_DATA_DIR,
+                              expected_docs=expected_docs, use_batch=use_batch)
 
 
 class WikihowBenchmarkExtract(IntegrationTestBase):
 
     @property
     def description(self):
-        return 'Extract propositions and topics from WikiHow documents using batch inference'
+        return 'Extract propositions and topics from WikiHow documents'
 
     def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
-        run_benchmark_extract(handler, 'wikihow', BENCHMARK_DATA_DIR, expected_docs=5000)
+        # Required, not defaulted: batch wall time is queue wait, not
+        # throughput, so the mode has to be a stated choice.
+        run_benchmark_extract(handler, 'wikihow', BENCHMARK_DATA_DIR,
+                              expected_docs=5000,
+                              use_batch=env_bool('BENCHMARK_USE_BATCH'))
 
 
 class PgaBenchmarkExtract(IntegrationTestBase):
 
     @property
     def description(self):
-        return 'Extract propositions and topics from PGA documents using batch inference'
+        return 'Extract propositions and topics from PGA documents'
 
     def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
-        run_benchmark_extract(handler, 'pga', BENCHMARK_DATA_DIR, expected_docs=507)
+        run_benchmark_extract(handler, 'pga', BENCHMARK_DATA_DIR,
+                              expected_docs=507,
+                              use_batch=env_bool('BENCHMARK_USE_BATCH'))

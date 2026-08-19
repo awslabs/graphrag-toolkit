@@ -414,6 +414,15 @@ if [[ "$BENCHMARK_S3_JSONL" ]]; then
 	echo "export BENCHMARK_S3_JSONL=$BENCHMARK_S3_JSONL" >> lexical-graph-examples/.env.testing
 fi
 
+# Unconditional: the benchmarks require this rather than defaulting it.
+echo "export BENCHMARK_USE_BATCH=${BENCHMARK_USE_BATCH:-true}" >> lexical-graph-examples/.env.testing
+if [[ "${EXTRACTION_NUM_WORKERS:-}" ]]; then
+	echo "export EXTRACTION_NUM_WORKERS=$EXTRACTION_NUM_WORKERS" >> lexical-graph-examples/.env.testing
+fi
+if [[ "${EXTRACTION_BATCH_SIZE:-}" ]]; then
+	echo "export EXTRACTION_BATCH_SIZE=$EXTRACTION_BATCH_SIZE" >> lexical-graph-examples/.env.testing
+fi
+
 zip -r graphrag-toolkit.zip graphrag-toolkit # zip under directory
 
 pushd lexical-graph-examples
