@@ -54,7 +54,7 @@ Tests can be supplied via a file (using the `--test-file` option), or as a quote
 | File | Description |
 |------|-------------|
 | `lexical.short` | Short-running lexical graph tests (extraction, build, query, etc.) |
-| `lexical.long` | Long-running lexical graph tests (batch extraction, batch build, multi-hop queries) |
+| `lexical.long` | Long-running lexical graph tests (auto-tune batch extraction, batch build, multi-hop queries) |
 | `lexical.versioning` | Versioning-related tests |
 | `byokg.all` | Bring-your-own-knowledge-graph tests |
 
