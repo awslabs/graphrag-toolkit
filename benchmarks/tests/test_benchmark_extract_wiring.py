@@ -85,23 +85,23 @@ class TestExtractionConfigReachesGraphRAGConfig:
         assert GraphRAGConfig.extraction_batch_size == 15000
 
 
-class TestUseBatchChangesWhatRuns:
+class TestBatchConfigIsBuiltFromTheEnvironment:
 
-    def test_on_demand_builds_no_indexing_config(self):
-        assert build_indexing_config(False, 'wikihow') is None
-
-    def test_batch_builds_one(self, monkeypatch):
+    def test_wires_bucket_and_prefix(self, monkeypatch):
         for name, value in BATCH_ENV.items():
             monkeypatch.setenv(name, value)
 
-        config = build_indexing_config(True, 'wikihow')
+        config = build_indexing_config('wikihow')
 
         assert isinstance(config, IndexingConfig)
         assert config.batch_config.bucket_name == 'a-bucket'
         assert config.batch_config.key_prefix == 'a/prefix/batch-extract/wikihow'
 
-    def test_on_demand_needs_none_of_the_batch_variables(self, monkeypatch):
+    def test_requires_the_batch_variables(self, monkeypatch):
+        # Only reachable when use_batch is true, so a missing variable here is
+        # a misconfigured batch run rather than a working on-demand one.
         for name in BATCH_ENV:
             monkeypatch.delenv(name, raising=False)
 
-        assert build_indexing_config(False, 'wikihow') is None
+        with pytest.raises(KeyError):
+            build_indexing_config('wikihow')

@@ -215,6 +215,29 @@ class TestInferenceModeIsExplicit:
         assert _env_bool_calls(run_test, 'BENCHMARK_IS_PROTOTYPE')
 
 
+class TestOnDemandSkipsTheBatchConfig:
+    """
+    `use_batch=False` has to change what runs, not only what gets logged. The
+    guard used to live inside build_indexing_config; it now sits at the call
+    site, so that is where it gets pinned.
+    """
+
+    def test_call_site_is_guarded_by_use_batch(self):
+        fn = _function('run_benchmark_extract')
+        guarded = [
+            n for n in ast.walk(fn)
+            if isinstance(n, ast.IfExp)
+            and getattr(n.test, 'id', None) == 'use_batch'
+            and isinstance(n.body, ast.Call)
+            and getattr(n.body.func, 'id', None) == 'build_indexing_config'
+            and getattr(n.orelse, 'value', 'missing') is None
+        ]
+        assert guarded, (
+            'build_indexing_config must be called only when use_batch is true, '
+            'otherwise on-demand runs still build a BatchConfig'
+        )
+
+
 class TestExtractionConfigIsOverridable:
 
     def _assigned_value(self, attribute):

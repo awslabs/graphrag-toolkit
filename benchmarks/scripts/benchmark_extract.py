@@ -47,18 +47,7 @@ def _count_source_docs(extracted_docs) -> int:
 
 
 def apply_extraction_config():
-    """
-    Apply the benchmark's extraction settings to GraphRAGConfig from the
-    environment.
-
-    extraction_batch_size and extraction_num_workers used to be hardcoded here,
-    which overrode the environment and made a worker sweep report the same
-    number at every point on the curve. GraphRAGConfig reads both itself, but
-    that is not enough: its own defaults differ from the benchmark's
-    (extraction_batch_size defaults to 4, not 15000), and its
-    int(os.environ.get(...)) raises on the empty string the harness exports for
-    an unset allowlisted variable.
-    """
+    """Apply the benchmark's extraction settings to GraphRAGConfig."""
     # Must precede extraction_llm, whose assignment builds a BedrockConverse
     # and fails outright if no region is configured yet.
     aws_region = os.environ.get('AWS_REGION_NAME')
@@ -72,16 +61,8 @@ def apply_extraction_config():
     GraphRAGConfig.extraction_num_workers = env_int('EXTRACTION_NUM_WORKERS', 2)
 
 
-def build_indexing_config(use_batch: bool, dataset_name: str) -> Optional[IndexingConfig]:
-    """
-    Build the indexing config for the chosen inference mode.
-
-    Returns None for on-demand inference, which is what makes use_batch=False
-    actually change what runs rather than only what gets logged.
-    """
-    if not use_batch:
-        return None
-
+def build_indexing_config(dataset_name: str) -> IndexingConfig:
+    """Build the batch inference config for a dataset."""
     batch_config = BatchConfig(
         region=os.environ['AWS_REGION_NAME'],
         bucket_name=os.environ['S3_RESULTS_BUCKET'],
@@ -114,9 +95,7 @@ def run_benchmark_extract(handler: IntegrationTestHandler,
         dataset_name: Dataset key (e.g. 'concurrentqa', 'wikihow', 'pga').
         data_dir: Root path to the benchmark data directory.
         expected_docs: Expected number of source documents (for assertion).
-        use_batch: Whether to use Bedrock batch inference. No default -
-            every caller states its mode, because batch wall time measures
-            queue wait rather than pipeline throughput.
+        use_batch: Whether to use Bedrock batch inference.
     """
     input_path = os.path.join(data_dir, dataset_name, 'documents')
 
@@ -142,7 +121,7 @@ def run_benchmark_extract(handler: IntegrationTestHandler,
         )
 
     apply_extraction_config()
-    indexing_config = build_indexing_config(use_batch, dataset_name)
+    indexing_config = build_indexing_config(dataset_name) if use_batch else None
 
     if doc_store == 's3':
         extracted_docs = S3BasedDocs(
