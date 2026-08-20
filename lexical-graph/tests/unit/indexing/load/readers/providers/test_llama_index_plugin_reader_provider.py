@@ -684,6 +684,24 @@ class TestInterfaceValidation:
             with pytest.raises(ReaderImportError, match="BaseReader"):
                 LlamaIndexPluginReaderProvider(config)
 
+    def test_duck_typed_class_with_load_and_lazy_still_rejected(self):
+        """A class implementing both load_data and lazy_load is still rejected
+        if it doesn't inherit BaseReader - documents that the old duck-type
+        check is fully removed, not just tightened."""
+        class DuckReader:
+            def load_data(self):
+                return []
+
+            def lazy_load(self):
+                return iter(())
+
+        mock_module = Mock()
+        mock_module.DuckReader = DuckReader
+        config = _make_config(module_path="llama_index.readers.test", reader_class="DuckReader")
+        with patch("importlib.import_module", return_value=mock_module):
+            with pytest.raises(ReaderImportError, match="BaseReader"):
+                LlamaIndexPluginReaderProvider(config)
+
     def test_basereader_subclass_accepted(self):
         """A genuine BaseReader subclass passes the gate."""
         mock_module, _, _ = _mock_reader_module()
@@ -745,8 +763,10 @@ class TestEnvVarResolution:
             "base_url": "http://attacker.example",
         })
         with patch("importlib.import_module", return_value=mock_module):
-            with pytest.raises(ValueError, match="not in the permitted set"):
+            with pytest.raises(ValueError, match="not in the permitted set") as excinfo:
                 LlamaIndexPluginReaderProvider(config)
+        # The secret value must never be echoed in the exception message.
+        assert "AKIAsecret" not in str(excinfo.value)
 
     def test_missing_env_var_raises(self):
         """A permitted-but-unset env var raises ValueError."""
@@ -771,6 +791,49 @@ class TestEnvVarResolution:
         with patch("importlib.import_module", return_value=mock_module):
             LlamaIndexPluginReaderProvider(config)
         ctor.assert_called_once_with(note="$not_an_env_var")
+
+    # Bypass-boundary tests: forms the regex must NOT treat as an env-var ref.
+    # Under the base provider a false match would raise "not in the permitted
+    # set" instead of reaching the constructor verbatim.
+
+    def test_braced_syntax_not_resolved(self, monkeypatch):
+        """${VAR} brace syntax is passed through literally, not resolved."""
+        monkeypatch.setenv("MY_TOKEN", "secret123")
+        mock_module, ctor, _ = _mock_reader_module()
+        config = _make_config(init_args={"token": "${MY_TOKEN}"})
+        with patch("importlib.import_module", return_value=mock_module):
+            LlamaIndexPluginReaderProvider(config)
+        ctor.assert_called_once_with(token="${MY_TOKEN}")
+
+    def test_nested_dict_not_resolved(self, monkeypatch):
+        """Only top-level string values are resolved; a $VAR nested in a dict
+        is left literal (and so never trips the allowlist)."""
+        monkeypatch.setenv("SECRET", "leaked")
+        mock_module, ctor, _ = _mock_reader_module()
+        config = _make_config(init_args={"auth": {"token": "$SECRET"}})
+        with patch("importlib.import_module", return_value=mock_module):
+            LlamaIndexPluginReaderProvider(config)
+        ctor.assert_called_once_with(auth={"token": "$SECRET"})
+
+    def test_mid_string_not_resolved(self, monkeypatch):
+        """A $VAR embedded mid-string is not an exact match, so it's literal."""
+        monkeypatch.setenv("SECRET", "leaked")
+        mock_module, ctor, _ = _mock_reader_module()
+        config = _make_config(init_args={"url": "https://host/?k=$SECRET"})
+        with patch("importlib.import_module", return_value=mock_module):
+            LlamaIndexPluginReaderProvider(config)
+        ctor.assert_called_once_with(url="https://host/?k=$SECRET")
+
+    def test_load_args_env_var_also_gated(self, monkeypatch):
+        """load_args goes through the same allowlist as init_args, so a
+        disallowed $VAR there is rejected too (at read time)."""
+        monkeypatch.setenv("AWS_SECRET_ACCESS_KEY", "AKIAsecret")
+        mock_module, _, _ = _mock_reader_module()
+        config = _make_config(load_args={"query": "$AWS_SECRET_ACCESS_KEY"})
+        with patch("importlib.import_module", return_value=mock_module):
+            provider = LlamaIndexPluginReaderProvider(config)
+            with pytest.raises(ValueError, match="not in the permitted set"):
+                provider.read()
 
 
 class TestCredentialLogging:
