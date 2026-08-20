@@ -88,6 +88,7 @@ if [[ "$#" -gt 0 ]]; then
     echo "  --benchmark-data-dir <local directory containing benchmark data to upload>"
     echo "  --benchmark-data-s3-uri <S3 URI for benchmark data (synced at runtime instead of uploading)>"
     echo "  --benchmark-qa-limit <max number of QA pairs to evaluate (for prototype runs)>"
+    echo "  --benchmark-extract-doc-limit <cap the number of source documents extracted by the batch_extract.py tests (only the first N docs are extracted); speeds up benchmark runs>"
     echo "  --benchmark-prototype"
     echo "  --benchmark-all-retrievers  Run all retrievers in a single pass (loops query+evaluate per retriever)"
     echo "  --benchmark-dataset <dataset>  Dataset for all-retrievers mode (cuad|concurrentqa|pga|pga_bio|pga_stat|wikihow)"
@@ -184,6 +185,7 @@ while [[ "$#" -gt 0 ]]; do
         --benchmark-data-dir) BENCHMARK_DATA_DIR="$2"; shift ;;
         --benchmark-data-s3-uri) BENCHMARK_DATA_S3_URI="$2"; shift ;;
         --benchmark-qa-limit) BENCHMARK_QA_LIMIT="$2"; shift ;;
+        --benchmark-extract-doc-limit) BENCHMARK_EXTRACT_DOC_LIMIT="$2"; shift ;;
         --benchmark-prototype) BENCHMARK_IS_PROTOTYPE=true ;;
         --benchmark-all-retrievers) BENCHMARK_ALL_RETRIEVERS=true ;;
         --benchmark-dataset) BENCHMARK_DATASET="$2"; shift ;;
@@ -398,6 +400,9 @@ fi
 if [[ "$BENCHMARK_QA_LIMIT" ]]; then
 	echo "export BENCHMARK_QA_LIMIT=$BENCHMARK_QA_LIMIT" >> lexical-graph-examples/.env.testing
 fi
+if [[ "${BENCHMARK_EXTRACT_DOC_LIMIT:-}" ]]; then
+	echo "export BENCHMARK_EXTRACT_DOC_LIMIT=$BENCHMARK_EXTRACT_DOC_LIMIT" >> lexical-graph-examples/.env.testing
+fi
 if [[ "$BENCHMARK_IS_PROTOTYPE" ]]; then
 	echo "export BENCHMARK_IS_PROTOTYPE=$BENCHMARK_IS_PROTOTYPE" >> lexical-graph-examples/.env.testing
 fi
@@ -473,6 +478,7 @@ echo "TESTS                    : $TESTS"
 echo "BENCHMARK_DATA_DIR       : $BENCHMARK_DATA_DIR"
 echo "BENCHMARK_DATA_S3_URI    : $BENCHMARK_DATA_S3_URI"
 echo "BENCHMARK_QA_LIMIT       : $BENCHMARK_QA_LIMIT"
+echo "BENCHMARK_EXTRACT_DOC_LIMIT : ${BENCHMARK_EXTRACT_DOC_LIMIT:-}"
 echo "BENCHMARK_ALL_RETRIEVERS : ${BENCHMARK_ALL_RETRIEVERS:-}"
 echo "BENCHMARK_DATASET        : ${BENCHMARK_DATASET:-}"
 echo "EXISTING_VPC_ID          : $EXISTING_VPC_ID"
