@@ -587,13 +587,18 @@ class TestNeptuneDBGraphStore:
             region='us-west-2'
         )
         
-        with pytest.raises(AssertionError, match="format must be either"):
+        with pytest.raises(ValueError, match="format must be"):
             store.read_from_csv(
                 s3_path='s3://test-bucket/data.csv',
                 format='NTRIPLES',
                 iam_role='arn:aws:iam::123456789012:role/NeptuneLoadRole'
             )
     
+    def test_neptune_db_store_missing_region_raises_value_error(self):
+        """A missing region raises ValueError, not a stripped assert."""
+        with pytest.raises(ValueError, match="region needs to be"):
+            NeptuneDBGraphStore(endpoint_url='https://x.neptune.amazonaws.com:8182')
+
     @patch('graphrag_toolkit.byokg_rag.graphstore.neptune.boto3.Session')
     def test_neptune_db_store_get_node_properties(self, mock_session, mock_neptune_data_client, mock_s3_client):
         """Verify _get_node_properties enriches schema with node details."""
@@ -1312,6 +1317,8 @@ class TestValidateRegion:
         pytest.param('US-EAST-1', id='uppercase'),
         pytest.param("us-east-1', format:'CSV'}) DETACH DELETE n //", id='cypher-breakout'),
         pytest.param('us east 1', id='space'),
+        pytest.param('us-east-1\n', id='trailing-newline'),
+        pytest.param('us-east-1\nDETACH DELETE n', id='newline-injection'),
     ])
     def test_rejects_invalid_regions(self, region):
         with pytest.raises(ValueError, match='Invalid AWS region'):

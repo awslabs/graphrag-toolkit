@@ -26,19 +26,23 @@ _S3_PATH_PATTERN = re.compile(r'^s3://[a-zA-Z0-9.\-_/+=!@()*]+$')
 def _validate_s3_path(s3_path):
     if s3_path is None:
         return
-    if not _S3_PATH_PATTERN.match(s3_path):
+    # fullmatch, not match: '$' matches before a trailing newline, so match()
+    # would let 's3://b/k\n' through.
+    if not _S3_PATH_PATTERN.fullmatch(s3_path):
         raise ValueError(
             f"Invalid s3_path format: '{s3_path}'. "
             "Must be a valid S3 URI (s3://bucket/key)."
         )
 
 
-# region is interpolated into the CALL neptune.load() Cypher too, so allowlist it.
-_REGION_PATTERN = re.compile(r'^[a-z0-9-]+$')
+# region is interpolated into the CALL neptune.load() Cypher, so check its format.
+_REGION_PATTERN = re.compile(r'[a-z0-9-]+')
 
 
 def _validate_region(region):
-    if region is None or not _REGION_PATTERN.match(region):
+    # fullmatch, not match: '$' matches before a trailing newline, so 'us-east-1\n'
+    # would otherwise pass.
+    if region is None or not _REGION_PATTERN.fullmatch(region):
         raise ValueError(f"Invalid AWS region: '{region}'. Must match [a-z0-9-].")
 
 
@@ -440,7 +444,8 @@ class NeptuneDBGraphStore(BaseNeptuneGraphStore):
         :param region: Str AWS region
         """
         self.region = region
-        assert self.region is not None, "region needs to be passed in or inferrable from current environment"
+        if self.region is None:
+            raise ValueError("region needs to be passed in or inferrable from current environment")
         self.session = boto3.Session(region_name=self.region)
         self.endpoint_url = endpoint_url
         self.neptune_data_client = self.session.client('neptunedata', region_name=self.region, endpoint_url = self.endpoint_url)
@@ -464,7 +469,8 @@ class NeptuneDBGraphStore(BaseNeptuneGraphStore):
         Returns:
         """
 
-        assert format in ['CSV', 'OPEN_CYPHER'], "format must be either or 'CSV' or 'OPEN_CYPHER'"
+        if format not in ('CSV', 'OPEN_CYPHER'):
+            raise ValueError("format must be one of 'CSV', 'OPEN_CYPHER'")
         _validate_s3_path(s3_path)
 
         if csv_file is not None:
