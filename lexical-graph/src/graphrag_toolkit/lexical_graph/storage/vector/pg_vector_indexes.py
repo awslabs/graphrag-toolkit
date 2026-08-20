@@ -138,8 +138,12 @@ def parse_metadata_filters_recursive(metadata_filters:MetadataFilters) -> tuple[
             (fragment, fragment_params) = parse_metadata_filters_recursive(metadata_filter)
         else:
             raise ValueError(f'Invalid metadata filter type: {type(metadata_filter)}')
-        filter_strs.append(fragment)
-        params.extend(fragment_params)
+        if fragment:
+            filter_strs.append(fragment)
+            params.extend(fragment_params)
+
+    if not filter_strs:
+        return ('', [])
 
     if metadata_filters.condition == FilterCondition.NOT:
         return (f"(NOT {' '.join(filter_strs)})", params)

@@ -130,6 +130,25 @@ def _eq_filter_config(key, value):
 class TestTopKFilterInjection:
     """top_k() builds its WHERE clause from filter_config."""
 
+    @pytest.mark.parametrize('condition', [FilterCondition.AND, FilterCondition.OR])
+    def test_empty_filter_group_does_not_emit_where_clause(self, condition):
+        index = _make_pg_index()
+        mock_conn, mock_cur = _mock_conn_cursor()
+        bundle = QueryBundle(query_str='q', embedding=[0.1, 0.2, 0.3])
+        filter_config = FilterConfig(source_filters=MetadataFilters(
+            filters=[
+                MetadataFilters(filters=[], condition=FilterCondition.AND),
+            ],
+            condition=condition,
+        ))
+
+        with patch.object(pvi.PGIndex, '_get_connection', return_value=mock_conn):
+            with patch.object(pvi, 'to_embedded_query', return_value=bundle):
+                index.top_k(bundle, top_k=5, filter_config=filter_config)
+
+        sql_text, _ = _captured_execute(mock_cur)
+        assert 'WHERE' not in sql_text
+
     def test_filter_value_is_bound_not_interpolated(self):
         index = _make_pg_index()
         mock_conn, mock_cur = _mock_conn_cursor()
@@ -276,6 +295,40 @@ class TestClauseBuilderContract:
 
     def test_none_config_returns_empty_fragment_and_params(self):
         assert pvi.filter_config_to_sql_filters(None) == ('', [])
+
+    @pytest.mark.parametrize('condition', [FilterCondition.AND, FilterCondition.OR])
+    def test_empty_filter_group_returns_empty_fragment_and_params(self, condition):
+        filters = MetadataFilters(filters=[], condition=condition)
+
+        assert pvi.parse_metadata_filters_recursive(filters) == ('', [])
+
+    @pytest.mark.parametrize('condition', [FilterCondition.AND, FilterCondition.OR])
+    def test_nested_empty_filter_group_returns_empty_fragment_and_params(self, condition):
+        filters = MetadataFilters(
+            filters=[MetadataFilters(filters=[], condition=FilterCondition.AND)],
+            condition=condition,
+        )
+
+        assert pvi.parse_metadata_filters_recursive(filters) == ('', [])
+
+    @pytest.mark.parametrize('condition', [FilterCondition.AND, FilterCondition.OR])
+    def test_nested_empty_filter_group_is_ignored_next_to_valid_filter(self, condition):
+        valid_filter = MetadataFilter(
+            key='category', value='tech', operator=FilterOperator.EQ,
+        )
+        filters = MetadataFilters(
+            filters=[
+                MetadataFilters(filters=[], condition=FilterCondition.AND),
+                valid_filter,
+            ],
+            condition=condition,
+        )
+        expected = MetadataFilters(filters=[valid_filter], condition=condition)
+
+        assert (
+            pvi.parse_metadata_filters_recursive(filters)
+            == pvi.parse_metadata_filters_recursive(expected)
+        )
 
 
 class TestLegitimateFilterStillWorks:
