@@ -22,11 +22,18 @@ def _client_error(code, operation='GetObject'):
     return ClientError({'Error': {'Code': code, 'Message': code}}, operation)
 
 
-def _body(text):
-    """Stand in for the StreamingBody a real get_object returns."""
+def _body(text, content_length=None):
+    """Stand in for the StreamingBody a real get_object returns.
+
+    Pass content_length to mimic the ContentLength S3 returns; omit it for
+    endpoints that don't declare one.
+    """
     stream = MagicMock()
     stream.read.return_value = text.encode('UTF-8')
-    return {'Body': stream}
+    response = {'Body': stream}
+    if content_length is not None:
+        response['ContentLength'] = content_length
+    return response
 
 
 @pytest.fixture
@@ -144,6 +151,46 @@ class TestS3ChunkStoreDownloadCap:
         # 0 reads like "no cap" but would reject every non-empty chunk.
         with pytest.raises(ValueError):
             _store(max_chunk_bytes=0)
+
+    def test_declared_length_over_cap_is_skipped_without_reading(self, s3_client):
+        # ContentLength lets us reject before pulling the object into memory.
+        store = _store(max_chunk_bytes=8)
+        body = _body('x' * 100, content_length=100)
+        s3_client.get_object.return_value = body
+
+        assert store.get_batch(['c1']) == {}
+        body['Body'].read.assert_not_called()
+
+    def test_declared_length_uses_full_read_for_content_length_check(self, s3_client):
+        # A bare read() drains the stream so botocore verifies the byte count
+        # against Content-Length; read(amt) would skip that verification.
+        store = _store(max_chunk_bytes=8)
+        body = _body('hi', content_length=2)
+        s3_client.get_object.return_value = body
+
+        assert store.get('c1') == 'hi'
+        body['Body'].read.assert_called_once_with()
+
+
+class TestS3ChunkStoreKeyLength:
+    """S3 caps an object key at 1024 bytes; reject longer keys up front."""
+
+    def test_key_over_the_limit_is_rejected(self, s3_client):
+        store = _store()
+        with pytest.raises(ValueError, match='1024'):
+            store.get('a' * 1024)
+
+        s3_client.get_object.assert_not_called()
+
+    def test_key_at_the_limit_is_accepted(self, s3_client):
+        # 'chunks/' (7) + id + '.txt' (4) must be <= 1024 bytes.
+        store = _store()
+        chunk_id = 'a' * (1024 - len('chunks/') - len('.txt'))
+        s3_client.get_object.return_value = _body('t')
+
+        store.get(chunk_id)
+
+        assert s3_client.get_object.called
 
 
 class TestS3ChunkStoreRoundTrip:

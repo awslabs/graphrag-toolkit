@@ -52,6 +52,10 @@ MISSING_KEY_CODES = ('NoSuchKey', '404')
 # pulled fully into memory across the read thread pool.
 DEFAULT_MAX_CHUNK_BYTES = 50 * 1024 * 1024
 
+# S3 caps an object key at 1024 UTF-8 bytes; reject longer keys with a clear
+# error instead of a generic S3 failure at call time.
+MAX_S3_KEY_BYTES = 1024
+
 
 class S3ChunkStore(ChunkStore):
     """
@@ -124,7 +128,24 @@ class S3ChunkStore(ChunkStore):
 
     def _key(self, chunk_id: str) -> str:
         self._validate_chunk_id(chunk_id)
-        return f'{self.prefix}/{chunk_id}.txt' if self.prefix else f'{chunk_id}.txt'
+        key = f'{self.prefix}/{chunk_id}.txt' if self.prefix else f'{chunk_id}.txt'
+        key_bytes = len(key.encode('UTF-8'))
+        if key_bytes > MAX_S3_KEY_BYTES:
+            raise ValueError(
+                f'S3 key exceeds the {MAX_S3_KEY_BYTES}-byte maximum ({key_bytes} bytes): '
+                f'{key[:64]}...'
+            )
+        return key
+
+    def _skip_oversized(self, key: str, content_length: Optional[int] = None) -> None:
+        # Treat oversize as a miss, like a missing key: one bad chunk shouldn't
+        # fail the whole batch, and the fallback still gets a chance.
+        detail = f', content_length: {content_length}' if content_length is not None else ''
+        logger.warning(
+            f'Skipping oversized chunk [bucket: {self.bucket_name}, key: {key}{detail}, '
+            f'max_bytes: {self.max_chunk_bytes}]'
+        )
+        return None
 
     def _get_chunk(self, chunk_id: str, s3_client) -> Optional[str]:
         key = self._key(chunk_id)
@@ -134,19 +155,23 @@ class S3ChunkStore(ChunkStore):
             if e.response.get('Error', {}).get('Code') in MISSING_KEY_CODES:
                 return None
             raise
-        # Read one byte past the cap to size-check without pulling the whole
-        # object into memory; closing() returns the connection to the pool on
-        # every path, including the oversized one where the stream isn't drained.
+
+        # Enforce the cap on the declared length up front, so an oversized object
+        # is never pulled into memory.
+        content_length = response.get('ContentLength')
+        if content_length is not None and content_length > self.max_chunk_bytes:
+            return self._skip_oversized(key, content_length)
+
+        # closing() returns the connection to the pool on every path. With a
+        # known length a full read() drains the stream, so botocore verifies the
+        # byte count against Content-Length and a truncated transfer raises
+        # rather than returning short text; with no declared length, bound the
+        # read so an unknown-size object still can't exhaust memory.
         with contextlib.closing(response['Body']) as body:
-            data = body.read(self.max_chunk_bytes + 1)
+            data = body.read() if content_length is not None else body.read(self.max_chunk_bytes + 1)
+
         if len(data) > self.max_chunk_bytes:
-            # Treat oversize as a miss, like a missing key: skip it so one bad
-            # chunk doesn't fail the whole batch, and let the fallback answer.
-            logger.warning(
-                f'Skipping oversized chunk [bucket: {self.bucket_name}, key: {key}, '
-                f'max_bytes: {self.max_chunk_bytes}]'
-            )
-            return None
+            return self._skip_oversized(key)
         return data.decode('UTF-8')
 
     def get_batch(self, chunk_ids: List[str]) -> Dict[str, str]:
