@@ -236,6 +236,33 @@ class TestChunkGraphBuilding:
         query = self._metadata_setter_query(client)
         assert 'chunk.`custom_prop` = params.`custom_prop`' in query
 
+    @pytest.mark.parametrize('key', [
+        '',                                    # empty
+        '`);//',                               # only special chars, incl. backtick
+        'a\nb` DETACH DELETE n //',            # embedded newline + backtick
+    ])
+    def test_build_backtick_quotes_boundary_property_keys(self, key):
+        """Empty, special-char, and newline keys are still backtick-quoted and
+        escaped, so none can break out of the SET clause."""
+        from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import escape_cypher_label
+        builder = ChunkGraphBuilder()
+        node = self._make_chunk_node()
+        node.metadata['chunk']['metadata'] = {key: 'v'}
+
+        client = self._make_graph_client()
+        with patch(
+            'graphrag_toolkit.lexical_graph.indexing.build.chunk_graph_builder.ChunkStoreFactory.for_chunk_store',
+            return_value=Mock(),
+        ):
+            builder.build(node, client)
+
+        query = self._metadata_setter_query(client)
+        escaped = escape_cypher_label(key)
+        assert f'chunk.`{escaped}` = params.`{escaped}`' in query
+        # Value is still bound as a parameter under the original key.
+        params = client.execute_query_with_retry.call_args_list[0][0][1]['params'][0]
+        assert params[key] == 'v'
+
     def test_build_skips_metadata_query_when_no_extra_properties(self):
         """Verify build doesn't issue an empty SET query when there's no extra chunk metadata."""
         builder = ChunkGraphBuilder()

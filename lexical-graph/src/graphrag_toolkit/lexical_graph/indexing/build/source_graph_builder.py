@@ -5,6 +5,7 @@ import logging
 from typing import Any
 
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
+from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import escape_cypher_label
 from graphrag_toolkit.lexical_graph.indexing.build.graph_builder import GraphBuilder
 from graphrag_toolkit.lexical_graph.versioning import VALID_FROM, VALID_TO, VERSION_INDEPENDENT_ID_FIELDS
 from graphrag_toolkit.lexical_graph.versioning import EXTRACT_TIMESTAMP, BUILD_TIMESTAMP, PREV_VERSIONS
@@ -102,11 +103,13 @@ class SourceGraphBuilder(GraphBuilder):
                 accept_k_v(PREV_VERSIONS, format_metadata_list(versioning_metadata.get('prev_versions', [])))
 
             def format_assigment(key):
-                assigment = f'params.{key}'
+                # key is a Cypher identifier, not a bound value: backtick-quote
+                # and escape it so a key with special chars can't inject Cypher.
+                assigment = f'params.`{escape_cypher_label(key)}`'
                 return metadata_assignments_fns[key](assigment)
-        
+
             if clean_metadata:
-                all_properties = ', '.join(f'source.{key} = {format_assigment(key)}' for key,_ in clean_metadata.items())
+                all_properties = ', '.join(f'source.`{escape_cypher_label(key)}` = {format_assigment(key)}' for key,_ in clean_metadata.items())
                 statements.append(f'ON CREATE SET {all_properties} ON MATCH SET {all_properties}')
             
             query = '\n'.join(statements)
