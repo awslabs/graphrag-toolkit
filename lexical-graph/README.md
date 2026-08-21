@@ -41,7 +41,7 @@ If you're running on AWS, you must run your application in an AWS region contain
 
 You will need to install additional dependencies for specific graph and vector store backends:
 
-#### Amazon OpenSearch Serverless
+#### OpenSearch and Amazon OpenSearch Serverless (AOSS)
 
 ```bash
 $ pip install opensearch-py llama-index-vector-stores-opensearch
@@ -68,11 +68,14 @@ Pass a connection string to `GraphStoreFactory.for_graph_store()` or `VectorStor
 | Neptune Analytics (graph) | `neptune-graph://<graph-id>` |
 | Neptune Database (graph) | `neptune-db://<hostname>` or any hostname ending `.neptune.amazonaws.com` |
 | Neo4j (graph) | `bolt://`, `bolt+ssc://`, `bolt+s://`, `neo4j://`, `neo4j+ssc://`, or `neo4j+s://` URLs |
-| OpenSearch Serverless (vector) | `aoss://<url>` |
+| Amazon OpenSearch Serverless / AOSS (vector) | `aoss://<url>` |
+| OpenSearch (vector) | `https://<url>` or `http://<url>` |
 | Neptune Analytics (vector) | `neptune-graph://<graph-id>` |
 | pgvector (vector) | constructed via `PGVectorIndexFactory` |
 | S3 Vectors (vector) | constructed via `S3VectorIndexFactory` |
 | Dummy / no-op | `None` or any unrecognised string — falls back to `DummyGraphStore` / `DummyVectorIndex` |
+
+An `opensearch://<url>` endpoint connects with HTTP basic auth from the `OPENSEARCH_USERNAME` / `OPENSEARCH_PASSWORD` environment variables (no auth if unset), over SSL unless the endpoint has an explicit `http://` scheme. `client_kwargs` passed to `VectorStoreFactory.for_vector_store` are forwarded to the [opensearch-py](https://pypi.org/project/opensearch-py/) client. See [the vector store documentation](https://awslabs.github.io/graphrag-toolkit/lexical-graph/vector-store-opensearch-serverless/) for details and limitations.
 
 ## Example of use
 
