@@ -19,6 +19,7 @@ from typing import Dict, Any, Optional, List
 
 from benchmarks.scripts.integration_test_base import IntegrationTestBase
 from benchmarks.scripts.integration_test_handler import IntegrationTestHandler
+from benchmarks.utils.benchmark_env import env_bool, env_string
 from benchmarks.utils.run_evaluation import evaluate_responses
 from benchmarks.utils.s3_utils import upload_benchmark_results_to_s3
 
@@ -86,7 +87,7 @@ def run_benchmark_evaluate(handler: IntegrationTestHandler, params: Dict[str, An
 
     # Default uses cross-region inference profile; requires it enabled in the account.
     # Override via BENCHMARK_JUDGE_LLM env var for accounts without cross-region access.
-    judge_model_id = os.environ.get('BENCHMARK_JUDGE_LLM', 'us.anthropic.claude-sonnet-4-6')
+    judge_model_id = env_string('BENCHMARK_JUDGE_LLM', 'us.anthropic.claude-sonnet-4-6')
 
     scores = evaluate_responses(data, results_dir, judge_model_id, metrics)
 
@@ -122,8 +123,8 @@ class CuadBenchmarkEvaluate(IntegrationTestBase):
         return 'Evaluate CUAD benchmark responses using LLM-as-judge correctness and IDK metrics'
 
     def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
-        is_prototype = os.environ.get('BENCHMARK_IS_PROTOTYPE')
-        dataset_name = 'cuad-prototype' if is_prototype == 'true' else 'cuad'
+        is_prototype = env_bool('BENCHMARK_IS_PROTOTYPE', False)
+        dataset_name = 'cuad-prototype' if is_prototype else 'cuad'
         retriever_id = os.environ.get('BENCHMARK_RETRIEVER', 'traversal')
 
         responses_path = params.get('benchmark_responses_path',
@@ -144,8 +145,8 @@ class ConcurrentQaBenchmarkEvaluate(IntegrationTestBase):
         return 'Evaluate ConcurrentQA benchmark responses using LLM-as-judge correctness and IDK metrics'
 
     def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
-        is_prototype = os.environ.get('BENCHMARK_IS_PROTOTYPE')
-        dataset_name = 'concurrentqa-prototype' if is_prototype == 'true' else 'concurrentqa'
+        is_prototype = env_bool('BENCHMARK_IS_PROTOTYPE', False)
+        dataset_name = 'concurrentqa-prototype' if is_prototype else 'concurrentqa'
         retriever_id = os.environ.get('BENCHMARK_RETRIEVER', 'traversal')
 
         responses_path = params.get('benchmark_responses_path',
