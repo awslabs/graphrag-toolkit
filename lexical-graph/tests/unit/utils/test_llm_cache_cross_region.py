@@ -10,10 +10,31 @@ recreation in LLMCache uses the wrong region after unpickling.
 
 import pickle
 import pytest
+from contextlib import contextmanager
 from unittest.mock import patch, MagicMock
 
 from graphrag_toolkit.lexical_graph.utils.llm_cache import LLMCache
 from llama_index.llms.bedrock_converse import BedrockConverse
+
+@contextmanager
+def patched_config(mock_session):
+    """Patch GraphRAGConfig in llm_cache so client creation can run.
+
+    The connection pool is sized from extraction_num_threads_per_worker, which
+    is compared against ints, so it needs a real number, not a MagicMock.
+    """
+    target = 'graphrag_toolkit.lexical_graph.utils.llm_cache.GraphRAGConfig'
+    with patch(target) as mock_config:
+        mock_config.session = mock_session
+        mock_config.extraction_num_threads_per_worker = 32
+        yield mock_config
+
+def assert_client_region(mock_session, expected_region):
+    """Assert the client was built exactly once, in the LLM's own region."""
+    mock_session.client.assert_called_once()
+    call_args = mock_session.client.call_args
+    assert call_args[1].get('region_name') == expected_region, \
+        f"Client must be created with region_name={expected_region!r}, got: {call_args}"
 
 
 class TestCrossRegionClientRecreation:
@@ -40,9 +61,7 @@ class TestCrossRegionClientRecreation:
         mock_client = MagicMock()
         mock_session.client.return_value = mock_client
 
-        with patch('graphrag_toolkit.lexical_graph.utils.llm_cache.GraphRAGConfig') as mock_config:
-            mock_config.session = mock_session
-
+        with patched_config(mock_session):
             # Directly trigger the client recreation logic by calling predict,
             # which will fail after client recreation (no real Bedrock), but we
             # only care that the client was created with correct region.
@@ -53,11 +72,7 @@ class TestCrossRegionClientRecreation:
             except Exception:
                 pass  # Expected — no real Bedrock endpoint
 
-        # Assert the client was created with the LLM's region
-        mock_session.client.assert_called_once()
-        call_kwargs = mock_session.client.call_args
-        assert call_kwargs[1].get('region_name') == 'us-west-2', \
-            f"Client must be created with region_name='us-west-2', got: {call_kwargs}"
+        assert_client_region(mock_session, 'us-west-2')
 
     @patch('boto3.Session')
     def test_stream_recreates_client_with_llm_region(self, mock_boto_session):
@@ -71,8 +86,7 @@ class TestCrossRegionClientRecreation:
         mock_session = MagicMock()
         mock_session.client.return_value = MagicMock()
 
-        with patch('graphrag_toolkit.lexical_graph.utils.llm_cache.GraphRAGConfig') as mock_config:
-            mock_config.session = mock_session
+        with patched_config(mock_session):
             try:
                 mock_prompt = MagicMock()
                 mock_prompt.format.return_value = 'formatted'
@@ -80,10 +94,7 @@ class TestCrossRegionClientRecreation:
             except Exception:
                 pass
 
-        mock_session.client.assert_called_once()
-        call_kwargs = mock_session.client.call_args
-        assert call_kwargs[1].get('region_name') == 'us-west-2', \
-            f"Client must be created with region_name='us-west-2', got: {call_kwargs}"
+        assert_client_region(mock_session, 'us-west-2')
 
     @patch('boto3.Session')
     def test_cached_predict_recreates_client_with_llm_region(self, mock_boto_session):
@@ -97,8 +108,7 @@ class TestCrossRegionClientRecreation:
         mock_session = MagicMock()
         mock_session.client.return_value = MagicMock()
 
-        with patch('graphrag_toolkit.lexical_graph.utils.llm_cache.GraphRAGConfig') as mock_config:
-            mock_config.session = mock_session
+        with patched_config(mock_session):
             with patch('os.path.exists', return_value=False):
                 try:
                     mock_prompt = MagicMock()
@@ -107,7 +117,4 @@ class TestCrossRegionClientRecreation:
                 except Exception:
                     pass
 
-        mock_session.client.assert_called_once()
-        call_kwargs = mock_session.client.call_args
-        assert call_kwargs[1].get('region_name') == 'us-west-2', \
-            f"Client must be created with region_name='us-west-2', got: {call_kwargs}"
+        assert_client_region(mock_session, 'us-west-2')
