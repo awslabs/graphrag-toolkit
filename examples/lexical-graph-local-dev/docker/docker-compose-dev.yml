@@ -1,4 +1,4 @@
-name: local-dev
+name: graphrag-toolkit-rdf-dev
 services:
   neo4j-local:
     image: neo4j:5.25-community
@@ -56,6 +56,13 @@ networks:
     driver: bridge
 
 volumes:
+  # Pin explicit volume names so a Compose project rename does not orphan
+  # existing data. With an explicit name Compose uses it verbatim (no project
+  # prefix), so these always map to the same on-disk volumes regardless of the
+  # top-level `name:`.
   neo4j_local_data_dev:
+    name: local-dev_neo4j_local_data_dev
   neo4j_local_logs_dev:
+    name: local-dev_neo4j_local_logs_dev
   pgvector_local_data_dev:
+    name: local-dev_pgvector_local_data_dev
