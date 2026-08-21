@@ -10,7 +10,7 @@ from typing import Optional, Any, Union
 
 from graphrag_toolkit.lexical_graph import ModelError
 from graphrag_toolkit.lexical_graph.utils.bedrock_utils import *
-from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
+from graphrag_toolkit.lexical_graph.config import GraphRAGConfig, BOTOCORE_DEFAULT_MAX_POOL_CONNECTIONS
 
 from llama_index.core.llms.llm import LLM
 from llama_index.llms.bedrock_converse import BedrockConverse
@@ -25,6 +25,38 @@ c_red, c_blue, c_green, c_cyan, c_norm = "\x1b[31m",'\033[94m','\033[92m', '\033
 
 MAX_ATTEMPTS = 2
 TIMEOUT = 60.0
+
+
+def _bedrock_client(llm):
+    """
+    Build the bedrock-runtime client these calls share.
+
+    botocore's pool defaults to 10. Extraction now sizes its LLM call pool to
+    the configured thread count, so in-flight calls can exceed 10, and past the
+    pool botocore discards and reopens connections, undoing the concurrency the
+    thread fix bought.
+
+    Takes the largest of three values because none is reliable alone: a thread
+    count set on GraphRAGConfig in the parent is lost to spawn and reads back as
+    the default, the environment variable survives spawn, and the CPython floor
+    covers neither being set.
+    """
+    num_threads = max(
+        BOTOCORE_DEFAULT_MAX_POOL_CONNECTIONS,
+        GraphRAGConfig.extraction_num_threads_per_worker,
+        min(32, (os.cpu_count() or 1) + 4),
+    )
+
+    config = Config(
+        retries={'max_attempts': MAX_ATTEMPTS, 'mode': 'standard'},
+        connect_timeout=TIMEOUT,
+        read_timeout=TIMEOUT,
+        max_pool_connections=num_threads,
+    )
+
+    return GraphRAGConfig.session.client(
+        'bedrock-runtime', config=config, region_name=llm.region_name
+    )
 
 class LLMCache(BaseModel):
 
@@ -46,14 +78,7 @@ class LLMCache(BaseModel):
         try:
             if isinstance(self.llm, BedrockConverse):
                 if not hasattr(self.llm, '_client'):
-                    config = Config(
-                        retries={'max_attempts': MAX_ATTEMPTS, 'mode': 'standard'},
-                        connect_timeout=TIMEOUT,
-                        read_timeout=TIMEOUT,
-                    )
-                    
-                    session = GraphRAGConfig.session
-                    self.llm._client = session.client('bedrock-runtime', config=config, region_name=self.llm.region_name)
+                    self.llm._client = _bedrock_client(self.llm)
             response = self.llm.stream(prompt, **prompt_args)
         except Exception as e:
             raise ModelError(f'{e!s} [Model config: {self.llm.to_json()}]') from e
@@ -100,14 +125,7 @@ class LLMCache(BaseModel):
             try:
                 if isinstance(self.llm, BedrockConverse):
                     if not hasattr(self.llm, '_client'):
-                        config = Config(
-                            retries={'max_attempts': MAX_ATTEMPTS, 'mode': 'standard'},
-                            connect_timeout=TIMEOUT,
-                            read_timeout=TIMEOUT,
-                        )
-                        
-                        session = GraphRAGConfig.session
-                        self.llm._client = session.client('bedrock-runtime', config=config, region_name=self.llm.region_name)
+                        self.llm._client = _bedrock_client(self.llm)
                 response = self.llm.predict(prompt, **prompt_args)
             except Exception as e:
                 raise ModelError(f'{e!s} [Model config: {self.llm.to_json()}]') from e
@@ -129,14 +147,7 @@ class LLMCache(BaseModel):
                 try:
                     if isinstance(self.llm, BedrockConverse):
                         if not hasattr(self.llm, '_client'):
-                            config = Config(
-                                retries={'max_attempts': MAX_ATTEMPTS, 'mode': 'standard'},
-                                connect_timeout=TIMEOUT,
-                                read_timeout=TIMEOUT,
-                            )
-                            
-                            session = GraphRAGConfig.session
-                            self.llm._client = session.client('bedrock-runtime', config=config, region_name=self.llm.region_name)
+                            self.llm._client = _bedrock_client(self.llm)
                     response = self.llm.predict(prompt, **prompt_args)
                 except Exception as e:
                     raise ModelError(f'{e!s} Model config: {self.llm.to_json()}') from e
