@@ -5,7 +5,7 @@ import logging
 from typing import Any
 
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
-from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
+from graphrag_toolkit.lexical_graph.storage.graph import GraphQueryOperation, GraphStore
 from graphrag_toolkit.lexical_graph.storage.chunk_store_factory import ChunkStoreFactory
 from graphrag_toolkit.lexical_graph.indexing.build.graph_builder import GraphBuilder
 
@@ -112,7 +112,13 @@ class ChunkGraphBuilder(GraphBuilder):
 
                 query_c = '\n'.join(statements_c)
 
-                graph_client.execute_query_with_retry(query_c, self._to_params(properties_c), max_attempts=5, max_wait=7)
+                graph_client.execute_query_with_retry(
+                    query_c,
+                    self._to_params(properties_c),
+                    max_attempts=5,
+                    max_wait=7,
+                    operation=GraphQueryOperation.UPSERT_CHUNK,
+                )
 
             source_info = node.relationships.get(NodeRelationship.SOURCE, None)
 
@@ -135,7 +141,7 @@ class ChunkGraphBuilder(GraphBuilder):
 
                 query_s = '\n'.join(statements_s)
 
-                graph_client.execute_query_with_retry(query_s, self._to_params(properties_s), max_attempts=5, max_wait=7)
+                graph_client.execute_query_with_retry(query_s, self._to_params(properties_s), max_attempts=5, max_wait=7, operation=GraphQueryOperation.LINK_CHUNK_SOURCE)
 
             else:
                 logger.warning(f'source_id missing from chunk node [node_id: {chunk_id}]')
@@ -153,12 +159,13 @@ class ChunkGraphBuilder(GraphBuilder):
 
                 properties_c2c = {
                     'chunk_id': chunk_id,
-                    'target_id': node_id
+                    'target_id': node_id,
+                    '_relationship_type': relationship_type,
                 }
 
                 query_c2c = '\n'.join(statements_c2c)
 
-                graph_client.execute_query_with_retry(query_c2c, self._to_params(properties_c2c), max_attempts=5, max_wait=7)
+                graph_client.execute_query_with_retry(query_c2c, self._to_params(properties_c2c), max_attempts=5, max_wait=7, operation=GraphQueryOperation.LINK_CHUNKS)
 
 
             for node_relationship,relationship_info in node.relationships.items():

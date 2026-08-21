@@ -5,7 +5,7 @@ import logging
 from typing import Dict, List
 
 from graphrag_toolkit.lexical_graph.storage.chunk.chunk_store import ChunkStore
-from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
+from graphrag_toolkit.lexical_graph.storage.graph import GraphQueryOperation, GraphStore
 from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import node_result, to_params
 
 logger = logging.getLogger(__name__)
@@ -47,7 +47,11 @@ class InGraphChunkStore(ChunkStore):
         '''
         params = {'chunk_ids': chunk_ids}
 
-        rows = self.graph_client.execute_query(query, params)
+        rows = self.graph_client.execute_query(
+            query,
+            params,
+            operation=GraphQueryOperation.GET_CHUNKS,
+        )
 
         return {
             row['result']['chunk']['chunkId']: row['result']['chunk']['value']
@@ -86,4 +90,10 @@ class InGraphChunkStore(ChunkStore):
             ]
         }
 
-        self.graph_client.execute_query_with_retry(query, params, max_attempts=5, max_wait=7)
+        self.graph_client.execute_query_with_retry(
+            query,
+            params,
+            max_attempts=5,
+            max_wait=7,
+            operation=GraphQueryOperation.UPSERT_CHUNK,
+        )
