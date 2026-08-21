@@ -6,6 +6,7 @@ from typing import Any
 
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
+from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import escape_cypher_label
 from graphrag_toolkit.lexical_graph.storage.chunk_store_factory import ChunkStoreFactory
 from graphrag_toolkit.lexical_graph.indexing.build.graph_builder import GraphBuilder
 
@@ -90,13 +91,14 @@ class ChunkGraphBuilder(GraphBuilder):
             chunk_property_setters = []
             properties_c = {'chunk_id': chunk_id}
 
-            # Add external properties if present. 'chunkId' and 'value' are
-            # skipped: chunkId is the merge key, and value is chunk text,
-            # already written via chunk_store.put() above - a metadata field
-            # named 'value' must not overwrite it.
+            # Skip reserved keys: 'chunkId'/'chunk_id' are the merge key ('chunk_id'
+            # is the bound param, so a metadata field of that name would overwrite
+            # the real id and redirect the MERGE), and 'value' is chunk text already
+            # written via chunk_store.put() above.
             for key, value in chunk_metadata.items():
-                if key not in ('chunkId', 'value'):
-                    chunk_property_setters.append(f'chunk.{key} = params.{key}')
+                if key not in ('chunkId', 'chunk_id', 'value'):
+                    escaped_key = escape_cypher_label(key)
+                    chunk_property_setters.append(f'chunk.`{escaped_key}` = params.`{escaped_key}`')
                     properties_c[key] = value
 
             if chunk_property_setters:
