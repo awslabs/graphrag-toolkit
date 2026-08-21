@@ -120,6 +120,9 @@ class EntityGraphBuilder(GraphBuilder):
                     if entity.classification and entity.classification == LOCAL_ENTITY_CLASSIFICATION:
                         return
 
+                    # new_query_var() makes each query string unique, so this
+                    # UNWIND runs one row per call. Correct, but batching these
+                    # into a single multi-row UNWIND is a future optimization.
                     e_var = new_query_var()
                     e_id = entity.entityId
                     e_label = escape_cypher_label(label_from(entity.classification or DEFAULT_CLASSIFICATION))

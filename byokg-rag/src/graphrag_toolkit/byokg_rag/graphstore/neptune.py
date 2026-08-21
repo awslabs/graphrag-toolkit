@@ -26,11 +26,24 @@ _S3_PATH_PATTERN = re.compile(r'^s3://[a-zA-Z0-9.\-_/+=!@()*]+$')
 def _validate_s3_path(s3_path):
     if s3_path is None:
         return
-    if not _S3_PATH_PATTERN.match(s3_path):
+    # fullmatch, not match: '$' matches before a trailing newline, so match()
+    # would let 's3://b/k\n' through.
+    if not _S3_PATH_PATTERN.fullmatch(s3_path):
         raise ValueError(
             f"Invalid s3_path format: '{s3_path}'. "
             "Must be a valid S3 URI (s3://bucket/key)."
         )
+
+
+# region is interpolated into the CALL neptune.load() Cypher, so check its format.
+_REGION_PATTERN = re.compile(r'[a-z0-9-]+')
+
+
+def _validate_region(region):
+    # fullmatch, not match: '$' matches before a trailing newline, so 'us-east-1\n'
+    # would otherwise pass.
+    if region is None or not _REGION_PATTERN.fullmatch(region):
+        raise ValueError(f"Invalid AWS region: '{region}'. Must match [a-z0-9-].")
 
 
 # Escape backticks before a label is interpolated into a backtick-quoted Cypher
@@ -251,10 +264,13 @@ class NeptuneAnalyticsGraphStore(BaseNeptuneGraphStore):
 
 
         if region is None:
+            self.region = None
             self.__detect_region()
         else:
             self.region = region
-        assert self.region is not None, "region needs to be passed in or inferrable from current environment"
+        if self.region is None:
+            raise ValueError("region needs to be passed in or inferrable from current environment")
+        _validate_region(self.region)
         self.session = boto3.Session(region_name=self.region)
         self.neptune_client = self.session.client('neptune-graph', region_name=self.region)
         self.s3_client = self.session.client('s3', region_name=self.region)
@@ -275,7 +291,8 @@ class NeptuneAnalyticsGraphStore(BaseNeptuneGraphStore):
                 return
 
     def __attach_existing_neptune_graph(self, neptune_graph_id):
-        assert neptune_graph_id is not None, "graph_identifier is required"
+        if neptune_graph_id is None:
+            raise ValueError("graph_identifier is required")
         response = self.neptune_client.get_graph(graphIdentifier=neptune_graph_id)
         return response['id']
 
@@ -291,11 +308,13 @@ class NeptuneAnalyticsGraphStore(BaseNeptuneGraphStore):
 
         """
 
-        assert format in ['NTRIPLES', 'CSV', 'OPEN_CYPHER'], "format must be either 'NTRIPLES' or 'CSV' or 'OPEN_CYPHER'"
+        if format not in ('NTRIPLES', 'CSV', 'OPEN_CYPHER'):
+            raise ValueError("format must be one of 'NTRIPLES', 'CSV', 'OPEN_CYPHER'")
         _validate_s3_path(s3_path)
 
         if csv_file is not None:
-            assert s3_path is not None, "s3 path should be passed with local csv path for data import"
+            if s3_path is None:
+                raise ValueError("s3_path must be provided with a local csv_file for data import")
             self._upload_to_s3(s3_path, csv_file)
 
         logger.info(f'Loading data from source : {s3_path} into graph: {self.neptune_graph_id}')
@@ -384,8 +403,10 @@ class NeptuneAnalyticsGraphStore(BaseNeptuneGraphStore):
         """
 
         if node_embedding_text_props is None:
-            assert self.node_type_to_property_mapping,\
-            "Node properties to as text input for node embedding must be provided or use `assign_text_repr_prop_for_nodes` to set a default representation for each node"
+            if not self.node_type_to_property_mapping:
+                raise ValueError(
+                    "Node properties to as text input for node embedding must be provided or use `assign_text_repr_prop_for_nodes` to set a default representation for each node"
+                )
             logger.info(f'Using text representation property: {self.node_type_to_property_mapping} for as text input for node embedding')
             node_embedding_text_props = {k: [v] for k, v in self.node_type_to_property_mapping.items if v is not None}
 
@@ -427,7 +448,8 @@ class NeptuneDBGraphStore(BaseNeptuneGraphStore):
         :param region: Str AWS region
         """
         self.region = region
-        assert self.region is not None, "region needs to be passed in or inferrable from current environment"
+        if self.region is None:
+            raise ValueError("region needs to be passed in or inferrable from current environment")
         self.session = boto3.Session(region_name=self.region)
         self.endpoint_url = endpoint_url
         self.neptune_data_client = self.session.client('neptunedata', region_name=self.region, endpoint_url = self.endpoint_url)
@@ -451,11 +473,13 @@ class NeptuneDBGraphStore(BaseNeptuneGraphStore):
         Returns:
         """
 
-        assert format in ['CSV', 'OPEN_CYPHER'], "format must be either or 'CSV' or 'OPEN_CYPHER'"
+        if format not in ('CSV', 'OPEN_CYPHER'):
+            raise ValueError("format must be one of 'CSV', 'OPEN_CYPHER'")
         _validate_s3_path(s3_path)
 
         if csv_file is not None:
-            assert s3_path is not None, "s3 path should be passed with local csv path for data import"
+            if s3_path is None:
+                raise ValueError("s3_path must be provided with a local csv_file for data import")
             self._upload_to_s3(s3_path, csv_file)
 
         logger.info(f'Loading data from source : {s3_path} into graph: {self.endpoint_url}')
