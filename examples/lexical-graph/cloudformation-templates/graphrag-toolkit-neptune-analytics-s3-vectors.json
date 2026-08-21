@@ -46,12 +46,16 @@
     "ExampleNotebooksURL": {
       "Type": "String",
       "Description": "URL of a zip file containing example notebooks to be installed on SageMaker instance (optional)",
-      "Default": "https://github.com/awslabs/graphrag-toolkit/releases/latest/download/lexical-graph-examples-latest.zip"
+      "Default": "https://github.com/awslabs/graphrag-toolkit/releases/latest/download/lexical-graph-examples-latest.zip",
+      "AllowedPattern": "((https|s3)://[a-zA-Z0-9._~:/?#@&+,=%-]+)?",
+      "ConstraintDescription": "Must be empty or an https:// or s3:// URL containing only valid URL characters"
     },
     "ModelId": {
       "Description": "Bedrock model id or profile for extraction and response LLMs",
       "Type": "String",
-      "Default": "global.anthropic.claude-sonnet-4-6"
+      "Default": "global.anthropic.claude-sonnet-4-6",
+      "AllowedPattern": "[a-zA-Z0-9._:/-]+",
+      "ConstraintDescription": "Must contain only letters, numbers, and the characters . _ : / -"
     }
   },
   "Metadata": {
