@@ -311,7 +311,22 @@ class TestNeptuneAnalyticsGraphStore:
         
         with pytest.raises(ValueError, match="format must be"):
             store.read_from_csv(s3_path='s3://test-bucket/data.csv', format='INVALID')
-    
+
+    @patch('graphrag_toolkit.byokg_rag.graphstore.neptune.boto3.Session')
+    def test_neptune_store_read_from_csv_local_file_without_s3_path_raises(self, mock_session, mock_neptune_client, mock_s3_client):
+        """A local csv_file with no s3_path raises (a stripped assert would upload a None key under -O)."""
+        mock_session_instance = Mock()
+        mock_session.return_value = mock_session_instance
+        mock_session_instance.client.side_effect = lambda service, **kwargs: {
+            'neptune-graph': mock_neptune_client,
+            's3': mock_s3_client
+        }[service]
+
+        store = NeptuneAnalyticsGraphStore(graph_identifier='test-graph-id', region='us-west-2')
+
+        with pytest.raises(ValueError, match="s3_path must be provided"):
+            store.read_from_csv(csv_file='/tmp/test.csv')
+
     @patch('graphrag_toolkit.byokg_rag.graphstore.neptune.boto3.Session')
     def test_neptune_store_execute_query_with_parameters(self, mock_session, mock_neptune_client, mock_s3_client):
         """Verify execute_query passes parameters correctly."""
@@ -537,6 +552,24 @@ class TestNeptuneDBGraphStore:
         assert 'edgeLabelDetails' in result
         assert 'labelTriples' in result
     
+    @patch('graphrag_toolkit.byokg_rag.graphstore.neptune.boto3.Session')
+    def test_neptune_db_store_read_from_csv_local_file_without_s3_path_raises(self, mock_session, mock_neptune_data_client, mock_s3_client):
+        """A local csv_file with no s3_path raises (stripped assert would upload a None key under -O)."""
+        mock_session_instance = Mock()
+        mock_session.return_value = mock_session_instance
+        mock_session_instance.client.side_effect = lambda service, **kwargs: {
+            'neptunedata': mock_neptune_data_client,
+            's3': mock_s3_client
+        }[service]
+
+        store = NeptuneDBGraphStore(
+            endpoint_url='https://test-cluster.us-west-2.neptune.amazonaws.com:8182',
+            region='us-west-2'
+        )
+
+        with pytest.raises(ValueError, match="s3_path must be provided"):
+            store.read_from_csv(csv_file='/tmp/test.csv')
+
     @patch('graphrag_toolkit.byokg_rag.graphstore.neptune.boto3.Session')
     def test_neptune_db_store_read_from_csv(self, mock_session, mock_neptune_data_client, mock_s3_client):
         """Verify Neptune DB read_from_csv starts bulk loader."""
