@@ -72,15 +72,23 @@ def _mock_reader_module(reader_class_name="ConfluenceReader", load_return=None,
     reader.load_data = Mock(return_value=docs)
     ctor = Mock()
 
+    # Define the load methods on the CLASS (like a real BaseReader subclass) so
+    # the import-time presence gate can see them; each delegates to the shared
+    # `reader` mock the test configures/asserts on.
     class MockReader(BaseReader):
         def __init__(self, **kwargs):
             ctor(**kwargs)
             if init_side_effect is not None:
                 raise init_side_effect
-            # Bind the (possibly test-customized) load methods onto the instance.
-            self.load_data = reader.load_data
-            self.lazy_load = reader.lazy_load
-            self.aload_data = reader.aload_data
+
+        def load_data(self, *args, **kwargs):
+            return reader.load_data(*args, **kwargs)
+
+        def lazy_load(self, *args, **kwargs):
+            return reader.lazy_load(*args, **kwargs)
+
+        def aload_data(self, *args, **kwargs):
+            return reader.aload_data(*args, **kwargs)
 
     MockReader.__name__ = reader_class_name
     setattr(mock_module, reader_class_name, MockReader)
@@ -710,6 +718,25 @@ class TestInterfaceValidation:
             provider = LlamaIndexPluginReaderProvider(config)
             assert provider._reader is not None
 
+    def test_reader_missing_configured_load_method_rejected_at_import(self):
+        """Both gates are kept: a BaseReader subclass that doesn't implement the
+        configured load method fails loud at import (not [] at read time under
+        fail_on_error=False). BaseReader has no lazy_load, so a reader without it
+        configured for lazy_load trips the presence gate."""
+        class NoLazyReader(BaseReader):
+            def load_data(self):
+                return []
+
+        mock_module = Mock()
+        mock_module.NoLazyReader = NoLazyReader
+        config = _make_config(
+            module_path="llama_index.readers.test", reader_class="NoLazyReader",
+            load_method="lazy_load", fail_on_error=False,
+        )
+        with patch("importlib.import_module", return_value=mock_module):
+            with pytest.raises(ReaderImportError, match="does not implement"):
+                LlamaIndexPluginReaderProvider(config)
+
 
 class TestLoadMethodRestriction:
     """Item #3: Only allowed methods can be called."""
@@ -736,6 +763,38 @@ class TestLoadMethodRestriction:
 class _PermissiveProvider(LlamaIndexPluginReaderProvider):
     """Opts into resolving the specific env vars these tests reference."""
     ALLOWED_ENV_VARS = ("MY_TOKEN", "NONEXISTENT_VAR_XYZ")
+
+
+class TestConfigAllowedEnvVars:
+    """The allowlist can be set per-config (no subclassing needed, which the
+    factory can't do), and still blocks anything not listed."""
+
+    def test_config_allowed_env_vars_permits_resolution(self, monkeypatch):
+        monkeypatch.setenv("MY_TOKEN", "secret123")
+        mock_module, ctor, _ = _mock_reader_module()
+        config = _make_config(init_args={"token": "$MY_TOKEN"},
+                              allowed_env_vars=["MY_TOKEN"])
+        with patch("importlib.import_module", return_value=mock_module):
+            LlamaIndexPluginReaderProvider(config)
+        ctor.assert_called_once_with(token="secret123")
+
+    def test_config_allowed_env_vars_still_blocks_others(self, monkeypatch):
+        monkeypatch.setenv("AWS_SECRET_ACCESS_KEY", "AKIAsecret")
+        mock_module, _, _ = _mock_reader_module()
+        config = _make_config(init_args={"token": "$AWS_SECRET_ACCESS_KEY"},
+                              allowed_env_vars=["MY_TOKEN"])
+        with patch("importlib.import_module", return_value=mock_module):
+            with pytest.raises(ValueError, match="not in the permitted set"):
+                LlamaIndexPluginReaderProvider(config)
+
+    def test_default_empty_allowlist_blocks_when_unset(self, monkeypatch):
+        # No allowed_env_vars on the config and no subclass -> nothing resolves.
+        monkeypatch.setenv("MY_TOKEN", "secret123")
+        mock_module, _, _ = _mock_reader_module()
+        config = _make_config(init_args={"token": "$MY_TOKEN"})
+        with patch("importlib.import_module", return_value=mock_module):
+            with pytest.raises(ValueError, match="not in the permitted set"):
+                LlamaIndexPluginReaderProvider(config)
 
 
 class TestEnvVarResolution:

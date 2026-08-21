@@ -87,10 +87,12 @@ class LlamaIndexPluginReaderProvider:
     # Item #3: Only these methods may be called on the reader instance.
     ALLOWED_LOAD_METHODS = ("load_data", "lazy_load", "aload_data")
 
-    # Item #4: $VAR references in init_args/load_args resolve only these env vars.
-    # Empty by default so a config can't pull process credentials into reader
-    # kwargs. MIGRATION from v3.19.x (which resolved any $VAR): subclass and
-    # override, e.g. ALLOWED_ENV_VARS = ("CONFLUENCE_TOKEN",).
+    # Item #4: default allowlist for $VAR references in init_args/load_args.
+    # Empty so a config can't pull process credentials into reader kwargs.
+    # MIGRATION from v3.19.x (which resolved any $VAR): set `allowed_env_vars`
+    # on the config, e.g. LlamaIndexPluginReaderConfig(..., allowed_env_vars=
+    # ["CONFLUENCE_TOKEN"]) - no subclassing needed. Subclasses may also override
+    # this for a fixed default.
     ALLOWED_ENV_VARS = ()
 
     # Known auth-related error patterns (case-insensitive matching)
@@ -157,9 +159,10 @@ class LlamaIndexPluginReaderProvider:
         """Item #4: Resolve $VAR_NAME references in dict values from environment.
 
         Gates both init_args and load_args (both route through here). Only
-        top-level values matching $UPPER_CASE_NAME and in ALLOWED_ENV_VARS are
-        resolved; nested dicts, non-strings, lowercase, ${BRACED}, and mid-string
-        dollars pass through unchanged.
+        top-level values matching $UPPER_CASE_NAME and in the allowlist (the
+        config's allowed_env_vars, else the class ALLOWED_ENV_VARS) are resolved;
+        nested dicts, non-strings, lowercase, ${BRACED}, and mid-string dollars
+        pass through unchanged.
 
         Raises:
             ValueError: If a referenced variable is not permitted, or is
@@ -167,16 +170,20 @@ class LlamaIndexPluginReaderProvider:
         """
         if not args:
             return args
+        # Config field takes precedence; fall back to the class-level default.
+        allowed = self._config.allowed_env_vars
+        if allowed is None:
+            allowed = self.ALLOWED_ENV_VARS
         resolved = {}
         for key, value in args.items():
             if isinstance(value, str):
                 match = _ENV_VAR_PATTERN.match(value)
                 if match:
                     env_name = match.group(1)
-                    if env_name not in self.ALLOWED_ENV_VARS:
+                    if env_name not in allowed:
                         raise ValueError(
                             f"Config field '{key}' references ${env_name}, which is not "
-                            f"in the permitted set. Subclass and override ALLOWED_ENV_VARS "
+                            f"in the permitted set. Add it to the config's allowed_env_vars "
                             f"to allow it."
                         )
                     env_value = os.environ.get(env_name)
@@ -259,6 +266,15 @@ class LlamaIndexPluginReaderProvider:
         if not (isinstance(reader_cls, type) and issubclass(reader_cls, BaseReader)):
             raise ReaderImportError(
                 f"'{class_name}' in '{module_path}' is not a LlamaIndex BaseReader subclass"
+            )
+
+        # Also verify the configured load method exists at import time, so a
+        # missing method fails loud here rather than returning [] at read() time
+        # under fail_on_error=False.
+        load_method_name = self._config.load_method or "load_data"
+        if not hasattr(reader_cls, load_method_name) and not hasattr(reader_cls, "lazy_load"):
+            raise ReaderImportError(
+                f"'{class_name}' does not implement '{load_method_name}()' or 'lazy_load()'."
             )
 
         # Item #4: Resolve environment variables in init_args
