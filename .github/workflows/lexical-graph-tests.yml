@@ -157,16 +157,11 @@ jobs:
 
       - name: Comment on PR with coverage report link
         uses: actions/github-script@v9
-        env:
-          # Pass via env, not inline ${{ }}, so the values can't break out of the
-          # script into executable JS.
-          COVERAGE: ${{ steps.coverage.outputs.percentage }}
-          TARGET: ${{ steps.coverage.outputs.target }}
         with:
           script: |
             const artifactUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
-            const coverage = process.env.COVERAGE;
-            const target = process.env.TARGET;
+            const coverage = `${{ steps.coverage.outputs.percentage }}`;
+            const target = `${{ steps.coverage.outputs.target }}`;
             await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
