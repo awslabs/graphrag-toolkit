@@ -58,3 +58,30 @@ class TestSourceGraphBuilderPropertyInjection:
 
         query = _setter_query(client)
         assert 'source.`author` = params.`author`' in query
+
+
+class TestSourceGraphBuilderSourceIdBinding:
+    """source_id is the merge key; it must be bound as a param, not inlined into
+    a single-quoted Cypher literal where a quote could inject."""
+
+    def test_source_id_is_bound_not_inlined(self):
+        client = _make_graph_client()
+        malicious = "s'}) DETACH DELETE n //"
+
+        SourceGraphBuilder().build(_make_source_node({}, source_id=malicious), client)
+
+        call = client.execute_query_with_retry.call_args_list[0]
+        query, params = call[0][0], call[0][1]['params'][0]
+        assert 'params.sourceId' in query
+        assert 'DETACH DELETE n' not in query   # value never inlined into Cypher
+        assert params['sourceId'] == malicious   # bound instead
+
+    def test_metadata_sourceid_does_not_override_merge_key(self):
+        client = _make_graph_client()
+
+        SourceGraphBuilder().build(
+            _make_source_node({'sourceId': 'ATTACKER'}, source_id='real'), client
+        )
+
+        params = client.execute_query_with_retry.call_args_list[0][0][1]['params'][0]
+        assert params['sourceId'] == 'real'

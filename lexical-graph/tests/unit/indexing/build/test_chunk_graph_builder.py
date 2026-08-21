@@ -236,6 +236,29 @@ class TestChunkGraphBuilding:
         query = self._metadata_setter_query(client)
         assert 'chunk.`custom_prop` = params.`custom_prop`' in query
 
+    def test_metadata_chunk_id_key_does_not_override_merge_key(self):
+        """A metadata key literally named 'chunk_id' (the bound merge-key param)
+        must be skipped, or it overwrites the real id and redirects the MERGE."""
+        builder = ChunkGraphBuilder()
+        node = self._make_chunk_node(chunk_id='real-chunk')
+        node.metadata['chunk']['metadata'] = {'chunk_id': 'ATTACKER', 'title': 'ok'}
+
+        client = self._make_graph_client()
+        with patch(
+            'graphrag_toolkit.lexical_graph.indexing.build.chunk_graph_builder.ChunkStoreFactory.for_chunk_store',
+            return_value=Mock(),
+        ):
+            builder.build(node, client)
+
+        query = self._metadata_setter_query(client)
+        params = client.execute_query_with_retry.call_args_list[0][0][1]['params'][0]
+        # Real id preserved; attacker value never reaches the params.
+        assert params['chunk_id'] == 'real-chunk'
+        assert 'ATTACKER' not in params.values()
+        # chunk_id is not set as a property; 'title' still is.
+        assert 'chunk.`chunk_id`' not in query
+        assert params.get('title') == 'ok'
+
     @pytest.mark.parametrize('key', [
         '',                                    # empty
         '`);//',                               # only special chars, incl. backtick

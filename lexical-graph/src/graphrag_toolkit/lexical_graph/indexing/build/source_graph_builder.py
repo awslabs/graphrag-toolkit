@@ -76,7 +76,7 @@ class SourceGraphBuilder(GraphBuilder):
             statements = [
                 '// insert source',
                 'UNWIND $params AS params',
-                f"MERGE (source:`__Source__`{{{graph_client.node_id('sourceId')}: '{source_id}'}})"
+                f"MERGE (source:`__Source__`{{{graph_client.node_id('sourceId')}: params.sourceId}})"
             ]
 
             metadata = source_metadata.get('metadata', {})
@@ -113,8 +113,13 @@ class SourceGraphBuilder(GraphBuilder):
                 statements.append(f'ON CREATE SET {all_properties} ON MATCH SET {all_properties}')
             
             query = '\n'.join(statements)
-            
-            graph_client.execute_query_with_retry(query, self._to_params(clean_metadata))
+
+            # Bind sourceId as a param (not inlined) so a quote in the id can't
+            # close the literal and inject Cypher. sourceId last, so a metadata
+            # key of the same name can't override the merge key.
+            properties = {**clean_metadata, 'sourceId': source_id}
+
+            graph_client.execute_query_with_retry(query, self._to_params(properties))
 
             # prev_source_ids = source_metadata.get('prev_versions', [])
 
