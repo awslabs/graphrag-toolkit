@@ -153,7 +153,15 @@ class S3ChunkStore(ChunkStore):
         return None
 
     def _get_chunk(self, chunk_id: str, s3_client) -> Optional[str]:
-        key = self._key(chunk_id)
+        # An unusable id is a miss on the read path - skip it so one bad id
+        # doesn't fail the whole batch, and let the fallback answer. put()/
+        # put_batch() still raise so a bad write fails loud.
+        try:
+            key = self._key(chunk_id)
+        except ValueError as e:
+            logger.warning(f'Skipping chunk with invalid id: {e}')
+            return None
+
         try:
             response = s3_client.get_object(Bucket=self.bucket_name, Key=key)
         except ClientError as e:
@@ -161,25 +169,27 @@ class S3ChunkStore(ChunkStore):
                 return None
             raise
 
-        # Enforce the cap on the declared length up front, so an oversized object
-        # is never pulled into memory.
         content_length = response.get('ContentLength')
-        if content_length is not None and content_length > self.max_chunk_bytes:
-            return self._skip_oversized(key, content_length)
 
-        # Always bound the read: memory safety must not depend on a spoofable
-        # Content-Length. closing() returns the connection to the pool.
+        # closing() returns the connection to the pool on every path, including
+        # the over-cap skip that returns before reading.
         with contextlib.closing(response['Body']) as body:
+            if content_length is not None and content_length > self.max_chunk_bytes:
+                return self._skip_oversized(key, content_length)
+            # Always bound the read: memory safety must not depend on a spoofable
+            # Content-Length.
             data = body.read(self.max_chunk_bytes + 1)
 
         if len(data) > self.max_chunk_bytes:
             return self._skip_oversized(key)
-        # Content-Length is kept only as a secondary integrity signal.
+        # A declared length that doesn't match the bytes read means a truncated
+        # transfer - treat as a miss rather than serve short text.
         if content_length is not None and len(data) != content_length:
             logger.warning(
-                f'Content-Length mismatch [key: {key}, declared: {content_length}, '
-                f'actual: {len(data)}]'
+                f'Content-Length mismatch, treating as a miss [key: {key}, '
+                f'declared: {content_length}, actual: {len(data)}]'
             )
+            return None
         return data.decode('UTF-8')
 
     def get_batch(self, chunk_ids: List[str]) -> Dict[str, str]:

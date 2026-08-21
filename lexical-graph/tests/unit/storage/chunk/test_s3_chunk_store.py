@@ -85,11 +85,12 @@ class TestS3ChunkStoreKeyValidation:
         'foo／bar',           # fullwidth solidus
         'foo⁄bar',           # fraction slash
     ])
-    def test_unsafe_chunk_id_is_rejected_on_get(self, s3_client, bad_id):
+    def test_unsafe_chunk_id_is_skipped_on_get(self, s3_client, bad_id):
+        # An unusable id is a miss on the read path - skipped, not raised, so
+        # one bad id doesn't fail the whole batch (put still raises, below).
         store = _store()
 
-        with pytest.raises(ValueError):
-            store.get(bad_id)
+        assert store.get(bad_id) is None
 
         s3_client.get_object.assert_not_called()
 
@@ -105,8 +106,18 @@ class TestS3ChunkStoreKeyValidation:
         with pytest.raises(ValueError):
             S3ChunkStore._validate_chunk_id(bad_id)
 
+    def test_invalid_id_skipped_but_valid_ids_in_batch_survive(self, s3_client):
+        # A bad id in the batch is a miss; the good ones still come back.
+        store = _store()
+        s3_client.get_object.side_effect = lambda Bucket, Key: _body(f'text for {Key}')
+
+        result = store.get_batch(['good-1', 'a/b'])
+
+        assert result == {'good-1': 'text for chunks/good-1.txt'}
+
     @pytest.mark.parametrize('bad_id', ['../secret', 'a/b', 'has\x00null'])
     def test_unsafe_chunk_id_is_rejected_on_put(self, s3_client, bad_id):
+        # Writes fail loud - a bad id must not silently drop a write.
         store = _store()
 
         with pytest.raises(ValueError):
@@ -169,13 +180,15 @@ class TestS3ChunkStoreDownloadCap:
             _store(max_chunk_bytes=0)
 
     def test_declared_length_over_cap_is_skipped_without_reading(self, s3_client):
-        # ContentLength lets us reject before pulling the object into memory.
+        # ContentLength lets us reject before pulling the object into memory,
+        # but the body must still be closed so the connection returns to the pool.
         store = _store(max_chunk_bytes=8)
         body = _body('x' * 100, content_length=100)
         s3_client.get_object.return_value = body
 
         assert store.get_batch(['c1']) == {}
         body['Body'].read.assert_not_called()
+        body['Body'].close.assert_called_once()
 
     def test_read_is_always_bounded_even_with_declared_length(self, s3_client):
         # Memory safety must not depend on Content-Length: the read is bounded
@@ -197,28 +210,46 @@ class TestS3ChunkStoreDownloadCap:
         assert store.get_batch(['c1']) == {}           # oversize -> skipped
         body['Body'].read.assert_called_once_with(9)   # bounded arg, not read()
 
-    def test_content_length_mismatch_is_warned(self, s3_client, caplog):
-        # A declared length that doesn't match the bytes read logs a warning
-        # (secondary integrity signal) but the chunk is still returned.
+    def test_content_length_mismatch_is_treated_as_a_miss(self, s3_client, caplog):
+        # A declared length that doesn't match the bytes read means a truncated
+        # transfer: skip it (miss) rather than serve short text, and warn.
         import logging
         store = _store(max_chunk_bytes=64)
         body = _body('hi', content_length=10)
         s3_client.get_object.return_value = body
 
         with caplog.at_level(logging.WARNING):
-            assert store.get('c1') == 'hi'
+            assert store.get_batch(['c1']) == {}
         assert 'Content-Length mismatch' in caplog.text
+
+    def test_content_length_mismatch_falls_back_like_a_miss(self, s3_client):
+        # Treated as a miss, so the fallback store gets a chance to answer.
+        fallback = Mock(spec=ChunkStore)
+        fallback.get_batch.return_value = {'c1': 'from graph'}
+        store = _store(max_chunk_bytes=64, fallback=fallback)
+        s3_client.get_object.return_value = _body('hi', content_length=10)
+
+        assert store.get_batch(['c1']) == {'c1': 'from graph'}
 
 
 class TestS3ChunkStoreKeyLength:
     """S3 caps an object key at 1024 bytes; reject longer keys up front."""
 
-    def test_key_over_the_limit_is_rejected(self, s3_client):
+    def test_key_over_the_limit_is_skipped_on_get(self, s3_client):
+        # Over-length key is an unusable id: a miss on the read path.
         store = _store()
-        with pytest.raises(ValueError, match='1024'):
-            store.get('a' * 1024)
+
+        assert store.get('a' * 1024) is None
 
         s3_client.get_object.assert_not_called()
+
+    def test_key_over_the_limit_raises_on_put(self, s3_client):
+        # Writes fail loud.
+        store = _store()
+        with pytest.raises(ValueError, match='1024'):
+            store.put('a' * 1024, 'text')
+
+        s3_client.put_object.assert_not_called()
 
     def test_key_at_the_limit_is_accepted(self, s3_client):
         # 'chunks/' (7) + id + '.txt' (4) must be <= 1024 bytes.
