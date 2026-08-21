@@ -419,7 +419,7 @@ if [[ "$BENCHMARK_S3_JSONL" ]]; then
 	echo "export BENCHMARK_S3_JSONL=$BENCHMARK_S3_JSONL" >> lexical-graph-examples/.env.testing
 fi
 
-# Unconditional: the benchmarks require this rather than defaulting it.
+# Benchmarks require this. Defaulting to true.
 echo "export BENCHMARK_USE_BATCH=${BENCHMARK_USE_BATCH:-true}" >> lexical-graph-examples/.env.testing
 if [[ "${EXTRACTION_NUM_WORKERS:-}" ]]; then
 	echo "export EXTRACTION_NUM_WORKERS=$EXTRACTION_NUM_WORKERS" >> lexical-graph-examples/.env.testing
