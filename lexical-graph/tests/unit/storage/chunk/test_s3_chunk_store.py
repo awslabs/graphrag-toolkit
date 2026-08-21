@@ -67,8 +67,8 @@ class TestS3ChunkStoreKeys:
 
 
 class TestS3ChunkStoreKeyValidation:
-    """A separator in a chunk id would escape the configured prefix and let a
-    crafted id touch any *.txt object in the bucket."""
+    """chunk_id is allowlisted to [A-Za-z0-9:._-]; anything else could escape
+    the configured prefix or slip through as an encoded/Unicode separator."""
 
     @pytest.mark.parametrize('bad_id', [
         '',
@@ -80,6 +80,10 @@ class TestS3ChunkStoreKeyValidation:
         'a\\b',
         'has\x00null',
         'has\nnewline',
+        '%2e%2e%2fpasswd',        # url-encoded ../
+        '%252f%252e%252e',        # double-encoded
+        'foo／bar',           # fullwidth solidus
+        'foo⁄bar',           # fraction slash
     ])
     def test_unsafe_chunk_id_is_rejected_on_get(self, s3_client, bad_id):
         store = _store()
@@ -88,6 +92,18 @@ class TestS3ChunkStoreKeyValidation:
             store.get(bad_id)
 
         s3_client.get_object.assert_not_called()
+
+    @pytest.mark.parametrize('bad_id', [
+        '%2e%2e%2fpasswd',
+        '%252f%252e%252e',
+        'foo／bar',
+        'foo⁄bar',
+    ])
+    def test_encoded_and_unicode_separators_rejected(self, bad_id):
+        # Direct validator check: the allowlist closes the encoding/Unicode
+        # bypass class that a separator blocklist would miss.
+        with pytest.raises(ValueError):
+            S3ChunkStore._validate_chunk_id(bad_id)
 
     @pytest.mark.parametrize('bad_id', ['../secret', 'a/b', 'has\x00null'])
     def test_unsafe_chunk_id_is_rejected_on_put(self, s3_client, bad_id):
@@ -161,15 +177,37 @@ class TestS3ChunkStoreDownloadCap:
         assert store.get_batch(['c1']) == {}
         body['Body'].read.assert_not_called()
 
-    def test_declared_length_uses_full_read_for_content_length_check(self, s3_client):
-        # A bare read() drains the stream so botocore verifies the byte count
-        # against Content-Length; read(amt) would skip that verification.
+    def test_read_is_always_bounded_even_with_declared_length(self, s3_client):
+        # Memory safety must not depend on Content-Length: the read is bounded
+        # to max_chunk_bytes+1 regardless of the declared length.
         store = _store(max_chunk_bytes=8)
         body = _body('hi', content_length=2)
         s3_client.get_object.return_value = body
 
         assert store.get('c1') == 'hi'
-        body['Body'].read.assert_called_once_with()
+        body['Body'].read.assert_called_once_with(9)
+
+    def test_spoofed_small_content_length_is_still_bounded(self, s3_client):
+        # Server declares a small length but the body has more: the read stays
+        # bounded to max_chunk_bytes+1, not an unbounded read().
+        store = _store(max_chunk_bytes=8)
+        body = _body('x' * 100, content_length=5)
+        s3_client.get_object.return_value = body
+
+        assert store.get_batch(['c1']) == {}           # oversize -> skipped
+        body['Body'].read.assert_called_once_with(9)   # bounded arg, not read()
+
+    def test_content_length_mismatch_is_warned(self, s3_client, caplog):
+        # A declared length that doesn't match the bytes read logs a warning
+        # (secondary integrity signal) but the chunk is still returned.
+        import logging
+        store = _store(max_chunk_bytes=64)
+        body = _body('hi', content_length=10)
+        s3_client.get_object.return_value = body
+
+        with caplog.at_level(logging.WARNING):
+            assert store.get('c1') == 'hi'
+        assert 'Content-Length mismatch' in caplog.text
 
 
 class TestS3ChunkStoreKeyLength:

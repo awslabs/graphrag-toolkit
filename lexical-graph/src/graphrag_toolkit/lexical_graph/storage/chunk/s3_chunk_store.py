@@ -3,6 +3,7 @@
 
 import concurrent.futures
 import contextlib
+import re
 from urllib.parse import urlparse, parse_qs
 import logging
 from typing import Dict, List, Optional
@@ -107,24 +108,28 @@ class S3ChunkStore(ChunkStore):
 
         return max(1, min(num_items, configured))
 
+    # Allowlist for chunk ids: an allowlist (vs blocking specific separators)
+    # closes URL-encoding, Unicode, and double-encoding bypasses in one check.
+    # IdGenerator ids (aws::<hex>:<hex>:<hex>, optional tenant segment) fit.
+    _CHUNK_ID_PATTERN = re.compile(r'[A-Za-z0-9:._-]+')
+
     @staticmethod
     def _validate_chunk_id(chunk_id: str) -> None:
         """
-        Reject chunk ids that could escape the configured prefix.
+        Reject any chunk id that isn't a plain [A-Za-z0-9:._-] token.
 
-        S3 keys are literal, so a prefix-scoped IAM policy would still match
-        `prefix/../secret.txt`. But botocore puts path segments on the wire
-        unencoded, so a normalizing proxy or an S3-compatible endpoint reached
-        through `endpoint_url` can collapse `../` before the request gets to
-        S3, escaping the prefix with IAM none the wiser. Blocking separators
-        stops that; real ids are IdGenerator hashes and hold none.
+        Blocking separators is what matters for the key: botocore sends key
+        segments unencoded, so a normalizing proxy or S3-compatible endpoint
+        could collapse `../` before S3/IAM sees it and escape the prefix. The
+        allowlist blocks that and every encoded variant at once.
         """
         if not chunk_id or not chunk_id.strip():
             raise ValueError('chunk_id must be a non-empty string.')
-        if '/' in chunk_id or '\\' in chunk_id:
-            raise ValueError(f'chunk_id must not contain a path separator: {chunk_id!r}')
-        if any(ord(c) < 0x20 or ord(c) == 0x7f for c in chunk_id):
-            raise ValueError(f'chunk_id must not contain control characters: {chunk_id!r}')
+        if not S3ChunkStore._CHUNK_ID_PATTERN.fullmatch(chunk_id):
+            raise ValueError(
+                f'chunk_id contains invalid characters (allowed: alphanumeric, colon, '
+                f'period, underscore, hyphen): {chunk_id!r}'
+            )
 
     def _key(self, chunk_id: str) -> str:
         self._validate_chunk_id(chunk_id)
@@ -162,16 +167,19 @@ class S3ChunkStore(ChunkStore):
         if content_length is not None and content_length > self.max_chunk_bytes:
             return self._skip_oversized(key, content_length)
 
-        # closing() returns the connection to the pool on every path. With a
-        # known length a full read() drains the stream, so botocore verifies the
-        # byte count against Content-Length and a truncated transfer raises
-        # rather than returning short text; with no declared length, bound the
-        # read so an unknown-size object still can't exhaust memory.
+        # Always bound the read: memory safety must not depend on a spoofable
+        # Content-Length. closing() returns the connection to the pool.
         with contextlib.closing(response['Body']) as body:
-            data = body.read() if content_length is not None else body.read(self.max_chunk_bytes + 1)
+            data = body.read(self.max_chunk_bytes + 1)
 
         if len(data) > self.max_chunk_bytes:
             return self._skip_oversized(key)
+        # Content-Length is kept only as a secondary integrity signal.
+        if content_length is not None and len(data) != content_length:
+            logger.warning(
+                f'Content-Length mismatch [key: {key}, declared: {content_length}, '
+                f'actual: {len(data)}]'
+            )
         return data.decode('UTF-8')
 
     def get_batch(self, chunk_ids: List[str]) -> Dict[str, str]:
