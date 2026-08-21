@@ -1596,7 +1596,6 @@
                     "cd /home/ec2-user/SageMaker\n",
                     "if [ ! -d graphrag-toolkit ]; then\n",
                     "  mkdir graphrag-toolkit\n",
-                    "  chmod -R 755 graphrag-toolkit\n",
                     {
                       "Fn::If": [
                         "ExampleNotebooksURLIsNotBlank",
@@ -1691,6 +1690,8 @@
                       "Ref": "ModelId"
                     },
                     "\" >> .env\n",
+                    "  chmod -R 700 .\n",
+                    "  chmod 600 .env\n",
                     "  if [ -f \"./run_test_suite.sh\" ]\n",
                     "  then\n",
                     "    echo \"Running test suite\"\n",
