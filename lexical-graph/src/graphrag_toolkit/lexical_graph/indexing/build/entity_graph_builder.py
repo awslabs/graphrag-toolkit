@@ -120,11 +120,16 @@ class EntityGraphBuilder(GraphBuilder):
                     if entity.classification and entity.classification == LOCAL_ENTITY_CLASSIFICATION:
                         return
 
-                    e_var = new_query_var()
                     e_id = entity.entityId
                     e_label = escape_cypher_label(label_from(entity.classification or DEFAULT_CLASSIFICATION))
-                    e_comment = f'// awsqid:{e_id}-{e_label}'.replace('\r', ' ').replace('\n', ' ')
-                    query_e = f"UNWIND $params AS params MERGE ({e_var}:`__Entity__`{{{graph_client.node_id('entityId')}: params.entityId}}) SET {e_var} :`{e_label}` {e_comment}"
+                    # The query text must be stable for a given label: the batch
+                    # client groups param rows by the full query string, so a
+                    # per-entity variable name or a per-entity id embedded in the
+                    # text makes every insert its own single-row batch and defeats
+                    # batching and dedup entirely (#477). The entity id already
+                    # travels in the params; the comment stays label-scoped.
+                    e_comment = f'// awsqid:domain-label-{e_label}'.replace('\r', ' ').replace('\n', ' ')
+                    query_e = f"UNWIND $params AS params MERGE (e:`__Entity__`{{{graph_client.node_id('entityId')}: params.entityId}}) SET e :`{e_label}` {e_comment}"
                     graph_client.execute_query_with_retry(query_e, self._to_params({'entityId': e_id}), max_attempts=5, max_wait=7)
 
                 insert_domain_entity(fact.subject)
