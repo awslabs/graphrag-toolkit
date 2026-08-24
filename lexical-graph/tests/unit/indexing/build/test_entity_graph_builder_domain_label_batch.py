@@ -83,3 +83,57 @@ def test_domain_entity_insert_uses_batch_params_shape():
     assert 'params.entityId' in query
     assert '$entityId' not in query
     assert params == [{'entityId': ENTITY_ID}]
+
+
+def _fact_node_multi(entity_ids):
+    subjects = [
+        {
+            'entityId': eid,
+            'value': f'Acme {i}',
+            'classification': 'Company',
+        }
+        for i, eid in enumerate(entity_ids)
+    ]
+    return [
+        TextNode(
+            text='x',
+            metadata={
+                'fact': {
+                    'factId': f'fact-{i}',
+                    'subject': subject,
+                    'predicate': {'value': 'operates'},
+                    'object': None,
+                }
+            },
+        )
+        for i, subject in enumerate(subjects)
+    ]
+
+
+def test_domain_entity_inserts_batch_under_one_query_per_label():
+    """Batch writes group param rows by the full query string. The query used
+    to embed a fresh variable name and the per-entity id in its text, so every
+    domain-label insert landed in its own single-row batch (#477). Inserts for
+    distinct entities of the same classification must share one query entry."""
+    batch_client = GraphBatchClient(
+        graph_client=_MockStore(),
+        batch_writes_enabled=True,
+        batch_write_size=100,
+    )
+
+    builder = EntityGraphBuilder()
+    for node in _fact_node_multi(['ent-1', 'ent-2', 'ent-3']):
+        builder.build(
+            node,
+            batch_client,
+            include_domain_labels=True,
+            include_local_entities=False,
+        )
+
+    domain_batches = {q: p for q, p in batch_client.batches.items() if 'awsqid' in q}
+    assert len(domain_batches) == 1, (
+        f'expected one shared domain-label query, got {len(domain_batches)}: '
+        f'{list(domain_batches)}'
+    )
+    query, params = next(iter(domain_batches.items()))
+    assert sorted(p['entityId'] for p in params) == ['ent-1', 'ent-2', 'ent-3']
