@@ -88,6 +88,43 @@ class TestDummyGraphStore:
         assert isinstance(result, list)
         assert len(result) == 0
 
+    @pytest.mark.parametrize('correlation_id', [None, ''])
+    def test_empty_correlation_id_uses_only_generated_id(self, correlation_id):
+        store = DummyGraphStore()
+        generated = Mock(hex='abcde12345')
+
+        with patch(
+            'graphrag_toolkit.lexical_graph.storage.graph.graph_store.uuid.uuid4',
+            return_value=generated,
+        ), patch.object(
+            DummyGraphStore,
+            '_execute_query',
+            autospec=True,
+            return_value=[],
+        ) as execute_query:
+            store.execute_query('MATCH (n) RETURN n', correlation_id=correlation_id)
+
+        assert execute_query.call_args.kwargs['correlation_id'] == 'abcde'
+
+    def test_supplied_correlation_id_prefixes_generated_id(self):
+        store = DummyGraphStore()
+        generated = Mock(hex='abcde12345')
+
+        with patch(
+            'graphrag_toolkit.lexical_graph.storage.graph.graph_store.uuid.uuid4',
+            return_value=generated,
+        ), patch.object(
+            DummyGraphStore,
+            '_execute_query',
+            autospec=True,
+            return_value=[],
+        ) as execute_query:
+            store.execute_query(
+                'MATCH (n) RETURN n', correlation_id='request-123'
+            )
+
+        assert execute_query.call_args.kwargs['correlation_id'] == 'request-123/abcde'
+
     def test_context_manager_enter_exit(self):
         """Verify DummyGraphStore works as context manager."""
         store = DummyGraphStore()

@@ -6,6 +6,7 @@ from typing import List, Dict, Any, Optional, Callable
 from graphrag_toolkit.lexical_graph import TenantId
 from graphrag_toolkit.lexical_graph.storage.constants import LEXICAL_GRAPH_LABELS
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore, NodeId
+from graphrag_toolkit.lexical_graph.storage.graph.query_tree import QueryTree
 
 class MultiTenantGraphStore(GraphStore):
     """
@@ -64,7 +65,12 @@ class MultiTenantGraphStore(GraphStore):
             **kwargs: Additional optional keyword arguments to be passed to the
                 `execute_query_with_retry` method of the `inner` object.
         """
-        return self.inner.execute_query_with_retry(query=self._rewrite_query(query), parameters=parameters, max_attempts=max_attempts, max_wait=max_wait)
+        if isinstance(query, QueryTree):
+            kwargs.setdefault('tenant_id', self.tenant_id.value)
+            return super().execute_query_with_retry(query=query, parameters=parameters, max_attempts=max_attempts, max_wait=max_wait, **kwargs)
+        if kwargs.get('operation') is not None:
+            kwargs.setdefault('tenant_id', self.tenant_id.value)
+        return self.inner.execute_query_with_retry(query=self._rewrite_query(query), parameters=parameters, max_attempts=max_attempts, max_wait=max_wait, **kwargs)
 
     def _logging_prefix(self, query_id:str, correlation_id:Optional[str]=None):
         """
