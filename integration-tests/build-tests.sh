@@ -357,66 +357,66 @@ fi
 
 echo "__version__ = '$toolkit_version.$current_timestamp'" >> ./graphrag-toolkit/graphrag_toolkit/lexical_graph/_version.py
 
-echo "export GRAPHRAG_TOOLKIT_S3_URI=$GRAPHRAG_TOOLKIT_S3_URI" >> lexical-graph-examples/.env.testing
-echo "export S3_RESULTS_BUCKET=$S3_RESULTS_BUCKET" >> lexical-graph-examples/.env.testing
-echo "export S3_RESULTS_PREFIX=$S3_RESULTS_PREFIX" >> lexical-graph-examples/.env.testing
-echo "export APPLICATION_ID=$GRAPH_NAME" >> lexical-graph-examples/.env.testing
-echo "export TOPIC_ARN=$TOPIC_ARN" >> lexical-graph-examples/.env.testing
-echo "export AWS_REGION_NAME=$REGION_NAME" >> lexical-graph-examples/.env.testing
-echo "export NEPTUNE_ENGINE_VERSION=$NEPTUNE_ENGINE_VERSION" >> lexical-graph-examples/.env.testing
-echo "export NEPTUNE_INSTANCE_TYPE=$NEPTUNE_INSTANCE_TYPE" >> lexical-graph-examples/.env.testing
-echo "export NOTEBOOK_INSTANCE_TYPE=$NOTEBOOK_INSTANCE_TYPE" >> lexical-graph-examples/.env.testing
-echo "export OPENSEARCH_ENGINE=$OPENSEARCH_ENGINE" >> lexical-graph-examples/.env.testing
-echo "export TEST_DESCRIPTION='$TEST_DESCRIPTION'" >> lexical-graph-examples/.env.testing
-echo "export DELETE_ON_PASS=$DELETE_ON_PASS" >> lexical-graph-examples/.env.testing
-echo "export DELETE_STACK_ROLE=$DELETE_STACK_ROLE" >> lexical-graph-examples/.env.testing
-echo "export BATCH_INFERENCE_ROLE=$BATCH_INFERENCE_ROLE" >> lexical-graph-examples/.env.testing
-echo "export FAIL_FAST=$FAIL_FAST" >> lexical-graph-examples/.env.testing
-echo "export TEST_EXTRACTION_LLM=$TEST_EXTRACTION_LLM" >> lexical-graph-examples/.env.testing
-echo "export TEST_RESPONSE_LLM=$TEST_RESPONSE_LLM" >> lexical-graph-examples/.env.testing
-echo "export BENCHMARK_JUDGE_LLM=$BENCHMARK_JUDGE_LLM" >> lexical-graph-examples/.env.testing
+printf 'export GRAPHRAG_TOOLKIT_S3_URI=%q\n' "$GRAPHRAG_TOOLKIT_S3_URI" >> lexical-graph-examples/.env.testing
+printf 'export S3_RESULTS_BUCKET=%q\n' "$S3_RESULTS_BUCKET" >> lexical-graph-examples/.env.testing
+printf 'export S3_RESULTS_PREFIX=%q\n' "$S3_RESULTS_PREFIX" >> lexical-graph-examples/.env.testing
+printf 'export APPLICATION_ID=%q\n' "$GRAPH_NAME" >> lexical-graph-examples/.env.testing
+printf 'export TOPIC_ARN=%q\n' "$TOPIC_ARN" >> lexical-graph-examples/.env.testing
+printf 'export AWS_REGION_NAME=%q\n' "$REGION_NAME" >> lexical-graph-examples/.env.testing
+printf 'export NEPTUNE_ENGINE_VERSION=%q\n' "$NEPTUNE_ENGINE_VERSION" >> lexical-graph-examples/.env.testing
+printf 'export NEPTUNE_INSTANCE_TYPE=%q\n' "$NEPTUNE_INSTANCE_TYPE" >> lexical-graph-examples/.env.testing
+printf 'export NOTEBOOK_INSTANCE_TYPE=%q\n' "$NOTEBOOK_INSTANCE_TYPE" >> lexical-graph-examples/.env.testing
+printf 'export OPENSEARCH_ENGINE=%q\n' "$OPENSEARCH_ENGINE" >> lexical-graph-examples/.env.testing
+printf 'export TEST_DESCRIPTION=%q\n' "$TEST_DESCRIPTION" >> lexical-graph-examples/.env.testing
+printf 'export DELETE_ON_PASS=%q\n' "$DELETE_ON_PASS" >> lexical-graph-examples/.env.testing
+printf 'export DELETE_STACK_ROLE=%q\n' "$DELETE_STACK_ROLE" >> lexical-graph-examples/.env.testing
+printf 'export BATCH_INFERENCE_ROLE=%q\n' "$BATCH_INFERENCE_ROLE" >> lexical-graph-examples/.env.testing
+printf 'export FAIL_FAST=%q\n' "$FAIL_FAST" >> lexical-graph-examples/.env.testing
+printf 'export TEST_EXTRACTION_LLM=%q\n' "$TEST_EXTRACTION_LLM" >> lexical-graph-examples/.env.testing
+printf 'export TEST_RESPONSE_LLM=%q\n' "$TEST_RESPONSE_LLM" >> lexical-graph-examples/.env.testing
+printf 'export BENCHMARK_JUDGE_LLM=%q\n' "$BENCHMARK_JUDGE_LLM" >> lexical-graph-examples/.env.testing
 echo "export INCLUDE_CLASSIFICATION_IN_ENTITY_ID=False" >> lexical-graph-examples/.env.testing
 if [[ "$TESTS" ]]; then
-	echo "export TESTS='$TESTS'" >> lexical-graph-examples/.env.testing
+	printf 'export TESTS=%q\n' "$TESTS" >> lexical-graph-examples/.env.testing
 fi
 if [[ "$LEXICAL_GRAPH_INSTALL_URI" ]]; then
-	echo "export LEXICAL_GRAPH_INSTALL_URI='$LEXICAL_GRAPH_INSTALL_URI'" >> lexical-graph-examples/.env.testing
+	printf 'export LEXICAL_GRAPH_INSTALL_URI=%q\n' "$LEXICAL_GRAPH_INSTALL_URI" >> lexical-graph-examples/.env.testing
 fi
 if [[ "$BYOKG_RAG_INSTALL_URI" ]]; then
-	echo "export BYOKG_RAG_INSTALL_URI='$BYOKG_RAG_INSTALL_URI'" >> lexical-graph-examples/.env.testing
+	printf 'export BYOKG_RAG_INSTALL_URI=%q\n' "$BYOKG_RAG_INSTALL_URI" >> lexical-graph-examples/.env.testing
 fi
 if [[ "$EMBEDDINGS_MODEL" ]]; then
-	echo "export EMBEDDINGS_MODEL='$EMBEDDINGS_MODEL'" >> lexical-graph-examples/.env.testing
+	printf 'export EMBEDDINGS_MODEL=%q\n' "$EMBEDDINGS_MODEL" >> lexical-graph-examples/.env.testing
 fi
 if [[ "$EMBEDDINGS_DIMENSIONS" ]]; then
-	echo "export EMBEDDINGS_DIMENSIONS='$EMBEDDINGS_DIMENSIONS'" >> lexical-graph-examples/.env.testing
+	printf 'export EMBEDDINGS_DIMENSIONS=%q\n' "$EMBEDDINGS_DIMENSIONS" >> lexical-graph-examples/.env.testing
 fi
 if [[ "$BENCHMARK_DATA_S3_URI" ]]; then
-	echo "export BENCHMARK_DATA_S3_URI='$BENCHMARK_DATA_S3_URI'" >> lexical-graph-examples/.env.testing
+	printf 'export BENCHMARK_DATA_S3_URI=%q\n' "$BENCHMARK_DATA_S3_URI" >> lexical-graph-examples/.env.testing
 fi
 if [[ "$BENCHMARK_DATA_DIR" ]] && [[ -z "$BENCHMARK_DATA_S3_URI" ]]; then
 	echo "export BENCHMARK_DATA_DIR='data'" >> lexical-graph-examples/.env.testing
 fi
 if [[ "$BENCHMARK_QA_LIMIT" ]]; then
-	echo "export BENCHMARK_QA_LIMIT=$BENCHMARK_QA_LIMIT" >> lexical-graph-examples/.env.testing
+	printf 'export BENCHMARK_QA_LIMIT=%q\n' "$BENCHMARK_QA_LIMIT" >> lexical-graph-examples/.env.testing
 fi
 if [[ "${BENCHMARK_EXTRACT_DOC_LIMIT:-}" ]]; then
 	echo "export BENCHMARK_EXTRACT_DOC_LIMIT=$BENCHMARK_EXTRACT_DOC_LIMIT" >> lexical-graph-examples/.env.testing
 fi
 if [[ "$BENCHMARK_IS_PROTOTYPE" ]]; then
-	echo "export BENCHMARK_IS_PROTOTYPE=$BENCHMARK_IS_PROTOTYPE" >> lexical-graph-examples/.env.testing
+	printf 'export BENCHMARK_IS_PROTOTYPE=%q\n' "$BENCHMARK_IS_PROTOTYPE" >> lexical-graph-examples/.env.testing
 fi
 if [[ "${BENCHMARK_ALL_RETRIEVERS:-}" ]]; then
-	echo "export BENCHMARK_ALL_RETRIEVERS=$BENCHMARK_ALL_RETRIEVERS" >> lexical-graph-examples/.env.testing
+	printf 'export BENCHMARK_ALL_RETRIEVERS=%q\n' "$BENCHMARK_ALL_RETRIEVERS" >> lexical-graph-examples/.env.testing
 fi
 if [[ "${BENCHMARK_DATASET:-}" ]]; then
-	echo "export BENCHMARK_DATASET=$BENCHMARK_DATASET" >> lexical-graph-examples/.env.testing
+	printf 'export BENCHMARK_DATASET=%q\n' "$BENCHMARK_DATASET" >> lexical-graph-examples/.env.testing
 fi
 if [[ "$BENCHMARK_DOC_STORE" ]]; then
-	echo "export BENCHMARK_DOC_STORE=$BENCHMARK_DOC_STORE" >> lexical-graph-examples/.env.testing
+	printf 'export BENCHMARK_DOC_STORE=%q\n' "$BENCHMARK_DOC_STORE" >> lexical-graph-examples/.env.testing
 fi
 if [[ "$BENCHMARK_S3_JSONL" ]]; then
-	echo "export BENCHMARK_S3_JSONL=$BENCHMARK_S3_JSONL" >> lexical-graph-examples/.env.testing
+	printf 'export BENCHMARK_S3_JSONL=%q\n' "$BENCHMARK_S3_JSONL" >> lexical-graph-examples/.env.testing
 fi
 
 # Benchmarks require this. Defaulting to true.

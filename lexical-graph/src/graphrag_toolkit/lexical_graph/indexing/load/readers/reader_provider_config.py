@@ -212,6 +212,9 @@ class LlamaIndexPluginReaderConfig(ReaderProviderConfig):
         retry_backoff_seconds: Initial backoff between retries (default: 2.0)
         fail_on_error: If False, return [] on failure instead of raising (default: False)
         metadata_fn: Optional function to enrich document metadata
+        allowed_env_vars: Env var names that $VAR references in init_args/load_args
+            may resolve. Empty by default so a config can't pull process
+            credentials into reader kwargs; set e.g. ["CONFLUENCE_TOKEN"] to opt in.
     """
     package: str = ""
     module_path: str = ""
@@ -224,3 +227,4 @@ class LlamaIndexPluginReaderConfig(ReaderProviderConfig):
     retry_backoff_seconds: float = 2.0
     fail_on_error: bool = True
     metadata_fn: Optional[Callable[[str], Dict[str, Any]]] = None
+    allowed_env_vars: Optional[List[str]] = None

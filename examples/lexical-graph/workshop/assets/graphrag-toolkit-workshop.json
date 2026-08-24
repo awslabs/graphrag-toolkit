@@ -44,12 +44,16 @@
     "ExampleNotebooksURL": {
       "Type": "String",
       "Description": "URL of a zip file containing example notebooks to be installed on SageMaker instance (optional)",
-      "Default": "https://ws-assets-prod-iad-r-iad-ed304a55c2ca1aee.s3.us-east-1.amazonaws.com/dc6fc307-a969-472c-9cdb-25480026e65b/graphrag-workshop.zip"
+      "Default": "https://ws-assets-prod-iad-r-iad-ed304a55c2ca1aee.s3.us-east-1.amazonaws.com/dc6fc307-a969-472c-9cdb-25480026e65b/graphrag-workshop.zip",
+      "AllowedPattern": "((https|s3)://[a-zA-Z0-9._~:/?#@&+,=%-]+)?",
+      "ConstraintDescription": "Must be empty or an https:// or s3:// URL containing only valid URL characters"
     },
     "ModelId": {
       "Type": "String",
       "Description": "Bedrock model id or profile for extraction and response LLMs",
-      "Default": "global.anthropic.claude-sonnet-4-6"
+      "Default": "global.anthropic.claude-sonnet-4-6",
+      "AllowedPattern": "[a-zA-Z0-9._:/-]+",
+      "ConstraintDescription": "Must contain only letters, numbers, and the characters . _ : / -"
     }
   },
   "Metadata": {

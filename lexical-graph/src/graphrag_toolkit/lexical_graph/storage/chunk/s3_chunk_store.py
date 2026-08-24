@@ -2,6 +2,8 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import concurrent.futures
+import contextlib
+import re
 from urllib.parse import urlparse, parse_qs
 import logging
 from typing import Dict, List, Optional
@@ -47,6 +49,14 @@ def parse_s3_connection_string(connection_string):
 # Codes S3 and S3-compatible endpoints use for an object that isn't there.
 MISSING_KEY_CODES = ('NoSuchKey', '404')
 
+# Cap on a single chunk download, so an unexpectedly large object can't be
+# pulled fully into memory across the read thread pool.
+DEFAULT_MAX_CHUNK_BYTES = 50 * 1024 * 1024
+
+# S3 caps an object key at 1024 UTF-8 bytes; reject longer keys with a clear
+# error instead of a generic S3 failure at call time.
+MAX_S3_KEY_BYTES = 1024
+
 
 class S3ChunkStore(ChunkStore):
     """
@@ -68,15 +78,19 @@ class S3ChunkStore(ChunkStore):
                  prefix: Optional[str] = None,
                  kms_key_arn: Optional[str] = None,
                  fallback: Optional[ChunkStore] = None,
-                 num_threads: Optional[int] = None):
+                 num_threads: Optional[int] = None,
+                 max_chunk_bytes: int = DEFAULT_MAX_CHUNK_BYTES):
         if not bucket_name:
             raise ValueError('S3ChunkStore requires a bucket name.')
+        if max_chunk_bytes <= 0:
+            raise ValueError('max_chunk_bytes must be positive.')
 
         self.bucket_name = bucket_name
         self.prefix = prefix.strip('/') if prefix else None
         self.kms_key_arn = kms_key_arn
         self.fallback = fallback
         self.num_threads = num_threads
+        self.max_chunk_bytes = max_chunk_bytes
 
     def _num_workers(self, num_items: int) -> int:
         """
@@ -94,17 +108,89 @@ class S3ChunkStore(ChunkStore):
 
         return max(1, min(num_items, configured))
 
+    # Allowlist for chunk ids: an allowlist (vs blocking specific separators)
+    # closes URL-encoding, Unicode, and double-encoding bypasses in one check.
+    # IdGenerator ids (aws::<hex>:<hex>:<hex>, optional tenant segment) fit.
+    _CHUNK_ID_PATTERN = re.compile(r'[A-Za-z0-9:._-]+')
+
+    @staticmethod
+    def _validate_chunk_id(chunk_id: str) -> None:
+        """
+        Reject any chunk id that isn't a plain [A-Za-z0-9:._-] token.
+
+        Blocking separators is what matters for the key: botocore sends key
+        segments unencoded, so a normalizing proxy or S3-compatible endpoint
+        could collapse `../` before S3/IAM sees it and escape the prefix. The
+        allowlist blocks that and every encoded variant at once.
+        """
+        if not chunk_id or not chunk_id.strip():
+            raise ValueError('chunk_id must be a non-empty string.')
+        if not S3ChunkStore._CHUNK_ID_PATTERN.fullmatch(chunk_id):
+            raise ValueError(
+                f'chunk_id contains invalid characters (allowed: alphanumeric, colon, '
+                f'period, underscore, hyphen): {chunk_id!r}'
+            )
+
     def _key(self, chunk_id: str) -> str:
-        return f'{self.prefix}/{chunk_id}.txt' if self.prefix else f'{chunk_id}.txt'
+        self._validate_chunk_id(chunk_id)
+        key = f'{self.prefix}/{chunk_id}.txt' if self.prefix else f'{chunk_id}.txt'
+        key_bytes = len(key.encode('UTF-8'))
+        if key_bytes > MAX_S3_KEY_BYTES:
+            raise ValueError(
+                f'S3 key exceeds the {MAX_S3_KEY_BYTES}-byte maximum ({key_bytes} bytes): '
+                f'{key[:64]}...'
+            )
+        return key
+
+    def _skip_oversized(self, key: str, content_length: Optional[int] = None) -> None:
+        # Treat oversize as a miss, like a missing key: one bad chunk shouldn't
+        # fail the whole batch, and the fallback still gets a chance.
+        detail = f', content_length: {content_length}' if content_length is not None else ''
+        logger.warning(
+            f'Skipping oversized chunk [bucket: {self.bucket_name}, key: {key}{detail}, '
+            f'max_bytes: {self.max_chunk_bytes}]'
+        )
+        return None
 
     def _get_chunk(self, chunk_id: str, s3_client) -> Optional[str]:
+        # An unusable id is a miss on the read path - skip it so one bad id
+        # doesn't fail the whole batch, and let the fallback answer. put()/
+        # put_batch() still raise so a bad write fails loud.
         try:
-            response = s3_client.get_object(Bucket=self.bucket_name, Key=self._key(chunk_id))
+            key = self._key(chunk_id)
+        except ValueError as e:
+            logger.warning(f'Skipping chunk with invalid id: {e}')
+            return None
+
+        try:
+            response = s3_client.get_object(Bucket=self.bucket_name, Key=key)
         except ClientError as e:
             if e.response.get('Error', {}).get('Code') in MISSING_KEY_CODES:
                 return None
             raise
-        return response['Body'].read().decode('UTF-8')
+
+        content_length = response.get('ContentLength')
+
+        # closing() returns the connection to the pool on every path, including
+        # the over-cap skip that returns before reading.
+        with contextlib.closing(response['Body']) as body:
+            if content_length is not None and content_length > self.max_chunk_bytes:
+                return self._skip_oversized(key, content_length)
+            # Always bound the read: memory safety must not depend on a spoofable
+            # Content-Length.
+            data = body.read(self.max_chunk_bytes + 1)
+
+        if len(data) > self.max_chunk_bytes:
+            return self._skip_oversized(key)
+        # A declared length that doesn't match the bytes read means a truncated
+        # transfer - treat as a miss rather than serve short text.
+        if content_length is not None and len(data) != content_length:
+            logger.warning(
+                f'Content-Length mismatch, treating as a miss [key: {key}, '
+                f'declared: {content_length}, actual: {len(data)}]'
+            )
+            return None
+        return data.decode('UTF-8')
 
     def get_batch(self, chunk_ids: List[str]) -> Dict[str, str]:
         if not chunk_ids:
