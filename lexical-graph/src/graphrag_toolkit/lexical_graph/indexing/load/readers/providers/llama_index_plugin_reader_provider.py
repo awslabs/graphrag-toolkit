@@ -71,7 +71,8 @@ class LlamaIndexPluginReaderProvider:
         - Namespace allowlist (prevents arbitrary module loading)
         - Interface validation before instantiation
         - Environment variable resolution in credentials ($VAR_NAME)
-        - Configurable timeout (prevents hangs)
+        - Configurable timeout that bounds the caller's wait (soft, not a hard
+          kill - a client-level timeout in init_args is the real hang guard)
         - Retry with exponential backoff on transient failures
         - Graceful degradation (fail_on_error=False returns [] instead of raising)
         - Structured logging at every decision point (never logs credential values)
@@ -488,28 +489,43 @@ class LlamaIndexPluginReaderProvider:
     def _execute_with_timeout(
         self, load_fn: Any, load_args: dict
     ) -> List[Document]:
-        """Execute the load function with a timeout guard.
+        """Run the load function, bounding how long the *caller* waits.
 
-        Uses threading-based timeout (signal.alarm not safe in all contexts).
+        This is a soft timeout, not a hard kill: a ThreadPoolExecutor cannot
+        cancel a thread that is already running (e.g. blocked in a socket read
+        with no timeout). On timeout we abandon the worker with
+        ``shutdown(wait=False)`` rather than joining it, so the caller regains
+        control and the retry/backoff and fail_on_error paths stay reachable -
+        but the worker thread leaks until the underlying call returns (bounded
+        by max_retries). For a real hang guard, set a client-level timeout in
+        the reader's init_args (e.g. an SDK ``timeout=`` in seconds), which
+        stops the hang at the transport.
         """
         import concurrent.futures
 
         timeout = self._config.timeout_seconds or 120
 
-        # Remove input_source from load_args if the reader doesn't accept it
-        # Try with input_source first, fall back without it
-        args_to_try = load_args.copy()
-
-        with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
-            future = executor.submit(self._call_load_fn, load_fn, args_to_try)
+        executor = concurrent.futures.ThreadPoolExecutor(max_workers=1)
+        try:
+            future = executor.submit(self._call_load_fn, load_fn, load_args)
             try:
                 return future.result(timeout=timeout)
             except concurrent.futures.TimeoutError as e:
-                future.cancel()
+                logger.warning(
+                    f"LlamaIndexPlugin: {self._config.reader_class} exceeded "
+                    f"timeout of {timeout}s; abandoning the worker thread (it "
+                    f"leaks until the underlying call returns). Set a client-level "
+                    f"timeout in init_args for a hard bound."
+                )
                 raise ReaderTimeoutError(
                     f"Reader {self._config.reader_class} exceeded "
                     f"timeout of {timeout}s"
                 ) from e
+        finally:
+            # wait=False so a runaway worker is abandoned, not joined - joining
+            # here would defeat the timeout. cancel_futures drops any work that
+            # never started.
+            executor.shutdown(wait=False, cancel_futures=True)
 
     def _call_load_fn(self, load_fn: Any, load_args: dict) -> List[Document]:
         """Call the load function, handling input_source parameter flexibility."""
