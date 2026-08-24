@@ -37,6 +37,7 @@ from graphrag_toolkit.lexical_graph.indexing.load.readers.reader_provider_config
 )
 from graphrag_toolkit.lexical_graph.logging import logging
 from llama_index.core.schema import Document
+from llama_index.core.readers.base import BaseReader
 
 logger = logging.getLogger(__name__)
 
@@ -85,6 +86,14 @@ class LlamaIndexPluginReaderProvider:
 
     # Item #3: Only these methods may be called on the reader instance.
     ALLOWED_LOAD_METHODS = ("load_data", "lazy_load", "aload_data")
+
+    # Item #4: default allowlist for $VAR references in init_args/load_args.
+    # Empty so a config can't pull process credentials into reader kwargs.
+    # MIGRATION from v3.19.x (which resolved any $VAR): set `allowed_env_vars`
+    # on the config, e.g. LlamaIndexPluginReaderConfig(..., allowed_env_vars=
+    # ["CONFLUENCE_TOKEN"]) - no subclassing needed. Subclasses may also override
+    # this for a fixed default.
+    ALLOWED_ENV_VARS = ()
 
     # Known auth-related error patterns (case-insensitive matching)
     _AUTH_ERROR_PATTERNS = (
@@ -149,21 +158,34 @@ class LlamaIndexPluginReaderProvider:
     def _resolve_env_vars(self, args: dict) -> dict:
         """Item #4: Resolve $VAR_NAME references in dict values from environment.
 
-        Only resolves top-level string values matching $UPPER_CASE_NAME.
-        Nested dicts, non-string values, lowercase vars, and mid-string
-        dollar signs are passed through unchanged.
+        Gates both init_args and load_args (both route through here). Only
+        top-level values matching $UPPER_CASE_NAME and in the allowlist (the
+        config's allowed_env_vars, else the class ALLOWED_ENV_VARS) are resolved;
+        nested dicts, non-strings, lowercase, ${BRACED}, and mid-string dollars
+        pass through unchanged.
 
         Raises:
-            ValueError: If a referenced environment variable is not set.
+            ValueError: If a referenced variable is not permitted, or is
+                permitted but not set in the environment.
         """
         if not args:
             return args
+        # Config field takes precedence; fall back to the class-level default.
+        allowed = self._config.allowed_env_vars
+        if allowed is None:
+            allowed = self.ALLOWED_ENV_VARS
         resolved = {}
         for key, value in args.items():
             if isinstance(value, str):
                 match = _ENV_VAR_PATTERN.match(value)
                 if match:
                     env_name = match.group(1)
+                    if env_name not in allowed:
+                        raise ValueError(
+                            f"Config field '{key}' references ${env_name}, which is not "
+                            f"in the permitted set. Add it to the config's allowed_env_vars "
+                            f"to allow it."
+                        )
                     env_value = os.environ.get(env_name)
                     if env_value is None:
                         raise ValueError(
@@ -238,15 +260,21 @@ class LlamaIndexPluginReaderProvider:
             logger.error(msg)
             raise ReaderImportError(msg) from e
 
-        # Item #2: Interface validation BEFORE instantiation
-        if not callable(reader_cls):
-            raise ReaderImportError(f"'{class_name}' in '{module_path}' is not callable")
+        # Item #2: pin reader_cls to a BaseReader subclass, not just any callable
+        # in the module. Secondary gate on the Item #1 namespace allowlist, which
+        # is what bounds import-time side effects and abc.register() subclassing.
+        if not (isinstance(reader_cls, type) and issubclass(reader_cls, BaseReader)):
+            raise ReaderImportError(
+                f"'{class_name}' in '{module_path}' is not a LlamaIndex BaseReader subclass"
+            )
 
+        # Also verify the configured load method exists at import time, so a
+        # missing method fails loud here rather than returning [] at read() time
+        # under fail_on_error=False.
         load_method_name = self._config.load_method or "load_data"
         if not hasattr(reader_cls, load_method_name) and not hasattr(reader_cls, "lazy_load"):
             raise ReaderImportError(
-                f"'{class_name}' does not implement '{load_method_name}()' or 'lazy_load()'. "
-                f"It may not be a LlamaIndex reader."
+                f"'{class_name}' does not implement '{load_method_name}()' or 'lazy_load()'."
             )
 
         # Item #4: Resolve environment variables in init_args
