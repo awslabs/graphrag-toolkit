@@ -32,11 +32,23 @@ BATCH_SIZE = 100
 
 logger = logging.getLogger(__name__)
 
+class ConfiguredThreadCount:
+    """
+    Sizes a thread pool from a caller-supplied count, falling back to the config
+    for a component built outside S3BasedDocs.
+    """
+
+    num_threads:Optional[int]=None
+
+    def _num_threads(self):
+        return self.num_threads or GraphRAGConfig.extraction_num_threads_per_worker
+
+
 def to_batches(xs, n):
     n = max(1, n)
     return [xs[i:i+n] for i in range(0, len(xs), n)]
 
-class S3DocDownloader(BaseComponent):
+class S3DocDownloader(ConfiguredThreadCount, BaseComponent):
 
     key_prefix:str
     collection_id:str
@@ -88,7 +100,7 @@ class S3DocDownloader(BaseComponent):
 
         logger.debug(f'Started getting source documents from S3 [bucket: {self.bucket_name}, collection_path: {collection_path}, num_prefixes: {len(source_doc_prefixes)}]')
 
-        with concurrent.futures.ThreadPoolExecutor(max_workers=GraphRAGConfig.extraction_num_threads_per_worker) as executor:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=self._num_threads()) as executor:
 
             for source_doc_prefixes_batch in source_doc_prefixes_batches:
 
@@ -109,23 +121,14 @@ class S3DocDownloader(BaseComponent):
                     logger.debug(f'Yielding source document [source: {doc.source_id()}, num_nodes: {len(doc.nodes)}]')
                     yield doc
 
-class S3DocUploader(BaseComponent):
+class S3DocUploader(ConfiguredThreadCount, BaseComponent):
 
     bucket_name:str
     collection_prefix:str
     s3_encryption_key_id:Optional[str]=None
-    num_threads:Optional[int]=None
     _semaphore:Semaphore = PrivateAttr(default=None)
     _queue:queue.Queue = PrivateAttr(default=None)
     
-    def _num_threads(self):
-        """
-        Threads the caller asked for, or whatever this process can see.
-
-        The fallback keeps a directly-constructed uploader working as before.
-        """
-        return self.num_threads or GraphRAGConfig.extraction_num_threads_per_worker
-
     def _upload_doc(self, root_path:str, doc:SourceDocument, s3_client):
 
         doc_output_path = join(root_path, f'{doc.source_id()}-{uuid.uuid4().hex[:5]}.jsonl')
@@ -271,7 +274,7 @@ class S3DocUploader(BaseComponent):
             source_docs_batch = []
             logger.debug(f'Total uploaded: {total}')
 
-class S3ChunkDownloader(BaseComponent):
+class S3ChunkDownloader(ConfiguredThreadCount, BaseComponent):
 
     key_prefix:str
     collection_id:str
@@ -312,7 +315,7 @@ class S3ChunkDownloader(BaseComponent):
 
         logger.debug(f'Started getting source documents from S3 [bucket: {self.bucket_name}, collection_path: {collection_path}, num_prefixes: {len(source_doc_prefixes)}]')
 
-        num_threads = GraphRAGConfig.extraction_num_threads_per_worker
+        num_threads = self._num_threads()
 
         with concurrent.futures.ThreadPoolExecutor(max_workers=num_threads) as download_executor, \
              concurrent.futures.ThreadPoolExecutor(max_workers=num_threads) as list_executor:
@@ -358,20 +361,11 @@ class S3ChunkDownloader(BaseComponent):
 
                 yield SourceDocument(nodes=nodes)
 
-class S3ChunkUploader(BaseComponent):
+class S3ChunkUploader(ConfiguredThreadCount, BaseComponent):
 
     bucket_name:str
     collection_prefix:str
     s3_encryption_key_id:Optional[str]=None
-    num_threads:Optional[int]=None
-
-    def _num_threads(self):
-        """
-        Threads the caller asked for, or whatever this process can see.
-
-        The fallback keeps a directly-constructed uploader working as before.
-        """
-        return self.num_threads or GraphRAGConfig.extraction_num_threads_per_worker
 
     def _upload_chunk(self, root_path:str, n:TextNode, s3_client):
         chunk_output_path = join(root_path, f'{n.node_id}.json')
@@ -405,29 +399,31 @@ class S3ChunkUploader(BaseComponent):
 
     def upload(self, source_documents: List[SourceDocument]):
         """
-        Upload each source document's chunks, yielding a document once its own
-        chunks are written.
+        Upload each document's chunks, yielding a document once its own uploads
+        have been attempted.
 
-        Uploads for several documents are in flight at once. Waiting for one
-        document before submitting the next held in-flight uploads to that
-        document's chunk count - 3.31 on the WikiHow benchmark corpus - so the
-        pool sat idle however many threads it was given, and the write phase
-        took the same 13 minutes at 16, 32 and 64 threads.
-
-        Documents are still yielded in order, and still only after their own
-        chunks are durable, so a consumer sees what it saw before.
+        Chunks for several documents are in flight at once; waiting for one
+        document first capped them at that document's chunk count rather than at
+        the pool. Documents are yielded in order. A failed chunk is logged, not
+        raised, so a yielded document is not proof every chunk reached S3.
         """
         s3_client = GraphRAGConfig.s3
         num_threads = self._num_threads()
 
-        # Enough queued chunks to keep every thread busy while the oldest
-        # document drains, without reading the whole corpus into memory.
+        # Enough queued to keep the pool busy while the oldest document drains.
         max_inflight = num_threads * 2
 
         with concurrent.futures.ThreadPoolExecutor(max_workers=num_threads) as executor:
 
             pending = deque()
             inflight = 0
+
+            def release_oldest():
+                nonlocal inflight
+                (oldest, oldest_futures) = pending.popleft()
+                self._drain(oldest_futures)
+                inflight -= len(oldest_futures)
+                return oldest
 
             for source_document in source_documents:
 
@@ -444,15 +440,10 @@ class S3ChunkUploader(BaseComponent):
                 inflight += len(futures)
 
                 while inflight > max_inflight:
-                    (oldest, oldest_futures) = pending.popleft()
-                    self._drain(oldest_futures)
-                    inflight -= len(oldest_futures)
-                    yield oldest
+                    yield release_oldest()
 
             while pending:
-                (oldest, oldest_futures) = pending.popleft()
-                self._drain(oldest_futures)
-                yield oldest
+                yield release_oldest()
 
 
 
@@ -480,12 +471,9 @@ class S3BasedDocs(NodeHandler):
                  for_jsonl:Optional[bool]=False,
                  num_threads:Optional[int]=None):
 
-        # Resolved here rather than where the uploader is built. __init__ runs
-        # in the process that configured GraphRAGConfig; accept() runs in a
-        # worker spawned by run_pipeline, which inherits no parent memory and
-        # reads back the default however the parent was configured. Carrying the
-        # value as a field pickles it with the handler, the same trip an
-        # extractor's num_workers already survives.
+        # __init__ runs where GraphRAGConfig was configured; accept() runs in a
+        # spawned worker that inherits no parent memory and reads back the
+        # default. Carried as a field so it pickles with the handler.
         num_threads = num_threads or GraphRAGConfig.extraction_num_threads_per_worker
 
         super().__init__(
@@ -553,14 +541,16 @@ class S3BasedDocs(NodeHandler):
                     key_prefix=self.key_prefix, 
                     collection_id=self.collection_id, 
                     bucket_name=self.bucket_name, 
-                    fn=self._filter_metadata
+                    fn=self._filter_metadata,
+                    num_threads=self.num_threads
                 )
             else:
                 self._downloader = S3ChunkDownloader(
                     key_prefix=self.key_prefix, 
                     collection_id=self.collection_id, 
                     bucket_name=self.bucket_name, 
-                    fn=self._filter_metadata
+                    fn=self._filter_metadata,
+                    num_threads=self.num_threads
                 )
 
         path = join(self.key_prefix,  self.collection_id, '')

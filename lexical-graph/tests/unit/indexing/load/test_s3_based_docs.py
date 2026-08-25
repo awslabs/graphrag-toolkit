@@ -16,6 +16,7 @@ from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import (
     S3ChunkUploader
 )
 from graphrag_toolkit.lexical_graph.indexing.model import SourceDocument
+from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
 
 
 class TestS3BasedDocsInitialization:
@@ -692,9 +693,6 @@ class TestS3ChunkDownloaderParallelListing:
                     next(gen)
 
 
-from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
-
-
 def _doc(source_id, num_chunks, index_key_chunks=0):
     """A stand-in source document whose chunks the uploader will write."""
     nodes = [
@@ -729,13 +727,8 @@ class TestS3ChunkUploaderConcurrency:
     """Uploads for several documents are in flight at once."""
 
     def test_uploads_overlap_across_documents(self):
-        """
-        Waiting for each document before submitting the next capped in-flight
-        uploads at that document's chunk count. With one chunk per document
-        that is a single upload at a time, whatever the pool size.
-        """
-        # Releases only if this many uploads are in flight together, so a
-        # one-at-a-time uploader cannot satisfy it.
+        """One chunk per document, so the old code managed one upload at a time."""
+        # Releases only on four simultaneous uploads, so serial code times out.
         barrier = threading.Barrier(4)
         peak = 0
         inflight = 0
@@ -780,7 +773,7 @@ class TestS3ChunkUploaderConcurrency:
         assert len(set(keys)) == 30
 
     def test_document_is_yielded_only_after_its_own_chunks_are_written(self):
-        """The durability contract a consumer already relies on."""
+        """A document's own chunks are written before it is yielded."""
         written = set()
         lock = threading.Lock()
 
@@ -820,14 +813,9 @@ class TestS3ChunkUploaderConcurrency:
 
 
 class TestUploadThreadPropagation:
-    """
-    The thread count has to reach the process that does the uploading.
+    """S3BasedDocs is built where the config was set; accept() runs elsewhere."""
 
-    S3BasedDocs is built where GraphRAGConfig was configured; accept() runs in a
-    worker spawned by run_pipeline, which sees the default instead.
-    """
-
-    def _handler(self, configured_threads, num_threads=None):
+    def _handler(self, configured_threads, num_threads=None, for_jsonl=False):
         with patch(
             'graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs.GraphRAGConfig'
         ) as config:
@@ -837,6 +825,7 @@ class TestUploadThreadPropagation:
                 bucket_name='test-bucket',
                 key_prefix='prefix',
                 num_threads=num_threads,
+                for_jsonl=for_jsonl,
             )
 
     def test_thread_count_is_captured_at_construction(self):
@@ -876,6 +865,34 @@ class TestUploadThreadPropagation:
 
         assert handler._uploader.num_threads == 64
         assert peak > 4
+
+    def test_doc_uploader_keeps_the_count_when_the_process_sees_the_default(self):
+        """The jsonl path carries the count the same way the chunk path does."""
+        handler = self._handler(64, for_jsonl=True)
+
+        with patch(
+            'graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs.GraphRAGConfig'
+        ) as config:
+            config.extraction_num_threads_per_worker = 4
+            config.s3 = MagicMock()
+            list(handler.accept([_doc('src-0', 2)]))
+
+        assert handler._uploader.num_threads == 64
+        assert handler._uploader._num_threads() == 64
+
+    def test_downloader_keeps_the_count_when_the_process_sees_the_default(self):
+        """Read back runs in a spawned worker too, and needs the same count."""
+        handler = self._handler(64)
+
+        with patch(
+            'graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs.GraphRAGConfig'
+        ) as config:
+            config.extraction_num_threads_per_worker = 4
+            config.s3 = MagicMock()
+            config.s3.get_paginator.return_value.paginate.return_value = []
+            list(iter(handler))
+
+        assert handler._downloader._num_threads() == 64
 
     def test_uploader_falls_back_to_config_when_built_directly(self):
         uploader = S3ChunkUploader(bucket_name='b', collection_prefix='p')
