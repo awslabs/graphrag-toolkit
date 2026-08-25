@@ -497,9 +497,11 @@ class LlamaIndexPluginReaderProvider:
         ``shutdown(wait=False)`` rather than joining it, so the caller regains
         control and the retry/backoff and fail_on_error paths stay reachable -
         but the worker thread leaks until the underlying call returns (bounded
-        by max_retries). For a real hang guard, set a client-level timeout in
-        the reader's init_args (e.g. an SDK ``timeout=`` in seconds), which
-        stops the hang at the transport.
+        by max_retries). The leaked worker also holds the process open: at
+        interpreter exit concurrent.futures joins any worker still running, so
+        read() returns on time but shutdown blocks. For a real hang guard, set a
+        client-level timeout in the reader's init_args (e.g. an SDK ``timeout=``
+        in seconds), which stops the hang at the transport.
         """
         import concurrent.futures
 
