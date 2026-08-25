@@ -513,7 +513,7 @@ class LlamaIndexPluginReaderProvider:
             try:
                 return future.result(timeout=timeout)
             except concurrent.futures.TimeoutError as e:
-                logger.warning(
+                logger.debug(
                     f"LlamaIndexPlugin: {self._config.reader_class} exceeded "
                     f"timeout of {timeout}s; abandoning the worker thread (it "
                     f"leaks until the underlying call returns). Set a client-level "
