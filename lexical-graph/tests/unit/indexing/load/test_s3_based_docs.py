@@ -16,6 +16,7 @@ from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import (
     S3ChunkUploader
 )
 from graphrag_toolkit.lexical_graph.indexing.model import SourceDocument
+from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
 
 
 class TestS3BasedDocsInitialization:
@@ -690,3 +691,214 @@ class TestS3ChunkDownloaderParallelListing:
                 # while the executors unwind.
                 with pytest.raises(RuntimeError, match='transient S3 listing error'):
                     next(gen)
+
+
+def _doc(source_id, num_chunks, index_key_chunks=0):
+    """A stand-in source document whose chunks the uploader will write."""
+    nodes = [
+        TextNode(text=f'{source_id}-chunk-{i}', id_=f'{source_id}-chunk-{i}')
+        for i in range(num_chunks)
+    ]
+    for i in range(index_key_chunks):
+        skipped = TextNode(text='skip', id_=f'{source_id}-index-{i}')
+        skipped.metadata[INDEX_KEY] = {'index': 'chunk'}
+        nodes.append(skipped)
+
+    doc = Mock()
+    doc.nodes = nodes
+    doc.source_id.return_value = source_id
+    return doc
+
+
+@contextlib.contextmanager
+def _uploader_with(num_threads, on_put):
+    """Run S3ChunkUploader against an instrumented put_object."""
+    uploader = S3ChunkUploader(bucket_name='test-bucket', collection_prefix='prefix/collection')
+    with patch(
+        'graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs.GraphRAGConfig'
+    ) as config:
+        config.extraction_num_threads_per_worker = num_threads
+        config.s3 = MagicMock()
+        config.s3.put_object = on_put
+        yield uploader
+
+
+class TestS3ChunkUploaderConcurrency:
+    """Uploads for several documents are in flight at once."""
+
+    def test_uploads_overlap_across_documents(self):
+        """One chunk per document, so the old code managed one upload at a time."""
+        # Releases only on four simultaneous uploads, so serial code times out.
+        barrier = threading.Barrier(4)
+        peak = 0
+        inflight = 0
+        lock = threading.Lock()
+
+        def on_put(**kwargs):
+            nonlocal peak, inflight
+            with lock:
+                inflight += 1
+                peak = max(peak, inflight)
+            with contextlib.suppress(threading.BrokenBarrierError):
+                barrier.wait(timeout=5)
+            with lock:
+                inflight -= 1
+
+        with _uploader_with(8, on_put) as uploader:
+            docs = [_doc(f'src-{i}', 1) for i in range(8)]
+            list(uploader.upload(docs))
+
+        assert peak >= 4
+
+    def test_yields_documents_in_order(self):
+        with _uploader_with(4, lambda **kwargs: None) as uploader:
+            docs = [_doc(f'src-{i}', 2) for i in range(10)]
+            yielded = list(uploader.upload(docs))
+
+        assert [d.source_id() for d in yielded] == [f'src-{i}' for i in range(10)]
+
+    def test_every_chunk_is_uploaded_once(self):
+        keys = []
+        lock = threading.Lock()
+
+        def on_put(**kwargs):
+            with lock:
+                keys.append(kwargs['Key'])
+
+        with _uploader_with(4, on_put) as uploader:
+            docs = [_doc(f'src-{i}', 3) for i in range(10)]
+            list(uploader.upload(docs))
+
+        assert len(keys) == 30
+        assert len(set(keys)) == 30
+
+    def test_document_is_yielded_only_after_its_own_chunks_are_written(self):
+        """A document's own chunks are written before it is yielded."""
+        written = set()
+        lock = threading.Lock()
+
+        def on_put(**kwargs):
+            time.sleep(0.01)
+            with lock:
+                written.add(kwargs['Key'])
+
+        with _uploader_with(8, on_put) as uploader:
+            docs = [_doc(f'src-{i}', 3) for i in range(8)]
+            for doc in uploader.upload(docs):
+                source_id = doc.source_id()
+                with lock:
+                    for i in range(3):
+                        assert f'prefix/collection/{source_id}/{source_id}-chunk-{i}.json' in written
+
+    def test_index_key_chunks_are_skipped(self):
+        keys = []
+
+        def on_put(**kwargs):
+            keys.append(kwargs['Key'])
+
+        with _uploader_with(4, on_put) as uploader:
+            list(uploader.upload([_doc('src-0', 2, index_key_chunks=3)]))
+
+        assert len(keys) == 2
+
+    def test_a_failed_chunk_does_not_stop_the_stream(self):
+        def on_put(**kwargs):
+            if 'src-1' in kwargs['Key']:
+                raise RuntimeError('upload failed')
+
+        with _uploader_with(4, on_put) as uploader:
+            yielded = list(uploader.upload([_doc(f'src-{i}', 2) for i in range(4)]))
+
+        assert [d.source_id() for d in yielded] == [f'src-{i}' for i in range(4)]
+
+
+class TestUploadThreadPropagation:
+    """S3BasedDocs is built where the config was set; accept() runs elsewhere."""
+
+    def _handler(self, configured_threads, num_threads=None, for_jsonl=False):
+        with patch(
+            'graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs.GraphRAGConfig'
+        ) as config:
+            config.extraction_num_threads_per_worker = configured_threads
+            return S3BasedDocs(
+                region='us-east-1',
+                bucket_name='test-bucket',
+                key_prefix='prefix',
+                num_threads=num_threads,
+                for_jsonl=for_jsonl,
+            )
+
+    def test_thread_count_is_captured_at_construction(self):
+        handler = self._handler(64)
+
+        assert handler.num_threads == 64
+
+    def test_explicit_thread_count_wins_over_config(self):
+        handler = self._handler(64, num_threads=8)
+
+        assert handler.num_threads == 8
+
+    def test_uploader_keeps_the_count_when_the_process_sees_the_default(self):
+        """Stands in for the spawned worker: same handler, config back at 4."""
+        handler = self._handler(64)
+
+        peak = 0
+        inflight = 0
+        lock = threading.Lock()
+
+        def on_put(**kwargs):
+            nonlocal peak, inflight
+            with lock:
+                inflight += 1
+                peak = max(peak, inflight)
+            time.sleep(0.02)
+            with lock:
+                inflight -= 1
+
+        with patch(
+            'graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs.GraphRAGConfig'
+        ) as config:
+            config.extraction_num_threads_per_worker = 4
+            config.s3 = MagicMock()
+            config.s3.put_object = on_put
+            list(handler.accept([_doc(f'src-{i}', 2) for i in range(64)]))
+
+        assert handler._uploader.num_threads == 64
+        assert peak > 4
+
+    def test_doc_uploader_keeps_the_count_when_the_process_sees_the_default(self):
+        """The jsonl path carries the count the same way the chunk path does."""
+        handler = self._handler(64, for_jsonl=True)
+
+        with patch(
+            'graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs.GraphRAGConfig'
+        ) as config:
+            config.extraction_num_threads_per_worker = 4
+            config.s3 = MagicMock()
+            list(handler.accept([_doc('src-0', 2)]))
+
+        assert handler._uploader.num_threads == 64
+        assert handler._uploader._num_threads() == 64
+
+    def test_downloader_keeps_the_count_when_the_process_sees_the_default(self):
+        """Read back runs in a spawned worker too, and needs the same count."""
+        handler = self._handler(64)
+
+        with patch(
+            'graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs.GraphRAGConfig'
+        ) as config:
+            config.extraction_num_threads_per_worker = 4
+            config.s3 = MagicMock()
+            config.s3.get_paginator.return_value.paginate.return_value = []
+            list(iter(handler))
+
+        assert handler._downloader._num_threads() == 64
+
+    def test_uploader_falls_back_to_config_when_built_directly(self):
+        uploader = S3ChunkUploader(bucket_name='b', collection_prefix='p')
+
+        with patch(
+            'graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs.GraphRAGConfig'
+        ) as config:
+            config.extraction_num_threads_per_worker = 7
+            assert uploader._num_threads() == 7
