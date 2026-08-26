@@ -13,8 +13,7 @@ from os.path import isfile, join
 from tenacity import retry, stop_after_attempt, wait_exponential
 from botocore.exceptions import ClientError
 
-from graphrag_toolkit.lexical_graph.indexing.utils.llm_concurrency import run_blocking
-from graphrag_toolkit.lexical_graph import BatchJobError, GraphRAGConfig
+from graphrag_toolkit.lexical_graph import BatchJobError
 from graphrag_toolkit.lexical_graph.utils import LLMCache
 from graphrag_toolkit.lexical_graph.indexing.extract.batch_config import BatchConfig
 
@@ -292,7 +291,7 @@ async def process_batch_output(local_output_directory:str, input_filename:str, l
             return llm.predict(PromptTemplate(text))
         
         try:
-            coro = run_blocking(blocking_llm_call, GraphRAGConfig.extraction_num_threads_per_worker)
+            coro = asyncio.to_thread(blocking_llm_call)
             response = await coro
             logger.debug(f'[Batch outputs] Successfully processed failed record {record_id}')
             return record_id, response

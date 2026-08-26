@@ -3,6 +3,7 @@
 
 import logging
 import os
+import threading
 
 from botocore.config import Config
 from hashlib import sha256
@@ -11,6 +12,7 @@ from typing import Optional, Any, Union
 from graphrag_toolkit.lexical_graph import ModelError
 from graphrag_toolkit.lexical_graph.utils.bedrock_utils import *
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig, BOTOCORE_DEFAULT_MAX_POOL_CONNECTIONS
+from graphrag_toolkit.lexical_graph.utils.llm_concurrency import pool_size
 
 from llama_index.core.llms.llm import LLM
 from llama_index.llms.bedrock_converse import BedrockConverse
@@ -27,43 +29,70 @@ MAX_ATTEMPTS = 2
 TIMEOUT = 60.0
 
 
-def _bedrock_client(llm):
+_client_lock = threading.Lock()
+
+
+def _bedrock_client(llm, num_threads:int):
     """
     Build the bedrock-runtime client these calls share.
 
-    botocore's pool defaults to 10. Extraction now sizes its LLM call pool to
-    the configured thread count, so in-flight calls can exceed 10, and past the
-    pool botocore discards and reopens connections, undoing the concurrency the
-    thread fix bought.
-
-    Takes the largest of three values because none is reliable alone: a thread
-    count set on GraphRAGConfig in the parent is lost to spawn and reads back as
-    the default, the environment variable survives spawn, and the CPython floor
-    covers neither being set.
+    botocore's pool defaults to 10, below the concurrency extraction and the
+    retrievers both drive through this client, and past the pool botocore
+    discards and reopens connections. The pool follows the same rule as
+    `ResilientClient._client_config`: twice the thread count, floored at the
+    botocore default.
     """
-    num_threads = max(
-        BOTOCORE_DEFAULT_MAX_POOL_CONNECTIONS,
-        GraphRAGConfig.extraction_num_threads_per_worker,
-        min(32, (os.cpu_count() or 1) + 4),
-    )
-
     config = Config(
         retries={'max_attempts': MAX_ATTEMPTS, 'mode': 'standard'},
         connect_timeout=TIMEOUT,
         read_timeout=TIMEOUT,
-        max_pool_connections=num_threads,
+        max_pool_connections=max(BOTOCORE_DEFAULT_MAX_POOL_CONNECTIONS, num_threads * 2),
     )
 
     return GraphRAGConfig.session.client(
         'bedrock-runtime', config=config, region_name=llm.region_name
     )
 
+
 class LLMCache(BaseModel):
 
     llm:LLM = Field(description='LLM whose responses may be cached')
     enable_cache:Optional[bool] = Field(description='Whether the cache is enabled or disabled', default=False)
+    num_threads:Optional[int] = Field(description='Concurrent calls to size the client connection pool for', default=None)
     verbose_prompt:Optional[bool] = Field(default=False)
     verbose_response:Optional[bool] = Field(default=False)
+
+    def _pool_threads(self) -> int:
+        """
+        Concurrent calls to size the client connection pool for.
+
+        The constructor value when the caller gave one. Otherwise the LLM call
+        pool's size, which extraction sets from the worker count pickled with the
+        extractor and which is therefore the only one of these that survives
+        spawn, falling back to the configured thread count before any call has
+        reached the pool. `extraction_num_threads_per_worker` is last because
+        `predict` and `stream` also run on the retrieval path, where an
+        extraction setting means nothing.
+        """
+        return self.num_threads or pool_size() or GraphRAGConfig.extraction_num_threads_per_worker
+
+    def _ensure_client(self) -> None:
+        """
+        Give the LLM a bedrock-runtime client if it does not already have one.
+
+        BedrockConverse drops `_client` when pickled, so it is missing in every
+        process `run_pipeline` spawns, and the LLM call pool can release
+        `num_threads` calls into this path at once. The check and the build are
+        one step under a lock because boto3 client creation is not thread safe:
+        without it every entrant builds a client the last writer throws away, and
+        concurrent creation can raise out of botocore's loader cache.
+        """
+        if not isinstance(self.llm, BedrockConverse) or hasattr(self.llm, '_client'):
+            return
+
+        with _client_lock:
+            if not hasattr(self.llm, '_client'):
+                self.llm._client = _bedrock_client(self.llm, self._pool_threads())
 
     def stream(
          self,
@@ -76,9 +105,7 @@ class LLMCache(BaseModel):
             logger.info('%s%s%s', c_blue, prompt.format(**prompt_args), c_norm)
 
         try:
-            if isinstance(self.llm, BedrockConverse):
-                if not hasattr(self.llm, '_client'):
-                    self.llm._client = _bedrock_client(self.llm)
+            self._ensure_client()
             response = self.llm.stream(prompt, **prompt_args)
         except Exception as e:
             raise ModelError(f'{e!s} [Model config: {self.llm.to_json()}]') from e
@@ -123,9 +150,7 @@ class LLMCache(BaseModel):
 
         if not self.enable_cache:
             try:
-                if isinstance(self.llm, BedrockConverse):
-                    if not hasattr(self.llm, '_client'):
-                        self.llm._client = _bedrock_client(self.llm)
+                self._ensure_client()
                 response = self.llm.predict(prompt, **prompt_args)
             except Exception as e:
                 raise ModelError(f'{e!s} [Model config: {self.llm.to_json()}]') from e
@@ -145,9 +170,7 @@ class LLMCache(BaseModel):
                     response = f.read()
             else:
                 try:
-                    if isinstance(self.llm, BedrockConverse):
-                        if not hasattr(self.llm, '_client'):
-                            self.llm._client = _bedrock_client(self.llm)
+                    self._ensure_client()
                     response = self.llm.predict(prompt, **prompt_args)
                 except Exception as e:
                     raise ModelError(f'{e!s} Model config: {self.llm.to_json()}') from e
