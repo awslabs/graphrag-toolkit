@@ -14,6 +14,7 @@ import pytest
 from contextlib import contextmanager
 from unittest.mock import patch, MagicMock
 
+from graphrag_toolkit.lexical_graph.config import BOTOCORE_DEFAULT_MAX_POOL_CONNECTIONS
 from graphrag_toolkit.lexical_graph.utils.llm_concurrency import MIN_POOL_SIZE
 from graphrag_toolkit.lexical_graph.utils.llm_cache import LLMCache
 from llama_index.llms.bedrock_converse import BedrockConverse
@@ -172,16 +173,47 @@ class TestConnectionPoolSizing:
             CONFIGURED_NUM_THREADS * 2
 
     @patch('boto3.Session')
-    def test_pool_never_drops_below_the_executor_floor(self, mock_boto_session):
-        """The executor runs at least MIN_POOL_SIZE threads whatever the caller
-        asks for, so the client behind it cannot be narrower."""
+    def test_pool_treats_an_explicit_zero_as_a_value_not_as_unset(self, mock_boto_session):
+        """Zero asks for nothing, so the floors decide. Reading it as unset would
+        fall through and size the client for the configured count instead."""
+        cache = LLMCache(llm=unpickled_llm(), enable_cache=False, num_threads=0)
+
+        mock_session = MagicMock()
+        with patched_config(mock_session):
+            trigger_client_creation(cache)
+
+        assert client_kwargs(mock_session)['config'].max_pool_connections != \
+            CONFIGURED_NUM_THREADS * 2
+
+    @patch('boto3.Session')
+    def test_pool_never_drops_below_either_floor(self, mock_boto_session):
+        """MIN_POOL_SIZE tracks cpu_count, so which of the two floors binds
+        depends on the host. Assert the property, not the arithmetic."""
         cache = LLMCache(llm=unpickled_llm(), enable_cache=False, num_threads=1)
 
         mock_session = MagicMock()
         with patched_config(mock_session):
             trigger_client_creation(cache)
 
-        assert client_kwargs(mock_session)['config'].max_pool_connections == MIN_POOL_SIZE
+        pool = client_kwargs(mock_session)['config'].max_pool_connections
+
+        assert pool >= BOTOCORE_DEFAULT_MAX_POOL_CONNECTIONS
+        assert pool >= MIN_POOL_SIZE
+
+    @patch('boto3.Session')
+    def test_pool_follows_the_executor_floor_when_it_is_the_largest(self, mock_boto_session):
+        """Why that floor is there: a caller reaching this before anything has
+        created the LLM call pool still has to get a client wide enough for it."""
+        cache = LLMCache(llm=unpickled_llm(), enable_cache=False, num_threads=1)
+
+        mock_session = MagicMock()
+        # Clear of the other two terms, so the executor floor is the one left.
+        floor = BOTOCORE_DEFAULT_MAX_POOL_CONNECTIONS + 8
+        target = 'graphrag_toolkit.lexical_graph.utils.llm_cache.MIN_POOL_SIZE'
+        with patched_config(mock_session), patch(target, floor):
+            trigger_client_creation(cache)
+
+        assert client_kwargs(mock_session)['config'].max_pool_connections == floor
 
     @patch('boto3.Session')
     def test_pool_is_sized_from_the_llm_call_pool_when_nothing_else_is_set(self, mock_boto_session):
