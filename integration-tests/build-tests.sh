@@ -375,7 +375,7 @@ printf 'export FAIL_FAST=%q\n' "$FAIL_FAST" >> lexical-graph-examples/.env.testi
 printf 'export TEST_EXTRACTION_LLM=%q\n' "$TEST_EXTRACTION_LLM" >> lexical-graph-examples/.env.testing
 printf 'export TEST_RESPONSE_LLM=%q\n' "$TEST_RESPONSE_LLM" >> lexical-graph-examples/.env.testing
 printf 'export BENCHMARK_JUDGE_LLM=%q\n' "$BENCHMARK_JUDGE_LLM" >> lexical-graph-examples/.env.testing
-echo "export INCLUDE_CLASSIFICATION_IN_ENTITY_ID=False" >> lexical-graph-examples/.env.testing
+printf 'export INCLUDE_CLASSIFICATION_IN_ENTITY_ID=%q\n' "False" >> lexical-graph-examples/.env.testing
 if [[ "$TESTS" ]]; then
 	printf 'export TESTS=%q\n' "$TESTS" >> lexical-graph-examples/.env.testing
 fi
@@ -395,13 +395,13 @@ if [[ "$BENCHMARK_DATA_S3_URI" ]]; then
 	printf 'export BENCHMARK_DATA_S3_URI=%q\n' "$BENCHMARK_DATA_S3_URI" >> lexical-graph-examples/.env.testing
 fi
 if [[ "$BENCHMARK_DATA_DIR" ]] && [[ -z "$BENCHMARK_DATA_S3_URI" ]]; then
-	echo "export BENCHMARK_DATA_DIR='data'" >> lexical-graph-examples/.env.testing
+	printf 'export BENCHMARK_DATA_DIR=%q\n' "data" >> lexical-graph-examples/.env.testing
 fi
 if [[ "$BENCHMARK_QA_LIMIT" ]]; then
 	printf 'export BENCHMARK_QA_LIMIT=%q\n' "$BENCHMARK_QA_LIMIT" >> lexical-graph-examples/.env.testing
 fi
 if [[ "${BENCHMARK_EXTRACT_DOC_LIMIT:-}" ]]; then
-	echo "export BENCHMARK_EXTRACT_DOC_LIMIT=$BENCHMARK_EXTRACT_DOC_LIMIT" >> lexical-graph-examples/.env.testing
+	printf 'export BENCHMARK_EXTRACT_DOC_LIMIT=%q\n' "$BENCHMARK_EXTRACT_DOC_LIMIT" >> lexical-graph-examples/.env.testing
 fi
 if [[ "$BENCHMARK_IS_PROTOTYPE" ]]; then
 	printf 'export BENCHMARK_IS_PROTOTYPE=%q\n' "$BENCHMARK_IS_PROTOTYPE" >> lexical-graph-examples/.env.testing
@@ -420,12 +420,12 @@ if [[ "$BENCHMARK_S3_JSONL" ]]; then
 fi
 
 # Benchmarks require this. Defaulting to true.
-echo "export BENCHMARK_USE_BATCH=${BENCHMARK_USE_BATCH:-true}" >> lexical-graph-examples/.env.testing
+printf 'export BENCHMARK_USE_BATCH=%q\n' "${BENCHMARK_USE_BATCH:-true}" >> lexical-graph-examples/.env.testing
 if [[ "${EXTRACTION_NUM_WORKERS:-}" ]]; then
-	echo "export EXTRACTION_NUM_WORKERS=$EXTRACTION_NUM_WORKERS" >> lexical-graph-examples/.env.testing
+	printf 'export EXTRACTION_NUM_WORKERS=%q\n' "$EXTRACTION_NUM_WORKERS" >> lexical-graph-examples/.env.testing
 fi
 if [[ "${EXTRACTION_BATCH_SIZE:-}" ]]; then
-	echo "export EXTRACTION_BATCH_SIZE=$EXTRACTION_BATCH_SIZE" >> lexical-graph-examples/.env.testing
+	printf 'export EXTRACTION_BATCH_SIZE=%q\n' "$EXTRACTION_BATCH_SIZE" >> lexical-graph-examples/.env.testing
 fi
 
 zip -r graphrag-toolkit.zip graphrag-toolkit # zip under directory
