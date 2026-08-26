@@ -12,7 +12,7 @@ from typing import Optional, Any, Union
 from graphrag_toolkit.lexical_graph import ModelError
 from graphrag_toolkit.lexical_graph.utils.bedrock_utils import *
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig, BOTOCORE_DEFAULT_MAX_POOL_CONNECTIONS
-from graphrag_toolkit.lexical_graph.utils.llm_concurrency import pool_size
+from graphrag_toolkit.lexical_graph.utils.llm_concurrency import pool_size, MIN_POOL_SIZE
 
 from llama_index.core.llms.llm import LLM
 from llama_index.llms.bedrock_converse import BedrockConverse
@@ -46,7 +46,12 @@ def _bedrock_client(llm, num_threads:int):
         retries={'max_attempts': MAX_ATTEMPTS, 'mode': 'standard'},
         connect_timeout=TIMEOUT,
         read_timeout=TIMEOUT,
-        max_pool_connections=max(BOTOCORE_DEFAULT_MAX_POOL_CONNECTIONS, num_threads * 2),
+        # Same sizing as config.py, plus a floor at the executor's own size:
+        # this client sits behind that pool, and pool_size() reads 0 until
+        # something creates it.
+        max_pool_connections=max(
+            BOTOCORE_DEFAULT_MAX_POOL_CONNECTIONS, num_threads * 2, MIN_POOL_SIZE
+        ),
     )
 
     return GraphRAGConfig.session.client(
