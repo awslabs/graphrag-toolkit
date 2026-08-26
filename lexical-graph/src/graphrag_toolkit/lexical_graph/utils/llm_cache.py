@@ -38,17 +38,19 @@ def _bedrock_client(llm, num_threads:int):
 
     botocore's pool defaults to 10, below the concurrency extraction and the
     retrievers both drive through this client, and past the pool botocore
-    discards and reopens connections. The pool follows the same rule as
-    `ResilientClient._client_config`: twice the thread count, floored at the
-    botocore default.
+    discards and reopens connections.
+
+    The pool is twice the thread count, floored at both the botocore default and
+    the LLM call pool's own size. `ResilientClient._client_config` sizes its
+    client on the first two. The third is here because this client sits behind
+    the LLM call pool, and `pool_size()` reads 0 until something creates it, so a
+    caller arriving first would otherwise get a pool of 10 while the executor
+    already runs at its own floor.
     """
     config = Config(
         retries={'max_attempts': MAX_ATTEMPTS, 'mode': 'standard'},
         connect_timeout=TIMEOUT,
         read_timeout=TIMEOUT,
-        # Same sizing as config.py, plus a floor at the executor's own size:
-        # this client sits behind that pool, and pool_size() reads 0 until
-        # something creates it.
         max_pool_connections=max(
             BOTOCORE_DEFAULT_MAX_POOL_CONNECTIONS, num_threads * 2, MIN_POOL_SIZE
         ),
@@ -79,7 +81,10 @@ class LLMCache(BaseModel):
         `predict` and `stream` also run on the retrieval path, where an
         extraction setting means nothing.
         """
-        return self.num_threads or pool_size() or GraphRAGConfig.extraction_num_threads_per_worker
+        if self.num_threads is not None:
+            return self.num_threads
+
+        return pool_size() or GraphRAGConfig.extraction_num_threads_per_worker
 
     def _ensure_client(self) -> None:
         """

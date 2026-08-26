@@ -44,6 +44,7 @@ MAX_POOL_SIZE = 256
 _lock = threading.Lock()
 _executor = None
 _executor_size = 0
+_warned_above_max = False
 
 
 def _pool_size_for(num_threads: int) -> int:
@@ -71,10 +72,11 @@ def shutdown() -> None:
     the extraction that created them in any host process that keeps running.
     Calls already running finish; no new call is queued.
     """
-    global _executor, _executor_size
+    global _executor, _executor_size, _warned_above_max
 
     with _lock:
         previous, _executor, _executor_size = _executor, None, 0
+        _warned_above_max = False
 
     if previous is not None:
         previous.shutdown(wait=False)
@@ -92,17 +94,21 @@ def _submit(fn, num_threads: int) -> concurrent.futures.Future:
     outside it can land on a pool another thread has already replaced and shut
     down, which raises `RuntimeError: cannot schedule new futures after shutdown`.
     """
-    global _executor, _executor_size
+    global _executor, _executor_size, _warned_above_max
 
     wanted = _pool_size_for(num_threads)
 
     with _lock:
+        # Once per process: the clamp applies on every call, but a request above
+        # the maximum arrives once per node and would otherwise flood the log.
+        if num_threads > MAX_POOL_SIZE and not _warned_above_max:
+            _warned_above_max = True
+            logger.warning(
+                f'Requested LLM call pool size is above the maximum, using the maximum '
+                f'[requested: {num_threads}, max: {MAX_POOL_SIZE}]'
+            )
+
         if _executor is None or _executor_size < wanted:
-            if num_threads > MAX_POOL_SIZE:
-                logger.warning(
-                    f'Requested LLM call pool size is above the maximum, using the maximum '
-                    f'[requested: {num_threads}, max: {MAX_POOL_SIZE}]'
-                )
             previous = _executor
             _executor = concurrent.futures.ThreadPoolExecutor(
                 max_workers=wanted,
