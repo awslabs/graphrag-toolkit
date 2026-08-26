@@ -10,6 +10,7 @@ import logging
 
 from benchmarks.scripts.integration_test_base import IntegrationTestBase
 from benchmarks.scripts.integration_test_handler import IntegrationTestHandler
+from benchmarks.utils.benchmark_env import env_bool, env_int, env_string
 from benchmarks.utils.s3_utils import sync_benchmark_data_from_s3
 from benchmarks.utils.dataset_config import QA_FILE_MAP, get_data_subdir
 from benchmarks.utils.retriever_factory import create_query_engine, get_retriever_config, ByoKGQueryEngineWrapper
@@ -269,12 +270,11 @@ class CuadBenchmarkQuery(IntegrationTestBase):
             return len(vector_store.get_index('chunk').top_k(QueryBundle(query_str='contract'), top_k=1)) == 0
 
     def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
-        limit_str = os.environ.get('BENCHMARK_QA_LIMIT')
-        is_prototype = os.environ.get('BENCHMARK_IS_PROTOTYPE')
-        dataset_name = 'cuad-prototype' if is_prototype == 'true' else 'cuad'
+        is_prototype = env_bool('BENCHMARK_IS_PROTOTYPE', False)
+        dataset_name = 'cuad-prototype' if is_prototype else 'cuad'
         retriever_id = os.environ.get('BENCHMARK_RETRIEVER', 'traversal')
-        agentic_max_iterations = int(os.environ.get('AGENTIC_MAX_ITERATIONS', '3'))
-        byokg_max_iterations = int(os.environ.get('BYOKG_MAX_ITERATIONS', '2'))
+        agentic_max_iterations = env_int('AGENTIC_MAX_ITERATIONS', 3)
+        byokg_max_iterations = env_int('BYOKG_MAX_ITERATIONS', 2)
 
         run_benchmark_query(
             handler, 
@@ -283,8 +283,8 @@ class CuadBenchmarkQuery(IntegrationTestBase):
             data_dir=BENCHMARK_DATA_DIR,
             graph_store_conn=os.environ.get('GRAPH_STORE'),
             vector_store_conn=os.environ.get('VECTOR_STORE'),
-            response_llm=os.environ.get('TEST_RESPONSE_LLM', 'us.anthropic.claude-sonnet-4-6'),
-            qa_limit=int(limit_str) if limit_str else None,
+            response_llm=env_string('TEST_RESPONSE_LLM', 'us.anthropic.claude-sonnet-4-6'),
+            qa_limit=env_int('BENCHMARK_QA_LIMIT', None),
             retriever_id=retriever_id,
             agentic_max_iterations=agentic_max_iterations,
             byokg_max_iterations=byokg_max_iterations,
@@ -305,12 +305,11 @@ class ConcurrentQaBenchmarkQuery(IntegrationTestBase):
             return len(vector_store.get_index('chunk').top_k(QueryBundle(query_str='pipeline'), top_k=1)) == 0
 
     def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
-        limit_str = os.environ.get('BENCHMARK_QA_LIMIT')
-        is_prototype = os.environ.get('BENCHMARK_IS_PROTOTYPE')
-        dataset_name = 'concurrentqa-prototype' if is_prototype == 'true' else 'concurrentqa'
+        is_prototype = env_bool('BENCHMARK_IS_PROTOTYPE', False)
+        dataset_name = 'concurrentqa-prototype' if is_prototype else 'concurrentqa'
         retriever_id = os.environ.get('BENCHMARK_RETRIEVER', 'traversal')
-        agentic_max_iterations = int(os.environ.get('AGENTIC_MAX_ITERATIONS', '3'))
-        byokg_max_iterations = int(os.environ.get('BYOKG_MAX_ITERATIONS', '2'))
+        agentic_max_iterations = env_int('AGENTIC_MAX_ITERATIONS', 3)
+        byokg_max_iterations = env_int('BYOKG_MAX_ITERATIONS', 2)
 
         run_benchmark_query(
             handler,
@@ -319,8 +318,8 @@ class ConcurrentQaBenchmarkQuery(IntegrationTestBase):
             data_dir=BENCHMARK_DATA_DIR,
             graph_store_conn=os.environ.get('GRAPH_STORE'),
             vector_store_conn=os.environ.get('VECTOR_STORE'),
-            response_llm=os.environ.get('TEST_RESPONSE_LLM', 'us.anthropic.claude-sonnet-4-6'),
-            qa_limit=int(limit_str) if limit_str else None,
+            response_llm=env_string('TEST_RESPONSE_LLM', 'us.anthropic.claude-sonnet-4-6'),
+            qa_limit=env_int('BENCHMARK_QA_LIMIT', None),
             retriever_id=retriever_id,
             agentic_max_iterations=agentic_max_iterations,
             byokg_max_iterations=byokg_max_iterations,
@@ -341,10 +340,9 @@ class WikihowBenchmarkQuery(IntegrationTestBase):
             return len(vector_store.get_index('chunk').top_k(QueryBundle(query_str='how to'), top_k=1)) == 0
 
     def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
-        limit_str = os.environ.get('BENCHMARK_QA_LIMIT')
         retriever_id = os.environ.get('BENCHMARK_RETRIEVER', 'traversal')
-        agentic_max_iterations = int(os.environ.get('AGENTIC_MAX_ITERATIONS', '3'))
-        byokg_max_iterations = int(os.environ.get('BYOKG_MAX_ITERATIONS', '2'))
+        agentic_max_iterations = env_int('AGENTIC_MAX_ITERATIONS', 3)
+        byokg_max_iterations = env_int('BYOKG_MAX_ITERATIONS', 2)
 
         run_benchmark_query(
             handler,
@@ -353,8 +351,8 @@ class WikihowBenchmarkQuery(IntegrationTestBase):
             data_dir=BENCHMARK_DATA_DIR,
             graph_store_conn=os.environ.get('GRAPH_STORE'),
             vector_store_conn=os.environ.get('VECTOR_STORE'),
-            response_llm=os.environ.get('TEST_RESPONSE_LLM', 'us.anthropic.claude-sonnet-4-6'),
-            qa_limit=int(limit_str) if limit_str else None,
+            response_llm=env_string('TEST_RESPONSE_LLM', 'us.anthropic.claude-sonnet-4-6'),
+            qa_limit=env_int('BENCHMARK_QA_LIMIT', None),
             retriever_id=retriever_id,
             agentic_max_iterations=agentic_max_iterations,
             byokg_max_iterations=byokg_max_iterations,
@@ -375,11 +373,10 @@ class PgaBenchmarkQuery(IntegrationTestBase):
             return len(vector_store.get_index('chunk').top_k(QueryBundle(query_str='golf'), top_k=1)) == 0
 
     def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
-        limit_str = os.environ.get('BENCHMARK_QA_LIMIT')
         dataset_name = os.environ.get('BENCHMARK_DATASET', 'pga')
         retriever_id = os.environ.get('BENCHMARK_RETRIEVER', 'traversal')
-        agentic_max_iterations = int(os.environ.get('AGENTIC_MAX_ITERATIONS', '3'))
-        byokg_max_iterations = int(os.environ.get('BYOKG_MAX_ITERATIONS', '2'))
+        agentic_max_iterations = env_int('AGENTIC_MAX_ITERATIONS', 3)
+        byokg_max_iterations = env_int('BYOKG_MAX_ITERATIONS', 2)
 
         run_benchmark_query(
             handler,
@@ -388,8 +385,8 @@ class PgaBenchmarkQuery(IntegrationTestBase):
             data_dir=BENCHMARK_DATA_DIR,
             graph_store_conn=os.environ.get('GRAPH_STORE'),
             vector_store_conn=os.environ.get('VECTOR_STORE'),
-            response_llm=os.environ.get('TEST_RESPONSE_LLM', 'us.anthropic.claude-sonnet-4-6'),
-            qa_limit=int(limit_str) if limit_str else None,
+            response_llm=env_string('TEST_RESPONSE_LLM', 'us.anthropic.claude-sonnet-4-6'),
+            qa_limit=env_int('BENCHMARK_QA_LIMIT', None),
             retriever_id=retriever_id,
             agentic_max_iterations=agentic_max_iterations,
             byokg_max_iterations=byokg_max_iterations,

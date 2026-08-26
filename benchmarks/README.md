@@ -29,11 +29,12 @@ cp env.template .env
 # Edit .env with your bucket name, region, and benchmark preferences
 ```
 
-The `benchmarks/env.template` documents the benchmark-specific variables (a subset of the full `integration-tests/env.template`). Key benchmark variables:
+See `integration-tests/env.template` for the full list of configuration variables. Key benchmark variables:
 
 - `BENCHMARK_DATA_S3_URI` — S3 URI containing your benchmark datasets
 - `BENCHMARK_DATA_DIR` — Local directory with benchmark data (alternative to S3)
 - `BENCHMARK_QA_LIMIT` — Limit QA pairs for quick prototype runs
+- `BENCHMARK_EXTRACT_DOC_LIMIT` — Cap the number of source documents extracted by the `batch_extract.py` tests (only the first N docs are extracted); speeds up benchmark runs
 - `BENCHMARK_IS_PROTOTYPE` — Use prototype (small) datasets
 - `BENCHMARK_DOC_STORE` — Where extracted documents are staged between extract and build: `file` (default) or `s3`
 - `BENCHMARK_S3_JSONL` — With `BENCHMARK_DOC_STORE=s3`, store one JSONL object per source document instead of one per chunk
