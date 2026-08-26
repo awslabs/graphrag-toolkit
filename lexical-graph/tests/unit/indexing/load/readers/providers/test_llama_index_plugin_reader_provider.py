@@ -327,48 +327,77 @@ class TestAuthFailures:
 # ---------------------------------------------------------------------------
 
 class TestTimeout:
-    """Tests for timeout enforcement."""
+    """Tests for timeout enforcement.
+
+    The load functions block on an Event the test releases in a finally. Because
+    the timeout path abandons the worker (shutdown(wait=False)) instead of
+    joining it, releasing lets the leaked worker exit promptly rather than
+    lingering past the test.
+    """
+
+    @staticmethod
+    def _blocking_load(release):
+        def load(**kwargs):
+            release.wait(30)  # truly blocked until the test releases it
+            return []
+        return load
 
     def test_raises_on_timeout(self):
-        """ReaderTimeoutError when reader exceeds timeout_seconds."""
+        """ReaderTimeoutError/RuntimeError when reader exceeds timeout_seconds."""
+        import threading
+        release = threading.Event()
         mock_module, _, mock_reader = _mock_reader_module()
-
-        def slow_load(**kwargs):
-            time.sleep(10)
-            return []
-
-        mock_reader.load_data.side_effect = slow_load
+        mock_reader.load_data.side_effect = self._blocking_load(release)
         config = _make_config(timeout_seconds=1, fail_on_error=True)
 
         with patch("importlib.import_module", return_value=mock_module):
-            from graphrag_toolkit.lexical_graph.indexing.load.readers.providers.llama_index_plugin_reader_provider import (
-                LlamaIndexPluginReaderProvider,
-                ReaderTimeoutError,
-            )
             provider = LlamaIndexPluginReaderProvider(config)
-
-            with pytest.raises((ReaderTimeoutError, RuntimeError)):
-                provider.read()
+            try:
+                with pytest.raises((ReaderTimeoutError, RuntimeError)):
+                    provider.read()
+            finally:
+                release.set()
 
     def test_timeout_returns_empty_when_not_fail_on_error(self):
         """Timeout returns [] when fail_on_error=False."""
+        import threading
+        release = threading.Event()
         mock_module, _, mock_reader = _mock_reader_module()
-
-        def slow_load(**kwargs):
-            time.sleep(10)
-            return []
-
-        mock_reader.load_data.side_effect = slow_load
+        mock_reader.load_data.side_effect = self._blocking_load(release)
         config = _make_config(timeout_seconds=1, fail_on_error=False)
 
         with patch("importlib.import_module", return_value=mock_module):
-            from graphrag_toolkit.lexical_graph.indexing.load.readers.providers.llama_index_plugin_reader_provider import (
-                LlamaIndexPluginReaderProvider,
-            )
             provider = LlamaIndexPluginReaderProvider(config)
-            docs = provider.read()
+            try:
+                docs = provider.read()
+            finally:
+                release.set()
 
         assert docs == []
+
+    def test_timeout_returns_control_without_joining_worker(self):
+        """The timeout must return control instead of joining the runaway
+        worker. The load blocks until released; if read() joined the worker it
+        would block for the full 30s, so a fast return proves the fix."""
+        import threading
+        import time as _time
+        release = threading.Event()
+        mock_module, _, mock_reader = _mock_reader_module()
+        mock_reader.load_data.side_effect = self._blocking_load(release)
+        config = _make_config(timeout_seconds=1, max_retries=0, fail_on_error=True)
+
+        with patch("importlib.import_module", return_value=mock_module):
+            provider = LlamaIndexPluginReaderProvider(config)
+            start = _time.monotonic()
+            try:
+                with pytest.raises((ReaderTimeoutError, RuntimeError)):
+                    provider.read()
+                elapsed = _time.monotonic() - start
+            finally:
+                release.set()
+
+        # ~1s (the timeout), nowhere near the 30s the worker blocks for.
+        assert elapsed < 10
 
 
 # ---------------------------------------------------------------------------
@@ -627,6 +656,7 @@ from graphrag_toolkit.lexical_graph.indexing.load.readers.providers.llama_index_
     LlamaIndexPluginReaderProvider,
     ReaderImportError,
     ReaderAuthError,
+    ReaderTimeoutError,
 )
 
 
