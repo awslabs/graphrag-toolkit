@@ -38,10 +38,14 @@ class ConfiguredThreadCount:
     for a component built outside S3BasedDocs.
     """
 
+    # Declared on the mixin and collected by BaseComponent's pydantic field
+    # machinery across the MRO, so each subclass carries num_threads as a field.
     num_threads:Optional[int]=None
 
     def _num_threads(self):
-        return self.num_threads or GraphRAGConfig.extraction_num_threads_per_worker
+        if self.num_threads is None:
+            return GraphRAGConfig.extraction_num_threads_per_worker
+        return self.num_threads
 
 
 def to_batches(xs, n):
@@ -410,7 +414,7 @@ class S3ChunkUploader(ConfiguredThreadCount, BaseComponent):
         s3_client = GraphRAGConfig.s3
         num_threads = self._num_threads()
 
-        # Enough queued to keep the pool busy while the oldest document drains.
+        # Two documents per thread keeps the pool busy while the oldest drains.
         max_inflight = num_threads * 2
 
         with concurrent.futures.ThreadPoolExecutor(max_workers=num_threads) as executor:
@@ -474,7 +478,8 @@ class S3BasedDocs(NodeHandler):
         # __init__ runs where GraphRAGConfig was configured; accept() runs in a
         # spawned worker that inherits no parent memory and reads back the
         # default. Carried as a field so it pickles with the handler.
-        num_threads = num_threads or GraphRAGConfig.extraction_num_threads_per_worker
+        if num_threads is None:
+            num_threads = GraphRAGConfig.extraction_num_threads_per_worker
 
         super().__init__(
             region=region,
