@@ -68,8 +68,12 @@ def shutdown() -> None:
     """
     Drop the pool and stop its threads.
 
-    The pool is process-global and its threads are not daemons, so they outlive
-    the extraction that created them in any host process that keeps running.
+    The pool belongs to the process that created it. Pipeline extraction runs in
+    workers that `run_pipeline` spawns and tears down per batch, so the pool goes
+    with them and nothing there needs to call this. A caller driving the
+    extractors in-process owns the lifetime instead, and this is how it releases
+    the threads.
+
     Calls already running finish; no new call is queued.
     """
     global _executor, _executor_size, _warned_above_max
