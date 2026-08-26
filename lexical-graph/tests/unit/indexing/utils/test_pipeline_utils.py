@@ -1,16 +1,103 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
+import multiprocessing
+import pickle
+from concurrent.futures import ProcessPoolExecutor
+
 import pytest
 from unittest.mock import Mock, patch, MagicMock
 from llama_index.core.schema import TextNode, Document
 from llama_index.core.ingestion import IngestionPipeline
 
+from graphrag_toolkit.lexical_graph import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.indexing.utils.pipeline_utils import (
     sink,
     run_pipeline,
-    node_batcher
+    node_batcher,
+    _init_worker,
 )
+
+
+def _worker_reads_config(_):
+    """Top-level so spawn can import it. Returns what the worker's fresh
+    GraphRAGConfig singleton resolves for the propagated settings."""
+    from graphrag_toolkit.lexical_graph import GraphRAGConfig
+    return (GraphRAGConfig.aws_profile, GraphRAGConfig.s3_chunk_store)
+
+
+class TestConfigPropagationToWorkers:
+    """M2: spawn re-imports config.py in a clean interpreter, so programmatically
+    set GraphRAGConfig values are lost unless propagated via the initializer."""
+
+    def test_snapshot_roundtrip_and_excludes_non_picklable(self, monkeypatch):
+        monkeypatch.delenv("AWS_PROFILE", raising=False)
+        monkeypatch.delenv("S3_CHUNK_STORE", raising=False)
+        orig = (GraphRAGConfig._aws_profile, GraphRAGConfig._s3_chunk_store)
+        try:
+            GraphRAGConfig._aws_profile = None
+            GraphRAGConfig._s3_chunk_store = None
+            GraphRAGConfig.aws_profile = "scoped-ingest"
+            GraphRAGConfig.s3_chunk_store = "s3://bucket/prefix"
+
+            snapshot = GraphRAGConfig.get_config_snapshot()
+            # Picklable (it is passed as initargs across processes).
+            assert pickle.loads(pickle.dumps(snapshot)) == snapshot
+            # Never carries session/clients/LLM/embedding objects.
+            for banned in ("_session", "_boto3_session", "_aws_clients",
+                           "_extraction_llm", "_response_llm", "_embed_model"):
+                assert banned not in snapshot
+
+            # Applying onto a fresh singleton restores the values.
+            from graphrag_toolkit.lexical_graph.config import _GraphRAGConfig
+            fresh = _GraphRAGConfig()
+            fresh.apply_config_snapshot(snapshot)
+            assert fresh.aws_profile == "scoped-ingest"
+            assert fresh.s3_chunk_store == "s3://bucket/prefix"
+        finally:
+            GraphRAGConfig._aws_profile, GraphRAGConfig._s3_chunk_store = orig
+
+    def test_non_picklable_field_is_skipped_with_warning(self, monkeypatch, caplog):
+        """A field holding a non-picklable value is dropped (with a warning),
+        not silently corrupting the snapshot nor crashing worker startup."""
+        import logging
+        orig = GraphRAGConfig._local_output_dir
+        try:
+            GraphRAGConfig._local_output_dir = lambda: None  # not picklable
+            with caplog.at_level(logging.WARNING):
+                snapshot = GraphRAGConfig.get_config_snapshot()
+            assert '_local_output_dir' not in snapshot
+            assert 'not picklable' in caplog.text
+        finally:
+            GraphRAGConfig._local_output_dir = orig
+
+    def test_spawn_workers_see_programmatic_config(self, monkeypatch):
+        """Two-worker spawn run: the worker must see the parent's scoped
+        aws_profile and s3_chunk_store, not fall back to env/None."""
+        monkeypatch.delenv("AWS_PROFILE", raising=False)
+        monkeypatch.delenv("S3_CHUNK_STORE", raising=False)
+        orig = (GraphRAGConfig._aws_profile, GraphRAGConfig._s3_chunk_store)
+        try:
+            GraphRAGConfig._aws_profile = None
+            GraphRAGConfig._s3_chunk_store = None
+            GraphRAGConfig.aws_profile = "scoped-ingest"
+            GraphRAGConfig.s3_chunk_store = "s3://bucket/prefix"
+            snapshot = GraphRAGConfig.get_config_snapshot()
+
+            with ProcessPoolExecutor(
+                max_workers=2,
+                mp_context=multiprocessing.get_context("spawn"),
+                initializer=_init_worker,
+                initargs=(snapshot,),
+            ) as p:
+                results = list(p.map(_worker_reads_config, [0, 1]))
+
+            assert results, "expected results from workers"
+            for profile, chunk_store in results:
+                assert profile == "scoped-ingest"
+                assert chunk_store == "s3://bucket/prefix"
+        finally:
+            GraphRAGConfig._aws_profile, GraphRAGConfig._s3_chunk_store = orig
 
 
 class TestSink:
@@ -100,6 +187,37 @@ class TestRunPipeline:
                 assert call_kwargs['max_workers'] == 1
                 assert call_kwargs['mp_context'].get_start_method() == 'spawn'
     
+    def test_run_pipeline_passes_config_snapshot_to_workers(self, monkeypatch):
+        """run_pipeline must wire the config snapshot into the pool initializer,
+        or spawn workers silently lose programmatically-set settings."""
+        monkeypatch.delenv("AWS_PROFILE", raising=False)
+        orig = GraphRAGConfig._aws_profile
+        try:
+            GraphRAGConfig._aws_profile = None
+            GraphRAGConfig.aws_profile = "scoped-ingest"
+
+            mock_pipeline = Mock(spec=IngestionPipeline)
+            mock_pipeline.transformations = []
+            mock_pipeline.cache = None
+            mock_pipeline.disable_cache = True
+            node_batches = [[TextNode(text="Node 1", id_="1")]]
+
+            with patch('graphrag_toolkit.lexical_graph.indexing.utils.pipeline_utils.run_transformations'):
+                with patch('graphrag_toolkit.lexical_graph.indexing.utils.pipeline_utils.ProcessPoolExecutor') as mock_executor:
+                    mock_pool = MagicMock()
+                    mock_pool.__enter__.return_value = mock_pool
+                    mock_pool.map.return_value = [node_batches[0]]
+                    mock_executor.return_value = mock_pool
+
+                    list(run_pipeline(mock_pipeline, node_batches, num_workers=2))
+
+            _, call_kwargs = mock_executor.call_args
+            assert call_kwargs['initializer'] is _init_worker
+            (snapshot,) = call_kwargs['initargs']
+            assert snapshot.get('_aws_profile') == "scoped-ingest"
+        finally:
+            GraphRAGConfig._aws_profile = orig
+
     def test_run_pipeline_with_cache(self):
         """Verify run_pipeline uses cache when not disabled."""
         mock_cache = Mock()

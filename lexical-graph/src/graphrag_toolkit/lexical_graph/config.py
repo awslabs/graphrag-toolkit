@@ -3,6 +3,7 @@
 
 import os
 import json
+import pickle
 import time
 import subprocess
 import boto3
@@ -16,7 +17,7 @@ import threading
 import logging
 from enum import Enum
 from dataclasses import dataclass, field
-from typing import Optional, Union, Dict, Set, List
+from typing import Optional, Union, Dict, Set, List, Any
 from boto3 import Session as Boto3Session
 from botocore.config import Config
 
@@ -351,6 +352,62 @@ class _GraphRAGConfig:
     _s3_chunk_store: Optional[str] = None
     _local_output_dir: Optional[str] = None
     _log_output_dir: Optional[str] = None
+
+    # Fields that must NOT cross into a 'spawn'-started worker: sessions, boto3
+    # clients, and LLM/embedding objects. They aren't picklable and are rebuilt
+    # in the worker from the propagated scalars. Everything else backing a
+    # setting is a picklable scalar and propagates automatically - so a NEW
+    # setting can't silently fail to reach workers (the bug this guards against).
+    _NON_PROPAGATABLE_FIELDS = frozenset({
+        '_boto3_session', '_session', '_aws_clients', '_aws_valid_services',
+        '_extraction_llm', '_response_llm', '_embed_model',
+    })
+
+    def _is_propagatable_field(self, name: str) -> bool:
+        return name.startswith('_') and name not in self._NON_PROPAGATABLE_FIELDS
+
+    def get_config_snapshot(self) -> Dict[str, Any]:
+        """Return a picklable snapshot of explicitly-set scalar settings.
+
+        Used to propagate config to 'spawn'-started worker processes: spawn
+        re-imports this module in a clean interpreter, so the singleton loses any
+        value set programmatically (those were only inherited under fork). Env-
+        derived values still resolve in the worker (children inherit os.environ),
+        so only explicitly-set overrides (non-None backing fields) are captured.
+
+        Every scalar setting field is included automatically; session/clients and
+        LLM/embedding objects are excluded (_NON_PROPAGATABLE_FIELDS). A field
+        holding an unexpectedly non-picklable value is skipped with a warning
+        rather than crashing worker startup.
+        """
+        snapshot: Dict[str, Any] = {}
+        for name in self.__dataclass_fields__:
+            if not self._is_propagatable_field(name):
+                continue
+            value = getattr(self, name, None)
+            if value is None:
+                continue
+            try:
+                pickle.dumps(value)
+            except Exception:
+                logger.warning(
+                    f"Config field '{name}' is not picklable; not propagating it "
+                    f"to spawn workers."
+                )
+                continue
+            snapshot[name] = value
+        return snapshot
+
+    def apply_config_snapshot(self, snapshot: Dict[str, Any]) -> None:
+        """Re-apply a get_config_snapshot() result onto this singleton.
+
+        Called from a spawn worker initializer so the fresh singleton keeps the
+        parent's programmatically-set values instead of silently falling back to
+        env/None (a least-privilege / data-placement regression otherwise).
+        """
+        for name, value in snapshot.items():
+            if self._is_propagatable_field(name):
+                setattr(self, name, value)
 
     @contextlib.contextmanager
     def _validate_sso_token(self, profile):
