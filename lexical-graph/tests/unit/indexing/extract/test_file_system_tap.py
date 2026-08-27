@@ -346,3 +346,114 @@ class TestFileSystemTapIntegration:
             assert os.path.exists(os.path.join(tap.sources_dir, "doc1.json"))
             assert os.path.exists(os.path.join(tap.chunks_dir, "chunk1.json"))
             assert os.path.exists(os.path.join(tap.chunks_dir, "chunk2.json"))
+
+
+def _files_under(root):
+    """Every file below `root`, so a test can assert nothing escaped."""
+    return {p for p in Path(root).rglob('*') if p.is_file()}
+
+
+def _doc(doc_id, text='Test document content'):
+    return SourceDocument(refNode=Document(text=text, doc_id=doc_id))
+
+
+class TestFileSystemTapIdValidation:
+    """The tap builds output paths from ids it is handed, so an id carrying a
+    path separator would write outside the directories it prepared."""
+
+    def test_no_file_is_written_outside_the_output_directory(self):
+        """An id that climbs is refused, and nothing lands anywhere else."""
+        with tempfile.TemporaryDirectory() as temp_dir:
+            output_dir = os.path.join(temp_dir, 'out')
+            tap = FileSystemTap(
+                subdirectory_name="test_run",
+                clean=True,
+                output_dir=output_dir
+            )
+
+            before = _files_under(temp_dir)
+
+            with pytest.raises(ValueError):
+                tap.handle_input_docs([_doc('../../escaped')])
+
+            assert _files_under(temp_dir) == before
+
+    @pytest.mark.parametrize('doc_id', ['a/b', 'a\\b', '../b', '/abs'])
+    def test_doc_id_with_a_path_separator_is_rejected(self, doc_id):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            tap = FileSystemTap(
+                subdirectory_name="test_run",
+                clean=True,
+                output_dir=temp_dir
+            )
+
+            with pytest.raises(ValueError, match='separator'):
+                tap.handle_input_docs([_doc(doc_id)])
+
+    @pytest.mark.parametrize('doc_id', ['a\nb', 'a\tb', 'a\x00b', 'a\x7fb'])
+    def test_doc_id_with_a_control_character_is_rejected(self, doc_id):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            tap = FileSystemTap(
+                subdirectory_name="test_run",
+                clean=True,
+                output_dir=temp_dir
+            )
+
+            with pytest.raises(ValueError, match='control character'):
+                tap.handle_input_docs([_doc(doc_id)])
+
+    @pytest.mark.parametrize('doc_id', ['', '   '])
+    def test_doc_id_that_is_empty_is_rejected(self, doc_id):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            tap = FileSystemTap(
+                subdirectory_name="test_run",
+                clean=True,
+                output_dir=temp_dir
+            )
+
+            with pytest.raises(ValueError, match='non-empty'):
+                tap.handle_input_docs([_doc(doc_id)])
+
+    @pytest.mark.parametrize('doc_id', ['.', '..'])
+    def test_doc_id_that_names_a_directory_is_rejected(self, doc_id):
+        """Neither can climb without a separator, but both resolve to a
+        directory and would otherwise fail inside open() with no id named."""
+        with tempfile.TemporaryDirectory() as temp_dir:
+            tap = FileSystemTap(
+                subdirectory_name="test_run",
+                clean=True,
+                output_dir=temp_dir
+            )
+
+            with pytest.raises(ValueError, match='directory'):
+                tap.handle_input_docs([_doc(doc_id)])
+
+    def test_node_id_with_a_path_separator_is_rejected(self):
+        """The chunk write builds its path the same way as the source writes."""
+        with tempfile.TemporaryDirectory() as temp_dir:
+            tap = FileSystemTap(
+                subdirectory_name="test_run",
+                clean=True,
+                output_dir=temp_dir
+            )
+
+            doc = _doc('doc1')
+            doc.nodes = [TextNode(text="chunk", id_="../escaped")]
+
+            with pytest.raises(ValueError, match='separator'):
+                tap.handle_output_doc(doc)
+
+    def test_a_rewritten_id_still_writes_both_files(self):
+        """The ids the pipeline actually produces carry no separator."""
+        with tempfile.TemporaryDirectory() as temp_dir:
+            tap = FileSystemTap(
+                subdirectory_name="test_run",
+                clean=True,
+                output_dir=temp_dir
+            )
+
+            doc_id = 'aws::1a2b3c4d:5e6f'
+            tap.handle_input_docs([_doc(doc_id)])
+
+            assert os.path.exists(os.path.join(tap.raw_sources_dir, doc_id))
+            assert os.path.exists(os.path.join(tap.sources_dir, f'{doc_id}.json'))
