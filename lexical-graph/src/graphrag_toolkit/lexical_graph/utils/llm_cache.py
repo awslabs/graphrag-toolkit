@@ -12,7 +12,7 @@ from typing import Optional, Any, Union
 from graphrag_toolkit.lexical_graph import ModelError
 from graphrag_toolkit.lexical_graph.utils.bedrock_utils import *
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig, BOTOCORE_DEFAULT_MAX_POOL_CONNECTIONS
-from graphrag_toolkit.lexical_graph.utils.llm_concurrency import pool_size, MIN_POOL_SIZE
+from graphrag_toolkit.lexical_graph.utils.llm_concurrency import pool_size, MIN_POOL_SIZE, MAX_POOL_SIZE
 
 from llama_index.core.llms.llm import LLM
 from llama_index.llms.bedrock_converse import BedrockConverse
@@ -65,7 +65,7 @@ class LLMCache(BaseModel):
 
     llm:LLM = Field(description='LLM whose responses may be cached')
     enable_cache:Optional[bool] = Field(description='Whether the cache is enabled or disabled', default=False)
-    num_threads:Optional[int] = Field(description='Concurrent calls to size the client connection pool for', default=None)
+    num_threads:Optional[int] = Field(description='Concurrent calls to size the client connection pool for', default=None, ge=0)
     verbose_prompt:Optional[bool] = Field(default=False)
     verbose_response:Optional[bool] = Field(default=False)
 
@@ -82,7 +82,8 @@ class LLMCache(BaseModel):
         extraction setting means nothing.
         """
         if self.num_threads is not None:
-            return self.num_threads
+            # A caller cannot have more calls in flight than the pool has threads.
+            return min(self.num_threads, MAX_POOL_SIZE)
 
         return pool_size() or GraphRAGConfig.extraction_num_threads_per_worker
 

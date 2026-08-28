@@ -13,9 +13,10 @@ import threading
 import pytest
 from contextlib import contextmanager
 from unittest.mock import patch, MagicMock
+from pydantic import ValidationError
 
 from graphrag_toolkit.lexical_graph.config import BOTOCORE_DEFAULT_MAX_POOL_CONNECTIONS
-from graphrag_toolkit.lexical_graph.utils.llm_concurrency import MIN_POOL_SIZE
+from graphrag_toolkit.lexical_graph.utils.llm_concurrency import MIN_POOL_SIZE, MAX_POOL_SIZE
 from graphrag_toolkit.lexical_graph.utils.llm_cache import LLMCache
 from llama_index.llms.bedrock_converse import BedrockConverse
 
@@ -214,6 +215,24 @@ class TestConnectionPoolSizing:
             trigger_client_creation(cache)
 
         assert client_kwargs(mock_session)['config'].max_pool_connections == floor
+
+    @patch('boto3.Session')
+    def test_pool_is_capped_when_the_caller_asks_for_more_than_the_pool_can_run(self, mock_boto_session):
+        """The executor clamps at MAX_POOL_SIZE, so a larger request would size
+        the client for concurrency the pool will never reach."""
+        cache = LLMCache(llm=unpickled_llm(), enable_cache=False, num_threads=MAX_POOL_SIZE * 400)
+
+        mock_session = MagicMock()
+        with patched_config(mock_session):
+            trigger_client_creation(cache)
+
+        assert client_kwargs(mock_session)['config'].max_pool_connections == MAX_POOL_SIZE * 2
+
+    def test_a_negative_thread_count_is_rejected(self):
+        """Negative counts are absorbed by the floors today, so they are accepted
+        and silently mean nothing."""
+        with pytest.raises(ValidationError):
+            LLMCache(llm=unpickled_llm(), enable_cache=False, num_threads=-50)
 
     @patch('boto3.Session')
     def test_pool_is_sized_from_the_llm_call_pool_when_nothing_else_is_set(self, mock_boto_session):

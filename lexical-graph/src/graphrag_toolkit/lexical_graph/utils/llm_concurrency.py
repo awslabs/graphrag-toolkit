@@ -35,10 +35,11 @@ logger = logging.getLogger(__name__)
 # floor, not a cap, so this pool can never be smaller than the one it replaces.
 MIN_POOL_SIZE = min(32, (os.cpu_count() or 1) + 4)
 
-# Ceiling on the pool. Every process spawned by `run_pipeline` gets its own pool
-# and every thread in it holds a bedrock-runtime connection, so a thread count
-# set far too high multiplies across processes into thousands of threads and
-# sockets. Requests above this are clamped.
+# Ceiling on a single pool, not on the process. Every process spawned by
+# `run_pipeline` gets its own and every thread holds a bedrock-runtime
+# connection, so an unreasonably high count would otherwise multiply across
+# processes. Growth replaces the pool and the superseded one drains rather than
+# being joined, so its threads outlive the swap.
 MAX_POOL_SIZE = 256
 
 _lock = threading.Lock()
