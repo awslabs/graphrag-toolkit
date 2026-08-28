@@ -4,21 +4,14 @@
 """
 Thread pool for the blocking LLM calls extraction makes.
 
-Extraction runs one asyncio job per node and each job awaits a synchronous LLM
-call. `asyncio.to_thread` hands that call to the event loop's default executor,
-which CPython sizes at `min(32, cpu_count + 4)`. That cap, not
-`extraction_num_threads_per_worker`, decides how many calls are in flight: past
-it the extra jobs queue for a thread.
+`asyncio.to_thread` runs them on the event loop's default executor, which CPython
+caps at `min(32, cpu_count + 4)`. That cap, not the configured thread count,
+decides how many calls are in flight. This module owns a pool sized to the
+request instead.
 
-This module owns a pool sized to the requested concurrency instead, floored at
-CPython's size so a low thread setting cannot make things worse than before, and
-capped at MAX_POOL_SIZE.
-
-Callers pass their own worker count rather than letting this module read
-GraphRAGConfig. Extraction runs in a process spawned by `run_pipeline`, and spawn
-inherits no parent memory, so a thread count set programmatically on
-GraphRAGConfig is absent in the worker and reads back as the default. The
-extractor's own `num_workers` is pickled with the component and survives.
+Callers pass their own worker count. Extraction runs in a spawned process, where
+a count set on GraphRAGConfig is absent and reads back as the default, while the
+extractor's `num_workers` is pickled with the component and survives.
 """
 
 import asyncio
@@ -56,25 +49,18 @@ def pool_size() -> int:
     """
     Workers in the current pool, or 0 before any caller has asked for one.
 
-    In a spawned extraction worker this is the only value that reflects the
-    concurrency the caller asked for, because it comes from the worker count
-    pickled with the extractor. `llm_cache` reads it to size the bedrock-runtime
-    connection pool to match.
+    In a spawned worker this is the only value reflecting the concurrency the
+    caller asked for, so `llm_cache` sizes its connection pool from it.
     """
     return _executor_size
 
 
 def shutdown() -> None:
     """
-    Drop the pool and stop its threads.
+    Drop the pool and stop its threads. Calls already running finish.
 
-    The pool belongs to the process that created it. Pipeline extraction runs in
-    workers that `run_pipeline` spawns and tears down per batch, so the pool goes
-    with them and nothing there needs to call this. A caller driving the
-    extractors in-process owns the lifetime instead, and this is how it releases
-    the threads.
-
-    Calls already running finish; no new call is queued.
+    Pipeline workers are torn down per batch, so the pool goes with them. A
+    caller driving the extractors in-process owns the lifetime and calls this.
     """
     global _executor, _executor_size, _warned_above_max, _warned_below_request
 
@@ -91,12 +77,10 @@ def _submit(fn, num_threads: int) -> concurrent.futures.Future:
     """
     Submit `fn` to the pool, sized from `num_threads` on the first call.
 
-    The size is fixed once. Replacing the pool to grow it would leave the old
-    one's threads running until their work drained, so MAX_POOL_SIZE would bound
-    a single pool rather than the process.
-
-    The submit runs under the lock that creates the pool, so a concurrent
-    `shutdown` cannot clear the executor between the read and the submit.
+    The size is fixed once: replacing the pool to grow it leaves the old one's
+    threads running until their work drains, so the maximum would bound one pool
+    rather than the process. The submit runs under the lock that creates the
+    pool, so a concurrent `shutdown` cannot clear the executor mid-submit.
     """
     global _executor, _executor_size, _warned_above_max, _warned_below_request
 
@@ -132,17 +116,10 @@ async def run_blocking(fn, num_threads: int):
     """
     Run a blocking callable on the LLM call pool.
 
-    Drop-in for `asyncio.to_thread(fn)`: the call runs in a copy of the calling
-    context, as to_thread does, and differs only in which pool it lands on. The
-    context copy matters because the pool reuses threads across calls, so a
-    ContextVar left set by one call would otherwise be read by the next node's
-    extraction; llama_index nests its callback events off such a var.
-
-    Args:
-        fn: the blocking callable.
-        num_threads: how many calls the caller intends to have in flight. Pass
-            the caller's own worker count; see the module docstring for why
-            reading GraphRAGConfig here does not work in a spawned worker.
+    Drop-in for `asyncio.to_thread(fn)`, differing only in which pool it lands
+    on. The context is copied per call because the pool reuses threads, so a
+    ContextVar left by one call would otherwise be read by the next node.
+    llama_index nests its callback events off such a var.
     """
     ctx = contextvars.copy_context()
     future = _submit(functools.partial(ctx.run, fn), num_threads)

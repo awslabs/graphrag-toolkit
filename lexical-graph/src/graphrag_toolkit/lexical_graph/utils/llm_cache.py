@@ -36,16 +36,11 @@ def _bedrock_client(llm, num_threads:int):
     """
     Build the bedrock-runtime client these calls share.
 
-    botocore's pool defaults to 10, below the concurrency extraction and the
-    retrievers both drive through this client, and past the pool botocore
-    discards and reopens connections.
-
-    The pool is twice the thread count, floored at both the botocore default and
-    the LLM call pool's own size. `ResilientClient._client_config` sizes its
-    client on the first two. The third is here because this client sits behind
-    the LLM call pool, and `pool_size()` reads 0 until something creates it, so a
-    caller arriving first would otherwise get a pool of 10 while the executor
-    already runs at its own floor.
+    botocore defaults the pool to 10, below what extraction and the retrievers
+    drive through it, and past the pool it discards and reopens connections. Size
+    it at twice the thread count as `ResilientClient._client_config` does, with
+    the executor's floor added because `pool_size()` reads 0 until something
+    creates the pool.
     """
     config = Config(
         retries={'max_attempts': MAX_ATTEMPTS, 'mode': 'standard'},
@@ -73,13 +68,9 @@ class LLMCache(BaseModel):
         """
         Concurrent calls to size the client connection pool for.
 
-        The constructor value when the caller gave one. Otherwise the LLM call
-        pool's size, which extraction sets from the worker count pickled with the
-        extractor and which is therefore the only one of these that survives
-        spawn, falling back to the configured thread count before any call has
-        reached the pool. `extraction_num_threads_per_worker` is last because
-        `predict` and `stream` also run on the retrieval path, where an
-        extraction setting means nothing.
+        The constructor value, else the LLM call pool's size, which is the only
+        one surviving spawn. The configured count is last because `predict` and
+        `stream` also run on the retrieval path, where it means nothing.
         """
         if self.num_threads is not None:
             # A caller cannot have more calls in flight than the pool has threads.
@@ -91,12 +82,10 @@ class LLMCache(BaseModel):
         """
         Give the LLM a bedrock-runtime client if it does not already have one.
 
-        BedrockConverse drops `_client` when pickled, so it is missing in every
-        process `run_pipeline` spawns, and the LLM call pool can release
-        `num_threads` calls into this path at once. The check and the build are
-        one step under a lock because boto3 client creation is not thread safe:
-        without it every entrant builds a client the last writer throws away, and
-        concurrent creation can raise out of botocore's loader cache.
+        BedrockConverse drops `_client` when pickled, so every spawned worker
+        rebuilds it while the pool releases calls into this path at once. The
+        check and the build are one step under a lock because boto3 client
+        creation is not thread safe.
         """
         if not isinstance(self.llm, BedrockConverse) or hasattr(self.llm, '_client'):
             return
