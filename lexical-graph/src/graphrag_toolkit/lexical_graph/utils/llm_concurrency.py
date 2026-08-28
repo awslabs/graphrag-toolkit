@@ -31,21 +31,20 @@ import threading
 
 logger = logging.getLogger(__name__)
 
-# CPython's own size for the asyncio default executor. Reproduced here as a
-# floor, not a cap, so this pool can never be smaller than the one it replaces.
+# CPython's size for the asyncio default executor, kept as a floor so this pool
+# is never smaller than the one it stands in for.
 MIN_POOL_SIZE = min(32, (os.cpu_count() or 1) + 4)
 
-# Ceiling on a single pool, not on the process. Every process spawned by
-# `run_pipeline` gets its own and every thread holds a bedrock-runtime
-# connection, so an unreasonably high count would otherwise multiply across
-# processes. Growth replaces the pool and the superseded one drains rather than
-# being joined, so its threads outlive the swap.
+# Every process spawned by `run_pipeline` gets its own pool and every thread
+# holds a bedrock-runtime connection, so an unreasonably high count would
+# otherwise multiply across processes. Requests above this are clamped.
 MAX_POOL_SIZE = 256
 
 _lock = threading.Lock()
 _executor = None
 _executor_size = 0
 _warned_above_max = False
+_warned_below_request = False
 
 
 def _pool_size_for(num_threads: int) -> int:
@@ -77,11 +76,12 @@ def shutdown() -> None:
 
     Calls already running finish; no new call is queued.
     """
-    global _executor, _executor_size, _warned_above_max
+    global _executor, _executor_size, _warned_above_max, _warned_below_request
 
     with _lock:
         previous, _executor, _executor_size = _executor, None, 0
         _warned_above_max = False
+        _warned_below_request = False
 
     if previous is not None:
         previous.shutdown(wait=False)
@@ -89,23 +89,21 @@ def shutdown() -> None:
 
 def _submit(fn, num_threads: int) -> concurrent.futures.Future:
     """
-    Submit `fn` to a pool of at least `num_threads` workers, creating or growing it.
+    Submit `fn` to the pool, sized from `num_threads` on the first call.
 
-    Growing replaces the pool rather than resizing in place, which
-    ThreadPoolExecutor does not support. The old pool is shut down without
-    waiting, so work already running on it finishes while no new work is queued.
+    The size is fixed once. Replacing the pool to grow it would leave the old
+    one's threads running until their work drained, so MAX_POOL_SIZE would bound
+    a single pool rather than the process.
 
-    The submit happens under the same lock that swaps the pool. Submitting
-    outside it can land on a pool another thread has already replaced and shut
-    down, which raises `RuntimeError: cannot schedule new futures after shutdown`.
+    The submit runs under the lock that creates the pool, so a concurrent
+    `shutdown` cannot clear the executor between the read and the submit.
     """
-    global _executor, _executor_size, _warned_above_max
+    global _executor, _executor_size, _warned_above_max, _warned_below_request
 
     wanted = _pool_size_for(num_threads)
 
     with _lock:
-        # Once per process: the clamp applies on every call, but a request above
-        # the maximum arrives once per node and would otherwise flood the log.
+        # Once per process: a request above the maximum arrives once per node.
         if num_threads > MAX_POOL_SIZE and not _warned_above_max:
             _warned_above_max = True
             logger.warning(
@@ -113,16 +111,20 @@ def _submit(fn, num_threads: int) -> concurrent.futures.Future:
                 f'[requested: {num_threads}, max: {MAX_POOL_SIZE}]'
             )
 
-        if _executor is None or _executor_size < wanted:
-            previous = _executor
+        if _executor is None:
             _executor = concurrent.futures.ThreadPoolExecutor(
                 max_workers=wanted,
                 thread_name_prefix='graphrag-llm',
             )
             _executor_size = wanted
             logger.debug(f'Sized LLM call pool [max_workers: {wanted}]')
-            if previous is not None:
-                previous.shutdown(wait=False)
+        elif wanted > _executor_size and not _warned_below_request:
+            _warned_below_request = True
+            logger.warning(
+                f'LLM call pool is smaller than a later request, using its existing size '
+                f'[requested: {wanted}, pool: {_executor_size}]'
+            )
+
         return _executor.submit(fn)
 
 

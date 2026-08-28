@@ -3,6 +3,7 @@
 
 import asyncio
 import contextvars
+import logging
 import threading
 
 import pytest
@@ -36,8 +37,8 @@ def fresh_pool():
     shutdown()
 
 
-def _grow_pool(num_threads):
-    """Drive the pool to `num_threads` and hand back the executor it created."""
+def _size_pool(num_threads):
+    """Drive the pool with `num_threads` and hand back the executor in use."""
     llm_concurrency._submit(lambda: None, num_threads).result()
     return llm_concurrency._executor
 
@@ -51,24 +52,37 @@ async def _gather_blocking(count, num_threads, fn):
 class TestPoolSizing:
 
     def test_pool_is_never_smaller_than_cpython_default(self):
-        assert _grow_pool(1)._max_workers == MIN_POOL_SIZE
+        assert _size_pool(1)._max_workers == MIN_POOL_SIZE
 
-    def test_pool_grows_to_the_requested_size(self):
-        assert _grow_pool(OVER_FLOOR)._max_workers == OVER_FLOOR
+    def test_pool_is_sized_to_the_first_request(self):
+        assert _size_pool(OVER_FLOOR)._max_workers == OVER_FLOOR
 
     def test_pool_is_reused_when_it_is_already_big_enough(self):
-        grown = _grow_pool(OVER_FLOOR)
-        again = _grow_pool(4)
+        grown = _size_pool(OVER_FLOOR)
+        again = _size_pool(4)
 
         assert again is grown
         assert again._max_workers == OVER_FLOOR
 
-    def test_growing_replaces_the_pool(self):
-        small = _grow_pool(MIN_POOL_SIZE)
-        grown = _grow_pool(OVER_FLOOR)
+    def test_a_later_larger_request_does_not_resize_the_pool(self):
+        """
+        Replacing the pool to grow it would leave the old one's threads running
+        until their work drained, so the maximum would bound one pool rather than
+        the process.
+        """
+        first = _size_pool(MIN_POOL_SIZE)
+        again = _size_pool(OVER_FLOOR)
 
-        assert grown is not small
-        assert grown._max_workers == OVER_FLOOR
+        assert again is first
+        assert again._max_workers == MIN_POOL_SIZE
+
+    def test_a_later_larger_request_is_logged(self, caplog):
+        _size_pool(MIN_POOL_SIZE)
+
+        with caplog.at_level(logging.WARNING):
+            _size_pool(OVER_FLOOR)
+
+        assert 'smaller than a later request' in caplog.text
 
     def test_a_request_above_the_maximum_is_capped(self):
         assert llm_concurrency._pool_size_for(MAX_POOL_SIZE * 4) == MAX_POOL_SIZE
@@ -76,12 +90,12 @@ class TestPoolSizing:
     def test_pool_size_reports_the_current_size(self):
         assert pool_size() == 0
 
-        _grow_pool(OVER_FLOOR)
+        _size_pool(OVER_FLOOR)
 
         assert pool_size() == OVER_FLOOR
 
     def test_shutdown_drops_the_pool(self):
-        _grow_pool(OVER_FLOOR)
+        _size_pool(OVER_FLOOR)
 
         shutdown()
 
@@ -144,17 +158,17 @@ class TestRunBlocking:
 
         assert await run_blocking(var.get, 1) == 'unset'
 
-    def test_a_grow_cannot_shut_the_pool_under_an_in_flight_submit(self):
+    def test_a_shutdown_cannot_clear_the_pool_under_an_in_flight_submit(self):
         """
-        A submit outside the lock that swaps the pool can land on a pool another
-        caller has already replaced and shut down, which raises `RuntimeError:
-        cannot schedule new futures after shutdown`.
+        A submit outside the lock could read the executor, then have `shutdown`
+        clear and stop it before the submit lands, raising `RuntimeError: cannot
+        schedule new futures after shutdown`.
 
-        Hold one caller inside `pool.submit`, then have a second caller ask for a
-        bigger pool. While the first is submitting the second must still be
-        waiting for the lock, and the pool it is submitting to must still be open.
+        Hold one caller inside `pool.submit`, then call `shutdown` from another
+        thread. While the first is submitting, shutdown must still be waiting for
+        the lock and the pool it is submitting to must still be open.
         """
-        pool = _grow_pool(4)
+        pool = _size_pool(4)
         submitting = threading.Event()
         release = threading.Event()
         pool_submit = pool.submit
@@ -172,16 +186,14 @@ class TestRunBlocking:
         holder.start()
         assert submitting.wait(timeout=BARRIER_TIMEOUT)
 
-        grower = threading.Thread(
-            target=lambda: llm_concurrency._submit(lambda: 'ok', OVER_FLOOR).result()
-        )
-        grower.start()
-        grower.join(timeout=0.2)
+        stopper = threading.Thread(target=shutdown)
+        stopper.start()
+        stopper.join(timeout=0.2)
 
         try:
-            assert grower.is_alive(), 'the grow ran while a submit was in flight'
+            assert stopper.is_alive(), 'the shutdown ran while a submit was in flight'
             assert not pool._shutdown, 'the pool was shut down under an in-flight submit'
         finally:
             release.set()
             holder.join(timeout=BARRIER_TIMEOUT)
-            grower.join(timeout=BARRIER_TIMEOUT)
+            stopper.join(timeout=BARRIER_TIMEOUT)
