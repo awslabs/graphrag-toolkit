@@ -414,10 +414,11 @@ class TestFileSystemTapIdValidation:
             with pytest.raises(ValueError, match='non-empty'):
                 tap.handle_input_docs([_doc(doc_id)])
 
-    @pytest.mark.parametrize('doc_id', ['.', '..'])
+    @pytest.mark.parametrize('doc_id', ['.', '..', ' . ', ' .. '])
     def test_doc_id_that_names_a_directory_is_rejected(self, doc_id):
         """Neither can climb without a separator, but both resolve to a
-        directory and would otherwise fail inside open() with no id named."""
+        directory and would otherwise fail inside open() with no id named.
+        The padded forms are rejected on the same stripped comparison."""
         with tempfile.TemporaryDirectory() as temp_dir:
             tap = FileSystemTap(
                 subdirectory_name="test_run",
