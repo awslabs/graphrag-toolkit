@@ -304,10 +304,15 @@ def parse_metadata_filters_recursive(metadata_filters:MetadataFilters) -> str:
                 raise ValueError(f'Expected MetadataFilters for FilterCondition.NOT, but found MetadataFilter')
             filter_strs.append(metadata_filter_to_opencypher_filter(metadata_filter))
         elif isinstance(metadata_filter, MetadataFilters):
-            filter_strs.append(parse_metadata_filters_recursive(metadata_filter))
+            nested_filter = parse_metadata_filters_recursive(metadata_filter)
+            if nested_filter:
+                filter_strs.append(nested_filter)
         else:
             raise ValueError(f'Invalid metadata filter type: {type(metadata_filter)}')
         
+    if not filter_strs:
+        return ''
+
     if metadata_filters.condition == FilterCondition.NOT:
         return f"(NOT {' '.join(filter_strs)})"
     elif metadata_filters.condition == FilterCondition.AND or metadata_filters.condition == FilterCondition.OR:
@@ -338,4 +343,3 @@ def filter_config_to_opencypher_filters(filter_config:FilterConfig) -> str:
     if filter_config is None or filter_config.source_filters is None:
         return ''
     return parse_metadata_filters_recursive(filter_config.source_filters)
-    
