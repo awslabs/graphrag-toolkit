@@ -32,9 +32,9 @@
       "ConstraintDescription": "Must be a valid subnet ID in the specified VPC or empty"
     },
     "NotebookSubnetId": {
-      "Description": "ID of the subnet for the SageMaker notebook (must have internet access)",
+      "Description": "ID of the subnet for the SageMaker notebook. Must be a private subnet with outbound internet access via a NAT gateway (the notebook is launched with direct internet access disabled).",
       "Type": "AWS::EC2::Subnet::Id",
-      "ConstraintDescription": "Must be a valid subnet ID in the specified VPC with internet access"
+      "ConstraintDescription": "Must be a valid private subnet ID in the specified VPC with outbound internet access via a NAT gateway"
     },
     "NeptuneDbInstanceType": {
       "Description": "Neptune DB instance type (use db.serverless to provision a Neptune Serverless cluster)",
@@ -106,6 +106,11 @@
     "IamPolicyArn": {
       "Type": "String",
       "Description": "ARN of an additional IAM policy to be attached to the GraphRAG client IAM role (optional)",
+      "Default": ""
+    },
+    "NotebookKmsKeyId": {
+      "Type": "String",
+      "Description": "Optional KMS key ARN or id used to encrypt the SageMaker notebook ML storage volume with a customer managed key (CMK). Leave empty to use the default AWS managed encryption.",
       "Default": ""
     },
     "NotebookInstanceType": {
@@ -211,6 +216,18 @@
     }
   },
   "Conditions": {
+    "HasNotebookKmsKey": {
+      "Fn::Not": [
+        {
+          "Fn::Equals": [
+            {
+              "Ref": "NotebookKmsKeyId"
+            },
+            ""
+          ]
+        }
+      ]
+    },
     "ExampleNotebooksURLIsNotBlank": {
       "Fn::Not": [
         {
@@ -1335,6 +1352,19 @@
           "Ref": "NotebookInstanceType"
         },
         "PlatformIdentifier": "notebook-al2023-v1",
+        "RootAccess": "Disabled",
+        "DirectInternetAccess": "Disabled",
+        "KmsKeyId": {
+          "Fn::If": [
+            "HasNotebookKmsKey",
+            {
+              "Ref": "NotebookKmsKeyId"
+            },
+            {
+              "Ref": "AWS::NoValue"
+            }
+          ]
+        },
         "NotebookInstanceName": {
           "Fn::Sub": "aws-neptune-${ApplicationId}"
         },
