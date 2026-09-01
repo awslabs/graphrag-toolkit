@@ -85,7 +85,9 @@
     "NotebookKmsKeyId": {
       "Type": "String",
       "Description": "Optional KMS key ARN or id used to encrypt the SageMaker notebook ML storage volume with a customer managed key (CMK). Leave empty to use the default AWS managed encryption.",
-      "Default": ""
+      "Default": "",
+      "AllowedPattern": "|arn:aws[a-z0-9-]*:kms:[a-z0-9-]+:[0-9]{12}:(key|alias)/.+|[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|mrk-[0-9a-f]{32}|alias/.+",
+      "ConstraintDescription": "Must be empty or a valid KMS key id, key ARN, alias name (alias/...), or alias ARN"
     },
     "NotebookInstanceType": {
       "Description": "SageMaker notebook instance type (use ml.p3.2xlarge to provision a GPU instance)",
