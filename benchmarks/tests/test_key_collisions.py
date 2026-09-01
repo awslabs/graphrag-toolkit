@@ -3,6 +3,8 @@
 
 import unittest
 
+from graphrag_toolkit.lexical_graph.indexing.id_generator import IdGenerator
+
 from benchmarks.utils.key_collisions import (
     chunk_keys,
     count_collisions,
@@ -21,9 +23,29 @@ class TestIdFidelity(unittest.TestCase):
     produces describes a key the toolkit does not write.
     """
 
+    def test_source_id_matches_the_id_generator(self):
+        generator = IdGenerator()
+
+        for text, metadata_str in [('hello world', ''), ('', ''), ('doc 1', 'file_path:a.txt')]:
+            self.assertEqual(
+                create_source_id(text, metadata_str),
+                generator.create_source_id(text, metadata_str),
+            )
+
     def test_source_id_shape(self):
         # md5('hello world') starts 5eb63bbb; md5('') starts d41d.
         self.assertEqual(create_source_id('hello world', ''), 'aws::5eb63bbb:d41d')
+
+    def test_chunk_id_matches_the_id_generator(self):
+        source_id = create_source_id('hello world', '')
+
+        for use_delimiter in [False, True]:
+            generator = IdGenerator(use_chunk_id_delimiter=use_delimiter)
+            for text, metadata_str in [('hello world', ''), ('a', 'bc'), ('ab', 'c')]:
+                self.assertEqual(
+                    create_chunk_id(source_id, text, metadata_str, use_delimiter),
+                    generator.create_chunk_id(source_id, text, metadata_str),
+                )
 
     def test_chunk_id_appends_to_the_source_id(self):
         source_id = create_source_id('hello world', '')
@@ -87,7 +109,7 @@ class TestKeyGeneration(unittest.TestCase):
 class TestExpectedPairs(unittest.TestCase):
 
     def test_matches_the_closed_form_at_1m_on_32_bits(self):
-        # n(n-1) / 2 * 2^32, the figure the design doc quotes.
+        # n(n-1) / (2 * 2^32), the figure the design doc quotes.
         self.assertAlmostEqual(expected_pairs(1_000_000, 32), 116.4, places=1)
 
     def test_wider_keys_collide_less(self):

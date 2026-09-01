@@ -27,6 +27,9 @@ from collections import Counter
 import numpy as np
 
 
+CHUNK_ID_DELIMITER = '\x00'
+
+
 def get_hash(s: str) -> str:
     """Reproduces indexing/utils/hash_utils.py::get_hash."""
     return hashlib.md5(s.encode('utf-8'), usedforsecurity=False).digest().hex()
@@ -37,9 +40,19 @@ def create_source_id(text: str, metadata_str: str) -> str:
     return f'aws::{get_hash(text)[:8]}:{get_hash(metadata_str)[:4]}'
 
 
-def create_chunk_id(source_id: str, text: str, metadata_str: str) -> str:
-    """Reproduces IdGenerator.create_chunk_id with the delimiter off (the default)."""
-    return f'{source_id}:{get_hash(text + metadata_str)[:8]}'
+def create_chunk_id(source_id: str, text: str, metadata_str: str,
+                    use_chunk_id_delimiter: bool = False) -> str:
+    """
+    Reproduces IdGenerator.create_chunk_id (indexing/id_generator.py:90).
+
+    With the delimiter on, a null byte separates text from metadata before
+    hashing. It is off by default, as it is in IdGenerator.
+    """
+    if use_chunk_id_delimiter:
+        hash_input = text + CHUNK_ID_DELIMITER + metadata_str
+    else:
+        hash_input = text + metadata_str
+    return f'{source_id}:{get_hash(hash_input)[:8]}'
 
 
 def _key_of(identifier: str) -> int:
@@ -73,14 +86,15 @@ def source_keys(texts, with_metadata):
     return out
 
 
-def chunk_keys(texts, with_metadata, chunks_per_doc=3):
+def chunk_keys(texts, with_metadata, chunks_per_doc=3, use_chunk_id_delimiter=False):
     """Composite source+chunk keys, to test whether chunk width rescues the prefix."""
     out = []
     for i, text in enumerate(texts):
         metadata_str = _metadata_for(i, with_metadata)
         source_id = create_source_id(text, metadata_str)
         for c in range(chunks_per_doc):
-            chunk_id = create_chunk_id(source_id, f'{text}::chunk{c}', metadata_str)
+            chunk_id = create_chunk_id(source_id, f'{text}::chunk{c}', metadata_str,
+                                       use_chunk_id_delimiter)
             out.append(_key_of(chunk_id))
     return out
 
@@ -98,13 +112,12 @@ def corpus_texts(path):
 
 def count_collisions(keys):
     """
-    Source keys fit in uint64 and go through numpy, which is what makes 10M
-    documents tractable. Composite source-plus-chunk keys are 80 bits and do
-    not, so those count through a Counter instead.
+    Source keys fit in uint64 and arrive as a numpy array, which is what makes
+    10M documents tractable. Composite source-plus-chunk keys are 80 bits, so
+    those arrive as a list and count through a Counter instead.
     """
-    keys = list(keys)
-    if keys and max(keys) < 2 ** 64:
-        _, counts = np.unique(np.asarray(keys, dtype=np.uint64), return_counts=True)
+    if isinstance(keys, np.ndarray):
+        _, counts = np.unique(keys, return_counts=True)
         counts = counts.tolist()
     else:
         counts = list(Counter(keys).values())
