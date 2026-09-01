@@ -2,9 +2,9 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import logging
-import asyncio
 from typing import Tuple, List, Optional, Sequence, Dict
 
+from graphrag_toolkit.lexical_graph.utils.llm_concurrency import run_blocking
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.utils import LLMCache, LLMCacheType
 from graphrag_toolkit.lexical_graph.indexing.utils.topic_utils import parse_extracted_topics, format_list, format_text
@@ -89,14 +89,17 @@ class TopicExtractor(BaseExtractor):
                 Defaults to a fixed-scoped value provider initialized with an empty
                 list.
         """
+        num_workers = coalesce(num_workers, GraphRAGConfig.extraction_num_threads_per_worker)
+
         super().__init__(
             llm = llm if llm and isinstance(llm, LLMCache) else LLMCache(
                 llm=llm or GraphRAGConfig.extraction_llm,
-                enable_cache=GraphRAGConfig.enable_cache
+                enable_cache=GraphRAGConfig.enable_cache,
+                num_threads=num_workers
             ),
             prompt_template=prompt_template or EXTRACT_TOPICS_PROMPT, 
             source_metadata_field=source_metadata_field,
-            num_workers=coalesce(num_workers, GraphRAGConfig.extraction_num_threads_per_worker),
+            num_workers=num_workers,
             entity_classification_provider=entity_classification_provider or default_preferred_values([]),
             topic_provider=topic_provider or default_preferred_values([])
         )
@@ -185,10 +188,10 @@ class TopicExtractor(BaseExtractor):
         """
         Asynchronously extracts topics from the given text by calling a Language Learning
         Model (LLM). The function aims to retrieve topics based on the preferred
-        classifications and topics provided. It uses a blocking LLM call in conjunction
-        with asyncio's to_thread method to keep the extraction process non-blocking.
-        The extracted topics are parsed and returned as a tuple comprising a
-        TopicCollection and the remaining unprocessed data.
+        classifications and topics provided. It runs a blocking LLM call on the
+        extractor's own thread pool, sized to num_workers, to keep the extraction
+        process non-blocking. The extracted topics are parsed and returned as a
+        tuple comprising a TopicCollection and the remaining unprocessed data.
 
         Args:
             text (str): The input text from which topics are to be extracted.
@@ -210,7 +213,7 @@ class TopicExtractor(BaseExtractor):
                 #exclude_cache_keys=['preferred_entity_classifications', 'preferred_topics']
             )
         
-        coro = asyncio.to_thread(blocking_llm_call)
+        coro = run_blocking(blocking_llm_call, self.num_workers)
         
         raw_response = await coro
 

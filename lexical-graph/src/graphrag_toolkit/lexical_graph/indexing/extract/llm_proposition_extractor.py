@@ -2,9 +2,9 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import logging
-import asyncio
 from typing import List, Optional, Sequence, Dict
 
+from graphrag_toolkit.lexical_graph.utils.llm_concurrency import run_blocking
 from graphrag_toolkit.lexical_graph.utils import LLMCache, LLMCacheType
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.indexing.model import Propositions
@@ -81,14 +81,17 @@ class LLMPropositionExtractor(BaseExtractor):
                 from source data.
             num_workers: Number of worker threads to use for processing tasks.
         """
+        num_workers = coalesce(num_workers, GraphRAGConfig.extraction_num_threads_per_worker)
+
         super().__init__(
             llm = llm if llm and isinstance(llm, LLMCache) else LLMCache(
                 llm=llm or GraphRAGConfig.extraction_llm,
-                enable_cache=GraphRAGConfig.enable_cache
+                enable_cache=GraphRAGConfig.enable_cache,
+                num_threads=num_workers
             ),
             prompt_template=prompt_template or EXTRACT_PROPOSITIONS_PROMPT, 
             source_metadata_field=source_metadata_field,
-            num_workers=coalesce(num_workers, GraphRAGConfig.extraction_num_threads_per_worker)
+            num_workers=num_workers
         )
 
         logger.debug(f'Prompt template: {self.prompt_template}')
@@ -184,9 +187,9 @@ propositions: {proposition_collection}
 
         This method interacts with a large language model (LLM) to extract a list of
         unique propositions based on a provided text input. The process involves
-        executing a blocking LLM call in an asynchronous-friendly manner through the
-        use of asyncio's to_thread. The resulting LLM response is then split into
-        lines, and duplicate propositions are filtered out to ensure uniqueness.
+        running a blocking LLM call on the extractor's own thread pool, sized to
+        num_workers. The resulting LLM response is then split into lines, and
+        duplicate propositions are filtered out to ensure uniqueness.
 
         Args:
             text: The input string for which propositions need to be extracted.
@@ -203,7 +206,7 @@ propositions: {proposition_collection}
                 exclude_cache_keys=['source_info']
             )
         
-        coro = asyncio.to_thread(blocking_llm_call)
+        coro = run_blocking(blocking_llm_call, self.num_workers)
         
         raw_response = await coro
 
