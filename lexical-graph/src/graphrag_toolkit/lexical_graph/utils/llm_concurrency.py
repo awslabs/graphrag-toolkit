@@ -29,8 +29,8 @@ logger = logging.getLogger(__name__)
 MIN_POOL_SIZE = min(32, (os.cpu_count() or 1) + 4)
 
 # Every process spawned by `run_pipeline` gets its own pool and every thread
-# holds a bedrock-runtime connection, so an unreasonably high count would
-# otherwise multiply across processes. Requests above this are clamped.
+# holds a bedrock-runtime connection. This bounds one process, so the fleet
+# ceiling is workers x MAX_POOL_SIZE. Requests above this are clamped.
 MAX_POOL_SIZE = 256
 
 _lock = threading.Lock()
