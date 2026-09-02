@@ -32,7 +32,7 @@
       "ConstraintDescription": "Must be a valid subnet ID in the specified VPC or empty"
     },
     "NotebookSubnetId": {
-      "Description": "ID of the subnet for the SageMaker notebook. Must be a private subnet with outbound internet access via a NAT gateway (the notebook is launched with direct internet access disabled).",
+      "Description": "ID of the subnet for the SageMaker notebook. The notebook is launched with direct internet access disabled, so this subnet must provide outbound internet egress via a NAT gateway. The startup lifecycle script installs packages from PyPI and downloads the example notebooks, and the notebook reaches SageMaker, Bedrock, S3 and the graph/vector stores; without egress the instance may fail to reach InService. This template provisions no NAT gateway, so the subnet you supply must already have one.",
       "Type": "AWS::EC2::Subnet::Id",
       "ConstraintDescription": "Must be a valid private subnet ID in the specified VPC with outbound internet access via a NAT gateway"
     },
@@ -110,7 +110,7 @@
     },
     "NotebookKmsKeyId": {
       "Type": "String",
-      "Description": "Optional KMS key ARN or id used to encrypt the SageMaker notebook ML storage volume with a customer managed key (CMK). Leave empty to use the default AWS managed encryption.",
+      "Description": "Optional KMS key ARN or id used to encrypt the SageMaker notebook ML storage volume with a customer managed key (CMK). Leave empty to use the default AWS managed encryption. If supplied, the key's policy must allow the SageMaker service to use the key (kms:CreateGrant, kms:Decrypt, kms:GenerateDataKey), otherwise notebook creation fails.",
       "Default": "",
       "AllowedPattern": "|arn:aws[a-z0-9-]*:kms:[a-z0-9-]+:[0-9]{12}:(key|alias)/.+|[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|mrk-[0-9a-f]{32}|alias/.+",
       "ConstraintDescription": "Must be empty or a valid KMS key id, key ARN, alias name (alias/...), or alias ARN"
@@ -1425,7 +1425,7 @@
                     "#!/bin/bash\n\n",
                     "sudo -u ec2-user -i <<'EOF'\n",
                     "\n",
-                    "sudo pip install packaging==24.2\n",
+                    "pip install packaging==24.2\n",
                     "echo \"export STACK_ID=",
                     {
                       "Ref": "AWS::StackId"
