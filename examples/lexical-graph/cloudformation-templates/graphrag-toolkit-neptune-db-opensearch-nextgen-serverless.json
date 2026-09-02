@@ -1227,12 +1227,22 @@
       }
     },
     "OpenSearchServerlessVpcEndpoint": {
-      "Type": "AWS::OpenSearchServerless::VpcEndpoint",
+      "Type": "AWS::EC2::VPCEndpoint",
       "Condition": "EnableVpcAccess",
       "Properties": {
-        "Name": {
-          "Fn::Sub": "${ApplicationId}-vpce"
+        "ServiceName": {
+          "Fn::Sub": "com.amazonaws.${AWS::Region}.aoss-data"
         },
+        "VpcEndpointType": "Interface",
+        "PrivateDnsEnabled": true,
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": {
+              "Fn::Sub": "${ApplicationId}-vpce"
+            }
+          }
+        ],
         "VpcId": {
           "Fn::If": [
             "CreateVPC",
@@ -1734,6 +1744,11 @@
                     "  echo \"export EVALUATION_MODEL=",
                     {
                       "Ref": "ModelId"
+                    },
+                    "\" >> .env\n",
+                    "  echo \"export AWS_REGION=",
+                    {
+                      "Ref": "AWS::Region"
                     },
                     "\" >> .env\n",
                     "  chmod -R 700 .\n",
