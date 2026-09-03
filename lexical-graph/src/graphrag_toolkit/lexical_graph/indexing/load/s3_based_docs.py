@@ -33,6 +33,10 @@ BATCH_SIZE = 100
 
 logger = logging.getLogger(__name__)
 
+# Joins node ids before hashing them. Without a separator ['ab', 'c'] and
+# ['a', 'bc'] hash alike.
+_DOC_SUFFIX_DELIMITER = '\x00'
+
 class ConfiguredThreadCount:
     """
     Sizes a thread pool from a caller-supplied count, falling back to the config
@@ -72,7 +76,12 @@ class S3DocDownloader(ConfiguredThreadCount, BaseComponent):
             for node_obj in node_page['Contents'] 
         ]
 
+        # Every object under the prefix merges into one SourceDocument, and a
+        # run that packs a source's chunks differently writes a new object
+        # beside the old one, so a node id can arrive twice. Keys sort
+        # lexicographically, so the first copy wins rather than the newest.
         nodes = []
+        seen_node_ids = set()
 
         for node_key in node_keys:
         
@@ -81,7 +90,10 @@ class S3DocDownloader(ConfiguredThreadCount, BaseComponent):
                 io_stream.seek(0)
                 data = io_stream.readline().decode('UTF-8')
                 while data:
-                    nodes.append(self.fn(TextNode.from_json(data)))
+                    node = TextNode.from_json(data)
+                    if node.node_id not in seen_node_ids:
+                        seen_node_ids.add(node.node_id)
+                        nodes.append(self.fn(node))
                     data = io_stream.readline().decode('UTF-8')
 
         return SourceDocument(nodes=nodes)
@@ -135,20 +147,24 @@ class S3DocUploader(ConfiguredThreadCount, BaseComponent):
     _semaphore:Semaphore = PrivateAttr(default=None)
     _queue:queue.Queue = PrivateAttr(default=None)
     
+    def _written_nodes(self, doc:SourceDocument) -> List[TextNode]:
+        """The nodes this uploader writes into the object body."""
+        return [n for n in doc.nodes if INDEX_KEY not in n.metadata]
+
     def _doc_suffix(self, doc:SourceDocument) -> str:
         """
-        What distinguishes one object from another under a source document's prefix.
+        What separates one object from another under a source document's prefix.
 
-        A random suffix makes the key different on every attempt, so a retry
-        writes a second object beside the first. Deriving it from the document's
-        own node ids makes a retry overwrite, and keeps the separate
-        SourceDocuments an auto-tuned run emits for one source apart, because
-        those carry different chunks.
+        A random suffix differs on every attempt, so a retry writes a second
+        object rather than replacing the first. Hashing the ids of the nodes
+        written instead makes a retry overwrite, while keeping the separate
+        SourceDocuments an auto-tuned run emits for one source apart.
         """
         if not self.deterministic_document_key:
             return uuid.uuid4().hex[:5]
 
-        return get_hash(''.join(sorted(n.node_id for n in doc.nodes)))[:5]
+        node_ids = sorted(n.node_id for n in self._written_nodes(doc))
+        return get_hash(_DOC_SUFFIX_DELIMITER.join(node_ids))[:5]
 
     def _upload_doc(self, root_path:str, doc:SourceDocument, s3_client):
 
@@ -160,8 +176,7 @@ class S3DocUploader(ConfiguredThreadCount, BaseComponent):
 
             s = '\n'.join([
                 json.dumps(n.to_dict())
-                for n in doc.nodes 
-                if not [key for key in [INDEX_KEY] if key in n.metadata]
+                for n in self._written_nodes(doc)
             ]) 
 
             if self.s3_encryption_key_id:
@@ -387,7 +402,6 @@ class S3ChunkUploader(ConfiguredThreadCount, BaseComponent):
     bucket_name:str
     collection_prefix:str
     s3_encryption_key_id:Optional[str]=None
-    deterministic_document_key:bool=False
 
     def _upload_chunk(self, root_path:str, n:TextNode, s3_client):
         chunk_output_path = join(root_path, f'{n.node_id}.json')
@@ -628,8 +642,7 @@ class S3BasedDocs(NodeHandler):
                     bucket_name=self.bucket_name, 
                     collection_prefix=collection_prefix,
                     s3_encryption_key_id=self.s3_encryption_key_id,
-                    num_threads=self.num_threads,
-                    deterministic_document_key=self.deterministic_document_key
+                    num_threads=self.num_threads
                 )
         
         for doc in self._uploader.upload(source_documents):
