@@ -42,6 +42,10 @@ DEFAULT_EMBEDDINGS_DIMENSIONS = 1024
 DEFAULT_EXTRACTION_NUM_WORKERS = 2
 DEFAULT_EXTRACTION_BATCH_SIZE = 4
 DEFAULT_EXTRACTION_NUM_THREADS_PER_WORKER = 4
+# Characters of the text digest that go into a source id. Eight is what every
+# existing graph was written with; an md5 hex digest is 32, which is the ceiling.
+DEFAULT_SOURCE_ID_HASH_LENGTH = 8
+MAX_SOURCE_ID_HASH_LENGTH = 32
 # botocore's own default. Not a chosen value - it's the floor the S3 pool is
 # never sized below. Distinct from DEFAULT_MAX_POOL_CONNECTIONS in
 # neptune_graph_stores, which is that client's chosen size.
@@ -334,6 +338,7 @@ class _GraphRAGConfig:
     _bedrock_reranking_model: Optional[str] = None
     _extraction_num_workers: Optional[int] = None
     _extraction_num_threads_per_worker: Optional[int] = None
+    _source_id_hash_length: Optional[int] = None
     _extraction_batch_size: Optional[int] = None
     _build_num_workers: Optional[int] = None
     _build_batch_size: Optional[int] = None
@@ -696,6 +701,35 @@ class _GraphRAGConfig:
                 each worker during extraction operations.
         """
         self._extraction_num_threads_per_worker = num_threads
+
+    @property
+    def source_id_hash_length(self) -> int:
+        """
+        Characters of the text digest that go into a source id.
+
+        Eight is what every existing graph was written with. A wider setting
+        separates documents that would otherwise share an id, and changes every
+        source id and chunk id, so a graph written at one length cannot be read
+        at another.
+
+        Returns:
+            int: The number of digest characters used in a source id.
+        """
+        if self._source_id_hash_length is None:
+            self.source_id_hash_length = int(
+                os.environ.get('SOURCE_ID_HASH_LENGTH', DEFAULT_SOURCE_ID_HASH_LENGTH))
+
+        return self._source_id_hash_length
+
+    @source_id_hash_length.setter
+    def source_id_hash_length(self, hash_length: int) -> None:
+        """
+        Sets the number of digest characters used in a source id.
+
+        Args:
+            hash_length (int): The number of digest characters.
+        """
+        self._source_id_hash_length = hash_length
 
     @property
     def extraction_batch_size(self) -> int:

@@ -234,7 +234,8 @@ class BuildPipeline():
             source_metadata_formatter=source_metadata_formatter, 
             id_generator=IdGenerator(
                 tenant_id=tenant_id, 
-                include_classification_in_entity_id=include_classification_in_entity_id
+                include_classification_in_entity_id=include_classification_in_entity_id,
+                source_id_hash_length=GraphRAGConfig.source_id_hash_length
             )
         )
         self.node_filter = NodeFilter() if not checkpoint else checkpoint.add_filter(NodeFilter(), tenant_id)
