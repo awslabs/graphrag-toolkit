@@ -1,0 +1,58 @@
+# Runs the benchmarks unit tests on push/PR to main. The lexical-graph
+# workflow is scoped to lexical-graph/**, so nothing was running these.
+name: Benchmarks Unit Tests
+
+permissions:
+  contents: read
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "benchmarks/**"
+      - ".github/workflows/benchmarks-tests.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "benchmarks/**"
+      - ".github/workflows/benchmarks-tests.yml"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d # v10.0.1
+
+      - name: Create virtual environment
+        run: uv venv --seed .venv
+
+      - name: Install dependencies
+        # The benchmarks import graphrag_toolkit, so lexical-graph and its
+        # requirements come first. Separate commands: requirements.txt opens
+        # with `--only-binary :all:`, which would block building the local
+        # package if combined.
+        env:
+          # Copy instead of hardlink into the venv so bundled data files have
+          # st_nlink=1; nltk's pathsec check refuses to open multiply-linked files.
+          UV_LINK_MODE: copy
+        run: |
+          uv pip install --python .venv/bin/python \
+            -r lexical-graph/src/graphrag_toolkit/lexical_graph/requirements.txt
+          uv pip install --python .venv/bin/python -e ./lexical-graph
+          uv pip install --python .venv/bin/python -r benchmarks/requirements.txt
+
+      - name: Run tests
+        env:
+          HYPOTHESIS_PROFILE: ci
+        run: |
+          .venv/bin/python -m pytest -v -l --tb=short benchmarks/tests/

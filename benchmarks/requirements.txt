@@ -9,6 +9,7 @@
 # llama-index-llms-bedrock-converse, boto3, botocore) is assumed to be
 # installed separately via `pip install -e ./lexical-graph`.
 
+numpy>=1.24.0
 python-dotenv>=1.0.0
 boto3>=1.28.0
 botocore>=1.31.0
