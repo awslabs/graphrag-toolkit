@@ -94,8 +94,9 @@ class TestKeyGeneration(unittest.TestCase):
 
     def test_absent_metadata_leaves_32_bits_discriminating(self):
         keys = source_keys(synthetic_texts(64), with_metadata=False)
-        # The low 16 bits are md5('')[:4] for every document.
-        self.assertEqual(len({k & 0xFFFF for k in keys}), 1)
+        # The low 16 bits are md5('')[:4] for every document. int() first:
+        # numpy before 2.0 refuses to mask a uint64 with a Python int.
+        self.assertEqual(len({int(k) & 0xFFFF for k in keys}), 1)
 
     def test_present_metadata_varies_the_second_component(self):
         keys = source_keys(synthetic_texts(64), with_metadata=True)
