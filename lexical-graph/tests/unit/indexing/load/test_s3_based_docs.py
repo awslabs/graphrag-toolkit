@@ -7,7 +7,7 @@ import time
 
 import pytest
 from unittest.mock import Mock, patch, MagicMock
-from llama_index.core.schema import TextNode
+from llama_index.core.schema import NodeRelationship, RelatedNodeInfo, TextNode
 from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import (
     S3BasedDocs,
     S3DocDownloader,
@@ -902,3 +902,84 @@ class TestUploadThreadPropagation:
         ) as config:
             config.extraction_num_threads_per_worker = 7
             assert uploader._num_threads() == 7
+
+
+class TestDeterministicDocumentKey:
+    """
+    The document key carries a random suffix, so a retry writes a second object
+    beside the first instead of replacing it and a restart cannot tell a re-stage
+    from a duplicate. Behind a flag the suffix is derived from the document's own
+    nodes instead, which makes a retry overwrite while keeping the separate
+    SourceDocuments an auto-tuned run emits for one source in separate objects.
+    """
+
+    def _doc(self, source_id, chunk_ids):
+        nodes = []
+        for chunk_id in chunk_ids:
+            node = TextNode(text='chunk text', id_=chunk_id)
+            node.relationships[NodeRelationship.SOURCE] = RelatedNodeInfo(node_id=source_id)
+            nodes.append(node)
+        return SourceDocument(nodes=nodes)
+
+    def _key(self, uploader, doc):
+        s3_client = Mock()
+        uploader._upload_doc('root', doc, s3_client)
+        return s3_client.put_object.call_args.kwargs['Key']
+
+    def test_flag_defaults_off(self):
+        assert S3DocUploader(bucket_name='b', collection_prefix='p').deterministic_document_key is False
+
+    def test_off_keeps_a_random_suffix(self):
+        uploader = S3DocUploader(bucket_name='b', collection_prefix='p')
+        doc = self._doc('aws::deadbeef:d41d', ['c1', 'c2'])
+
+        first = self._key(uploader, doc)
+
+        assert first.startswith('root/aws::deadbeef:d41d-')
+        assert first != self._key(uploader, doc)
+
+    def test_on_makes_a_retry_overwrite(self):
+        uploader = S3DocUploader(
+            bucket_name='b', collection_prefix='p', deterministic_document_key=True
+        )
+        doc = self._doc('aws::deadbeef:d41d', ['c1', 'c2'])
+
+        assert self._key(uploader, doc) == self._key(uploader, doc)
+
+    def test_on_keeps_the_source_id_readable_in_the_key(self):
+        uploader = S3DocUploader(
+            bucket_name='b', collection_prefix='p', deterministic_document_key=True
+        )
+
+        key = self._key(uploader, self._doc('aws::deadbeef:d41d', ['c1']))
+
+        assert key.startswith('root/aws::deadbeef:d41d-')
+        assert key.endswith('.jsonl')
+
+    def test_on_separates_the_rounds_of_one_source_document(self):
+        # _extract_auto_tuned emits one source as several SourceDocuments when it
+        # exceeds the round capacity. A key on source_id alone would let the
+        # second round replace the first.
+        uploader = S3DocUploader(
+            bucket_name='b', collection_prefix='p', deterministic_document_key=True
+        )
+        first_round = self._doc('aws::deadbeef:d41d', ['c1', 'c2'])
+        second_round = self._doc('aws::deadbeef:d41d', ['c3', 'c4'])
+
+        assert self._key(uploader, first_round) != self._key(uploader, second_round)
+
+    def test_on_ignores_the_order_the_chunks_arrive_in(self):
+        uploader = S3DocUploader(
+            bucket_name='b', collection_prefix='p', deterministic_document_key=True
+        )
+
+        assert (self._key(uploader, self._doc('aws::dead:beef', ['c1', 'c2']))
+                == self._key(uploader, self._doc('aws::dead:beef', ['c2', 'c1'])))
+
+    def test_s3_based_docs_carries_the_flag(self):
+        docs = S3BasedDocs(
+            region='us-east-1', bucket_name='b', key_prefix='p', collection_id='c',
+            deterministic_document_key=True,
+        )
+
+        assert docs.deterministic_document_key is True

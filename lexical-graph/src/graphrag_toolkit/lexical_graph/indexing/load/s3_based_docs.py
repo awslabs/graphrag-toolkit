@@ -19,6 +19,7 @@ from threading import Semaphore
 from typing import List, Any, Generator, Optional, Dict, Callable
 
 from graphrag_toolkit.lexical_graph.indexing import NodeHandler
+from graphrag_toolkit.lexical_graph.indexing.utils.hash_utils import get_hash
 from graphrag_toolkit.lexical_graph.indexing.model import SourceDocument, SourceType, source_documents_from_source_types
 from graphrag_toolkit.lexical_graph.indexing.constants import PROPOSITIONS_KEY, TOPICS_KEY
 from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
@@ -130,12 +131,28 @@ class S3DocUploader(ConfiguredThreadCount, BaseComponent):
     bucket_name:str
     collection_prefix:str
     s3_encryption_key_id:Optional[str]=None
+    deterministic_document_key:bool=False
     _semaphore:Semaphore = PrivateAttr(default=None)
     _queue:queue.Queue = PrivateAttr(default=None)
     
+    def _doc_suffix(self, doc:SourceDocument) -> str:
+        """
+        What distinguishes one object from another under a source document's prefix.
+
+        A random suffix makes the key different on every attempt, so a retry
+        writes a second object beside the first. Deriving it from the document's
+        own node ids makes a retry overwrite, and keeps the separate
+        SourceDocuments an auto-tuned run emits for one source apart, because
+        those carry different chunks.
+        """
+        if not self.deterministic_document_key:
+            return uuid.uuid4().hex[:5]
+
+        return get_hash(''.join(sorted(n.node_id for n in doc.nodes)))[:5]
+
     def _upload_doc(self, root_path:str, doc:SourceDocument, s3_client):
 
-        doc_output_path = join(root_path, f'{doc.source_id()}-{uuid.uuid4().hex[:5]}.jsonl')
+        doc_output_path = join(root_path, f'{doc.source_id()}-{self._doc_suffix(doc)}.jsonl')
 
         logger.debug(f'Writing source document as JSONL to S3: [bucket: {self.bucket_name}, key: {doc_output_path}]')
         
@@ -370,6 +387,7 @@ class S3ChunkUploader(ConfiguredThreadCount, BaseComponent):
     bucket_name:str
     collection_prefix:str
     s3_encryption_key_id:Optional[str]=None
+    deterministic_document_key:bool=False
 
     def _upload_chunk(self, root_path:str, n:TextNode, s3_client):
         chunk_output_path = join(root_path, f'{n.node_id}.json')
@@ -461,6 +479,7 @@ class S3BasedDocs(NodeHandler):
     metadata_keys:Optional[List[str]]=None
     for_jsonl:Optional[bool]=False
     num_threads:Optional[int]=None
+    deterministic_document_key:bool=False
 
     _uploader:Any = PrivateAttr(default=None)
     _downloader:Any = PrivateAttr(default=None)
@@ -473,7 +492,8 @@ class S3BasedDocs(NodeHandler):
                  s3_encryption_key_id:Optional[str]=None, 
                  metadata_keys:Optional[List[str]]=None,
                  for_jsonl:Optional[bool]=False,
-                 num_threads:Optional[int]=None):
+                 num_threads:Optional[int]=None,
+                 deterministic_document_key:bool=False):
 
         # __init__ runs where GraphRAGConfig was configured; accept() runs in a
         # spawned worker that inherits no parent memory and reads back the
@@ -489,7 +509,8 @@ class S3BasedDocs(NodeHandler):
             s3_encryption_key_id=s3_encryption_key_id,
             metadata_keys=metadata_keys,
             for_jsonl=for_jsonl,
-            num_threads=num_threads
+            num_threads=num_threads,
+            deterministic_document_key=deterministic_document_key
         )
 
     def docs(self):
@@ -598,7 +619,8 @@ class S3BasedDocs(NodeHandler):
                     bucket_name=self.bucket_name, 
                     collection_prefix=collection_prefix,
                     s3_encryption_key_id=self.s3_encryption_key_id,
-                    num_threads=self.num_threads
+                    num_threads=self.num_threads,
+                    deterministic_document_key=self.deterministic_document_key
                 )
                 
             else:
@@ -606,7 +628,8 @@ class S3BasedDocs(NodeHandler):
                     bucket_name=self.bucket_name, 
                     collection_prefix=collection_prefix,
                     s3_encryption_key_id=self.s3_encryption_key_id,
-                    num_threads=self.num_threads
+                    num_threads=self.num_threads,
+                    deterministic_document_key=self.deterministic_document_key
                 )
         
         for doc in self._uploader.upload(source_documents):
