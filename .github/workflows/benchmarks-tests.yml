@@ -54,6 +54,5 @@ jobs:
       - name: Run tests
         env:
           HYPOTHESIS_PROFILE: ci
-          PYTHONPATH: benchmarks
         run: |
           .venv/bin/python -m pytest -v -l --tb=short benchmarks/tests/
