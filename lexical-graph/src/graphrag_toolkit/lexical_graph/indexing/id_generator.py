@@ -31,7 +31,7 @@ class IdGenerator(BaseModel):
     use_chunk_id_delimiter:bool
     source_id_hash_length:int
 
-    def __init__(self, tenant_id:TenantId=None, include_classification_in_entity_id:bool=None, use_chunk_id_delimiter:bool=False, source_id_hash_length:int=DEFAULT_SOURCE_ID_HASH_LENGTH):
+    def __init__(self, tenant_id:TenantId=None, include_classification_in_entity_id:bool=None, use_chunk_id_delimiter:bool=False, source_id_hash_length:int=None):
         """
         Initialize the IdGenerator.
 
@@ -41,13 +41,15 @@ class IdGenerator(BaseModel):
             use_chunk_id_delimiter: Whether to use delimiter in chunk ID hashing to prevent
                 boundary collisions. Defaults to False for backward compatibility with existing
                 graphs. Set to True for new graphs to enable collision-resistant hashing.
-            source_id_hash_length: Characters of the text digest used in a source ID. Eight
-                is what existing graphs were written with. A wider setting separates documents
-                that would otherwise share an ID, and changes every source and chunk ID.
+            source_id_hash_length: Characters of the text digest used in a source ID.
+                Defaults to the configured value. Eight is what existing graphs were
+                written with; widening it changes every source and chunk ID.
 
         Raises:
-            ValueError: If source_id_hash_length falls outside the digest.
+            ValueError: If the resolved width falls outside the digest.
         """
+        source_id_hash_length = coalesce(source_id_hash_length, GraphRAGConfig.source_id_hash_length)
+
         if not 1 <= source_id_hash_length <= MAX_SOURCE_ID_HASH_LENGTH:
             raise ValueError(
                 f'source_id_hash_length must be between 1 and {MAX_SOURCE_ID_HASH_LENGTH} '

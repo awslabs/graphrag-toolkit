@@ -1,8 +1,9 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
+import hashlib
+
 import pytest
-from unittest.mock import patch
 from graphrag_toolkit.lexical_graph.tenant_id import TenantId
 from llama_index.core.node_parser import SentenceSplitter
 from llama_index.core.schema import Document, NodeRelationship
@@ -464,6 +465,18 @@ def test_id_generator_tenant_isolation_property(tenant_id1, tenant_id2):
 
 
 
+@pytest.fixture(autouse=True)
+def isolated_hash_length(monkeypatch):
+    """
+    The width is env-backed and cached on the config, so a value left in either
+    place changes ids for every test that follows.
+    """
+    monkeypatch.delenv('SOURCE_ID_HASH_LENGTH', raising=False)
+    GraphRAGConfig.source_id_hash_length = None
+    yield
+    GraphRAGConfig.source_id_hash_length = None
+
+
 class TestSourceIdHashLength:
     """
     A source id discriminates on 48 bits, and on 32 when a document carries no
@@ -494,14 +507,24 @@ class TestSourceIdHashLength:
 
         assert wide.split(':')[-1] == narrow.split(':')[-1]
 
-    def test_widening_separates_texts_that_collide_at_eight_characters(self):
-        narrow, wide = IdGenerator(), IdGenerator(source_id_hash_length=32)
-        a, b = 'first document', 'second document'
+    def test_widening_separates_texts_that_collide_at_a_narrow_width(self):
+        narrow, wide = IdGenerator(source_id_hash_length=2), IdGenerator(source_id_hash_length=32)
+        a, b = self._colliding_texts(width=2)
 
-        with patch.object(narrow, '_get_hash', side_effect=lambda s: 'c0ffee' + '0' * 26):
-            assert narrow.create_source_id(a, '') == narrow.create_source_id(b, '')
-
+        assert narrow.create_source_id(a, '') == narrow.create_source_id(b, '')
         assert wide.create_source_id(a, '') != wide.create_source_id(b, '')
+
+    @staticmethod
+    def _colliding_texts(width):
+        """Two different texts whose digests agree on the first `width` characters."""
+        seen = {}
+        for i in range(100000):
+            text = f'document {i}'
+            prefix = hashlib.md5(text.encode('utf-8')).hexdigest()[:width]
+            if prefix in seen:
+                return seen[prefix], text
+            seen[prefix] = text
+        raise AssertionError(f'no collision found at width {width}')
 
     def test_chunk_ids_follow_the_wider_source_id(self):
         generator = IdGenerator(source_id_hash_length=32)
@@ -519,11 +542,7 @@ class TestSourceIdHashLength:
 
 
 class TestSourceIdHashLengthReachesTheIds:
-    """
-    An unreachable setting is the mistake use_chunk_id_delimiter already made:
-    it exists on IdGenerator and no caller sets it. These cover the path from
-    configuration to the ids a run actually writes.
-    """
+    """Covers the path from configuration to the ids a run writes."""
 
     def _ids(self, hash_length):
         generator = IdGenerator(source_id_hash_length=hash_length)
@@ -540,12 +559,8 @@ class TestSourceIdHashLengthReachesTheIds:
 
     def test_config_reads_the_environment(self, monkeypatch):
         monkeypatch.setenv('SOURCE_ID_HASH_LENGTH', '32')
-        GraphRAGConfig.source_id_hash_length = None
 
-        try:
-            assert GraphRAGConfig.source_id_hash_length == 32
-        finally:
-            GraphRAGConfig.source_id_hash_length = None
+        assert GraphRAGConfig.source_id_hash_length == 32
 
     def test_widening_changes_ids_but_not_chunk_text(self):
         narrow, wide = self._ids(8), self._ids(32)
@@ -559,3 +574,16 @@ class TestSourceIdHashLengthReachesTheIds:
 
         assert len(source_of(wide[0])) > len(source_of(narrow[0]))
         assert source_of(narrow[0]) != source_of(wide[0])
+
+
+class TestSourceIdHashLengthConfig:
+
+    def test_a_bare_generator_takes_the_configured_width(self):
+        GraphRAGConfig.source_id_hash_length = 16
+
+        assert IdGenerator().source_id_hash_length == 16
+
+    @pytest.mark.parametrize('length', [0, -1, 33])
+    def test_the_config_rejects_a_width_outside_the_digest(self, length):
+        with pytest.raises(ValueError):
+            GraphRAGConfig.source_id_hash_length = length

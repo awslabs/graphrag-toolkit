@@ -728,7 +728,16 @@ class _GraphRAGConfig:
 
         Args:
             hash_length (int): The number of digest characters.
+
+        Raises:
+            ValueError: If hash_length falls outside the md5 digest.
         """
+        if hash_length is not None and not 1 <= hash_length <= MAX_SOURCE_ID_HASH_LENGTH:
+            raise ValueError(
+                f'source_id_hash_length must be between 1 and {MAX_SOURCE_ID_HASH_LENGTH} '
+                f'[source_id_hash_length: {hash_length}]'
+            )
+
         self._source_id_hash_length = hash_length
 
     @property
