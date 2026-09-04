@@ -6,7 +6,8 @@ import asyncio
 import time
 import os
 import json
-from typing import Any, List, Dict
+from typing import Any, Callable, List, Dict
+from dataclasses import dataclass
 from os import stat, listdir
 from os.path import isfile, join
 
@@ -65,46 +66,125 @@ def split_nodes(nodes: List[Any], batch_size: int) -> List[List[Any]]:
    
     return results
 
-def get_request_body(llm:BedrockConverse, messages:List[ChatMessage], inference_parameters: dict):
-    
-    model_id = llm.model
-    
-    if 'amazon.nova' in model_id:
-        converse_messages, system_prompt = messages_to_converse_messages(messages)
-        request_body = {
-            'messages': converse_messages,
-            'inferenceConfig': {
-                'maxTokens': inference_parameters['max_tokens'],
-                'temperature': inference_parameters['temperature'],
-            }
-        }
-        if system_prompt:
-            request_body['system'] = [{'text': system_prompt}]
-        return request_body
-    elif 'anthropic.claude' in model_id:
-        anthropic_messages, system_prompt = messages_to_anthropic_messages(messages)
-        request_body = {
-            'anthropic_version': inference_parameters.get('anthropic_version', 'bedrock-2023-05-31'),
-            'messages': anthropic_messages,
-            'max_tokens': inference_parameters['max_tokens'],
-            'temperature': inference_parameters['temperature']
-        }
-        if system_prompt:
-            request_body['system'] = system_prompt
-        return request_body
-    elif 'meta.llama' in model_id:
-        converse_messages, system_prompt = messages_to_converse_messages(messages)
-        request_body = {
-            'messages': converse_messages,
-            'parameters': {
-                'max_new_tokens': inference_parameters['max_tokens'],
-                'temperature': inference_parameters['temperature'],
-            }
-        }
-        return request_body
-    else:
-        raise ValueError(f'Unrecognized model_id: batch extraction for {model_id} is not supported')
+# --- Bedrock batch (InvokeModel JSONL) provider registry -------------------
+#
+# Batch inference does not go through the Converse API; each record's
+# `modelInput`/`modelOutput` uses the provider-specific InvokeModel schema, so
+# each family is described by one BATCH_MODEL_PROVIDERS entry:
+#
+#   * build_request   - builds `modelInput` (the request body genuinely differs
+#                       per family, so this stays a small function)
+#   * output_path     - where the generated text lives in a record, walked from
+#                       the record root (so a family can read under 'modelOutput'
+#                       or at the top level)
+#   * output_mode     - 'blocks' joins a [{text: ...}] content list; 'text'
+#                       returns a scalar string node as-is
+#
+# To add a family, verify its InvokeModel request/response schema against the AWS
+# Bedrock docs and add one entry - no edits to get_request_body /
+# get_parse_output_text_fn. match_prefixes are substrings tested against
+# llm.model; they match through a cross-region inference-profile prefix (e.g.
+# 'us.anthropic.claude...' contains 'anthropic.claude') and across model versions
+# (Claude Opus 5, Nova 2, Llama 4).
 
+
+def _build_nova_request(messages: List[ChatMessage], params: dict) -> dict:
+    converse_messages, system_prompt = messages_to_converse_messages(messages)
+    request_body = {
+        'messages': converse_messages,
+        'inferenceConfig': {
+            'maxTokens': params['max_tokens'],
+            'temperature': params['temperature'],
+        }
+    }
+    if system_prompt:
+        request_body['system'] = [{'text': system_prompt}]
+    return request_body
+
+
+def _build_claude_request(messages: List[ChatMessage], params: dict) -> dict:
+    anthropic_messages, system_prompt = messages_to_anthropic_messages(messages)
+    request_body = {
+        'anthropic_version': params.get('anthropic_version', 'bedrock-2023-05-31'),
+        'messages': anthropic_messages,
+        'max_tokens': params['max_tokens'],
+        'temperature': params['temperature']
+    }
+    if system_prompt:
+        request_body['system'] = system_prompt
+    return request_body
+
+
+def _build_llama_request(messages: List[ChatMessage], params: dict) -> dict:
+    converse_messages, system_prompt = messages_to_converse_messages(messages)
+    return {
+        'messages': converse_messages,
+        'parameters': {
+            'max_new_tokens': params['max_tokens'],
+            'temperature': params['temperature'],
+        }
+    }
+
+
+@dataclass(frozen=True)
+class BatchModelProvider:
+    """A model family's batch (InvokeModel JSONL) request builder and output spec."""
+    name: str
+    match_prefixes: tuple
+    build_request: Callable[[List[ChatMessage], dict], dict]
+    output_path: tuple
+    output_mode: str = 'blocks'
+
+
+BATCH_MODEL_PROVIDERS: List[BatchModelProvider] = [
+    BatchModelProvider(
+        name='amazon.nova',
+        match_prefixes=('amazon.nova',),
+        build_request=_build_nova_request,
+        output_path=('modelOutput', 'output', 'message', 'content'),
+    ),
+    BatchModelProvider(
+        name='anthropic.claude',
+        match_prefixes=('anthropic.claude',),
+        build_request=_build_claude_request,
+        output_path=('modelOutput', 'content'),
+    ),
+    BatchModelProvider(
+        name='meta.llama',
+        match_prefixes=('meta.llama',),
+        build_request=_build_llama_request,
+        output_path=('generation',),
+        output_mode='text',
+    ),
+]
+
+
+def _resolve_batch_model_provider(model_id: str) -> BatchModelProvider:
+    for provider in BATCH_MODEL_PROVIDERS:
+        if any(prefix in model_id for prefix in provider.match_prefixes):
+            return provider
+    supported = ', '.join(provider.name for provider in BATCH_MODEL_PROVIDERS)
+    raise ValueError(
+        f'Unrecognized model_id: batch extraction for {model_id} is not supported. '
+        f'Supported model families: {supported}'
+    )
+
+
+def _parse_output_text(json_data: dict, output_path: tuple, output_mode: str) -> str:
+    """Extract generated text from a batch output record per a provider's output spec."""
+    node = json_data
+    for key in output_path:
+        if not isinstance(node, dict):
+            node = None
+            break
+        node = node.get(key)
+    if output_mode == 'text':
+        return node if isinstance(node, str) else ''
+    return ''.join(block.get('text', '') for block in (node or []))
+
+
+def get_request_body(llm:BedrockConverse, messages:List[ChatMessage], inference_parameters: dict):
+    return _resolve_batch_model_provider(llm.model).build_request(messages, inference_parameters)
 
 
 def create_inference_inputs_for_messages(llm:BedrockConverse, nodes: List[TextNode], messages_batch: List[List[ChatMessage]], **kwargs) -> List[Dict[str, Any]]:
@@ -238,23 +318,11 @@ def download_output_files(s3_client: Any, bucket_name:str, output_path:str, inpu
         s3_client.download_file(Bucket=bucket_name, Key=key, Filename=local_file_path)
         logger.debug(f'Finished downloading {key} to {local_file_path}')
 
-def get_parse_output_text_fn(model_id:str): 
-    if 'amazon.nova' in model_id:
-        def get_output_text(json_data):
-            contents = json_data.get('modelOutput', {}).get('output', {}).get('message', {}).get('content', [])
-            return ''.join([content.get('text', '') for content in contents])
-        return get_output_text
-    elif 'anthropic.claude' in model_id:
-        def get_output_text(json_data):
-            contents = json_data.get('modelOutput', {}).get('content', [])
-            return ''.join([content.get('text', '') for content in contents])
-        return get_output_text
-    elif 'meta.llama' in model_id:
-        def get_output_text(json_data):
-            return json_data['generation']
-        return get_output_text
-    else:
-        raise ValueError(f'Unrecognized model_id: batch extraction for {model_id} is not supported') 
+def get_parse_output_text_fn(model_id:str):
+    provider = _resolve_batch_model_provider(model_id)
+    def parse_output(json_data):
+        return _parse_output_text(json_data, provider.output_path, provider.output_mode)
+    return parse_output
 
 async def process_batch_output(local_output_directory:str, input_filename:str, llm:LLMCache) -> Dict[str, str]:
     """Process batch output files and return results."""
