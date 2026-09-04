@@ -17,9 +17,21 @@ This document describes the release process for the graphrag-toolkit components.
 5. Update the GitHub release to remove the pre-release label, promoting it to a full release.
 6. Test the final release from PyPI.
 
-TODO: 
-- filter changelog to show differences between graphrag-byokg/vX.Y.Z releases
-- filter out any differences not related to byokg (ie, lexical-graph changes)
+### Changelog
+
+Release notes are generated per project. The [BYOKG-RAG Pre-Release](/.github/workflows/byokg-rag-prerelease.yml) and [BYOKG-RAG Release](/.github/workflows/byokg-rag-release.yml) workflows append a byokg-only changelog to the GitHub release notes: commits that touched `byokg-rag/` or `examples/byokg*`, plus shared changes (docs, CI, etc.) that affect both projects. Commits that touched only `lexical-graph/` are excluded. The baseline is the previous released `graphrag-byokg/v*` tag (`.dev` prereleases are skipped).
+
+To preview the changelog locally before releasing:
+
+```bash
+# byokg changelog since the previous byokg release tag
+.github/release_message.sh byokg
+
+# ...or for an explicit tag
+python .github/scripts/generate_changelog.py --project byokg --to graphrag-byokg/vX.Y.Z
+```
+
+The path-based classifier lives in [.github/scripts/generate_changelog.py](/.github/scripts/generate_changelog.py).
 
 ### Step 1: Create a Pre-release Tag
 
