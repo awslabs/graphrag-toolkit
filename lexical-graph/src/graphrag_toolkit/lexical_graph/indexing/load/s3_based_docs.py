@@ -19,6 +19,7 @@ from threading import Semaphore
 from typing import List, Any, Generator, Optional, Dict, Callable
 
 from graphrag_toolkit.lexical_graph.indexing import NodeHandler
+from graphrag_toolkit.lexical_graph.indexing.utils.hash_utils import get_hash
 from graphrag_toolkit.lexical_graph.indexing.model import SourceDocument, SourceType, source_documents_from_source_types
 from graphrag_toolkit.lexical_graph.indexing.constants import PROPOSITIONS_KEY, TOPICS_KEY
 from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
@@ -31,6 +32,10 @@ QUEUE_SIZE = 1000
 BATCH_SIZE = 100
 
 logger = logging.getLogger(__name__)
+
+# Joins node ids before hashing them. Without a separator ['ab', 'c'] and
+# ['a', 'bc'] hash alike.
+_DOC_SUFFIX_DELIMITER = '\x00'
 
 class ConfiguredThreadCount:
     """
@@ -71,7 +76,12 @@ class S3DocDownloader(ConfiguredThreadCount, BaseComponent):
             for node_obj in node_page['Contents'] 
         ]
 
+        # Every object under the prefix merges into one SourceDocument, and a
+        # run that packs a source's chunks differently writes a new object
+        # beside the old one, so a node id can arrive twice. Keys sort
+        # lexicographically, so the first copy wins rather than the newest.
         nodes = []
+        seen_node_ids = set()
 
         for node_key in node_keys:
         
@@ -80,7 +90,10 @@ class S3DocDownloader(ConfiguredThreadCount, BaseComponent):
                 io_stream.seek(0)
                 data = io_stream.readline().decode('UTF-8')
                 while data:
-                    nodes.append(self.fn(TextNode.from_json(data)))
+                    node = TextNode.from_json(data)
+                    if node.node_id not in seen_node_ids:
+                        seen_node_ids.add(node.node_id)
+                        nodes.append(self.fn(node))
                     data = io_stream.readline().decode('UTF-8')
 
         return SourceDocument(nodes=nodes)
@@ -130,12 +143,32 @@ class S3DocUploader(ConfiguredThreadCount, BaseComponent):
     bucket_name:str
     collection_prefix:str
     s3_encryption_key_id:Optional[str]=None
+    deterministic_document_key:bool=False
     _semaphore:Semaphore = PrivateAttr(default=None)
     _queue:queue.Queue = PrivateAttr(default=None)
     
+    def _written_nodes(self, doc:SourceDocument) -> List[TextNode]:
+        """The nodes this uploader writes into the object body."""
+        return [n for n in doc.nodes if INDEX_KEY not in n.metadata]
+
+    def _doc_suffix(self, doc:SourceDocument) -> str:
+        """
+        What separates one object from another under a source document's prefix.
+
+        A random suffix differs on every attempt, so a retry writes a second
+        object rather than replacing the first. Hashing the ids of the nodes
+        written instead makes a retry overwrite, while keeping the separate
+        SourceDocuments an auto-tuned run emits for one source apart.
+        """
+        if not self.deterministic_document_key:
+            return uuid.uuid4().hex[:5]
+
+        node_ids = sorted(n.node_id for n in self._written_nodes(doc))
+        return get_hash(_DOC_SUFFIX_DELIMITER.join(node_ids))[:5]
+
     def _upload_doc(self, root_path:str, doc:SourceDocument, s3_client):
 
-        doc_output_path = join(root_path, f'{doc.source_id()}-{uuid.uuid4().hex[:5]}.jsonl')
+        doc_output_path = join(root_path, f'{doc.source_id()}-{self._doc_suffix(doc)}.jsonl')
 
         logger.debug(f'Writing source document as JSONL to S3: [bucket: {self.bucket_name}, key: {doc_output_path}]')
         
@@ -143,8 +176,7 @@ class S3DocUploader(ConfiguredThreadCount, BaseComponent):
 
             s = '\n'.join([
                 json.dumps(n.to_dict())
-                for n in doc.nodes 
-                if not [key for key in [INDEX_KEY] if key in n.metadata]
+                for n in self._written_nodes(doc)
             ]) 
 
             if self.s3_encryption_key_id:
@@ -461,6 +493,7 @@ class S3BasedDocs(NodeHandler):
     metadata_keys:Optional[List[str]]=None
     for_jsonl:Optional[bool]=False
     num_threads:Optional[int]=None
+    deterministic_document_key:bool=False
 
     _uploader:Any = PrivateAttr(default=None)
     _downloader:Any = PrivateAttr(default=None)
@@ -473,7 +506,8 @@ class S3BasedDocs(NodeHandler):
                  s3_encryption_key_id:Optional[str]=None, 
                  metadata_keys:Optional[List[str]]=None,
                  for_jsonl:Optional[bool]=False,
-                 num_threads:Optional[int]=None):
+                 num_threads:Optional[int]=None,
+                 deterministic_document_key:bool=False):
 
         # __init__ runs where GraphRAGConfig was configured; accept() runs in a
         # spawned worker that inherits no parent memory and reads back the
@@ -489,7 +523,8 @@ class S3BasedDocs(NodeHandler):
             s3_encryption_key_id=s3_encryption_key_id,
             metadata_keys=metadata_keys,
             for_jsonl=for_jsonl,
-            num_threads=num_threads
+            num_threads=num_threads,
+            deterministic_document_key=deterministic_document_key
         )
 
     def docs(self):
@@ -598,7 +633,8 @@ class S3BasedDocs(NodeHandler):
                     bucket_name=self.bucket_name, 
                     collection_prefix=collection_prefix,
                     s3_encryption_key_id=self.s3_encryption_key_id,
-                    num_threads=self.num_threads
+                    num_threads=self.num_threads,
+                    deterministic_document_key=self.deterministic_document_key
                 )
                 
             else:
