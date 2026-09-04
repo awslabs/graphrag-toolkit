@@ -311,6 +311,40 @@ class TestParseMetadataFiltersRecursive:
         assert ' AND ' in result
         assert ' OR ' in result
 
+    @pytest.mark.parametrize('condition', [FilterCondition.AND, FilterCondition.OR])
+    def test_nested_empty_filter_group_returns_empty_string(self, condition):
+        filters = MetadataFilters(
+            filters=[MetadataFilters(filters=[], condition=FilterCondition.AND)],
+            condition=condition,
+        )
+
+        assert parse_metadata_filters_recursive(filters) == ''
+
+    @pytest.mark.parametrize('condition', [FilterCondition.AND, FilterCondition.OR])
+    def test_nested_empty_filter_group_is_ignored_next_to_valid_filter(self, condition):
+        valid_filter = _eq_filter('category', 'tech')
+        filters = MetadataFilters(
+            filters=[
+                MetadataFilters(filters=[], condition=FilterCondition.AND),
+                valid_filter,
+            ],
+            condition=condition,
+        )
+        expected = MetadataFilters(filters=[valid_filter], condition=condition)
+
+        assert (
+            parse_metadata_filters_recursive(filters)
+            == parse_metadata_filters_recursive(expected)
+        )
+
+    def test_not_with_nested_empty_filter_group_returns_empty_string(self):
+        filters = MetadataFilters(
+            filters=[MetadataFilters(filters=[], condition=FilterCondition.AND)],
+            condition=FilterCondition.NOT,
+        )
+
+        assert parse_metadata_filters_recursive(filters) == ''
+
 
 class TestFilterConfigToOpencypherFilters:
     def test_none_config_returns_empty_string(self):

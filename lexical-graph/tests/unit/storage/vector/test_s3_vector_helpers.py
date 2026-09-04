@@ -4,6 +4,7 @@
 """Tests for the pure helpers in storage/vector/s3_vector_indexes."""
 
 import json
+from unittest.mock import MagicMock
 
 import pytest
 from llama_index.core.schema import TextNode
@@ -21,6 +22,7 @@ from graphrag_toolkit.lexical_graph.storage.vector.s3_vector_indexes import (
     formatter_for_type,
     node_to_s3_vector,
     parse_metadata_filters_recursive,
+    search_vectors,
     s3_vector_to_dict,
     to_s3_operator,
     validate_metadata_limits,
@@ -87,6 +89,44 @@ class TestParseMetadataFiltersRecursive:
         ))
         assert '$or' in result
 
+    @pytest.mark.parametrize('condition', [FilterCondition.AND, FilterCondition.OR])
+    def test_empty_filter_group_returns_empty_filter(self, condition):
+        filters = MetadataFilters(filters=[], condition=condition)
+
+        assert parse_metadata_filters_recursive(filters) == {}
+
+    @pytest.mark.parametrize('condition', [FilterCondition.AND, FilterCondition.OR])
+    def test_nested_empty_filter_group_returns_empty_filter(self, condition):
+        filters = MetadataFilters(
+            filters=[MetadataFilters(filters=[], condition=FilterCondition.AND)],
+            condition=condition,
+        )
+
+        assert parse_metadata_filters_recursive(filters) == {}
+
+    @pytest.mark.parametrize('condition', [FilterCondition.AND, FilterCondition.OR])
+    def test_nested_empty_filter_group_is_ignored_next_to_valid_filter(self, condition):
+        valid_filter = _eq('category', 'tech')
+        filters = MetadataFilters(
+            filters=[
+                MetadataFilters(filters=[], condition=FilterCondition.AND),
+                valid_filter,
+            ],
+            condition=condition,
+        )
+        expected = MetadataFilters(filters=[valid_filter], condition=condition)
+
+        assert (
+            parse_metadata_filters_recursive(filters)
+            == parse_metadata_filters_recursive(expected)
+        )
+
+    def test_empty_not_filter_group_remains_unsupported(self):
+        filters = MetadataFilters(filters=[], condition=FilterCondition.NOT)
+
+        with pytest.raises(ValueError, match='Unsupported filters condition'):
+            parse_metadata_filters_recursive(filters)
+
     def test_not_condition_with_bare_filter_raises(self):
         filters = MetadataFilters(filters=[_eq('a', 'x')], condition=FilterCondition.NOT)
         with pytest.raises(ValueError, match='Expected MetadataFilters'):
@@ -114,6 +154,34 @@ class TestFilterConfigToS3Filters:
         ))
         result = filter_config_to_s3_filters(config)
         assert '$and' in result
+
+    def test_empty_source_filter_group_returns_empty_filter(self):
+        config = FilterConfig(source_filters=MetadataFilters(
+            filters=[], condition=FilterCondition.AND,
+        ))
+
+        assert filter_config_to_s3_filters(config) == {}
+
+    @pytest.mark.parametrize('condition', [FilterCondition.AND, FilterCondition.OR])
+    def test_empty_filter_group_is_omitted_from_query_request(self, condition):
+        client = MagicMock()
+        client.query_vectors.return_value = {'vectors': []}
+        config = FilterConfig(source_filters=MetadataFilters(
+            filters=[
+                MetadataFilters(filters=[], condition=FilterCondition.AND),
+            ],
+            condition=condition,
+        ))
+
+        search_vectors(
+            client,
+            bucket_name='bucket',
+            index_name='index',
+            query_vector=[0.1, 0.2],
+            metadata_filters=filter_config_to_s3_filters(config),
+        )
+
+        assert 'filter' not in client.query_vectors.call_args.kwargs
 
 
 class TestNodeToS3Vector:

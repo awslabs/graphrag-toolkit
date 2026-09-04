@@ -102,9 +102,17 @@ def parse_metadata_filters_recursive(metadata_filters:MetadataFilters) -> Dict[s
                 raise ValueError(f'Expected MetadataFilters for FilterCondition.NOT, but found MetadataFilter')
             filter_strs.append(to_s3_filter(metadata_filter))
         elif isinstance(metadata_filter, MetadataFilters):
-            filter_strs.append(json.dumps(parse_metadata_filters_recursive(metadata_filter)))
+            nested_filters = parse_metadata_filters_recursive(metadata_filter)
+            if nested_filters:
+                filter_strs.append(json.dumps(nested_filters))
         else:
             raise ValueError(f'Invalid metadata filter type: {type(metadata_filter)}')
+
+    if not filter_strs and (
+        metadata_filters.condition == FilterCondition.AND
+        or metadata_filters.condition == FilterCondition.OR
+    ):
+        return {}
 
     if metadata_filters.condition == FilterCondition.AND:       
         return json.loads(f'{{"$and": [{",".join(filter_strs)}]}}')
