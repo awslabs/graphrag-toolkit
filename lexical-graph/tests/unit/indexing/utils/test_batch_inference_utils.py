@@ -19,9 +19,12 @@ from graphrag_toolkit.lexical_graph.indexing.utils.batch_inference_utils import 
     create_inference_inputs_for_messages,
     create_inference_inputs,
     get_parse_output_text_fn,
+    BATCH_MODEL_PROVIDERS,
     BEDROCK_MIN_BATCH_SIZE,
     BEDROCK_MAX_BATCH_SIZE
 )
+
+CONVERSE_PATCH_TARGET = 'graphrag_toolkit.lexical_graph.indexing.utils.batch_inference_utils.messages_to_converse_messages'
 
 
 class TestGetFileSize:
@@ -383,7 +386,7 @@ class TestGetParseOutputTextFn:
     def test_parse_output_empty_content(self):
         """Verify parsing handles empty content."""
         parse_fn = get_parse_output_text_fn('amazon.nova-lite-v1:0')
-        
+
         json_data = {
             'modelOutput': {
                 'output': {
@@ -393,6 +396,43 @@ class TestGetParseOutputTextFn:
                 }
             }
         }
-        
+
         result = parse_fn(json_data)
         assert result == ''
+
+
+class TestBatchModelProviderRegistry:
+    """Tests for the extensible provider registry backing batch dispatch."""
+
+    def test_registry_contains_expected_families(self):
+        """The registry holds exactly the supported families; adding one is a single entry."""
+        names = {provider.name for provider in BATCH_MODEL_PROVIDERS}
+        assert names == {'amazon.nova', 'anthropic.claude', 'meta.llama'}
+
+    def test_parse_output_cross_region_profile_prefix(self):
+        """Inference-profile prefixes (us./eu.) still resolve to the right family."""
+        claude_fn = get_parse_output_text_fn('us.anthropic.claude-sonnet-4-6')
+        assert claude_fn({'modelOutput': {'content': [{'text': 'hi'}]}}) == 'hi'
+
+        nova_fn = get_parse_output_text_fn('eu.amazon.nova-pro-v1:0')
+        assert nova_fn({'modelOutput': {'output': {'message': {'content': [{'text': 'yo'}]}}}}) == 'yo'
+
+    def test_request_body_cross_region_profile_prefix(self):
+        """get_request_body resolves the family through a cross-region profile prefix."""
+        mock_llm = Mock(spec=BedrockConverse)
+        mock_llm.model = 'us.meta.llama3-3-70b-instruct-v1:0'
+
+        messages = [ChatMessage(role=MessageRole.USER, content="Test")]
+
+        with patch(CONVERSE_PATCH_TARGET) as mock_convert:
+            mock_convert.return_value = ([{'role': 'user', 'content': [{'text': 'Test'}]}], None)
+
+            body = get_request_body(mock_llm, messages, {'max_tokens': 100, 'temperature': 0.2})
+
+            assert 'parameters' in body
+            assert body['parameters']['max_new_tokens'] == 100
+
+    def test_unsupported_model_error_lists_supported_families(self):
+        """The unsupported-model error names the families that are supported."""
+        with pytest.raises(ValueError, match="Supported model families"):
+            get_parse_output_text_fn('cohere.command-r-v1:0')

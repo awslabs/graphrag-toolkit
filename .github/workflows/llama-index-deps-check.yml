@@ -1,0 +1,81 @@
+# Monthly check for newer llama-index-* releases than the >= floors pinned in the
+# toolkit's requirements.txt files. When newer releases exist it opens (or
+# refreshes) a single tracking issue that lists the available upgrades and the
+# tests to run before merging a bump. Complements Dependabot, which opens the
+# actual version-bump PRs; this workflow adds a curated, test-oriented nudge.
+name: LlamaIndex Dependency Freshness
+
+on:
+  schedule:
+    # 08:00 UTC on the 1st of each month.
+    - cron: "0 8 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Install packaging
+        run: python -m pip install --disable-pip-version-check packaging
+
+      - name: Check PyPI for newer llama-index releases
+        id: check
+        env:
+          REQUIREMENTS_FILES: >-
+            lexical-graph/src/graphrag_toolkit/lexical_graph/requirements.txt
+            byokg-rag/src/graphrag_toolkit/byokg_rag/requirements.txt
+        run: python .github/scripts/check_llama_index_updates.py
+
+      - name: Open or refresh tracking issue
+        if: steps.check.outputs.has_updates == 'true'
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const fs = require('fs');
+            const title = 'chore(deps): LlamaIndex dependency updates available';
+            const label = 'dependencies';
+            const body = fs.readFileSync('llama_index_report.md', 'utf8')
+              + `\n\n_Last checked: ${new Date().toISOString().slice(0, 10)} `
+              + `([run](https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}))._`;
+
+            // Reuse a single living issue rather than opening a new one each week.
+            const existing = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: label,
+              per_page: 100,
+            });
+            const match = existing.data.find(i => i.title === title && !i.pull_request);
+
+            if (match) {
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: match.number,
+                body,
+              });
+              console.log(`Updated existing issue #${match.number}`);
+            } else {
+              const created = await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+                labels: [label],
+              });
+              console.log(`Created issue #${created.data.number}`);
+            }
