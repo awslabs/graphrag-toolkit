@@ -30,7 +30,22 @@ from llama_index.core.bridge.pydantic import PrivateAttr
 QUEUE_SIZE = 1000
 BATCH_SIZE = 100
 
+# How often the staging consumer wakes to check whether its producer is still
+# alive. Uploads are slow, so this paces the liveness check, not the work.
+QUEUE_POLL_SECONDS = 1.0
+
 logger = logging.getLogger(__name__)
+
+class _UploadFailed:
+    """
+    Stands in for a document that did not upload.
+
+    The consumer counts one item per submitted document, so a failure has to
+    occupy a slot rather than being dropped.
+    """
+
+    def __init__(self, cause:BaseException):
+        self.cause = cause
 
 class ConfiguredThreadCount:
     """
@@ -169,37 +184,49 @@ class S3DocUploader(ConfiguredThreadCount, BaseComponent):
             
         except Exception as e:
             logger.error(f'Error while writing source document to S3: {str(e)}')
+            raise
 
     def _task_complete_callback(self, future):
         self._semaphore.release()
 
     def _get_callback_fn(self, queue:queue.Queue):
         def _task_complete_callback(future):
+            # The consumer counts one item per submitted document, so a failure
+            # has to put something too. Putting nothing leaves it polling for a
+            # count it can never reach.
             try:
-                doc = future.result(timeout=1.0)
-                queue.put(doc)
+                queue.put(future.result(timeout=1.0))
             except Exception as e:
-                logger.error(f'Error getting result from future: {str(e)}')
-            self._semaphore.release()
+                logger.error(f'Error uploading source document: {str(e)}')
+                queue.put(_UploadFailed(e))
+            finally:
+                self._semaphore.release()
         return _task_complete_callback
     
-    def _submit_proxy(self, function, executor, queue:queue.Queue, *args, **kwargs):
+    def _submit_proxy(self, function, executor, queue:queue.Queue, *args, **kwargs) -> bool:
+        """Submit one upload. Returns whether the consumer should expect an item."""
+        self._semaphore.acquire()
         try:
-            self._semaphore.acquire()
             future = executor.submit(function, *args, **kwargs)
-            future.add_done_callback(self._get_callback_fn(queue))
         except Exception as e:
             logger.exception(f'Error in submit proxy: {str(e)}')
+            self._semaphore.release()
+            return False
+
+        future.add_done_callback(self._get_callback_fn(queue))
+        return True
     
     def _doc_publisher(self, queue:queue.Queue, source_documents:List[SourceDocument]=[]):
 
         s3_client = GraphRAGConfig.s3
-        
+
+        count = 0
+
+        # The count goes on the queue whatever happens above, including a
+        # KeyboardInterrupt, or the consumer waits on a producer that has gone.
         try:
 
             with concurrent.futures.ThreadPoolExecutor(max_workers=self._num_threads()) as executor:
-
-                count = 0
 
                 for source_document in source_documents:
 
@@ -208,14 +235,14 @@ class S3DocUploader(ConfiguredThreadCount, BaseComponent):
                     
                     root_path = join(self.collection_prefix, source_document.source_id())
                    
-                    self._submit_proxy(self._upload_doc, executor, queue, root_path, source_document, s3_client)
+                    if self._submit_proxy(self._upload_doc, executor, queue, root_path, source_document, s3_client):
+                        count += 1
 
-                    count += 1
-                
-            self._queue.put(count)
-
-        except Exception as e:
+        except BaseException as e:
             logger.exception(f'Error in doc publisher: {str(e)}')
+
+        finally:
+            self._queue.put(count)
 
     def _upload_batch(self, source_docs_batch:List[SourceDocument]):
 
@@ -227,21 +254,32 @@ class S3DocUploader(ConfiguredThreadCount, BaseComponent):
 
         logger.debug(f'About to start polling queue [count: {count}, target_count: {target_count}]')
 
+        failure = None
+
         while target_count is None or count < target_count:
             try:
-                item = self._queue.get(timeout=60.0)
+                item = self._queue.get(timeout=QUEUE_POLL_SECONDS)
                 if isinstance(item, int):
                     target_count = item
                 else:
                     count += 1
-                    yield item
+                    if isinstance(item, _UploadFailed):
+                        failure = failure or item.cause
+                    else:
+                        yield item
                 self._queue.task_done()
-            except queue.Empty as e:
-                continue
+            except queue.Empty:
+                # A producer that died before putting its count would otherwise
+                # keep the consumer here for the rest of the run.
+                if not thread.is_alive():
+                    break
             
         logger.debug(f'Waiting on queue to empty [count: {count}, target_count: {target_count}]')
 
         thread.join()
+
+        if failure is not None:
+            raise failure
 
     def upload(self, source_documents: List[SourceDocument]):
 

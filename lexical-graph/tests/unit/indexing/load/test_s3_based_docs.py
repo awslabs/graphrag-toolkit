@@ -2,12 +2,13 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import contextlib
+import queue
 import threading
 import time
 
 import pytest
 from unittest.mock import Mock, patch, MagicMock
-from llama_index.core.schema import TextNode
+from llama_index.core.schema import NodeRelationship, RelatedNodeInfo, TextNode
 from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import (
     S3BasedDocs,
     S3DocDownloader,
@@ -17,6 +18,9 @@ from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import (
 )
 from graphrag_toolkit.lexical_graph.indexing.model import SourceDocument
 from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
+from threading import Semaphore
+
+S3_BASED_DOCS = 'graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs'
 
 
 class TestS3BasedDocsInitialization:
@@ -902,3 +906,103 @@ class TestUploadThreadPropagation:
         ) as config:
             config.extraction_num_threads_per_worker = 7
             assert uploader._num_threads() == 7
+
+
+class TestStagingSurfacesUploadFailures:
+    """
+    Every submitted document has to put exactly one item on the queue. Without
+    that, _upload_batch polls for a count it can never reach, and a failed
+    upload becomes a hung run rather than an error.
+    """
+
+    def _docs(self, n):
+        docs = []
+        for i in range(n):
+            node = TextNode(text='chunk text', id_=f'c{i}')
+            node.relationships[NodeRelationship.SOURCE] = RelatedNodeInfo(
+                node_id=f'aws::src{i}:d41d'
+            )
+            docs.append(SourceDocument(nodes=[node]))
+        return docs
+
+    def _consume(self, uploader, docs, upload_doc, timeout=8):
+        """Run upload() on a thread so a hang shows up as a timeout, not a stall."""
+        yielded, finished, error = [], threading.Event(), []
+
+        def consume():
+            try:
+                with patch.object(S3DocUploader, '_upload_doc', side_effect=upload_doc), \
+                     patch(f'{S3_BASED_DOCS}.GraphRAGConfig'):
+                    yielded.extend(uploader.upload(list(docs)))
+            except Exception as e:
+                error.append(e)
+            finished.set()
+
+        threading.Thread(target=consume, daemon=True).start()
+        return finished.wait(timeout=timeout), yielded, error
+
+    def test_a_failed_upload_does_not_hang_the_run(self):
+        docs = self._docs(3)
+        uploader = S3DocUploader(bucket_name='b', collection_prefix='p', num_threads=2)
+
+        def upload_doc(root_path, doc, s3_client):
+            if doc is docs[1]:
+                raise RuntimeError('S3 write failed')
+            return doc
+
+        finished, _, _ = self._consume(uploader, docs, upload_doc)
+
+        assert finished, 'upload() never returned after a document failed'
+
+    def test_a_failed_upload_raises(self):
+        docs = self._docs(3)
+        uploader = S3DocUploader(bucket_name='b', collection_prefix='p', num_threads=2)
+
+        def upload_doc(root_path, doc, s3_client):
+            if doc is docs[1]:
+                raise RuntimeError('S3 write failed')
+            return doc
+
+        _, _, error = self._consume(uploader, docs, upload_doc)
+
+        assert error, 'a failed upload was not surfaced to the caller'
+
+    def test_a_failed_document_is_not_yielded_as_staged(self):
+        docs = self._docs(3)
+        uploader = S3DocUploader(bucket_name='b', collection_prefix='p', num_threads=2)
+
+        def upload_doc(root_path, doc, s3_client):
+            if doc is docs[1]:
+                raise RuntimeError('S3 write failed')
+            return doc
+
+        _, yielded, _ = self._consume(uploader, docs, upload_doc)
+
+        assert docs[1] not in yielded
+        assert None not in yielded
+
+    def test_every_document_is_yielded_when_all_succeed(self):
+        docs = self._docs(3)
+        uploader = S3DocUploader(bucket_name='b', collection_prefix='p', num_threads=2)
+
+        finished, yielded, error = self._consume(
+            uploader, docs, lambda root_path, doc, s3_client: doc
+        )
+
+        assert finished and not error
+        assert len(yielded) == 3
+
+    def test_a_dead_producer_does_not_hang_the_consumer(self):
+        uploader = S3DocUploader(bucket_name='b', collection_prefix='p', num_threads=2)
+        uploader._semaphore = Semaphore(2)
+        uploader._queue = queue.Queue()
+        consumed, finished = [], threading.Event()
+
+        def consume():
+            consumed.extend(uploader._upload_batch(self._docs(1)))
+            finished.set()
+
+        with patch.object(S3DocUploader, '_doc_publisher', side_effect=RuntimeError('dead')):
+            threading.Thread(target=consume, daemon=True).start()
+
+            assert finished.wait(timeout=8), 'consumer waited on a producer that had died'
