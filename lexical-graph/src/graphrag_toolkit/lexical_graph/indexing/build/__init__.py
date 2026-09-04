@@ -6,5 +6,6 @@ from .vector_indexing import VectorIndexing
 from .graph_construction import GraphConstruction
 from .version_manager import VersionManager
 from .checkpoint import Checkpoint
+from .s3_checkpoint import S3Checkpoint
 from .build_filters import BuildFilters, DEFAULT_BUILD_FILTER
 from .delete_sources import DeletePrevVersions
