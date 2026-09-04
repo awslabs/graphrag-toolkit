@@ -33,6 +33,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v7
+        with:
+          # Full history + tags so the changelog generator can find the previous
+          # release tag and diff commit paths against it.
+          fetch-depth: 0
+          fetch-tags: true
 
       - name: Set up Python
         uses: actions/setup-python@v7
@@ -72,6 +77,14 @@ jobs:
           fi
           echo "version=${VERSION}" >> $GITHUB_OUTPUT
           echo "pypi_version=${VERSION#v}" >> $GITHUB_OUTPUT
+
+      - name: Generate per-project changelog
+        working-directory: ${{ github.workspace }}
+        run: |
+          python .github/scripts/generate_changelog.py \
+            --project lexical-graph \
+            --to "$GITHUB_REF_NAME" \
+            --output "$GITHUB_WORKSPACE/RELEASE_CHANGELOG.md"
 
       - name: Zip lexical-graph notebooks
         working-directory: examples/lexical-graph/notebooks
@@ -142,6 +155,10 @@ jobs:
       - name: Attach Artifacts to GitHub Release
         uses: softprops/action-gh-release@3d0d9888cb7fd7b750713d6e236d1fcb99157228 # v3
         with:
+          # Append the lexical-graph-only changelog to the release notes,
+          # preserving any notes the release author already wrote.
+          body_path: ${{ github.workspace }}/RELEASE_CHANGELOG.md
+          append_body: true
           files: |
             lexical-graph/dist/*
             examples/lexical-graph/notebooks/lexical-graph-examples-${{ steps.version.outputs.version }}.zip
