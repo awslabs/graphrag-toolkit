@@ -44,6 +44,7 @@ The configuration includes the following parameters:
 | `embed_dimensions` | Number of dimensions in each vector | `1024` | `EMBEDDINGS_DIMENSIONS` |
 | `extraction_num_workers` | The number of parallel processes to use when running the extract stage | `2` | `EXTRACTION_NUM_WORKERS` |
 | `extraction_num_threads_per_worker` | The number of threads used by each process in the extract stage | `4` | `EXTRACTION_NUM_THREADS_PER_WORKER` |
+| `source_id_hash_length` | Characters of the text digest used in a source id. Widening it separates documents that would otherwise share an id, and changes every source and chunk id, so a graph written at one width cannot be read at another | `8` | `SOURCE_ID_HASH_LENGTH` |
 | `extraction_batch_size` | The number of input nodes to be processed in parallel across all workers in the extract stage | `4` | `EXTRACTION_BATCH_SIZE` |
 | `build_num_workers` | The number of parallel processes to use when running the build stage | `2` | `BUILD_NUM_WORKERS` |
 | `build_batch_size` | The number of input nodes to be processed in parallel across all workers in the build stage | `4` | `BUILD_BATCH_SIZE` |

@@ -1,9 +1,16 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
+import hashlib
+
 import pytest
 from graphrag_toolkit.lexical_graph.tenant_id import TenantId
+from llama_index.core.node_parser import SentenceSplitter
+from llama_index.core.schema import Document, NodeRelationship
+from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
+from graphrag_toolkit.lexical_graph.indexing.extract.id_rewriter import IdRewriter
 from graphrag_toolkit.lexical_graph.indexing.id_generator import IdGenerator
+from graphrag_toolkit.lexical_graph.indexing.model import SourceDocument
 
 
 class TestCreateChunkIdBackwardCompatible:
@@ -456,3 +463,127 @@ def test_id_generator_tenant_isolation_property(tenant_id1, tenant_id2):
     assert id_parts1[1] != id_parts2[1], \
         f"Tenant components should differ: '{id_parts1[1]}' vs '{id_parts2[1]}'"
 
+
+
+@pytest.fixture(autouse=True)
+def isolated_hash_length(monkeypatch):
+    """
+    The width is env-backed and cached on the config, so a value left in either
+    place changes ids for every test that follows.
+    """
+    monkeypatch.delenv('SOURCE_ID_HASH_LENGTH', raising=False)
+    GraphRAGConfig.source_id_hash_length = None
+    yield
+    GraphRAGConfig.source_id_hash_length = None
+
+
+class TestSourceIdHashLength:
+    """
+    A source id discriminates on 48 bits, and on 32 when a document carries no
+    metadata, so distinct documents collide at scale. The text component's width
+    is configurable so the collision rate can be set to the corpus, and it
+    defaults to today's 8 characters because widening it changes every id.
+    """
+
+    def test_defaults_to_eight_characters(self):
+        generator = IdGenerator()
+
+        assert generator.source_id_hash_length == 8
+
+    def test_default_matches_the_shipped_id_exactly(self):
+        # md5('hello world') starts 5eb63bbb; md5('') starts d41d.
+        assert IdGenerator().create_source_id('hello world', '') == 'aws::5eb63bbb:d41d'
+
+    def test_a_wider_setting_lengthens_the_text_component(self):
+        generator = IdGenerator(source_id_hash_length=16)
+
+        source_id = generator.create_source_id('hello world', '')
+
+        assert source_id == 'aws::5eb63bbbe01eeed0:d41d'
+
+    def test_the_metadata_component_is_unchanged_by_the_setting(self):
+        wide = IdGenerator(source_id_hash_length=32).create_source_id('hello world', 'k:v')
+        narrow = IdGenerator().create_source_id('hello world', 'k:v')
+
+        assert wide.split(':')[-1] == narrow.split(':')[-1]
+
+    def test_widening_separates_texts_that_collide_at_a_narrow_width(self):
+        narrow, wide = IdGenerator(source_id_hash_length=2), IdGenerator(source_id_hash_length=32)
+        a, b = self._colliding_texts(width=2)
+
+        assert narrow.create_source_id(a, '') == narrow.create_source_id(b, '')
+        assert wide.create_source_id(a, '') != wide.create_source_id(b, '')
+
+    @staticmethod
+    def _colliding_texts(width):
+        """Two different texts whose digests agree on the first `width` characters."""
+        seen = {}
+        for i in range(100000):
+            text = f'document {i}'
+            prefix = hashlib.md5(text.encode('utf-8')).hexdigest()[:width]
+            if prefix in seen:
+                return seen[prefix], text
+            seen[prefix] = text
+        raise AssertionError(f'no collision found at width {width}')
+
+    def test_chunk_ids_follow_the_wider_source_id(self):
+        generator = IdGenerator(source_id_hash_length=32)
+
+        source_id = generator.create_source_id('hello world', '')
+
+        assert generator.create_chunk_id(source_id, 'hello world', '').startswith(source_id)
+
+    @pytest.mark.parametrize('length', [0, -1, 33])
+    def test_rejects_a_length_outside_the_digest(self, length):
+        # An md5 hex digest is 32 characters, so anything past it silently
+        # truncates and anything below 1 produces a keyless id.
+        with pytest.raises(ValueError):
+            IdGenerator(source_id_hash_length=length)
+
+
+class TestSourceIdHashLengthReachesTheIds:
+    """Covers the path from configuration to the ids a run writes."""
+
+    def _ids(self, hash_length):
+        generator = IdGenerator(source_id_hash_length=hash_length)
+        rewriter = IdRewriter(
+            inner=SentenceSplitter(chunk_size=256, chunk_overlap=25),
+            id_generator=generator,
+        )
+        document = Document(text='sentence one. ' * 400, metadata={'file_path': 'a.txt'})
+        chunks = rewriter.handle_source_docs([SourceDocument(nodes=[document])])[0].nodes
+        return chunks
+
+    def test_config_default_leaves_ids_where_they_are(self):
+        assert GraphRAGConfig.source_id_hash_length == 8
+
+    def test_config_reads_the_environment(self, monkeypatch):
+        monkeypatch.setenv('SOURCE_ID_HASH_LENGTH', '32')
+
+        assert GraphRAGConfig.source_id_hash_length == 32
+
+    def test_widening_changes_ids_but_not_chunk_text(self):
+        narrow, wide = self._ids(8), self._ids(32)
+
+        assert [c.text for c in narrow] == [c.text for c in wide]
+        assert [c.id_ for c in narrow] != [c.id_ for c in wide]
+
+    def test_widening_separates_the_source_relationship(self):
+        narrow, wide = self._ids(8), self._ids(32)
+        source_of = lambda c: c.relationships[NodeRelationship.SOURCE].node_id
+
+        assert len(source_of(wide[0])) > len(source_of(narrow[0]))
+        assert source_of(narrow[0]) != source_of(wide[0])
+
+
+class TestSourceIdHashLengthConfig:
+
+    def test_a_bare_generator_takes_the_configured_width(self):
+        GraphRAGConfig.source_id_hash_length = 16
+
+        assert IdGenerator().source_id_hash_length == 16
+
+    @pytest.mark.parametrize('length', [0, -1, 33])
+    def test_the_config_rejects_a_width_outside_the_digest(self, length):
+        with pytest.raises(ValueError):
+            GraphRAGConfig.source_id_hash_length = length

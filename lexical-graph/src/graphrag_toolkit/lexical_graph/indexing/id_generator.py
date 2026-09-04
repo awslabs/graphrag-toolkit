@@ -4,6 +4,7 @@
 from typing import Optional
 
 from graphrag_toolkit.lexical_graph import TenantId, GraphRAGConfig
+from graphrag_toolkit.lexical_graph.config import DEFAULT_SOURCE_ID_HASH_LENGTH, MAX_SOURCE_ID_HASH_LENGTH
 from graphrag_toolkit.lexical_graph.indexing.utils.hash_utils import get_hash
 from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 
@@ -28,8 +29,9 @@ class IdGenerator(BaseModel):
     tenant_id:TenantId
     include_classification_in_entity_id:bool
     use_chunk_id_delimiter:bool
+    source_id_hash_length:int
 
-    def __init__(self, tenant_id:TenantId=None, include_classification_in_entity_id:bool=None, use_chunk_id_delimiter:bool=False):
+    def __init__(self, tenant_id:TenantId=None, include_classification_in_entity_id:bool=None, use_chunk_id_delimiter:bool=False, source_id_hash_length:int=None):
         """
         Initialize the IdGenerator.
 
@@ -39,11 +41,26 @@ class IdGenerator(BaseModel):
             use_chunk_id_delimiter: Whether to use delimiter in chunk ID hashing to prevent
                 boundary collisions. Defaults to False for backward compatibility with existing
                 graphs. Set to True for new graphs to enable collision-resistant hashing.
+            source_id_hash_length: Characters of the text digest used in a source ID.
+                Defaults to the configured value. Eight is what existing graphs were
+                written with; widening it changes every source and chunk ID.
+
+        Raises:
+            ValueError: If the resolved width falls outside the digest.
         """
+        source_id_hash_length = coalesce(source_id_hash_length, GraphRAGConfig.source_id_hash_length)
+
+        if not 1 <= source_id_hash_length <= MAX_SOURCE_ID_HASH_LENGTH:
+            raise ValueError(
+                f'source_id_hash_length must be between 1 and {MAX_SOURCE_ID_HASH_LENGTH} '
+                f'[source_id_hash_length: {source_id_hash_length}]'
+            )
+
         super().__init__(
             tenant_id=tenant_id or TenantId(),
             include_classification_in_entity_id=coalesce(include_classification_in_entity_id, GraphRAGConfig.include_classification_in_entity_id),
-            use_chunk_id_delimiter=use_chunk_id_delimiter
+            use_chunk_id_delimiter=use_chunk_id_delimiter,
+            source_id_hash_length=source_id_hash_length
         )
 
     def _get_hash(self, s):
@@ -81,7 +98,7 @@ class IdGenerator(BaseModel):
             hashed substrings derived from the input text and metadata.
 
         """
-        return f"aws::{self._get_hash(text)[:8]}:{self._get_hash(metadata_str)[:4]}"
+        return f"aws::{self._get_hash(text)[:self.source_id_hash_length]}:{self._get_hash(metadata_str)[:4]}"
 
     # Delimiter used to separate text and metadata in chunk ID hashing.
     # Using null byte as it cannot appear in valid UTF-8 text strings.
