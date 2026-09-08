@@ -92,7 +92,7 @@
       "ConstraintDescription": "Must contain only letters, numbers, and the characters . _ : / -"
     },
     "ExistingVpcId": {
-      "Description": "Optional existing VPC ID to reuse. If provided, ExistingSubnetIds must also be provided. Leave empty to create a new VPC.",
+      "Description": "Optional existing VPC ID to reuse. If provided, ExistingSubnetIds must also be provided. The VPC must have DNS support and DNS hostnames enabled so the OpenSearch Serverless collection endpoint resolves privately over the VPC endpoint. Leave empty to create a new VPC.",
       "Type": "String",
       "Default": ""
     },
