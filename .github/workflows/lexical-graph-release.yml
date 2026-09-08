@@ -155,10 +155,8 @@ jobs:
       - name: Attach Artifacts to GitHub Release
         uses: softprops/action-gh-release@3d0d9888cb7fd7b750713d6e236d1fcb99157228 # v3
         with:
-          # Append the lexical-graph-only changelog to the release notes,
-          # preserving any notes the release author already wrote.
-          body_path: ${{ github.workspace }}/RELEASE_CHANGELOG.md
-          append_body: true
+          # Assets only; the changelog is written idempotently in the next step
+          # (append_body here would duplicate it when a release is re-run).
           files: |
             lexical-graph/dist/*
             examples/lexical-graph/notebooks/lexical-graph-examples-${{ steps.version.outputs.version }}.zip
@@ -166,6 +164,16 @@ jobs:
             examples/lexical-graph-hybrid-dev/notebooks/lexical-graph-hybrid-dev-examples-${{ steps.version.outputs.version }}.zip
             examples/lexical-graph-hybrid-dev/notebooks/lexical-graph-hybrid-dev-examples-latest.zip
           prerelease: ${{ github.event.action == 'prereleased' }}
+
+      - name: Update release notes with per-project changelog (idempotent)
+        working-directory: ${{ github.workspace }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        run: |
+          python .github/scripts/update_release_notes.py \
+            --tag "$RELEASE_TAG" \
+            --changelog "$GITHUB_WORKSPACE/RELEASE_CHANGELOG.md"
 
   pypi-publish:
     if: github.event.action == 'released'

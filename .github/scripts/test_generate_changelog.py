@@ -1,6 +1,14 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
-"""Unit tests for generate_changelog.py (pure functions; no git required)."""
+"""Unit tests for generate_changelog.py.
+
+Most tests exercise the pure functions and need no git. TestPreviousReleaseTag
+builds a throwaway git repo in a tmp dir to lock in the baseline-selection logic
+(same-project tags only, .dev prereleases skipped, current ref excluded).
+"""
+
+import os
+import subprocess
 
 import generate_changelog as gc
 
@@ -136,3 +144,89 @@ class TestRender:
         commits = [gc.Commit('b', 'b2', 'BYOKG only', ['byokg-rag/b.py'])]
         out = gc.render(commits, gc.LEXICAL, None)
         assert '_No changes._' in out
+
+
+def _git(repo, *args, date=None):
+    """Run git in `repo` with a fixed identity and (optionally) a fixed date.
+
+    A fixed date makes tag creatordate ordering deterministic, so
+    --sort=-creatordate in previous_release_tag returns a stable result.
+    """
+    env = {
+        **os.environ,
+        'GIT_AUTHOR_NAME': 'test', 'GIT_AUTHOR_EMAIL': 'test@example.com',
+        'GIT_COMMITTER_NAME': 'test', 'GIT_COMMITTER_EMAIL': 'test@example.com',
+    }
+    if date:
+        env['GIT_AUTHOR_DATE'] = date
+        env['GIT_COMMITTER_DATE'] = date
+    subprocess.run(['git', *args], cwd=repo, env=env, check=True, capture_output=True, text=True)
+
+
+def _commit(repo, message, date):
+    (repo / 'file.txt').write_text(message)
+    _git(repo, 'add', '.', date=date)
+    _git(repo, 'commit', '-m', message, date=date)
+
+
+def _tag(repo, name, date):
+    # Annotated tags so creatordate is the (fixed) tagger date.
+    _git(repo, 'tag', '-a', name, '-m', name, date=date)
+
+
+class TestPreviousReleaseTag:
+    """git-backed tests for previous_release_tag baseline selection."""
+
+    def _init(self, repo):
+        _git(repo, 'init', '-q')
+
+    def test_skips_dev_prerelease_and_other_project(self, tmp_path, monkeypatch):
+        repo = tmp_path
+        self._init(repo)
+        _commit(repo, 'c1', '2020-01-01T00:00:00')
+        _tag(repo, 'graphrag-lexical-graph/v1.0.0', '2020-01-01T00:00:00')
+        _commit(repo, 'c2', '2020-01-02T00:00:00')
+        # A .dev prerelease and an other-project tag must both be ignored for lexical.
+        _tag(repo, 'graphrag-lexical-graph/v1.1.0.dev1', '2020-01-02T00:00:00')
+        _tag(repo, 'graphrag-byokg/v2.0.0', '2020-01-02T00:00:01')
+        _commit(repo, 'c3', '2020-01-03T00:00:00')
+        monkeypatch.chdir(repo)
+
+        assert gc.previous_release_tag('lexical-graph', 'HEAD') == 'graphrag-lexical-graph/v1.0.0'
+        assert gc.previous_release_tag('byokg', 'HEAD') == 'graphrag-byokg/v2.0.0'
+
+    def test_picks_most_recent_release(self, tmp_path, monkeypatch):
+        repo = tmp_path
+        self._init(repo)
+        _commit(repo, 'c1', '2020-01-01T00:00:00')
+        _tag(repo, 'graphrag-lexical-graph/v1.0.0', '2020-01-01T00:00:00')
+        _commit(repo, 'c2', '2020-01-02T00:00:00')
+        _tag(repo, 'graphrag-lexical-graph/v1.2.0', '2020-01-02T00:00:00')
+        _commit(repo, 'c3', '2020-01-03T00:00:00')
+        monkeypatch.chdir(repo)
+
+        assert gc.previous_release_tag('lexical-graph', 'HEAD') == 'graphrag-lexical-graph/v1.2.0'
+        # 'both' considers either project's tags.
+        assert gc.previous_release_tag('both', 'HEAD') == 'graphrag-lexical-graph/v1.2.0'
+
+    def test_excludes_the_ref_being_released(self, tmp_path, monkeypatch):
+        repo = tmp_path
+        self._init(repo)
+        _commit(repo, 'c1', '2020-01-01T00:00:00')
+        _tag(repo, 'graphrag-lexical-graph/v1.0.0', '2020-01-01T00:00:00')
+        _commit(repo, 'c2', '2020-01-02T00:00:00')
+        _tag(repo, 'graphrag-lexical-graph/v2.0.0', '2020-01-02T00:00:00')
+        monkeypatch.chdir(repo)
+
+        # Releasing v2.0.0 should diff against the prior release, not itself.
+        assert gc.previous_release_tag(
+            'lexical-graph', 'graphrag-lexical-graph/v2.0.0'
+        ) == 'graphrag-lexical-graph/v1.0.0'
+
+    def test_none_when_no_release_tag(self, tmp_path, monkeypatch):
+        repo = tmp_path
+        self._init(repo)
+        _commit(repo, 'c1', '2020-01-01T00:00:00')
+        monkeypatch.chdir(repo)
+
+        assert gc.previous_release_tag('lexical-graph', 'HEAD') is None
