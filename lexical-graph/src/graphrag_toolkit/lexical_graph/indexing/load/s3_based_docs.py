@@ -218,9 +218,6 @@ class S3DocUploader(ConfiguredThreadCount, BaseComponent):
             logger.error(f'Error while writing source document to S3: {str(e)}')
             raise
 
-    def _task_complete_callback(self, future):
-        self._semaphore.release()
-
     def _get_callback_fn(self, queue:queue.Queue):
         def _task_complete_callback(future):
             # The consumer counts one item per submitted document, so a failure
