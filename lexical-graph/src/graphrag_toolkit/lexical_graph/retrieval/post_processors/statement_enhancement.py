@@ -112,8 +112,21 @@ class StatementEnhancementPostProcessor(BaseNodePostprocessor):
         ])
 
     @staticmethod
-    def _chunk_id(node: NodeWithScore):
-        return node.node.metadata.get('chunk', {}).get('chunkId')
+    def _chunk(node: NodeWithScore) -> dict:
+        """The node's chunk metadata, or an empty dict.
+
+        A retriever can leave 'chunk' set to None rather than absent, which a
+        `get('chunk', {})` default does not catch.
+        """
+        return node.node.metadata.get('chunk') or {}
+
+    @classmethod
+    def _chunk_id(cls, node: NodeWithScore):
+        return cls._chunk(node).get('chunkId')
+
+    @classmethod
+    def _chunk_text(cls, node: NodeWithScore):
+        return cls._chunk(node).get('value')
 
     def _chunk_text_by_id(self, nodes: List[NodeWithScore]) -> dict:
         """
@@ -126,13 +139,14 @@ class StatementEnhancementPostProcessor(BaseNodePostprocessor):
         if not self.chunk_store:
             return {}
 
-        chunk_ids = [
-            chunk_id
+        # dict.fromkeys dedups while keeping first-seen order, so statements
+        # sharing a chunk cost one fetch and the request is reproducible. A set
+        # would dedup but reorder between runs.
+        chunk_ids = list(dict.fromkeys(
+            self._chunk_id(node)
             for node in nodes
-            if node.node.metadata.get('chunk', {}).get('value') is None
-            for chunk_id in [self._chunk_id(node)]
-            if chunk_id
-        ]
+            if not self._chunk_text(node) and self._chunk_id(node)
+        ))
 
         return self.chunk_store.get_batch(chunk_ids) if chunk_ids else {}
 
@@ -159,14 +173,22 @@ class StatementEnhancementPostProcessor(BaseNodePostprocessor):
         try:
             statement = node.node.metadata.get('statement', {}).get('value')
 
-            context = node.node.metadata.get('chunk', {}).get('value')
-            if context is None:
-                context = (chunk_text_by_id or {}).get(self._chunk_id(node))
+            chunk_id = self._chunk_id(node)
 
-            if statement is None or context is None:
+            context = self._chunk_text(node)
+            if not context:
+                if chunk_text_by_id is not None:
+                    # A batch ran and this id was not in it, so the store has
+                    # already been asked. Asking again per node is the round trip
+                    # the batch exists to avoid.
+                    context = chunk_text_by_id.get(chunk_id)
+                elif chunk_id and self.chunk_store:
+                    context = self.chunk_store.get(chunk_id)
+
+            if not statement or not context:
                 logger.debug(
-                    f'Skipping statement enhancement, no {"statement" if statement is None else "chunk text"} '
-                    f'[chunk_id: {self._chunk_id(node)}]'
+                    f'Skipping statement enhancement, no {"statement" if not statement else "chunk text"} '
+                    f'[chunk_id: {chunk_id}]'
                 )
                 return node
 
@@ -180,14 +202,15 @@ class StatementEnhancementPostProcessor(BaseNodePostprocessor):
             
             if match:
                 enhanced_text = match.group(1).strip()
+                # Only the text changes. Copying the metadata wholesale keeps the
+                # keys retrievers attach, and keeps an enhanced node the same
+                # shape as one that was left alone.
                 new_node = TextNode(
-                    text=enhanced_text,  
-                    metadata={
-                        'statement': node.node.metadata.get('statement'),
-                        'chunk': node.node.metadata.get('chunk'),
-                        'source': node.node.metadata.get('source'),
-                        'search_type': node.node.metadata.get('search_type')
-                    }
+                    id_=node.node.id_,
+                    text=enhanced_text,
+                    metadata=dict(node.node.metadata),
+                    excluded_llm_metadata_keys=list(node.node.excluded_llm_metadata_keys),
+                    excluded_embed_metadata_keys=list(node.node.excluded_embed_metadata_keys),
                 )
                 return NodeWithScore(node=new_node, score=node.score)
             
@@ -218,7 +241,14 @@ class StatementEnhancementPostProcessor(BaseNodePostprocessor):
             A list of `NodeWithScore` objects after being processed through the
             `enhance_statement` method.
         """
-        chunk_text_by_id = self._chunk_text_by_id(nodes)
+        try:
+            chunk_text_by_id = self._chunk_text_by_id(nodes)
+        except Exception as e:
+            # Every other path in this class returns the node unchanged on
+            # failure. Reading the chunk store is the one that can take the
+            # query down with it, so it degrades the same way.
+            logger.error(f'Could not read chunk text, statements will not be enhanced: {e}')
+            chunk_text_by_id = {}
 
         with concurrent.futures.ThreadPoolExecutor(max_workers=self.max_concurrent) as executor:
             return list(executor.map(

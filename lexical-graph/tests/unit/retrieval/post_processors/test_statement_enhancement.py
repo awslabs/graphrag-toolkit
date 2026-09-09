@@ -172,5 +172,106 @@ class TestChunkStoreResolution(unittest.TestCase):
             _processor_for('redis://cache/chunks')
 
 
+class TestDegradedChunkStore(unittest.TestCase):
+    """A chunk store that cannot be read must not take the query down.
+
+    Every other failure in this class returns the node unchanged; reading the
+    store was the one path that could propagate.
+    """
+
+    def test_a_store_failure_returns_the_nodes_unenhanced(self):
+        store = MagicMock()
+        store.get_batch.side_effect = RuntimeError('AccessDenied')
+        processor = _processor(chunk_store=store)
+        node = _node(chunk={'chunkId': 'c1'})
+
+        self.assertEqual(processor._postprocess_nodes([node]), [node])
+
+
+class TestChunkMetadataShapes(unittest.TestCase):
+    """'chunk' set to None is not the same as 'chunk' being absent."""
+
+    def _node_with_chunk_none(self):
+        node = _node()
+        node.node.metadata['chunk'] = None
+        return node
+
+    def test_a_none_chunk_does_not_raise(self):
+        processor = _processor(chunk_store=MagicMock(get_batch=MagicMock(return_value={})))
+
+        result = processor._postprocess_nodes([self._node_with_chunk_none()])
+
+        self.assertEqual(len(result), 1)
+
+    def test_an_enhanced_node_keeps_every_metadata_key(self):
+        processor = _processor()
+        node = _node(chunk={'chunkId': 'c1', 'value': 'text'})
+        node.node.metadata['search_type'] = 'semantic'
+        node.node.metadata['retriever_key'] = 'keep me'
+
+        result = processor.enhance_statement(node)
+
+        self.assertEqual(result.node.text, 'enhanced')
+        self.assertEqual(result.node.metadata, node.node.metadata)
+        self.assertEqual(result.node.id_, node.node.id_)
+
+    def test_a_node_without_source_is_not_given_a_none_source(self):
+        processor = _processor()
+        node = _node(chunk={'chunkId': 'c1', 'value': 'text'})
+        del node.node.metadata['source']
+
+        result = processor.enhance_statement(node)
+
+        self.assertNotIn('source', result.node.metadata)
+
+
+class TestChunkIdBatching(unittest.TestCase):
+
+    def test_statements_sharing_a_chunk_are_fetched_once(self):
+        store = MagicMock()
+        store.get_batch.return_value = {'c1': 'text'}
+        processor = _processor(chunk_store=store)
+        nodes = [_node(chunk={'chunkId': 'c1'}) for _ in range(3)]
+
+        processor._postprocess_nodes(nodes)
+
+        store.get_batch.assert_called_once()
+        self.assertEqual(store.get_batch.call_args[0][0], ['c1'])
+
+    def test_empty_chunk_text_is_resolved_from_the_store(self):
+        store = MagicMock()
+        store.get_batch.return_value = {'c1': 'text from the store'}
+        processor = _processor(chunk_store=store)
+        node = _node(chunk={'chunkId': 'c1', 'value': ''})
+
+        processor._postprocess_nodes([node])
+
+        self.assertEqual(store.get_batch.call_args[0][0], ['c1'])
+
+
+class TestSingleNodeCall(unittest.TestCase):
+    """enhance_statement is public and is called without a batch map."""
+
+    def test_it_resolves_context_from_the_store_it_holds(self):
+        store = MagicMock()
+        store.get.return_value = 'text from the store'
+        processor = _processor(chunk_store=store)
+        node = _node(chunk={'chunkId': 'c1'})
+
+        result = processor.enhance_statement(node)
+
+        store.get.assert_called_once_with('c1')
+        self.assertEqual(result.node.text, 'enhanced')
+
+    def test_a_batch_miss_is_not_re_asked_per_node(self):
+        store = MagicMock()
+        processor = _processor(chunk_store=store)
+        node = _node(chunk={'chunkId': 'c1'})
+
+        processor.enhance_statement(node, chunk_text_by_id={})
+
+        store.get.assert_not_called()
+
+
 if __name__ == '__main__':
     unittest.main()
