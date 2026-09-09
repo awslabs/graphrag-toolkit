@@ -34,9 +34,16 @@ BATCH_SIZE = 100
 logger = logging.getLogger(__name__)
 
 # Written into a source document's prefix once every chunk for that document
-# has stored successfully. Reserved: both downloaders skip this key, so an
-# object of this name is never read back as a chunk.
-COMPLETION_MARKER_KEY = '_COMPLETE'
+# has stored successfully. Reserved: both downloaders skip any object whose
+# name starts with this, so a marker is never read back as a chunk.
+#
+# The full name carries a digest of the chunk ids it covers. An auto-tuned run
+# emits one source as several SourceDocuments, which share a prefix, so a fixed
+# name would let the last one written speak for all of them - a marker claiming
+# two chunks over a prefix holding four, or worse, one document's marker
+# certifying a prefix another document left truncated. Deriving the name the
+# way _doc_suffix derives the document key keeps them apart.
+COMPLETION_MARKER_PREFIX = '_COMPLETE-'
 
 # Joins node ids before hashing them. Without a separator ['ab', 'c'] and
 # ['a', 'bc'] hash alike.
@@ -48,15 +55,22 @@ def node_ids_hash(node_ids) -> str:
     return get_hash(_NODE_ID_DELIMITER.join(sorted(node_ids)))
 
 
+def completion_marker_name(node_ids) -> str:
+    """The marker name covering exactly these chunk ids."""
+    return f'{COMPLETION_MARKER_PREFIX}{node_ids_hash(node_ids)[:5]}'
+
+
 def is_completion_marker(key:str) -> bool:
     """
     Whether an object key is a completion marker.
 
     TextNode.from_json accepts a marker as a node with a generated uuid and
     empty text rather than rejecting it, so a listing that includes one turns
-    it into a phantom chunk. Both downloaders exclude it here.
+    it into a phantom chunk. Both downloaders exclude markers here. Chunk
+    objects are named for a node id and document objects for a source id, so
+    neither can collide with this prefix.
     """
-    return key.rsplit('/', 1)[-1] == COMPLETION_MARKER_KEY
+    return key.rsplit('/', 1)[-1].startswith(COMPLETION_MARKER_PREFIX)
 
 
 def written_nodes(doc:SourceDocument) -> List[TextNode]:
@@ -76,6 +90,10 @@ class EncryptedPut:
     uploaders wrote this branch out per object, which is four copies of a
     decision that belongs in one.
     """
+
+    # Supplied by the host class.
+    bucket_name:str
+    s3_encryption_key_id:Optional[str]
 
     def _put(self, key:str, body:str, content_type:str, s3_client):
         encryption = (
@@ -481,7 +499,7 @@ class S3ChunkUploader(ConfiguredThreadCount, EncryptedPut, BaseComponent):
             'content_hash': node_ids_hash(node_ids),
         }
 
-        key = join(root_path, COMPLETION_MARKER_KEY)
+        key = join(root_path, completion_marker_name(node_ids))
         logger.debug(f'Writing completion marker to S3 [bucket: {self.bucket_name}, key: {key}]')
 
         try:
@@ -520,10 +538,19 @@ class S3ChunkUploader(ConfiguredThreadCount, EncryptedPut, BaseComponent):
 
             for source_document in source_documents:
 
+                nodes = written_nodes(source_document)
+
+                if not nodes:
+                    # No prefix at all rather than a prefix holding only a
+                    # marker. An empty prefix reads back as a document with no
+                    # nodes, whose source_id() is None, which a re-stage cannot
+                    # build a path from. S3DocUploader skips these too.
+                    logger.debug(f'Skipping source document with nothing to write [source: {source_document.source_id()}]')
+                    yield source_document
+                    continue
+
                 root_path =  join(self.collection_prefix, source_document.source_id())
                 logger.debug(f'Writing source document to S3 [bucket: {self.bucket_name}, prefix: {root_path}]')
-
-                nodes = written_nodes(source_document)
 
                 futures = [
                     executor.submit(self._upload_chunk, root_path, n, s3_client)
