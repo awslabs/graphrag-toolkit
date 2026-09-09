@@ -26,6 +26,12 @@ INTENTIONAL_NEW_RESOURCES = {"OpenSearchServerlessCollectionGroup"}
 INTENTIONAL_MODIFIED_RESOURCE = "OpenSearchServerless"
 INTENTIONAL_MODIFIED_FIELDS = {"DependsOn", "CollectionGroupName", "StandbyReplicas"}
 
+# Shared resources that legitimately differ wholesale between Classic and NextGen.
+# NextGen collections use .on.aws endpoints, which require a standard EC2 interface
+# VPC endpoint (com.amazonaws.<region>.aoss-data with PrivateDnsEnabled), whereas Classic
+# uses the OpenSearch Serverless-managed endpoint (AWS::OpenSearchServerless::VpcEndpoint).
+INTENTIONAL_DIVERGENT_RESOURCES = {"OpenSearchServerlessVpcEndpoint"}
+
 # Top-level sections that must be byte-identical between the two templates.
 SHARED_TOP_LEVEL_SECTIONS = ("Parameters", "Rules", "Metadata", "Conditions", "Outputs")
 
@@ -70,6 +76,9 @@ def test_shared_resources_are_identical_except_the_known_delta():
     shared_resource_names = set(classic["Resources"]) & set(nextgen["Resources"])
 
     for name in shared_resource_names:
+        if name in INTENTIONAL_DIVERGENT_RESOURCES:
+            continue
+
         classic_resource = classic["Resources"][name]
         nextgen_resource = nextgen["Resources"][name]
 

@@ -985,6 +985,11 @@
                       "Ref": "ModelId"
                     },
                     "\" >> .env\n",
+                    "  echo \"export AWS_REGION=",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    "\" >> .env\n",
                     "  chmod -R 700 .\n",
                     "  chmod 600 .env\n",
                     "  if [ -f \"./run_test_suite.sh\" ]\n",
