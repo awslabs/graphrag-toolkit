@@ -2,10 +2,13 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import unittest
-from unittest.mock import MagicMock
+from unittest.mock import MagicMock, patch
 
 from llama_index.core.schema import NodeWithScore, TextNode
 
+from graphrag_toolkit.lexical_graph import GraphRAGConfig
+from graphrag_toolkit.lexical_graph.storage.chunk.s3_chunk_store import S3ChunkStore
+from graphrag_toolkit.lexical_graph.storage.chunk.in_graph_chunk_store import InGraphChunkStore
 from graphrag_toolkit.lexical_graph.utils import LLMCache
 from graphrag_toolkit.lexical_graph.retrieval.post_processors.statement_enhancement import (
     StatementEnhancementPostProcessor,
@@ -23,14 +26,25 @@ def _node(statement='a statement', chunk=None):
     return NodeWithScore(node=TextNode(text=statement or '', metadata=metadata), score=1.0)
 
 
-def _processor(chunk_store=None, response=ENHANCED):
+def _llm(response=ENHANCED):
     # spec=LLMCache so the constructor takes the mock as-is rather than trying
     # to wrap it in a real LLMCache, which validates its llm argument.
     llm = MagicMock(spec=LLMCache)
     llm.predict.return_value = response
-    processor = StatementEnhancementPostProcessor(llm=llm)
+    return llm
+
+
+def _processor(chunk_store=None, response=ENHANCED):
+    processor = StatementEnhancementPostProcessor(llm=_llm(response))
     processor.chunk_store = chunk_store
     return processor
+
+
+def _processor_for(s3_chunk_store, graph_store=None):
+    """Build through the real constructor, with S3_CHUNK_STORE set to a value."""
+    with patch.object(type(GraphRAGConfig), 's3_chunk_store',
+                      property(lambda self: s3_chunk_store)):
+        return StatementEnhancementPostProcessor(llm=_llm(), graph_store=graph_store)
 
 
 class TestChunkTextOnTheNode(unittest.TestCase):
@@ -121,6 +135,41 @@ class TestUnmatchedResponse(unittest.TestCase):
         node = _node(chunk={'chunkId': 'c1', 'value': 'text'})
 
         self.assertIs(processor.enhance_statement(node), node)
+
+
+class TestChunkStoreResolution(unittest.TestCase):
+    """The constructor decides which store answers a node that carries no chunk text.
+
+    An external store stands on its own; the graph store only adds the in-graph
+    fallback. Gating the external store on a graph store was what left the
+    post-processor unenhanced for every caller that passes none.
+    """
+
+    def test_external_store_is_opened_without_a_graph_store(self):
+        processor = _processor_for('s3://bucket/prefix')
+
+        self.assertIsInstance(processor.chunk_store, S3ChunkStore)
+        self.assertIsNone(processor.chunk_store.fallback)
+
+    def test_external_store_takes_the_graph_store_as_its_fallback(self):
+        processor = _processor_for('s3://bucket/prefix', graph_store=MagicMock())
+
+        self.assertIsInstance(processor.chunk_store, S3ChunkStore)
+        self.assertIsInstance(processor.chunk_store.fallback, InGraphChunkStore)
+
+    def test_graph_store_alone_reads_chunks_from_the_graph(self):
+        processor = _processor_for(None, graph_store=MagicMock())
+
+        self.assertIsInstance(processor.chunk_store, InGraphChunkStore)
+
+    def test_no_store_configured_leaves_the_processor_without_one(self):
+        processor = _processor_for(None)
+
+        self.assertIsNone(processor.chunk_store)
+
+    def test_an_unrecognised_uri_fails_at_construction(self):
+        with self.assertRaises(ValueError):
+            _processor_for('redis://cache/chunks')
 
 
 if __name__ == '__main__':

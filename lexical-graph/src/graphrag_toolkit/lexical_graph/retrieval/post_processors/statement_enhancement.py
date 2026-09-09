@@ -47,6 +47,26 @@ class StatementEnhancementPostProcessor(BaseNodePostprocessor):
     user_prompt: str = Field(default=ENHANCE_STATEMENT_USER_PROMPT)
     enhance_template: ChatPromptTemplate = Field(default=None)
 
+    @staticmethod
+    def _resolve_chunk_store(graph_store) -> Optional[ChunkStore]:
+        """Open the chunk store this post-processor reads statement context from.
+
+        An external store configured through `S3_CHUNK_STORE` is opened whether or
+        not a graph store is supplied; a graph store only adds the in-graph
+        fallback for chunks written before the migration. Without either, chunk
+        text has to be carried on the node.
+
+        Raises ValueError if `S3_CHUNK_STORE` holds a URI no registered factory
+        recognises, so a misconfigured store surfaces at construction rather than
+        as unenhanced statements at query time.
+        """
+        chunk_store_info = GraphRAGConfig.s3_chunk_store
+
+        if not chunk_store_info and graph_store is None:
+            return None
+
+        return ChunkStoreFactory.for_chunk_store(chunk_store_info, graph_store=graph_store)
+
     def __init__(
         self,
         llm:LLMCacheType=None,
@@ -70,20 +90,18 @@ class StatementEnhancementPostProcessor(BaseNodePostprocessor):
                 template with a USER role message.
             max_concurrent: An integer specifying the maximum number of concurrent
                 executions allowed.
-            graph_store: A graph store used to resolve chunk text that is not carried
-                on the node. Without one, a node that carries no chunk text is left
-                unenhanced, which is the behaviour of callers that predate the chunk
-                store.
+            graph_store: An optional graph store, used to read chunk text held on
+                the graph and as the fallback behind an external store. An external
+                store configured through `S3_CHUNK_STORE` is used without it. With
+                neither, a node carrying no chunk text is left unenhanced, which is
+                the behaviour of callers that predate the chunk store.
         """
         super().__init__()
         self.llm = llm if llm and isinstance(llm, LLMCache) else LLMCache(
             llm=llm or GraphRAGConfig.response_llm,
             enable_cache=GraphRAGConfig.enable_cache
         )
-        self.chunk_store = (
-            ChunkStoreFactory.for_chunk_store(GraphRAGConfig.s3_chunk_store, graph_store=graph_store)
-            if graph_store is not None else None
-        )
+        self.chunk_store = self._resolve_chunk_store(graph_store)
         self.max_concurrent = max_concurrent
         self.system_prompt = system_prompt
         self.user_prompt = user_prompt
