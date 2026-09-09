@@ -176,10 +176,12 @@ class TestGetRequestBody:
         inference_params = {'max_tokens': 500, 'temperature': 0.5}
         
         with patch('graphrag_toolkit.lexical_graph.indexing.utils.batch_inference_utils.messages_to_converse_messages') as mock_convert:
-            mock_convert.return_value = ([{'role': 'user', 'content': [{'text': 'User message'}]}], 'System prompt')
-            
+            # messages_to_converse_messages returns the system prompt as a list of
+            # {'text': ...} blocks, so the builder must pass it through unwrapped.
+            mock_convert.return_value = ([{'role': 'user', 'content': [{'text': 'User message'}]}], [{'text': 'System prompt'}])
+
             request_body = get_request_body(mock_llm, messages, inference_params)
-            
+
             assert 'system' in request_body
             assert request_body['system'] == [{'text': 'System prompt'}]
     
@@ -370,14 +372,24 @@ class TestGetParseOutputTextFn:
     def test_parse_output_llama_model(self):
         """Verify parsing function works for Llama model output."""
         parse_fn = get_parse_output_text_fn('meta.llama3-70b-instruct-v1:0')
-        
+
+        # Bedrock wraps the provider payload under 'modelOutput', same as nova/claude.
         json_data = {
-            'generation': 'Generated text response'
+            'modelOutput': {
+                'generation': 'Generated text response'
+            }
         }
-        
+
         result = parse_fn(json_data)
         assert result == 'Generated text response'
-    
+
+    def test_parse_output_text_mode_missing_key_raises(self):
+        """A missing scalar output must fail loud, not silently return ''."""
+        parse_fn = get_parse_output_text_fn('meta.llama3-70b-instruct-v1:0')
+
+        with pytest.raises(ValueError, match="model output schema may have changed"):
+            parse_fn({'modelOutput': {}})
+
     def test_parse_output_unsupported_model(self):
         """Verify error raised for unsupported model."""
         with pytest.raises(ValueError, match="Unrecognized model_id"):
@@ -405,7 +417,11 @@ class TestBatchModelProviderRegistry:
     """Tests for the extensible provider registry backing batch dispatch."""
 
     def test_registry_contains_expected_families(self):
-        """The registry holds exactly the supported families; adding one is a single entry."""
+        """Exact-set guard: fail if a family is dropped or an unexpected one appears.
+
+        Equality is intentional - it catches an accidental add/remove. Adding a
+        family is a deliberate change that should update this set too.
+        """
         names = {provider.name for provider in BATCH_MODEL_PROVIDERS}
         assert names == {'amazon.nova', 'anthropic.claude', 'meta.llama'}
 

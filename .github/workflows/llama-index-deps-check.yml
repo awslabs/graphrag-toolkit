@@ -37,6 +37,7 @@ jobs:
           REQUIREMENTS_FILES: >-
             lexical-graph/src/graphrag_toolkit/lexical_graph/requirements.txt
             byokg-rag/src/graphrag_toolkit/byokg_rag/requirements.txt
+            integration-tests/requirements-integ-test.txt
         run: python .github/scripts/check_llama_index_updates.py
 
       - name: Open or refresh tracking issue

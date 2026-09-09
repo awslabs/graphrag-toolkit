@@ -98,7 +98,10 @@ def _build_nova_request(messages: List[ChatMessage], params: dict) -> dict:
         }
     }
     if system_prompt:
-        request_body['system'] = [{'text': system_prompt}]
+        # messages_to_converse_messages already returns the system prompt as a
+        # list of {'text': ...} blocks, so assign it directly (wrapping it again
+        # would nest as [{'text': [{'text': ...}]}]).
+        request_body['system'] = system_prompt
     return request_body
 
 
@@ -153,7 +156,7 @@ BATCH_MODEL_PROVIDERS: List[BatchModelProvider] = [
         name='meta.llama',
         match_prefixes=('meta.llama',),
         build_request=_build_llama_request,
-        output_path=('generation',),
+        output_path=('modelOutput', 'generation'),
         output_mode='text',
     ),
 ]
@@ -171,7 +174,14 @@ def _resolve_batch_model_provider(model_id: str) -> BatchModelProvider:
 
 
 def _parse_output_text(json_data: dict, output_path: tuple, output_mode: str) -> str:
-    """Extract generated text from a batch output record per a provider's output spec."""
+    """Extract generated text from a batch output record per a provider's output spec.
+
+    'text' mode fails loud if the expected key is absent: a missing scalar means
+    the output schema is not what we expect, and silently returning '' would let
+    every record log as a successful-but-empty extraction (masking the failure).
+    'blocks' mode stays lenient - an empty/missing content list yields '', which
+    matches how nova/claude parsing behaved before the registry refactor.
+    """
     node = json_data
     for key in output_path:
         if not isinstance(node, dict):
@@ -179,7 +189,12 @@ def _parse_output_text(json_data: dict, output_path: tuple, output_mode: str) ->
             break
         node = node.get(key)
     if output_mode == 'text':
-        return node if isinstance(node, str) else ''
+        if not isinstance(node, str):
+            raise ValueError(
+                f"Expected a string at {'.'.join(output_path)!r} in the batch output "
+                f"record, got {type(node).__name__}; the model output schema may have changed"
+            )
+        return node
     return ''.join(block.get('text', '') for block in (node or []))
 
 
