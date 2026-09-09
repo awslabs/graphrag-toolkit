@@ -7,6 +7,7 @@ This module tests fuzzy string matching functionality including
 vocabulary management, exact matching, fuzzy matching, and topk retrieval.
 """
 
+import os
 import subprocess
 import sys
 
@@ -96,10 +97,14 @@ class TestFuzzyStringIndexDeterminism:
     """Regression tests for run-to-run reproducibility (nondeterminism fix)."""
 
     def _run_with_hashseed(self, seed):
+        # Inherit the parent env (PATH/VIRTUAL_ENV/PYTHONPATH) so the child can
+        # import the package; only override PYTHONHASHSEED. Replacing the whole
+        # env breaks import resolution in CI.
+        env = {**os.environ, 'PYTHONHASHSEED': str(seed)}
         out = subprocess.run(
             [sys.executable, '-c', _DETERMINISM_SNIPPET],
             capture_output=True, text=True, check=True,
-            env={'PYTHONHASHSEED': str(seed)},
+            env=env,
         )
         return out.stdout.strip()
 
