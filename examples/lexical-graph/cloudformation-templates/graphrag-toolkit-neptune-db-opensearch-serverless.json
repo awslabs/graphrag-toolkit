@@ -56,6 +56,13 @@
       "Description": "Space-separated ARNs of one or more additional IAM policies to be attached to the GraphRAG client IAM role (optional)",
       "Default": ""
     },
+    "NotebookKmsKeyId": {
+      "Type": "String",
+      "Description": "Optional KMS key ARN or id used to encrypt the SageMaker notebook ML storage volume with a customer managed key (CMK). Leave empty to use the default AWS managed encryption. If supplied, the key's policy must allow the SageMaker service to use the key (kms:CreateGrant, kms:Decrypt, kms:GenerateDataKey), otherwise notebook creation fails.",
+      "Default": "",
+      "AllowedPattern": "|arn:aws[a-z0-9-]*:kms:[a-z0-9-]+:[0-9]{12}:(key|alias)/.+|[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|mrk-[0-9a-f]{32}|alias/.+",
+      "ConstraintDescription": "Must be empty or a valid KMS key id, key ARN, alias name (alias/...), or alias ARN"
+    },
     "NotebookInstanceType": {
       "Description": "SageMaker notebook instance type (use ml.p3.2xlarge to provision a GPU instance)",
       "Type": "String",
@@ -97,7 +104,7 @@
       "Default": ""
     },
     "ExistingSubnetIds": {
-      "Description": "Optional comma-separated list of existing subnet IDs (minimum 2, spanning at least 2 AZs). The first subnet must have outbound internet access (e.g. public subnet with IGW or private subnet with NAT) as it is used for the SageMaker notebook. If provided, ExistingVpcId must also be provided. Leave empty to create new subnets.",
+      "Description": "Optional comma-separated list of existing subnet IDs (minimum 2, spanning at least 2 AZs). The first subnet is used for the SageMaker notebook and must be a private subnet with outbound internet access via a NAT gateway (the notebook is launched with direct internet access disabled). If provided, ExistingVpcId must also be provided. Leave empty to create new subnets.",
       "Type": "CommaDelimitedList",
       "Default": ""
     }
@@ -217,6 +224,18 @@
     }
   },
   "Conditions": {
+    "HasNotebookKmsKey": {
+      "Fn::Not": [
+        {
+          "Fn::Equals": [
+            {
+              "Ref": "NotebookKmsKeyId"
+            },
+            ""
+          ]
+        }
+      ]
+    },
     "CreateVPC": {
       "Fn::Equals": [
         {
@@ -1432,6 +1451,19 @@
           "Ref": "NotebookInstanceType"
         },
         "PlatformIdentifier": "notebook-al2023-v1",
+        "RootAccess": "Disabled",
+        "DirectInternetAccess": "Disabled",
+        "KmsKeyId": {
+          "Fn::If": [
+            "HasNotebookKmsKey",
+            {
+              "Ref": "NotebookKmsKeyId"
+            },
+            {
+              "Ref": "AWS::NoValue"
+            }
+          ]
+        },
         "NotebookInstanceName": {
           "Fn::Sub": "aws-neptune-${ApplicationId}"
         },
@@ -1439,7 +1471,7 @@
           "Fn::If": [
             "CreateVPC",
             {
-              "Ref": "Subnet4"
+              "Ref": "Subnet1"
             },
             {
               "Fn::Select": [
@@ -1503,7 +1535,7 @@
                     "#!/bin/bash\n\n",
                     "sudo -u ec2-user -i <<'EOF'\n",
                     "\n",
-                    "sudo pip install packaging==24.2\n",
+                    "pip install packaging==24.2\n",
                     "echo \"export STACK_ID=",
                     {
                       "Ref": "AWS::StackId"
