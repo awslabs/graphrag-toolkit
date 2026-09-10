@@ -131,19 +131,23 @@ class TestPromptVariableSubstitution:
         text = "GraphRAG is a framework."
         preferred_topics = "Technology, Software"
         preferred_entity_classifications = "Company, Product"
+        schema_constraints = "Focus on Technology entities."
         
         formatted_prompt = EXTRACT_TOPICS_PROMPT.format(
             text=text,
             preferred_topics=preferred_topics,
-            preferred_entity_classifications=preferred_entity_classifications
+            preferred_entity_classifications=preferred_entity_classifications,
+            schema_constraints=schema_constraints
         )
         
         assert text in formatted_prompt
         assert preferred_topics in formatted_prompt
         assert preferred_entity_classifications in formatted_prompt
+        assert schema_constraints in formatted_prompt
         assert '{text}' not in formatted_prompt
         assert '{preferred_topics}' not in formatted_prompt
         assert '{preferred_entity_classifications}' not in formatted_prompt
+        assert '{schema_constraints}' not in formatted_prompt
 
     def test_domain_entity_classifications_substitution(self):
         """Verify DOMAIN_ENTITY_CLASSIFICATIONS_PROMPT variable substitution works correctly."""
@@ -250,7 +254,7 @@ class TestPromptValidation:
         # Define expected placeholders for each prompt
         expected_placeholders = {
             'EXTRACT_PROPOSITIONS_PROMPT': ['{source_info}', '{text}'],
-            'EXTRACT_TOPICS_PROMPT': ['{text}', '{preferred_topics}', '{preferred_entity_classifications}'],
+            'EXTRACT_TOPICS_PROMPT': ['{text}', '{preferred_topics}', '{preferred_entity_classifications}', '{schema_constraints}'],
             'DOMAIN_ENTITY_CLASSIFICATIONS_PROMPT': ['{text_chunks}', '{existing_classifications}'],
             'RANK_ENTITY_CLASSIFICATIONS_PROMPT': ['{classifications}']
         }
