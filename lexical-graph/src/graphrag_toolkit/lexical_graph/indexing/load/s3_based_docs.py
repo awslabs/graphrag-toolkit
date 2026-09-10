@@ -12,7 +12,7 @@ import uuid
 import concurrent.futures
 
 from collections import deque
-from os.path import join
+from os.path import basename, join
 from datetime import datetime
 from itertools import repeat, islice
 from threading import Semaphore
@@ -33,16 +33,9 @@ BATCH_SIZE = 100
 
 logger = logging.getLogger(__name__)
 
-# Written into a source document's prefix once every chunk for that document
-# has stored successfully. Reserved: both downloaders skip any object whose
-# name starts with this, so a marker is never read back as a chunk.
-#
-# The full name carries a digest of the chunk ids it covers. An auto-tuned run
-# emits one source as several SourceDocuments, which share a prefix, so a fixed
-# name would let the last one written speak for all of them - a marker claiming
-# two chunks over a prefix holding four, or worse, one document's marker
-# certifying a prefix another document left truncated. Deriving the name the
-# way _doc_suffix derives the document key keeps them apart.
+# Reserved name for a completion marker. The rest of the name is a digest of
+# the chunk ids it covers, because one source can emit several SourceDocuments
+# into a shared prefix and each needs its own marker.
 COMPLETION_MARKER_PREFIX = '_COMPLETE-'
 
 # Joins node ids before hashing them. Without a separator ['ab', 'c'] and
@@ -51,7 +44,7 @@ _NODE_ID_DELIMITER = '\x00'
 
 
 def node_ids_hash(node_ids) -> str:
-    """A hash over a set of node ids, independent of the order they arrive in."""
+    """A hash over node ids, independent of the order they arrive in."""
     return get_hash(_NODE_ID_DELIMITER.join(sorted(node_ids)))
 
 
@@ -64,31 +57,22 @@ def is_completion_marker(key:str) -> bool:
     """
     Whether an object key is a completion marker.
 
-    TextNode.from_json accepts a marker as a node with a generated uuid and
-    empty text rather than rejecting it, so a listing that includes one turns
-    it into a phantom chunk. Both downloaders exclude markers here. Chunk
-    objects are named for a node id and document objects for a source id, so
-    neither can collide with this prefix.
+    TextNode.from_json turns a marker into a node with a generated uuid and
+    empty text rather than rejecting it, so a listing that keeps one gains a
+    phantom chunk.
     """
-    return key.rsplit('/', 1)[-1].startswith(COMPLETION_MARKER_PREFIX)
+    return basename(key).startswith(COMPLETION_MARKER_PREFIX)
 
 
 def written_nodes(doc:SourceDocument) -> List[TextNode]:
-    """
-    The nodes an uploader writes for a document.
-
-    A node carrying an index key is a vector store artefact rather than
-    document content, and no uploader stores it.
-    """
+    """The nodes an uploader stores. An index key marks a vector store artefact."""
     return [n for n in doc.nodes if INDEX_KEY not in n.metadata]
 
 class EncryptedPut:
     """
-    One place that knows how these uploaders encrypt what they store.
+    How these uploaders encrypt what they store.
 
-    A caller-supplied KMS key selects aws:kms, otherwise S3 managed keys. Both
-    uploaders wrote this branch out per object, which is four copies of a
-    decision that belongs in one.
+    A caller-supplied KMS key selects aws:kms, otherwise S3 managed keys.
     """
 
     # Supplied by the host class.
@@ -482,15 +466,10 @@ class S3ChunkUploader(ConfiguredThreadCount, EncryptedPut, BaseComponent):
         """
         Record that this document is complete.
 
-        Written last, after every chunk stored successfully, so its presence is
-        what separates a whole document from a truncated prefix. The hash covers
-        the chunk ids, which lets a reader tell a marker describing this prefix
-        from one an earlier run left behind.
-
-        A marker that fails to write is logged and not raised. The document is
-        then indistinguishable from an incomplete one, which costs a re-stage
-        and is the safe direction: raising here would break a stream that the
-        chunks themselves survived.
+        Written last, so its presence separates a whole document from a
+        truncated prefix. A failed write is logged rather than raised: no
+        marker costs a re-stage, where raising would lose a stream the chunks
+        themselves survived.
         """
         node_ids = sorted(n.node_id for n in nodes)
         marker = {
@@ -549,14 +528,10 @@ class S3ChunkUploader(ConfiguredThreadCount, EncryptedPut, BaseComponent):
                         for n in nodes
                     ]
                 else:
-                    # Nothing to write, so no prefix and no marker. A prefix
-                    # holding only a marker reads back as a document with no
-                    # nodes, whose source_id() is None, and a re-stage cannot
-                    # build a path from None.
-                    #
-                    # It still queues, rather than being yielded here. Yielding
-                    # now would jump every document already pending and break
-                    # the order this method promises.
+                    # No prefix: one holding only a marker reads back as a
+                    # document with no nodes, whose source_id() is None, and a
+                    # re-stage cannot build a path from None. Still queued, so
+                    # it keeps its place in the order upload() promises.
                     root_path = None
                     futures = []
                     logger.debug(f'Nothing to write for source document [source: {source_document.source_id()}]')
