@@ -34,18 +34,18 @@ COLLECTION_PREFIX = 'p/c'
 SOURCE_ID = 'aws::dead:beef'
 
 
-def _chunk(node_id, metadata=None):
+def _chunk(node_id, metadata=None, source_id=SOURCE_ID):
     # SourceDocument.source_id() reads the SOURCE relationship, so a chunk
     # without one has no document to belong to.
     node = TextNode(text=f'text for {node_id}', id_=node_id, metadata=metadata or {})
-    node.relationships[NodeRelationship.SOURCE] = RelatedNodeInfo(node_id=SOURCE_ID)
+    node.relationships[NodeRelationship.SOURCE] = RelatedNodeInfo(node_id=source_id)
     return node
 
 
-def _doc(node_ids, index_node_ids=()):
+def _doc(node_ids, index_node_ids=(), source_id=SOURCE_ID):
     return SourceDocument(nodes=[
-        *(_chunk(i) for i in node_ids),
-        *(_chunk(i, {INDEX_KEY: 'x'}) for i in index_node_ids),
+        *(_chunk(i, source_id=source_id) for i in node_ids),
+        *(_chunk(i, {INDEX_KEY: 'x'}, source_id=source_id) for i in index_node_ids),
     ])
 
 
@@ -280,14 +280,20 @@ class TestEncryption:
         return captured
 
     def test_managed_keys_when_no_kms_key_is_configured(self):
-        for kwargs in self._upload_capturing():
+        captured = self._upload_capturing()
+
+        assert len(captured) == 2, 'one chunk and its marker'
+        for kwargs in captured:
             assert kwargs['ServerSideEncryption'] == 'AES256'
             assert 'SSEKMSKeyId' not in kwargs
 
     def test_a_configured_kms_key_is_used(self):
         key_arn = 'arn:aws:kms:us-east-1:123456789012:key/12345678'
 
-        for kwargs in self._upload_capturing(encryption_key_id=key_arn):
+        captured = self._upload_capturing(encryption_key_id=key_arn)
+
+        assert len(captured) == 2, 'one chunk and its marker'
+        for kwargs in captured:
             assert kwargs['ServerSideEncryption'] == 'aws:kms'
             assert kwargs['SSEKMSKeyId'] == key_arn
 
@@ -298,3 +304,47 @@ class TestEncryption:
         assert len(markers) == 1
         assert markers[0]['ServerSideEncryption'] == 'AES256'
         assert markers[0]['ContentType'] == 'application/json'
+
+
+class TestOrdering:
+    """
+    upload() promises documents come back in the order they went in. A document
+    with nothing to write still has to take its turn: yielding it as soon as it
+    is seen jumps every document already in flight.
+    """
+
+    def test_a_document_with_nothing_to_write_keeps_its_place(self):
+        docs = [
+            _doc(['a1', 'a2'], source_id='aws::a'),
+            _doc([], index_node_ids=['v1'], source_id='aws::b'),
+            _doc(['c1', 'c2'], source_id='aws::c'),
+        ]
+
+        _, yielded = _upload(_uploader(), docs)
+
+        assert [d.source_id() for d in yielded] == ['aws::a', 'aws::b', 'aws::c']
+
+    def test_nothing_is_lost_or_yielded_twice(self):
+        docs = [
+            _doc([], index_node_ids=['v1'], source_id='aws::a'),
+            _doc(['b1'], source_id='aws::b'),
+            _doc([], source_id='aws::c'),
+        ]
+
+        _, yielded = _upload(_uploader(), docs)
+
+        assert [id(d) for d in yielded] == [id(d) for d in docs]
+
+
+class TestMarkerNaming:
+
+    def test_only_the_basename_decides(self):
+        # A substring test would drop a chunk whose own id happened to contain
+        # the marker prefix somewhere in its path.
+        assert is_completion_marker(f'p/c/src/{COMPLETION_MARKER_PREFIX}abcde')
+        assert not is_completion_marker(f'p/c/{COMPLETION_MARKER_PREFIX}x/c1.json')
+        assert not is_completion_marker('p/c/src/c1.json')
+
+    def test_the_name_follows_the_chunk_ids(self):
+        assert completion_marker_name(['c1', 'c2']) == completion_marker_name(['c2', 'c1'])
+        assert completion_marker_name(['c1', 'c2']) != completion_marker_name(['c1', 'c3'])

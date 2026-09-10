@@ -147,7 +147,7 @@ class S3DocDownloader(ConfiguredThreadCount, BaseComponent):
         node_keys = [
             node_obj['Key']
             for node_page in node_pages
-            for node_obj in node_page['Contents']
+            for node_obj in node_page.get('Contents', [])
             if not is_completion_marker(node_obj['Key'])
         ]
 
@@ -531,7 +531,7 @@ class S3ChunkUploader(ConfiguredThreadCount, EncryptedPut, BaseComponent):
             def release_oldest():
                 nonlocal inflight
                 (oldest, root_path, nodes, oldest_futures) = pending.popleft()
-                if self._drain(oldest_futures):
+                if self._drain(oldest_futures) and nodes:
                     self._write_completion_marker(root_path, nodes, s3_client)
                 inflight -= len(oldest_futures)
                 return oldest
@@ -540,22 +540,26 @@ class S3ChunkUploader(ConfiguredThreadCount, EncryptedPut, BaseComponent):
 
                 nodes = written_nodes(source_document)
 
-                if not nodes:
-                    # No prefix at all rather than a prefix holding only a
-                    # marker. An empty prefix reads back as a document with no
-                    # nodes, whose source_id() is None, which a re-stage cannot
-                    # build a path from. S3DocUploader skips these too.
-                    logger.debug(f'Skipping source document with nothing to write [source: {source_document.source_id()}]')
-                    yield source_document
-                    continue
+                if nodes:
+                    root_path =  join(self.collection_prefix, source_document.source_id())
+                    logger.debug(f'Writing source document to S3 [bucket: {self.bucket_name}, prefix: {root_path}]')
 
-                root_path =  join(self.collection_prefix, source_document.source_id())
-                logger.debug(f'Writing source document to S3 [bucket: {self.bucket_name}, prefix: {root_path}]')
-
-                futures = [
-                    executor.submit(self._upload_chunk, root_path, n, s3_client)
-                    for n in nodes
-                ]
+                    futures = [
+                        executor.submit(self._upload_chunk, root_path, n, s3_client)
+                        for n in nodes
+                    ]
+                else:
+                    # Nothing to write, so no prefix and no marker. A prefix
+                    # holding only a marker reads back as a document with no
+                    # nodes, whose source_id() is None, and a re-stage cannot
+                    # build a path from None.
+                    #
+                    # It still queues, rather than being yielded here. Yielding
+                    # now would jump every document already pending and break
+                    # the order this method promises.
+                    root_path = None
+                    futures = []
+                    logger.debug(f'Nothing to write for source document [source: {source_document.source_id()}]')
 
                 pending.append((source_document, root_path, nodes, futures))
                 inflight += len(futures)
