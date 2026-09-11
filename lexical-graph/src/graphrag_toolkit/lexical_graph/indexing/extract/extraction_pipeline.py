@@ -255,7 +255,7 @@ class ExtractionPipeline():
         id_generator=IdGenerator(
             tenant_id=tenant_id, 
             include_classification_in_entity_id=include_classification_in_entity_id,
-            source_id_hash_length=GraphRAGConfig.source_id_hash_length
+            source_id_width=GraphRAGConfig.source_id_width
         )
         
 

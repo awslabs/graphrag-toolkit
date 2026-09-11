@@ -19,6 +19,7 @@ import pytest
 
 from unittest.mock import Mock
 
+from graphrag_toolkit.lexical_graph.config import SourceIdWidth
 from graphrag_toolkit.lexical_graph.indexing.build.source_graph_builder import SourceGraphBuilder
 from graphrag_toolkit.lexical_graph.indexing.id_generator import IdGenerator
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
@@ -31,17 +32,16 @@ COLLIDING_SOURCE_ID = 'aws::a4439cdb:d41d'
 
 NO_METADATA = ''
 
-# The width every existing graph was written with, pinned rather than read from
-# config so the facts below hold whatever a run is configured to use.
-LEGACY_WIDTH = 8
-
-# The width under consideration for the fix. 64 discriminating bits.
-CANDIDATE_WIDTH = 16
+# Pinned rather than read from config, so the facts below hold whatever a run is
+# configured to use. LEGACY is what every existing graph was written with; FULL is
+# the whole digest.
+LEGACY_WIDTH = SourceIdWidth.LEGACY
+WIDENED = SourceIdWidth.FULL
 
 
 def source_id_at(text, width, metadata_str=NO_METADATA):
     """The id this text would get at an explicit width."""
-    return IdGenerator(source_id_hash_length=width).create_source_id(text, metadata_str)
+    return IdGenerator(source_id_width=width).create_source_id(text, metadata_str)
 
 
 def source_id_as_configured(text, metadata_str=NO_METADATA):
@@ -65,7 +65,7 @@ class TestCollidingPair:
                 == COLLIDING_SOURCE_ID)
 
     def test_a_wider_text_digest_separates_them(self):
-        assert source_id_at(TEXT_A, CANDIDATE_WIDTH) != source_id_at(TEXT_B, CANDIDATE_WIDTH)
+        assert source_id_at(TEXT_A, WIDENED) != source_id_at(TEXT_B, WIDENED)
 
     def test_metadata_separates_them_only_when_it_differs(self):
         # The second component is a digest of the metadata, so it discriminates
