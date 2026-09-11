@@ -12,6 +12,7 @@ from graphrag_toolkit.lexical_graph import TenantId
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.metadata import SourceMetadataFormatter, DefaultSourceMetadataFormatter
 from graphrag_toolkit.lexical_graph.indexing import NodeHandler, IdGenerator
+from graphrag_toolkit.lexical_graph.indexing.constants import COMPLEMENT_PLACEMENTS, TYPED_PROPERTY_PLACEMENTS
 from graphrag_toolkit.lexical_graph.indexing.utils.pipeline_utils import run_pipeline
 from graphrag_toolkit.lexical_graph.indexing.model import SourceType, SourceDocument, source_documents_from_source_types
 from graphrag_toolkit.lexical_graph.indexing.build.node_builder import NodeBuilder
@@ -55,6 +56,8 @@ class BuildPipeline():
         batch_writes_enabled (bool): Flag indicating whether batch writes are enabled.
         batch_write_size (int): Size of batches for processing writes. Defaults to a configured size.
         include_domain_labels (bool): Flag indicating whether domain labels should be included.
+        typed_properties (str): Where coerced attribute values are stored, if anywhere;
+        `'off'` unless an ontology asked otherwise.
         node_builders (NodeBuilders): Object that encapsulates the logic for building nodes,
         applying filters, and formatting metadata.
         node_filter (NodeFilter): Filter used for excluding or including nodes based on certain conditions.
@@ -74,6 +77,7 @@ class BuildPipeline():
                include_domain_labels:Optional[bool]=None,
                include_local_entities:Optional[bool]=None,
                include_classification_in_entity_id:Optional[bool]=None,
+               typed_properties:Optional[str]=None,
                tenant_id:Optional[TenantId]=None,
                progress_monitor:Optional[ProgressMonitor]=None,
                **kwargs:Any
@@ -108,6 +112,9 @@ class BuildPipeline():
             incorporated in the output. Defaults to None.
             include_local_entities (Optional[bool]): Specifies whether local
             entities are included in the graph. Defaults to None.
+            typed_properties (Optional[str]): Where coerced attribute values are
+            stored: `'off'`, `'subject'`, `'complement'` or `'both'`. Defaults to
+            None, which resolves to `'off'`.
             tenant_id (Optional[TenantId]): Identifier for tenant-specific operations or
             segregations. Defaults to None.
             **kwargs (Any): Additional keyword arguments to customize further configuration
@@ -132,6 +139,7 @@ class BuildPipeline():
                 include_domain_labels=include_domain_labels,
                 include_local_entities=include_local_entities,
                 include_classification_in_entity_id=include_classification_in_entity_id,
+                typed_properties=typed_properties,
                 tenant_id=tenant_id,
                 progress_monitor=progress_monitor,
                 **kwargs
@@ -152,6 +160,7 @@ class BuildPipeline():
                  include_domain_labels:Optional[bool]=None,
                  include_local_entities:Optional[bool]=None,
                  include_classification_in_entity_id:Optional[bool]=None,
+                 typed_properties:Optional[str]=None,
                  tenant_id:Optional[TenantId]=None,
                  progress_monitor:Optional[ProgressMonitor]=None,
                  **kwargs:Any
@@ -188,9 +197,16 @@ class BuildPipeline():
             included in the output during processing. Defaults to a preconfigured value.
             include_local_entities (Optional[bool]): Specifies whether local
             entities are included in the graph. Defaults to a preconfigured value.
+            typed_properties (Optional[str]): Where coerced attribute values are
+            stored: `'off'`, `'subject'`, `'complement'` or `'both'`. Defaults to
+            a preconfigured value, which is `'off'`.
             tenant_id (Optional[TenantId]): An identifier for the tenant, used for scoping data.
             Defaults to None.
             **kwargs (Any): Additional keyword arguments to configure the pipeline behavior.
+
+        Raises:
+            ValueError: If `typed_properties` is not a supported placement, or if
+                it requests complement placement without `include_local_entities`.
         """
         components = components or []
         num_workers = coalesce(num_workers, GraphRAGConfig.build_num_workers)
@@ -200,8 +216,31 @@ class BuildPipeline():
         include_domain_labels = coalesce(include_domain_labels, GraphRAGConfig.include_domain_labels)
         include_local_entities = coalesce(include_local_entities, GraphRAGConfig.include_local_entities)
         include_classification_in_entity_id = coalesce(include_classification_in_entity_id, GraphRAGConfig.include_classification_in_entity_id)
+        typed_properties = coalesce(typed_properties, GraphRAGConfig.typed_properties)
         source_metadata_formatter = source_metadata_formatter or DefaultSourceMetadataFormatter()
-        
+
+        if typed_properties not in TYPED_PROPERTY_PLACEMENTS:
+            raise ValueError(
+                f'Unknown typed_properties placement: {typed_properties!r}. '
+                f'Expected one of {", ".join(TYPED_PROPERTY_PLACEMENTS)}.'
+            )
+
+        # Complement placement writes to the complement node,
+        # and with `include_local_entities` off that node is never created - so
+        # the write would target nothing and the user would be left looking for
+        # properties on a node that does not exist. Checked here because this is
+        # the first place both settings are resolved: `typed_properties` comes
+        # from the ontology and `include_local_entities` from the build config.
+        if typed_properties in COMPLEMENT_PLACEMENTS and not include_local_entities:
+            raise ValueError(
+                f'typed_properties={typed_properties!r} writes typed_value and datatype '
+                'to the complement node, but include_local_entities is not enabled, so '
+                'no complement node is created and the write would have no target. '
+                'Set include_local_entities=True, or use '
+                "typed_properties='subject'."
+            )
+
+
         for c in components:
             if isinstance(c, NodeHandler):
                 c.show_progress = show_progress
@@ -228,6 +267,7 @@ class BuildPipeline():
         self.batch_write_size = batch_write_size
         self.include_domain_labels = include_domain_labels
         self.include_local_entities = include_local_entities
+        self.typed_properties = typed_properties
         self.node_builders = NodeBuilders(
             builders=builders, 
             build_filters=build_filters, 
@@ -320,6 +360,7 @@ class BuildPipeline():
                 batch_write_size=self.batch_write_size,
                 include_domain_labels=self.include_domain_labels,
                 include_local_entities=self.include_local_entities,
+                typed_properties=self.typed_properties,
                 versioning_timestamp=build_timestamp,
                 **self.pipeline_kwargs
             )

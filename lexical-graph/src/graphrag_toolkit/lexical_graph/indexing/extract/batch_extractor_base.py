@@ -38,6 +38,13 @@ class BatchExtractorBase(BaseExtractor):
     source_metadata_field:Optional[str] = Field(description='Metadata field from which to extract propositions')
     batch_inference_dir:str = Field(description='Directory for batch inputs and outputs')
     description:str = Field(description='Description')
+    # Declared here rather than on each subclass: both batch extractors compose
+    # it into self.prompt_template the same way, and the field has to exist on
+    # the model before either can be constructed with it.
+    ontology_constraints:str = Field(
+        default='',
+        description='Rendered ontology vocabulary block, composed into the prompt template at render time'
+    )
 
     @classmethod
     def class_name(cls) -> str:

@@ -8,7 +8,12 @@ from graphrag_toolkit.lexical_graph.indexing.model import Fact
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore, Query, QueryTree
 from graphrag_toolkit.lexical_graph.indexing.build.graph_builder import GraphBuilder
 from graphrag_toolkit.lexical_graph.indexing.utils.fact_utils import string_complement_to_entity
-from graphrag_toolkit.lexical_graph.indexing.constants import LOCAL_ENTITY_CLASSIFICATION
+from graphrag_toolkit.lexical_graph.indexing.constants import (
+    COMPLEMENT_ENTITY_PROPERTIES,
+    COMPLEMENT_PLACEMENTS,
+    LOCAL_ENTITY_CLASSIFICATION,
+    TYPED_PROPERTIES_OFF,
+)
 
 from llama_index.core.schema import BaseNode
 
@@ -24,6 +29,10 @@ class LocalEntityRewritesGraphBuilder(GraphBuilder):
         
         fact_metadata = node.metadata.get('fact', {})
         include_local_entities = kwargs['include_local_entities']
+        # `.get` rather than a subscript. This builder is in
+        # `default_builders()` unconditionally, so it runs for callers who have never
+        # heard of typed properties.
+        typed_properties = kwargs.get('typed_properties', TYPED_PROPERTIES_OFF)
 
         if fact_metadata:
 
@@ -35,6 +44,31 @@ class LocalEntityRewritesGraphBuilder(GraphBuilder):
                     logger.debug(f'Ignoring local entity rewrites for fact [fact_id: {fact.factId}]')
                     return
                 
+            # `c` is about to be `DETACH DELETE`d by the
+            # sibling query, taking `typed_value` and `datatype` with it, so they are
+            # carried onto the surviving node while `c` is still bound.
+            #
+            # `coalesce` and not a plain assignment: two complements can fold into the
+            # same real entity, and the second must not overwrite the first. First
+            # writer wins, which is arbitrary but at least stable within a run - the
+            # alternative is a value that changes with build order.
+            #
+            # Appended conditionally, and not emitted unconditionally on the grounds
+            # that `coalesce(null, null)` is harmless. It is not harmless: `SET x =
+            # null` deletes the property in some stores, it changes the query text
+            # every existing user sends, and it adds write work for people who did not
+            # ask for the feature. `''` at every other placement means the query below
+            # is byte-identical to the recorded baseline.
+            carry_typed_values = ''
+
+            if typed_properties in COMPLEMENT_PLACEMENTS:
+                (typed_value_key, datatype_key) = COMPLEMENT_ENTITY_PROPERTIES
+                carry_typed_values = (
+                    f'SET n.`{typed_value_key}` = coalesce(n.`{typed_value_key}`, c.`{typed_value_key}`), '
+                    f'n.`{datatype_key}` = coalesce(n.`{datatype_key}`, c.`{datatype_key}`)\n'
+                    '                '
+                )
+
             copy_complement_relationships_to_subject = Query(
                 query=f"""// copy complement relationships to subject
                 UNWIND $params AS params
@@ -43,7 +77,7 @@ class LocalEntityRewritesGraphBuilder(GraphBuilder):
                 WHERE {graph_client.node_id('n.entityId')} = params.n_id AND {graph_client.node_id('c.entityId')} = params.c_id
                 MERGE (s)-[:`__RELATION__`{{value:r.value}}]->(n)
                 MERGE (n)-[:`__OBJECT__`]->(f)
-                """
+                {carry_typed_values}"""
             )
 
             delete_complement_relationships = Query(

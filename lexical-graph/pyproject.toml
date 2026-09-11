@@ -38,6 +38,12 @@ python_files = ["test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
 asyncio_mode = "auto"
+# pytest's default norecursedirs contains "build", which silently skipped the
+# whole of tests/unit/indexing/build/ - the builder tests ran only when that path
+# was named explicitly, and never in a full-suite or CI run. Restated here without
+# "build". Dropping it is safe because `testpaths` already confines collection to
+# `tests/`, so no generated build/ directory is reachable from here.
+norecursedirs = ["*.egg", ".*", "_darcs", "CVS", "dist", "node_modules", "venv", "{arch}"]
 addopts = [
     "-v",
     "--tb=short",

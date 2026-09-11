@@ -9,6 +9,7 @@ title: Graph Model
     - [Units of context](#units-of-context)
   - [Lineage tier](#lineage-tier)
   - [Entity-Relationship tier](#entity-relationship-tier)
+    - [Typed properties on entity nodes](#typed-properties-on-entity-nodes)
   - [Summarisation tier](#summarisation-tier)
     - [Facts](#facts)
     - [Statements](#statements)
@@ -56,6 +57,50 @@ Every entity is associated with at least one `__Fact__`, either as a `__SUBJECT_
 Extraction uses a lightly guided strategy whereby the extraction process is seeded with a list of preferred entity classifications. The LLM is instructed to use an existing classification from the list before creating new ones. Any new classifications introduced by the LLM are then carried forward to subsequent invocations. This approach reduces but doesn't eliminate unwanted variations in entity classification.
 
 Relationship values are currently unguided (though relatively concise).
+
+#### Typed properties on entity nodes
+
+Every value extracted from a source is a string. An `__Entity__` node therefore carries a
+string `value` (plus a `search_str` for exact-match lookup) and a string `class`, and
+nothing on it is numerically comparable:
+
+```
+(:__Entity__ {entityId: '…', value: 'Halcyon Motors', class: 'Company',
+              search_str: 'halcyon motors'})
+```
+
+[Ontology-guided extraction](/graphrag-toolkit/lexical-graph/ontology-guided-extraction/)
+can add *typed* properties to this tier. When an extracted attribute's predicate resolves
+to a datatype property the ontology declares, the value is coerced to the declared XSD type
+and written as a native graph property. The write is **additive** – `value`, `search_str`
+and `class` are untouched – and where it lands depends on the configured placement:
+
+  - **`typed_properties='subject'`** adds the value to the *subject* entity, keyed by the
+    ontology property's local name. This is what makes an attribute range-queryable from
+    the entity that has it:
+
+    ```
+    (:__Entity__ {entityId: '…', value: 'Halcyon Motors', class: 'Company',
+                  search_str: 'halcyon motors', foundedYear: 1971})
+    ```
+
+  - **`typed_properties='complement'`** adds `typed_value` and `datatype` to the
+    *complement* entity – the local-context node created for the value string itself, which
+    exists only when `include_local_entities` is enabled:
+
+    ```
+    (:__Entity__ {entityId: '…', value: '1971', class: '__Local_Entity__',
+                  typed_value: 1971,
+                  datatype: 'http://www.w3.org/2001/XMLSchema#integer'})
+    ```
+
+    These properties describe *the value string*, not the assertion: they say that this
+    literal read as an integer is 1971, and not which entity was founded then, nor under
+    which property. The subject and predicate remain on the `__Fact__`.
+
+`typed_value` and `datatype` are reserved by the graph model at complement placement, as
+`value`, `search_str` and `class` are at subject placement; an ontology declaring a
+property with one of those names is refused at configuration time.
 
 ### Summarisation tier
 
@@ -145,7 +190,7 @@ What each node type embeds:
 
 In other words, document-level metadata such as `file_name` or `size` is **not** baked
 into chunk embeddings by default — it is carried as graph/source metadata (see
-[External properties](/lexical-graph/external-properties/) for making such metadata
+[External properties](/graphrag-toolkit/lexical-graph/external-properties/) for making such metadata
 queryable). If you want a piece of metadata to influence the embedding itself, include it
 in the node's content rather than relying on metadata, since metadata under `source`,
 `chunk`, `statement`, and the internal index keys is excluded from the vector.

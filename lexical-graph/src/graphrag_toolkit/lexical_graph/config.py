@@ -57,6 +57,10 @@ DEFAULT_BATCH_WRITES_ENABLED = True
 DEFAULT_INCLUDE_DOMAIN_LABELS = False
 DEFAULT_INCLUDE_LOCAL_ENTITIES = False
 DEFAULT_INCLUDE_CLASSIFICATION_IN_ENTITY_ID = True
+# Restated here rather than imported from `ontology_config` so
+# that config.py stays free of the extract package (and of rdflib); the two are
+# held together by a test.
+DEFAULT_TYPED_PROPERTIES = 'off'
 DEFAULT_ENABLE_CACHE = False
 DEFAULT_METADATA_DATETIME_SUFFIXES = ['_date', '_datetime']
 DEFAULT_OPENSEARCH_ENGINE = 'nmslib'
@@ -319,6 +323,7 @@ class _GraphRAGConfig:
         _batch_writes_enabled (Optional[bool]): Flag indicating whether batch writes are enabled.
         _include_domain_labels (Optional[bool]): Whether domain-specific labels are included in processes.
         _include_local_entities (Optional[bool]): Whether local entities are included in the graph.
+        _typed_properties (Optional[str]): Where coerced attribute values are stored, if anywhere.
         _enable_cache (Optional[bool]): Boolean flag to enable or disable caching mechanisms.
         _metadata_datetime_suffixes (Optional[List[str]]): List of datetime suffixes included in metadata handling.
     """
@@ -347,6 +352,7 @@ class _GraphRAGConfig:
     _include_domain_labels: Optional[bool] = None
     _include_local_entities: Optional[bool] = None
     _include_classification_in_entity_id: Optional[bool] = None
+    _typed_properties: Optional[str] = None
     _enable_cache: Optional[bool] = None
     _metadata_datetime_suffixes: Optional[List[str]] = None
     _opensearch_engine: Optional[str] = None
@@ -933,7 +939,32 @@ class _GraphRAGConfig:
         self._include_local_entities = include_local_entities
 
     @property
-    def include_classification_in_entity_id(self) -> bool:   
+    def typed_properties(self) -> str:
+        """Where coerced attribute values are stored, if anywhere.
+
+        Deliberately **not** environment-readable, which is where this setting
+        departs from `include_local_entities` and every other flag around it.
+        No ambient configuration should be able to turn on graph writes, and the
+        setting should be unreachable as anything other than `'off'` for a user
+        with no ontology; an env var would
+        break both at once, since an exported `TYPED_PROPERTIES` would add
+        properties to the nodes of a build whose author never mentioned an
+        ontology. So the value comes from `OntologyConfig`, and this field exists
+        only so the `coalesce` chain from `BuildPipeline` has a floor.
+
+        Returns:
+            str: `'off'` unless something set it programmatically.
+        """
+        if self._typed_properties is None:
+            self.typed_properties = DEFAULT_TYPED_PROPERTIES
+        return self._typed_properties
+
+    @typed_properties.setter
+    def typed_properties(self, typed_properties: str) -> None:
+        self._typed_properties = typed_properties
+
+    @property
+    def include_classification_in_entity_id(self) -> bool:
         if self._include_classification_in_entity_id is None:
             self.include_classification_in_entity_id = string_to_bool(os.environ.get('INCLUDE_CLASSIFICATION_IN_ENTITY_ID'), DEFAULT_INCLUDE_CLASSIFICATION_IN_ENTITY_ID)
         return self._include_classification_in_entity_id
