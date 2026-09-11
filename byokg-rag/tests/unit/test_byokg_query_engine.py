@@ -159,6 +159,85 @@ class TestQueryEngineQuery:
             assert context.count('item2') == 1
 
 
+class TestQueryEngineSingleBestMatch:
+    """Tests for the single_best_match seed-pruning flag."""
+
+    def _kg_linker(self):
+        mock_kg_linker = Mock()
+        mock_kg_linker.task_prompts = "test"
+        mock_kg_linker.task_prompts_iterative = "test"
+        mock_kg_linker.generate_response.return_value = "<task-completion>FINISH</task-completion>"
+        mock_kg_linker.parse_response.return_value = {
+            'entity-extraction': ['MentionA', 'MentionB'],
+            'draft-answer-generation': ['DraftAnswer'],
+        }
+        return mock_kg_linker
+
+    def test_flag_off_by_default_preserves_current_behavior(
+        self, mock_graph_store_with_schema, mock_llm_generator
+    ):
+        """With the flag off (default), seeds come from link() and link_grouped is unused."""
+        mock_entity_linker = Mock()
+        # link() is called for extracted mentions then draft answers (current behavior).
+        mock_entity_linker.link.side_effect = [
+            ['A1', 'A2', 'B1'],   # extracted mentions, flattened across mentions
+            ['ans1'],             # draft answers
+        ]
+
+        captured = {}
+        mock_triplet_retriever = Mock()
+        mock_triplet_retriever.retrieve.side_effect = (
+            lambda query, source_entities: captured.__setitem__('seeds', source_entities) or ['ctx']
+        )
+
+        engine = ByoKGQueryEngine(
+            graph_store=mock_graph_store_with_schema,
+            llm_generator=mock_llm_generator,
+            entity_linker=mock_entity_linker,
+            triplet_retriever=mock_triplet_retriever,
+            kg_linker=self._kg_linker(),
+        )
+        assert engine.single_best_match is False
+
+        engine.query("q", iterations=1)
+
+        mock_entity_linker.link_grouped.assert_not_called()
+        assert set(captured['seeds']) == {'A1', 'A2', 'B1', 'ans1'}
+
+    def test_flag_on_keeps_one_seed_per_mention_and_leaves_answers(
+        self, mock_graph_store_with_schema, mock_llm_generator
+    ):
+        """With the flag on, each mention yields at most one seed; draft answers untouched."""
+        mock_entity_linker = Mock()
+        # grouped candidates per mention: MentionA -> [A1, A2], MentionB -> [B1]
+        mock_entity_linker.link_grouped.return_value = [['A1', 'A2'], ['B1']]
+        # link() is still used for draft answers only.
+        mock_entity_linker.link.return_value = ['ans1']
+
+        captured = {}
+        mock_triplet_retriever = Mock()
+        mock_triplet_retriever.retrieve.side_effect = (
+            lambda query, source_entities: captured.__setitem__('seeds', source_entities) or ['ctx']
+        )
+
+        engine = ByoKGQueryEngine(
+            graph_store=mock_graph_store_with_schema,
+            llm_generator=mock_llm_generator,
+            entity_linker=mock_entity_linker,
+            triplet_retriever=mock_triplet_retriever,
+            kg_linker=self._kg_linker(),
+            single_best_match=True,
+        )
+
+        engine.query("q", iterations=1)
+
+        # one seed per mention (A2 dropped) plus the untouched draft answer
+        assert set(captured['seeds']) == {'A1', 'B1', 'ans1'}
+        # link() used for draft answers, with the draft-answer artifact
+        mock_entity_linker.link.assert_called_once_with(['DraftAnswer'], return_dict=False)
+        mock_entity_linker.link_grouped.assert_called_once_with(['MentionA', 'MentionB'])
+
+
 class TestQueryEngineGenerateResponse:
     """Tests for response generation."""
     
