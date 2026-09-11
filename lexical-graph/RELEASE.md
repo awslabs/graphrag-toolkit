@@ -17,6 +17,22 @@ This document describes the release process for the graphrag-toolkit components.
 5. Update the GitHub release to remove the pre-release label, promoting it to a full release.
 6. Test the final release from PyPI.
 
+### Changelog
+
+Release notes are generated per project. The [Lexical Graph Release](/.github/workflows/lexical-graph-release.yml) workflow (which runs on both pre-release and release events) appends a lexical-graph-only changelog to the GitHub release notes: commits that touched `lexical-graph/`, `lexical-graph-contrib/`, or `examples/lexical-graph*`, plus shared changes (docs, CI, etc.) that affect both projects. Commits that touched only `byokg-rag/` are excluded. The baseline is the previous released `graphrag-lexical-graph/v*` tag (`.dev` prereleases are skipped).
+
+To preview the changelog locally before releasing:
+
+```bash
+# lexical-graph changelog since the previous lexical-graph release tag
+.github/release_message.sh lexical-graph
+
+# ...or for an explicit tag
+python .github/scripts/generate_changelog.py --project lexical-graph --to graphrag-lexical-graph/vX.Y.Z
+```
+
+The path-based classifier lives in [.github/scripts/generate_changelog.py](/.github/scripts/generate_changelog.py).
+
 ### Step 1: Create a Pre-release Tag
 
 All tags are created from the `main` branch, which is the ongoing development branch. Pre-release tags use a `.devN` suffix:
