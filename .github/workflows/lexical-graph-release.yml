@@ -79,6 +79,8 @@ jobs:
           echo "pypi_version=${VERSION#v}" >> $GITHUB_OUTPUT
 
       - name: Generate per-project changelog
+        # Cosmetic step: never fail release-build (and block pypi-publish) over a changelog.
+        continue-on-error: true
         working-directory: ${{ github.workspace }}
         run: |
           python .github/scripts/generate_changelog.py \
@@ -166,6 +168,8 @@ jobs:
           prerelease: ${{ github.event.action == 'prereleased' }}
 
       - name: Update release notes with per-project changelog (idempotent)
+        # Cosmetic step: a release-notes hiccup must not fail the job or block publish.
+        continue-on-error: true
         working-directory: ${{ github.workspace }}
         env:
           GH_TOKEN: ${{ github.token }}

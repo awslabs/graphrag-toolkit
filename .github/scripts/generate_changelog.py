@@ -117,29 +117,43 @@ def parse_git_log(text: str) -> List[Commit]:
 
 
 def _git(*args: str) -> str:
-    result = subprocess.run(
-        ['git', *args],
-        check=True,
-        capture_output=True,
-        text=True,
-    )
+    result = subprocess.run(['git', *args], capture_output=True, text=True)
+    if result.returncode != 0:
+        raise RuntimeError(
+            f"git {' '.join(args)} failed (exit {result.returncode}): {result.stderr.strip()}"
+        )
     return result.stdout
 
 
-def _is_ancestor(ancestor: str, ref: str) -> bool:
-    return subprocess.run(
-        ['git', 'merge-base', '--is-ancestor', ancestor, ref],
-        capture_output=True,
-    ).returncode == 0
+def _peel(ref: str) -> Optional[str]:
+    """Resolve a ref to the commit SHA it points at (peels annotated tags)."""
+    try:
+        return _git('rev-parse', f'{ref}^{{}}').strip()
+    except RuntimeError:
+        return None
 
 
 def previous_release_tag(project: str, to_ref: str) -> Optional[str]:
-    """Find the previous released tag for `project` reachable from `to_ref`.
+    """Find the previous released tag for `project` to diff `to_ref` against.
 
-    Considers tags of the same project (or of either project for `both`),
-    ignores `.dev` prereleases as baselines, and returns the most recent one
-    that is an ancestor of `to_ref` and not `to_ref` itself. Returns None if
-    there is no suitable baseline (then the whole history is used).
+    Considers tags of the same project (or either project for `both`), newest
+    first by creation date, and returns the first real release (not a `.dev`
+    prerelease) that does not point at the same commit as `to_ref`.
+
+    Two deliberate choices, both driven by the real release topology:
+
+    * **No ancestor filter.** Releases are tagged on release branches and
+      squash-downmerged into main, so the previous release usually is *not* an
+      ancestor of a main commit. `git log <tag>..<to_ref>` computes the right
+      set regardless; requiring ancestry would skip every recent release and
+      fall back to a far-older baseline (observed: 142 commits instead of 11).
+    * **Compare peeled commit SHAs, not tag names.** `graphrag-byokg/vX` and
+      `graphrag-lexical-graph/vX` are the same commit, so for `both` a name
+      compare would pick the sibling tag as the baseline and emit an empty
+      changelog; skipping any tag on `to_ref`'s commit avoids that (and also
+      excludes `to_ref` itself).
+
+    Returns None if there is no suitable baseline (then the whole history is used).
     """
     if project == BYOKG:
         patterns = ['graphrag-byokg/v*']
@@ -148,25 +162,24 @@ def previous_release_tag(project: str, to_ref: str) -> Optional[str]:
     else:
         patterns = ['graphrag-lexical-graph/v*', 'graphrag-byokg/v*']
 
-    tags: List[str] = []
-    for pattern in patterns:
-        tags.extend(
-            t for t in _git('tag', '--list', pattern, '--sort=-creatordate').splitlines() if t
-        )
-    # Newest first; drop the current ref and .dev prereleases (a final release
-    # should diff against the previous real release, not its own prerelease).
+    # One --list call with all patterns so 'both' is globally ordered by date.
+    tags = [t for t in _git('tag', '--list', *patterns, '--sort=-creatordate').splitlines() if t]
+
+    to_sha = _peel(to_ref)
     for tag in tags:
-        if tag == to_ref or '.dev' in tag:
+        if '.dev' in tag:
             continue
-        if _is_ancestor(tag, to_ref):
-            return tag
+        if to_sha is not None and _peel(tag) == to_sha:
+            continue
+        return tag
     return None
 
 
 def read_commits(from_ref: Optional[str], to_ref: str) -> List[Commit]:
     range_spec = f'{from_ref}..{to_ref}' if from_ref else to_ref
     fmt = f'{_REC}%H{_FLD}%h{_FLD}%s'
-    out = _git('log', '--no-merges', f'--pretty=format:{fmt}', '--name-only', range_spec)
+    out = _git('-c', 'core.quotepath=false', 'log', '--no-merges',
+               f'--pretty=format:{fmt}', '--name-only', range_spec)
     return parse_git_log(out)
 
 

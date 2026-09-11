@@ -230,3 +230,39 @@ class TestPreviousReleaseTag:
         monkeypatch.chdir(repo)
 
         assert gc.previous_release_tag('lexical-graph', 'HEAD') is None
+
+    def test_non_ancestor_release_is_still_the_baseline(self, tmp_path, monkeypatch):
+        """A release tagged on a divergent branch (squash-downmerge) must still be
+        chosen — not skipped in favour of an older ancestor tag."""
+        repo = tmp_path
+        _git(repo, 'init', '-q', '-b', 'main')
+        _commit(repo, 'c1', '2020-01-01T00:00:00')
+        _tag(repo, 'graphrag-lexical-graph/v1.0.0', '2020-01-01T00:00:00')
+        # v1.1.0 is tagged on a release branch that never merges back linearly.
+        _git(repo, 'checkout', '-q', '-b', 'release')
+        _commit(repo, 'r1', '2020-01-02T00:00:00')
+        _tag(repo, 'graphrag-lexical-graph/v1.1.0', '2020-01-02T00:00:00')
+        _git(repo, 'checkout', '-q', 'main')
+        _commit(repo, 'c2', '2020-01-03T00:00:00')  # HEAD not descended from v1.1.0
+        monkeypatch.chdir(repo)
+
+        # v1.1.0 is NOT an ancestor of HEAD, but it is the most recent release, so
+        # it must be the baseline (not the older, ancestor v1.0.0).
+        assert gc.previous_release_tag('lexical-graph', 'HEAD') == 'graphrag-lexical-graph/v1.1.0'
+
+    def test_both_skips_same_commit_sibling_tag(self, tmp_path, monkeypatch):
+        """For `both`, the sibling project's tag on the same release commit must
+        not be chosen as the baseline (that would yield an empty changelog)."""
+        repo = tmp_path
+        _git(repo, 'init', '-q', '-b', 'main')
+        _commit(repo, 'c1', '2020-01-01T00:00:00')
+        _tag(repo, 'graphrag-lexical-graph/v1.0.0', '2020-01-01T00:00:00')
+        _tag(repo, 'graphrag-byokg/v1.0.0', '2020-01-01T00:00:01')
+        _commit(repo, 'c2', '2020-01-02T00:00:00')
+        # The release commit carries both projects' tags (identical commit).
+        _tag(repo, 'graphrag-lexical-graph/v1.1.0', '2020-01-02T00:00:00')
+        _tag(repo, 'graphrag-byokg/v1.1.0', '2020-01-02T00:00:01')
+        monkeypatch.chdir(repo)
+
+        baseline = gc.previous_release_tag('both', 'graphrag-lexical-graph/v1.1.0')
+        assert baseline in ('graphrag-lexical-graph/v1.0.0', 'graphrag-byokg/v1.0.0')
