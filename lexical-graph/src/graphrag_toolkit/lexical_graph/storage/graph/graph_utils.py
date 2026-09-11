@@ -13,6 +13,13 @@ from llama_index.core.vector_stores.types import FilterCondition, FilterOperator
 
 SEARCH_STRING_PATTERN = re.compile(r'([^\s\w]|_)+')
 
+# Split where an uppercase letter follows a lowercase one, and nowhere else.
+# Deliberately the same rule as `_CAMEL_BOUNDARY` in the ontology's naming
+# module, and duplicated rather than imported: this is a leaf utility, and
+# importing from `indexing.extract.ontology` would pull rdflib and the whole
+# extract package into the build and storage paths to save one regex.
+CAMEL_BOUNDARY_PATTERN = re.compile(r'(?<=[a-z])(?=[A-Z])')
+
 def new_query_var():
     return f'n{uuid.uuid4().hex}'
 
@@ -113,17 +120,31 @@ def relationship_name_from(value:str):
     """
     Generates a formatted relationship name from a given string.
 
-    The function transforms the input string by replacing all non-alphanumeric
-    characters with underscores and converts the resulting string to uppercase.
+    The function splits camel-case words, replaces all non-alphanumeric
+    characters with underscores, and converts the result to uppercase.
+
+    The camel-case split exists for ontology-normalized predicates. Without an
+    ontology a predicate arrives from the response parser as `WORKS FOR`, which
+    becomes `WORKS_FOR`; with `normalize_names` on it arrives as the authored
+    `worksFor`, which without the split would become `WORKSFOR` and lose the
+    word boundary. The only live caller is `GraphSummaryBuilder`, whose value is
+    read back by `GraphSummary._get_paths` and rendered into a domain-summary
+    prompt as `(Person)-[WORKS_FOR]->(Company)` - so the boundary is the
+    difference between a legible path and one word for the LLM to guess at.
+
+    The rule is narrow on purpose: an uppercase letter following a *lowercase*
+    one, so `HTTPServer` and `Company2X` are left alone. Inputs with no such
+    boundary - anything already upper case, or spaced - are unaffected.
 
     Args:
         value (str): The input string to be processed.
 
     Returns:
-        str: A formatted string where non-alphanumeric characters are replaced
-        with underscores and all characters are in uppercase.
+        str: A formatted string where camel-case boundaries and non-alphanumeric
+        characters become underscores and all characters are in uppercase.
     """
-    return ''.join([ c if c.isalnum() else '_' for c in value ]).upper()
+    split = CAMEL_BOUNDARY_PATTERN.sub('_', value)
+    return ''.join([ c if c.isalnum() else '_' for c in split ]).upper()
 
 def node_result(node_ref:str, 
                 node_id:Optional[NodeId]=None, 

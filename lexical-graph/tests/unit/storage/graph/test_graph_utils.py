@@ -119,6 +119,30 @@ class TestRelationshipNameFrom:
     def test_keeps_digits(self):
         assert relationship_name_from('rev2 of') == 'REV2_OF'
 
+    def test_splits_camel_case(self):
+        """An ontology-normalized predicate arrives authored, not parsed. Without
+        the split `worksFor` becomes `WORKSFOR`, and the domain-summary prompt
+        that `GraphSummary._get_paths` builds from this value reads
+        `(Person)-[WORKSFOR]->(Company)`."""
+        assert relationship_name_from('worksFor') == 'WORKS_FOR'
+        assert relationship_name_from('hasRegisteredAddress') == 'HAS_REGISTERED_ADDRESS'
+
+    def test_the_two_spellings_of_one_predicate_agree(self):
+        """The same relationship named with and without an ontology has to land on
+        the same summary-graph name, or turning `normalize_names` on silently
+        forks the summary graph."""
+        assert relationship_name_from('worksFor') == relationship_name_from('WORKS FOR')
+
+    def test_it_does_not_split_runs_of_capitals(self):
+        """The narrow rule: uppercase after *lowercase* only. Splitting after any
+        non-uppercase character would break `Company2X`, which is what `.title()`
+        makes of `Company2x`."""
+        assert relationship_name_from('HTTPServer') == 'HTTPSERVER'
+        assert relationship_name_from('rev2X of') == 'REV2X_OF'
+
+    def test_already_underscored_names_are_unchanged(self):
+        assert relationship_name_from('WORKS_FOR') == 'WORKS_FOR'
+
 
 class TestNodeResult:
     def test_default_star_properties(self):

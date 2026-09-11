@@ -1,0 +1,16 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+#
+# One IRI declared both an owl:ObjectProperty and an
+# owl:DatatypeProperty. The filter would have to decide whether the object is an
+# entity or a literal, and there is no non-arbitrary answer.
+
+@prefix :     <http://example.com/broken#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+:Company a owl:Class .
+
+:founder a owl:ObjectProperty , owl:DatatypeProperty ;
+         rdfs:domain :Company ; rdfs:range xsd:string .

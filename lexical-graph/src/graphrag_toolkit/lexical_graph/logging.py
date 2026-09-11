@@ -1,6 +1,7 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
+import copy
 import logging
 import logging.config
 import warnings
@@ -271,7 +272,11 @@ def set_advanced_logging_config(
     if isinstance(logging_level, int):
         logging_level = logging.getLevelName(logging_level)
 
-    config = BASE_LOGGING_CONFIG.copy()
+    # deepcopy, not copy: the mutations below reach into nested dicts and into
+    # `loggers['']['handlers']`, all of which a shallow copy still shares with
+    # BASE_LOGGING_CONFIG. With a shallow copy, calling this twice accumulates
+    # handlers and leaks one call's module filters and log filename into the next.
+    config = copy.deepcopy(BASE_LOGGING_CONFIG)
     config['loggers']['']['level'] = logging_level.upper()
     config['filters']['moduleFilter']['included_modules'].update(included_modules or dict())
     config['filters']['moduleFilter']['excluded_modules'].update(excluded_modules or dict())
@@ -285,7 +290,45 @@ def set_advanced_logging_config(
         config['handlers']['file_handler']['filename'] = filename
         config['loggers']['']['handlers'].append('file_handler')
     
+    apply_logging_config(config)
+
+
+# The last config applied in this process, kept so that spawn-started workers can
+# be given the same one. `logging.config.dictConfig` is global interpreter state
+# rather than a `GraphRAGConfig` field, so it does not travel in the config
+# snapshot, and a worker that has not had it applied sits at the root logger's
+# default WARNING with no handler but `lastResort`. Anything a component logs at
+# INFO from inside extraction - which is where extraction components run - then
+# goes nowhere at all.
+_applied_logging_config: Optional[Dict] = None
+
+
+def get_applied_logging_config() -> Optional[Dict]:
+    """The logging config applied in this process, or None if none ever was.
+
+    Returns:
+        The `dictConfig` dictionary last passed to `apply_logging_config`, or None
+        if the caller never configured logging - in which case a worker should be
+        left at the interpreter default rather than given one.
+    """
+    return _applied_logging_config
+
+
+def apply_logging_config(config: Optional[Dict]) -> None:
+    """Apply a `dictConfig` dictionary and remember it.
+
+    Args:
+        config: The dictionary to apply. None is a no-op, so that propagating
+            "the parent never configured logging" needs no special case at the
+            call site.
+    """
+    global _applied_logging_config
+
+    if config is None:
+        return
+
     logging.config.dictConfig(config)
+    _applied_logging_config = config
 
 
 def _is_valid_logging_level(level: Union[str, LoggingLevel]) -> bool:
