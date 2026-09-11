@@ -191,13 +191,42 @@ class TestNeptuneAnalyticsGraphStore:
         )
         
         result = store.nodes()
-        
+
         assert isinstance(result, list)
         assert len(result) == 3
         assert 'n1' in result
         assert 'n2' in result
         assert 'n3' in result
-    
+
+    @patch('graphrag_toolkit.byokg_rag.graphstore.neptune.boto3.Session')
+    def test_get_nodes_query_predicate_order_is_deterministic(self, mock_session, mock_neptune_client, mock_s3_client):
+        """get_nodes builds its OR predicates in sorted order, not set-iteration order.
+
+        The property set is iterated straight into the Cypher; without sorted()
+        the query text varies with the hash seed. Results are unaffected (OR
+        commutes) but the query string must be stable run to run.
+        """
+        mock_session_instance = Mock()
+        mock_session.return_value = mock_session_instance
+        mock_session_instance.client.side_effect = lambda service, **kwargs: {
+            'neptune-graph': mock_neptune_client,
+            's3': mock_s3_client
+        }[service]
+
+        mock_neptune_client.execute_query.return_value = {
+            'payload': Mock(read=lambda: json.dumps({'results': []}).encode())
+        }
+
+        store = NeptuneAnalyticsGraphStore(graph_identifier='test-graph-id', region='us-west-2')
+        # distinct properties whose insertion order differs from sorted order
+        store.node_type_to_property_mapping = {'Person': 'name', 'Org': 'title', 'Loc': 'label'}
+
+        store.get_nodes(['n1'])
+
+        query = mock_neptune_client.execute_query.call_args[1]['queryString']
+        positions = [query.index(f'`{prop}`') for prop in ['label', 'name', 'title']]
+        assert positions == sorted(positions), f"predicates not in sorted order: {query}"
+
     @patch('graphrag_toolkit.byokg_rag.graphstore.neptune.boto3.Session')
     def test_neptune_store_get_linker_tasks(self, mock_session, mock_neptune_client, mock_s3_client):
         """Verify get_linker_tasks returns expected task list."""
