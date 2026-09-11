@@ -67,6 +67,7 @@ class BatchLLMPropositionExtractorSync(BatchExtractorBase):
         all_nodes = [node for node in nodes]
 
         extractor = LLMPropositionExtractor(
+            llm=self.llm,
             prompt_template=self.prompt_template, 
             source_metadata_field=self.source_metadata_field
         )
