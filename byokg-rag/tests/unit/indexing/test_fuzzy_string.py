@@ -7,6 +7,10 @@ This module tests fuzzy string matching functionality including
 vocabulary management, exact matching, fuzzy matching, and topk retrieval.
 """
 
+import os
+import subprocess
+import sys
+
 import pytest
 from graphrag_toolkit.byokg_rag.indexing.fuzzy_string import FuzzyStringIndex
 
@@ -59,9 +63,82 @@ class TestFuzzyStringIndexAdd:
     def test_add_with_ids_not_implemented(self):
         """Verify add_with_ids raises NotImplementedError."""
         index = FuzzyStringIndex()
-        
+
         with pytest.raises(NotImplementedError):
             index.add_with_ids(['id1'], ['Amazon'])
+
+    def test_add_vocab_is_sorted(self):
+        """Vocab must be in a stable (sorted) order, not set-iteration order.
+
+        process.extract breaks equal-score ties by vocab position, so a
+        hash-dependent order makes matching nondeterministic across runs.
+        """
+        index = FuzzyStringIndex()
+        index.add(['Microsoft', 'Amazon', 'Google'])
+        index.add(['Apple', 'Amazon'])
+
+        assert index.vocab == sorted(index.vocab)
+        assert index.vocab == ['Amazon', 'Apple', 'Google', 'Microsoft']
+
+
+# Query that ties three candidates at score 100 (thefuzz lowercases before
+# scoring, so the casings are indistinguishable). With topk < 3 the tie must
+# be broken, which is exactly where hash-dependent vocab order used to leak.
+_DETERMINISM_SNIPPET = """
+from graphrag_toolkit.byokg_rag.indexing.fuzzy_string import FuzzyStringIndex
+index = FuzzyStringIndex()
+index.add(['Amazon', 'amazon', 'AMAZON', 'Google', 'Microsoft'])
+hits = index.query('amazon', topk=2)['hits']
+print('|'.join(h['document_id'] for h in hits))
+"""
+
+
+class TestFuzzyStringIndexDeterminism:
+    """Regression tests for run-to-run reproducibility (nondeterminism fix)."""
+
+    def _run_with_hashseed(self, seed):
+        # Inherit the parent env (PATH/VIRTUAL_ENV/PYTHONPATH) so the child can
+        # import the package; only override PYTHONHASHSEED. Replacing the whole
+        # env breaks import resolution in CI.
+        env = {**os.environ, 'PYTHONHASHSEED': str(seed)}
+        out = subprocess.run(
+            [sys.executable, '-c', _DETERMINISM_SNIPPET],
+            capture_output=True, text=True, check=True,
+            env=env,
+        )
+        return out.stdout.strip()
+
+    def test_matching_is_deterministic_across_hash_seeds(self):
+        """Same vocab + query + topk returns identical hits regardless of seed.
+
+        Runs in subprocesses because PYTHONHASHSEED only takes effect at
+        interpreter start; each seed shuffles set() iteration order differently.
+        Pre-fix this returned different candidates per seed among the tie group.
+
+        Note: the child imports the indexing package, which pulls faiss. That's
+        incidental to what we assert (only thefuzz matters here).
+        """
+        results = {self._run_with_hashseed(seed) for seed in range(5)}
+
+        assert len(results) == 1, f"nondeterministic hits across hash seeds: {results}"
+
+    def test_scores_independent_of_insertion_order(self):
+        """The fix only reorders vocab; per-candidate scores must not change.
+
+        Two indexes built with the same items in different insertion order must
+        return identical (document, score) pairs — pins the acceptance criterion
+        that scores are unchanged, only ordering/tie-breaks are made stable.
+        """
+        vocab = ['Amazon', 'Amazonian', 'Amazing', 'Google', 'Meta']
+        a = FuzzyStringIndex()
+        a.add(vocab)
+        b = FuzzyStringIndex()
+        b.add(list(reversed(vocab)))
+
+        hits_a = [(h['document_id'], h['match_score']) for h in a.query('Amazon', topk=5)['hits']]
+        hits_b = [(h['document_id'], h['match_score']) for h in b.query('Amazon', topk=5)['hits']]
+
+        assert hits_a == hits_b
 
 
 class TestFuzzyStringIndexQuery:
