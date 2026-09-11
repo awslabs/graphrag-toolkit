@@ -38,10 +38,30 @@ PYPI_URL = 'https://pypi.org/pypi/{pkg}/json'
 
 
 def latest_version(pkg: str) -> str:
-    """Return the latest (info.version) release of a package on PyPI."""
+    """Return the latest stable, non-yanked release of a package on PyPI.
+
+    `info.version` can point at a pre-release and does not account for yanked
+    releases, so walk `releases` instead: skip pre-releases, versions with no
+    uploaded files, and versions whose files are all yanked, then return the
+    highest remaining version. Falls back to `info.version` only if that filter
+    leaves nothing.
+    """
     with urllib.request.urlopen(PYPI_URL.format(pkg=pkg), timeout=30) as resp:
         data = json.load(resp)
-    return data['info']['version']
+
+    candidates = []
+    for version, files in data.get('releases', {}).items():
+        if not files or all(f.get('yanked') for f in files):
+            continue
+        try:
+            parsed = Version(version)
+        except InvalidVersion:
+            continue
+        if parsed.is_prerelease:
+            continue
+        candidates.append(parsed)
+
+    return str(max(candidates)) if candidates else data['info']['version']
 
 
 def collect_requirements(files):
