@@ -17,7 +17,11 @@ case these tests use.
 
 import pytest
 
+from unittest.mock import Mock
+
+from graphrag_toolkit.lexical_graph.indexing.build.source_graph_builder import SourceGraphBuilder
 from graphrag_toolkit.lexical_graph.indexing.id_generator import IdGenerator
+from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
 
 # md5(TEXT_A) and md5(TEXT_B) agree on their first eight hex characters, a4439cdb.
 TEXT_A = 'document 27347 body text'
@@ -105,6 +109,66 @@ class TestCollisionConsequences:
         })
 
         assert len(doc.nodes) == 2
+
+
+class TestCollisionReachesTheGraph:
+    """
+    The graph half of the defect. `SourceGraphBuilder` MERGEs on the source id,
+    so two documents carrying one id bind one merge key.
+
+    Against a mock, so these observe what the builder sends, not what a store
+    does with it. Whether the nodes actually collapse needs a real graph.
+    """
+
+    @staticmethod
+    def _graph_client():
+        client = Mock(spec=GraphStore)
+        client.node_id = Mock(side_effect=lambda field: field)
+        client.property_assigment_fn = Mock(side_effect=lambda key, value: (lambda x: x))
+        client.execute_query_with_retry = Mock()
+        return client
+
+    @staticmethod
+    def _source_node(text):
+        """A source node carrying the id the pipeline would derive from `text`."""
+        node = Mock()
+        node.metadata = {
+            'source': {
+                'sourceId': source_id_as_configured(text),
+                'metadata': {'file_path': f'{text}.txt'},
+            }
+        }
+        return node
+
+    def _merge_calls(self, *texts):
+        client = self._graph_client()
+        for text in texts:
+            SourceGraphBuilder().build(self._source_node(text), client)
+        return client.execute_query_with_retry.call_args_list
+
+    def test_both_documents_merge_on_one_source_id(self):
+        # The builder binds the id it is given, unchanged, so two documents that
+        # collide bind one key. Fails once the default width is widened, which
+        # is the point; update it then rather than deleting it.
+        calls = self._merge_calls(TEXT_A, TEXT_B)
+
+        assert len(calls) == 2
+        bound = [call[0][1]['params'][0]['sourceId'] for call in calls]
+        assert bound[0] == bound[1]
+
+    def test_the_merge_key_is_the_source_id(self):
+        query = self._merge_calls(TEXT_A)[0][0][0]
+
+        assert 'MERGE (source:`__Source__`{sourceId: params.sourceId})' in query
+
+    def test_their_differing_metadata_lands_on_the_one_node(self):
+        # Both builds set metadata under one key, and the query overwrites on
+        # match. Which document's metadata survives is the store's to decide.
+        calls = self._merge_calls(TEXT_A, TEXT_B)
+
+        paths = [call[0][1]['params'][0]['file_path'] for call in calls]
+        assert paths[0] != paths[1]
+        assert 'ON MATCH SET' in calls[1][0][0]
 
 
 @pytest.mark.xfail(
