@@ -73,7 +73,7 @@ class EntityLinker(Linker):
         self.retriever = retriever
         self.topk = topk
 
-    def link(self, query_extracted_entities, retriever=None, topk=None, id_selector=None, return_dict=True):
+    def link(self, query_extracted_entities, retriever=None, topk=None, return_dict=True):
         """
         Process to link the given or extracted query entities to graph entities.
 
@@ -82,7 +82,6 @@ class EntityLinker(Linker):
             retriever: A retriever object to use for entity lookup.
                 If None, the default retriever configured for this instance will be used.
             topk: The number of items to return per extracted entity
-            id_selector: A list of ids to retrieve the topk from (allowlist)
             return_dict: Whether to return a dictionary of linking results or linked entities only
 
         Returns:
@@ -112,3 +111,43 @@ class EntityLinker(Linker):
             for res in results:
                 parsed_results.append(res['document_id'])
             return parsed_results
+
+    def link_grouped(self, query_extracted_entities, retriever=None, topk=None):
+        """
+        Link mentions to candidate nodes, keeping candidates grouped per mention.
+
+        Unlike ``link``, which routes through the entity matcher and flattens and
+        globally sorts hits across all mentions, this queries the index once per
+        mention so the caller can tell which candidate came from which mention
+        (e.g. to keep only the best match per mention).
+
+        Args:
+            query_extracted_entities: List of mention strings to link
+            retriever: A retriever object to use for entity lookup.
+                If None, the default retriever configured for this instance is used.
+            topk: The number of candidates to return per mention
+
+        Returns:
+            List[List[str]]: one best-first list of candidate node ids per mention,
+                in the same order as ``query_extracted_entities``.
+        """
+        if retriever is None:
+            retriever = self.retriever
+        if retriever is None:
+            raise ValueError("Error: Either 'retriever' or 'self.retriever' must be provided")
+        if topk is None:
+            topk = self.topk
+
+        # Query the index per mention (not the matcher, which flattens across
+        # mentions) so attribution is preserved.
+        index = getattr(retriever, "index", None)
+        if index is None:
+            raise AttributeError(
+                "link_grouped requires an index-backed retriever (retriever.index is None)"
+            )
+
+        grouped = []
+        for mention in query_extracted_entities:
+            hits = index.query(mention, topk)["hits"]
+            grouped.append([hit["document_id"] for hit in hits])
+        return grouped
