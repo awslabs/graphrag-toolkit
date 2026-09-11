@@ -43,19 +43,30 @@ class OpenSearchVectorIndexFactory(VectorIndexFactoryMethod):
                 names and endpoint configuration, or None if no suitable endpoint is found.
         """
         endpoint = None
+        is_sigv4_auth = True
         if vector_index_info.startswith(OPENSEARCH_SERVERLESS):
             endpoint = vector_index_info[len(OPENSEARCH_SERVERLESS):]
+            if not endpoint:
+                raise ValueError(f'Empty endpoint in OpenSearch Serverless vector store connection info: {vector_index_info}')
             if not endpoint.startswith('https://') and not endpoint.startswith('http://'):
                 endpoint = f'https://{endpoint}'
         elif vector_index_info.startswith('https://') and vector_index_info.endswith(OPENSEARCH_SERVERLESS_DNS):
             endpoint = vector_index_info
+        elif vector_index_info.startswith('https://') or vector_index_info.startswith('http://'):
+            # Any other http(s) endpoint is a self-managed (non-AOSS) OpenSearch cluster,
+            # so no prefix is required; aoss:// and bare AOSS domains are handled above.
+            endpoint = vector_index_info
+            is_sigv4_auth = False
         if endpoint:
+            # is_sigv4_auth is derived from the connection-string scheme above; drop any
+            # caller-supplied duplicate so it doesn't collide with the keyword below.
+            kwargs.pop('is_sigv4_auth', None)
             try:
                 from graphrag_toolkit.lexical_graph.storage.vector.opensearch_vector_indexes import OpenSearchIndex
-                logger.debug(f'Opening OpenSearch vector indexes [index_names: {index_names}, endpoint: {endpoint}]')
-                return [OpenSearchIndex.for_index(index_name, endpoint, **kwargs) for index_name in index_names]
+                logger.debug(f'Opening OpenSearch vector indexes [index_names: {index_names}, endpoint: {endpoint}, is_sigv4_auth: {is_sigv4_auth}]')
+                return [OpenSearchIndex.for_index(index_name, endpoint, is_sigv4_auth=is_sigv4_auth, **kwargs) for index_name in index_names]
             except ImportError as e:
                 raise e
-                  
+
         else:
             return None
