@@ -1,0 +1,14 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+#
+# An rdfs:domain naming an undeclared class. Left unchecked
+# this makes the property unusable - no emitted fact can ever satisfy a domain
+# no entity can be classified into.
+
+@prefix :     <http://example.com/broken#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:Company a owl:Class .
+
+:worksFor a owl:ObjectProperty ; rdfs:domain :Employee ; rdfs:range :Company .

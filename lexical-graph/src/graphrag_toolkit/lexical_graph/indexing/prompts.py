@@ -1,6 +1,8 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
+import re
+
 EXTRACT_PROPOSITIONS_PROMPT = """
 You are a top-tier algorithm designed for extracting information in structured formats to build a knowledge graph. Your task is to decompose the given text into clear, concise, and context-independent propositions.
 
@@ -230,3 +232,84 @@ Classification2
 Classification3
 </entity_classifications>
 """
+
+# --- Composing an ontology's vocabulary into a prompt -------------------------
+#
+# The extraction prompts above carry no {ontology_constraints} placeholder, and
+# they are not going to get one. A placeholder cannot be invisible when there is
+# nothing to substitute: rendering '' into it still leaves a blank line, which
+# changes the prompt text - and therefore the LLMCache key, which is derived
+# from prompt.format(**args) - for every user who has never configured an
+# ontology. So the vocabulary block is composed into the template instead, and
+# only when there is a block to compose, which makes the no-ontology path
+# byte-identical by construction rather than by whitespace bookkeeping.
+
+ONTOLOGY_CONSTRAINTS_PLACEHOLDER = '{ontology_constraints}'
+
+# Where the block goes in each shipped template, and the string that says so.
+# The topics anchor is the final admonition, so the vocabulary lands after the
+# instructions it qualifies and before the propositions payload; the
+# propositions anchor is the equivalent line in that prompt. Both are documented
+# insertion points rather than incidental matches: a custom template that keeps
+# either line inherits the same placement.
+EXTRACT_TOPICS_ANCHOR = 'Adhere strictly to the provided instructions.'
+
+EXTRACT_PROPOSITIONS_ANCHOR = (
+    'Do not provide any other explanatory text. Ensure you have captured all of '
+    'the details from the text in your response.'
+)
+
+ONTOLOGY_CONSTRAINT_ANCHORS = (EXTRACT_TOPICS_ANCHOR, EXTRACT_PROPOSITIONS_ANCHOR)
+
+_FORMAT_FIELD = re.compile(r'\{([A-Za-z_][A-Za-z0-9_.]*)\}')
+
+def _neutralize_format_fields(text:str) -> str:
+    """Stop a brace group in inserted text being read as a prompt argument.
+
+    The composed template is rendered by `PromptTemplate.format`, which is not
+    `str.format`: llama-index substitutes with a regex over `{name}` and leaves
+    anything it has no argument for exactly as it found it. So a brace arriving
+    from the ontology - an `rdfs:comment` mentioning JSON, say - is already
+    harmless, and `{{` is not an escape sequence here; doubling braces would
+    only put literal `{{` in front of the model.
+
+    The one case that does bite is a comment whose brace group happens to name a
+    prompt argument, `{text}` above all: that would silently substitute the
+    chunk into the middle of the vocabulary block, with nothing raised and
+    nothing logged. Padding the group - `{text}` becomes `{ text }` - takes the
+    name out of the renderer's reach while still reading as what the ontology
+    said. Only identifier-shaped groups are touched, so prose and JSON examples
+    survive unchanged.
+    """
+    return _FORMAT_FIELD.sub(lambda match: f'{{ {match.group(1)} }}', text)
+
+def with_ontology_constraints(template:str, constraints:str) -> str:
+    """Insert a rendered ontology constraint block into a prompt template.
+
+    Args:
+        template: The prompt template, shipped or custom.
+        constraints: The rendered block, or `''` when no ontology is configured
+            or its `ontology_authority` is `'off'`.
+
+    Returns:
+        `template` itself - the same object, not a copy - when `constraints` is
+        empty. Otherwise a new template with the block inserted at the first of:
+        an `{ontology_constraints}` placeholder, in which case a custom template
+        has chosen its own insertion point; the documented anchor for whichever
+        shipped prompt this is; or the end, so that a custom template which
+        matches neither still receives the vocabulary rather than silently
+        dropping it.
+    """
+    if not constraints:
+        return template
+
+    block = _neutralize_format_fields(constraints)
+
+    if ONTOLOGY_CONSTRAINTS_PLACEHOLDER in template:
+        return template.replace(ONTOLOGY_CONSTRAINTS_PLACEHOLDER, block)
+
+    for anchor in ONTOLOGY_CONSTRAINT_ANCHORS:
+        if anchor in template:
+            return template.replace(anchor, f'{block}\n\n{anchor}', 1)
+
+    return f'{template}\n\n{block}'

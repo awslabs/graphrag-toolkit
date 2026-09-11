@@ -130,6 +130,7 @@ class TestBuildPipelineMonitor:
         pipeline.batch_write_size = 10
         pipeline.include_domain_labels = False
         pipeline.include_local_entities = False
+        pipeline.typed_properties = 'off'
         pipeline.node_builders = MagicMock()
         pipeline.node_builders.return_value = []
         pipeline.node_filter = MagicMock(return_value=[])

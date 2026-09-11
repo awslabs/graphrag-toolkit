@@ -1,0 +1,15 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+#
+# A datatype property whose rdfs:range is not an XSD datatype.
+# There is nothing to coerce a literal to, and nothing to name in the prompt's
+# attribute section.
+
+@prefix :     <http://example.com/broken#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:Company a owl:Class .
+
+:foundedYear a owl:DatatypeProperty ;
+             rdfs:domain :Company ; rdfs:range <http://example.com/broken#Year> .

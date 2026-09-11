@@ -1,0 +1,577 @@
+---
+title: Ontology-Guided Extraction
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+### Topics
+
+  - [Overview](#overview)
+  - [Ontology authority: how much say the ontology has](#ontology-authority-how-much-say-the-ontology-has)
+    - [Reading `report_violations`](#reading-report_violations)
+  - [Quick start](#quick-start)
+  - [Vocabulary format](#vocabulary-format)
+  - [Writing an ontology](#writing-an-ontology)
+    - [Authored names](#authored-names)
+  - [What the ontology does, and what it does not](#what-the-ontology-does-and-what-it-does-not)
+    - [Naming folds conventions; it does not map meaning](#naming-folds-conventions-it-does-not-map-meaning)
+    - [Enforcement checks shape, never meaning](#enforcement-checks-shape-never-meaning)
+  - [Typed attribute values](#typed-attribute-values)
+    - [Placements](#placements)
+    - [What lands on a node](#what-lands-on-a-node)
+    - [Coercion, and what happens when it refuses](#coercion-and-what-happens-when-it-refuses)
+  - [Who reads typed properties](#who-reads-typed-properties)
+    - [Confirming your properties are visible](#confirming-your-properties-are-visible)
+    - [Two consumption paths](#two-consumption-paths)
+  - [Operational notes](#operational-notes)
+    - [Annotations are frozen at extraction](#annotations-are-frozen-at-extraction)
+    - [Enabling an ontology is a re-index boundary](#enabling-an-ontology-is-a-re-index-boundary)
+    - [Subject-mode values are last-write-win](#subject-mode-values-are-last-write-win)
+
+### Overview
+
+Extraction is, by default, *lightly* guided: the LLM is seeded with a list of preferred
+entity classifications and asked to prefer them, and relationship values are unguided
+altogether (see [Indexing](/graphrag-toolkit/lexical-graph/indexing/#extract)). That keeps
+recall high, but it can produce a graph in which the same idea is named several ways —
+`Company` and `CORPORATION`, `WORKS_FOR` and `EMPLOYED BY`.
+
+Ontology-guided extraction lets you supply an OWL/RDFS ontology to guide the vocabulary. An
+ontology declares the entity types you want, the relationships permitted between them, and
+the attributes they carry — see [Writing an ontology](#writing-an-ontology). It then does two
+things:
+
+  1. its classes and properties, with their comments, are rendered into the extraction
+     prompt, so the LLM is told the vocabulary rather than left to invent one; and
+  2. after extraction, a deterministic filter resolves each extracted name against the
+     ontology and — depending on how much authority you give it — rewrites it to the
+     declared spelling, or drops what does not conform.
+
+Optionally, values of declared *datatype* properties are coerced to their declared XSD
+type and written onto entity nodes as native graph properties, which allows for direct querying and comparison
+such as adding a `WHERE c.foundedYear < 2000` clause to a query.
+
+The aim is **consistency, not correctness**: the ontology makes the graph name things one
+way. It does not make the extraction true. See
+[What the ontology does, and what it does not](#what-the-ontology-does-and-what-it-does-not).
+
+### Ontology authority: how much say the ontology has
+
+`ontology_authority` is a single knob: how much say the ontology has over what ends up in
+the graph. Two questions decide it — what happens to a concept the ontology declares, and
+what happens to one it does not:
+
+| Level | Concept **matches** something in the ontology | Concept is **not in** the ontology |
+|---|---|---|
+| `'off'` | left exactly as the model emitted it | left exactly as the model emitted it |
+| `'align'` | **stored under the ontology's name** | kept, under the model's own name |
+| `'strict'` | stored under the ontology's name | **excluded** |
+
+So `align` governs *naming*, and `strict` governs *membership*.
+
+**`align` is the level to start at**, and it is the default. It is the setting whose
+downside is bounded: the worst case is that some names are not folded, which is where you
+started. `strict` is not "align, but tidier" — on a corpus wider than the ontology it
+removes a large share of the extraction, by design. That is the right behaviour when the
+ontology *is* the specification of what belongs in the graph, and the wrong one when it is
+a vocabulary covering part of a broader corpus. There is no way to predict how much it
+would remove without running it: the level changes the prompt as well as the gates, so the
+model emits a different population before any gate sees it.
+
+`'off'` is useful in one specific combination: with an explicit dimension override, or with
+`typed_properties` alone, when you want datatype coercion without the ontology saying
+anything about naming.
+
+Underneath, the level resolves to six independent dimensions, each of which you can also
+set on its own:
+
+| Dimension | `'off'` | `'align'` | `'strict'` | What it does |
+|---|---|---|---|---|
+| `normalize_names` | `False` | `True` | `True` | Rewrite a resolved name to the ontology's authored spelling |
+| `drop_type_restatements` | `False` | `True` | `True` | Drop a fact that carries ontology language rather than a statement about the world |
+| `enforce_entity_types` | `False` | `False` | `True` | Drop a fact whose entity classification does not resolve |
+| `enforce_relationship_types` | `False` | `False` | `True` | Drop a fact whose predicate does not resolve |
+| `enforce_domain_range` | `False` | `False` | `True` | Drop a fact violating a declared `rdfs:domain` / `rdfs:range` |
+| `enforce_datatypes` | `False` | `False` | `True` | Drop a fact whose literal does not parse as its declared XSD datatype |
+
+If every dimension resolves to `False` and `typed_properties` is `'off'`, the filter is not
+added to the extraction pipeline at all.
+
+`drop_type_restatements` is the one row that does not follow "`align` names, `strict`
+excludes": it drops, and it is on at `align`. What it drops is narrow enough to be worth
+stating precisely, because "`align` keeps what the ontology does not declare" is otherwise
+an exact promise:
+
+- a predicate that is ontology *language* — `rdf:type`, `rdfs:subClassOf`, `owl:sameAs`.
+  The prefix is required, so an attribute named `DOMAIN` or `RANGE` is untouched;
+- a type-asserting predicate whose value repeats the subject's own classification —
+  `Meridian Freight [Company] |TYPE| Company`. This is a duplicate of the entity's class,
+  which the graph already records, so removing it loses nothing.
+
+Both conditions are skipped for a predicate your ontology declares: if you declare a
+`classification` property, it means what you said it means. And the second condition needs
+the value to match — `Riverside Rovers [Sports Team] |CLASSIFICATION| football club` is kept,
+because it says something the classification does not.
+
+This exists because `vocabulary_format='turtle'` (below) makes models restate class
+membership as a fact, and `align` has no other gate that would catch it. Set it to `False`
+if you want those facts in your graph.
+
+#### Reading `report_violations`
+
+`report_violations` logs what the filter did, at INFO: per-dimension counts of names
+rewritten and facts dropped. It is a record of the filter's actions, and not a measure of
+how far your corpus diverges from your ontology. At `align` the four `enforce_*` counts are
+structurally zero, because those dimensions are off. At `strict` they are low for a
+different reason: the prompt has already told the model that unlisted concepts are
+discarded, so what reaches a gate is only the remainder that ignored the instruction.
+
+Counts accumulate per node batch, and each line states the number of nodes it covers, so
+lines add up and no single line is the total for a run.
+
+<Aside type="caution" title="Read these before you enable an ontology">
+  - **`align` is the recommended starting level.** It is also the default. `strict`
+    *discards* everything the ontology does not declare, which on a corpus wider than the
+    ontology can be very lossy.
+  - **`'subject'` is the recommended `typed_properties` placement**, and the only one that
+    works without `include_local_entities`.
+  - **Complement-mode values describe the value string, not the assertion.** Complement
+    nodes are keyed by the value text, so `'41500000'` is one node however many companies
+    report that revenue. `typed_value` on it means "this string is this number", not
+    "Company X's revenue is this number" — to know whose value it is you have to traverse
+    the fact. That is the main reason `'subject'` is recommended.
+  - **Enabling an ontology is a re-index boundary.** `normalize_names` can change
+    `entity.class`, and `include_classification_in_entity_id` defaults to `True`, so
+    entity ids change and the new extraction will not merge with the old one.
+  - **Subject-mode typed values are last-write-win across chunks.** The last chunk
+    processed for an entity sets the property; there is no reconciliation.
+  - **`lexical-graph`'s retrievers do not currently read typed properties.** They are for
+    structured consumers — see [Who reads typed properties](#who-reads-typed-properties).
+</Aside>
+
+### Quick start
+
+Pass an ontology to `ExtractionConfig`. Any source `Ontology.load` accepts will do,
+including a bare path:
+
+```python
+from graphrag_toolkit.lexical_graph import (
+    ExtractionConfig, IndexingConfig, LexicalGraphIndex
+)
+
+graph_index = LexicalGraphIndex(
+    graph_store,
+    vector_store,
+    indexing_config=IndexingConfig(
+        extraction=ExtractionConfig(ontology='ontologies/news.ttl')
+    )
+)
+```
+
+That gives you the defaults: `ontology_authority='align'`, `typed_properties='off'`. For anything
+beyond the defaults, pass an `OntologyConfig`:
+
+```python
+from graphrag_toolkit.lexical_graph.indexing.extract.ontology import OntologyConfig
+
+ontology = OntologyConfig(
+    'ontologies/news.ttl',
+    ontology_authority='align',  # 'off' | 'align' | 'strict'
+    typed_properties='subject',  # 'off' | 'subject' | 'complement' | 'both'
+    report_violations=True,      # log what the filter rewrote and dropped, at INFO
+)
+
+graph_index = LexicalGraphIndex(
+    graph_store,
+    vector_store,
+    indexing_config=IndexingConfig(extraction=ExtractionConfig(ontology=ontology))
+)
+```
+
+`OntologyConfig` has the following parameters:
+
+| Parameter | Description | Default Value |
+| ------------- | ------------- | ------------- |
+| `ontology` | The ontology. Accepts an `Ontology`, an `rdflib.Graph`, or a path (`str` or `Path`) to a `.ttl` file. | *required* |
+| `ontology_authority` | How much authority the ontology has: `'off'`, `'align'` or `'strict'`. See [Ontology authority](#ontology-authority-how-much-say-the-ontology-has). | `'align'` |
+| `normalize_names` | Override for the level. `None` follows `ontology_authority`. | `None` |
+| `drop_type_restatements` | Override for the level. On at `align` and `strict`; set `False` to keep facts that restate an entity's own class. | `None` |
+| `enforce_entity_types` | Override for the level. | `None` |
+| `enforce_relationship_types` | Override for the level. | `None` |
+| `enforce_domain_range` | Override for the level. | `None` |
+| `enforce_datatypes` | Override for the level. | `None` |
+| `report_violations` | Log per-dimension counts of what this filter call rewrote and dropped, at INFO, per node batch. A record of the filter's actions, not of how far the corpus diverges from the ontology — see [Reading `report_violations`](#reading-report_violations). | `False` |
+| `typed_properties` | Where a coerced attribute value is written: `'off'`, `'subject'`, `'complement'` or `'both'`. See [Typed attribute values](#typed-attribute-values). | `'off'` |
+| `vocabulary_format` | How the vocabulary is written into the prompt: `'prose'` renders three labelled sections, `'turtle'` shows the ontology's own source. See [Vocabulary format](#vocabulary-format). | `'prose'` |
+
+An overriding dimension is honoured whatever the level says, so
+`OntologyConfig('news.ttl', ontology_authority='off', enforce_datatypes=True)` — say nothing in
+the prompt, but still coerce declared datatypes — is expressible and is not treated as a
+contradiction.
+
+The ontology's class names seed the preferred entity classifications, so
+`infer_entity_classifications` composes with an ontology: inference adds the domain terms
+the ontology does not declare, which is exactly what `align` permits. The one combination
+that is refused is `InferClassificationsConfig(replace_default_classifications=True)`
+alongside an ontology, which asks for the ontology's own vocabulary to be discarded before
+the model sees it; that raises `ValueError` rather than picking a half to honour.
+
+### Vocabulary format
+
+`vocabulary_format` chooses how the vocabulary is written down for the model, which is a
+separate question from how much authority it has.
+
+`'prose'`, the default, generates three labelled sections from the ontology — one for entity
+types, one for relationships, one for attributes. Each section states the output channel it
+belongs to, the class hierarchy is shown as indentation, and XSD ranges are written in plain
+language (`integer`, `true/false`, `date`) rather than as IRIs.
+
+`'turtle'` shows the ontology's own source instead, so `rdfs:subClassOf`, `rdfs:domain` and
+`rdfs:range` are stated formally rather than paraphrased. OWL and RDFS are notations the
+models have read a great deal of, and an entailment that indentation only implies is written
+out. What it gives up is the separation the prose sections make explicit: Turtle interleaves
+object and datatype properties in whatever order you authored them, so nothing in the block
+says which output channel a term belongs to except a sentence in the header. It also makes
+the prompt longer, on every chunk — by how much depends entirely on your ontology.
+
+One behaviour worth knowing if you try `'turtle'`: showing the model type triples makes it
+more likely to emit an entity's own class back as an attribute — `Meridian Freight [Company]
+|TYPE| Company`. `drop_type_restatements` is on from `align` upwards and removes those, so the
+combination is usable, but it is the reason that dimension exists.
+
+The setting applies to the extraction call that produces entities, relationships and
+attributes, which is the one given the full vocabulary. Proposition extraction, which runs
+first when it is enabled (see
+[Indexing](/graphrag-toolkit/lexical-graph/indexing/#extract)), is given the class names alone
+whichever format you choose.
+
+### Writing an ontology
+
+A worked example, commented throughout with the reason for each choice, ships at
+[`examples/lexical-graph/ontologies/news.ttl`](https://github.com/awslabs/graphrag-toolkit/blob/main/examples/lexical-graph/ontologies/news.ttl).
+Start from it rather than from an empty file.
+
+Turtle (`.ttl`) is the only file format read from a path. Any other RDF serialization is
+supported by parsing it with `rdflib` and passing the resulting graph.
+
+The toolkit reads four kinds of declaration:
+
+  - **`owl:Class`** — an entity classification. `rdfs:subClassOf` is respected, so a range
+    declared as `:Company` admits a `:SportsTeam` that is declared a subclass of it.
+  - **`owl:ObjectProperty`** — a relationship between two entities, with optional
+    `rdfs:domain` and `rdfs:range`.
+  - **`owl:DatatypeProperty`** — an attribute of one entity, whose `rdfs:range` is an XSD
+    datatype. These are what [typed values](#typed-attribute-values) are written from.
+  - **`skos:altLabel`** — an alternative phrasing that *maps onto* a term. Alt labels are
+    input only: they are never stored, they are how a model's wording finds its way to the
+    term you want.
+
+`rdfs:comment` is not decoration. It is rendered into the extraction prompt, and it is the
+only place you can tell the model what a term means. A term with no comment is a bare name
+the model has to guess at.
+
+#### Authored names
+
+Matched concepts are stored under the ontology's own names, **spelled exactly as you
+authored them**: a term's `rdfs:label` if it has one, and its IRI local name otherwise.
+Label `:SportsTeam` as `"Sports Team"` and entities of that class are stored with
+`class = 'Sports Team'`; drop the label and they are stored as `SportsTeam`. Pick the
+spelling you want to read back out of the graph and put it in the label.
+
+How the ontology is rendered into the extraction prompt is a separate matter, and an
+**internal detail** — the section layout, the ordering, and the wording may change between
+releases. It does not affect what is stored. What is stable is the contract above: labels
+if present, local names otherwise, and comments reach the model.
+
+One exception matters if you use `typed_properties`: the *property key* written to a node
+comes from the IRI local name, never from the label. Labelling `:revenue` as
+`"Annual Revenue"` gives a fact predicate reading `Annual Revenue` and a node property still
+keyed `revenue`. Label each datatype property to match its local name unless you want that
+split deliberately; classes and object properties are unaffected, because nothing keys a
+graph property from them.
+
+### What the ontology does, and what it does not
+
+The work is split between the LLM and the deterministic filter, and the split is sharper
+than it first looks:
+
+  - **The LLM decides which concept a phrase means.** That is the whole of the semantic
+    work. If a passage says an executive "was brought on board by" a company, only the
+    model can decide that this is employment.
+  - **The filter does the rest, and only the rest**: folding naming conventions on terms
+    that *already resolve*, coercing literals to declared datatypes, and — at `strict` —
+    checking conformance.
+
+Set expectations accordingly. The ontology raises the ceiling on **consistency**, not on
+**correctness**. Extraction quality still rests on the model and the prompt.
+
+Canonicalization also has a bounded reach: it rewrites entity classifications, fact
+predicates and typed values, and never the topic or statement text, which is stored as the
+model phrased it.
+
+#### Naming folds conventions; it does not map meaning
+
+`normalize_names` resolves an extracted name by folding it to a convention-free key —
+splitting camelCase, turning underscores into spaces, lowercasing, collapsing whitespace —
+and looking that key up, `skos:altLabel`s included. It does not reason about meaning:
+
+```
+LLM emits "WORKS FOR"   ->  folds to "works for"  ->  :worksFor  ->  stored as worksFor   ✓
+LLM emits "Works_For"   ->  folds to "works for"  ->  :worksFor  ->  stored as worksFor   ✓
+LLM emits "EMPLOYED BY" ->  matches skos:altLabel ->  :worksFor  ->  stored as worksFor   ✓
+LLM emits "HIRED BY"    ->  folds to "hired by"   ->  no match   ->  left as "HIRED BY"   ✗
+```
+
+That last line is the important one. **An unresolved predicate is never mapped.** Nothing
+downstream rescues it: `normalize_names` will not rename `HIRED BY` to `worksFor`, because
+as far as resolution is concerned those are unrelated strings. Under `align` the fact
+passes through under its own predicate; under `strict` it is discarded. Either way the
+ontology term is not applied.
+
+This is why the prompt block is the load-bearing part of the feature, and why a spread of
+`HIRED BY` / `JOINED` / `worksFor` in your graph is a prompt-wording problem rather than
+something a resolver could fix. `skos:altLabel` is the one lever for widening the
+deterministic reach, and it is best spent on in-house jargon a model could not reasonably
+guess — not on ordinary paraphrase, which is the model's job.
+
+#### Enforcement checks shape, never meaning
+
+The converse limitation matters just as much: **the filter cannot tell a wrong mapping from
+a right one.** If the model decides "acquired a stake in" is `worksFor`, the filter
+resolves it, rewrites it to the canonical name, annotates it, and — if the subject and
+object classes happen to satisfy `rdfs:domain` and `rdfs:range` — passes it through
+`strict` enforcement as a conforming fact.
+
+So a confident semantic error survives, and arrives looking well-typed. Do not read a
+`strict` build as a validated one; read it as a build in which everything present has the
+declared *shape*.
+
+### Typed attribute values
+
+By default, an attribute value reaches the graph as a string, like every other extracted
+value. `typed_properties` additionally coerces the value of a *declared datatype property*
+to its declared XSD type and writes it as a native graph property, so it can be compared,
+sorted and range-queried.
+
+Given:
+
+```turtle
+:foundedYear a owl:DatatypeProperty ;
+             rdfs:label "foundedYear" ;
+             rdfs:domain :Company ; rdfs:range xsd:integer ;
+             rdfs:comment "The four-digit year the company was founded." .
+```
+
+and `typed_properties='subject'`, a company entity carries an integer `foundedYear`:
+
+```cypher
+MATCH (c:`__Entity__`)
+WHERE c.class = 'Company' AND c.foundedYear < 2000
+RETURN c.value, c.foundedYear
+```
+
+<Aside type="note" title="How xsd:date lands depends on the property name">
+  Coercion always produces an ISO-8601 **string** for `xsd:date`, so quote the bound in a
+  range query: `WHERE c.incorporatedOn >= '2016-01-01'`. ISO-8601 sorts and compares
+  correctly as a string.
+
+  Whether it *stays* a string depends on the property name and the store. On Neptune the
+  assignment goes through the store's property-assignment function, which wraps the value in
+  `datetime(...)` when the property **name** matches
+  `GraphRAGConfig.metadata_datetime_suffixes` (default `['_date', '_datetime']`). So a
+  declared property named `founded_date` lands as a native temporal and wants an unquoted
+  `datetime(...)` bound, where `foundedOn` stays a string. Name date properties
+  consistently, and check one against `pg_schema()` before writing queries over them.
+</Aside>
+
+#### Placements
+
+`typed_properties` says *where* the coerced value is written. It is deliberately not folded
+into `ontology_authority`, because asking for `align` is asking about naming and is not thereby
+asking for new properties on your nodes.
+
+With no ontology configured at all, none of this reaches your graph: no filter is added to
+the extraction pipeline, `typed_properties` resolves to `'off'` and cannot be set by an
+environment variable, and both the emitted graph queries and the extraction prompts are
+byte-identical to a build from before the feature existed.
+
+| Placement | Where the value is written | Needs `include_local_entities` |
+| ------------- | ------------- | ------------- |
+| `'off'` | Nowhere. The graph is byte-identical to a build without an ontology. | — |
+| `'subject'` | On the **subject** `__Entity__`, keyed by the property's own local name. | No |
+| `'complement'` | On the **complement** entity, as `typed_value` and `datatype`. | **Yes** |
+| `'both'` | Each of the above, to its own node. Not a fallback chain. | **Yes** |
+
+**`'subject'` is the recommended placement**, and the only one that works without
+`include_local_entities`. It is also the one that answers the question typed properties
+exist for — "which companies were founded before 2000" — because the value is on the entity
+that has it. Complement entities are created only when `include_local_entities` is on (it
+defaults to `False` — see the `BuildConfig` parameters in
+[Indexing](/graphrag-toolkit/lexical-graph/indexing/#configuring-the-extract-and-build-stages)),
+and the typed write is made from inside the branch that creates the node: it will not
+conjure a node the setting would have suppressed. Asking for `'complement'` or `'both'` with
+`include_local_entities` off is refused with a `ValueError` when the build pipeline is
+configured, rather than silently writing nothing.
+
+An ontology whose vocabulary would collide with the graph model is refused at
+configuration time rather than at build time: `__Entity__` owns `value`, `search_str` and
+`class`, and complement placement additionally owns `typed_value` and `datatype`. A
+declared datatype property with one of those names raises `ValueError` from
+`OntologyConfig`, scoped to the placement you actually asked for.
+
+#### What lands on a node
+
+The typed write is **additive**. The string `value` stays exactly where it was; nothing is
+replaced, renamed or removed, and the `__Fact__` node and its `__SUBJECT__` / `__OBJECT__`
+edges are created exactly as they would have been.
+
+At `'subject'`:
+
+```
+(:__Entity__ {entityId: '…', value: 'Halcyon Motors', class: 'Company',
+              search_str: 'halcyon motors', foundedYear: 1971})
+```
+
+At `'complement'`, on the entity created for the value string itself:
+
+```
+(:__Entity__ {entityId: '…', value: '1971', class: '__Local_Entity__',
+              typed_value: 1971, datatype: 'http://www.w3.org/2001/XMLSchema#integer'})
+```
+
+<Aside type="caution" title="Complement-mode values describe the value, not the assertion">
+  Read the second shape carefully. `typed_value` and `datatype` are properties **of the
+  value string** `'1971'`, on the node that node exists to represent. They say "this
+  literal, read as an integer, is 1971". They do *not* say which entity has that founded
+  year, or which property it was asserted under — the subject and the predicate are on the
+  `__Fact__`, not here, and a rewritten complement node may be shared by facts from
+  different subjects.
+
+  If what you want is "this company was founded in 1971 and I can filter on it", that is
+  `'subject'`.
+</Aside>
+
+#### Coercion, and what happens when it refuses
+
+Coercion parses the literal as its declared range. It handles lexical variation on a value
+that has already been stated — digit grouping (`'1,994'` → `1994`), a named month
+(`'March 3rd 2020'` → `'2020-03-03'`).
+
+It does *not* guess at readings of the text. `'$1.2bn'` under `xsd:double` is **refused**,
+and so is `'publicly listed'` under `xsd:boolean`. Inferring those is the extractor's job;
+a coercer that guessed would be inventing data under the authority of a declared type.
+
+A refusal is lossless at `align`: no typed property is written, the fact and its string
+value are still in the graph, and you can see the literal that would not parse. The usual
+casualty is a currency amount — the fix is a `rdfs:comment` on the property telling the
+model to state a bare number, as `news.ttl` does for `:revenue`.
+
+At `'strict'`, `enforce_datatypes` is on and the fact is **dropped** rather than kept
+untyped. Refusal is lossless at `align`; it is not at `strict`.
+
+### Who reads typed properties
+
+<Aside type="caution" title="lexical-graph's own retrievers do not read them yet">
+  Do not expect `TraversalBasedBaseRetriever` or `EntityProvider` to filter, sort or project
+  on a typed property. Typed properties are for the structured consumers below.
+</Aside>
+
+The consumers typed properties exist for today are:
+
+  - **BYOKG-RAG's schema-grounded openCypher generation.** `ByoKGQueryEngine` reads the
+    graph's schema and threads it into every generation prompt, and the Cypher linker's
+    prompt instructs the model to use only the node types, relationship types and
+    **properties** in that schema — and to handle filtering, aggregation and sorting. A
+    typed property that appears in the schema is a property the generated query can filter
+    on.
+  - **The context ontology accelerator.**
+  - **Direct Cypher** from notebooks or analytics tooling, where you write the query
+    yourself.
+
+Entity-scoped filtering and typed-property projection inside `lexical-graph`'s retrievers
+are intended follow-ons.
+
+#### Confirming your properties are visible
+
+On Neptune Analytics, this is the cheapest end-to-end check that the feature has a working
+consumer — it is the same call BYOKG-RAG makes to discover the schema:
+
+```cypher
+CALL neptune.graph.pg_schema()
+YIELD schema
+RETURN schema
+```
+
+Your declared property names should appear under
+`nodeLabelDetails["__Entity__"]["properties"]`. If they do not, nothing was written — check
+that `typed_properties` is not `'off'`, that the predicates actually resolved to declared
+datatype properties, and (for `'complement'`) that `include_local_entities` is on.
+
+#### Two consumption paths
+
+The cost of a mis-mapped predicate depends entirely on who is consuming the graph, and the
+two cases are very different. This is a description of **current behaviour**, and each half
+of it rests on a named default:
+
+*Within `lexical-graph`'s own RAG loop, the source text is the guard.* `include_facts`
+defaults to `False`, so statements are emitted without their fact strings, and `ClearChunks`
+is one of the default formatting processors, so chunk text is emptied. What reaches the
+answering model is the statement — proposition text, which the proposition prompt instructs
+to preserve the original phrasing. So by default the answering model never sees a predicate
+label, an entity classification, or a fact string at all. Relationship labels are a
+*retrieval* mechanism here, not an assertion the answer rests on: a wrong `worksFor` cannot
+fabricate a claim in the answer, but it does change traversal and scoring, so its cost is
+retrieval precision and recall. (With `include_facts=True`, fact strings appear beside the
+proposition they came from, and the model can weigh the label against its own grounding.)
+
+*For the structured consumers, there is no text guard.* BYOKG-RAG generating openCypher,
+the context ontology accelerator, and direct Cypher all consume the structure **as truth**
+— there is no proposition alongside it to fall back on. For them a wrong predicate is a
+wrong answer.
+
+`include_facts=False` and `ClearChunks` are configuration defaults rather than design
+intent. If facts, canonical class names or typed properties do reach the answering context in
+a given configuration, this guard weakens and correct labelling matters more.
+
+### Operational notes
+
+#### Annotations are frozen at extraction
+
+The ontology's influence is applied **once**, at the moment text becomes facts. The
+resolved terms — the class IRI, the property IRI, the canonical name and the datatype — are
+written into the fact metadata during extraction and never recomputed.
+
+So changing the ontology, changing `ontology_authority`, or adding a `skos:altLabel` has **no
+effect on already-extracted data**. It requires **re-extraction**, not a rebuild. This is
+the general form of the re-index boundary below.
+
+One consequence worth knowing before you hit it: a build with `typed_properties` set, run
+against extraction output produced *without* an ontology — a checkpoint, or `FileBasedDocs`
+from an earlier run — finds no annotations and writes nothing. That case is reported rather
+than passing silently, but the fix is to re-extract.
+
+#### Enabling an ontology is a re-index boundary
+
+Turning an ontology on — or changing one in a way that changes an authored class name —
+does **not** update an existing graph in place. `normalize_names` can change
+`entity.class`, and `include_classification_in_entity_id` defaults to `True`, so the
+entity id is derived in part from the classification. A company extracted as
+`CORPORATION` before and `Company` after has two different entity ids and becomes two
+nodes, not one.
+
+Treat it as you would a chunking change: build into a fresh
+[tenant](/graphrag-toolkit/lexical-graph/multi-tenancy/) or a fresh graph. Building an
+ontology-guided extraction into a tenant that already holds an unguided one merges two
+vocabularies silently, which is worse than either alone.
+
+#### Subject-mode values are last-write-win
+
+A subject-placed typed property is written with an unconditional `SET`, once per fact.
+Entities recur across chunks, so if two chunks state a different `foundedYear` for the
+same company, the property ends up holding whichever was processed last — and build order
+is not deterministic. There is no reconciliation, no first-write-wins, and no conflict
+signal.
+
+This is usually fine, because the two chunks usually agree. When they do not, the graph
+records one value and the disagreement is only visible in the underlying `__Fact__` nodes,
+which retain both.

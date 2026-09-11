@@ -1,0 +1,13 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+#
+# An rdfs:subClassOf cycle. Three classes rather than two, so
+# the error message has to name the ring in order rather than just the pair.
+
+@prefix :     <http://example.com/broken#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:Company a owl:Class ; rdfs:subClassOf :Employer .
+:Employer a owl:Class ; rdfs:subClassOf :Business .
+:Business a owl:Class ; rdfs:subClassOf :Company .

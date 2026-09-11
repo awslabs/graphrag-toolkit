@@ -56,6 +56,13 @@ class BatchExtractorBase(BaseExtractor):
         default=None,
         description='Where this run records what it did with each partition. None for a run that keeps no record'
     )
+    # Declared here rather than on each subclass: both batch extractors compose
+    # it into self.prompt_template the same way, and the field has to exist on
+    # the model before either can be constructed with it.
+    ontology_constraints:str = Field(
+        default='',
+        description='Rendered ontology vocabulary block, composed into the prompt template at render time'
+    )
 
     @classmethod
     def class_name(cls) -> str:
