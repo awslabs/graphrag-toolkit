@@ -46,6 +46,7 @@ export default defineConfig({
                 { label: 'Metadata Filtering', slug: 'lexical-graph/metadata-filtering' },
                 { label: 'Reader Providers', slug: 'lexical-graph/readers' },
                 { label: 'External Properties', slug: 'lexical-graph/external-properties' },
+                { label: 'Ontology-Guided Extraction', slug: 'lexical-graph/ontology-guided-extraction' },
               ],
             },
             {
