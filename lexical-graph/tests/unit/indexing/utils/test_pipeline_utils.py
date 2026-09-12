@@ -161,31 +161,89 @@ class TestRunPipeline:
                 assert results[3].text == "Node 4"
     
     def test_run_pipeline_with_single_worker(self):
-        """Verify run_pipeline works with single worker."""
+        """One worker runs in the calling process: no pool, so no spawn."""
         mock_pipeline = Mock(spec=IngestionPipeline)
         mock_pipeline.transformations = []
         mock_pipeline.cache = None
         mock_pipeline.disable_cache = True
-        
+
         batch = [TextNode(text="Node 1", id_="1")]
         node_batches = [batch]
-        
+
         with patch('graphrag_toolkit.lexical_graph.indexing.utils.pipeline_utils.run_transformations') as mock_transform:
             mock_transform.return_value = batch
-            
+
+            with patch('graphrag_toolkit.lexical_graph.indexing.utils.pipeline_utils.ProcessPoolExecutor') as mock_executor:
+                results = list(run_pipeline(mock_pipeline, node_batches, num_workers=1))
+
+                assert len(results) == 1
+                mock_executor.assert_not_called()
+                mock_transform.assert_called_once()
+                assert mock_transform.call_args.args[0] == batch
+
+    def test_single_worker_passes_cache_and_kwargs_like_the_pool(self):
+        """The in-process path must hand run_transformations the same arguments
+        the pooled transform gets, or one worker would behave differently from two."""
+        mock_cache = Mock()
+        mock_pipeline = Mock(spec=IngestionPipeline)
+        mock_pipeline.transformations = ['t']
+        mock_pipeline.cache = mock_cache
+        mock_pipeline.disable_cache = False
+        batch = [TextNode(text="Node 1", id_="1")]
+
+        with patch('graphrag_toolkit.lexical_graph.indexing.utils.pipeline_utils.run_transformations') as mock_transform:
+            mock_transform.return_value = batch
+
+            list(run_pipeline(mock_pipeline, [batch], cache_collection="c", num_workers=1, in_place=False, extra="x"))
+
+        kwargs = mock_transform.call_args.kwargs
+        assert kwargs['transformations'] == ['t']
+        assert kwargs['cache'] is mock_cache
+        assert kwargs['cache_collection'] == "c"
+        assert kwargs['in_place'] is False
+        assert kwargs['extra'] == "x"
+
+    def test_single_worker_runs_a_real_transformation_in_process(self):
+        """End to end without mocks: a real transformation, real nodes, and the
+        result, with no process start behind it."""
+        from llama_index.core.schema import TransformComponent
+
+        class Upper(TransformComponent):
+            def __call__(self, nodes, **kwargs):
+                for n in nodes:
+                    n.set_content(n.get_content().upper())
+                return nodes
+
+        pipeline = IngestionPipeline(transformations=[Upper()])
+        batches = [[TextNode(text="a", id_="1")], [TextNode(text="b", id_="2")]]
+
+        with patch('graphrag_toolkit.lexical_graph.indexing.utils.pipeline_utils.ProcessPoolExecutor') as mock_executor:
+            results = list(run_pipeline(pipeline, batches, num_workers=1))
+
+        assert [n.get_content() for n in results] == ["A", "B"]
+        mock_executor.assert_not_called()
+
+    def test_more_than_one_worker_still_uses_a_spawn_pool(self):
+        """The fork deadlock fix stays in place for the parallel path."""
+        mock_pipeline = Mock(spec=IngestionPipeline)
+        mock_pipeline.transformations = []
+        mock_pipeline.cache = None
+        mock_pipeline.disable_cache = True
+        batch = [TextNode(text="Node 1", id_="1")]
+
+        with patch('graphrag_toolkit.lexical_graph.indexing.utils.pipeline_utils.run_transformations'):
             with patch('graphrag_toolkit.lexical_graph.indexing.utils.pipeline_utils.ProcessPoolExecutor') as mock_executor:
                 mock_pool = MagicMock()
                 mock_pool.__enter__.return_value = mock_pool
                 mock_pool.map.return_value = [batch]
                 mock_executor.return_value = mock_pool
-                
-                results = list(run_pipeline(mock_pipeline, node_batches, num_workers=1))
 
-                assert len(results) == 1
-                mock_executor.assert_called_once()
-                _, call_kwargs = mock_executor.call_args
-                assert call_kwargs['max_workers'] == 1
-                assert call_kwargs['mp_context'].get_start_method() == 'spawn'
+                list(run_pipeline(mock_pipeline, [batch], num_workers=2))
+
+        mock_executor.assert_called_once()
+        _, call_kwargs = mock_executor.call_args
+        assert call_kwargs['max_workers'] == 2
+        assert call_kwargs['mp_context'].get_start_method() == 'spawn'
     
     def test_run_pipeline_passes_config_snapshot_to_workers(self, monkeypatch):
         """run_pipeline must wire the config snapshot into the pool initializer,
