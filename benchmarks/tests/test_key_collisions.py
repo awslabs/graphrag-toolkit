@@ -3,6 +3,9 @@
 
 import unittest
 
+import numpy as np
+
+from graphrag_toolkit.lexical_graph.config import SourceIdWidth
 from graphrag_toolkit.lexical_graph.indexing.id_generator import IdGenerator
 
 from benchmarks.utils.key_collisions import (
@@ -10,6 +13,7 @@ from benchmarks.utils.key_collisions import (
     count_collisions,
     create_chunk_id,
     create_source_id,
+    discriminating_bits,
     duplicate_pairs,
     expected_pairs,
     source_keys,
@@ -23,18 +27,27 @@ class TestIdFidelity(unittest.TestCase):
     produces describes a key the toolkit does not write.
     """
 
-    def test_source_id_matches_the_id_generator(self):
-        generator = IdGenerator()
+    def test_source_id_matches_the_id_generator_at_every_width(self):
+        for width in SourceIdWidth:
+            generator = IdGenerator(source_id_width=width)
+            for text, metadata_str in [('hello world', ''), ('', ''), ('doc 1', 'file_path:a.txt')]:
+                self.assertEqual(
+                    create_source_id(text, metadata_str, width),
+                    generator.create_source_id(text, metadata_str),
+                )
 
-        for text, metadata_str in [('hello world', ''), ('', ''), ('doc 1', 'file_path:a.txt')]:
-            self.assertEqual(
-                create_source_id(text, metadata_str),
-                generator.create_source_id(text, metadata_str),
-            )
+    def test_the_default_matches_a_bare_id_generator(self):
+        # The module's default has to track IdGenerator's, or every number below
+        # describes a key the toolkit no longer writes.
+        self.assertEqual(create_source_id('hello world', ''),
+                         IdGenerator().create_source_id('hello world', ''))
 
     def test_source_id_shape(self):
         # md5('hello world') starts 5eb63bbb; md5('') starts d41d.
-        self.assertEqual(create_source_id('hello world', ''), 'aws::5eb63bbb:d41d')
+        self.assertEqual(create_source_id('hello world', '', SourceIdWidth.LEGACY),
+                         'aws::5eb63bbb:d41d')
+        self.assertEqual(create_source_id('hello world', '', SourceIdWidth.FULL),
+                         'aws::5eb63bbbe01eeed093cb22bb8f5acdc3:d41d')
 
     def test_chunk_id_matches_the_id_generator(self):
         source_id = create_source_id('hello world', '')
@@ -48,7 +61,7 @@ class TestIdFidelity(unittest.TestCase):
                 )
 
     def test_chunk_id_appends_to_the_source_id(self):
-        source_id = create_source_id('hello world', '')
+        source_id = create_source_id('hello world', '', SourceIdWidth.LEGACY)
 
         self.assertEqual(
             create_chunk_id(source_id, 'hello world', ''),
@@ -119,3 +132,34 @@ class TestExpectedPairs(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class TestDiscriminatingBits(unittest.TestCase):
+
+    def test_absent_metadata_counts_only_the_text_digest(self):
+        self.assertEqual(discriminating_bits(SourceIdWidth.LEGACY, with_metadata=False), 32)
+        self.assertEqual(discriminating_bits(SourceIdWidth.FULL, with_metadata=False), 128)
+
+    def test_present_metadata_adds_the_fixed_second_component(self):
+        self.assertEqual(discriminating_bits(SourceIdWidth.LEGACY, with_metadata=True), 48)
+        self.assertEqual(discriminating_bits(SourceIdWidth.FULL, with_metadata=True), 144)
+
+
+class TestSourceKeysAtWidth(unittest.TestCase):
+
+    def test_keys_within_uint64_stay_in_a_numpy_array(self):
+        self.assertIsInstance(
+            source_keys(synthetic_texts(8), False, SourceIdWidth.LEGACY), np.ndarray)
+
+    def test_keys_wider_than_uint64_come_back_as_a_list(self):
+        self.assertIsInstance(
+            source_keys(synthetic_texts(8), False, SourceIdWidth.FULL), list)
+
+    def test_the_full_width_removes_the_collision_the_legacy_width_produces(self):
+        texts = synthetic_texts(100_000)
+
+        at_legacy = count_collisions(source_keys(texts, False, SourceIdWidth.LEGACY))
+        at_full = count_collisions(source_keys(texts, False, SourceIdWidth.FULL))
+
+        self.assertGreater(at_legacy['colliding_pairs'], 0)
+        self.assertEqual(at_full['colliding_pairs'], 0)
