@@ -107,11 +107,17 @@ class IdGenerator(BaseModel):
         digest is the third field in both. Returns None for an id this generator did
         not write: IdRewriter keeps any id starting ``aws:`` as given, and a build
         accepts nodes whose source is any id at all.
+
+        Both digests are checked for hex, not just length. A caller-supplied id of
+        the same shape, ``aws:docs:deadbeef:2024``, otherwise reads as a width and
+        either stamps an empty collection or blocks a build.
         """
         parts = source_id.split(':')
-        if len(parts) != 4 or parts[0] != SOURCE_ID_PREFIX or len(parts[3]) != METADATA_DIGEST_LENGTH:
+        if len(parts) != 4 or parts[0] != SOURCE_ID_PREFIX:
             return None
-        digest = parts[2]
+        digest, metadata_digest = parts[2], parts[3]
+        if len(metadata_digest) != METADATA_DIGEST_LENGTH or not set(metadata_digest) <= _HEX_DIGITS:
+            return None
         if not digest or not set(digest) <= _HEX_DIGITS:
             return None
         try:
@@ -147,7 +153,9 @@ class IdGenerator(BaseModel):
             # New behavior: Use delimiter to prevent boundary collisions
             hash_input = text + self._CHUNK_ID_DELIMITER + metadata_str
         else:
-            # Old behavior: Direct concatenation (preserves existing chunk IDs)
+            # Old behavior: direct concatenation. It preserves an existing chunk id
+            # only where the source id is also unchanged, which on a graph written
+            # before 3.20 means the LEGACY source id width.
             hash_input = text + metadata_str
 
         return f'{source_id}:{self._get_hash(hash_input)[:8]}'

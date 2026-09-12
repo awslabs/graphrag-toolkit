@@ -23,6 +23,8 @@ from graphrag_toolkit.lexical_graph.indexing.source_id_width import (
     SourceIdWidthMismatchError,
     SourceIdWidthGuard,
     graph_source_id_width,
+    recorded_source_id_width,
+    sampled_source_id_width,
     record_graph_source_id_width,
     resolve_source_id_width,
 )
@@ -143,14 +145,14 @@ def source_document(source_id):
     return SourceDocument(nodes=[node])
 
 
-def guard(store):
-    return SourceIdWidthGuard(graph_store=store, tenant_id=TenantId())
+def guard(store, configured=None):
+    return SourceIdWidthGuard(graph_store=store, tenant_id=TenantId(), configured=configured)
 
 
 class TestSourceIdWidthGuard:
 
-    def _run(self, store, *source_ids):
-        return list(guard(store)([source_document(s) for s in source_ids]))
+    def _run(self, store, *source_ids, configured=None):
+        return list(guard(store, configured)([source_document(s) for s in source_ids]))
 
     def test_documents_at_the_graph_width_pass_through(self):
         docs = self._run(graph_store(record=8), LEGACY_ID, LEGACY_ID)
@@ -279,3 +281,97 @@ class TestLexicalGraphIndexWiring:
              patch(f'{module}.VectorIndexing.for_vector_store'):
             with pytest.raises(SourceIdWidthMismatchError):
                 index.build([source_document(FULL_ID)])
+
+
+class TestASampledWidthIsRecorded:
+    """
+    A collection written before the record existed is sampled once, then read
+    from its record. Leaving it unrecorded makes the sampling window permanent
+    for exactly the collections the window was a concession to.
+    """
+
+    def test_a_sampled_width_is_written_to_the_record(self):
+        store = graph_store(source_id=LEGACY_ID)
+
+        list(guard(store)([source_document(LEGACY_ID)]))
+
+        assert store.recorded['width'] == LEGACY.value
+
+    def test_the_record_is_written_once_for_a_batch(self):
+        store = graph_store(source_id=LEGACY_ID)
+
+        list(guard(store)([source_document(LEGACY_ID) for _ in range(3)]))
+
+        merges = [c for c in store.execute_query.call_args_list if 'MERGE' in c.args[0]]
+        assert len(merges) == 1
+
+    def test_a_collection_that_already_has_a_record_is_not_rewritten(self):
+        store = graph_store(record=8, source_id=LEGACY_ID)
+
+        list(guard(store)([source_document(LEGACY_ID)]))
+
+        assert not [c for c in store.execute_query.call_args_list if 'MERGE' in c.args[0]]
+
+
+class TestTheGuardHonoursAnExplicitWidth:
+    """
+    A build takes documents it did not extract, so an empty collection would
+    otherwise be stamped with whatever width they carry, and the next run would
+    then fail against the setting the operator never changed.
+    """
+
+    def test_documents_contradicting_the_setting_stop_an_empty_collection(self):
+        with pytest.raises(SourceIdWidthMismatchError) as e:
+            list(guard(graph_store(), configured=FULL)([source_document(LEGACY_ID)]))
+
+        assert 'SOURCE_ID_WIDTH' in str(e.value)
+
+    def test_nothing_is_recorded_when_the_documents_are_refused(self):
+        store = graph_store()
+
+        with pytest.raises(SourceIdWidthMismatchError):
+            list(guard(store, configured=FULL)([source_document(LEGACY_ID)]))
+
+        assert not [c for c in store.execute_query.call_args_list if 'MERGE' in c.args[0]]
+
+    def test_documents_matching_the_setting_are_recorded(self):
+        store = graph_store()
+
+        list(guard(store, configured=LEGACY)([source_document(LEGACY_ID)]))
+
+        assert store.recorded['width'] == LEGACY.value
+
+    def test_an_unset_setting_leaves_the_documents_to_decide(self):
+        store = graph_store()
+
+        list(guard(store, configured=None)([source_document(LEGACY_ID)]))
+
+        assert store.recorded['width'] == LEGACY.value
+
+
+class TestReadingTheRecord:
+
+    def test_every_record_is_read_not_just_the_first(self):
+        store = Mock()
+        store.node_id = Mock(side_effect=lambda name: name)
+        store.execute_query = Mock(return_value=[{'width': 8}, {'width': 32}])
+
+        with pytest.raises(SourceIdWidthMismatchError):
+            recorded_source_id_width(store)
+
+    def test_records_that_agree_resolve(self):
+        store = Mock()
+        store.node_id = Mock(side_effect=lambda name: name)
+        store.execute_query = Mock(return_value=[{'width': 8}, {'width': 8}])
+
+        assert recorded_source_id_width(store) is LEGACY
+
+    def test_a_null_source_id_in_the_sample_is_skipped(self):
+        assert sampled_source_id_width(
+            graph_store(source_ids=[None, LEGACY_ID])) is LEGACY
+
+    def test_a_sample_of_only_null_ids_has_no_width(self):
+        assert sampled_source_id_width(graph_store(source_ids=[None])) is None
+
+    def test_a_record_column_that_comes_back_null_does_not_block_recording(self):
+        record_graph_source_id_width(graph_store(written=None), TenantId(), FULL)

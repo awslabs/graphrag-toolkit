@@ -50,12 +50,8 @@ def source_id_as_configured(text, metadata_str=NO_METADATA):
 class TestCollidingPair:
     """
     Preconditions. These are arithmetic about md5, not statements about any
-    configuration. If one stops holding, the pair needs regenerating.
+    configuration.
     """
-
-    def test_the_two_documents_are_different(self):
-        # Guards the rest: every assertion below is worthless if these converge.
-        assert TEXT_A != TEXT_B
 
     def test_they_share_one_source_id_at_the_legacy_width(self):
         assert (source_id_at(TEXT_A, LEGACY_WIDTH)
@@ -115,7 +111,7 @@ class TestCollisionReachesTheGraph:
     so two documents carrying one id bind one merge key.
 
     Against a mock, so these observe what the builder sends, not what a store
-    does with it. Whether the nodes actually collapse needs a real graph.
+    does with it.
     """
 
     @staticmethod

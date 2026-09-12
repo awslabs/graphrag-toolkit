@@ -59,40 +59,68 @@ def resolve_source_id_width(stored_widths:Iterable[Optional[SourceIdWidth]], con
     return stored
 
 
-def graph_source_id_width(graph_store:GraphStore) -> Optional[SourceIdWidth]:
+def recorded_source_id_width(graph_store:GraphStore) -> Optional[SourceIdWidth]:
     """
-    The width a graph was written at: its recorded width, else the width of a
-    sample of stored source ids, else None when the graph holds none the
-    generator wrote.
+    The width recorded on the collection, or None when it holds no record.
 
-    The sample is the first SOURCE_ID_SAMPLE_SIZE source ids the store returns, so
-    a graph whose widths diverge beyond that window reads as whichever width the
-    sample holds. Every graph written from here on records its width, which is
-    read in full, and the guard rejects a document at any other width.
+    Every record is read rather than the first one. Nothing constrains a store to
+    a single __SYS_Config__ node, so two first runs at different widths can each
+    create one, and two records that disagree are an error rather than whichever
+    the store happens to return first.
     """
     results = graph_store.execute_query(
         'MATCH (c:`__SYS_Config__`) WHERE c.sourceIdWidth IS NOT NULL '
-        'RETURN c.sourceIdWidth AS width LIMIT 1'
+        'RETURN c.sourceIdWidth AS width'
     )
-    if results:
-        return SourceIdWidth.parse(results[0]['width'])
+    widths = sorted({SourceIdWidth.parse(r['width']) for r in results} - {None})
+    if not widths:
+        return None
+    if len(widths) > 1:
+        raise SourceIdWidthMismatchError(
+            f'This collection records a source id width more than once, and the '
+            f'records disagree: {" and ".join(_describe(w) for w in widths)}.'
+        )
 
+    return widths[0]
+
+
+def sampled_source_id_width(graph_store:GraphStore) -> Optional[SourceIdWidth]:
+    """
+    The width of a sample of stored source ids, or None when the sample holds none
+    the generator wrote.
+
+    The sample is the first SOURCE_ID_SAMPLE_SIZE source ids the store returns, so
+    a collection whose widths already diverge beyond that window reads as whichever
+    width the sample holds. The guard records the width it resolves, so a
+    collection is sampled once and read from its record on every run after that.
+    """
     results = graph_store.execute_query(
         f'MATCH (s:`__Source__`) RETURN {graph_store.node_id("s.sourceId")} AS sourceId '
         f'LIMIT {SOURCE_ID_SAMPLE_SIZE}'
     )
-    widths = sorted({IdGenerator.width_of_source_id(r['sourceId']) for r in results} - {None})
+    widths = sorted({
+        IdGenerator.width_of_source_id(r['sourceId'])
+        for r in results if r['sourceId']
+    } - {None})
     if not widths:
         return None
     logger.debug(f'Read the source id width from stored ids [sampled: {len(results)}]')
     if len(widths) > 1:
         raise SourceIdWidthMismatchError(
-            f'This graph already holds source ids at more than one width: '
+            f'This collection already holds source ids at more than one width: '
             f'{" and ".join(_describe(w) for w in widths)}. Nothing can be written '
             f'to it until they agree.'
         )
 
     return widths[0]
+
+
+def graph_source_id_width(graph_store:GraphStore) -> Optional[SourceIdWidth]:
+    """
+    The width a collection was written at: its recorded width, else the width of a
+    sample of stored source ids, else None when it holds none the generator wrote.
+    """
+    return recorded_source_id_width(graph_store) or sampled_source_id_width(graph_store)
 
 
 def record_graph_source_id_width(graph_store:GraphStore, tenant_id:TenantId, width:SourceIdWidth) -> None:
@@ -119,23 +147,29 @@ def record_graph_source_id_width(graph_store:GraphStore, tenant_id:TenantId, wid
         return
 
     recorded = SourceIdWidth.parse(results[0]['width'])
-    if recorded != width:
+    if recorded is not None and recorded != width:
         raise SourceIdWidthMismatchError(
-            f'This graph already records source id width {_describe(recorded)}; '
+            f'This collection already records source id width {_describe(recorded)}; '
             f'cannot record {_describe(width)}.'
         )
 
 
 class SourceIdWidthGuard:
     """
-    Checks that every document entering a build carries the graph's source id
-    width, and records the width on a graph that has none when the first
-    document arrives.
+    Checks that every document entering a build carries the collection's source id
+    width, and records that width whenever the collection holds no record.
+
+    `configured` is the explicit SOURCE_ID_WIDTH setting, or None when it is
+    unset. A build is the one entry point that takes documents it did not extract,
+    so an empty collection is stamped with the width of the documents arriving at
+    it, and the setting has to be checked here rather than only where extraction
+    resolves it.
     """
 
-    def __init__(self, graph_store:GraphStore, tenant_id:TenantId):
+    def __init__(self, graph_store:GraphStore, tenant_id:TenantId, configured:Optional[SourceIdWidth]=None):
         self.graph_store = graph_store
         self.tenant_id = tenant_id
+        self.configured = configured
 
     @staticmethod
     def _source_id(item:SourceType) -> Optional[str]:
@@ -152,7 +186,8 @@ class SourceIdWidthGuard:
         return source.node_id if source else None
 
     def _check(self, inputs:Iterable[SourceType]):
-        graph_width = graph_source_id_width(self.graph_store)
+        recorded = recorded_source_id_width(self.graph_store)
+        graph_width = recorded or sampled_source_id_width(self.graph_store)
 
         for item in inputs:
             source_id = self._source_id(item)
@@ -160,15 +195,24 @@ class SourceIdWidthGuard:
 
             if width is not None:
                 if graph_width is None:
+                    if self.configured is not None and width != self.configured:
+                        raise SourceIdWidthMismatchError(
+                            f'Document {source_id} has a source id at width {_describe(width)}, '
+                            f'but SOURCE_ID_WIDTH is set to {_describe(self.configured)}. Extract '
+                            f'these documents at the set width, or unset it, to build them.'
+                        )
                     graph_width = width
-                    record_graph_source_id_width(self.graph_store, self.tenant_id, width)
-                    logger.debug(f'Recorded source id width [width: {width.name}]')
                 elif width != graph_width:
                     raise SourceIdWidthMismatchError(
                         f'Document {source_id} has a source id at width {_describe(width)}, '
-                        f'but this graph is written at {_describe(graph_width)}. Extract '
-                        f'with SOURCE_ID_WIDTH={graph_width.name} to write to this graph.'
+                        f'but this collection is written at {_describe(graph_width)}. Extract '
+                        f'with SOURCE_ID_WIDTH={graph_width.name} to write to this collection.'
                     )
+
+                if recorded is None:
+                    record_graph_source_id_width(self.graph_store, self.tenant_id, graph_width)
+                    recorded = graph_width
+                    logger.debug(f'Recorded source id width [width: {graph_width.name}]')
             yield item
 
     def __call__(self, inputs:Iterable[SourceType]):

@@ -39,6 +39,7 @@ from graphrag_toolkit.lexical_graph.indexing.source_id_width import (
     SourceIdWidthMismatchError,
     graph_source_id_width,
     record_graph_source_id_width,
+    recorded_source_id_width,
 )
 from graphrag_toolkit.lexical_graph.storage.graph import MultiTenantGraphStore
 from graphrag_toolkit.lexical_graph.storage.graph_store_factory import GraphStoreFactory
@@ -170,3 +171,45 @@ class TestGuard:
         guard([source_document(FULL_ID)])
 
         assert graph_source_id_width(store) is SourceIdWidth.FULL
+
+
+class TestASampledWidthIsRecorded:
+    """
+    A collection written before the record existed is sampled once and recorded,
+    so the sampling window closes on the next run rather than staying open for
+    the life of the collection.
+    """
+
+    def test_the_guard_records_a_width_it_sampled(self, graph):
+        store, tenant = graph
+        write_source(store, LEGACY_ID)
+        assert recorded_source_id_width(store) is None
+
+        list(SourceIdWidthGuard(graph_store=store, tenant_id=tenant)
+             ([source_document(LEGACY_ID)]))
+
+        assert recorded_source_id_width(store) is SourceIdWidth.LEGACY
+
+    def test_a_second_run_reads_the_record_rather_than_the_sample(self, graph):
+        store, tenant = graph
+        write_source(store, LEGACY_ID)
+        guard = SourceIdWidthGuard(graph_store=store, tenant_id=tenant)
+        list(guard([source_document(LEGACY_ID)]))
+
+        # Sources gone, record kept: the width must still resolve.
+        store.execute_query('MATCH (n:`__Source__`) DETACH DELETE n')
+
+        assert graph_source_id_width(store) is SourceIdWidth.LEGACY
+
+
+class TestTheGuardHonoursAnExplicitWidth:
+
+    def test_documents_contradicting_the_setting_stop_an_empty_collection(self, graph):
+        store, tenant = graph
+        guard = SourceIdWidthGuard(graph_store=store, tenant_id=tenant,
+                                   configured=SourceIdWidth.FULL)
+
+        with pytest.raises(SourceIdWidthMismatchError):
+            list(guard([source_document(LEGACY_ID)]))
+
+        assert recorded_source_id_width(store) is None

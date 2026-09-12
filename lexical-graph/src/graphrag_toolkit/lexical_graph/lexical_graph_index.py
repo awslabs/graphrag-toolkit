@@ -433,7 +433,11 @@ class LexicalGraphIndex():
         )
 
     def _source_id_width_guard(self) -> Pipe:
-        return Pipe(SourceIdWidthGuard(graph_store=self.graph_store, tenant_id=self.tenant_id))
+        return Pipe(SourceIdWidthGuard(
+            graph_store=self.graph_store,
+            tenant_id=self.tenant_id,
+            configured=GraphRAGConfig.source_id_width_setting
+        ))
 
     def extract(
             self,
