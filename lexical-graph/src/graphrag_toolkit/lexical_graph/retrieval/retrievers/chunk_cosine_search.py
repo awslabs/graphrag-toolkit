@@ -74,7 +74,7 @@ class ChunkCosineSimilaritySearch(SemanticGuidedBaseChunkRetriever):
         nodes = []
         for score, chunk_id in top_k_chunks:
             node = TextNode(
-                text="",  # Placeholder - will be populated by StatementGraphRetriever
+                text="",  # Carries the chunk id only; the caller reads that and drops the node.
                 metadata={
                     'chunk': {'chunkId': chunk_id},
                     'search_type': 'cosine_similarity'

@@ -107,7 +107,7 @@ class StatementCosineSimilaritySearch(SemanticGuidedBaseRetriever):
         nodes = []
         for score, statement_id in top_k_statements:
             node = TextNode(
-                text="",  # Placeholder - will be populated by StatementGraphRetriever
+                text="",  # Carries the statement id only; the caller reads that and drops the node.
                 metadata={
                     'statement': {'statementId': statement_id},
                     'search_type': 'cosine_similarity'
