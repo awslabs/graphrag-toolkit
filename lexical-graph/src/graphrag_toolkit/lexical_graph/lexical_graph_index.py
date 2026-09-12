@@ -36,6 +36,7 @@ from graphrag_toolkit.lexical_graph.indexing.build.delete_sources import DeleteS
 from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 from graphrag_toolkit.lexical_graph.utils.llm_cache import LLMCache
 from graphrag_toolkit.lexical_graph.indexing.progress_monitor import ProgressMonitor
+from graphrag_toolkit.lexical_graph.indexing.source_id_width import SourceIdWidthGuard, graph_source_id_width, resolve_source_id_width
 
 from llama_index.core.node_parser import SentenceSplitter, NodeParser
 from llama_index.core.schema import BaseNode
@@ -423,6 +424,21 @@ class LexicalGraphIndex():
 
         return (pre_processors, components)
 
+    def _source_id_width(self):
+        """The source id width extraction must use to keep writing to this graph."""
+        return resolve_source_id_width(
+            [graph_source_id_width(self.graph_store)],
+            configured=GraphRAGConfig.source_id_width_setting,
+            default=GraphRAGConfig.source_id_width
+        )
+
+    def _source_id_width_guard(self) -> Pipe:
+        return Pipe(SourceIdWidthGuard(
+            graph_store=self.graph_store,
+            tenant_id=self.tenant_id,
+            configured=GraphRAGConfig.source_id_width_setting
+        ))
+
     def extract(
             self,
             nodes: List[BaseNode] = [],
@@ -477,6 +493,7 @@ class LexicalGraphIndex():
             checkpoint=checkpoint,
             tenant_id=DEFAULT_TENANT_ID,
             extraction_filters=self.indexing_config.extraction.extraction_filters,
+            source_id_width=self._source_id_width(),
             **kwargs
         )
 
@@ -567,7 +584,7 @@ class LexicalGraphIndex():
         )
 
         sink_fn = sink if not handler else Pipe(handler)
-        nodes | build_pipeline | sink_fn
+        nodes | self._source_id_width_guard() | build_pipeline | sink_fn
 
     def extract_and_build(
             self,
@@ -606,6 +623,7 @@ class LexicalGraphIndex():
             checkpoint=checkpoint,
             tenant_id=DEFAULT_TENANT_ID,
             extraction_filters=self.indexing_config.extraction.extraction_filters,
+            source_id_width=self._source_id_width(),
             **kwargs
         )
 
@@ -639,9 +657,9 @@ class LexicalGraphIndex():
         sink_fn = sink if not handler else Pipe(handler)
         if progress_monitor:
             extraction_monitor = self._create_extraction_monitor_pipe(progress_monitor)
-            nodes | extraction_pipeline | extraction_monitor | build_pipeline | sink_fn
+            nodes | extraction_pipeline | extraction_monitor | self._source_id_width_guard() | build_pipeline | sink_fn
         else:
-            nodes | extraction_pipeline | build_pipeline | sink_fn
+            nodes | extraction_pipeline | self._source_id_width_guard() | build_pipeline | sink_fn
 
     @staticmethod
     def _create_extraction_monitor_pipe(progress_monitor: ProgressMonitor) -> Pipe:

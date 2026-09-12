@@ -1023,40 +1023,22 @@ class TestDownloadDeduplicatesNodeIds:
     the same node id can arrive twice.
     """
 
-    def _download(self, objects):
-        downloader = S3DocDownloader(
-            key_prefix='p', collection_id='c', bucket_name='b', fn=lambda n: n
-        )
-        s3_client = Mock()
-        s3_client.get_paginator.return_value.paginate.return_value = [
-            {'Contents': [{'Key': key} for key in objects]}
-        ]
+    SOURCE_ID = 'aws::dead:beef'
 
-        def download_fileobj(bucket, key, stream):
-            stream.write('\n'.join(n.to_json() for n in objects[key]).encode('UTF-8'))
+    def test_a_node_id_in_two_objects_is_returned_once(self, download_source_prefix, chunk_node):
+        node = lambda node_id: chunk_node(node_id, self.SOURCE_ID)
 
-        s3_client.download_fileobj.side_effect = download_fileobj
-        return downloader._download_doc('prefix', s3_client)
-
-    def _node(self, node_id):
-        node = TextNode(text=f'text for {node_id}', id_=node_id)
-        node.relationships[NodeRelationship.SOURCE] = RelatedNodeInfo(node_id='aws::dead:beef')
-        return node
-
-    def test_a_node_id_in_two_objects_is_returned_once(self):
-        overlapping = {
-            'round-a.jsonl': [self._node('c1'), self._node('c2')],
-            'round-b.jsonl': [self._node('c2'), self._node('c3')],
-        }
-
-        doc = self._download(overlapping)
+        doc = download_source_prefix({
+            'round-a.jsonl': [node('c1'), node('c2')],
+            'round-b.jsonl': [node('c2'), node('c3')],
+        })
 
         assert [n.node_id for n in doc.nodes] == ['c1', 'c2', 'c3']
 
-    def test_distinct_objects_are_all_kept(self):
-        doc = self._download({
-            'a.jsonl': [self._node('c1')],
-            'b.jsonl': [self._node('c2')],
+    def test_distinct_objects_are_all_kept(self, download_source_prefix, chunk_node):
+        doc = download_source_prefix({
+            'a.jsonl': [chunk_node('c1', self.SOURCE_ID)],
+            'b.jsonl': [chunk_node('c2', self.SOURCE_ID)],
         })
 
         assert len(doc.nodes) == 2

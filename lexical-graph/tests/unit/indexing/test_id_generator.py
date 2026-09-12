@@ -7,7 +7,7 @@ import pytest
 from graphrag_toolkit.lexical_graph.tenant_id import TenantId
 from llama_index.core.node_parser import SentenceSplitter
 from llama_index.core.schema import Document, NodeRelationship
-from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
+from graphrag_toolkit.lexical_graph.config import GraphRAGConfig, SourceIdWidth
 from graphrag_toolkit.lexical_graph.indexing.extract.id_rewriter import IdRewriter
 from graphrag_toolkit.lexical_graph.indexing.id_generator import IdGenerator
 from graphrag_toolkit.lexical_graph.indexing.model import SourceDocument
@@ -466,60 +466,56 @@ def test_id_generator_tenant_isolation_property(tenant_id1, tenant_id2):
 
 
 @pytest.fixture(autouse=True)
-def isolated_hash_length(monkeypatch):
-    """
-    The width is env-backed and cached on the config, so a value left in either
-    place changes ids for every test that follows.
-    """
-    monkeypatch.delenv('SOURCE_ID_HASH_LENGTH', raising=False)
-    GraphRAGConfig.source_id_hash_length = None
+def isolated_width(isolated_source_id_width):
     yield
-    GraphRAGConfig.source_id_hash_length = None
 
 
-class TestSourceIdHashLength:
+class TestSourceIdWidth:
     """
     A source id discriminates on 48 bits, and on 32 when a document carries no
-    metadata, so distinct documents collide at scale. The text component's width
-    is configurable so the collision rate can be set to the corpus, and it
-    defaults to today's 8 characters because widening it changes every id.
+    metadata, so distinct documents collide at scale. Two widths are meaningful:
+    LEGACY is what graphs written before 3.20 carry, FULL is the whole digest
+    and the default for new graphs.
     """
 
-    def test_defaults_to_eight_characters(self):
+    def test_defaults_to_the_full_width(self):
         generator = IdGenerator()
 
-        assert generator.source_id_hash_length == 8
+        assert generator.source_id_width is SourceIdWidth.FULL
 
-    def test_default_matches_the_shipped_id_exactly(self):
+    def test_legacy_matches_the_shipped_id_exactly(self):
         # md5('hello world') starts 5eb63bbb; md5('') starts d41d.
-        assert IdGenerator().create_source_id('hello world', '') == 'aws::5eb63bbb:d41d'
+        generator = IdGenerator(source_id_width=SourceIdWidth.LEGACY)
+
+        assert generator.create_source_id('hello world', '') == 'aws::5eb63bbb:d41d'
 
     def test_a_wider_setting_lengthens_the_text_component(self):
-        generator = IdGenerator(source_id_hash_length=16)
+        generator = IdGenerator(source_id_width=SourceIdWidth.FULL)
 
         source_id = generator.create_source_id('hello world', '')
 
-        assert source_id == 'aws::5eb63bbbe01eeed0:d41d'
+        assert source_id == 'aws::5eb63bbbe01eeed093cb22bb8f5acdc3:d41d'
 
     def test_the_metadata_component_is_unchanged_by_the_setting(self):
-        wide = IdGenerator(source_id_hash_length=32).create_source_id('hello world', 'k:v')
-        narrow = IdGenerator().create_source_id('hello world', 'k:v')
+        wide = IdGenerator(source_id_width=SourceIdWidth.FULL).create_source_id('hello world', 'k:v')
+        narrow = IdGenerator(source_id_width=SourceIdWidth.LEGACY).create_source_id('hello world', 'k:v')
 
         assert wide.split(':')[-1] == narrow.split(':')[-1]
 
-    def test_widening_separates_texts_that_collide_at_a_narrow_width(self):
-        narrow, wide = IdGenerator(source_id_hash_length=2), IdGenerator(source_id_hash_length=32)
-        a, b = self._colliding_texts(width=2)
+    def test_full_separates_texts_that_collide_at_the_legacy_width(self):
+        legacy = IdGenerator(source_id_width=SourceIdWidth.LEGACY)
+        full = IdGenerator(source_id_width=SourceIdWidth.FULL)
+        a, b = self._colliding_texts(width=SourceIdWidth.LEGACY)
 
-        assert narrow.create_source_id(a, '') == narrow.create_source_id(b, '')
-        assert wide.create_source_id(a, '') != wide.create_source_id(b, '')
+        assert legacy.create_source_id(a, '') == legacy.create_source_id(b, '')
+        assert full.create_source_id(a, '') != full.create_source_id(b, '')
 
     @staticmethod
     def _colliding_texts(width):
         """Two different texts whose digests agree on the first `width` characters."""
         seen = {}
         for i in range(100000):
-            text = f'document {i}'
+            text = f'document {i} body text'
             prefix = hashlib.md5(text.encode('utf-8')).hexdigest()[:width]
             if prefix in seen:
                 return seen[prefix], text
@@ -527,25 +523,64 @@ class TestSourceIdHashLength:
         raise AssertionError(f'no collision found at width {width}')
 
     def test_chunk_ids_follow_the_wider_source_id(self):
-        generator = IdGenerator(source_id_hash_length=32)
+        generator = IdGenerator(source_id_width=SourceIdWidth.FULL)
 
         source_id = generator.create_source_id('hello world', '')
 
         assert generator.create_chunk_id(source_id, 'hello world', '').startswith(source_id)
 
-    @pytest.mark.parametrize('length', [0, -1, 33])
-    def test_rejects_a_length_outside_the_digest(self, length):
-        # An md5 hex digest is 32 characters, so anything past it silently
-        # truncates and anything below 1 produces a keyless id.
+    @pytest.mark.parametrize('width', [0, -1, 16, 33, 'wide'])
+    def test_rejects_anything_that_is_not_a_width(self, width):
+        # Two widths are meaningful. An arbitrary number is not a choice a caller
+        # can reason about, so it is refused rather than silently truncating.
         with pytest.raises(ValueError):
-            IdGenerator(source_id_hash_length=length)
+            IdGenerator(source_id_width=width)
+
+    @pytest.mark.parametrize('value,expected', [
+        (8, SourceIdWidth.LEGACY),
+        (32, SourceIdWidth.FULL),
+        ('legacy', SourceIdWidth.LEGACY),
+        ('FULL', SourceIdWidth.FULL),
+        (SourceIdWidth.FULL, SourceIdWidth.FULL),
+    ])
+    def test_accepts_a_member_a_name_or_the_digest_length(self, value, expected):
+        assert SourceIdWidth.parse(value) is expected
+
+    @pytest.mark.parametrize('value', [None, ''])
+    def test_unset_parses_to_none(self, value):
+        assert SourceIdWidth.parse(value) is None
 
 
-class TestSourceIdHashLengthReachesTheIds:
+class TestWidthOfSourceId:
+    """The parser lives beside create_source_id so the format is defined once."""
+
+    @pytest.mark.parametrize('width', list(SourceIdWidth))
+    def test_reads_back_the_width_the_generator_wrote(self, width):
+        source_id = IdGenerator(source_id_width=width).create_source_id('hello world', 'k:v')
+
+        assert IdGenerator.width_of_source_id(source_id) is width
+
+    @pytest.mark.parametrize('width', list(SourceIdWidth))
+    def test_tenant_rewriting_does_not_change_the_parse(self, width):
+        generator = IdGenerator(tenant_id=TenantId('tenant1'), source_id_width=width)
+
+        source_id = generator.rewrite_id_for_tenant(generator.create_source_id('hello world', ''))
+
+        assert IdGenerator.width_of_source_id(source_id) is width
+
+    @pytest.mark.parametrize('value', [
+        'aws::5eb6:d41d', 'not-a-source-id', 'aws::5eb63bbb', 'aws:custom-id',
+        '0f8fad5b-d9cb-469f-a165-70867728950e', 'aws::5eb63bbbzzzzzzzz:d41d',
+    ])
+    def test_an_id_the_generator_did_not_write_has_no_width(self, value):
+        assert IdGenerator.width_of_source_id(value) is None
+
+
+class TestSourceIdWidthReachesTheIds:
     """Covers the path from configuration to the ids a run writes."""
 
-    def _ids(self, hash_length):
-        generator = IdGenerator(source_id_hash_length=hash_length)
+    def _ids(self, width):
+        generator = IdGenerator(source_id_width=width)
         rewriter = IdRewriter(
             inner=SentenceSplitter(chunk_size=256, chunk_overlap=25),
             id_generator=generator,
@@ -554,36 +589,36 @@ class TestSourceIdHashLengthReachesTheIds:
         chunks = rewriter.handle_source_docs([SourceDocument(nodes=[document])])[0].nodes
         return chunks
 
-    def test_config_default_leaves_ids_where_they_are(self):
-        assert GraphRAGConfig.source_id_hash_length == 8
+    def test_config_defaults_to_the_full_digest(self):
+        assert GraphRAGConfig.source_id_width is SourceIdWidth.FULL
 
     def test_config_reads_the_environment(self, monkeypatch):
-        monkeypatch.setenv('SOURCE_ID_HASH_LENGTH', '32')
+        monkeypatch.setenv('SOURCE_ID_WIDTH', 'full')
 
-        assert GraphRAGConfig.source_id_hash_length == 32
+        assert GraphRAGConfig.source_id_width is SourceIdWidth.FULL
 
     def test_widening_changes_ids_but_not_chunk_text(self):
-        narrow, wide = self._ids(8), self._ids(32)
+        narrow, wide = self._ids(SourceIdWidth.LEGACY), self._ids(SourceIdWidth.FULL)
 
         assert [c.text for c in narrow] == [c.text for c in wide]
         assert [c.id_ for c in narrow] != [c.id_ for c in wide]
 
     def test_widening_separates_the_source_relationship(self):
-        narrow, wide = self._ids(8), self._ids(32)
+        narrow, wide = self._ids(SourceIdWidth.LEGACY), self._ids(SourceIdWidth.FULL)
         source_of = lambda c: c.relationships[NodeRelationship.SOURCE].node_id
 
         assert len(source_of(wide[0])) > len(source_of(narrow[0]))
         assert source_of(narrow[0]) != source_of(wide[0])
 
 
-class TestSourceIdHashLengthConfig:
+class TestSourceIdWidthConfig:
 
     def test_a_bare_generator_takes_the_configured_width(self):
-        GraphRAGConfig.source_id_hash_length = 16
+        GraphRAGConfig.source_id_width = SourceIdWidth.FULL
 
-        assert IdGenerator().source_id_hash_length == 16
+        assert IdGenerator().source_id_width is SourceIdWidth.FULL
 
-    @pytest.mark.parametrize('length', [0, -1, 33])
-    def test_the_config_rejects_a_width_outside_the_digest(self, length):
+    @pytest.mark.parametrize('width', [0, -1, 16, 33, 'wide'])
+    def test_the_config_rejects_anything_that_is_not_a_width(self, width):
         with pytest.raises(ValueError):
-            GraphRAGConfig.source_id_hash_length = length
+            GraphRAGConfig.source_id_width = width

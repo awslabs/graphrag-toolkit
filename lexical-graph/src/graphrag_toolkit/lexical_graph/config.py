@@ -42,10 +42,7 @@ DEFAULT_EMBEDDINGS_DIMENSIONS = 1024
 DEFAULT_EXTRACTION_NUM_WORKERS = 2
 DEFAULT_EXTRACTION_BATCH_SIZE = 4
 DEFAULT_EXTRACTION_NUM_THREADS_PER_WORKER = 4
-# Characters of the text digest that go into a source id. Eight is what every
-# existing graph was written with; an md5 hex digest is 32, which is the ceiling.
-DEFAULT_SOURCE_ID_HASH_LENGTH = 8
-MAX_SOURCE_ID_HASH_LENGTH = 32
+DEFAULT_SOURCE_ID_WIDTH = 'FULL'
 # botocore's own default. Not a chosen value - it's the floor the S3 pool is
 # never sized below. Distinct from DEFAULT_MAX_POOL_CONNECTIONS in
 # neptune_graph_stores, which is that client's chosen size.
@@ -131,6 +128,35 @@ class OpenSearchServerlessGeneration(str, Enum):
             raise ValueError(
                 f"Invalid OpenSearch Serverless generation '{value}'. Expected one of {valid} "
                 f"(case-insensitive), or unset for auto-detection."
+            ) from e
+
+
+class SourceIdWidth(int, Enum):
+    """Characters of the text digest that go into a source id. Values are the digest
+    length itself, so a member can be used directly where a width is expected."""
+    LEGACY = 8
+    FULL = 32
+
+    @classmethod
+    def parse(cls, value):
+        """Coerce a value to a width. ``None`` or ``''`` means unset. Accepts an enum
+        member, a case-insensitive name (``'legacy'``/``'full'``), or the digest length
+        itself (``8``/``32``). Raises ValueError for anything else."""
+        if value is None or value == '':
+            return None
+        if isinstance(value, cls):
+            return value
+        try:
+            return cls(int(value))
+        except (TypeError, ValueError):
+            pass
+        try:
+            return cls[str(value).strip().upper()]
+        except KeyError as e:
+            valid = ', '.join(f'{m.name} ({m.value})' for m in cls)
+            raise ValueError(
+                f"Invalid source id width '{value}'. Expected one of {valid}, "
+                f"case-insensitive, or unset."
             ) from e
 
 
@@ -338,7 +364,7 @@ class _GraphRAGConfig:
     _bedrock_reranking_model: Optional[str] = None
     _extraction_num_workers: Optional[int] = None
     _extraction_num_threads_per_worker: Optional[int] = None
-    _source_id_hash_length: Optional[int] = None
+    _source_id_width: Optional['SourceIdWidth'] = None
     _extraction_batch_size: Optional[int] = None
     _build_num_workers: Optional[int] = None
     _build_batch_size: Optional[int] = None
@@ -703,42 +729,32 @@ class _GraphRAGConfig:
         self._extraction_num_threads_per_worker = num_threads
 
     @property
-    def source_id_hash_length(self) -> int:
+    def source_id_width(self) -> 'SourceIdWidth':
         """
         Characters of the text digest that go into a source id.
 
-        Eight is what every existing graph was written with. A wider setting
-        separates documents that would otherwise share an id, and changes every
-        source id and chunk id, so a graph written at one length cannot be read
-        at another.
-
-        Returns:
-            int: The number of digest characters used in a source id.
+        LEGACY is what every graph written before 3.20 carries. FULL is the whole
+        digest, which separates documents that would otherwise share an id, and is
+        the default for new graphs. A graph keeps the width it was first written
+        at: LexicalGraphIndex uses the graph's width when it has one.
         """
-        if self._source_id_hash_length is None:
-            self.source_id_hash_length = int(
-                os.environ.get('SOURCE_ID_HASH_LENGTH', DEFAULT_SOURCE_ID_HASH_LENGTH))
+        return self.source_id_width_setting or SourceIdWidth.parse(DEFAULT_SOURCE_ID_WIDTH)
 
-        return self._source_id_hash_length
-
-    @source_id_hash_length.setter
-    def source_id_hash_length(self, hash_length: int) -> None:
+    @property
+    def source_id_width_setting(self) -> Optional['SourceIdWidth']:
         """
-        Sets the number of digest characters used in a source id.
-
-        Args:
-            hash_length (int): The number of digest characters.
-
-        Raises:
-            ValueError: If hash_length falls outside the md5 digest.
+        The width set through the setter or SOURCE_ID_WIDTH, or None when unset.
+        Unset lets an existing graph keep its width. A set width must match the
+        width of the graph being written to.
         """
-        if hash_length is not None and not 1 <= hash_length <= MAX_SOURCE_ID_HASH_LENGTH:
-            raise ValueError(
-                f'source_id_hash_length must be between 1 and {MAX_SOURCE_ID_HASH_LENGTH} '
-                f'[source_id_hash_length: {hash_length}]'
-            )
+        if self._source_id_width is None:
+            self._source_id_width = SourceIdWidth.parse(os.environ.get('SOURCE_ID_WIDTH'))
 
-        self._source_id_hash_length = hash_length
+        return self._source_id_width
+
+    @source_id_width.setter
+    def source_id_width(self, source_id_width) -> None:
+        self._source_id_width = SourceIdWidth.parse(source_id_width)
 
     @property
     def extraction_batch_size(self) -> int:
