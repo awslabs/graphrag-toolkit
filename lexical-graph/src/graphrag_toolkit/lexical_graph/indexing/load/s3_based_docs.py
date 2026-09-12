@@ -12,7 +12,7 @@ import uuid
 import concurrent.futures
 
 from collections import deque
-from os.path import basename, join
+from os.path import basename, dirname, join
 from datetime import datetime
 from itertools import repeat, islice
 from threading import Semaphore
@@ -38,6 +38,11 @@ logger = logging.getLogger(__name__)
 # into a shared prefix and each needs its own marker.
 COMPLETION_MARKER_PREFIX = '_COMPLETE-'
 
+# Markers live under a reserved segment rather than beside the chunks. A chunk is
+# keyed by its node id, so a shared namespace means a node id starting with the
+# prefix reads back as a marker and is dropped from the document.
+COMPLETION_MARKER_DIR = '_markers'
+
 # Joins node ids before hashing them. Without a separator ['ab', 'c'] and
 # ['a', 'bc'] hash alike.
 _NODE_ID_DELIMITER = '\x00'
@@ -53,15 +58,21 @@ def completion_marker_name(node_ids) -> str:
     return f'{COMPLETION_MARKER_PREFIX}{node_ids_hash(node_ids)[:5]}'
 
 
+def completion_marker_key(root_path:str, node_ids) -> str:
+    """Where the marker covering exactly these chunk ids is stored."""
+    return join(root_path, COMPLETION_MARKER_DIR, completion_marker_name(node_ids))
+
+
 def is_completion_marker(key:str) -> bool:
     """
     Whether an object key is a completion marker.
 
-    TextNode.from_json turns a marker into a node with a generated uuid and
-    empty text rather than rejecting it, so a listing that keeps one gains a
-    phantom chunk.
+    Decided by the reserved segment, not the name: TextNode.from_json turns a
+    marker into a node with a generated uuid and empty text rather than
+    rejecting it, so a listing that keeps one gains a phantom chunk - and a
+    chunk whose node id opens with the marker prefix would be dropped.
     """
-    return basename(key).startswith(COMPLETION_MARKER_PREFIX)
+    return basename(dirname(key)) == COMPLETION_MARKER_DIR
 
 
 def written_nodes(doc:SourceDocument) -> List[TextNode]:
@@ -478,7 +489,7 @@ class S3ChunkUploader(ConfiguredThreadCount, EncryptedPut, BaseComponent):
             'content_hash': node_ids_hash(node_ids),
         }
 
-        key = join(root_path, completion_marker_name(node_ids))
+        key = completion_marker_key(root_path, node_ids)
         logger.debug(f'Writing completion marker to S3 [bucket: {self.bucket_name}, key: {key}]')
 
         try:

@@ -23,6 +23,7 @@ from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import (
     S3ChunkDownloader,
     S3ChunkUploader,
     S3DocDownloader,
+    completion_marker_key,
     completion_marker_name,
     is_completion_marker,
     node_ids_hash,
@@ -84,7 +85,7 @@ def _upload(uploader, docs, failing_keys=()):
 
 
 def _marker_key(node_ids, source_id=SOURCE_ID):
-    return f'{COLLECTION_PREFIX}/{source_id}/{completion_marker_name(node_ids)}'
+    return completion_marker_key(f'{COLLECTION_PREFIX}/{source_id}', node_ids)
 
 
 def _markers(written):
@@ -341,10 +342,25 @@ class TestMarkerNaming:
     def test_only_the_basename_decides(self):
         # A substring test would drop a chunk whose own id happened to contain
         # the marker prefix somewhere in its path.
-        assert is_completion_marker(f'p/c/src/{COMPLETION_MARKER_PREFIX}abcde')
+        assert is_completion_marker(completion_marker_key('p/c/src', ['c1']))
         assert not is_completion_marker(f'p/c/{COMPLETION_MARKER_PREFIX}x/c1.json')
         assert not is_completion_marker('p/c/src/c1.json')
+        # A chunk whose node id opens with the prefix is a chunk, not a marker.
+        assert not is_completion_marker(f'p/c/src/{COMPLETION_MARKER_PREFIX}abcde.json')
 
     def test_the_name_follows_the_chunk_ids(self):
         assert completion_marker_name(['c1', 'c2']) == completion_marker_name(['c2', 'c1'])
+
+    def test_a_chunk_named_like_a_marker_survives_the_round_trip(self):
+        """The marker segment keeps the two namespaces apart.
+
+        A chunk is keyed by its node id. While markers sat beside the chunks, a
+        node id opening with the marker prefix was written as a chunk and then
+        excluded from the reconstructed document with no error.
+        """
+        node_id = f'{COMPLETION_MARKER_PREFIX}looks-like-a-marker'
+        chunk_key = f'{COLLECTION_PREFIX}/src/{node_id}.json'
+
+        assert not is_completion_marker(chunk_key)
+        assert is_completion_marker(completion_marker_key(f'{COLLECTION_PREFIX}/src', [node_id]))
         assert completion_marker_name(['c1', 'c2']) != completion_marker_name(['c1', 'c3'])
