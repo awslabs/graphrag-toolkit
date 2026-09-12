@@ -107,3 +107,23 @@ class TestSourceNodeBuilderEdgeCases:
         builder = _make_builder()
         results = builder.build_nodes([])
         assert results == []
+
+
+class TestSourceNodeCarriesTheDocumentHash:
+    """The hash on the SOURCE relationship reaches the source node, so the graph
+    write can record which document owns the id."""
+
+    def test_the_hash_is_copied_onto_the_source_dict(self):
+        from graphrag_toolkit.lexical_graph.indexing.source_id_collision import DOCUMENT_HASH_PROPERTY
+        node = _make_node()
+        node.relationships[NodeRelationship.SOURCE].hash = 'abc123'
+
+        results = _make_builder().build_nodes([node])
+
+        assert results[0].metadata['source'][DOCUMENT_HASH_PROPERTY] == 'abc123'
+
+    def test_a_relationship_without_a_hash_adds_nothing(self):
+        from graphrag_toolkit.lexical_graph.indexing.source_id_collision import DOCUMENT_HASH_PROPERTY
+        results = _make_builder().build_nodes([_make_node()])
+
+        assert DOCUMENT_HASH_PROPERTY not in results[0].metadata['source']
