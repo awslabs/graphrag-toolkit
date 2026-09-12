@@ -53,6 +53,16 @@ def run_pipeline(
         **kwargs
     )
 
+    # One worker has nothing to run in parallel, and a spawned worker costs a
+    # full interpreter start and package import on every call. The build stage
+    # behind extract() calls this once per batch of four documents, so on a
+    # 500-document run that was 125 spawns and about 1.4 s per document.
+    if num_workers == 1:
+        for node_batch in node_batches:
+            for processed_node in transform(node_batch):
+                yield processed_node
+        return
+
     # Use "spawn": a forked worker can inherit a held lock (e.g. a logging
     # thread's) and deadlock. Spawn starts workers from a clean interpreter,
     # which also drops the GraphRAGConfig singleton's programmatically-set
