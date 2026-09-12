@@ -10,6 +10,7 @@ from unittest.mock import Mock, patch, MagicMock
 from llama_index.core.schema import NodeRelationship, RelatedNodeInfo, TextNode
 from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import (
     S3BasedDocs,
+    is_completion_marker,
     S3DocDownloader,
     S3DocUploader,
     S3ChunkDownloader,
@@ -769,8 +770,10 @@ class TestS3ChunkUploaderConcurrency:
             docs = [_doc(f'src-{i}', 3) for i in range(10)]
             list(uploader.upload(docs))
 
-        assert len(keys) == 30
-        assert len(set(keys)) == 30
+        chunk_keys = [k for k in keys if not is_completion_marker(k)]
+
+        assert len(chunk_keys) == 30
+        assert len(set(chunk_keys)) == 30
 
     def test_document_is_yielded_only_after_its_own_chunks_are_written(self):
         """A document's own chunks are written before it is yielded."""
@@ -799,7 +802,9 @@ class TestS3ChunkUploaderConcurrency:
         with _uploader_with(4, on_put) as uploader:
             list(uploader.upload([_doc('src-0', 2, index_key_chunks=3)]))
 
-        assert len(keys) == 2
+        chunk_keys = [k for k in keys if not is_completion_marker(k)]
+
+        assert len(chunk_keys) == 2
 
     def test_a_failed_chunk_does_not_stop_the_stream(self):
         def on_put(**kwargs):
