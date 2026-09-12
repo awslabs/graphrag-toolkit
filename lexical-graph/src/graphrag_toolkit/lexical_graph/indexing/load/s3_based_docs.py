@@ -225,7 +225,9 @@ class S3DocUploader(ConfiguredThreadCount, BaseComponent):
             # count it can never reach.
             try:
                 queue.put(future.result(timeout=1.0))
-            except Exception as e:
+            except BaseException as e:
+                # BaseException, matching _doc_publisher: an interrupt in a worker
+                # strands the consumer as surely as a ClientError does.
                 logger.error(f'Error uploading source document: {str(e)}')
                 queue.put(_UploadFailed(e))
             finally:
@@ -283,7 +285,7 @@ class S3DocUploader(ConfiguredThreadCount, BaseComponent):
 
         logger.debug(f'About to start polling queue [count: {count}, target_count: {target_count}]')
 
-        failure = None
+        failures:List[BaseException] = []
 
         while target_count is None or count < target_count:
             try:
@@ -293,22 +295,33 @@ class S3DocUploader(ConfiguredThreadCount, BaseComponent):
                 else:
                     count += 1
                     if isinstance(item, _UploadFailed):
-                        failure = failure or item.cause
+                        failures.append(item.cause)
                     else:
                         yield item
                 self._queue.task_done()
             except queue.Empty:
                 # A producer that died before putting its count would otherwise
-                # keep the consumer here for the rest of the run.
+                # keep the consumer here for the rest of the run. Reaching here
+                # means the batch is short, so it is a failure rather than an end.
                 if not thread.is_alive():
+                    failures.append(RuntimeError(
+                        f'Upload producer stopped before reporting its document count '
+                        f'[count: {count}, target_count: {target_count}]'
+                    ))
                     break
             
         logger.debug(f'Waiting on queue to empty [count: {count}, target_count: {target_count}]')
 
         thread.join()
 
-        if failure is not None:
-            raise failure
+        if failures:
+            # The first is raised rather than aggregated: 3.10 has no ExceptionGroup.
+            if len(failures) > 1:
+                logger.error(
+                    f'{len(failures)} source documents failed to upload, raising the first '
+                    f'[batch_size: {len(source_docs_batch)}]'
+                )
+            raise failures[0]
 
     def upload(self, source_documents: List[SourceDocument]):
 

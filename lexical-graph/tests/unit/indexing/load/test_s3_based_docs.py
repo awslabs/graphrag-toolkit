@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import contextlib
+import logging
 import queue
 import threading
 import time
@@ -1156,11 +1157,35 @@ class TestStagingSurfacesUploadFailures:
         uploader._queue = queue.Queue()
         consumed, finished = [], threading.Event()
 
+        error = []
+
         def consume():
-            consumed.extend(uploader._upload_batch(self._docs(1)))
+            try:
+                consumed.extend(uploader._upload_batch(self._docs(1)))
+            except BaseException as e:
+                error.append(e)
             finished.set()
 
         with patch.object(S3DocUploader, '_doc_publisher', side_effect=RuntimeError('dead')):
             threading.Thread(target=consume, daemon=True).start()
 
             assert finished.wait(timeout=8), 'consumer waited on a producer that had died'
+
+        assert error, 'a truncated batch returned without raising'
+        assert 'before reporting its document count' in str(error[0])
+
+    def test_every_failure_is_reported_not_only_the_first(self, caplog):
+        """Two documents fail. The first is raised, and the log says how many."""
+        docs = self._docs(3)
+        uploader = S3DocUploader(bucket_name='b', collection_prefix='p', num_threads=2)
+
+        def upload_doc(root_path, doc, s3_client):
+            if doc is docs[0] or doc is docs[1]:
+                raise RuntimeError('S3 write failed')
+            return doc
+
+        with caplog.at_level(logging.ERROR):
+            finished, _, error = self._consume(uploader, docs, upload_doc)
+
+        assert finished and error
+        assert any('2 source documents failed to upload' in r.message for r in caplog.records)
