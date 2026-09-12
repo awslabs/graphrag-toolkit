@@ -1,6 +1,7 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
+import logging
 import unittest
 from unittest.mock import MagicMock, patch
 
@@ -13,6 +14,8 @@ from graphrag_toolkit.lexical_graph.utils import LLMCache
 from graphrag_toolkit.lexical_graph.retrieval.post_processors.statement_enhancement import (
     StatementEnhancementPostProcessor,
 )
+
+_MODULE_LOGGER = 'graphrag_toolkit.lexical_graph.retrieval.post_processors.statement_enhancement'
 
 ENHANCED = '<modified_statement>enhanced</modified_statement>'
 
@@ -195,6 +198,26 @@ class TestChunkMetadataShapes(unittest.TestCase):
         node = _node()
         node.node.metadata['chunk'] = None
         return node
+
+    def test_a_none_statement_skips_rather_than_erroring(self):
+        """'statement' set to None gets the same guard as 'chunk'.
+
+        The node comes back unchanged either way, so the assertion is on the path:
+        without the guard the AttributeError lands in the broad except and logs an
+        error, where an absent statement logs a debug skip.
+        """
+        processor = _processor()
+        node = _node(chunk={'chunkId': 'c1', 'value': 'text'})
+        node.node.metadata['statement'] = None
+
+        with self.assertLogs(_MODULE_LOGGER, level='DEBUG') as logged:
+            self.assertIs(processor.enhance_statement(node), node)
+
+        self.assertFalse(
+            [r for r in logged.records if r.levelno >= logging.ERROR],
+            'a None statement was reported as an error rather than skipped'
+        )
+        processor.llm.predict.assert_not_called()
 
     def test_a_none_chunk_does_not_raise(self):
         processor = _processor(chunk_store=MagicMock(get_batch=MagicMock(return_value={})))

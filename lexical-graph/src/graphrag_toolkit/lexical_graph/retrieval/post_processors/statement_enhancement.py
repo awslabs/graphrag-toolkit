@@ -112,21 +112,17 @@ class StatementEnhancementPostProcessor(BaseNodePostprocessor):
         ])
 
     @staticmethod
-    def _chunk(node: NodeWithScore) -> dict:
-        """The node's chunk metadata, or an empty dict.
+    def _section(node: NodeWithScore, key: str) -> dict:
+        """A node's metadata section, or an empty dict.
 
-        A retriever can leave 'chunk' set to None rather than absent, which a
-        `get('chunk', {})` default does not catch.
+        A retriever can leave a section set to None rather than absent, which a
+        `get(key, {})` default does not catch.
         """
-        return node.node.metadata.get('chunk') or {}
+        return node.node.metadata.get(key) or {}
 
     @classmethod
     def _chunk_id(cls, node: NodeWithScore):
-        return cls._chunk(node).get('chunkId')
-
-    @classmethod
-    def _chunk_text(cls, node: NodeWithScore):
-        return cls._chunk(node).get('value')
+        return cls._section(node, 'chunk').get('chunkId')
 
     def _chunk_text_by_id(self, nodes: List[NodeWithScore]) -> dict:
         """
@@ -143,9 +139,9 @@ class StatementEnhancementPostProcessor(BaseNodePostprocessor):
         # sharing a chunk cost one fetch and the request is reproducible. A set
         # would dedup but reorder between runs.
         chunk_ids = list(dict.fromkeys(
-            self._chunk_id(node)
-            for node in nodes
-            if not self._chunk_text(node) and self._chunk_id(node)
+            chunk.get('chunkId')
+            for chunk in (self._section(node, 'chunk') for node in nodes)
+            if chunk.get('chunkId') and not chunk.get('value')
         ))
 
         return self.chunk_store.get_batch(chunk_ids) if chunk_ids else {}
@@ -171,11 +167,12 @@ class StatementEnhancementPostProcessor(BaseNodePostprocessor):
                 successful, or the original node if the enhancement process fails.
         """
         try:
-            statement = node.node.metadata.get('statement', {}).get('value')
+            statement = self._section(node, 'statement').get('value')
 
-            chunk_id = self._chunk_id(node)
+            chunk = self._section(node, 'chunk')
+            chunk_id = chunk.get('chunkId')
 
-            context = self._chunk_text(node)
+            context = chunk.get('value')
             if not context:
                 if chunk_text_by_id is not None:
                     # A batch ran and this id was not in it, so the store has
