@@ -10,6 +10,11 @@ from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 
 from llama_index.core.bridge.pydantic import BaseModel
 
+SOURCE_ID_PREFIX = 'aws'
+METADATA_DIGEST_LENGTH = 4
+
+_HEX_DIGITS = frozenset('0123456789abcdef')
+
 class IdGenerator(BaseModel):
     """
     A class responsible for generating unique and tenant-specific identifiers.
@@ -92,7 +97,27 @@ class IdGenerator(BaseModel):
             hashed substrings derived from the input text and metadata.
 
         """
-        return f"aws::{self._get_hash(text)[:self.source_id_width]}:{self._get_hash(metadata_str)[:4]}"
+        return f"{SOURCE_ID_PREFIX}::{self._get_hash(text)[:self.source_id_width]}:{self._get_hash(metadata_str)[:METADATA_DIGEST_LENGTH]}"
+
+    @staticmethod
+    def width_of_source_id(source_id:str) -> Optional[SourceIdWidth]:
+        """
+        The width a source id was written at. A source id is ``aws::<text>:<metadata>``,
+        or ``aws:<tenant>:<text>:<metadata>`` once rewritten for a tenant, so the text
+        digest is the third field in both. Returns None for an id this generator did
+        not write: IdRewriter keeps any id starting ``aws:`` as given, and a build
+        accepts nodes whose source is any id at all.
+        """
+        parts = source_id.split(':')
+        if len(parts) != 4 or parts[0] != SOURCE_ID_PREFIX or len(parts[3]) != METADATA_DIGEST_LENGTH:
+            return None
+        digest = parts[2]
+        if not digest or not set(digest) <= _HEX_DIGITS:
+            return None
+        try:
+            return SourceIdWidth(len(digest))
+        except ValueError:
+            return None
 
     # Delimiter used to separate text and metadata in chunk ID hashing.
     # Using null byte as it cannot appear in valid UTF-8 text strings.

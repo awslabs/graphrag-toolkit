@@ -243,6 +243,7 @@ class ExtractionPipeline():
         batch_size = coalesce(batch_size, GraphRAGConfig.extraction_batch_size)
         include_classification_in_entity_id = coalesce(include_classification_in_entity_id, GraphRAGConfig.include_classification_in_entity_id)
         extract_timestamp = kwargs.pop('extract_timestamp', None)
+        source_id_width = kwargs.pop('source_id_width', None)
 
         if num_workers > multiprocessing.cpu_count():
             num_workers = multiprocessing.cpu_count()
@@ -255,7 +256,7 @@ class ExtractionPipeline():
         id_generator=IdGenerator(
             tenant_id=tenant_id, 
             include_classification_in_entity_id=include_classification_in_entity_id,
-            source_id_width=GraphRAGConfig.source_id_width
+            source_id_width=source_id_width
         )
         
 

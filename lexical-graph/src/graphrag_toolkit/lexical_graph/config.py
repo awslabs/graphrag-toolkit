@@ -42,7 +42,7 @@ DEFAULT_EMBEDDINGS_DIMENSIONS = 1024
 DEFAULT_EXTRACTION_NUM_WORKERS = 2
 DEFAULT_EXTRACTION_BATCH_SIZE = 4
 DEFAULT_EXTRACTION_NUM_THREADS_PER_WORKER = 4
-DEFAULT_SOURCE_ID_WIDTH = 'LEGACY'
+DEFAULT_SOURCE_ID_WIDTH = 'FULL'
 # botocore's own default. Not a chosen value - it's the floor the S3 pool is
 # never sized below. Distinct from DEFAULT_MAX_POOL_CONNECTIONS in
 # neptune_graph_stores, which is that client's chosen size.
@@ -733,13 +733,22 @@ class _GraphRAGConfig:
         """
         Characters of the text digest that go into a source id.
 
-        LEGACY is what every existing graph was written with. FULL is the whole
-        digest, which separates documents that would otherwise share an id. A graph
-        written at one width cannot be read at another, so this is fixed per graph.
+        LEGACY is what every graph written before 3.20 carries. FULL is the whole
+        digest, which separates documents that would otherwise share an id, and is
+        the default for new graphs. A graph keeps the width it was first written
+        at: LexicalGraphIndex uses the graph's width when it has one.
+        """
+        return self.source_id_width_setting or SourceIdWidth.parse(DEFAULT_SOURCE_ID_WIDTH)
+
+    @property
+    def source_id_width_setting(self) -> Optional['SourceIdWidth']:
+        """
+        The width set through the setter or SOURCE_ID_WIDTH, or None when unset.
+        Unset lets an existing graph keep its width. A set width must match the
+        width of the graph being written to.
         """
         if self._source_id_width is None:
-            self._source_id_width = SourceIdWidth.parse(
-                os.environ.get('SOURCE_ID_WIDTH', DEFAULT_SOURCE_ID_WIDTH))
+            self._source_id_width = SourceIdWidth.parse(os.environ.get('SOURCE_ID_WIDTH'))
 
         return self._source_id_width
 

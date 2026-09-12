@@ -15,8 +15,6 @@ separate two documents. That is the case measured in the collision spike and the
 case these tests use.
 """
 
-import pytest
-
 from unittest.mock import Mock
 
 from graphrag_toolkit.lexical_graph.config import SourceIdWidth
@@ -130,11 +128,11 @@ class TestCollisionReachesTheGraph:
 
     @staticmethod
     def _source_node(text):
-        """A source node carrying the id the pipeline would derive from `text`."""
+        """A source node carrying the id `text` gets in a graph written at the legacy width."""
         node = Mock()
         node.metadata = {
             'source': {
-                'sourceId': source_id_as_configured(text),
+                'sourceId': source_id_at(text, LEGACY_WIDTH),
                 'metadata': {'file_path': f'{text}.txt'},
             }
         }
@@ -148,8 +146,8 @@ class TestCollisionReachesTheGraph:
 
     def test_both_documents_merge_on_one_source_id(self):
         # The builder binds the id it is given, unchanged, so two documents that
-        # collide bind one key. Fails once the default width is widened, which
-        # is the point; update it then rather than deleting it.
+        # collide bind one key. Graphs written before the default widened still
+        # carry the legacy width, so they still merge these two.
         calls = self._merge_calls(TEXT_A, TEXT_B)
 
         assert len(calls) == 2
@@ -171,15 +169,9 @@ class TestCollisionReachesTheGraph:
         assert 'ON MATCH SET' in calls[1][0][0]
 
 
-@pytest.mark.xfail(
-    strict=True,
-    reason='Source ids discriminate on 32 bits at the default width. Remove this '
-           'marker when the default is widened; strict=True fails the run once the '
-           'assertions start passing, so the marker cannot outlive the fix.',
-)
 class TestSourceIdUniqueness:
     """
-    RED. Two distinct documents must be distinguishable by id alone, because
+    Two distinct documents must be distinguishable by id alone, because
     every downstream identity derives from it: the S3 prefix above, the
     `__Source__` node the graph MERGEs on, and every chunk, topic, statement
     and fact id.
