@@ -2,8 +2,10 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import contextlib
+import queue
 import threading
 import time
+from collections import deque
 
 import pytest
 from unittest.mock import Mock, patch, MagicMock
@@ -810,6 +812,89 @@ class TestS3ChunkUploaderConcurrency:
             yielded = list(uploader.upload([_doc(f'src-{i}', 2) for i in range(4)]))
 
         assert [d.source_id() for d in yielded] == [f'src-{i}' for i in range(4)]
+
+
+class _FakeQueue:
+    """Mimics the subset of queue.Queue that _upload_batch relies on, but
+    raises Empty immediately instead of blocking for the real 60s timeout -
+    lets a dead-producer test run instantly."""
+
+    def __init__(self):
+        self._items = deque()
+
+    def put(self, item):
+        self._items.append(item)
+
+    def get(self, timeout=None):
+        if self._items:
+            return self._items.popleft()
+        raise queue.Empty()
+
+    def task_done(self):
+        pass
+
+
+class TestS3DocUploaderFailureHandling:
+    """A document that fails to upload must never be reported as written,
+    and a failure must never leave _upload_batch waiting forever for a
+    target_count that never arrives."""
+
+    def test_a_failed_upload_is_not_yielded_as_written(self):
+        uploader = S3DocUploader(bucket_name='b', collection_prefix='p')
+        docs = [_doc(f'src-{i}', 1) for i in range(4)]
+
+        def fake_upload_doc(self, root_path, doc, s3_client):
+            if doc.source_id() == 'src-1':
+                raise RuntimeError('simulated S3 failure')
+            return doc
+
+        with patch.object(S3DocUploader, '_upload_doc', fake_upload_doc):
+            with patch(
+                'graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs.GraphRAGConfig'
+            ) as config:
+                config.extraction_num_threads_per_worker = 4
+                config.s3 = MagicMock()
+                yielded = list(uploader.upload(docs))
+
+        assert {d.source_id() for d in yielded} == {'src-0', 'src-2', 'src-3'}
+
+    def test_publisher_loop_exception_still_reports_target_count(self):
+        """A real exception raised mid-loop (not a fully-replaced method)
+        must still let the already-submitted document complete and the
+        batch finish, via _doc_publisher's finally, instead of hanging."""
+        uploader = S3DocUploader(bucket_name='b', collection_prefix='p')
+
+        good = _doc('src-0', 1)
+        bad = Mock()
+        bad.nodes = [TextNode(text='x', id_='x')]
+        bad.source_id.side_effect = RuntimeError('boom mid-loop')
+
+        with patch(
+            'graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs.GraphRAGConfig'
+        ) as config:
+            config.extraction_num_threads_per_worker = 4
+            config.s3 = MagicMock()
+            yielded = list(uploader.upload([good, bad]))
+
+        assert [d.source_id() for d in yielded] == ['src-0']
+
+    @pytest.mark.filterwarnings('ignore::pytest.PytestUnhandledThreadExceptionWarning')
+    def test_publisher_thread_dying_raises_instead_of_hanging(self):
+        """If the producer thread dies without ever reporting a count -
+        including a fully mocked-out _doc_publisher - _upload_batch must
+        raise rather than poll a queue that will never receive anything.
+
+        The daemon thread's RuntimeError is expected here (it mirrors the
+        thread death this test targets) and is asserted indirectly via the
+        RuntimeError _upload_batch itself raises; pytest's own warning about
+        the thread's uncaught exception is suppressed as noise."""
+        uploader = S3DocUploader(bucket_name='b', collection_prefix='p')
+        uploader._queue = _FakeQueue()
+        uploader._semaphore = threading.Semaphore(100)
+
+        with patch.object(S3DocUploader, '_doc_publisher', side_effect=RuntimeError('boom')):
+            with pytest.raises(RuntimeError, match='terminated without reporting a result'):
+                list(uploader._upload_batch([_doc('src-0', 1)]))
 
 
 class TestUploadThreadPropagation:

@@ -31,6 +31,10 @@ from llama_index.core.bridge.pydantic import PrivateAttr
 QUEUE_SIZE = 1000
 BATCH_SIZE = 100
 
+# Marks a submitted document whose upload failed, so _upload_batch's polling
+# loop still advances its count for it without yielding it as a written doc.
+_UPLOAD_FAILED = object()
+
 logger = logging.getLogger(__name__)
 
 # Joins node ids before hashing them. Without a separator ['ab', 'c'] and
@@ -198,9 +202,10 @@ class S3DocUploader(ConfiguredThreadCount, BaseComponent):
                 )
 
             return doc
-            
+
         except Exception as e:
             logger.error(f'Error while writing source document to S3: {str(e)}')
+            raise
 
     def _task_complete_callback(self, future):
         self._semaphore.release()
@@ -212,42 +217,51 @@ class S3DocUploader(ConfiguredThreadCount, BaseComponent):
                 queue.put(doc)
             except Exception as e:
                 logger.error(f'Error getting result from future: {str(e)}')
+                queue.put(_UPLOAD_FAILED)
             self._semaphore.release()
         return _task_complete_callback
-    
-    def _submit_proxy(self, function, executor, queue:queue.Queue, *args, **kwargs):
+
+    def _submit_proxy(self, function, executor, queue:queue.Queue, *args, **kwargs) -> bool:
+        """Returns whether a callback was registered that guarantees exactly
+        one item lands on the queue for this submission. _doc_publisher must
+        only count a document toward its target_count when this is True."""
+        self._semaphore.acquire()
         try:
-            self._semaphore.acquire()
             future = executor.submit(function, *args, **kwargs)
             future.add_done_callback(self._get_callback_fn(queue))
+            return True
         except Exception as e:
             logger.exception(f'Error in submit proxy: {str(e)}')
-    
+            self._semaphore.release()
+            return False
+
     def _doc_publisher(self, queue:queue.Queue, source_documents:List[SourceDocument]=[]):
 
         s3_client = GraphRAGConfig.s3
-        
+        count = 0
+
         try:
 
             with concurrent.futures.ThreadPoolExecutor(max_workers=self._num_threads()) as executor:
-
-                count = 0
 
                 for source_document in source_documents:
 
                     if not source_document.nodes:
                         continue
-                    
-                    root_path = join(self.collection_prefix, source_document.source_id())
-                   
-                    self._submit_proxy(self._upload_doc, executor, queue, root_path, source_document, s3_client)
 
-                    count += 1
-                
-            self._queue.put(count)
+                    root_path = join(self.collection_prefix, source_document.source_id())
+
+                    if self._submit_proxy(self._upload_doc, executor, queue, root_path, source_document, s3_client):
+                        count += 1
 
         except Exception as e:
             logger.exception(f'Error in doc publisher: {str(e)}')
+        finally:
+            # _upload_batch waits for exactly this many items before it stops
+            # polling the queue, so target_count must reach it even when the
+            # loop above raised partway through - otherwise a failure here
+            # hangs the consumer indefinitely instead of surfacing it.
+            self._queue.put(count)
 
     def _upload_batch(self, source_docs_batch:List[SourceDocument]):
 
@@ -264,13 +278,20 @@ class S3DocUploader(ConfiguredThreadCount, BaseComponent):
                 item = self._queue.get(timeout=60.0)
                 if isinstance(item, int):
                     target_count = item
+                elif item is _UPLOAD_FAILED:
+                    count += 1
                 else:
                     count += 1
                     yield item
                 self._queue.task_done()
             except queue.Empty as e:
+                if not thread.is_alive():
+                    thread.join()
+                    raise RuntimeError(
+                        'Document publisher thread terminated without reporting a result'
+                    ) from e
                 continue
-            
+
         logger.debug(f'Waiting on queue to empty [count: {count}, target_count: {target_count}]')
 
         thread.join()
