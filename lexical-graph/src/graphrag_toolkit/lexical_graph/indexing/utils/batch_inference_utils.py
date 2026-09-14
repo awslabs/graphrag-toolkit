@@ -6,7 +6,7 @@ import asyncio
 import time
 import os
 import json
-from typing import Any, Callable, List, Dict
+from typing import Any, Callable, List, Dict, Tuple
 from dataclasses import dataclass
 from os import stat, listdir
 from os.path import isfile, join
@@ -118,25 +118,68 @@ def _build_claude_request(messages: List[ChatMessage], params: dict) -> dict:
     return request_body
 
 
+def _format_llama_prompt(messages: List[ChatMessage]) -> str:
+    """Render chat messages into Meta Llama's instruct prompt template.
+
+    Bedrock's Meta Llama InvokeModel takes a single `prompt` string (not a
+    messages array); Llama 3/3.1/3.2/3.3/4 Instruct share this chat template. The
+    system message, if any, is folded into the prompt (unlike the Converse-based
+    families which carry it separately).
+    """
+    parts = ['<|begin_of_text|>']
+    for message in messages:
+        role = message.role.value
+        text = message.content or ''
+        parts.append(f'<|start_header_id|>{role}<|end_header_id|>\n\n{text}<|eot_id|>')
+    # Trailing empty assistant header cues the model to generate the response.
+    parts.append('<|start_header_id|>assistant<|end_header_id|>\n\n')
+    return ''.join(parts)
+
+
 def _build_llama_request(messages: List[ChatMessage], params: dict) -> dict:
-    converse_messages, system_prompt = messages_to_converse_messages(messages)
-    return {
-        'messages': converse_messages,
-        'parameters': {
-            'max_new_tokens': params['max_tokens'],
-            'temperature': params['temperature'],
-        }
+    # Bedrock InvokeModel schema for Meta Llama: prompt + max_gen_len (NOT the
+    # Converse `messages`/`parameters` shape). See the AWS Bedrock docs,
+    # "Meta Llama models" (model-parameters-meta).
+    request_body = {
+        'prompt': _format_llama_prompt(messages),
+        'max_gen_len': params['max_tokens'],
+        'temperature': params['temperature'],
     }
+    top_p = params.get('top_p')
+    if top_p is not None:
+        request_body['top_p'] = top_p
+    return request_body
+
+
+_OUTPUT_MODES = ('blocks', 'text')
 
 
 @dataclass(frozen=True)
 class BatchModelProvider:
     """A model family's batch (InvokeModel JSONL) request builder and output spec."""
     name: str
-    match_prefixes: tuple
+    match_prefixes: Tuple[str, ...]
     build_request: Callable[[List[ChatMessage], dict], dict]
-    output_path: tuple
+    output_path: Tuple[str, ...]
     output_mode: str = 'blocks'
+
+    def __post_init__(self):
+        # Validate at import time (when the registry is built) rather than mid-batch
+        # after the job cost is incurred.
+        if not isinstance(self.match_prefixes, tuple) or not all(
+            isinstance(prefix, str) for prefix in self.match_prefixes
+        ):
+            # Catches a missing comma - ('amazon.nova') is a str, which would
+            # substring-match single characters and wrongly capture other ids.
+            raise TypeError(
+                f"{self.name}: match_prefixes must be a tuple of str, got {self.match_prefixes!r}"
+            )
+        if self.output_mode not in _OUTPUT_MODES:
+            # Catches a typo that would otherwise fall through to the lenient
+            # 'blocks' branch and raise AttributeError only at parse time.
+            raise ValueError(
+                f"{self.name}: output_mode must be one of {_OUTPUT_MODES}, got {self.output_mode!r}"
+            )
 
 
 BATCH_MODEL_PROVIDERS: List[BatchModelProvider] = [

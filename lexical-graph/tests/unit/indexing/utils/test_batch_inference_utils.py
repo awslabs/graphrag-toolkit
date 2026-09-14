@@ -20,6 +20,7 @@ from graphrag_toolkit.lexical_graph.indexing.utils.batch_inference_utils import 
     create_inference_inputs,
     get_parse_output_text_fn,
     BATCH_MODEL_PROVIDERS,
+    BatchModelProvider,
     BEDROCK_MIN_BATCH_SIZE,
     BEDROCK_MAX_BATCH_SIZE
 )
@@ -247,24 +248,53 @@ class TestGetRequestBody:
             assert request_body['messages'] == [{'role': 'user', 'content': 'User message'}]
 
     def test_get_request_body_llama_model(self):
-        """Verify get_request_body creates correct structure for Llama models."""
+        """Verify get_request_body emits the Bedrock InvokeModel schema for Llama.
+
+        Bedrock's Meta Llama InvokeModel takes a single `prompt` string (Llama
+        instruct chat template) + `max_gen_len` — not the Converse
+        `messages`/`parameters` shape.
+        """
         mock_llm = Mock(spec=BedrockConverse)
         mock_llm.model = 'meta.llama3-70b-instruct-v1:0'
-        
+
         messages = [
+            ChatMessage(role=MessageRole.SYSTEM, content="Be terse."),
             ChatMessage(role=MessageRole.USER, content="Test message")
         ]
         inference_params = {'max_tokens': 1500, 'temperature': 0.6}
-        
-        with patch('graphrag_toolkit.lexical_graph.indexing.utils.batch_inference_utils.messages_to_converse_messages') as mock_convert:
-            mock_convert.return_value = ([{'role': 'user', 'content': [{'text': 'Test message'}]}], None)
-            
-            request_body = get_request_body(mock_llm, messages, inference_params)
-            
-            assert 'messages' in request_body
-            assert 'parameters' in request_body
-            assert request_body['parameters']['max_new_tokens'] == 1500
-            assert request_body['parameters']['temperature'] == 0.6
+
+        request_body = get_request_body(mock_llm, messages, inference_params)
+
+        assert request_body['max_gen_len'] == 1500
+        assert request_body['temperature'] == 0.6
+        assert 'messages' not in request_body
+        assert 'parameters' not in request_body
+
+        prompt = request_body['prompt']
+        assert prompt.startswith('<|begin_of_text|>')
+        assert '<|start_header_id|>system<|end_header_id|>\n\nBe terse.<|eot_id|>' in prompt
+        assert '<|start_header_id|>user<|end_header_id|>\n\nTest message<|eot_id|>' in prompt
+        assert prompt.endswith('<|start_header_id|>assistant<|end_header_id|>\n\n')
+
+    def test_get_request_body_nova_system_uses_real_converse_helper(self):
+        """Nova system-prompt handling against the REAL messages_to_converse_messages.
+
+        The other nova tests mock the helper, so they only encode the assumed
+        return shape. This one exercises the real helper so a change in what it
+        returns (a list of {'text': ...} blocks) can't silently regress into the
+        double-wrapped `[{'text': [{'text': ...}]}]` bug.
+        """
+        mock_llm = Mock(spec=BedrockConverse)
+        mock_llm.model = 'amazon.nova-pro-v1:0'
+
+        messages = [
+            ChatMessage(role=MessageRole.SYSTEM, content="Be terse."),
+            ChatMessage(role=MessageRole.USER, content="Hi")
+        ]
+
+        request_body = get_request_body(mock_llm, messages, {'max_tokens': 64, 'temperature': 0.0})
+
+        assert request_body['system'] == [{'text': 'Be terse.'}]
     
     def test_get_request_body_unsupported_model(self):
         """Verify get_request_body raises error for unsupported models."""
@@ -440,13 +470,32 @@ class TestBatchModelProviderRegistry:
 
         messages = [ChatMessage(role=MessageRole.USER, content="Test")]
 
-        with patch(CONVERSE_PATCH_TARGET) as mock_convert:
-            mock_convert.return_value = ([{'role': 'user', 'content': [{'text': 'Test'}]}], None)
+        body = get_request_body(mock_llm, messages, {'max_tokens': 100, 'temperature': 0.2})
 
-            body = get_request_body(mock_llm, messages, {'max_tokens': 100, 'temperature': 0.2})
+        # Resolved to the meta.llama family through the 'us.' profile prefix.
+        assert body['max_gen_len'] == 100
+        assert body['prompt'].startswith('<|begin_of_text|>')
 
-            assert 'parameters' in body
-            assert body['parameters']['max_new_tokens'] == 100
+    def test_provider_rejects_string_match_prefixes(self):
+        """A missing comma making match_prefixes a bare string fails at construction."""
+        with pytest.raises(TypeError, match="match_prefixes must be a tuple of str"):
+            BatchModelProvider(
+                name='oops',
+                match_prefixes=('amazon.nova'),  # str, not a tuple
+                build_request=lambda messages, params: {},
+                output_path=('modelOutput',),
+            )
+
+    def test_provider_rejects_unknown_output_mode(self):
+        """An output_mode typo fails at construction, not mid-batch at parse time."""
+        with pytest.raises(ValueError, match="output_mode must be one of"):
+            BatchModelProvider(
+                name='oops',
+                match_prefixes=('amazon.nova',),
+                build_request=lambda messages, params: {},
+                output_path=('modelOutput',),
+                output_mode='blob',
+            )
 
     def test_unsupported_model_error_lists_supported_families(self):
         """The unsupported-model error names the families that are supported."""
