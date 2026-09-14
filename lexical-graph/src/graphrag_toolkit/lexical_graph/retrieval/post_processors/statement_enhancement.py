@@ -120,10 +120,6 @@ class StatementEnhancementPostProcessor(BaseNodePostprocessor):
         """
         return node.node.metadata.get(key) or {}
 
-    @classmethod
-    def _chunk_id(cls, node: NodeWithScore):
-        return cls._section(node, 'chunk').get('chunkId')
-
     def _chunk_text_by_id(self, nodes: List[NodeWithScore]) -> dict:
         """
         Chunk text for the nodes that do not carry it, fetched in one call.
