@@ -283,6 +283,25 @@ class TestLexicalGraphIndexWiring:
                 index.build([source_document(FULL_ID)])
 
 
+    def test_extract_and_build_reads_what_the_collection_holds_once(self):
+        """Extraction and the build guard need the same reading; on Neptune each
+        query is a round trip on every ingest."""
+        from pipe import Pipe
+        store = graph_store(source_id=LEGACY_ID)
+        index = self._index(store)
+        module = 'graphrag_toolkit.lexical_graph.lexical_graph_index'
+
+        with patch(f'{module}.ExtractionPipeline.create', return_value=Pipe(lambda docs: docs)), \
+             patch(f'{module}.BuildPipeline.create', return_value=Pipe(list)), \
+             patch(f'{module}.GraphConstruction.for_graph_store'), \
+             patch(f'{module}.VectorIndexing.for_vector_store'):
+            index.extract_and_build([source_document(LEGACY_ID)])
+
+        queries = [c.args[0] for c in store.execute_query.call_args_list if 'MERGE' not in c.args[0]]
+        assert len([q for q in queries if '__SYS_Config__' in q]) == 1
+        assert len([q for q in queries if '__Source__' in q]) == 1
+
+
 class TestASampledWidthIsRecorded:
     """
     A collection written before the record existed is sampled once, then read
@@ -311,6 +330,36 @@ class TestASampledWidthIsRecorded:
         list(guard(store)([source_document(LEGACY_ID)]))
 
         assert not [c for c in store.execute_query.call_args_list if 'MERGE' in c.args[0]]
+
+
+class TestARefusedBuildRecordsNothing:
+    """
+    The record outlives the build it belongs to. Writing it before the whole
+    input has passed stamps a collection that received nothing, and every later
+    build at the other width fails against it.
+    """
+
+    def test_a_batch_refused_partway_records_nothing(self):
+        store = graph_store()
+
+        with pytest.raises(SourceIdWidthMismatchError):
+            guard(store)([source_document(FULL_ID), source_document(LEGACY_ID)])
+
+        assert not [c for c in store.execute_query.call_args_list if 'MERGE' in c.args[0]]
+
+    def test_a_stream_is_recorded_only_after_every_document_has_passed(self):
+        store = graph_store()
+        merges = lambda: [c for c in store.execute_query.call_args_list if 'MERGE' in c.args[0]]
+
+        out = guard(store)(iter([source_document(FULL_ID), source_document(FULL_ID)]))
+        next(out)
+
+        assert not merges(), 'recorded while documents were still to be checked'
+
+        list(out)
+
+        assert len(merges()) == 1
+        assert store.recorded['width'] == FULL.value
 
 
 class TestTheGuardHonoursAnExplicitWidth:

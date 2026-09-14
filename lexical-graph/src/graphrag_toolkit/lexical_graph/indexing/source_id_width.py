@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import logging
-from typing import Iterable, Optional
+from typing import Iterable, NamedTuple, Optional
 
 from llama_index.core.schema import NodeRelationship
 
@@ -115,12 +115,27 @@ def sampled_source_id_width(graph_store:GraphStore) -> Optional[SourceIdWidth]:
     return widths[0]
 
 
+class StoredSourceIdWidth(NamedTuple):
+    """What a collection holds: its recorded width, and the width it is written at."""
+    recorded: Optional[SourceIdWidth]
+    written: Optional[SourceIdWidth]
+
+
+def read_stored_source_id_width(graph_store:GraphStore) -> StoredSourceIdWidth:
+    """
+    Reads the record, and samples stored source ids only when there is none. A
+    run that both extracts and builds reads this once and hands it to each stage.
+    """
+    recorded = recorded_source_id_width(graph_store)
+    return StoredSourceIdWidth(recorded, recorded or sampled_source_id_width(graph_store))
+
+
 def graph_source_id_width(graph_store:GraphStore) -> Optional[SourceIdWidth]:
     """
     The width a collection was written at: its recorded width, else the width of a
     sample of stored source ids, else None when it holds none the generator wrote.
     """
-    return recorded_source_id_width(graph_store) or sampled_source_id_width(graph_store)
+    return read_stored_source_id_width(graph_store).written
 
 
 def record_graph_source_id_width(graph_store:GraphStore, tenant_id:TenantId, width:SourceIdWidth) -> None:
@@ -160,16 +175,19 @@ class SourceIdWidthGuard:
     width, and records that width whenever the collection holds no record.
 
     `configured` is the explicit SOURCE_ID_WIDTH setting, or None when it is
-    unset. A build is the one entry point that takes documents it did not extract,
+    unset. `stored` is what the collection holds when the caller has already read
+    it; without it the guard reads it when the build starts. A build is the one
+    entry point that takes documents it did not extract,
     so an empty collection is stamped with the width of the documents arriving at
     it, and the setting has to be checked here rather than only where extraction
     resolves it.
     """
 
-    def __init__(self, graph_store:GraphStore, tenant_id:TenantId, configured:Optional[SourceIdWidth]=None):
+    def __init__(self, graph_store:GraphStore, tenant_id:TenantId, configured:Optional[SourceIdWidth]=None, stored:Optional[StoredSourceIdWidth]=None):
         self.graph_store = graph_store
         self.tenant_id = tenant_id
         self.configured = configured
+        self.stored = stored
 
     @staticmethod
     def _source_id(item:SourceType) -> Optional[str]:
@@ -186,14 +204,16 @@ class SourceIdWidthGuard:
         return source.node_id if source else None
 
     def _check(self, inputs:Iterable[SourceType]):
-        recorded = recorded_source_id_width(self.graph_store)
-        graph_width = recorded or sampled_source_id_width(self.graph_store)
+        stored = self.stored or read_stored_source_id_width(self.graph_store)
+        graph_width = stored.written
+        checked_a_width = False
 
         for item in inputs:
             source_id = self._source_id(item)
             width = IdGenerator.width_of_source_id(source_id) if source_id else None
 
             if width is not None:
+                checked_a_width = True
                 if graph_width is None:
                     if self.configured is not None and width != self.configured:
                         raise SourceIdWidthMismatchError(
@@ -208,12 +228,11 @@ class SourceIdWidthGuard:
                         f'but this collection is written at {_describe(graph_width)}. Extract '
                         f'with SOURCE_ID_WIDTH={graph_width.name} to write to this collection.'
                     )
-
-                if recorded is None:
-                    record_graph_source_id_width(self.graph_store, self.tenant_id, graph_width)
-                    recorded = graph_width
-                    logger.debug(f'Recorded source id width [width: {graph_width.name}]')
             yield item
+
+        if stored.recorded is None and checked_a_width:
+            record_graph_source_id_width(self.graph_store, self.tenant_id, graph_width)
+            logger.debug(f'Recorded source id width [width: {graph_width.name}]')
 
     def __call__(self, inputs:Iterable[SourceType]):
         """
