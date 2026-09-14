@@ -12,7 +12,7 @@ import uuid
 import concurrent.futures
 
 from collections import deque
-from os.path import join
+from os.path import basename, dirname, join
 from datetime import datetime
 from itertools import repeat, islice
 from threading import Semaphore
@@ -33,9 +33,78 @@ BATCH_SIZE = 100
 
 logger = logging.getLogger(__name__)
 
+# Reserved name for a completion marker. The rest of the name is a digest of
+# the chunk ids it covers, because one source can emit several SourceDocuments
+# into a shared prefix and each needs its own marker.
+COMPLETION_MARKER_PREFIX = '_COMPLETE-'
+
+# Markers live under a reserved segment rather than beside the chunks. A chunk is
+# keyed by its node id, so a shared namespace means a node id starting with the
+# prefix reads back as a marker and is dropped from the document.
+COMPLETION_MARKER_DIR = '_markers'
+
 # Joins node ids before hashing them. Without a separator ['ab', 'c'] and
 # ['a', 'bc'] hash alike.
-_DOC_SUFFIX_DELIMITER = '\x00'
+_NODE_ID_DELIMITER = '\x00'
+
+
+def node_ids_hash(node_ids) -> str:
+    """A hash over node ids, independent of the order they arrive in."""
+    return get_hash(_NODE_ID_DELIMITER.join(sorted(node_ids)))
+
+
+def completion_marker_name(node_ids) -> str:
+    """The marker name covering exactly these chunk ids."""
+    return f'{COMPLETION_MARKER_PREFIX}{node_ids_hash(node_ids)[:5]}'
+
+
+def completion_marker_key(root_path:str, node_ids) -> str:
+    """Where the marker covering exactly these chunk ids is stored."""
+    return join(root_path, COMPLETION_MARKER_DIR, completion_marker_name(node_ids))
+
+
+def is_completion_marker(key:str) -> bool:
+    """
+    Whether an object key is a completion marker.
+
+    Decided by the reserved segment, not the name: TextNode.from_json turns a
+    marker into a node with a generated uuid and empty text rather than
+    rejecting it, so a listing that keeps one gains a phantom chunk - and a
+    chunk whose node id opens with the marker prefix would be dropped.
+    """
+    return basename(dirname(key)) == COMPLETION_MARKER_DIR
+
+
+def written_nodes(doc:SourceDocument) -> List[TextNode]:
+    """The nodes an uploader stores. An index key marks a vector store artefact."""
+    return [n for n in doc.nodes if INDEX_KEY not in n.metadata]
+
+class EncryptedPut:
+    """
+    How these uploaders encrypt what they store.
+
+    A caller-supplied KMS key selects aws:kms, otherwise S3 managed keys.
+    """
+
+    # Supplied by the host class.
+    bucket_name:str
+    s3_encryption_key_id:Optional[str]
+
+    def _put(self, key:str, body:str, content_type:str, s3_client):
+        encryption = (
+            {'ServerSideEncryption': 'aws:kms', 'SSEKMSKeyId': self.s3_encryption_key_id}
+            if self.s3_encryption_key_id
+            else {'ServerSideEncryption': 'AES256'}
+        )
+
+        s3_client.put_object(
+            Bucket=self.bucket_name,
+            Key=key,
+            Body=body.encode('UTF-8'),
+            ContentType=content_type,
+            **encryption
+        )
+
 
 class ConfiguredThreadCount:
     """
@@ -73,7 +142,8 @@ class S3DocDownloader(ConfiguredThreadCount, BaseComponent):
         node_keys = [
             node_obj['Key']
             for node_page in node_pages
-            for node_obj in node_page['Contents'] 
+            for node_obj in node_page.get('Contents', [])
+            if not is_completion_marker(node_obj['Key'])
         ]
 
         # Every object under the prefix merges into one SourceDocument, and a
@@ -138,7 +208,7 @@ class S3DocDownloader(ConfiguredThreadCount, BaseComponent):
                     logger.debug(f'Yielding source document [source: {doc.source_id()}, num_nodes: {len(doc.nodes)}]')
                     yield doc
 
-class S3DocUploader(ConfiguredThreadCount, BaseComponent):
+class S3DocUploader(ConfiguredThreadCount, EncryptedPut, BaseComponent):
 
     bucket_name:str
     collection_prefix:str
@@ -147,10 +217,6 @@ class S3DocUploader(ConfiguredThreadCount, BaseComponent):
     _semaphore:Semaphore = PrivateAttr(default=None)
     _queue:queue.Queue = PrivateAttr(default=None)
     
-    def _written_nodes(self, doc:SourceDocument) -> List[TextNode]:
-        """The nodes this uploader writes into the object body."""
-        return [n for n in doc.nodes if INDEX_KEY not in n.metadata]
-
     def _doc_suffix(self, doc:SourceDocument) -> str:
         """
         What separates one object from another under a source document's prefix.
@@ -163,8 +229,7 @@ class S3DocUploader(ConfiguredThreadCount, BaseComponent):
         if not self.deterministic_document_key:
             return uuid.uuid4().hex[:5]
 
-        node_ids = sorted(n.node_id for n in self._written_nodes(doc))
-        return get_hash(_DOC_SUFFIX_DELIMITER.join(node_ids))[:5]
+        return node_ids_hash(n.node_id for n in written_nodes(doc))[:5]
 
     def _upload_doc(self, root_path:str, doc:SourceDocument, s3_client):
 
@@ -176,26 +241,10 @@ class S3DocUploader(ConfiguredThreadCount, BaseComponent):
 
             s = '\n'.join([
                 json.dumps(n.to_dict())
-                for n in self._written_nodes(doc)
+                for n in written_nodes(doc)
             ]) 
 
-            if self.s3_encryption_key_id:
-                s3_client.put_object(
-                    Bucket=self.bucket_name,
-                    Key=doc_output_path,
-                    Body=(bytes(s.encode('UTF-8'))),
-                    ContentType='text/plain',
-                    ServerSideEncryption='aws:kms',
-                    SSEKMSKeyId=self.s3_encryption_key_id
-                )
-            else:
-                s3_client.put_object(
-                    Bucket=self.bucket_name,
-                    Key=doc_output_path,
-                    Body=(bytes(s.encode('UTF-8'))),
-                    ContentType='text/plain',
-                    ServerSideEncryption='AES256'
-                )
+            self._put(doc_output_path, s, 'text/plain', s3_client)
 
             return doc
             
@@ -364,6 +413,7 @@ class S3ChunkDownloader(ConfiguredThreadCount, BaseComponent):
                     chunk_obj['Key']
                     for chunk_page in chunk_pages
                     for chunk_obj in chunk_page.get('Contents', [])
+                    if not is_completion_marker(chunk_obj['Key'])
                 ]
 
             # Bounded sliding window: at most num_threads listings prefetch ahead,
@@ -397,7 +447,7 @@ class S3ChunkDownloader(ConfiguredThreadCount, BaseComponent):
 
                 yield SourceDocument(nodes=nodes)
 
-class S3ChunkUploader(ConfiguredThreadCount, BaseComponent):
+class S3ChunkUploader(ConfiguredThreadCount, EncryptedPut, BaseComponent):
 
     bucket_name:str
     collection_prefix:str
@@ -408,30 +458,44 @@ class S3ChunkUploader(ConfiguredThreadCount, BaseComponent):
                     
         logger.debug(f'Writing chunk to S3: [bucket: {self.bucket_name}, key: {chunk_output_path}]')
 
-        if self.s3_encryption_key_id:
-            s3_client.put_object(
-                Bucket=self.bucket_name,
-                Key=chunk_output_path,
-                Body=(bytes(json.dumps(n.to_dict(), indent=4).encode('UTF-8'))),
-                ContentType='application/json',
-                ServerSideEncryption='aws:kms',
-                SSEKMSKeyId=self.s3_encryption_key_id
-            )
-        else:
-            s3_client.put_object(
-                Bucket=self.bucket_name,
-                Key=chunk_output_path,
-                Body=(bytes(json.dumps(n.to_dict(), indent=4).encode('UTF-8'))),
-                ContentType='application/json',
-                ServerSideEncryption='AES256'
-            )
+        self._put(
+            chunk_output_path, json.dumps(n.to_dict(), indent=4), 'application/json', s3_client
+        )
 
-    def _drain(self, futures):
+    def _drain(self, futures) -> bool:
+        """Wait on a document's uploads, reporting whether all of them landed."""
+        succeeded = True
         for future in futures:
             try:
                 future.result()
             except Exception as e:
                 logger.error(f'Error uploading chunk: {str(e)}')
+                succeeded = False
+        return succeeded
+
+    def _write_completion_marker(self, root_path:str, nodes:List[TextNode], s3_client):
+        """
+        Record that this document is complete.
+
+        Written last, so its presence separates a whole document from a
+        truncated prefix. A failed write is logged rather than raised: no
+        marker costs a re-stage, where raising would lose a stream the chunks
+        themselves survived.
+        """
+        node_ids = sorted(n.node_id for n in nodes)
+        marker = {
+            'chunk_ids': node_ids,
+            'count': len(node_ids),
+            'content_hash': node_ids_hash(node_ids),
+        }
+
+        key = completion_marker_key(root_path, node_ids)
+        logger.debug(f'Writing completion marker to S3 [bucket: {self.bucket_name}, key: {key}]')
+
+        try:
+            self._put(key, json.dumps(marker, indent=4), 'application/json', s3_client)
+        except Exception as e:
+            logger.error(f'Error writing completion marker [key: {key}]: {str(e)}')
 
     def upload(self, source_documents: List[SourceDocument]):
         """
@@ -456,23 +520,34 @@ class S3ChunkUploader(ConfiguredThreadCount, BaseComponent):
 
             def release_oldest():
                 nonlocal inflight
-                (oldest, oldest_futures) = pending.popleft()
-                self._drain(oldest_futures)
+                (oldest, root_path, nodes, oldest_futures) = pending.popleft()
+                if self._drain(oldest_futures) and nodes:
+                    self._write_completion_marker(root_path, nodes, s3_client)
                 inflight -= len(oldest_futures)
                 return oldest
 
             for source_document in source_documents:
 
-                root_path =  join(self.collection_prefix, source_document.source_id())
-                logger.debug(f'Writing source document to S3 [bucket: {self.bucket_name}, prefix: {root_path}]')
+                nodes = written_nodes(source_document)
 
-                futures = [
-                    executor.submit(self._upload_chunk, root_path, n, s3_client)
-                    for n in source_document.nodes
-                    if not [key for key in [INDEX_KEY] if key in n.metadata]
-                ]
+                if nodes:
+                    root_path =  join(self.collection_prefix, source_document.source_id())
+                    logger.debug(f'Writing source document to S3 [bucket: {self.bucket_name}, prefix: {root_path}]')
 
-                pending.append((source_document, futures))
+                    futures = [
+                        executor.submit(self._upload_chunk, root_path, n, s3_client)
+                        for n in nodes
+                    ]
+                else:
+                    # No prefix: one holding only a marker reads back as a
+                    # document with no nodes, whose source_id() is None, and a
+                    # re-stage cannot build a path from None. Still queued, so
+                    # it keeps its place in the order upload() promises.
+                    root_path = None
+                    futures = []
+                    logger.debug(f'Nothing to write for source document [source: {source_document.source_id()}]')
+
+                pending.append((source_document, root_path, nodes, futures))
                 inflight += len(futures)
 
                 while inflight > max_inflight:
