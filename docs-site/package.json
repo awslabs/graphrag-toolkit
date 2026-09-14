@@ -11,10 +11,10 @@
   "dependencies": {
     "@astrojs/react": "^6.0.5",
     "@astrojs/starlight": "0.42.0",
-    "@types/react": "^19.2.18",
+    "@types/react": "^19.3.0",
     "@types/react-dom": "^19.2.7",
     "astro": "7.3.1",
-    "react": "^19.2.8",
+    "react": "^19.3.0",
     "react-dom": "^19.2.8",
     "sharp": "^0.35.4"
   },
