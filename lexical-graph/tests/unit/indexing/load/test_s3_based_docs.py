@@ -878,6 +878,29 @@ class TestS3DocUploaderFailureHandling:
 
         assert [d.source_id() for d in yielded] == ['src-0']
 
+    def test_publisher_reports_target_count_even_if_s3_client_resolution_fails(self):
+        """A failure resolving GraphRAGConfig.s3 itself - before any document
+        is even submitted - must still land inside the finally, so the batch
+        finishes with target_count=0 instead of hanging on the dead-thread
+        timeout guard."""
+        class _RaisingMeta(type):
+            @property
+            def s3(cls):
+                raise RuntimeError('failed to resolve s3 client')
+
+        class _RaisingConfig(metaclass=_RaisingMeta):
+            extraction_num_threads_per_worker = 4
+
+        uploader = S3DocUploader(bucket_name='b', collection_prefix='p')
+
+        with patch(
+            'graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs.GraphRAGConfig',
+            _RaisingConfig,
+        ):
+            yielded = list(uploader.upload([_doc('src-0', 1)]))
+
+        assert yielded == []
+
     @pytest.mark.filterwarnings('ignore::pytest.PytestUnhandledThreadExceptionWarning')
     def test_publisher_thread_dying_raises_instead_of_hanging(self):
         """If the producer thread dies without ever reporting a count -

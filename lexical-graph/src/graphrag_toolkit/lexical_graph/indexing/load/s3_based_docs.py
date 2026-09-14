@@ -237,10 +237,11 @@ class S3DocUploader(ConfiguredThreadCount, BaseComponent):
 
     def _doc_publisher(self, queue:queue.Queue, source_documents:List[SourceDocument]=[]):
 
-        s3_client = GraphRAGConfig.s3
         count = 0
 
         try:
+
+            s3_client = GraphRAGConfig.s3
 
             with concurrent.futures.ThreadPoolExecutor(max_workers=self._num_threads()) as executor:
 
@@ -259,9 +260,10 @@ class S3DocUploader(ConfiguredThreadCount, BaseComponent):
         finally:
             # _upload_batch waits for exactly this many items before it stops
             # polling the queue, so target_count must reach it even when the
-            # loop above raised partway through - otherwise a failure here
-            # hangs the consumer indefinitely instead of surfacing it.
-            self._queue.put(count)
+            # loop above raised partway through - including a failure while
+            # resolving s3_client itself - otherwise a failure here hangs the
+            # consumer indefinitely instead of surfacing it.
+            queue.put(count)
 
     def _upload_batch(self, source_docs_batch:List[SourceDocument]):
 
