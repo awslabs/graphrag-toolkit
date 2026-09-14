@@ -1084,14 +1084,21 @@ class TestStagingSurfacesUploadFailures:
             docs.append(SourceDocument(nodes=[node]))
         return docs
 
-    def _consume(self, uploader, docs, upload_doc, timeout=8):
-        """Run upload() on a thread so a hang shows up as a timeout, not a stall."""
+    def _consume(self, uploader, docs, upload_doc, timeout=8, patches=()):
+        """
+        Run upload() on a thread so a hang shows up as a timeout, not a stall.
+        `patches` are entered after the defaults, so one can replace the
+        GraphRAGConfig stand-in.
+        """
         yielded, finished, error = [], threading.Event(), []
 
         def consume():
             try:
-                with patch.object(S3DocUploader, '_upload_doc', side_effect=upload_doc), \
-                     patch(f'{S3_BASED_DOCS}.GraphRAGConfig'):
+                with contextlib.ExitStack() as stack:
+                    stack.enter_context(patch.object(S3DocUploader, '_upload_doc', side_effect=upload_doc))
+                    stack.enter_context(patch(f'{S3_BASED_DOCS}.GraphRAGConfig'))
+                    for extra in patches:
+                        stack.enter_context(extra)
                     yielded.extend(uploader.upload(list(docs)))
             except Exception as e:
                 error.append(e)
@@ -1172,7 +1179,63 @@ class TestStagingSurfacesUploadFailures:
             assert finished.wait(timeout=8), 'consumer waited on a producer that had died'
 
         assert error, 'a truncated batch returned without raising'
-        assert 'before reporting its document count' in str(error[0])
+        assert str(error[0]) == 'dead', 'the producer error was replaced by a generic one'
+
+    def test_a_client_that_fails_to_build_raises_its_own_error(self):
+        """The S3 client is built on the producer thread, so its error has to travel."""
+        class ConfigWithoutRegion:
+            @property
+            def s3(self):
+                raise OSError('You must specify a region')
+
+        uploader = S3DocUploader(bucket_name='b', collection_prefix='p', num_threads=2)
+
+        finished, _, error = self._consume(
+            uploader, self._docs(3), lambda root_path, doc, s3_client: doc,
+            patches=[patch(f'{S3_BASED_DOCS}.GraphRAGConfig', new=ConfigWithoutRegion())],
+        )
+
+        assert finished and error
+        assert isinstance(error[0], OSError)
+        assert 'specify a region' in str(error[0])
+
+    def test_a_producer_that_fails_before_submitting_raises(self):
+        """Nothing was submitted, so a count of zero is a short batch, not an empty one."""
+        uploader = S3DocUploader(bucket_name='b', collection_prefix='p', num_threads=2)
+
+        finished, yielded, error = self._consume(
+            uploader, self._docs(3), lambda root_path, doc, s3_client: doc,
+            patches=[patch(
+                f'{S3_BASED_DOCS}.concurrent.futures.ThreadPoolExecutor',
+                side_effect=OSError('cannot start thread'),
+            )],
+        )
+
+        assert finished
+        assert error, f'a batch that submitted nothing returned {len(yielded)} documents without raising'
+        assert 'cannot start thread' in str(error[0])
+
+    def test_a_producer_that_stops_partway_raises(self):
+        """One document submitted, then the producer fails: the batch is short."""
+        submit = S3DocUploader._submit_proxy
+        calls = []
+
+        def submit_then_fail(self, *args, **kwargs):
+            calls.append(1)
+            if len(calls) == 2:
+                raise RuntimeError('producer failed after one submit')
+            return submit(self, *args, **kwargs)
+
+        uploader = S3DocUploader(bucket_name='b', collection_prefix='p', num_threads=2)
+
+        finished, yielded, error = self._consume(
+            uploader, self._docs(3), lambda root_path, doc, s3_client: doc,
+            patches=[patch.object(S3DocUploader, '_submit_proxy', new=submit_then_fail)],
+        )
+
+        assert finished
+        assert error, f'a truncated batch returned {len(yielded)} of 3 documents without raising'
+        assert 'after one submit' in str(error[0])
 
     def test_every_failure_is_reported_not_only_the_first(self, caplog):
         """Two documents fail. The first is raised, and the log says how many."""

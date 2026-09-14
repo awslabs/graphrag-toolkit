@@ -249,13 +249,10 @@ class S3DocUploader(ConfiguredThreadCount, BaseComponent):
     
     def _doc_publisher(self, queue:queue.Queue, source_documents:List[SourceDocument]=[]):
 
-        s3_client = GraphRAGConfig.s3
-
         count = 0
 
-        # The count goes on the queue whatever happens above, including a
-        # KeyboardInterrupt, or the consumer waits on a producer that has gone.
         try:
+            s3_client = GraphRAGConfig.s3
 
             with concurrent.futures.ThreadPoolExecutor(max_workers=self._num_threads()) as executor:
 
@@ -271,13 +268,22 @@ class S3DocUploader(ConfiguredThreadCount, BaseComponent):
 
         except BaseException as e:
             logger.exception(f'Error in doc publisher: {str(e)}')
+            raise
 
         finally:
             self._queue.put(count)
 
     def _upload_batch(self, source_docs_batch:List[SourceDocument]):
 
-        thread = threading.Thread(target=self._doc_publisher, daemon=True, kwargs={'source_documents': source_docs_batch, 'queue': self._queue})
+        producer_errors:List[BaseException] = []
+
+        def publish():
+            try:
+                self._doc_publisher(source_documents=source_docs_batch, queue=self._queue)
+            except BaseException as e:
+                producer_errors.append(e)
+
+        thread = threading.Thread(target=publish, daemon=True)
         thread.start()
 
         count = 0
@@ -304,15 +310,23 @@ class S3DocUploader(ConfiguredThreadCount, BaseComponent):
                 # keep the consumer here for the rest of the run. Reaching here
                 # means the batch is short, so it is a failure rather than an end.
                 if not thread.is_alive():
-                    failures.append(RuntimeError(
-                        f'Upload producer stopped before reporting its document count '
-                        f'[count: {count}, target_count: {target_count}]'
-                    ))
+                    if not producer_errors:
+                        failures.append(RuntimeError(
+                            f'Upload producer stopped before reporting its document count '
+                            f'[count: {count}, target_count: {target_count}]'
+                        ))
                     break
             
         logger.debug(f'Waiting on queue to empty [count: {count}, target_count: {target_count}]')
 
         thread.join()
+
+        if producer_errors:
+            logger.error(
+                f'Upload producer failed after submitting {count} source documents '
+                f'[batch_size: {len(source_docs_batch)}, failed_documents: {len(failures)}]'
+            )
+            raise producer_errors[0]
 
         if failures:
             # The first is raised rather than aggregated: 3.10 has no ExceptionGroup.
