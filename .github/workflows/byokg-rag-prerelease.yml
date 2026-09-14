@@ -24,6 +24,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v7
+        with:
+          # Full history + tags so the changelog generator can find the previous
+          # release tag and diff commit paths against it.
+          fetch-depth: 0
+          fetch-tags: true
 
       - name: Set up Python
         uses: actions/setup-python@v7
@@ -62,6 +67,16 @@ jobs:
             VERSION="v$(grep '^version = ' pyproject.toml | sed 's/version = "\(.*\)"/\1/')"
           fi
           echo "version=${VERSION}" >> $GITHUB_OUTPUT
+
+      - name: Generate per-project changelog
+        # Cosmetic step: never fail the release job (and block pypi-publish) over a changelog.
+        continue-on-error: true
+        working-directory: ${{ github.workspace }}
+        run: |
+          python .github/scripts/generate_changelog.py \
+            --project byokg \
+            --to "$GITHUB_REF_NAME" \
+            --output "$GITHUB_WORKSPACE/RELEASE_CHANGELOG.md"
 
       - name: Zip byokg-rag source
         run: |
@@ -113,8 +128,22 @@ jobs:
       - name: Attach artifacts to GitHub Pre-Release
         uses: softprops/action-gh-release@efb35369e0ad2afab669f228072c1b0d510eae64 # v3
         with:
+          # Assets only; the changelog is written idempotently in the next step
+          # (append_body here would duplicate it when a pre-release is re-run).
           files: |
             byokg-rag/dist/*
             examples/byokg-rag/byokg-notebooks-${{ steps.version.outputs.version }}.zip
             examples/byokg-rag/byokg-notebooks-latest.zip
           prerelease: true
+
+      - name: Update release notes with per-project changelog (idempotent)
+        # Cosmetic step: a release-notes hiccup must not fail the job or block publish.
+        continue-on-error: true
+        working-directory: ${{ github.workspace }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        run: |
+          python .github/scripts/update_release_notes.py \
+            --tag "$RELEASE_TAG" \
+            --changelog "$GITHUB_WORKSPACE/RELEASE_CHANGELOG.md"
