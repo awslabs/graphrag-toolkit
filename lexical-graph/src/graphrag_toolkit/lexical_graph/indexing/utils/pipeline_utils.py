@@ -13,6 +13,7 @@ from llama_index.core.ingestion.pipeline import run_transformations
 from llama_index.core.schema import BaseNode, Document
 
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
+from graphrag_toolkit.lexical_graph.utils import llm_concurrency
 
 
 def _init_worker(config_snapshot):
@@ -58,9 +59,12 @@ def run_pipeline(
     # behind extract() calls this once per batch of four documents, so on a
     # 500-document run that was 125 spawns and about 1.4 s per document.
     if num_workers == 1:
-        for node_batch in node_batches:
-            for processed_node in transform(node_batch):
-                yield processed_node
+        try:
+            for node_batch in node_batches:
+                for processed_node in transform(node_batch):
+                    yield processed_node
+        finally:
+            llm_concurrency.shutdown()
         return
 
     # Use "spawn": a forked worker can inherit a held lock (e.g. a logging

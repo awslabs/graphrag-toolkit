@@ -1,16 +1,18 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
+import asyncio
 import multiprocessing
 import pickle
 from concurrent.futures import ProcessPoolExecutor
 
 import pytest
 from unittest.mock import Mock, patch, MagicMock
-from llama_index.core.schema import TextNode, Document
+from llama_index.core.schema import TextNode, Document, TransformComponent
 from llama_index.core.ingestion import IngestionPipeline
 
 from graphrag_toolkit.lexical_graph import GraphRAGConfig
+from graphrag_toolkit.lexical_graph.utils import llm_concurrency
 from graphrag_toolkit.lexical_graph.indexing.utils.pipeline_utils import (
     sink,
     run_pipeline,
@@ -206,8 +208,6 @@ class TestRunPipeline:
     def test_single_worker_runs_a_real_transformation_in_process(self):
         """End to end without mocks: a real transformation, real nodes, and the
         result, with no process start behind it."""
-        from llama_index.core.schema import TransformComponent
-
         class Upper(TransformComponent):
             def __call__(self, nodes, **kwargs):
                 for n in nodes:
@@ -222,6 +222,44 @@ class TestRunPipeline:
 
         assert [n.get_content() for n in results] == ["A", "B"]
         mock_executor.assert_not_called()
+
+    def _pool_using_pipeline(self, fail=False):
+        """A pipeline whose transformation makes an LLM-style call through the
+        module-level pool, the way the extractors do."""
+        class CallsThroughPool(TransformComponent):
+            def __call__(self, nodes, **kwargs):
+                asyncio.run(llm_concurrency.run_blocking(lambda: None, num_threads=2))
+                if fail:
+                    raise RuntimeError('transformation failed')
+                return nodes
+
+        return IngestionPipeline(transformations=[CallsThroughPool()])
+
+    def test_single_worker_releases_the_llm_call_pool(self):
+        """In a spawned worker the pool went when the process exited. In process,
+        run_pipeline is the owner and has to shut it down."""
+        llm_concurrency.shutdown()
+        seen_during_run = []
+
+        try:
+            for _ in run_pipeline(self._pool_using_pipeline(), [[TextNode(text="a", id_="1")]], num_workers=1):
+                seen_during_run.append(llm_concurrency.pool_size())
+
+            assert seen_during_run and seen_during_run[0] > 0, 'the transformation never created the pool'
+            assert llm_concurrency.pool_size() == 0, 'the LLM call pool outlived the run'
+        finally:
+            llm_concurrency.shutdown()
+
+    def test_single_worker_releases_the_llm_call_pool_when_a_transformation_raises(self):
+        llm_concurrency.shutdown()
+
+        try:
+            with pytest.raises(RuntimeError, match='transformation failed'):
+                list(run_pipeline(self._pool_using_pipeline(fail=True), [[TextNode(text="a", id_="1")]], num_workers=1))
+
+            assert llm_concurrency.pool_size() == 0, 'the LLM call pool outlived a failed run'
+        finally:
+            llm_concurrency.shutdown()
 
     def test_more_than_one_worker_still_uses_a_spawn_pool(self):
         """The fork deadlock fix stays in place for the parallel path."""
