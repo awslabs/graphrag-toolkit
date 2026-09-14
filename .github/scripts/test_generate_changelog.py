@@ -252,7 +252,15 @@ class TestPreviousReleaseTag:
 
     def test_both_skips_same_commit_sibling_tag(self, tmp_path, monkeypatch):
         """For `both`, the sibling project's tag on the same release commit must
-        not be chosen as the baseline (that would yield an empty changelog)."""
+        not be chosen as the baseline (that would yield an empty changelog).
+
+        `to_ref` is the *byokg* tag on purpose: the pre-fix code globbed patterns
+        separately, lexical first, and skipped the baseline by name — so with the
+        lexical tag as `to_ref` it happened to reach v1.0.0 before the sibling and
+        passed even while buggy. Diffing from the byokg tag makes the pre-fix code
+        pick its lexical same-commit sibling (v1.1.0), so this test now fails on the
+        old code and passes only with the peeled-SHA comparison.
+        """
         repo = tmp_path
         _git(repo, 'init', '-q', '-b', 'main')
         _commit(repo, 'c1', '2020-01-01T00:00:00')
@@ -264,5 +272,5 @@ class TestPreviousReleaseTag:
         _tag(repo, 'graphrag-byokg/v1.1.0', '2020-01-02T00:00:01')
         monkeypatch.chdir(repo)
 
-        baseline = gc.previous_release_tag('both', 'graphrag-lexical-graph/v1.1.0')
+        baseline = gc.previous_release_tag('both', 'graphrag-byokg/v1.1.0')
         assert baseline in ('graphrag-lexical-graph/v1.0.0', 'graphrag-byokg/v1.0.0')
