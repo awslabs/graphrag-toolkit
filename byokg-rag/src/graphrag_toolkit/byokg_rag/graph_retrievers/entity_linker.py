@@ -73,7 +73,7 @@ class EntityLinker(Linker):
         self.retriever = retriever
         self.topk = topk
 
-    def link(self, query_extracted_entities, retriever=None, topk=None, id_selector=None, return_dict=True):
+    def link(self, query_extracted_entities, retriever=None, topk=None, return_dict=True):
         """
         Process to link the given or extracted query entities to graph entities.
 
@@ -82,7 +82,6 @@ class EntityLinker(Linker):
             retriever: A retriever object to use for entity lookup.
                 If None, the default retriever configured for this instance will be used.
             topk: The number of items to return per extracted entity
-            id_selector: A list of ids to retrieve the topk from (allowlist)
             return_dict: Whether to return a dictionary of linking results or linked entities only
 
         Returns:
@@ -112,3 +111,39 @@ class EntityLinker(Linker):
             for res in results:
                 parsed_results.append(res['document_id'])
             return parsed_results
+
+    def link_grouped(self, query_extracted_entities, retriever=None, topk=None):
+        """
+        Link mentions to candidate nodes, keeping candidates grouped per mention.
+
+        ``link`` matches all mentions at once and flattens and globally sorts the
+        hits, so the caller cannot tell which candidate came from which mention.
+        This matches one mention at a time through the same matcher, so the
+        candidates (and any matcher-specific filtering, such as the fuzzy
+        matcher's length filter) are identical to the union path ``link``
+        produces — just grouped per mention (e.g. to keep only the best match).
+
+        Args:
+            query_extracted_entities: List of mention strings to link
+            retriever: A retriever object to use for entity lookup.
+                If None, the default retriever configured for this instance is used.
+            topk: The number of candidates to return per mention
+
+        Returns:
+            List[List[str]]: one best-first list of candidate node ids per mention,
+                in the same order as ``query_extracted_entities``.
+        """
+        if retriever is None:
+            retriever = self.retriever
+        if retriever is None:
+            raise ValueError("Error: Either 'retriever' or 'self.retriever' must be provided")
+        if topk is None:
+            topk = self.topk
+
+        # Match each mention on its own through the same matcher link() uses, so
+        # per-mention candidates agree with the union path regardless of index type.
+        grouped = []
+        for mention in query_extracted_entities:
+            hits = retriever.retrieve(queries=[mention], topk=topk)["hits"]
+            grouped.append([hit["document_id"] for hit in hits])
+        return grouped

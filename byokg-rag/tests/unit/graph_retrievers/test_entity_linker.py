@@ -139,6 +139,49 @@ class TestEntityLinkerLink:
         assert result[1] == ['e2']
 
 
+class TestEntityLinkerLinkGrouped:
+    """Tests for EntityLinker.link_grouped (per-mention candidate grouping)."""
+
+    def _matcher(self):
+        # Matches one mention at a time through the same matcher link() uses.
+        # The matcher returns one dict with a scalar document_id per hit.
+        mock_ret = Mock()
+
+        def fake_retrieve(queries, topk):
+            (mention,) = queries
+            return {
+                'Amazon': {'hits': [
+                    {'document_id': 'Amazon', 'document': 'Amazon', 'match_score': 100},
+                    {'document_id': 'Amazon Web Services', 'document': 'Amazon Web Services', 'match_score': 85},
+                ]},
+                'Google': {'hits': [
+                    {'document_id': 'Google', 'document': 'Google', 'match_score': 100},
+                ]},
+            }[mention]
+
+        mock_ret.retrieve.side_effect = fake_retrieve
+        return mock_ret
+
+    def test_link_grouped_preserves_per_mention_grouping(self):
+        """Each mention gets its own best-first candidate list, in input order."""
+        mock_ret = self._matcher()
+        linker = EntityLinker(retriever=mock_ret, topk=3)
+
+        grouped = linker.link_grouped(['Amazon', 'Google'])
+
+        assert grouped == [['Amazon', 'Amazon Web Services'], ['Google']]
+        # one matcher call per mention (not one batched call), with configured topk
+        assert mock_ret.retrieve.call_args_list[0].kwargs == {'queries': ['Amazon'], 'topk': 3}
+        assert mock_ret.retrieve.call_args_list[1].kwargs == {'queries': ['Google'], 'topk': 3}
+
+    def test_link_grouped_no_retriever_error(self):
+        """ValueError when no retriever is available."""
+        linker = EntityLinker()
+
+        with pytest.raises(ValueError, match="Either 'retriever' or 'self.retriever' must be provided"):
+            linker.link_grouped(['Amazon'])
+
+
 class TestLinkerAbstract:
     """Tests for abstract Linker base class."""
     

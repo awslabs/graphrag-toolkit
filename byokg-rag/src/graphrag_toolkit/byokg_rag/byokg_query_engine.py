@@ -22,7 +22,8 @@ class ByoKGQueryEngine:
                  llm_generator=None,
                  kg_linker=None,
                  cypher_kg_linker=None,
-                 direct_query_linking=False):
+                 direct_query_linking=False,
+                 single_best_match=False):
         """
         Initialize the query engine.
 
@@ -36,6 +37,9 @@ class ByoKGQueryEngine:
             kg_linker: Optional KG linker for multi-strategy retrieval
             cypher_kg_linker: Optional Cypher KG linker for cypher-based retrieval
             direct_query_linking: Flag whether to use entity linker with query embedding directly
+            single_best_match: If True, keep only the best-matching node per extracted
+                mention instead of unioning every top-k candidate. Off by default;
+                when off, the seed set is unchanged. Draft answers are unaffected.
         """
         self.graph_store = graph_store
         self.schema = graph_store.get_schema()
@@ -51,6 +55,7 @@ class ByoKGQueryEngine:
             entity_linker = EntityLinker(entity_retriever)
         self.entity_linker = entity_linker
         self.direct_query_linking = direct_query_linking
+        self.single_best_match = single_best_match
         
         if triplet_retriever is None and self.llm_generator is not None:
             from .graph_retrievers import AgenticRetriever
@@ -217,7 +222,13 @@ class ByoKGQueryEngine:
             # Process extracted entities
             linked_entities = []
             if "entity-extraction" in artifacts and artifacts["entity-extraction"] and "FINISH" not in artifacts["entity-extraction"][0]:
-                linked_entities = self.entity_linker.link(artifacts["entity-extraction"], return_dict=False)
+                if self.single_best_match:
+                    # Keep only the top candidate per mention (grouped preserves
+                    # attribution; link() would flatten across mentions).
+                    grouped = self.entity_linker.link_grouped(artifacts["entity-extraction"])
+                    linked_entities = [candidates[0] for candidates in grouped if candidates]
+                else:
+                    linked_entities = self.entity_linker.link(artifacts["entity-extraction"], return_dict=False)
                 explored_entities.update(linked_entities)
 
             # Process answer entities
