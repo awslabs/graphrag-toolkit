@@ -568,8 +568,12 @@ class TestWidthOfSourceId:
 
         assert IdGenerator.width_of_source_id(source_id) is width
 
+    def test_a_caller_id_whose_fields_happen_to_be_hex_reads_as_a_width(self):
+        assert IdGenerator.width_of_source_id('aws:docs:deadbeef:2024') is SourceIdWidth.LEGACY
+
     @pytest.mark.parametrize('value', [
         'aws::5eb6:d41d', 'not-a-source-id', 'aws::5eb63bbb', 'aws:custom-id',
+        'aws:docs:handbook:2024', 'aws:docs:handbook:v2.1',
         '0f8fad5b-d9cb-469f-a165-70867728950e', 'aws::5eb63bbbzzzzzzzz:d41d',
     ])
     def test_an_id_the_generator_did_not_write_has_no_width(self, value):

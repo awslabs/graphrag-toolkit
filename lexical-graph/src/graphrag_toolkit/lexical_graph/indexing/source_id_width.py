@@ -63,6 +63,8 @@ def recorded_source_id_width(graph_store:GraphStore) -> Optional[SourceIdWidth]:
     """
     The width recorded on the collection, or None when it holds no record.
 
+    MultiTenantGraphStore scopes the match to the tenant's __SYS_Config__ label.
+
     Every record is read rather than the first one. Nothing constrains a store to
     a single __SYS_Config__ node, so two first runs at different widths can each
     create one, and two records that disagree are an error rather than whichever

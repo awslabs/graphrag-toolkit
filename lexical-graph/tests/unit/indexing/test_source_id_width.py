@@ -12,13 +12,14 @@ has its width read back from a sample of stored source ids.
 
 import pytest
 
-from unittest.mock import Mock, patch
+from unittest.mock import MagicMock, Mock, patch
 
 from llama_index.core.schema import TextNode, NodeRelationship, RelatedNodeInfo
 
 from graphrag_toolkit.lexical_graph import TenantId, GraphRAGConfig
 from graphrag_toolkit.lexical_graph.config import SourceIdWidth
 from graphrag_toolkit.lexical_graph.indexing.model import SourceDocument
+from graphrag_toolkit.lexical_graph.storage.graph import DummyGraphStore, MultiTenantGraphStore
 from graphrag_toolkit.lexical_graph.indexing.source_id_width import (
     SourceIdWidthMismatchError,
     SourceIdWidthGuard,
@@ -137,6 +138,35 @@ class TestGraphSourceIdWidth:
         # the winner's width rather than overwriting it.
         with pytest.raises(SourceIdWidthMismatchError):
             record_graph_source_id_width(graph_store(written=8), TenantId(), FULL)
+
+
+class TestTheRecordIsScopedByTenantLabel:
+    """MultiTenantGraphStore gives each tenant its own __SYS_Config__ label."""
+
+    @staticmethod
+    def _tenant_store(tenant_value, width=None):
+        inner = MagicMock(spec=DummyGraphStore)
+        inner.node_id = Mock(side_effect=lambda id_name: id_name)
+        inner.execute_query_with_retry.return_value = [{'width': width}] if width else []
+        return MultiTenantGraphStore.wrap(inner, TenantId(tenant_value)), inner
+
+    @pytest.mark.parametrize('tenant_value, label', [
+        (None, '`__SYS_Config__`'),
+        ('t1', '`__SYS_Config__t1__`'),
+    ])
+    def test_the_read_matches_only_the_tenants_label(self, tenant_value, label):
+        store, inner = self._tenant_store(tenant_value)
+
+        recorded_source_id_width(store)
+
+        assert f'(c:{label})' in inner.execute_query_with_retry.call_args.kwargs['query']
+
+    def test_the_write_uses_the_tenants_label(self):
+        store, inner = self._tenant_store('t1', width=32)
+
+        record_graph_source_id_width(store, TenantId('t1'), FULL)
+
+        assert '(c:`__SYS_Config__t1__`' in inner.execute_query_with_retry.call_args.kwargs['query']
 
 
 def source_document(source_id):

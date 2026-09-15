@@ -108,9 +108,8 @@ class IdGenerator(BaseModel):
         not write: IdRewriter keeps any id starting ``aws:`` as given, and a build
         accepts nodes whose source is any id at all.
 
-        Both digests are checked for hex, not just length. A caller-supplied id of
-        the same shape, ``aws:docs:deadbeef:2024``, otherwise reads as a width and
-        either stamps an empty collection or blocks a build.
+        Both digests must be hex, so ``aws:docs:handbook:2024`` has no width. An id
+        whose fields happen to be hex, such as ``aws:docs:deadbeef:2024``, does.
         """
         parts = source_id.split(':')
         if len(parts) != 4 or parts[0] != SOURCE_ID_PREFIX:
