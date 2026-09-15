@@ -1,0 +1,12 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+#
+# The same fault on the range side.
+
+@prefix :     <http://example.com/broken#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:Person a owl:Class .
+
+:worksFor a owl:ObjectProperty ; rdfs:domain :Person ; rdfs:range :Employer .

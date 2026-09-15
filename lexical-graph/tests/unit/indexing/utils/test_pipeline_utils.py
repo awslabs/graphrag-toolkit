@@ -1,6 +1,7 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
+import logging
 import multiprocessing
 import pickle
 from concurrent.futures import ProcessPoolExecutor
@@ -11,12 +12,33 @@ from llama_index.core.schema import TextNode, Document
 from llama_index.core.ingestion import IngestionPipeline
 
 from graphrag_toolkit.lexical_graph import GraphRAGConfig
+from graphrag_toolkit.lexical_graph import logging as graphrag_logging
 from graphrag_toolkit.lexical_graph.indexing.utils.pipeline_utils import (
     sink,
     run_pipeline,
     node_batcher,
     _init_worker,
 )
+from graphrag_toolkit.lexical_graph.logging import (
+    get_applied_logging_config,
+    set_logging_config,
+)
+
+
+@pytest.fixture
+def restore_logging():
+    """`set_logging_config` replaces the root logger's handlers process-wide, and
+    pytest's capturing sits on those handlers."""
+    root = logging.getLogger()
+    saved_handlers = root.handlers[:]
+    saved_level = root.level
+    saved_config = get_applied_logging_config()
+
+    yield
+
+    root.handlers[:] = saved_handlers
+    root.setLevel(saved_level)
+    graphrag_logging._applied_logging_config = saved_config
 
 
 def _worker_reads_config(_):
@@ -213,10 +235,41 @@ class TestRunPipeline:
 
             _, call_kwargs = mock_executor.call_args
             assert call_kwargs['initializer'] is _init_worker
-            (snapshot,) = call_kwargs['initargs']
+            (snapshot, _logging_config) = call_kwargs['initargs']
             assert snapshot.get('_aws_profile') == "scoped-ingest"
         finally:
             GraphRAGConfig._aws_profile = orig
+
+    def test_run_pipeline_passes_the_logging_config_to_workers(self, restore_logging):
+        """The second initarg. `logging.config.dictConfig` state is not part of the
+        GraphRAGConfig snapshot, so without this a worker's root logger stays at
+        WARNING with no handler but `lastResort` - and extraction components, which
+        run only in workers, have their INFO logging discarded entirely.
+
+        None here is correct and meaningful: it says the parent never configured
+        logging, so the worker is left at the interpreter default.
+        """
+        set_logging_config('INFO')
+
+        mock_pipeline = Mock(spec=IngestionPipeline)
+        mock_pipeline.transformations = []
+        mock_pipeline.cache = None
+        mock_pipeline.disable_cache = True
+        node_batches = [[TextNode(text="Node 1", id_="1")]]
+
+        with patch('graphrag_toolkit.lexical_graph.indexing.utils.pipeline_utils.run_transformations'):
+            with patch('graphrag_toolkit.lexical_graph.indexing.utils.pipeline_utils.ProcessPoolExecutor') as mock_executor:
+                mock_pool = MagicMock()
+                mock_pool.__enter__.return_value = mock_pool
+                mock_pool.map.return_value = [node_batches[0]]
+                mock_executor.return_value = mock_pool
+
+                list(run_pipeline(mock_pipeline, node_batches, num_workers=2))
+
+        (_snapshot, logging_config) = mock_executor.call_args[1]['initargs']
+
+        assert logging_config is not None
+        assert logging_config['loggers']['']['level'] == 'INFO'
 
     def test_run_pipeline_with_cache(self):
         """Verify run_pipeline uses cache when not disabled."""

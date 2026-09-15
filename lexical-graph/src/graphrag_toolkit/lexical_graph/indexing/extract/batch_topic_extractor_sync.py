@@ -8,7 +8,7 @@ from typing import Optional
 from graphrag_toolkit.lexical_graph import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.utils import LLMCache, LLMCacheType
 from graphrag_toolkit.lexical_graph.indexing.constants import TOPICS_KEY
-from graphrag_toolkit.lexical_graph.indexing.prompts import EXTRACT_TOPICS_PROMPT
+from graphrag_toolkit.lexical_graph.indexing.prompts import EXTRACT_TOPICS_PROMPT, with_ontology_constraints
 from graphrag_toolkit.lexical_graph.indexing.extract.batch_config import BatchConfig
 from graphrag_toolkit.lexical_graph.indexing.extract.batch_extractor_base import BatchExtractorBase
 from graphrag_toolkit.lexical_graph.indexing.extract.topic_extractor import TopicExtractor
@@ -40,7 +40,8 @@ class BatchTopicExtractorSync(BatchExtractorBase):
                  source_metadata_field:Optional[str] = None,
                  batch_inference_dir:str = None,
                  entity_classification_provider:Optional[PreferredValuesProvider]=None,
-                 topic_provider:Optional[PreferredValuesProvider]=None):
+                 topic_provider:Optional[PreferredValuesProvider]=None,
+                 ontology_constraints:str=''):
         
         super().__init__(
             batch_config = batch_config,
@@ -53,7 +54,8 @@ class BatchTopicExtractorSync(BatchExtractorBase):
             batch_inference_dir=batch_inference_dir or os.path.join(GraphRAGConfig.local_output_dir, 'batch-topics'),
             description='Topic',
             entity_classification_provider=entity_classification_provider or default_preferred_values([]),
-            topic_provider=topic_provider or default_preferred_values([])
+            topic_provider=topic_provider or default_preferred_values([]),
+            ontology_constraints=ontology_constraints
         )
     
     def _get_json(self, node, llm, inference_parameters):
@@ -65,7 +67,7 @@ class BatchTopicExtractorSync(BatchExtractorBase):
             else node.text
         )
         messages = llm._get_messages(
-            PromptTemplate(self.prompt_template), 
+            PromptTemplate(with_ontology_constraints(self.prompt_template, self.ontology_constraints)), 
             text=text,
             preferred_entity_classifications=format_list(classifications),
             preferred_topics=format_list(topics)
@@ -83,7 +85,8 @@ class BatchTopicExtractorSync(BatchExtractorBase):
             prompt_template=self.prompt_template, 
             source_metadata_field=self.source_metadata_field,
             entity_classification_provider=self.entity_classification_provider,
-            topic_provider=self.topic_provider
+            topic_provider=self.topic_provider,
+            ontology_constraints=self.ontology_constraints
         )
 
         extracted = extractor.extract(all_nodes)

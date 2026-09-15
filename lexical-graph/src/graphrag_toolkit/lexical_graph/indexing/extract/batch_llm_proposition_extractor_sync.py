@@ -10,7 +10,7 @@ from graphrag_toolkit.lexical_graph.utils import LLMCache, LLMCacheType
 from graphrag_toolkit.lexical_graph.indexing.model import Propositions
 from graphrag_toolkit.lexical_graph.indexing.extract.batch_extractor_base import BatchExtractorBase
 from graphrag_toolkit.lexical_graph.indexing.constants import PROPOSITIONS_KEY
-from graphrag_toolkit.lexical_graph.indexing.prompts import EXTRACT_PROPOSITIONS_PROMPT
+from graphrag_toolkit.lexical_graph.indexing.prompts import EXTRACT_PROPOSITIONS_PROMPT, with_ontology_constraints
 from graphrag_toolkit.lexical_graph.indexing.extract.batch_config import BatchConfig
 from graphrag_toolkit.lexical_graph.indexing.extract.llm_proposition_extractor import LLMPropositionExtractor
 
@@ -34,7 +34,8 @@ class BatchLLMPropositionExtractorSync(BatchExtractorBase):
                  llm:LLMCacheType=None,
                  prompt_template:str = None,
                  source_metadata_field:Optional[str] = None,
-                 batch_inference_dir:str = None):
+                 batch_inference_dir:str = None,
+                 ontology_constraints:str=''):
         
         super().__init__(
             batch_config = batch_config,
@@ -45,7 +46,8 @@ class BatchLLMPropositionExtractorSync(BatchExtractorBase):
             prompt_template=prompt_template or EXTRACT_PROPOSITIONS_PROMPT,
             source_metadata_field=source_metadata_field,
             batch_inference_dir=batch_inference_dir or os.path.join(GraphRAGConfig.local_output_dir, 'batch-propositions'),
-            description='Proposition'
+            description='Proposition',
+            ontology_constraints=ontology_constraints
         )
 
     def _get_json(self, node, llm, inference_parameters):
@@ -56,7 +58,11 @@ class BatchLLMPropositionExtractorSync(BatchExtractorBase):
         else:
             source_info = ''
         
-        messages = llm._get_messages(PromptTemplate(self.prompt_template), text=text, source_info=source_info)
+        messages = llm._get_messages(
+            PromptTemplate(with_ontology_constraints(self.prompt_template, self.ontology_constraints)),
+            text=text,
+            source_info=source_info
+        )
         return {
             'recordId': node.node_id,
             'modelInput': get_request_body(llm, messages, inference_parameters)
@@ -68,7 +74,8 @@ class BatchLLMPropositionExtractorSync(BatchExtractorBase):
 
         extractor = LLMPropositionExtractor(
             prompt_template=self.prompt_template, 
-            source_metadata_field=self.source_metadata_field
+            source_metadata_field=self.source_metadata_field,
+            ontology_constraints=self.ontology_constraints
         )
         
         extracted = extractor.extract(all_nodes)

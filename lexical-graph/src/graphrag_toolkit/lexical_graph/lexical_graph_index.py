@@ -2,7 +2,8 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import logging
-from typing import List, Optional, Union, Any, Dict, overload
+from dataclasses import asdict
+from typing import List, NamedTuple, Optional, Union, Any, Dict, overload
 from pipe import Pipe
 
 from graphrag_toolkit.lexical_graph import GraphRAGConfig
@@ -25,6 +26,8 @@ from graphrag_toolkit.lexical_graph.indexing.extract import LLMPropositionExtrac
 from graphrag_toolkit.lexical_graph.indexing.extract import TopicExtractor, BatchTopicExtractorSync
 from graphrag_toolkit.lexical_graph.indexing.extract import ExtractionPipeline
 from graphrag_toolkit.lexical_graph.indexing.extract import InferClassifications, InferClassificationsConfig
+from graphrag_toolkit.lexical_graph.indexing.extract import OntologyType, to_ontology_config
+from graphrag_toolkit.lexical_graph.indexing.extract import OntologyFilter
 from graphrag_toolkit.lexical_graph.indexing.build import BuildPipeline
 from graphrag_toolkit.lexical_graph.indexing.build import VectorIndexing
 from graphrag_toolkit.lexical_graph.indexing.build import GraphConstruction
@@ -44,6 +47,21 @@ from llama_index.core.llms import LLM
 logger = logging.getLogger(__name__)
 
 ExtractionLLMType = Union[str, LLM, LLMCache]
+
+class OntologyConstraints(NamedTuple):
+    """The rendered blocks an ontology contributes to each extraction prompt.
+
+    Named rather than a bare tuple because the two are easy to swap and the
+    failure would be silent: the propositions prompt would receive the full
+    vocabulary and the topics prompt only the class names, and both would still
+    render, extract, and look plausible.
+
+    Attributes:
+        topics (str): The full vocabulary block, for the topics prompt.
+        propositions (str): The class names alone, for the propositions prompt.
+    """
+    topics:str
+    propositions:str
 
 class ExtractionConfig():
     """
@@ -75,7 +93,12 @@ class ExtractionConfig():
         be applied during the extraction process. Will be internally converted
         to a FilterConfig object.
         extraction_llm (Optional[ExtractionLLMType]): LLM to be used for extracting
-        propositions and topics. If None, GraphRAGConfig.extract_llm is used. 
+        propositions and topics. If None, GraphRAGConfig.extract_llm is used.
+        ontology (Optional[OntologyType]): An ontology to guide extraction, as an
+        OntologyConfig, an Ontology, an rdflib.Graph, or a path to a Turtle file.
+        Normalized to an OntologyConfig at its default authority level ('align') when
+        it is not one already. Defaults to None, which leaves extraction exactly
+        as it was.
     """
     def __init__(self,
                  enable_proposition_extraction: bool = True,
@@ -85,8 +108,20 @@ class ExtractionConfig():
                  extract_propositions_prompt_template: Optional[str] = None,
                  extract_topics_prompt_template: Optional[str] = None,
                  extraction_filters: Optional[MetadataFiltersType] = None,
-                 extraction_llm: Optional[ExtractionLLMType] = None):
+                 extraction_llm: Optional[ExtractionLLMType] = None,
+                 ontology: Optional[OntologyType] = None):
         self.enable_proposition_extraction = enable_proposition_extraction
+
+        # Whether the user named a list, asked for none, or said nothing at all.
+        # Seeding turns on that distinction, and it is only knowable here: the default is a module-level list, so identity against
+        # it answers the question exactly, whereas a value check later cannot
+        # tell a user who passed the defaults from a user who passed nothing.
+        # `None` counts as set - it is a request for no preferences, and reads
+        # differently from silence.
+        self.preferred_entity_classifications_provided = (
+            preferred_entity_classifications is not DEFAULT_ENTITY_CLASSIFICATIONS
+        )
+
         self.preferred_entity_classifications = preferred_entity_classifications if preferred_entity_classifications is not None else []
         self.preferred_topics = preferred_topics if preferred_topics is not None else []
         self.infer_entity_classifications = infer_entity_classifications
@@ -97,6 +132,40 @@ class ExtractionConfig():
             self.extraction_llm = extraction_llm if isinstance(extraction_llm, LLMCache) else GraphRAGConfig.to_llm(extraction_llm)
         else:
             self.extraction_llm = None
+
+        self.ontology = to_ontology_config(ontology) if ontology is not None else None
+
+        if self.ontology is not None:
+            self._validate_ontology_combination()
+
+    def _validate_ontology_combination(self):
+        """Reject the one ontology/inference combination that has no coherent reading.
+
+        Inference alongside an ontology is coherent and supported: the ontology's
+        class names seed `default_classifications` and inference adds the domain
+        terms the ontology does not declare, which is exactly what 'align'
+        permits - name what is declared, keep what is not.
+
+        `replace_default_classifications=True` is the exception. It asks for the
+        seeded names to be discarded, so the user has configured an ontology and
+        then asked for its vocabulary to be thrown away before the model ever
+        sees that slot. Silently honouring either half would be a guess, so it
+        raises instead.
+
+        Raises:
+            ValueError: If inference is configured to replace the seeded
+                classifications while an ontology is present.
+        """
+        infer = self.infer_entity_classifications
+        if isinstance(infer, InferClassificationsConfig) and infer.replace_default_classifications:
+            raise ValueError(
+                'infer_entity_classifications with replace_default_classifications=True '
+                'cannot be combined with an ontology: the ontology seeds the preferred '
+                'entity classifications and replacing them discards the vocabulary the '
+                'ontology was configured to supply. Set '
+                'replace_default_classifications=False to let inference extend the '
+                "ontology's classes, or remove the ontology."
+            )
 
 
 class BuildConfig():
@@ -272,7 +341,9 @@ class LexicalGraphIndex():
         extraction_pre_processors (list): List of preprocessing steps used for data processing
             during the extraction pipeline.
         extraction_components (list): List of components forming the main data extraction
-            pipeline, including proposition and topic extractors.
+            pipeline, including proposition and topic extractors, and - when an
+            ontology resolves at least one dimension on - an OntologyFilter after
+            them.
         allow_batch_inference (bool): Specifies whether batch inference is allowed based on
             indexing configuration settings.
     """
@@ -343,38 +414,56 @@ class LexicalGraphIndex():
             for c in config.chunking:
                 components.append(c)
 
+        # Rendered once, here in the parent process, and handed to the extractors
+        # as a plain string. Rendering reads the rdflib graph, which does not
+        # cross the spawn boundary; a string does. Empty when there is no
+        # ontology or its authority is 'off', and an empty block leaves every
+        # prompt byte-identical to what it was.
+        ontology_constraints = self._render_ontology_constraints(config.extraction.ontology)
+
         if config.extraction.enable_proposition_extraction:
             if config.batch_config:
                 components.append(BatchLLMPropositionExtractorSync(
                     batch_config=config.batch_config,
                     prompt_template=config.extraction.extract_propositions_prompt_template,
-                    llm=config.extraction.extraction_llm
+                    llm=config.extraction.extraction_llm,
+                    ontology_constraints=ontology_constraints.propositions
                 ))
             else:
                 components.append(LLMPropositionExtractor(
                     prompt_template=config.extraction.extract_propositions_prompt_template,
-                    llm=config.extraction.extraction_llm
+                    llm=config.extraction.extraction_llm,
+                    ontology_constraints=ontology_constraints.propositions
                 ))
 
         entity_classification_provider = None
         topic_provider = None
 
+        # Unchanged, and deliberately ahead of any ontology seeding: with no real
+        # store there is no scoped-value store to read or write, so both providers
+        # stay empty. The ontology still reaches the prompt through
+        # `ontology_constraints` above - what a DummyGraphStore run cannot show is
+        # the seeded `{preferred_entity_classifications}` slot.
         if isinstance(self.graph_store, DummyGraphStore):
             entity_classification_provider = default_preferred_values([])
             topic_provider = default_preferred_values([])
         else:
 
+            # Either the user's list or the ontology's class names, decided once
+            # so the three branches below cannot disagree about which it is.
+            preferred_entity_classifications = self._preferred_entity_classifications(config.extraction)
+
             if config.extraction.infer_entity_classifications:
 
                 if isinstance(config.extraction.infer_entity_classifications, InferClassificationsConfig):
-                    infer_config = config.extraction.infer_entity_classifications 
+                    infer_config = config.extraction.infer_entity_classifications
                 else:
                     infer_config = InferClassificationsConfig()
 
                 default_classifications = []
 
-                if isinstance(config.extraction.preferred_entity_classifications, list):
-                    default_classifications = config.extraction.preferred_entity_classifications
+                if isinstance(preferred_entity_classifications, list):
+                    default_classifications = preferred_entity_classifications
 
                 entity_classification_provider = InferClassifications(
                     splitter=SentenceSplitter(chunk_size=256, chunk_overlap=20) if config.chunking else None,
@@ -389,10 +478,10 @@ class LexicalGraphIndex():
 
                 pre_processors.append(entity_classification_provider)
 
-            elif isinstance(config.extraction.preferred_entity_classifications, list):
-                entity_classification_provider = default_preferred_values(config.extraction.preferred_entity_classifications)
+            elif isinstance(preferred_entity_classifications, list):
+                entity_classification_provider = default_preferred_values(preferred_entity_classifications)
             else:
-                entity_classification_provider = config.extraction.preferred_entity_classifications
+                entity_classification_provider = preferred_entity_classifications
 
             if isinstance(config.extraction.preferred_topics, list):
                 topic_provider = default_preferred_values(config.extraction.preferred_topics)
@@ -408,7 +497,8 @@ class LexicalGraphIndex():
                 entity_classification_provider=entity_classification_provider,
                 topic_provider=topic_provider,
                 prompt_template=config.extraction.extract_topics_prompt_template,
-                llm=config.extraction.extraction_llm
+                llm=config.extraction.extraction_llm,
+                ontology_constraints=ontology_constraints.topics
             )
         else:
             topic_extractor = TopicExtractor(
@@ -416,12 +506,146 @@ class LexicalGraphIndex():
                 entity_classification_provider=entity_classification_provider,
                 topic_provider=topic_provider,
                 prompt_template=config.extraction.extract_topics_prompt_template,
-                llm=config.extraction.extraction_llm
+                llm=config.extraction.extraction_llm,
+                ontology_constraints=ontology_constraints.topics
             )
 
         components.append(topic_extractor)
 
+        ontology_filter = self._ontology_filter(config.extraction.ontology)
+
+        if ontology_filter is not None:
+            components.append(ontology_filter)
+
         return (pre_processors, components)
+
+    def _typed_properties(self) -> Optional[str]:
+        """Where the builders should store coerced attribute values, if anywhere.
+
+        The setting lives on `OntologyConfig` and only there, which is what keeps
+        it unreachable without one: with no ontology this returns None, `BuildPipeline`
+        coalesces that to `GraphRAGConfig.typed_properties`, and that is `'off'`
+        unless something set it programmatically. So a user who never mentioned an
+        ontology cannot reach a placement that writes, and no environment variable
+        can reach one on their behalf.
+
+        Returned as None rather than as `'off'` so that the `coalesce` chain in
+        `BuildPipeline` behaves the same way here as for every other setting - an
+        unasked-for value defers to the layer below rather than pinning it.
+
+        Returns:
+            The configured placement, or None when there is no ontology.
+        """
+        ontology_config = self.indexing_config.extraction.ontology
+        return None if ontology_config is None else ontology_config.typed_properties
+
+    @staticmethod
+    def _ontology_filter(ontology_config) -> Optional[OntologyFilter]:
+        """The filter that enforces what the prompt asked for, or None.
+
+        This runs *after* the topic extractor and nowhere else. Everything the
+        ontology contributes before this point is advisory - a block of text in a
+        prompt, which a model may ignore - and this is the only component that
+        makes a level's claim true rather than requested.
+
+        Returns None when there is no ontology, and when every dimension resolves
+        to False. The second case is not the same as the first:
+        `ontology_authority='off'` still seeds `{preferred_entity_classifications}` from
+        the ontology, so the prompt differs from the no-ontology prompt even
+        though no component here does. What `off` does guarantee is that nothing
+        rewrites or discards a fact the model produced, and the way it guarantees
+        it is by this method returning None - not by a filter that runs with every
+        flag off. A no-op in the pipeline would still round-trip `TOPICS_KEY`
+        through `model_validate` / `model_dump` and would still annotate, which is
+        exactly the difference `off` rules out.
+
+        Args:
+            ontology_config: The normalized `OntologyConfig`, or None.
+
+        Returns:
+            A configured `OntologyFilter`, or None if it would have nothing to do.
+        """
+        if ontology_config is None or not ontology_config.filter_required():
+            return None
+
+        # Spread the resolved dimensions rather than naming them one by one. The
+        # field names of `ResolvedDimensions` and the flags of `OntologyFilter`
+        # are deliberately the same six words, and a hand-written argument list
+        # can omit one - which would leave a gate the user asked for silently not
+        # running, the one failure in this feature that looks like success.
+        return OntologyFilter(
+            index=ontology_config.ontology.index(),
+            report_violations=ontology_config.report_violations,
+            **asdict(ontology_config.resolved()),
+        )
+
+    @staticmethod
+    def _render_ontology_constraints(ontology_config) -> OntologyConstraints:
+        """Render the two prompt blocks an ontology contributes, once.
+
+        Both extraction stages get a block, and they are not the same block: the
+        topics prompt gets the full vocabulary, the propositions prompt gets the
+        class names alone, because classifying the entities it names is the only
+        thing that stage does which an ontology can steer.
+
+        Args:
+            ontology_config: The normalized `OntologyConfig`, or None.
+
+        Returns:
+            The two rendered blocks, both empty when there is no ontology.
+        """
+        if ontology_config is None:
+            return OntologyConstraints('', '')
+
+        ontology = ontology_config.ontology
+        ontology_authority = ontology_config.ontology_authority
+
+        # `vocabulary_format` reaches the topics block only. The propositions
+        # block is a class-name list by design - that stage classifies the
+        # entities it names and extracts nothing else - so there is no property
+        # vocabulary there for a serialization to present differently.
+        return OntologyConstraints(
+            topics=ontology.format_as_prompt_constraint(
+                ontology_authority, ontology_config.vocabulary_format
+            ),
+            propositions=ontology.format_as_proposition_constraint(ontology_authority)
+        )
+
+    @staticmethod
+    def _preferred_entity_classifications(extraction_config: ExtractionConfig) -> PREFERRED_VALUES_PROVIDER_TYPE:
+        """Decide what fills the `{preferred_entity_classifications}` prompt slot.
+
+        With an ontology and no user list, the slot is seeded
+        from the ontology's rendered class names, so it cannot name a class
+        differently from the way the vocabulary block above it does.
+
+        A user who named their own list keeps it, with a
+        warning. Honouring the ontology instead would discard a setting the user
+        made deliberately, and merging the two would produce a vocabulary neither
+        of them asked for.
+
+        Args:
+            extraction_config: The extraction configuration to read.
+
+        Returns:
+            The user's value, unchanged, unless an ontology is present and the
+            user said nothing - in which case the ontology's class names.
+        """
+        if extraction_config.ontology is None:
+            return extraction_config.preferred_entity_classifications
+
+        if extraction_config.preferred_entity_classifications_provided:
+            logger.warning(
+                'Both an ontology and preferred_entity_classifications were configured. '
+                'Honouring preferred_entity_classifications: %s. The ontology still '
+                'supplies the vocabulary block in the extraction prompt, but its classes '
+                'will not be offered as preferred classifications. Remove '
+                'preferred_entity_classifications to seed that slot from the ontology.',
+                extraction_config.preferred_entity_classifications
+            )
+            return extraction_config.preferred_entity_classifications
+
+        return extraction_config.ontology.ontology.class_names()
 
     def extract(
             self,
@@ -561,6 +785,7 @@ class LexicalGraphIndex():
             source_metadata_formatter=build_config.source_metadata_formatter,
             include_domain_labels=build_config.include_domain_labels,
             include_local_entities=build_config.include_local_entities,
+            typed_properties=self._typed_properties(),
             tenant_id=self.tenant_id,
             progress_monitor=progress_monitor,
             **kwargs
@@ -631,6 +856,7 @@ class LexicalGraphIndex():
             source_metadata_formatter=build_config.source_metadata_formatter,
             include_domain_labels=build_config.include_domain_labels,
             include_local_entities=build_config.include_local_entities,
+            typed_properties=self._typed_properties(),
             tenant_id=self.tenant_id,
             progress_monitor=progress_monitor,
             **kwargs

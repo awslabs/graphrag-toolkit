@@ -1,0 +1,110 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+#
+# The test ontology the ontology-guided-extraction tests run on. Small enough to
+# read in one screen, and extended to cover every shape the feature has to
+# handle:
+#
+#   * a three-level hierarchy          :SportsTeam < :Company < :Agent
+#   * a label that differs from the local name  :SportsTeam -> "Sports Team"
+#   * skos:altLabel on a class and on a property
+#   * an object property with no domain and no range  :acquired
+#   * rdfs:comment descriptions on some, deliberately not all, terms
+#   * datatype properties covering xsd:integer, xsd:double, xsd:boolean,
+#     xsd:date and xsd:string
+#   * a datatype property with no domain  :officialName
+#
+# The spellings - :worksFor, :SportsTeam, :foundedYear, :revenue - are fixed,
+# because the naming-contract tests assert against those exact names.
+
+@prefix :     <http://example.com/company#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.com/company> a owl:Ontology ;
+    rdfs:comment "Test ontology for ontology-guided extraction." .
+
+#
+# Classes. :Agent is the root; :SportsTeam is three deep.
+#
+
+:Agent      a owl:Class ;
+            rdfs:comment "Anything that can act - a person or an organization." .
+
+:Person     a owl:Class ; rdfs:subClassOf :Agent ;
+            rdfs:comment "An individual human." .
+
+:Athlete    a owl:Class ; rdfs:subClassOf :Person ;
+            rdfs:comment "A person who competes in a sport professionally." .
+
+:Company    a owl:Class ; rdfs:subClassOf :Agent ;
+            rdfs:label "Company" ;
+            skos:altLabel "Corporation" ;
+            rdfs:comment "An incorporated commercial organization." .
+
+# The label differs from the local name on purpose: rendered into the prompt it
+# has to survive the response parser's .title(), and stored it has to come back
+# as the authored SportsTeam.
+:SportsTeam a owl:Class ; rdfs:subClassOf :Company ;
+            rdfs:label "Sports Team" ;
+            skos:altLabel "Ball Club" ;
+            rdfs:comment "A professional team that competes in a league." .
+
+#
+# Object properties.
+#
+
+:worksFor    a owl:ObjectProperty ;
+             rdfs:domain :Person ; rdfs:range :Company ;
+             skos:altLabel "REQ_TO_HC" ;
+             rdfs:comment "Employment of a person by a company." .
+
+# Domain :Athlete, range :SportsTeam - narrower than :worksFor, so a fact
+# stated of a :Person and a :Company only satisfies it through the subclass
+# closure.
+:playsFor    a owl:ObjectProperty ;
+             rdfs:domain :Athlete ; rdfs:range :SportsTeam ;
+             skos:altLabel "PLAYS_ON" ;
+             rdfs:comment "Membership of an athlete in a sports team." .
+
+:subsidiaryOf a owl:ObjectProperty ;
+              rdfs:domain :Company ; rdfs:range :Company ;
+              rdfs:comment "Ownership of one company by another." .
+
+# No domain and no range: matches any subject and any object.
+:acquired    a owl:ObjectProperty .
+
+#
+# Datatype properties. Between them these cover every XSD range the feature
+# claims to coerce.
+#
+
+:foundedYear      a owl:DatatypeProperty ;
+                  rdfs:domain :Company ; rdfs:range xsd:integer ;
+                  rdfs:comment "The four-digit year the company was founded." .
+
+:revenue          a owl:DatatypeProperty ;
+                  rdfs:domain :Company ; rdfs:range xsd:double ;
+                  rdfs:comment "Annual revenue in US dollars." .
+
+:isPubliclyTraded a owl:DatatypeProperty ;
+                  rdfs:domain :Company ; rdfs:range xsd:boolean ;
+                  rdfs:comment "Whether the company's shares are listed on a public exchange." .
+
+:incorporatedOn   a owl:DatatypeProperty ;
+                  rdfs:domain :Company ; rdfs:range xsd:date ;
+                  rdfs:comment "The date of incorporation." .
+
+:tickerSymbol     a owl:DatatypeProperty ;
+                  rdfs:domain :Company ; rdfs:range xsd:string ;
+                  skos:altLabel "Stock Symbol" .
+
+:jobTitle         a owl:DatatypeProperty ;
+                  rdfs:domain :Person ; rdfs:range xsd:string ;
+                  rdfs:comment "The person's role at their employer." .
+
+# No domain: any subject may carry it.
+:officialName     a owl:DatatypeProperty ;
+                  rdfs:range xsd:string .
