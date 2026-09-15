@@ -427,6 +427,9 @@ fi
 if [[ "${EXTRACTION_BATCH_SIZE:-}" ]]; then
 	printf 'export EXTRACTION_BATCH_SIZE=%q\n' "$EXTRACTION_BATCH_SIZE" >> lexical-graph-examples/.env.testing
 fi
+if [[ "${EXTRACTION_NUM_THREADS_PER_WORKER:-}" ]]; then
+	printf 'export EXTRACTION_NUM_THREADS_PER_WORKER=%q\n' "$EXTRACTION_NUM_THREADS_PER_WORKER" >> lexical-graph-examples/.env.testing
+fi
 
 zip -r graphrag-toolkit.zip graphrag-toolkit # zip under directory
 
