@@ -159,6 +159,62 @@ class TestQueryEngineQuery:
             assert context.count('item2') == 1
 
 
+class TestQueryEngineSeedOrdering:
+    """Tests that seed sets fed to retrievers are deterministic (nondeterminism fix)."""
+
+    def test_source_entities_dedup_preserves_order(
+        self, mock_graph_store_with_schema, mock_llm_generator
+    ):
+        """source_entities must dedup while preserving first-seen order.
+
+        Guards the switch from list(set(...)) to list(dict.fromkeys(...)) at the
+        seed union, and sorted(explored_entities) for the path retriever.
+        """
+        mock_entity_linker = Mock()
+        # First call = extracted entities (has an internal duplicate),
+        # second call = draft answers (overlaps the first).
+        mock_entity_linker.link.side_effect = [
+            ['Organization', 'Portland', 'Organization'],
+            ['Portland', 'John Doe'],
+        ]
+
+        mock_kg_linker = Mock()
+        mock_kg_linker.task_prompts = "test"
+        mock_kg_linker.task_prompts_iterative = "test"
+        mock_kg_linker.generate_response.return_value = "<task-completion>FINISH</task-completion>"
+        mock_kg_linker.parse_response.return_value = {
+            'entity-extraction': ['Organization'],
+            'draft-answer-generation': ['Portland'],
+            'path-extraction': ['Organization->Portland'],
+        }
+
+        captured = {}
+        mock_triplet_retriever = Mock()
+        mock_triplet_retriever.retrieve.side_effect = (
+            lambda query, source_entities: captured.__setitem__('seeds', source_entities) or ['ctx']
+        )
+        mock_path_retriever = Mock()
+        mock_path_retriever.retrieve.side_effect = (
+            lambda entities, metapaths, answers: captured.__setitem__('path_entities', entities) or []
+        )
+
+        engine = ByoKGQueryEngine(
+            graph_store=mock_graph_store_with_schema,
+            llm_generator=mock_llm_generator,
+            entity_linker=mock_entity_linker,
+            triplet_retriever=mock_triplet_retriever,
+            path_retriever=mock_path_retriever,
+            kg_linker=mock_kg_linker,
+        )
+
+        engine.query("Who founded Organization?", iterations=1)
+
+        # deduped, first-seen order preserved (not set() ordering)
+        assert captured['seeds'] == ['Organization', 'Portland', 'John Doe']
+        # path retriever gets a stable sorted order
+        assert captured['path_entities'] == sorted({'Organization', 'Portland'})
+
+
 class TestQueryEngineGenerateResponse:
     """Tests for response generation."""
     

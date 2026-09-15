@@ -225,8 +225,10 @@ class ByoKGQueryEngine:
             if "draft-answer-generation" in artifacts and artifacts["draft-answer-generation"]:
                 linked_answers = self.entity_linker.link(artifacts["draft-answer-generation"], return_dict=False)
 
-            # Retrieve triplets if we have source entities
-            source_entities = list(set(semantic_linked_entities + linked_entities + linked_answers))
+            # Retrieve triplets if we have source entities.
+            # dict.fromkeys dedups while preserving first-seen order, so the
+            # seed order is reproducible (plain set() ordering is not).
+            source_entities = list(dict.fromkeys(semantic_linked_entities + linked_entities + linked_answers))
 
             if source_entities and self.triplet_retriever:
                 triplet_context = self.triplet_retriever.retrieve(query, source_entities)
@@ -235,7 +237,9 @@ class ByoKGQueryEngine:
             # Process paths if available
             if "path-extraction" in artifacts and artifacts["path-extraction"] and explored_entities and self.path_retriever:
                 metapaths = [[component.strip() for component in path.split("->")] for path in artifacts["path-extraction"]]
-                path_context = self.path_retriever.retrieve(list(explored_entities), metapaths,linked_answers)
+                # sorted() so the path retriever gets a reproducible order;
+                # explored_entities is a set, whose iteration order is not stable.
+                path_context = self.path_retriever.retrieve(sorted(explored_entities), metapaths,linked_answers)
                 self._add_to_context(retrieved_context, path_context)
 
             # Process graph queries
