@@ -96,7 +96,7 @@ def sampled_source_id_width(graph_store:GraphStore) -> Optional[SourceIdWidth]:
     """
     results = graph_store.execute_query(
         f'MATCH (s:`__Source__`) RETURN {graph_store.node_id("s.sourceId")} AS sourceId '
-        f'LIMIT {SOURCE_ID_SAMPLE_SIZE}'
+        f'ORDER BY sourceId LIMIT {SOURCE_ID_SAMPLE_SIZE}'
     )
     widths = sorted({
         IdGenerator.width_of_source_id(r['sourceId'])

@@ -422,5 +422,13 @@ class TestReadingTheRecord:
     def test_a_sample_of_only_null_ids_has_no_width(self):
         assert sampled_source_id_width(graph_store(source_ids=[None])) is None
 
+    def test_the_sample_is_ordered_so_every_run_reads_the_same_ids(self):
+        store = graph_store(source_ids=[LEGACY_ID])
+
+        sampled_source_id_width(store)
+
+        query = next(c.args[0] for c in store.execute_query.call_args_list if '__Source__' in c.args[0])
+        assert 'ORDER BY sourceId LIMIT' in query
+
     def test_a_record_column_that_comes_back_null_does_not_block_recording(self):
         record_graph_source_id_width(graph_store(written=None), TenantId(), FULL)
