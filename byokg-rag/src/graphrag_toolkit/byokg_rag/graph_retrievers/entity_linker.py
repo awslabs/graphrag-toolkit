@@ -116,10 +116,12 @@ class EntityLinker(Linker):
         """
         Link mentions to candidate nodes, keeping candidates grouped per mention.
 
-        Unlike ``link``, which routes through the entity matcher and flattens and
-        globally sorts hits across all mentions, this queries the index once per
-        mention so the caller can tell which candidate came from which mention
-        (e.g. to keep only the best match per mention).
+        ``link`` matches all mentions at once and flattens and globally sorts the
+        hits, so the caller cannot tell which candidate came from which mention.
+        This matches one mention at a time through the same matcher, so the
+        candidates (and any matcher-specific filtering, such as the fuzzy
+        matcher's length filter) are identical to the union path ``link``
+        produces — just grouped per mention (e.g. to keep only the best match).
 
         Args:
             query_extracted_entities: List of mention strings to link
@@ -138,16 +140,10 @@ class EntityLinker(Linker):
         if topk is None:
             topk = self.topk
 
-        # Query the index per mention (not the matcher, which flattens across
-        # mentions) so attribution is preserved.
-        index = getattr(retriever, "index", None)
-        if index is None:
-            raise AttributeError(
-                "link_grouped requires an index-backed retriever (retriever.index is None)"
-            )
-
+        # Match each mention on its own through the same matcher link() uses, so
+        # per-mention candidates agree with the union path regardless of index type.
         grouped = []
         for mention in query_extracted_entities:
-            hits = index.query(mention, topk)["hits"]
+            hits = retriever.retrieve(queries=[mention], topk=topk)["hits"]
             grouped.append([hit["document_id"] for hit in hits])
         return grouped

@@ -142,12 +142,13 @@ class TestEntityLinkerLink:
 class TestEntityLinkerLinkGrouped:
     """Tests for EntityLinker.link_grouped (per-mention candidate grouping)."""
 
-    def _index_backed_retriever(self):
-        # Real matchers return a scalar document_id per hit (not a list), so the
-        # mock mirrors that shape. index.query is called once per mention.
+    def _matcher(self):
+        # Matches one mention at a time through the same matcher link() uses.
+        # The matcher returns one dict with a scalar document_id per hit.
         mock_ret = Mock()
 
-        def fake_query(mention, topk):
+        def fake_retrieve(queries, topk):
+            (mention,) = queries
             return {
                 'Amazon': {'hits': [
                     {'document_id': 'Amazon', 'document': 'Amazon', 'match_score': 100},
@@ -158,20 +159,20 @@ class TestEntityLinkerLinkGrouped:
                 ]},
             }[mention]
 
-        mock_ret.index.query.side_effect = fake_query
+        mock_ret.retrieve.side_effect = fake_retrieve
         return mock_ret
 
     def test_link_grouped_preserves_per_mention_grouping(self):
         """Each mention gets its own best-first candidate list, in input order."""
-        mock_ret = self._index_backed_retriever()
+        mock_ret = self._matcher()
         linker = EntityLinker(retriever=mock_ret, topk=3)
 
         grouped = linker.link_grouped(['Amazon', 'Google'])
 
         assert grouped == [['Amazon', 'Amazon Web Services'], ['Google']]
-        # index.query, not the flattening matcher, and with the configured topk
-        assert mock_ret.index.query.call_args_list[0].args == ('Amazon', 3)
-        assert mock_ret.index.query.call_args_list[1].args == ('Google', 3)
+        # one matcher call per mention (not one batched call), with configured topk
+        assert mock_ret.retrieve.call_args_list[0].kwargs == {'queries': ['Amazon'], 'topk': 3}
+        assert mock_ret.retrieve.call_args_list[1].kwargs == {'queries': ['Google'], 'topk': 3}
 
     def test_link_grouped_no_retriever_error(self):
         """ValueError when no retriever is available."""
@@ -179,14 +180,6 @@ class TestEntityLinkerLinkGrouped:
 
         with pytest.raises(ValueError, match="Either 'retriever' or 'self.retriever' must be provided"):
             linker.link_grouped(['Amazon'])
-
-    def test_link_grouped_requires_index_backed_retriever(self):
-        """AttributeError when the retriever exposes no index to query."""
-        linker = EntityLinker()
-        retriever = Mock(spec=[])  # no .index attribute
-
-        with pytest.raises(AttributeError, match="index"):
-            linker.link_grouped(['Amazon'], retriever=retriever)
 
 
 class TestLinkerAbstract:
