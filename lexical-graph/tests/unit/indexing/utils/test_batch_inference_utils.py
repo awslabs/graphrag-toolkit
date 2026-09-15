@@ -19,9 +19,13 @@ from graphrag_toolkit.lexical_graph.indexing.utils.batch_inference_utils import 
     create_inference_inputs_for_messages,
     create_inference_inputs,
     get_parse_output_text_fn,
+    BATCH_MODEL_PROVIDERS,
+    BatchModelProvider,
     BEDROCK_MIN_BATCH_SIZE,
     BEDROCK_MAX_BATCH_SIZE
 )
+
+CONVERSE_PATCH_TARGET = 'graphrag_toolkit.lexical_graph.indexing.utils.batch_inference_utils.messages_to_converse_messages'
 
 
 class TestGetFileSize:
@@ -173,10 +177,12 @@ class TestGetRequestBody:
         inference_params = {'max_tokens': 500, 'temperature': 0.5}
         
         with patch('graphrag_toolkit.lexical_graph.indexing.utils.batch_inference_utils.messages_to_converse_messages') as mock_convert:
-            mock_convert.return_value = ([{'role': 'user', 'content': [{'text': 'User message'}]}], 'System prompt')
-            
+            # messages_to_converse_messages returns the system prompt as a list of
+            # {'text': ...} blocks, so the builder must pass it through unwrapped.
+            mock_convert.return_value = ([{'role': 'user', 'content': [{'text': 'User message'}]}], [{'text': 'System prompt'}])
+
             request_body = get_request_body(mock_llm, messages, inference_params)
-            
+
             assert 'system' in request_body
             assert request_body['system'] == [{'text': 'System prompt'}]
     
@@ -242,24 +248,53 @@ class TestGetRequestBody:
             assert request_body['messages'] == [{'role': 'user', 'content': 'User message'}]
 
     def test_get_request_body_llama_model(self):
-        """Verify get_request_body creates correct structure for Llama models."""
+        """Verify get_request_body emits the Bedrock InvokeModel schema for Llama.
+
+        Bedrock's Meta Llama InvokeModel takes a single `prompt` string (Llama
+        instruct chat template) + `max_gen_len` — not the Converse
+        `messages`/`parameters` shape.
+        """
         mock_llm = Mock(spec=BedrockConverse)
         mock_llm.model = 'meta.llama3-70b-instruct-v1:0'
-        
+
         messages = [
+            ChatMessage(role=MessageRole.SYSTEM, content="Be terse."),
             ChatMessage(role=MessageRole.USER, content="Test message")
         ]
         inference_params = {'max_tokens': 1500, 'temperature': 0.6}
-        
-        with patch('graphrag_toolkit.lexical_graph.indexing.utils.batch_inference_utils.messages_to_converse_messages') as mock_convert:
-            mock_convert.return_value = ([{'role': 'user', 'content': [{'text': 'Test message'}]}], None)
-            
-            request_body = get_request_body(mock_llm, messages, inference_params)
-            
-            assert 'messages' in request_body
-            assert 'parameters' in request_body
-            assert request_body['parameters']['max_new_tokens'] == 1500
-            assert request_body['parameters']['temperature'] == 0.6
+
+        request_body = get_request_body(mock_llm, messages, inference_params)
+
+        assert request_body['max_gen_len'] == 1500
+        assert request_body['temperature'] == 0.6
+        assert 'messages' not in request_body
+        assert 'parameters' not in request_body
+
+        prompt = request_body['prompt']
+        assert prompt.startswith('<|begin_of_text|>')
+        assert '<|start_header_id|>system<|end_header_id|>\n\nBe terse.<|eot_id|>' in prompt
+        assert '<|start_header_id|>user<|end_header_id|>\n\nTest message<|eot_id|>' in prompt
+        assert prompt.endswith('<|start_header_id|>assistant<|end_header_id|>\n\n')
+
+    def test_get_request_body_nova_system_uses_real_converse_helper(self):
+        """Nova system-prompt handling against the REAL messages_to_converse_messages.
+
+        The other nova tests mock the helper, so they only encode the assumed
+        return shape. This one exercises the real helper so a change in what it
+        returns (a list of {'text': ...} blocks) can't silently regress into the
+        double-wrapped `[{'text': [{'text': ...}]}]` bug.
+        """
+        mock_llm = Mock(spec=BedrockConverse)
+        mock_llm.model = 'amazon.nova-pro-v1:0'
+
+        messages = [
+            ChatMessage(role=MessageRole.SYSTEM, content="Be terse."),
+            ChatMessage(role=MessageRole.USER, content="Hi")
+        ]
+
+        request_body = get_request_body(mock_llm, messages, {'max_tokens': 64, 'temperature': 0.0})
+
+        assert request_body['system'] == [{'text': 'Be terse.'}]
     
     def test_get_request_body_unsupported_model(self):
         """Verify get_request_body raises error for unsupported models."""
@@ -367,14 +402,24 @@ class TestGetParseOutputTextFn:
     def test_parse_output_llama_model(self):
         """Verify parsing function works for Llama model output."""
         parse_fn = get_parse_output_text_fn('meta.llama3-70b-instruct-v1:0')
-        
+
+        # Bedrock wraps the provider payload under 'modelOutput', same as nova/claude.
         json_data = {
-            'generation': 'Generated text response'
+            'modelOutput': {
+                'generation': 'Generated text response'
+            }
         }
-        
+
         result = parse_fn(json_data)
         assert result == 'Generated text response'
-    
+
+    def test_parse_output_text_mode_missing_key_raises(self):
+        """A missing scalar output must fail loud, not silently return ''."""
+        parse_fn = get_parse_output_text_fn('meta.llama3-70b-instruct-v1:0')
+
+        with pytest.raises(ValueError, match="model output schema may have changed"):
+            parse_fn({'modelOutput': {}})
+
     def test_parse_output_unsupported_model(self):
         """Verify error raised for unsupported model."""
         with pytest.raises(ValueError, match="Unrecognized model_id"):
@@ -383,7 +428,7 @@ class TestGetParseOutputTextFn:
     def test_parse_output_empty_content(self):
         """Verify parsing handles empty content."""
         parse_fn = get_parse_output_text_fn('amazon.nova-lite-v1:0')
-        
+
         json_data = {
             'modelOutput': {
                 'output': {
@@ -393,6 +438,126 @@ class TestGetParseOutputTextFn:
                 }
             }
         }
-        
+
         result = parse_fn(json_data)
         assert result == ''
+
+
+class TestBatchModelProviderRegistry:
+    """Tests for the extensible provider registry backing batch dispatch."""
+
+    def test_registry_contains_expected_families(self):
+        """Exact-set guard: fail if a family is dropped or an unexpected one appears.
+
+        Equality is intentional - it catches an accidental add/remove. Adding a
+        family is a deliberate change that should update this set too.
+        """
+        names = {provider.name for provider in BATCH_MODEL_PROVIDERS}
+        assert names == {'amazon.nova', 'anthropic.claude', 'meta.llama'}
+
+    def test_parse_output_cross_region_profile_prefix(self):
+        """Inference-profile prefixes (us./eu.) still resolve to the right family."""
+        claude_fn = get_parse_output_text_fn('us.anthropic.claude-sonnet-4-6')
+        assert claude_fn({'modelOutput': {'content': [{'text': 'hi'}]}}) == 'hi'
+
+        nova_fn = get_parse_output_text_fn('eu.amazon.nova-pro-v1:0')
+        assert nova_fn({'modelOutput': {'output': {'message': {'content': [{'text': 'yo'}]}}}}) == 'yo'
+
+    def test_request_body_cross_region_profile_prefix(self):
+        """get_request_body resolves the family through a cross-region profile prefix."""
+        mock_llm = Mock(spec=BedrockConverse)
+        mock_llm.model = 'us.meta.llama3-3-70b-instruct-v1:0'
+
+        messages = [ChatMessage(role=MessageRole.USER, content="Test")]
+
+        body = get_request_body(mock_llm, messages, {'max_tokens': 100, 'temperature': 0.2})
+
+        # Resolved to the meta.llama family through the 'us.' profile prefix.
+        assert body['max_gen_len'] == 100
+        assert body['prompt'].startswith('<|begin_of_text|>')
+
+    def test_provider_rejects_string_match_prefixes(self):
+        """A missing comma making match_prefixes a bare string fails at construction."""
+        with pytest.raises(TypeError, match="match_prefixes must be a tuple of str"):
+            BatchModelProvider(
+                name='oops',
+                match_prefixes=('amazon.nova'),  # str, not a tuple
+                build_request=lambda messages, params: {},
+                output_path=('modelOutput',),
+            )
+
+    def test_provider_rejects_unknown_output_mode(self):
+        """An output_mode typo fails at construction, not mid-batch at parse time."""
+        with pytest.raises(ValueError, match="output_mode must be one of"):
+            BatchModelProvider(
+                name='oops',
+                match_prefixes=('amazon.nova',),
+                build_request=lambda messages, params: {},
+                output_path=('modelOutput',),
+                output_mode='blob',
+            )
+
+    def test_unsupported_model_error_lists_supported_families(self):
+        """The unsupported-model error names the families that are supported."""
+        with pytest.raises(ValueError, match="Supported model families"):
+            get_parse_output_text_fn('cohere.command-r-v1:0')
+
+
+class TestParseRealBedrockBatchOutput:
+    """Parse full, real-shaped Bedrock batch-output records.
+
+    The other parse tests use minimal fixtures; these use the complete
+    ``modelOutput`` envelope each provider actually emits from a batch job -
+    including the fields the parser ignores (usage, stopReason, token counts)
+    and the ``type`` key on Anthropic content blocks - so the extraction is
+    validated against realistic payloads, not just the happy-path minimum.
+
+    NOTE: these mirror the documented InvokeModel response shapes; they are not a
+    substitute for a live end-to-end Bedrock batch run (see PR discussion). A real
+    batch validation is tracked separately.
+    """
+
+    def test_nova_full_record(self):
+        parse_fn = get_parse_output_text_fn('amazon.nova-pro-v1:0')
+        record = {
+            'recordId': 'REC000001',
+            'modelOutput': {
+                'output': {'message': {'role': 'assistant',
+                                       'content': [{'text': 'Nova answer.'}]}},
+                'stopReason': 'end_turn',
+                'usage': {'inputTokens': 12, 'outputTokens': 4, 'totalTokens': 16},
+            },
+        }
+        assert parse_fn(record) == 'Nova answer.'
+
+    def test_claude_full_record(self):
+        parse_fn = get_parse_output_text_fn('anthropic.claude-3-5-sonnet-20241022-v2:0')
+        record = {
+            'recordId': 'REC000002',
+            'modelOutput': {
+                'id': 'msg_bdrk_01ABC',
+                'type': 'message',
+                'role': 'assistant',
+                'model': 'claude-3-5-sonnet-20241022',
+                # Real Anthropic content blocks carry a 'type' alongside 'text'.
+                'content': [{'type': 'text', 'text': 'Claude '},
+                            {'type': 'text', 'text': 'answer.'}],
+                'stop_reason': 'end_turn',
+                'stop_sequence': None,
+                'usage': {'input_tokens': 12, 'output_tokens': 4},
+            },
+        }
+        assert parse_fn(record) == 'Claude answer.'
+
+    def test_llama_full_record(self):
+        parse_fn = get_parse_output_text_fn('meta.llama3-70b-instruct-v1:0')
+        record = {
+            'recordId': 'REC000003',
+            'modelOutput': {
+                'generation': 'Llama answer.',
+                'prompt_token_count': 12,
+                'generation_token_count': 4,
+                'stop_reason': 'stop',
+            },
+        }
+        assert parse_fn(record) == 'Llama answer.'
