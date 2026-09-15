@@ -7,6 +7,7 @@ from typing import Any
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
 from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import escape_cypher_label
 from graphrag_toolkit.lexical_graph.indexing.build.graph_builder import GraphBuilder
+from graphrag_toolkit.lexical_graph.indexing.source_id_collision import DOCUMENT_HASH_PROPERTY
 from graphrag_toolkit.lexical_graph.versioning import VALID_FROM, VALID_TO, VERSION_INDEPENDENT_ID_FIELDS
 from graphrag_toolkit.lexical_graph.versioning import EXTRACT_TIMESTAMP, BUILD_TIMESTAMP, PREV_VERSIONS
 from graphrag_toolkit.lexical_graph.metadata import format_metadata_list
@@ -108,16 +109,27 @@ class SourceGraphBuilder(GraphBuilder):
                 assigment = f'params.`{escape_cypher_label(key)}`'
                 return metadata_assignments_fns[key](assigment)
 
-            if clean_metadata:
-                all_properties = ', '.join(f'source.`{escape_cypher_label(key)}` = {format_assigment(key)}' for key,_ in clean_metadata.items())
-                statements.append(f'ON CREATE SET {all_properties} ON MATCH SET {all_properties}')
-            
+            on_create = [f'source.`{escape_cypher_label(key)}` = {format_assigment(key)}' for key in clean_metadata]
+            on_match = list(on_create)
+
+            # The first document to claim an id owns it: the hash is set on create
+            # and never overwritten, so a later different document is detectable.
+            document_hash = source_metadata.get(DOCUMENT_HASH_PROPERTY)
+            if document_hash:
+                on_create.append(f'source.{DOCUMENT_HASH_PROPERTY} = params.{DOCUMENT_HASH_PROPERTY}')
+                on_match.append(f'source.{DOCUMENT_HASH_PROPERTY} = coalesce(source.{DOCUMENT_HASH_PROPERTY}, params.{DOCUMENT_HASH_PROPERTY})')
+
+            if on_create:
+                statements.append(f'ON CREATE SET {", ".join(on_create)} ON MATCH SET {", ".join(on_match)}')
+
             query = '\n'.join(statements)
 
             # Bind sourceId as a param (not inlined) so a quote in the id can't
             # close the literal and inject Cypher. sourceId last, so a metadata
             # key of the same name can't override the merge key.
             properties = {**clean_metadata, 'sourceId': source_id}
+            if document_hash:
+                properties[DOCUMENT_HASH_PROPERTY] = document_hash
 
             graph_client.execute_query_with_retry(query, self._to_params(properties))
 
