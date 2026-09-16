@@ -96,7 +96,13 @@ _FALSE_LEXICAL = frozenset({'false', '0'})
 # Shape first, calendar second. A regex alone accepts '2015-02-29'; `strptime`
 # is what rejects it. Both are needed - the regex because `strptime('%Y-%m-%d')`
 # would otherwise accept '15-2-9' and silently produce year 15.
-_ISO_DATE = re.compile(r'^-?\d{4}-\d{2}-\d{2}$')
+#
+# No leading `-`. XSD's lexical space for a negative (BCE) year is legal, but
+# nothing here can represent one: `date.fromisoformat` refuses it, so accepting
+# the shape only led to the sign being stripped and '-0500-01-01' stored as
+# 0500-01-01 - a value off by a millennium and reported as conforming. Refusing
+# it is both correct and what `_coerce_datetime` already does.
+_ISO_DATE = re.compile(r'^\d{4}-\d{2}-\d{2}$')
 _ISO_TIME = re.compile(r'^\d{2}:\d{2}(:\d{2}(\.\d+)?)?$')
 
 # Non-ISO dates, accepted only where the month is named and the reading is
@@ -113,8 +119,21 @@ _NAMED_MONTH_FORMATS = (
 
 _ORDINAL_SUFFIX = re.compile(r'(?<=\d)(st|nd|rd|th)\b', re.IGNORECASE)
 
-# A trailing timezone is part of several XSD lexical spaces and carries nothing
-# this module reports, so it is removed before parsing rather than rejected.
+# A trailing timezone is part of several XSD lexical spaces.
+#
+# For `xsd:date` it is dropped: the value being reported is a calendar date, and
+# the offset only says which instant within that day the label was anchored to.
+#
+# For `xsd:dateTime` and `xsd:time` it is **refused**, because there dropping it
+# changes the value. Stripping meant `2020-03-03T23:00:00-05:00` and
+# `2020-03-04T04:00:00Z` - the same instant - stored as different strings, while
+# `-05:00` and `+09:00`, fourteen hours apart, stored as identical ones. Both were
+# reported as conforming, which defeats the range queries the feature exists for.
+# Converting to UTC instead was considered and rejected: it would silently rewrite
+# the value the text stated, which the prompt promises the model it will not do,
+# and would leave a naive local time indistinguishable from a converted one.
+# Refusing is visible - `enforce_datatypes` drops the fact, `typed_properties`
+# skips the write, and the string is still on the node as `value`.
 _TRAILING_TIMEZONE = re.compile(r'(Z|[+-]\d{2}:\d{2})$')
 
 # Digit grouping, and only in valid grouping positions. Matching the whole
@@ -130,7 +149,16 @@ _INTEGER_LEXICAL = re.compile(r'^[+-]?\d+$')
 # `xsd:anyURI` is almost unconstrained in the standard, so the check here is
 # narrow on purpose: it rejects the failure actually seen from a model, which is
 # a sentence where a URI was asked for. Internal whitespace is the signal.
-_ANY_URI = re.compile(r'^(?:[A-Za-z][A-Za-z0-9+.\-]*:|[/#?])\S*$|^\S+\.\S+\S*$')
+#
+# Only the scheme prefix is a regex. The rest of the test - no whitespace, and
+# otherwise an interior `.` - is spelled out in `_coerce_any_uri`, because as one
+# alternation (`^(?:scheme|[/#?])\S*$|^\S+\.\S+$`) it was quadratic on exactly the
+# input it exists to reject: dotted prose, which fails only on its spaces, made
+# the engine try every dot against every tail. A 4 KB value took 28 seconds, and
+# the value comes from LLM output.
+_ANY_URI_SCHEME = re.compile(r'^(?:[A-Za-z][A-Za-z0-9+.\-]*:|[/#?])')
+
+_WHITESPACE = re.compile(r'\s')
 
 def _local_name(xsd_iri:Optional[str]) -> Optional[str]:
     """The XSD local name, or None when the IRI is not an XSD datatype.
@@ -207,7 +235,7 @@ def _coerce_date(text:str) -> Optional[str]:
 
     if _ISO_DATE.match(stripped):
         try:
-            return date.fromisoformat(stripped.lstrip('-')).isoformat()
+            return date.fromisoformat(stripped).isoformat()
         except ValueError:
             # Shape was right, calendar was not - '2015-02-29'.
             return None
@@ -225,41 +253,98 @@ def _coerce_date(text:str) -> Optional[str]:
     return None
 
 def _coerce_datetime(text:str) -> Optional[str]:
-    """An ISO datetime string. Only the ISO lexical form is accepted."""
-    stripped = _TRAILING_TIMEZONE.sub('', text).strip()
+    """An ISO datetime string. Only the ISO lexical form, and only without a zone.
+
+    A zoned literal is refused rather than stripped - see `_TRAILING_TIMEZONE`.
+    """
+    stripped = text.strip()
+    if _TRAILING_TIMEZONE.search(stripped):
+        return None
     try:
         return datetime.fromisoformat(stripped).isoformat()
     except ValueError:
         return None
 
 def _coerce_time(text:str) -> Optional[str]:
-    """An ISO time-of-day string."""
-    stripped = _TRAILING_TIMEZONE.sub('', text).strip()
+    """An ISO time-of-day string.
+
+    The format is picked from the shape `_ISO_TIME` matched, fractional seconds
+    included: `%H:%M:%S` with no `%f` would reject every value the `(\\.\\d+)?`
+    group admits, and `xsd:dateTime` accepts the same fraction, so rejecting it
+    here would make the two types disagree about one lexical form.
+
+    A zoned literal is refused rather than stripped - see `_TRAILING_TIMEZONE`.
+    A time of day is exactly the case where an offset carries all the meaning.
+    """
+    stripped = text.strip()
+    if _TRAILING_TIMEZONE.search(stripped):
+        return None
     if not _ISO_TIME.match(stripped):
         return None
+
+    if stripped.count(':') < 2:
+        fmt = '%H:%M'
+    elif '.' in stripped:
+        fmt = '%H:%M:%S.%f'
+    else:
+        fmt = '%H:%M:%S'
+
     try:
-        return datetime.strptime(
-            stripped, '%H:%M:%S' if stripped.count(':') == 2 else '%H:%M'
-        ).time().isoformat()
+        return datetime.strptime(stripped, fmt).time().isoformat()
     except ValueError:
         return None
 
 def _coerce_any_uri(text:str) -> Optional[str]:
-    """The URI, or None when the value is prose rather than a reference."""
-    return text if _ANY_URI.match(text) else None
+    """The URI, or None when the value is prose rather than a reference.
+
+    Accepts a whitespace-free value that either carries a scheme (or begins
+    `/`, `#`, `?`) or contains a `.` with something on each side - `example.com`,
+    so a bare host is not rejected. Exactly the language the single alternation
+    this replaced accepted, in linear time; see `_ANY_URI_SCHEME`.
+    """
+    if _WHITESPACE.search(text):
+        return None
+    if _ANY_URI_SCHEME.match(text):
+        return text
+    # An interior '.': `^\S+\.\S+$` needs at least one character on each side of
+    # it, which is what excluding the first and last positions expresses.
+    return text if '.' in text[1:-1] else None
 
 def _coerce_text(text:str) -> str:
-    """The trimmed text, for the types whose value space *is* text."""
+    """The trimmed text, for the one type whose value space *is* text."""
     return text
 
-# The string family, where returning the text unchanged is the implementation
-# rather than a give-up. Kept apart from the fallback below so the two cases are
-# distinguishable: `enforce_datatypes` warns about a declaration it could not
-# honour, and `xsd:string` is honoured.
-_TEXT_TYPES = frozenset({
-    'string', 'normalizedString', 'token', 'language',
-    'Name', 'NCName', 'NMTOKEN', 'ID', 'IDREF', 'ENTITY',
-})
+# `xsd:string` is the only member of the string family in the table below, and its
+# absence from it for the others is the point.
+#
+# Returning the text unchanged is the *implementation* for `xsd:string`, whose
+# value space is any sequence of characters. It is a give-up for every sibling,
+# because each of those has a restricted lexical space that nothing here checks:
+#
+#   normalizedString   no CR, LF or tab
+#   token              normalizedString, plus no leading, trailing or doubled space
+#   language           a BCP 47 tag - `[A-Za-z]{1,8}(-[A-Za-z0-9]{1,8})*`
+#   Name               an XML Name production
+#   NCName, ID,        an XML Name with no colon
+#     IDREF, ENTITY
+#   NMTOKEN            XML NameChars only, so no whitespace
+#
+# They used to sit here alongside `xsd:string`, which made `validates_datatype`
+# return True for all ten - so `enforce_datatypes` neither dropped anything nor
+# warned, and `'has spaces and: colons\n'` was reported as a conforming
+# `xsd:NCName`. That contradicted this module's own contract, which says a `True`
+# from `validate_literal_against_xsd` means the value *was* checked.
+#
+# Leaving them out of `_COERCERS` is the whole fix: `coerce_literal` falls through
+# to the unimplemented-type path, which already returns the trimmed text and
+# already makes `enforce_datatypes` warn once per type. Behaviour for stored values
+# is unchanged - the string is kept verbatim either way - and the user is now told
+# the declaration was not honoured, exactly as they are for `xsd:duration`.
+#
+# Not implemented instead, deliberately: at `strict` a failing value is dropped,
+# and losing a fact because a `token` carried two consecutive spaces is a worse
+# outcome than storing it unchecked. These types document intent; they are not
+# worth making into a gate.
 
 # One dispatch table, so membership and behaviour cannot disagree.
 #
@@ -272,7 +357,7 @@ _TEXT_TYPES = frozenset({
 _COERCERS = {
     **{name: partial(_coerce_integer, bounds=bounds) for (name, bounds) in _INTEGER_BOUNDS.items()},
     **{name: _coerce_decimal for name in _DECIMAL_TYPES},
-    **{name: _coerce_text for name in _TEXT_TYPES},
+    'string': _coerce_text,
     'boolean': _coerce_boolean,
     'date': _coerce_date,
     'dateTime': _coerce_datetime,
@@ -292,11 +377,14 @@ def validates_datatype(xsd_iri:Optional[str]) -> bool:
         xsd_iri: A declared `rdfs:range`, as a plain string.
 
     Returns:
-        True for every XSD type with an implementation, including the string
-        family. False for an XSD type with no implementation (`xsd:hexBinary`,
-        `xsd:duration`, `xsd:gMonthDay`), and False for a non-XSD IRI - which
-        `coerce_literal` refuses outright, so nothing is stored unvalidated and
-        there is nothing to warn about.
+        True for every XSD type with an implementation. `xsd:string` counts:
+        returning the literal unchanged *is* the check, because its value space is
+        any sequence of characters. Its siblings do not - see the note above
+        `_COERCERS` for why `xsd:NCName`, `xsd:token` and the rest report False
+        despite being handled. False for an XSD type with no implementation
+        (`xsd:hexBinary`, `xsd:duration`, `xsd:gMonthDay`), and False for a non-XSD
+        IRI - which `coerce_literal` refuses outright, so nothing is stored
+        unvalidated and there is nothing to warn about.
     """
     local_name = _local_name(xsd_iri)
     return local_name is not None and local_name in _COERCERS

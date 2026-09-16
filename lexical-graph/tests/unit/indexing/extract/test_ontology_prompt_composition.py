@@ -151,13 +151,20 @@ class TestEmptyConstraints:
         template = 'a template'
         assert with_ontology_constraints(template, '') is template
 
-    def test_a_template_with_a_placeholder_is_left_alone(self):
-        """Verify an empty block is not substituted into a placeholder.
+    def test_an_empty_block_still_clears_the_placeholder(self):
+        """Verify the placeholder never survives into the prompt.
 
-        Substituting '' would leave the blank line the whole design avoids.
+        The alternative - returning the template untouched, so that no blank line
+        is left behind - sends the literal text `{ontology_constraints}` to the
+        model: nothing passes that name as a format argument, and llama-index
+        leaves a brace group it has no argument for exactly as it found it. A
+        stray blank line is worth far less than that.
         """
         template = f'before\n\n{ONTOLOGY_CONSTRAINTS_PLACEHOLDER}\n\nafter'
-        assert with_ontology_constraints(template, '') is template
+        composed = with_ontology_constraints(template, '')
+        assert ONTOLOGY_CONSTRAINTS_PLACEHOLDER not in composed
+        assert composed.startswith('before')
+        assert composed.endswith('after')
 
     def test_a_template_with_an_anchor_is_left_alone(self):
         """Verify an empty block does not disturb the anchor."""

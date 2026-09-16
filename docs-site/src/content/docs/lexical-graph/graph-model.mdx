@@ -98,9 +98,12 @@ and `class` are untouched – and where it lands depends on the configured place
     literal read as an integer is 1971, and not which entity was founded then, nor under
     which property. The subject and predicate remain on the `__Fact__`.
 
-`typed_value` and `datatype` are reserved by the graph model at complement placement, as
-`value`, `search_str` and `class` are at subject placement; an ontology declaring a
-property with one of those names is refused at configuration time.
+`entityId`, `value`, `search_str` and `class` are reserved by the graph model wherever a
+typed property is keyed from the ontology's own vocabulary — that is, at
+`typed_properties='subject'` and `'both'` — and `typed_value` and `datatype` are reserved in
+addition at `'both'`. An ontology declaring a property with one of those names is refused at
+configuration time. Nothing is reserved at `'off'` or at `'complement'` alone, because
+neither keys a property from the ontology.
 
 ### Summarisation tier
 
