@@ -163,6 +163,19 @@ class TestACollectionStagedBeforeMarkersExisted:
 
         assert _read_back(key_prefix, collection_id, for_jsonl) == ['src-1', 'src-2']
 
+    def test_staging_into_an_older_collection_leaves_it_unrecorded(self, key_prefix, for_jsonl):
+        collection_id = 'appended'
+        _stage(key_prefix, collection_id, [_doc('src-1')], for_jsonl)
+        _delete([f'{key_prefix}/{collection_id}/{COLLECTION_RECORD_NAME}'])
+        _interrupt_before_the_marker(key_prefix, collection_id, 'src-1')
+
+        _stage(key_prefix, collection_id, [_doc('src-2')], for_jsonl)
+
+        assert f'{key_prefix}/{collection_id}/{COLLECTION_RECORD_NAME}' not in _keys_under(
+            f'{key_prefix}/{collection_id}/'
+        )
+        assert _read_back(key_prefix, collection_id, for_jsonl) == ['src-1', 'src-2']
+
     def test_the_record_is_not_read_back_as_a_document(self, key_prefix, for_jsonl):
         collection_id = 'record-visible'
         _stage(key_prefix, collection_id, [_doc('src-1')], for_jsonl)

@@ -9,8 +9,6 @@ import threading
 import time
 
 import pytest
-from botocore.exceptions import ClientError
-from os.path import basename
 from unittest.mock import Mock, patch, MagicMock
 from llama_index.core.schema import NodeRelationship, RelatedNodeInfo, TextNode
 from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import (
@@ -30,11 +28,7 @@ from threading import Semaphore
 
 S3_BASED_DOCS = 'graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs'
 
-# What S3 raises when a collection carries no record, which is how these
-# fixtures are shaped: they predate completion markers.
-NO_COLLECTION_RECORD = ClientError(
-    {'Error': {'Code': '404', 'Message': 'Not Found'}}, 'HeadObject'
-)
+
 
 
 class TestS3BasedDocsInitialization:
@@ -347,7 +341,6 @@ class TestS3DownloaderCommonPrefixes:
         """S3DocDownloader.download() should not raise KeyError when S3 returns no CommonPrefixes."""
         mock_s3 = MagicMock()
         mock_config.s3 = mock_s3
-        mock_s3.head_object.side_effect = NO_COLLECTION_RECORD
         mock_config.extraction_num_threads_per_worker = 2
 
         paginator = MagicMock()
@@ -370,7 +363,6 @@ class TestS3DownloaderCommonPrefixes:
         """S3ChunkDownloader.download() should not raise KeyError when S3 returns no CommonPrefixes."""
         mock_s3 = MagicMock()
         mock_config.s3 = mock_s3
-        mock_s3.head_object.side_effect = NO_COLLECTION_RECORD
         mock_config.extraction_num_threads_per_worker = 2
 
         paginator = MagicMock()
@@ -393,7 +385,6 @@ class TestS3DownloaderCommonPrefixes:
         """Verify CommonPrefixes extraction works with mixed pages (some with, some without)."""
         mock_s3 = MagicMock()
         mock_config.s3 = mock_s3
-        mock_s3.head_object.side_effect = NO_COLLECTION_RECORD
         mock_config.extraction_num_threads_per_worker = 2
 
         paginator = MagicMock()
@@ -426,7 +417,6 @@ class TestS3DownloaderCommonPrefixes:
         """Verify CommonPrefixes extraction works with mixed pages for chunk downloader."""
         mock_s3 = MagicMock()
         mock_config.s3 = mock_s3
-        mock_s3.head_object.side_effect = NO_COLLECTION_RECORD
         mock_config.extraction_num_threads_per_worker = 2
 
         paginator = MagicMock()
@@ -481,7 +471,6 @@ class TestS3ChunkDownloaderParallelListing:
 
         mock_s3 = MagicMock()
         mock_config.s3 = mock_s3
-        mock_s3.head_object.side_effect = NO_COLLECTION_RECORD
         mock_config.extraction_num_threads_per_worker = 4
         paginator = MagicMock()
         paginator.paginate.side_effect = self._paginate_side_effect(layout)
@@ -518,7 +507,6 @@ class TestS3ChunkDownloaderParallelListing:
 
         mock_s3 = MagicMock()
         mock_config.s3 = mock_s3
-        mock_s3.head_object.side_effect = NO_COLLECTION_RECORD
         mock_config.extraction_num_threads_per_worker = num_threads
         paginator = MagicMock()
         paginator.paginate.side_effect = paginate
@@ -558,7 +546,6 @@ class TestS3ChunkDownloaderParallelListing:
 
         mock_s3 = MagicMock()
         mock_config.s3 = mock_s3
-        mock_s3.head_object.side_effect = NO_COLLECTION_RECORD
         mock_config.extraction_num_threads_per_worker = num_threads
         paginator = MagicMock()
         paginator.paginate.side_effect = paginate
@@ -631,7 +618,6 @@ class TestS3ChunkDownloaderParallelListing:
 
         mock_s3 = MagicMock()
         mock_config.s3 = mock_s3
-        mock_s3.head_object.side_effect = NO_COLLECTION_RECORD
         mock_config.extraction_num_threads_per_worker = num_threads
         paginator = MagicMock()
         paginator.paginate.side_effect = paginate
@@ -694,7 +680,6 @@ class TestS3ChunkDownloaderParallelListing:
 
         mock_s3 = MagicMock()
         mock_config.s3 = mock_s3
-        mock_s3.head_object.side_effect = NO_COLLECTION_RECORD
         mock_config.extraction_num_threads_per_worker = 2
         paginator = MagicMock()
         paginator.paginate.side_effect = paginate
@@ -1264,11 +1249,7 @@ class TestStagingSurfacesUploadFailures:
         assert any('2 source documents failed to upload' in r.message for r in caplog.records)
 
 
-def _marker_key(prefix, node_ids):
-    return completion_marker_key(prefix, node_ids)
-
-
-def _chunk_collection(layout, markers):
+def _chunk_collection(layout, markers, recorded=True):
     """
     A mocked S3 holding one collection: layout maps a source document prefix to
     its chunk keys, markers maps the same prefix to the chunk ids its marker
@@ -1276,18 +1257,24 @@ def _chunk_collection(layout, markers):
     """
     bodies = {}
     contents = {}
+    chunk_ids_by_key = {}
 
     for prefix, chunk_keys in layout.items():
         keys = list(chunk_keys)
+        for chunk_key in chunk_keys:
+            chunk_ids_by_key[chunk_key] = chunk_id_from_key(chunk_key, prefix)
         for node_ids in markers.get(prefix, []):
-            marker_key = _marker_key(prefix.rstrip('/'), node_ids)
+            marker_key = completion_marker_key(prefix.rstrip('/'), node_ids)
             keys.append(marker_key)
             bodies[marker_key] = json.dumps({'chunk_ids': sorted(node_ids)})
         contents[prefix] = keys
 
     def paginate(**kwargs):
         if kwargs.get('Delimiter') == '/':
-            return [{'CommonPrefixes': [{'Prefix': p} for p in layout]}]
+            page = {'CommonPrefixes': [{'Prefix': p} for p in layout]}
+            if recorded:
+                page['Contents'] = [{'Key': collection_record_key('p', 'c')}]
+            return [page]
         return [{'Contents': [{'Key': k} for k in contents[kwargs['Prefix']]]}]
 
     mock_s3 = MagicMock()
@@ -1299,18 +1286,17 @@ def _chunk_collection(layout, markers):
         if key in bodies:
             stream.write(bodies[key].encode('UTF-8'))
         else:
-            node = TextNode(text='chunk text', id_=chunk_id_from_key(key))
+            node = TextNode(text='chunk text', id_=chunk_ids_by_key[key])
             stream.write(node.to_json().encode('UTF-8'))
 
     mock_s3.download_fileobj.side_effect = download_fileobj
     return mock_s3
 
 
-def _read_chunk_collection(mock_s3, recorded):
+def _read_chunk_collection(mock_s3):
     downloader = S3ChunkDownloader(
         key_prefix='p', collection_id='c', bucket_name='b', fn=lambda n: n
     )
-    mock_s3.head_object.side_effect = None if recorded else NO_COLLECTION_RECORD
 
     with patch(f'{S3_BASED_DOCS}.GraphRAGConfig') as mock_config:
         mock_config.s3 = mock_s3
@@ -1322,8 +1308,7 @@ def _read_chunk_collection(mock_s3, recorded):
 class TestAPrefixNoMarkerAccountsForIsIncomplete:
     """
     A run killed part way through leaves a prefix holding some of a document's
-    chunks and no marker. Reading it as a whole document silently drops the
-    chunks that never landed.
+    chunks and no marker, and reading it whole drops the ones that never landed.
     """
 
     LAYOUT = {
@@ -1334,7 +1319,7 @@ class TestAPrefixNoMarkerAccountsForIsIncomplete:
     def test_a_document_with_no_marker_is_skipped(self):
         mock_s3 = _chunk_collection(self.LAYOUT, {'p/c/doc-a/': [['a1', 'a2']]})
 
-        assert _read_chunk_collection(mock_s3, recorded=True) == [['a1', 'a2']]
+        assert _read_chunk_collection(mock_s3) == [['a1', 'a2']]
 
     def test_a_marker_covering_a_chunk_that_is_gone_is_incomplete(self):
         # The marker was written, then an object under the prefix was lost.
@@ -1342,7 +1327,7 @@ class TestAPrefixNoMarkerAccountsForIsIncomplete:
             self.LAYOUT, {'p/c/doc-a/': [['a1', 'a2', 'a3']], 'p/c/doc-b/': [['b1']]}
         )
 
-        assert _read_chunk_collection(mock_s3, recorded=True) == [['b1']]
+        assert _read_chunk_collection(mock_s3) == [['b1']]
 
     def test_several_markers_under_one_prefix_cover_it_between_them(self):
         # One source can be staged as more than one SourceDocument, each with
@@ -1350,33 +1335,53 @@ class TestAPrefixNoMarkerAccountsForIsIncomplete:
         layout = {'p/c/doc-a/': ['p/c/doc-a/a1.json', 'p/c/doc-a/a2.json']}
         mock_s3 = _chunk_collection(layout, {'p/c/doc-a/': [['a1'], ['a2']]})
 
-        assert _read_chunk_collection(mock_s3, recorded=True) == [['a1', 'a2']]
+        assert _read_chunk_collection(mock_s3) == [['a1', 'a2']]
 
     def test_a_collection_staged_before_markers_is_read_as_it_stands(self):
-        mock_s3 = _chunk_collection(self.LAYOUT, {})
+        mock_s3 = _chunk_collection(self.LAYOUT, {}, recorded=False)
 
-        assert _read_chunk_collection(mock_s3, recorded=False) == [['a1', 'a2'], ['b1']]
+        assert _read_chunk_collection(mock_s3) == [['a1', 'a2'], ['b1']]
+
+    def test_a_chunk_id_holding_a_slash_and_a_dot_still_matches_its_marker(self):
+        # The key is the prefix plus the node id plus '.json', so an id holding
+        # either character has to be read back whole.
+        node_id = 'aws::deadbeef/d41d.v2'
+        layout = {'p/c/doc-a/': [f'p/c/doc-a/{node_id}.json']}
+        mock_s3 = _chunk_collection(layout, {'p/c/doc-a/': [[node_id]]})
+
+        assert _read_chunk_collection(mock_s3) == [[node_id]]
 
 
 class TestTheCollectionRecordsThatItIsMarked:
-    """
-    Whether a prefix must carry a marker is the collection's to answer. A date
-    cutoff would need configuring and would still misread a collection staged
-    by older code after that date.
-    """
+    """Whether a prefix must carry a marker is the collection's to answer."""
 
-    def test_the_record_is_written_before_any_document(self):
+    def _s3_holding(self, key_count):
         mock_s3 = MagicMock()
+        mock_s3.list_objects_v2.return_value = {'KeyCount': key_count}
+        return mock_s3
+
+    def test_an_empty_collection_is_recorded(self):
+        mock_s3 = self._s3_holding(0)
         uploader = S3ChunkUploader(bucket_name='b', collection_prefix='p/c')
 
         uploader.record_collection('p', 'c', mock_s3)
 
         assert mock_s3.put_object.call_args.kwargs['Key'] == 'p/c/_staging.json'
 
+    def test_a_collection_that_already_holds_objects_is_left_unrecorded(self):
+        # Recording a collection written before markers existed would turn every
+        # document already in it incomplete.
+        mock_s3 = self._s3_holding(1)
+        uploader = S3ChunkUploader(bucket_name='b', collection_prefix='p/c')
+
+        uploader.record_collection('p', 'c', mock_s3)
+
+        mock_s3.put_object.assert_not_called()
+
     def test_a_failed_record_stops_staging(self):
         # Staging on without it leaves every later read of the collection
         # trusting whatever it finds.
-        mock_s3 = MagicMock()
+        mock_s3 = self._s3_holding(0)
         mock_s3.put_object.side_effect = RuntimeError('access denied')
         uploader = S3ChunkUploader(bucket_name='b', collection_prefix='p/c')
 
@@ -1391,10 +1396,7 @@ class TestTheCollectionRecordsThatItIsMarked:
 
 
 class TestTheJsonlUploaderMarksWhatItWrites:
-    """
-    Markers started on the per-chunk path. Without one here a strict reader
-    would call every JSONL collection incomplete for good.
-    """
+    """Without a marker here, every JSONL collection would read incomplete."""
 
     def _doc(self, source_id, chunk_ids):
         nodes = []
@@ -1424,3 +1426,59 @@ class TestTheJsonlUploaderMarksWhatItWrites:
         puts = self._puts(self._doc('aws::deadbeef:d41d', []))
 
         assert not any(is_completion_marker(key) for key in puts)
+
+
+class TestTheJsonlReaderSkipsAnIncompleteDocument:
+    """The JSONL path reads node ids out of the objects rather than off the keys."""
+
+    def _read(self, objects, markers, recorded=True):
+        downloader = S3DocDownloader(
+            key_prefix='p', collection_id='c', bucket_name='b', fn=lambda n: n
+        )
+
+        keys = dict(objects)
+        for node_ids in markers:
+            keys[completion_marker_key('p/c/doc-a', node_ids)] = json.dumps(
+                {'chunk_ids': sorted(node_ids)}
+            )
+
+        mock_s3 = MagicMock()
+        mock_s3.get_paginator.return_value.paginate.side_effect = lambda **kwargs: (
+            [{'CommonPrefixes': [{'Prefix': 'p/c/doc-a/'}],
+              'Contents': [{'Key': collection_record_key('p', 'c')}] if recorded else []}]
+            if kwargs.get('Delimiter') == '/'
+            else [{'Contents': [{'Key': key} for key in keys]}]
+        )
+
+        def download_fileobj(bucket, key, stream):
+            stream.write(keys[key].encode('UTF-8'))
+
+        mock_s3.download_fileobj.side_effect = download_fileobj
+
+        with patch(f'{S3_BASED_DOCS}.GraphRAGConfig') as mock_config:
+            mock_config.s3 = mock_s3
+            mock_config.extraction_num_threads_per_worker = 2
+            return [sorted(n.node_id for n in doc.nodes) for doc in downloader.download()]
+
+    def _jsonl(self, node_ids):
+        def node(node_id):
+            n = TextNode(text='chunk text', id_=node_id)
+            n.relationships[NodeRelationship.SOURCE] = RelatedNodeInfo(node_id='src-1')
+            return n
+
+        return '\n'.join(node(node_id).to_json() for node_id in node_ids)
+
+    def test_an_object_no_marker_accounts_for_is_skipped(self):
+        objects = {'p/c/doc-a/src-1-abcde.jsonl': self._jsonl(['c1', 'c2'])}
+
+        assert self._read(objects, markers=[]) == []
+
+    def test_an_object_its_marker_accounts_for_is_read(self):
+        objects = {'p/c/doc-a/src-1-abcde.jsonl': self._jsonl(['c1', 'c2'])}
+
+        assert self._read(objects, markers=[['c1', 'c2']]) == [['c1', 'c2']]
+
+    def test_an_unrecorded_collection_is_read_without_markers(self):
+        objects = {'p/c/doc-a/src-1-abcde.jsonl': self._jsonl(['c1', 'c2'])}
+
+        assert self._read(objects, markers=[], recorded=False) == [['c1', 'c2']]

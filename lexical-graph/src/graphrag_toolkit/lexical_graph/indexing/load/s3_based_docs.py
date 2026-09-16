@@ -25,7 +25,6 @@ from graphrag_toolkit.lexical_graph.indexing.constants import PROPOSITIONS_KEY, 
 from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
 from graphrag_toolkit.lexical_graph import GraphRAGConfig
 
-from botocore.exceptions import ClientError
 from llama_index.core.schema import TextNode, BaseComponent
 from llama_index.core.bridge.pydantic import PrivateAttr
 
@@ -59,8 +58,13 @@ def node_ids_hash(node_ids) -> str:
 
 
 def completion_marker_name(node_ids) -> str:
-    """The marker name covering exactly these chunk ids."""
-    return f'{COMPLETION_MARKER_PREFIX}{node_ids_hash(node_ids)[:5]}'
+    """
+    The marker name covering exactly these chunk ids.
+
+    The whole digest, so that two markers under one prefix cannot share a name
+    and leave the second overwriting the first.
+    """
+    return f'{COMPLETION_MARKER_PREFIX}{node_ids_hash(node_ids)}'
 
 
 def completion_marker_key(root_path:str, node_ids) -> str:
@@ -85,15 +89,12 @@ def written_nodes(doc:SourceDocument) -> List[TextNode]:
     return [n for n in doc.nodes if INDEX_KEY not in n.metadata]
 
 
-# Records that a collection is staged by code that writes completion markers.
-# Sits directly under the collection, where a listing delimited on '/' returns it
-# as an object rather than as a source document prefix.
+# Records that a collection is staged with completion markers. Sits directly
+# under the collection, where a listing delimited on '/' returns it as an object
+# rather than as a source document prefix.
 COLLECTION_RECORD_NAME = '_staging.json'
 
-# How S3 reports an object that is not there, across head_object and get_object.
-_NOT_FOUND_CODES = ('404', 'NoSuchKey', 'NotFound')
-
-# Extension the chunk uploader keys a node on.
+# Extension the chunk uploader adds to a node id to key its object.
 _CHUNK_SUFFIX = '.json'
 
 
@@ -101,26 +102,30 @@ def collection_record_key(key_prefix:str, collection_id:str) -> str:
     return join(key_prefix, collection_id, COLLECTION_RECORD_NAME)
 
 
-def writes_completion_markers(bucket_name:str, key_prefix:str, collection_id:str, s3_client) -> bool:
+def list_collection(bucket_name:str, key_prefix:str, collection_id:str, paginator) -> Tuple[List[str], bool]:
     """
-    Whether every document in this collection was staged with a marker.
+    The source document prefixes in a collection, and whether it is recorded as
+    staged with completion markers.
 
-    A collection staged before markers existed carries no record, and its
-    prefixes are read as they stand. Without this, the first read of an older
-    collection would call all of it incomplete and re-stage the lot.
-
-    Only a missing record answers no. Anything else - a denied read, a throttle -
-    raises, because treating it as absent would quietly drop the check.
+    Both come out of the one listing, so the record costs no second call and no
+    permission the listing did not already need. A collection with no record was
+    staged before markers existed and is read as it stands.
     """
-    try:
-        s3_client.head_object(
-            Bucket=bucket_name, Key=collection_record_key(key_prefix, collection_id)
+    collection_path = join(key_prefix, collection_id, '')
+    record_key = collection_record_key(key_prefix, collection_id)
+
+    source_doc_prefixes = []
+    recorded = False
+
+    for page in paginator.paginate(Bucket=bucket_name, Prefix=collection_path, Delimiter='/'):
+        source_doc_prefixes.extend(
+            source_doc_obj['Prefix'] for source_doc_obj in page.get('CommonPrefixes', [])
         )
-        return True
-    except ClientError as e:
-        if e.response.get('Error', {}).get('Code') in _NOT_FOUND_CODES:
-            return False
-        raise
+        recorded = recorded or any(
+            obj['Key'] == record_key for obj in page.get('Contents', [])
+        )
+
+    return source_doc_prefixes, recorded
 
 
 def marker_chunk_ids(marker_keys, bucket_name:str, s3_client) -> Set[str]:
@@ -142,9 +147,12 @@ def partition_marker_keys(keys) -> Tuple[List[str], List[str]]:
     return content, markers
 
 
-def chunk_id_from_key(chunk_key:str) -> str:
-    """The node id a chunk object is keyed on. A node id may itself hold a dot."""
-    name = basename(chunk_key)
+def chunk_id_from_key(chunk_key:str, source_doc_prefix:str) -> str:
+    """
+    The node id a chunk object is keyed on. Taken by stripping what the writer
+    added, because a node id can hold both a '/' and a '.'.
+    """
+    name = chunk_key[len(source_doc_prefix):] if chunk_key.startswith(source_doc_prefix) else chunk_key
     return name[:-len(_CHUNK_SUFFIX)] if name.endswith(_CHUNK_SUFFIX) else name
 
 
@@ -152,9 +160,14 @@ def is_complete(node_ids, marker_keys, bucket_name:str, s3_client) -> bool:
     """
     Whether the markers under a prefix account for exactly the nodes found there.
 
-    A truncated document leaves nodes no marker covers. A document whose objects
-    were partly removed leaves a marker covering nodes that are gone. Both read
-    as incomplete.
+    A truncated document leaves nodes no marker covers, and one whose objects
+    were partly removed leaves a marker covering nodes that are gone.
+
+    A marker covers one SourceDocument. Extraction emits a source as more than
+    one SourceDocument when its chunks span rounds, and each part is marked as
+    it lands, so a source whose later parts were never stored reads as complete.
+    Telling those apart needs the extraction pipeline to say when a source is
+    finished, which it does not currently record.
     """
     return set(node_ids) == marker_chunk_ids(marker_keys, bucket_name, s3_client)
 
@@ -188,11 +201,23 @@ class EncryptedPut:
         """
         Record that this collection is staged with completion markers.
 
-        Written before any document, so a reader that finds the record can hold
-        every prefix under it to the marker. A collection staged before markers
-        existed has no record and is read as it stands. A failure raises: without
-        the record every later read of this collection trusts what it finds.
+        Only an empty collection is recorded, so staging into one written before
+        markers existed leaves its documents reading as they do today rather
+        than turning incomplete. Written before the first document, so any
+        collection holding an object holds its record too. A failure raises:
+        without the record every later read of this collection trusts what it
+        finds.
         """
+        collection_path = join(key_prefix, collection_id, '')
+
+        existing = s3_client.list_objects_v2(
+            Bucket=self.bucket_name, Prefix=collection_path, MaxKeys=1
+        )
+
+        if existing.get('KeyCount'):
+            logger.debug(f'Not recording a collection that already holds objects [collection_path: {collection_path}]')
+            return
+
         key = collection_record_key(key_prefix, collection_id)
         self._put(key, json.dumps({'completion_markers': True}, indent=4), 'application/json', s3_client)
 
@@ -304,15 +329,10 @@ class S3DocDownloader(ConfiguredThreadCount, BaseComponent):
         collection_path = join(self.key_prefix,  self.collection_id, '')
 
         paginator = s3_client.get_paginator('list_objects_v2')
-        source_doc_pages = paginator.paginate(Bucket=self.bucket_name, Prefix=collection_path, Delimiter='/')
 
-        source_doc_prefixes = [ 
-            source_doc_obj['Prefix'] 
-            for source_doc_page in source_doc_pages 
-            for source_doc_obj in source_doc_page.get('CommonPrefixes', [])           
-        ]
-
-        strict = writes_completion_markers(self.bucket_name, self.key_prefix, self.collection_id, s3_client)
+        source_doc_prefixes, strict = list_collection(
+            self.bucket_name, self.key_prefix, self.collection_id, paginator
+        )
 
         source_doc_prefixes_batches = to_batches(source_doc_prefixes, BATCH_SIZE)
 
@@ -575,18 +595,12 @@ class S3ChunkDownloader(ConfiguredThreadCount, BaseComponent):
         collection_path = join(self.key_prefix,  self.collection_id, '')
 
         paginator = s3_client.get_paginator('list_objects_v2')
-        source_doc_pages = paginator.paginate(Bucket=self.bucket_name, Prefix=collection_path, Delimiter='/')
 
-        source_doc_prefixes = [
-            source_doc_obj['Prefix']
-            for source_doc_page in source_doc_pages
-            for source_doc_obj in source_doc_page.get('CommonPrefixes', [])
-
-        ]
+        source_doc_prefixes, strict = list_collection(
+            self.bucket_name, self.key_prefix, self.collection_id, paginator
+        )
 
         logger.debug(f'Started getting source documents from S3 [bucket: {self.bucket_name}, collection_path: {collection_path}, num_prefixes: {len(source_doc_prefixes)}]')
-
-        strict = writes_completion_markers(self.bucket_name, self.key_prefix, self.collection_id, s3_client)
 
         num_threads = self._num_threads()
 
@@ -594,14 +608,26 @@ class S3ChunkDownloader(ConfiguredThreadCount, BaseComponent):
              concurrent.futures.ThreadPoolExecutor(max_workers=num_threads) as list_executor:
 
             def _list_chunk_keys(source_doc_prefix):
-                # Listing only: no downloads dispatched here, so peak resident
-                # chunk data stays one document's worth rather than the whole window's.
+                # Listing and markers only: no chunk downloads dispatched here, so
+                # peak resident chunk data stays one document's worth rather than
+                # the whole window's, and completeness is settled by prefetch
+                # rather than by a blocking GET per document on the way out.
                 chunk_pages = paginator.paginate(Bucket=self.bucket_name, Prefix=source_doc_prefix)
-                return partition_marker_keys([
+                chunk_keys, marker_keys = partition_marker_keys([
                     chunk_obj['Key']
                     for chunk_page in chunk_pages
                     for chunk_obj in chunk_page.get('Contents', [])
                 ])
+
+                if not strict:
+                    return chunk_keys, True
+
+                chunk_ids = [
+                    chunk_id_from_key(chunk_key, source_doc_prefix)
+                    for chunk_key in chunk_keys
+                ]
+
+                return chunk_keys, is_complete(chunk_ids, marker_keys, self.bucket_name, s3_client)
 
             # Bounded sliding window: at most num_threads listings prefetch ahead,
             # so listing overlaps downloading without reading the whole collection.
@@ -613,7 +639,7 @@ class S3ChunkDownloader(ConfiguredThreadCount, BaseComponent):
 
             while in_flight:
                 source_doc_prefix, listing = in_flight.popleft()
-                chunk_keys, marker_keys = listing.result()
+                chunk_keys, complete = listing.result()
 
                 next_prefix = next(remaining_prefixes, None)
                 if next_prefix is not None:
@@ -621,11 +647,9 @@ class S3ChunkDownloader(ConfiguredThreadCount, BaseComponent):
                         (next_prefix, list_executor.submit(_list_chunk_keys, next_prefix))
                     )
 
-                if strict:
-                    chunk_ids = [chunk_id_from_key(chunk_key) for chunk_key in chunk_keys]
-                    if not is_complete(chunk_ids, marker_keys, self.bucket_name, s3_client):
-                        logger.warning(f'Skipping an incomplete source document [prefix: {source_doc_prefix}, num_chunks: {len(chunk_keys)}]')
-                        continue
+                if not complete:
+                    logger.warning(f'Skipping an incomplete source document [prefix: {source_doc_prefix}, num_chunks: {len(chunk_keys)}]')
+                    continue
 
                 # Download the current document's chunks only, then yield, so at
                 # most one document's chunk data is resident at a time and an
@@ -647,7 +671,7 @@ class S3ChunkUploader(ConfiguredThreadCount, EncryptedPut, BaseComponent):
     s3_encryption_key_id:Optional[str]=None
 
     def _upload_chunk(self, root_path:str, n:TextNode, s3_client):
-        chunk_output_path = join(root_path, f'{n.node_id}.json')
+        chunk_output_path = join(root_path, f'{n.node_id}{_CHUNK_SUFFIX}')
                     
         logger.debug(f'Writing chunk to S3: [bucket: {self.bucket_name}, key: {chunk_output_path}]')
 
@@ -873,23 +897,26 @@ class S3BasedDocs(NodeHandler):
         if not self._uploader:
 
             if self.for_jsonl:
-                self._uploader = S3DocUploader(
-                    bucket_name=self.bucket_name, 
+                uploader = S3DocUploader(
+                    bucket_name=self.bucket_name,
                     collection_prefix=collection_prefix,
                     s3_encryption_key_id=self.s3_encryption_key_id,
                     num_threads=self.num_threads,
                     deterministic_document_key=self.deterministic_document_key
                 )
-                
+
             else:
-                self._uploader = S3ChunkUploader(
-                    bucket_name=self.bucket_name, 
+                uploader = S3ChunkUploader(
+                    bucket_name=self.bucket_name,
                     collection_prefix=collection_prefix,
                     s3_encryption_key_id=self.s3_encryption_key_id,
                     num_threads=self.num_threads
                 )
 
-            self._uploader.record_collection(self.key_prefix, self.collection_id, GraphRAGConfig.s3)
+            # Recorded before the uploader is kept, so a failure leaves the next
+            # call to try again rather than staging on unrecorded.
+            uploader.record_collection(self.key_prefix, self.collection_id, GraphRAGConfig.s3)
+            self._uploader = uploader
 
         for doc in self._uploader.upload(source_documents):
             doc_count += 1
