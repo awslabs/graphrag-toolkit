@@ -78,7 +78,10 @@ class FuzzyStringIndex(Index):
         :param vocab_list: list of vocab instances to add
 
         """
-        self.vocab = list(set(self.vocab) | set(vocab_list))
+        # sorted() gives a hash-independent vocab order; process.extract breaks
+        # equal-score ties by vocab position, so a stable order is what makes
+        # matching reproducible.
+        self.vocab = sorted(set(self.vocab) | set(vocab_list))
 
     def add_with_ids(self, ids, vocab_list):
         raise NotImplementedError(f"add_with_ids not implemented for {self.__class__.__name__}")
