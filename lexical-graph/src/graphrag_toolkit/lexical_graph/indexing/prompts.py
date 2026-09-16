@@ -292,16 +292,26 @@ def with_ontology_constraints(template:str, constraints:str) -> str:
             or its `ontology_authority` is `'off'`.
 
     Returns:
-        `template` itself - the same object, not a copy - when `constraints` is
-        empty. Otherwise a new template with the block inserted at the first of:
-        an `{ontology_constraints}` placeholder, in which case a custom template
-        has chosen its own insertion point; the documented anchor for whichever
+        `template` unchanged when `constraints` is empty and the template does
+        not use the placeholder - the same object, not a copy. Otherwise a new
+        template with the block inserted at the first of: an
+        `{ontology_constraints}` placeholder, in which case a custom template has
+        chosen its own insertion point; the documented anchor for whichever
         shipped prompt this is; or the end, so that a custom template which
         matches neither still receives the vocabulary rather than silently
         dropping it.
+
+        An empty block still clears the placeholder. Returning the template
+        untouched would leave the literal text `{ontology_constraints}` in the
+        prompt sent to the model: nothing else passes that name as a format
+        argument, and llama-index leaves a group it has no argument for exactly
+        as it found it. That would make the documented extension point misfire in
+        precisely the configuration it should be a no-op in - no ontology, or
+        `ontology_authority='off'`.
     """
     if not constraints:
-        return template
+        return template.replace(ONTOLOGY_CONSTRAINTS_PLACEHOLDER, '') \
+            if ONTOLOGY_CONSTRAINTS_PLACEHOLDER in template else template
 
     block = _neutralize_format_fields(constraints)
 

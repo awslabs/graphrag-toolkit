@@ -18,6 +18,7 @@ cost an extraction run.
 """
 
 import logging
+import re
 from pathlib import Path
 from typing import Dict, FrozenSet, List, Optional, Set, Tuple, Union
 
@@ -227,10 +228,12 @@ class Ontology:
         indentation - and that a model has read a great deal of real RDFS.
 
         Serializing is done here rather than in the renderer because the renderer
-        works from `OntologyIndex` and imports no `rdflib`, which an import-graph
-        test enforces. `format='turtle'` round-trips the canonical graph, so the
-        text the model sees is the ontology as loaded, not as authored - prefix
-        bindings and triple order may differ from the input file.
+        works from `OntologyIndex` and imports no `rdflib`. `format='turtle'`
+        round-trips the canonical graph, so the text the model sees is the
+        ontology as loaded, not as authored - prefix bindings and triple order may
+        differ from the input file, and a blank node rdflib cannot inline is
+        labelled freshly per process, so the block is not reproducible across
+        runs.
 
         Args:
             level: `'off'`, `'align'` or `'strict'`.
@@ -272,7 +275,9 @@ class Ontology:
                 or self._index.datatype_properties):
             return ''
 
-        return format_turtle_vocabulary(self.graph.serialize(format='turtle'), level)
+        return format_turtle_vocabulary(
+            _stable_blank_node_labels(self.graph.serialize(format='turtle')), level
+        )
 
     def format_as_proposition_constraint(self, level:str) -> str:
         """Render the entity types alone, for the propositions prompt.
@@ -315,6 +320,8 @@ class Ontology:
         """
         classes, object_properties, datatype_properties = _collect_terms(self.graph)
 
+        _warn_if_no_terms(self.graph, classes, object_properties, datatype_properties)
+
         return OntologyIndex(
             classes=classes,
             object_properties=object_properties,
@@ -333,6 +340,35 @@ class Ontology:
             self._index.object_properties,
             self._index.datatype_properties,
         )
+
+def _stable_blank_node_labels(turtle:str) -> str:
+    """Renumber blank-node labels to `_:b1`, `_:b2`, … in first-appearance order.
+
+    rdflib mints a fresh `_:nXXXXb1` per process for any blank node it cannot
+    inline - one referenced by more than one subject, such as a reused
+    `owl:Restriction`. That label reaches the prompt verbatim, and `LLMCache` keys
+    on the formatted prompt, so without this the same ontology produces a
+    different cache key on every run: a guaranteed miss per chunk per run, and no
+    byte-reproducible build. Measured before this: three processes, three blocks,
+    three different sha256s.
+
+    Renumbering rather than skolemising, because `Graph.skolemize()` mints a fresh
+    UUID too and so is no more stable. Ordering by first appearance in the
+    serialized text makes the result a function of the serialization, which is
+    already deterministic for everything except these labels.
+
+    The labels carry no meaning - a blank node is anonymous by definition, and the
+    only thing a label has to do is match its other occurrences.
+    """
+    labels:Dict[str, str] = {}
+
+    def replace(match):
+        label = match.group(1)
+        if label not in labels:
+            labels[label] = f'b{len(labels) + 1}'
+        return f'_:{labels[label]}'
+
+    return re.sub(r'_:([A-Za-z][A-Za-z0-9_-]*)', replace, turtle)
 
 def _local_name_of(iri:str) -> str:
     """Return an IRI's last segment, split on `#` then `/`."""
@@ -353,8 +389,34 @@ def _values(graph:Graph, subject, predicate) -> List[str]:
     )
 
 def _first_value(graph:Graph, subject, predicate) -> Optional[str]:
-    """Return the first of `_values`, or None when the predicate is absent."""
+    """Return the first of `_values`, or None when the predicate is absent.
+
+    Warns when there is more than one, for the same reason `_class_reference` and
+    the datatype-range check do: the winner is decided by string ordering, and for
+    `rdfs:label` that string becomes the term's **canonical stored spelling** -
+    `authored_name` prefers the label over the local name, and `create_entity_id`
+    hashes the classification into the node id. So a term carrying
+    `"Aktiengesellschaft"@de` alongside `"Company"@en` puts the German label on
+    every entity node, decided by nothing but the alphabet.
+
+    No language preference is applied. Picking `@en` would put an opinion about
+    language in exactly one place in the toolkit with no setting to change it;
+    reporting the ambiguity lets the author resolve it in the ontology, where the
+    answer belongs. Multilingual vocabularies are the route this arrives by -
+    `owl:imports` is not followed, so reusing one means inlining its terms and
+    their language tags.
+    """
     values = _values(graph, subject, predicate)
+
+    if len(values) > 1:
+        logger.warning(
+            'Term %s declares %d %s values (%s); using %r. One per term is '
+            'supported, and for rdfs:label the winner becomes the canonical '
+            'stored spelling.',
+            subject, len(values), _local_name_of(str(predicate)),
+            ', '.join(repr(value) for value in values), values[0],
+        )
+
     return values[0] if values else None
 
 def _class_reference(
@@ -400,7 +462,18 @@ def _collect_terms(graph:Graph) -> OntologyTerms:
         if isinstance(subject, BNode):
             continue
         iri = str(subject)
-        parents_by_iri[iri] = _values(graph, subject, RDFS.subClassOf)
+        # `owl:Thing` is dropped rather than carried, for the same reason
+        # `_class_reference` drops it from a domain or range: it constrains
+        # nothing, and every class is already a subclass of it. Carried through,
+        # it is a `subClassOf` reference to a class the ontology does not
+        # declare, so `_validate_terms` rejects the file - and
+        # `:C rdfs:subClassOf owl:Thing` is a legal axiom that Protege emits by
+        # default. The only workaround was to declare `owl:Thing a owl:Class`,
+        # which then puts a meaningless `Thing` entity type in the prompt.
+        parents_by_iri[iri] = [
+            parent for parent in _values(graph, subject, RDFS.subClassOf)
+            if parent != OWL_THING
+        ]
 
     ancestors_by_iri = _compute_subclass_closure(parents_by_iri)
 
@@ -444,6 +517,16 @@ def _collect_terms(graph:Graph) -> OntologyTerms:
         # empty string here so the model invariant (one datatype per property)
         # holds even before validation runs.
         ranges = _values(graph, subject, RDFS.range)
+        # Warned about for the same reason `_class_reference` warns about a
+        # multiply-declared domain, and deliberately not silent: which of two
+        # declared XSD ranges wins decides whether a literal coerces at all, and
+        # `_values` sorts, so the winner is chosen by spelling.
+        if len(ranges) > 1:
+            logger.warning(
+                'DatatypeProperty %s declares %d rdfs:range values (%s); using '
+                '%s. One XSD range per datatype property is supported.',
+                iri, len(ranges), ', '.join(ranges), ranges[0],
+            )
         datatype_properties[iri] = DatatypeProperty(
             iri=iri,
             local_name=_local_name_of(iri),
@@ -455,6 +538,56 @@ def _collect_terms(graph:Graph) -> OntologyTerms:
         )
 
     return classes, object_properties, datatype_properties
+
+def _warn_if_no_terms(
+    graph:Graph,
+    classes:Dict[str, OntologyClass],
+    object_properties:Dict[str, ObjectProperty],
+    datatype_properties:Dict[str, DatatypeProperty],
+) -> None:
+    """Warn when a non-empty graph yielded no vocabulary at all.
+
+    A warning and not an `OntologyLoadError`, because an ontology that declares
+    only an `owl:Ontology` header is legal and the rest of the feature already
+    treats it as "no vocabulary" rather than as an error. But it must not be
+    *silent*: an ontology with no terms still makes `filter_required()` True and
+    still replaces `DEFAULT_ENTITY_CLASSIFICATIONS` with an empty list, so at
+    `ontology_authority='strict'` nothing resolves, every fact is dropped, and the
+    user finds out after paying for the whole extraction run - with
+    `report_violations` defaulting to False, from nothing at all.
+
+    The RDFS/SKOS dialects are called out by name because they are the mistake
+    this actually catches: `_collect_terms` reads `owl:Class`,
+    `owl:ObjectProperty` and `owl:DatatypeProperty`, so an ontology written with
+    `rdfs:Class` and `rdf:Property` parses cleanly and yields nothing, and the
+    documentation invites exactly that input by saying "OWL/RDFS".
+    """
+    if classes or object_properties or datatype_properties:
+        return
+
+    if not len(graph):
+        return
+
+    rdfs_classes = sum(1 for _ in graph.subjects(RDF.type, RDFS.Class))
+    rdf_properties = sum(1 for _ in graph.subjects(RDF.type, RDF.Property))
+
+    hint = ''
+    if rdfs_classes or rdf_properties:
+        hint = (
+            f' The graph does declare {rdfs_classes} rdfs:Class and '
+            f'{rdf_properties} rdf:Property term(s), which are not read: '
+            f'retype them as owl:Class, owl:ObjectProperty and '
+            f'owl:DatatypeProperty.'
+        )
+
+    logger.warning(
+        'Ontology parsed %d triples but declares no owl:Class, '
+        'owl:ObjectProperty or owl:DatatypeProperty terms, so it can steer '
+        'nothing: the prompt gets no vocabulary block, the preferred entity '
+        'classifications are seeded empty, and at ontology_authority=%r every '
+        'fact is dropped.%s',
+        len(graph), 'strict', hint,
+    )
 
 def _compute_subclass_closure(
     parents_by_iri:Dict[str, List[str]]

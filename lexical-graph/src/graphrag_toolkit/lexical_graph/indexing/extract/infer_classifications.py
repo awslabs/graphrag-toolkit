@@ -159,10 +159,28 @@ class InferClassifications(SourceDocParser, PreferredValuesProvider):
             )
             ranked_classifications = self._parse_classifications(response)[:self.num_classifications]
 
-            logger.info(f'Domain adaptation succeeded [all_classifications: {all_classifications}, ranked_classification: {ranked_classifications}]')
+            # The seeded defaults are kept, ahead of the ranked results and exempt
+            # from `num_classifications`.
+            #
+            # `default_classifications` is not a fallback: with an ontology
+            # configured it is the ontology's own class names, and inference is
+            # documented as *widening* that vocabulary rather than replacing it.
+            # Taking `ranked_classifications` alone meant the extraction prompt
+            # named the ontology's classes and told the model to use them while
+            # `{preferred_entity_classifications}` listed none of them - and at
+            # `ontology_authority='strict'`, `enforce_entity_types` then dropped
+            # whatever inference had produced instead. The ontology's names reached
+            # the slot only when parsing failed, which is the wrong way round.
+            #
+            # Exempt from truncation because `num_classifications` bounds how much
+            # inference may *add*; it is not a budget the ontology has to compete
+            # for. Seeded names first for the same reason.
+            seeded = [c for c in self.default_classifications if c not in ranked_classifications]
 
-            self.classifications = ranked_classifications
-            
+            logger.info(f'Domain adaptation succeeded [all_classifications: {all_classifications}, ranked_classification: {ranked_classifications}, seeded_classifications: {seeded}]')
+
+            self.classifications = seeded + ranked_classifications
+
         else:
             logger.warning(f'Domain adaptation failed, using default classifications: {self.default_classifications}')
             self.classifications = self.default_classifications

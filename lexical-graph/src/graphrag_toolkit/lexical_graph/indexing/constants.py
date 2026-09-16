@@ -28,11 +28,20 @@ DEFAULT_ENTITY_CLASSIFICATIONS = [
 # on, and `class` is its classification - overwriting any of them would not add
 # a queryable attribute, it would corrupt the node.
 #
+# `entityId` is the sharpest of the four, and the reason it is not merely
+# cosmetic: it is the property every `__Entity__` MERGE keys on wherever
+# `format_id` is property-based (Neo4j, FalkorDB), so writing a coerced literal
+# under it replaces the node's identity - the node stops being reachable by id,
+# every later MERGE for it creates a duplicate, and retrieval projections
+# reading `.entityId` get the literal. Neptune escapes it only because
+# `format_id_for_neptune` maps the key to `~id`, which is not a guarantee any
+# other store offers.
+#
 # Declared here, with the other graph-model names, rather than in
 # `ontology_config.py` or in `entity_graph_builder.py`: both sides need the same
 # list (validation rejects the ontology, the builder skips the write as defence
 # in depth) and neither of those modules should import the other.
-RESERVED_ENTITY_PROPERTIES = ('value', 'search_str', 'class')
+RESERVED_ENTITY_PROPERTIES = ('entityId', 'value', 'search_str', 'class')
 
 # Reserved in addition to the above once complement placement is active, since
 # that is the placement which writes them. They are not

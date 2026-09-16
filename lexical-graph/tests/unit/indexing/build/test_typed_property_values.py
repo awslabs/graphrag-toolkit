@@ -136,7 +136,7 @@ class TestTheSubjectProperty:
         pair = _typed_subject_property(attribute_fact(value=value, datatype=datatype), 'subject')
         assert pair == ('foundedYear', expected)
 
-    @pytest.mark.parametrize('name', ['value', 'search_str', 'class'])
+    @pytest.mark.parametrize('name', ['entityId', 'value', 'search_str', 'class'])
     def test_a_name_the_graph_model_owns_is_skipped_with_a_warning(self, name, caplog):
         """the reserved-name rule, defence in depth: the config already refuses such an
         ontology, but a fact can arrive from a checkpoint written under another."""
@@ -186,6 +186,22 @@ class TestTheComplementValues:
         assert _typed_complement_values(complement, 'complement') == (False, f'{XSD}boolean')
 
 class TestWhatReachesTheGraph:
+
+    @pytest.mark.parametrize('placement', ['off', 'subject', 'complement', 'both'])
+    def test_no_query_ever_sets_the_merge_key(self, placement):
+        """Tied to the emitted Cypher, not to `RESERVED_ENTITY_PROPERTIES`.
+
+        Every `__Entity__` query keys its `MERGE` on `entityId`, and on a store
+        whose node id is property-based (Neo4j, FalkorDB) that key *is* the node's
+        identity - so a `SET n.entityId = ...` makes the node unreachable by id and
+        every later MERGE for it creates a duplicate. Asserting against the
+        constant instead would pass for any self-consistent tuple, including the
+        one that omitted `entityId`.
+        """
+        fact = attribute_fact(canonical_name='entityId', datatype=f'{XSD}integer')
+
+        for query in queries(build(fact, placement)):
+            assert 'SET' not in query or '`entityId`' not in query
 
     def test_off_issues_no_typed_write(self):
         assert not [query for query in queries(build(attribute_fact(), 'off')) if 'typed' in query]
@@ -341,3 +357,31 @@ class TestTheSurroundingWriteConditions:
                 build(attribute_fact(canonical_name=None, datatype=None), 'subject')
 
         assert 'typed_properties=' not in caplog.text
+
+
+class TestTheTypedWritesBatch:
+    """`GraphBatchClient` keys its batches on the query *string*.
+
+    The variable name is interpolated into that string, so a `new_query_var()` uuid
+    per fact gave every typed write its own single-row round trip. Measured before
+    the fix, 50 facts at `batch_write_size=25`: 52 round trips at `'subject'` and
+    104 at `'both'`, against 2 with typed properties off.
+    """
+
+    @pytest.mark.parametrize('placement', ['subject', 'complement', 'both'])
+    def test_the_same_property_yields_one_query_string_across_facts(self, placement):
+        """The invariant that makes batching possible: two facts differing only in
+        subject must produce byte-identical query text."""
+        first = queries(build(attribute_fact(), placement))
+        second = queries(build(attribute_fact(), placement))
+
+        assert first == second
+
+    @pytest.mark.parametrize('placement', ['subject', 'both'])
+    def test_no_typed_query_contains_a_generated_variable(self, placement):
+        """`new_query_var()` returns `n<uuid4 hex>`; a fixed name has no hex tail."""
+        import re
+
+        for query in queries(build(attribute_fact(), placement)):
+            if 'insert typed' in query:
+                assert not re.search(r'\bn[0-9a-f]{32}\b', query)

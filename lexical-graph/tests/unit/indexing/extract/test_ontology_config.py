@@ -20,6 +20,7 @@ from graphrag_toolkit.lexical_graph.indexing.extract.ontology.ontology_config im
     ONTOLOGY_AUTHORITY_LEVELS,
     OntologyConfig,
     ResolvedDimensions,
+    _LEVEL_DEFAULTS,
     to_ontology_config,
 )
 from graphrag_toolkit.lexical_graph.indexing.extract.ontology.ontology_filter import OntologyFilter
@@ -122,7 +123,7 @@ class TestValidation:
         with pytest.raises(ValueError, match='Unknown ontology authority level'):
             OntologyConfig(FIXTURES / 'absent.ttl', ontology_authority='nonsense')
 
-    @pytest.mark.parametrize('name', ['value', 'search_str', 'class'])
+    @pytest.mark.parametrize('name', ['entityId', 'value', 'search_str', 'class'])
     def test_a_property_that_would_overwrite_the_entity_is_refused(self, name):
         """Under subject placement this key is the entity's own."""
         with pytest.raises(ValueError, match='the graph model already owns'):
@@ -536,3 +537,107 @@ class TestSeedingReachesTheProvider:
 
         assert only(components, TopicExtractor).ontology_constraints
         assert self.classifications_of(components) == []
+
+
+class TestDimensionOverrideValues:
+    """The six dimensions are booleans, and say so rather than coercing.
+
+    `resolved()` coerces an override with `bool(...)`, and `'off'` is a
+    first-class value for three other settings on the same constructor - so
+    `enforce_entity_types='off'` was the natural way to ask for a gate to be off
+    and the exact spelling that turned it on.
+    """
+
+    @pytest.mark.parametrize('value', ['off', 'false', 'no', '0', 'true', 1, 0.0])
+    @pytest.mark.parametrize('dimension', DIMENSIONS)
+    def test_a_non_boolean_override_is_refused(self, dimension, value):
+        with pytest.raises(ValueError, match='must be True, False, or None'):
+            OntologyConfig(COMPANY, **{dimension: value})
+
+    @pytest.mark.parametrize('value', [True, False, None])
+    @pytest.mark.parametrize('dimension', DIMENSIONS)
+    def test_a_boolean_or_none_override_is_accepted(self, dimension, value):
+        config = OntologyConfig(COMPANY, **{dimension: value})
+        resolved = getattr(config.resolved(), dimension)
+
+        if value is None:
+            assert resolved == getattr(_LEVEL_DEFAULTS[config.ontology_authority], dimension)
+        else:
+            assert resolved is value
+
+    def test_the_error_names_the_settings_for_which_off_is_a_value(self):
+        """The message has to distinguish the two families, because the mistake is
+        reasonable: three settings here really do take `'off'`."""
+        with pytest.raises(ValueError) as error:
+            OntologyConfig(COMPANY, enforce_relationship_types='off')
+
+        message = str(error.value)
+        assert 'ontology_authority' in message
+        assert 'typed_properties' in message
+        assert 'vocabulary_format' in message
+
+
+class TestInferenceKeepsTheOntologySeed:
+    """Inference widens the ontology's vocabulary; it must not replace it.
+
+    Before this, `self.classifications` was the ranked response alone, so none of the
+    ontology's class names reached `{preferred_entity_classifications}` unless
+    parsing failed. The extraction prompt then named all of them and told the model
+    to use them while the preferred list contained none of them - and at `strict`,
+    `enforce_entity_types` dropped whatever inference had produced instead.
+    """
+
+    SEED = ['Company', 'Person', 'Sports Team']
+    INFERRED = ['Supplier', 'Factory', 'Shipment']
+
+    def inferencer(self, num_classifications=15, seed=None):
+        from graphrag_toolkit.lexical_graph.indexing.extract.infer_classifications import (
+            InferClassifications,
+        )
+
+        response = (
+            '<entity_classifications>\n' + '\n'.join(self.INFERRED) + '\n</entity_classifications>'
+        )
+        inferencer = InferClassifications(
+            splitter=None,
+            default_classifications=list(self.SEED if seed is None else seed),
+            num_samples=1,
+            num_iterations=1,
+            num_classifications=num_classifications,
+            llm=None,
+            replace_default_classifications=False,
+        )
+        inferencer.llm = type('StubLLM', (), {'predict': staticmethod(lambda *a, **k: response)})()
+        return inferencer
+
+    def parsed(self, inferencer):
+        from llama_index.core.schema import TextNode
+
+        inferencer._parse_nodes([TextNode(text='Acme ships widgets from Bolivia.')])
+        return inferencer.classifications
+
+    def test_the_seed_and_the_inferred_names_both_survive(self):
+        result = self.parsed(self.inferencer())
+
+        for name in self.SEED:
+            assert name in result
+        for name in self.INFERRED:
+            assert name in result
+
+    def test_the_seed_comes_first(self):
+        result = self.parsed(self.inferencer())
+        assert result[:len(self.SEED)] == self.SEED
+
+    def test_the_seed_is_exempt_from_num_classifications(self):
+        """`num_classifications` bounds how much inference may add; it is not a
+        budget the ontology has to compete for."""
+        result = self.parsed(self.inferencer(num_classifications=1))
+
+        for name in self.SEED:
+            assert name in result
+        assert len([c for c in result if c in self.INFERRED]) == 1
+
+    def test_a_seed_name_the_model_also_returned_is_not_duplicated(self):
+        result = self.parsed(self.inferencer(seed=['Company', 'Supplier']))
+        assert result.count('Supplier') == 1
+        assert result.count('Company') == 1
