@@ -91,6 +91,18 @@ ANY_SUBJECT_GROUP = 'any entity'
 # occupies. See `_render_term_line`.
 _WHITESPACE_RUN = re.compile(r'\s+')
 
+# A run of backticks, for sizing the turtle fence. See `format_turtle_vocabulary`.
+_BACKTICK_RUN = re.compile(r'`+')
+
+# `|` is the response protocol's field separator: the prompt asks for
+# `entity|RELATIONSHIP|entity` and `entity|ATTRIBUTE_NAME|value`, and
+# `parse_extracted_topics` splits emitted lines on it. A `|` arriving from an
+# `rdfs:comment` therefore reads to the model as a worked example of the output it
+# is being asked to produce, in the middle of the vocabulary it is being asked to
+# use. Replaced with a slash rather than dropped, so a comment like
+# "revenue|turnover" still reads as the alternation the author meant.
+_PROTOCOL_SEPARATOR = re.compile(r'\|')
+
 # XSD range -> the words the model sees. Deliberately plain: the model is being
 # helped to pick the right attribute and to report the value in a sensible form,
 # not asked to perform a conversion.
@@ -187,15 +199,25 @@ def format_turtle_vocabulary(turtle:str, level:str) -> str:
         turtle: The ontology serialized as Turtle.
         level: `'align'` or `'strict'`. `'off'` never reaches here.
 
+    The fence is sized to the content rather than fixed at three backticks. An
+    `rdfs:comment` containing a run of backticks is carried into the serialized
+    Turtle verbatim, and a three-backtick fence would then be closed early by the
+    comment - putting the remainder of the ontology, and the protocol section after
+    it, outside the code block. Taking one more backtick than the longest run in
+    the content is the standard CommonMark rule for exactly this.
+
     Returns:
         The block, with no trailing newline, or `''` for empty Turtle.
     """
     if not turtle.strip():
         return ''
 
+    longest_run = max((len(run) for run in _BACKTICK_RUN.findall(turtle)), default=0)
+    fence = '`' * max(3, longest_run + 1)
+
     return '\n\n'.join([
         _TURTLE_HEADER,
-        f'```turtle\n{turtle.strip()}\n```',
+        f'{fence}turtle\n{turtle.strip()}\n{fence}',
         f'{_PROTOCOL_HEADING}\n\n{_MAP_BY_MEANING}\n\n{_THEN_SPELLING}\n\n{_CLOSINGS[level]}',
     ])
 
@@ -497,20 +519,31 @@ def _render_term_line(name:str, aliases:List[str], description:Optional[str], mi
     `middle` carries whatever the section puts between the name and the
     description - a `subject -> object` pair, a value type, an extra parent.
 
-    The description is flattened to one line. `rdfs:comment` is the one field in
-    this block whose content is free prose from the ontology author, and it is
-    interpolated verbatim; a comment containing a newline followed by `##` would
-    otherwise forge a section heading in a block whose whole structure is
-    headings, so a multi-line comment could rewrite the protocol section the
-    model is told to read. Flattening is also just correct for the layout: every
-    other line here is one term, one line.
+    `rdfs:comment` is the one field in this block whose content is free prose from
+    the ontology author, and it is interpolated into a structured document, so two
+    characters are neutralised:
+
+    * **Newlines**, by flattening to one line. A comment carrying a newline and
+      then `##` would otherwise forge a section heading in a block whose entire
+      structure is headings, letting it rewrite the protocol section the model is
+      told to read. Flattening is also just correct for the layout - every other
+      line here is one term, one line.
+    * **`|`**, the response protocol's field separator. See
+      `_PROTOCOL_SEPARATOR`.
+
+    Neither is escaped, because there is nothing to escape *to*: this is prose fed
+    to a model, not a format with an escape syntax. They are replaced.
     """
     parts = [name, *middle]
     if aliases:
         parts.append(f'(also known as {", ".join(aliases)})')
     if description:
-        parts.append(f'"{_WHITESPACE_RUN.sub(" ", description).strip()}"')
+        parts.append(f'"{_clean_description(description)}"')
     return '  '.join(parts)
+
+def _clean_description(description:str) -> str:
+    """Flatten an `rdfs:comment` to one line and neutralise the field separator."""
+    return _PROTOCOL_SEPARATOR.sub('/', _WHITESPACE_RUN.sub(' ', description)).strip()
 
 def _render_class_name(ontology_class:OntologyClass) -> str:
     """Render a class name for the prompt, preferring the declared label."""
