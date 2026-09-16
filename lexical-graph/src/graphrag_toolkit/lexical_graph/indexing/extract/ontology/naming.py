@@ -62,6 +62,18 @@ def resolution_key(name:str) -> str:
         'Sports Team' -> 'sports team'
         'SportsTeam'  -> 'sports team'
 
+    `casefold` and not `lower`, because this has to be the inverse of the
+    rendering helpers below, and `lower` is not: `camel_to_upper_snake` renders
+    with `upper`, `'Größe'.upper()` is `'GRÖSSE'`, and `'GRÖSSE'.lower()` is
+    `'grösse'` while `'Größe'.lower()` is `'größe'` - so the name the prompt asked
+    the model for resolved to nothing. `casefold` maps both onto `'grösse'`.
+    Identical to `lower` on ASCII, so every key in the corpus is unchanged.
+
+    Note what this does not fix: `Straße` and `Strasse` now share a key, so an
+    ontology declaring both has a collision rather than one unresolvable term.
+    A collision is the better failure - it is at least detectable - but nothing
+    detects it yet.
+
     Args:
         name: A name from anywhere - an IRI local name, an `rdfs:label`, a
             `skos:altLabel`, or a predicate the LLM emitted. `None` and the
@@ -72,7 +84,30 @@ def resolution_key(name:str) -> str:
     """
     if not name:
         return ''
-    return _WHITESPACE_RUN.sub(' ', _split_words(name)).strip().lower()
+    return _WHITESPACE_RUN.sub(' ', _split_words(name)).strip().casefold()
+
+_NON_ALPHANUMERIC = re.compile(r'[^a-z0-9]')
+
+def compact_key(name:str) -> str:
+    """Fold a name to lowercase alphanumerics, dropping every separator.
+
+    Deliberately coarser than `resolution_key`, which preserves word boundaries
+    because it has to round-trip against the prompt rendering:
+
+        'rdf:type' 'RDF_TYPE' 'rdf type'   -> 'rdftype'
+        'SportsTeam' 'Sportsteam'          -> 'sportsteam'
+
+    Two callers, for opposite reasons. `OntologyFilter` matches predicates that no
+    ontology declared, where there is no round trip to preserve and every spelling
+    a model might reach for should land on one key. `OntologyIndex` uses it as a
+    *fallback* class key, for the case where the response parser has destroyed a
+    word boundary that `resolution_key` relies on - see `resolve_class`.
+
+    Note what this gives up: it cannot tell `rdfs:label` from a predicate
+    genuinely named `RDFSLABEL`, and it cannot tell `ABCorp` from `AB Corp`. Both
+    callers account for that themselves.
+    """
+    return _NON_ALPHANUMERIC.sub('', (name or '').lower())
 
 def camel_to_upper_snake(name:str) -> str:
     """Render a property name for the prompt, as `UPPER_SNAKE`.

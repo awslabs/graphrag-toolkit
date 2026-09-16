@@ -16,11 +16,18 @@ it per fact per node. The `*_by_key` maps are precomputed for the same reason -
 `resolve_*` is called per emitted name per fact.
 """
 
-from typing import Dict, FrozenSet, List, Optional, Union
+import logging
+
+from typing import Dict, FrozenSet, List, Optional, Set, Union
 
 from pydantic import BaseModel, ConfigDict, model_validator
 
-from graphrag_toolkit.lexical_graph.indexing.extract.ontology.naming import resolution_key
+from graphrag_toolkit.lexical_graph.indexing.extract.ontology.naming import (
+    compact_key,
+    resolution_key,
+)
+
+logger = logging.getLogger(__name__)
 
 XSD_NAMESPACE = 'http://www.w3.org/2001/XMLSchema#'
 
@@ -136,16 +143,90 @@ def _rank_by_key(terms:Dict[str, OntologyTerm]) -> Dict[str, Dict[str, int]]:
 
 def _single_valued_key_index(terms:Dict[str, OntologyTerm]) -> Dict[str, str]:
     """Map each resolution key to the one term that wins it."""
+    ranked = _rank_by_key(terms)
+    _warn_on_key_collisions(ranked)
     return {
         key: min(by_iri, key=lambda iri: (by_iri[iri], iri))
-        for (key, by_iri) in _rank_by_key(terms).items()
+        for (key, by_iri) in ranked.items()
+    }
+
+def _warn_on_key_collisions(ranked:Dict[str, Dict[str, int]]) -> None:
+    """Warn when two terms of the same kind claim one resolution key.
+
+    The tie is still broken deterministically - by rank, then by IRI - so nothing
+    here changes what resolves. What it changes is the silence. A collision has
+    no correct resolution: whichever term loses becomes unreachable by *every*
+    name it has, while the renderers still put that name in the prompt, so at
+    `strict` the model complies and its facts are dropped and attributed to
+    `enforce_domain_range` - pointing at a declaration that is correct.
+
+    Two shapes reach here, and the second is the one that bites. Two vocabularies
+    merged into one file (`schema:Person` beside `foaf:Person`) is obvious once
+    seen. A class whose `rdfs:label` is another class's local name
+    (`:Company rdfs:label "Organisation"` beside `:Organisation`) is not: the
+    label loses to the other class's own local name, so the compliant emission
+    resolves to the *other* class, and since `create_entity_id` hashes the
+    classification the two collapse onto one node id carrying a conflicting
+    `classIri`.
+
+    Logged rather than raised: two terms sharing a key is legal RDF, and an
+    ontology may be authored this way knowingly. Nothing downstream is unsafe -
+    it is only unlikely to be what the author meant.
+    """
+    for (key, by_iri) in sorted(ranked.items()):
+        if len(by_iri) < 2:
+            continue
+        logger.warning(
+            'Ontology terms %s all resolve under the name %r; only %s will be '
+            'found by it. Rename or relabel the others - a term that loses a '
+            'name collision is unreachable by every name it has, while the '
+            'prompt still offers that name to the model.',
+            ', '.join(sorted(by_iri)), key,
+            min(by_iri, key=lambda iri: (by_iri[iri], iri)),
+        )
+
+def _unambiguous_compact_index(terms:Dict[str, OntologyTerm]) -> Dict[str, str]:
+    """Map each *unambiguous* compact key to the one class that owns it.
+
+    The fallback `resolve_class` consults when an exact lookup misses. It exists
+    because the response parser destroys a word boundary that `resolution_key`
+    depends on: `format_classification` applies `.title()`, so a model that writes
+    a class's own name - `SportsTeam` - hands back `Sportsteam`, whose resolution
+    key is `'sportsteam'` against an index holding `'sports team'`.
+
+    That matters because the ontology's spelling is the authority: a user who
+    declares `:SportsTeam` should be able to have the model write `SportsTeam`.
+    Properties need no such fallback - `format_value` only maps `_` to a space, so
+    `worksFor` survives it and `resolution_key` splits the camel boundary at both
+    ends.
+
+    A compact key claimed by more than one class is **omitted** rather than
+    resolved to a winner. `ABCorp` and `AB Corp` are distinct classes with
+    distinct resolution keys, and guessing between them on a coarse match would
+    lose the exactness the rest of the index guarantees. Omitting means such a
+    name simply does not resolve, which is the behaviour before this fallback
+    existed.
+    """
+    owners:Dict[str, Set[str]] = {}
+    for term in terms.values():
+        for (key, _) in _ranked_keys(term):
+            compact = compact_key(key)
+            if compact:
+                owners.setdefault(compact, set()).add(term.iri)
+
+    return {
+        compact: next(iter(iris))
+        for (compact, iris) in owners.items()
+        if len(iris) == 1
     }
 
 def _multi_valued_key_index(terms:Dict[str, OntologyTerm]) -> Dict[str, List[str]]:
     """Map each resolution key to every term that claims it, best first."""
+    ranked = _rank_by_key(terms)
+    _warn_on_key_collisions(ranked)
     return {
         key: sorted(by_iri, key=lambda iri: (by_iri[iri], iri))
-        for (key, by_iri) in _rank_by_key(terms).items()
+        for (key, by_iri) in ranked.items()
     }
 
 class OntologyIndex(BaseModel):
@@ -163,6 +244,10 @@ class OntologyIndex(BaseModel):
             properties by IRI.
         class_by_key (Dict[str, str]): Class IRI by `resolution_key`. Derived -
             recomputed on construction, so a value passed in is discarded.
+        class_by_compact_key (Dict[str, str]): Class IRI by `compact_key`, for
+            the unambiguous keys only. Derived. The fallback `resolve_class`
+            consults when an exact lookup misses, so that a class's own spelling
+            resolves after the response parser has title-cased it.
         obj_property_by_key (Dict[str, List[str]]): Object property IRIs by
             `resolution_key`, in resolution precedence order. Derived.
             Multi-valued because a key collision between two declared
@@ -177,6 +262,7 @@ class OntologyIndex(BaseModel):
     object_properties:Dict[str, ObjectProperty]={}
     datatype_properties:Dict[str, DatatypeProperty]={}
     class_by_key:Dict[str, str]={}
+    class_by_compact_key:Dict[str, str]={}
     obj_property_by_key:Dict[str, List[str]]={}
     dt_property_by_key:Dict[str, List[str]]={}
 
@@ -190,6 +276,7 @@ class OntologyIndex(BaseModel):
         with its terms. `object.__setattr__` because the model is frozen.
         """
         object.__setattr__(self, 'class_by_key', _single_valued_key_index(self.classes))
+        object.__setattr__(self, 'class_by_compact_key', _unambiguous_compact_index(self.classes))
         object.__setattr__(self, 'obj_property_by_key', _multi_valued_key_index(self.object_properties))
         object.__setattr__(self, 'dt_property_by_key', _multi_valued_key_index(self.datatype_properties))
         return self
@@ -197,16 +284,25 @@ class OntologyIndex(BaseModel):
     def resolve_class(self, name:str) -> Optional[OntologyClass]:
         """Resolve an emitted classification to a declared class.
 
+        Exact match on `resolution_key` first, then - only on a miss - the
+        separator-free `class_by_compact_key`. The fallback is what lets a class's
+        own spelling work: the response parser title-cases a classification, so
+        `SportsTeam` comes back as `Sportsteam` and its resolution key no longer
+        matches the indexed `'sports team'`. See `_unambiguous_compact_index` for
+        why an ambiguous coarse match resolves to nothing rather than to a winner.
+
         Args:
             name: A name in any convention - `'Sports Team'` as the parser
-                hands it over, `'SPORTS_TEAM'`, `'SportsTeam'`, or a declared
-                label or alias.
+                hands it over, `'SPORTS_TEAM'`, `'SportsTeam'`, `'Sportsteam'`, or
+                a declared label or alias.
 
         Returns:
             The declared class, or `None` if nothing in the ontology carries
             that name.
         """
         iri = self.class_by_key.get(resolution_key(name))
+        if iri is None:
+            iri = self.class_by_compact_key.get(compact_key(name))
         return self.classes.get(iri) if iri else None
 
     def resolve_object_predicate(self, name:str) -> Optional[ObjectProperty]:

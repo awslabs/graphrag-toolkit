@@ -8,6 +8,8 @@ comparison between two configurations - those belong in a measurement document,
 not in a test that gates a build.
 """
 
+import logging
+
 from pathlib import Path
 
 import pytest
@@ -224,11 +226,31 @@ class TestResolution:
     def test_a_datatype_predicate_resolves_from_any_convention(self, index, emitted):
         assert index.resolve_datatype_predicate(emitted).iri == f'{NS}foundedYear'
 
-    @pytest.mark.parametrize('emitted', ['HIRED BY', 'EMPLOYER', '', 'Sportsteam'])
+    @pytest.mark.parametrize('emitted', ['HIRED BY', 'EMPLOYER', ''])
     def test_a_name_the_ontology_does_not_carry_resolves_to_nothing(self, index, emitted):
         assert index.resolve_class(emitted) is None
         assert index.resolve_object_predicate(emitted) is None
         assert index.resolve_datatype_predicate(emitted) is None
+
+    @pytest.mark.parametrize('emitted', ['Sportsteam', 'SPORTSTEAM', 'sportsteam'])
+    def test_a_class_resolves_even_with_the_word_boundary_destroyed(self, index, emitted):
+        """The ontology's own spelling is the authority, so `:SportsTeam` has to
+        work when the model writes it.
+
+        `format_classification` applies `.title()`, so `SportsTeam` comes back from
+        the parser as `Sportsteam` - one word where the index holds two. The
+        fallback compact key closes that, which is what makes
+        `vocabulary_format='turtle'` usable at all: that block shows the ontology's
+        own source, so the model writes the local name.
+        """
+        assert index.resolve_class(emitted).iri == f'{NS}SportsTeam'
+
+    def test_the_fallback_never_applies_to_predicates(self, index):
+        """Properties need no fallback - `format_value` only maps `_` to a space,
+        so `worksFor` survives it and `resolution_key` splits the camel boundary at
+        both ends. Adding one would only widen what a predicate can mean."""
+        assert index.resolve_object_predicate('worksfor') is None
+        assert index.resolve_datatype_predicate('foundedyear') is None
 
     def test_the_two_predicate_kinds_do_not_answer_for_each_other(self, index):
         assert index.resolve_datatype_predicate('WORKS FOR') is None
@@ -389,3 +411,117 @@ class TestOntologiesThatAreNotTheFixture:
         graph.parse(data='<urn:x#A> a <http://www.w3.org/2002/07/owl#Class> .', format='turtle')
 
         assert Ontology(graph, base_iri='urn:given#').namespace == 'urn:given#'
+
+
+class TestAxiomsThatShouldLoad:
+    """Legal axioms that were refused, and silent no-ops that now warn."""
+
+    PREFIXES = (
+        '@prefix : <urn:x#> . '
+        '@prefix owl: <http://www.w3.org/2002/07/owl#> . '
+        '@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . '
+        '@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> . '
+        '@prefix xsd: <http://www.w3.org/2001/XMLSchema#> . '
+    )
+
+    def test_subclass_of_owl_thing_loads(self):
+        """A legal axiom, and one Protege emits by default. It was rejected as a
+        dangling `subClassOf` reference, and the only workaround - declaring
+        `owl:Thing a owl:Class` - put a meaningless `Thing` type in the prompt.
+        `_class_reference` already exempted `owl:Thing` from domain and range."""
+        ontology = Ontology.from_turtle_string(
+            self.PREFIXES + ':Company a owl:Class ; rdfs:subClassOf owl:Thing .'
+        )
+        company = ontology.index().classes['urn:x#Company']
+
+        assert company.parents == []
+        assert company.ancestors == frozenset({'urn:x#Company'})
+        assert ontology.class_names() == ['Company']
+
+    def test_an_rdfs_dialect_ontology_warns_that_it_declares_nothing(self, caplog):
+        """It parses cleanly and yields no terms, which is worse than passing no
+        ontology: `filter_required()` is still True and the preferred
+        classifications are seeded empty, so at `strict` every fact is dropped -
+        after the whole extraction run is paid for."""
+        with caplog.at_level(logging.WARNING):
+            ontology = Ontology.from_turtle_string(
+                self.PREFIXES
+                + ':Company a rdfs:Class ; rdfs:label "Company" . '
+                + ':worksFor a rdf:Property ; rdfs:domain :Person ; rdfs:range :Company .'
+            )
+
+        assert ontology.index().classes == {}
+        assert 'declares no owl:Class' in caplog.text
+        assert 'rdfs:Class' in caplog.text
+
+    def test_an_ontology_with_terms_does_not_warn(self, caplog):
+        with caplog.at_level(logging.WARNING):
+            Ontology.from_turtle_string(self.PREFIXES + ':Company a owl:Class .')
+
+        assert 'declares no owl:Class' not in caplog.text
+
+    def test_a_multiply_declared_datatype_range_warns(self, caplog):
+        """`_class_reference` warns for exactly this ambiguity on a domain; the
+        range was taken silently, and which of two ranges wins decides whether a
+        literal coerces at all."""
+        with caplog.at_level(logging.WARNING):
+            Ontology.from_turtle_string(
+                self.PREFIXES
+                + ':foundedYear a owl:DatatypeProperty ; rdfs:range xsd:integer, xsd:string .'
+            )
+
+        assert 'rdfs:range values' in caplog.text
+
+    def test_a_class_name_collision_warns(self, caplog):
+        """One of the two becomes unreachable by every name it has, while the
+        renderers still offer that name to the model."""
+        with caplog.at_level(logging.WARNING):
+            Ontology.from_turtle_string(
+                self.PREFIXES
+                + ':Company a owl:Class ; rdfs:label "Organisation" . '
+                + ':Organisation a owl:Class .'
+            )
+
+        assert 'resolve under the name' in caplog.text
+
+
+class TestTheCompactFallbackNeverGuesses:
+    """The fallback widens resolution; it must not make it ambiguous."""
+
+    PREFIXES = (
+        '@prefix : <urn:x#> . '
+        '@prefix owl: <http://www.w3.org/2002/07/owl#> . '
+    )
+
+    def index_for(self, body):
+        return Ontology.from_turtle_string(self.PREFIXES + body).index()
+
+    def test_a_compact_key_two_classes_claim_is_omitted(self):
+        """`:ABCorp` and `:AB_Corp` are distinct classes with distinct resolution
+        keys. Resolving a coarse match to a winner would lose the exactness the
+        rest of the index guarantees, so the key is dropped from the fallback."""
+        index = self.index_for(':ABCorp a owl:Class . :AB_Corp a owl:Class .')
+
+        assert 'abcorp' not in index.class_by_compact_key
+
+    def test_the_exact_path_is_unaffected_by_an_omitted_key(self):
+        """Both classes still resolve by their own names - only the *coarse*
+        lookup is withheld."""
+        index = self.index_for(':ABCorp a owl:Class . :AB_Corp a owl:Class .')
+
+        assert index.resolve_class('ABCorp').local_name == 'ABCorp'
+        assert index.resolve_class('AB Corp').local_name == 'AB_Corp'
+
+    def test_an_exact_match_always_wins_over_the_fallback(self):
+        """`:Sportsteam` owns `'sportsteam'` outright, so it must not lose it to
+        `:SportsTeam` via the coarse index."""
+        index = self.index_for(':SportsTeam a owl:Class . :Sportsteam a owl:Class .')
+
+        assert index.resolve_class('Sportsteam').local_name == 'Sportsteam'
+        assert index.resolve_class('Sports Team').local_name == 'SportsTeam'
+
+    def test_a_name_no_class_carries_still_resolves_to_nothing(self):
+        index = self.index_for(':SportsTeam a owl:Class .')
+
+        assert index.resolve_class('Football Club') is None
+        assert index.resolve_class('') is None

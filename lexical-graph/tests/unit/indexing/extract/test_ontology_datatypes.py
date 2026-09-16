@@ -168,11 +168,27 @@ class TestWhatTheCallersDependOn:
 
     @pytest.mark.parametrize('name,expected', [
         ('integer', True), ('double', True), ('boolean', True), ('date', True),
-        ('string', True), ('token', True),
+        # `xsd:string` is the one member of the string family for which returning
+        # the literal unchanged *is* the check - its value space is any sequence of
+        # characters. Every sibling has a restricted lexical space that nothing
+        # here checks, so each reports False and `enforce_datatypes` warns.
+        ('string', True),
+        ('normalizedString', False), ('token', False), ('language', False),
+        ('Name', False), ('NCName', False), ('NMTOKEN', False),
+        ('ID', False), ('IDREF', False), ('ENTITY', False),
         ('hexBinary', False), ('duration', False), ('gMonthDay', False),
     ])
     def test_validates_datatype_reports_whether_a_check_actually_happens(self, name, expected):
         assert validates_datatype(xsd(name)) is expected
+
+    @pytest.mark.parametrize('name', [
+        'normalizedString', 'token', 'language', 'Name', 'NCName', 'NMTOKEN',
+        'ID', 'IDREF', 'ENTITY',
+    ])
+    def test_the_unchecked_string_types_still_store_the_literal_verbatim(self, name):
+        """Reporting False changed only the warning, not what is stored: the value
+        is kept exactly as before, and the fact is still not dropped."""
+        assert coerce_literal('has spaces and: colons', xsd(name)) == 'has spaces and: colons'
 
     @pytest.mark.parametrize('datatype', [None, 'http://example.com/company#Money'])
     def test_validates_datatype_is_false_for_a_non_xsd_range(self, datatype):
@@ -212,3 +228,86 @@ class TestTheTimeFamilyEdges:
     @pytest.mark.parametrize('literal', ['9:30', 'half past nine', '25:00', '09:99'])
     def test_a_time_that_is_the_wrong_shape_or_not_on_the_clock(self, literal):
         assert coerce_literal(literal, xsd('time')) is None
+
+
+class TestBoundariesTiedToOurOwnGrammar:
+    """Cases where the accepted grammar has to be ours rather than inherited.
+
+    Each of these was accepted-but-wrong or refused-but-valid before, and each is
+    a value a model does emit for a date or a time.
+    """
+
+    @pytest.mark.parametrize('literal', ['-0500-01-01', '-2020-03-03'])
+    def test_a_negative_year_is_refused_rather_than_silently_unsigned(self, literal):
+        """`_ISO_DATE` used to admit the sign and then strip it, so 500 BCE was
+        stored as 500 CE and reported as conforming. `xsd:dateTime` refused the
+        same input, so the two also disagreed."""
+        assert coerce_literal(literal, xsd('date')) is None
+        assert coerce_literal(f'{literal}T00:00:00', xsd('dateTime')) is None
+
+    @pytest.mark.parametrize('literal,expected', [
+        ('09:30:00.5', '09:30:00.500000'),
+        ('09:30:00.123456', '09:30:00.123456'),
+    ])
+    def test_a_fractional_second_is_accepted_for_time(self, literal, expected):
+        """`_ISO_TIME` always admitted the fraction; the strptime format did not,
+        so every fractional `xsd:time` was rejected while `xsd:dateTime` accepted
+        the same fraction."""
+        assert coerce_literal(literal, xsd('time')) == expected
+
+    def test_a_dotted_sentence_is_refused_without_backtracking(self):
+        """`xsd:anyURI` gets prose when a model has no URI to give, and prose with
+        dots was the pattern's worst case: this input took ~28s at 4 KB."""
+        import time
+
+        prose = 'The value is not a URI. ' * 400
+
+        start = time.perf_counter()
+        assert coerce_literal(prose, xsd('anyURI')) is None
+        assert time.perf_counter() - start < 1.0
+
+    @pytest.mark.parametrize('literal', ['example.com', 'http://example.com/a', '/path', '#frag'])
+    def test_the_uri_forms_that_were_accepted_still_are(self, literal):
+        assert coerce_literal(literal, xsd('anyURI')) == literal
+
+
+class TestATimezoneIsRefusedRatherThanStripped:
+    """Discarding an offset changed the value and reported success.
+
+    `2020-03-03T23:00:00-05:00` and `2020-03-04T04:00:00Z` are the same instant and
+    stored as different strings; `-05:00` and `+09:00`, fourteen hours apart, stored
+    as identical ones. Refusing is visible: the fact is dropped, the write skipped,
+    and the string is still on the node as `value`.
+    """
+
+    @pytest.mark.parametrize('literal', [
+        '2020-03-03T23:00:00-05:00',
+        '2020-03-04T04:00:00Z',
+        '2020-03-03T23:00:00+09:00',
+    ])
+    def test_a_zoned_datetime_is_refused(self, literal):
+        assert coerce_literal(literal, xsd('dateTime')) is None
+
+    @pytest.mark.parametrize('literal', ['23:00:00-05:00', '09:30:00Z', '09:30+09:00'])
+    def test_a_zoned_time_is_refused(self, literal):
+        """A time of day is where an offset carries all of the meaning."""
+        assert coerce_literal(literal, xsd('time')) is None
+
+    @pytest.mark.parametrize('literal,expected', [
+        ('2020-03-03T23:00:00', '2020-03-03T23:00:00'),
+        ('2020-03-03T09:30:00.5', '2020-03-03T09:30:00.500000'),
+    ])
+    def test_a_naive_datetime_is_unaffected(self, literal, expected):
+        assert coerce_literal(literal, xsd('dateTime')) == expected
+
+    @pytest.mark.parametrize('literal,expected', [
+        ('09:30:00', '09:30:00'), ('09:30', '09:30:00'),
+    ])
+    def test_a_naive_time_is_unaffected(self, literal, expected):
+        assert coerce_literal(literal, xsd('time')) == expected
+
+    def test_a_zone_on_a_date_is_still_dropped(self):
+        """Deliberately different: the value is a calendar date, and the offset only
+        says which instant within that day it was anchored to."""
+        assert coerce_literal('2020-03-03Z', xsd('date')) == '2020-03-03'
+        assert coerce_literal('2020-03-03-05:00', xsd('date')) == '2020-03-03'

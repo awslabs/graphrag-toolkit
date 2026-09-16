@@ -45,6 +45,20 @@ logger = logging.getLogger(__name__)
 # something a working filter produces.
 _NO_ANNOTATIONS_WARNING_AFTER = 25
 
+# Cypher variable names for the two typed-property queries.
+#
+# Fixed rather than `new_query_var()`, which is the difference between these
+# queries batching and not. `GraphBatchClient` keys `self.batches` on the query
+# *string*, and the variable name is interpolated into it, so a per-call uuid
+# gives every fact its own batch of one. Both variables are local to a
+# single-statement query and cannot collide with anything.
+#
+# `insert_domain_entity` below keeps its `new_query_var()` deliberately: that call
+# is pre-existing, gated on `include_domain_labels`, and its own comment records
+# batching it as a separate future optimization.
+TYPED_SUBJECT_QUERY_VAR = 'typed_subject'
+TYPED_COMPLEMENT_QUERY_VAR = 'typed_complement'
+
 _annotation_seen = False
 _unannotated_facts = 0
 _no_annotations_warned = False
@@ -361,7 +375,14 @@ class EntityGraphBuilder(GraphBuilder):
                 (typed_value, datatype) = typed_values
 
                 (value_key, datatype_key) = COMPLEMENT_ENTITY_PROPERTIES
-                c_var = new_query_var()
+                # A fixed name, not `new_query_var()`. The variable is local to a
+                # one-statement query, so uniqueness buys nothing - and it is
+                # interpolated into the query *text*, which `GraphBatchClient` keys
+                # its batches on, so a fresh uuid per fact makes every write its own
+                # single-row round trip. Measured over 50 attribute facts at
+                # `batch_write_size=25`: 104 round trips at `'both'` against 4 with a
+                # fixed name.
+                c_var = TYPED_COMPLEMENT_QUERY_VAR
                 value_assigment = graph_client.property_assigment_fn(value_key, typed_value)('params.typedValue')
                 datatype_assigment = graph_client.property_assigment_fn(datatype_key, datatype)('params.datatype')
 
@@ -414,7 +435,12 @@ class EntityGraphBuilder(GraphBuilder):
                     assignment goes through the store's `property_assigment_fn` so
                     Neptune's `datetime(...)` wrapper still applies.
                     """
-                    e_var = new_query_var()
+                    # Fixed, for the batching reason given on
+                    # `TYPED_SUBJECT_QUERY_VAR`. Note the query text still varies
+                    # with `e_key`, so facts batch per *property name* rather than
+                    # into one batch - which is the intended granularity, since the
+                    # `SET` clause names the property.
+                    e_var = TYPED_SUBJECT_QUERY_VAR
                     e_key = escape_cypher_label(key)
 
                     # Bound under a fixed name rather than under the property's own

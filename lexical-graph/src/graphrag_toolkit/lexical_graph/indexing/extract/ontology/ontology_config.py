@@ -248,9 +248,10 @@ class OntologyConfig:
         Raises:
             ValueError: If `ontology_authority` is not a supported level, if
                 `typed_properties` is not a supported placement, if
-                `vocabulary_format` is not a supported format, or if a
-                declared datatype property would key a reserved `__Entity__`
-                property under the requested placement.
+                `vocabulary_format` is not a supported format, if a dimension
+                override is neither a bool nor `None`, or if a declared datatype
+                property would key a reserved `__Entity__` property under the
+                requested placement.
             OntologyLoadError: If `ontology` cannot be loaded.
         """
         if self.ontology_authority not in ONTOLOGY_AUTHORITY_LEVELS:
@@ -271,9 +272,38 @@ class OntologyConfig:
                 f'Expected one of {", ".join(VOCABULARY_FORMATS)}.'
             )
 
+        self._validate_dimension_overrides()
+
         self.ontology = Ontology.load(self.ontology)
 
         self._validate_no_reserved_property_names()
+
+    def _validate_dimension_overrides(self) -> None:
+        """Refuse a dimension override that is neither a bool nor `None`.
+
+        `resolved()` coerces an override with `bool(...)`, so without this check
+        every non-empty string is `True` - and `'off'` is a first-class value for
+        three other settings on this same constructor, which makes
+        `enforce_entity_types='off'` the natural way to ask for a gate to be off
+        and the exact spelling that silently turns it on. Refusing is the only
+        reading that cannot be wrong: `'off'` cannot mean `True`, and guessing
+        that it means `False` would make the six dimensions accept a vocabulary
+        no other boolean setting in the toolkit does.
+
+        Raises:
+            ValueError: On the first override that is neither a bool nor `None`.
+        """
+        for dimension in DIMENSIONS:
+            value = getattr(self, dimension)
+            if value is None or isinstance(value, bool):
+                continue
+            raise ValueError(
+                f'{dimension} must be True, False, or None (follow '
+                f'ontology_authority); got {value!r}. Note that the enforcement '
+                f'dimensions are booleans, unlike ontology_authority, '
+                f'typed_properties and vocabulary_format, for which '
+                f"'off' is a value."
+            )
 
     def _validate_no_reserved_property_names(self) -> None:
         """Refuse an ontology whose vocabulary would overwrite the graph model.

@@ -606,3 +606,61 @@ class TestAnIndexWithNoTerms:
         [fact] = facts_of(run(OntologyFilter(index=index, enforce_domain_range=True), relation('ACQUIRED')))
 
         assert fact.predicate.propertyIri == 'urn:x#acquired'
+
+
+class TestTheReservedSentinel:
+    """`__Local_Entity__` belongs to the pipeline, not to the ontology.
+
+    `parse_extracted_topics` stamps it onto a subject or complement whose text
+    matched no entity in the entity block, and a long tail of build-stage guards
+    then compare against it verbatim. It is also a name an ontology can claim by
+    accident: `resolution_key('__Local_Entity__')` is `'local entity'`.
+    """
+
+    @pytest.fixture
+    def local_entity_index(self):
+        return Ontology.from_turtle_string(
+            '@prefix : <urn:x#> . '
+            '@prefix owl: <http://www.w3.org/2002/07/owl#> . '
+            ':LocalEntity a owl:Class .'
+        ).index()
+
+    def test_a_declared_class_does_not_rewrite_the_sentinel(self, local_entity_index):
+        """Rewritten to `LocalEntity`, every `== LOCAL_ENTITY_CLASSIFICATION`
+        guard downstream misses and `include_local_entities` stops meaning
+        anything."""
+        [fact] = facts_of(run(
+            OntologyFilter(index=local_entity_index, normalize_names=True),
+            attribute('FOUNDED YEAR', subject_class=LOCAL),
+        ))
+
+        assert fact.subject.classification == LOCAL
+
+    def test_the_sentinel_is_not_annotated_with_a_class_iri(self, local_entity_index):
+        """Annotation is ungated, so it has to be refused at resolution."""
+        [fact] = facts_of(run(
+            OntologyFilter(index=local_entity_index),
+            attribute('FOUNDED YEAR', subject_class=LOCAL),
+        ))
+
+        assert fact.subject.classIri is None
+
+    def test_a_topic_entity_carrying_the_sentinel_is_left_alone(self, local_entity_index):
+        entity = Entity(value='help@acme.test', classification=LOCAL)
+        topic = run(
+            OntologyFilter(index=local_entity_index, normalize_names=True),
+            attribute('FOUNDED YEAR'),
+            entities=[entity],
+        )
+
+        assert topic.entities[0].classification == LOCAL
+        assert topic.entities[0].classIri is None
+
+    def test_strict_does_not_keep_a_sentinel_subject_by_resolving_it(self, local_entity_index):
+        """The other half of the same bug: resolving the sentinel would have made
+        `enforce_entity_types` treat a local entity as a declared class."""
+        assert not kept(
+            local_entity_index,
+            attribute('FOUNDED YEAR', subject_class=LOCAL),
+            enforce_entity_types=True,
+        )

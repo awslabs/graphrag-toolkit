@@ -32,7 +32,13 @@ entry point.
 Determinism: every iteration is over a `sorted(...)` by
 `local_name`, so the output is a pure function of the ontology's content and not
 of triple insertion order, and two calls at the same level are byte-identical.
+That holds for the prose format only. `format_turtle_vocabulary` renders text
+rdflib produced, and rdflib labels a blank node it cannot inline with a fresh
+`_:nXXXX` per process - so a `vocabulary_format='turtle'` block over an ontology
+with a shared `owl:Restriction` differs between runs.
 """
+
+import re
 
 from typing import Dict, List, Optional
 
@@ -80,6 +86,10 @@ PROSE_VOCABULARY, TURTLE_VOCABULARY = VOCABULARY_FORMATS
 ANY_ENTITY = 'anything'
 
 ANY_SUBJECT_GROUP = 'any entity'
+
+# Used to flatten an `rdfs:comment` onto the single line a vocabulary entry
+# occupies. See `_render_term_line`.
+_WHITESPACE_RUN = re.compile(r'\s+')
 
 # XSD range -> the words the model sees. Deliberately plain: the model is being
 # helped to pick the right attribute and to report the value in a sensible form,
@@ -171,8 +181,7 @@ def format_turtle_vocabulary(turtle:str, level:str) -> str:
     constant is what makes the two formats comparable.
 
     Serialization lives with the caller, in `ontology.py`: this module renders
-    from `OntologyIndex` with no `rdflib` involved, and an import-graph test
-    holds it to that.
+    from `OntologyIndex` and imports no `rdflib` itself.
 
     Args:
         turtle: The ontology serialized as Turtle.
@@ -487,12 +496,20 @@ def _render_term_line(name:str, aliases:List[str], description:Optional[str], mi
 
     `middle` carries whatever the section puts between the name and the
     description - a `subject -> object` pair, a value type, an extra parent.
+
+    The description is flattened to one line. `rdfs:comment` is the one field in
+    this block whose content is free prose from the ontology author, and it is
+    interpolated verbatim; a comment containing a newline followed by `##` would
+    otherwise forge a section heading in a block whose whole structure is
+    headings, so a multi-line comment could rewrite the protocol section the
+    model is told to read. Flattening is also just correct for the layout: every
+    other line here is one term, one line.
     """
     parts = [name, *middle]
     if aliases:
         parts.append(f'(also known as {", ".join(aliases)})')
     if description:
-        parts.append(f'"{description}"')
+        parts.append(f'"{_WHITESPACE_RUN.sub(" ", description).strip()}"')
     return '  '.join(parts)
 
 def _render_class_name(ontology_class:OntologyClass) -> str:

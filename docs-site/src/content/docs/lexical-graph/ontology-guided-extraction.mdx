@@ -79,8 +79,14 @@ would remove without running it: the level changes the prompt as well as the gat
 model emits a different population before any gate sees it.
 
 `'off'` is useful in one specific combination: with an explicit dimension override, or with
-`typed_properties` alone, when you want datatype coercion without the ontology saying
-anything about naming.
+`typed_properties` alone, when you want datatype coercion without the ontology renaming
+anything.
+
+`'off'` is not the same as configuring no ontology at all. It suppresses the vocabulary
+block and every dimension, but the ontology's class names still seed
+`{preferred_entity_classifications}` in the extraction prompt — that slot is filled
+independently of the level, because the level decides how much the prompt says *about* the
+vocabulary, not what the vocabulary is. If you want the prompt untouched, pass no ontology.
 
 Underneath, the level resolves to six independent dimensions, each of which you can also
 set on its own:
@@ -93,6 +99,24 @@ set on its own:
 | `enforce_relationship_types` | `False` | `False` | `True` | Drop a fact whose predicate does not resolve |
 | `enforce_domain_range` | `False` | `False` | `True` | Drop a fact violating a declared `rdfs:domain` / `rdfs:range` |
 | `enforce_datatypes` | `False` | `False` | `True` | Drop a fact whose literal does not parse as its declared XSD datatype |
+
+**Every dimension gates facts, and only facts.** Note what that leaves alone, because "drop"
+in the table above is narrower than it sounds:
+
+  - A `__Statement__` is never dropped. If `strict` rejects every fact a statement carried, the
+    statement still reaches the graph and the statement vector index — with `facts: 0`. Its text
+    is therefore still retrievable, even though the ontology excluded the assertion it makes.
+  - `topic.entities` is never pruned either. That list is not written to the graph, but it is
+    normalized and annotated, so an unresolvable classification survives in it.
+  - **An unknown class is not a violating one.** `enforce_domain_range` drops a fact it can
+    show breaches a declared domain or range; it cannot show that of a class it could not
+    resolve, so only `enforce_entity_types` rejects those. The case where this is most visible
+    is a fact whose object text the extractor never matched to a named entity: it arrives with
+    a literal complement rather than an object entity, so there is no object class at all, and
+    neither gate can test that side of it even at `strict`.
+
+If you need the statement text itself excluded, `strict` is not the tool — filter the corpus, or
+narrow what reaches extraction.
 
 If every dimension resolves to `False` and `typed_properties` is `'off'`, the filter is not
 added to the extraction pipeline at all.
@@ -128,6 +152,15 @@ discarded, so what reaches a gate is only the remainder that ignored the instruc
 
 Counts accumulate per node batch, and each line states the number of nodes it covers, so
 lines add up and no single line is the total for a run.
+
+**Configure logging with `set_logging_config`, or you will see nothing.** The filter runs
+inside a spawn-started extraction worker, and `logging.config.dictConfig` state does not cross
+that boundary by itself — the toolkit forwards the config it applied, which means the config
+has to have gone through
+[`set_logging_config`](/graphrag-toolkit/lexical-graph/configuration/#set_logging_config). If
+you configured logging with `logging.basicConfig()` instead, workers start at the interpreter
+default of WARNING and the INFO report is discarded, along with anything else an extraction
+component logs below WARNING.
 
 <Aside type="caution" title="Read these before you enable an ontology">
   - **`align` is the recommended starting level.** It is also the default. `strict`
@@ -205,9 +238,11 @@ graph_index = LexicalGraphIndex(
 | `vocabulary_format` | How the vocabulary is written into the prompt: `'prose'` renders three labelled sections, `'turtle'` shows the ontology's own source. See [Vocabulary format](#vocabulary-format). | `'prose'` |
 
 An overriding dimension is honoured whatever the level says, so
-`OntologyConfig('news.ttl', ontology_authority='off', enforce_datatypes=True)` — say nothing in
-the prompt, but still coerce declared datatypes — is expressible and is not treated as a
-contradiction.
+`OntologyConfig('news.ttl', ontology_authority='off', enforce_datatypes=True)` — no vocabulary
+block in the prompt, but still coerce declared datatypes — is expressible and is not treated
+as a contradiction. The six dimensions take `True`, `False` or `None` only; unlike
+`ontology_authority`, `typed_properties` and `vocabulary_format`, `'off'` is not a value for
+them and raises `ValueError`.
 
 The ontology's class names seed the preferred entity classifications, so
 `infer_entity_classifications` composes with an ontology: inference adds the domain terms
@@ -269,6 +304,32 @@ The toolkit reads four kinds of declaration:
 `rdfs:comment` is not decoration. It is rendered into the extraction prompt, and it is the
 only place you can tell the model what a term means. A term with no comment is a bare name
 the model has to guess at.
+
+#### What is checked when the file loads
+
+These are checked once, when the ontology is loaded, and raise `OntologyLoadError` rather
+than costing you an extraction run:
+
+  - Every class named in an `rdfs:subClassOf`, `rdfs:domain` or `rdfs:range` must be
+    declared as an `owl:Class` **in the same file**. `owl:imports` is not followed, so a
+    reference into an imported vocabulary is a dangling reference. Inline the terms you use.
+    (`owl:Thing` is the exception — it is accepted and treated as "unconstrained" wherever
+    it appears.)
+  - `rdfs:subClassOf` must be acyclic.
+  - A property may be an `owl:ObjectProperty` or an `owl:DatatypeProperty`, not both.
+  - Every `owl:DatatypeProperty` must declare exactly one `rdfs:range`, and it must be in
+    the XSD namespace. A range outside XSD is refused; an XSD name coercion does not
+    implement (`xsd:duration`, `xsd:hexBinary`) loads and is treated as text, with a warning
+    the first time a value is stored under it.
+
+Two things load cleanly but do nothing, and warn:
+
+  - An ontology written in the RDFS/SKOS dialect — `rdfs:Class` and `rdf:Property` rather
+    than `owl:Class`, `owl:ObjectProperty` and `owl:DatatypeProperty` — yields no terms.
+    Only the OWL declarations are read.
+  - Two terms whose names fold onto the same lookup key (`schema:Person` alongside
+    `foaf:Person`, or a class whose `rdfs:label` is another class's local name) collide, and
+    one of them becomes unreachable by every name it has.
 
 #### Authored names
 
@@ -382,6 +443,12 @@ RETURN c.value, c.foundedYear
   declared property named `founded_date` lands as a native temporal and wants an unquoted
   `datetime(...)` bound, where `foundedOn` stays a string. Name date properties
   consistently, and check one against `pg_schema()` before writing queries over them.
+
+  Note that the decision is made on the **name alone** — the declared `rdfs:range` is not
+  consulted, so `founded_date` is wrapped whether its range is `xsd:date` or `xsd:string`. That
+  is harmless in practice: a value that does not parse as a date falls back to a plain
+  assignment, so the wrapper only ever applies where it is meaningful. But it does mean a
+  `_date`-suffixed name is the thing that decides the stored type, not the ontology.
 </Aside>
 
 #### Placements
@@ -397,7 +464,7 @@ byte-identical to a build from before the feature existed.
 
 | Placement | Where the value is written | Needs `include_local_entities` |
 | ------------- | ------------- | ------------- |
-| `'off'` | Nowhere. The graph is byte-identical to a build without an ontology. | — |
+| `'off'` | Nowhere. No typed property is written, and the emitted graph queries are byte-identical to a build without an ontology. (The graph itself is not, unless `ontology_authority` is also `'off'`: `normalize_names` rewrites classifications, and `create_entity_id` hashes the classification into the entity id.) | — |
 | `'subject'` | On the **subject** `__Entity__`, keyed by the property's own local name. | No |
 | `'complement'` | On the **complement** entity, as `typed_value` and `datatype`. | **Yes** |
 | `'both'` | Each of the above, to its own node. Not a fallback chain. | **Yes** |
@@ -414,10 +481,14 @@ conjure a node the setting would have suppressed. Asking for `'complement'` or `
 configured, rather than silently writing nothing.
 
 An ontology whose vocabulary would collide with the graph model is refused at
-configuration time rather than at build time: `__Entity__` owns `value`, `search_str` and
-`class`, and complement placement additionally owns `typed_value` and `datatype`. A
+configuration time rather than at build time: `__Entity__` owns `entityId`, `value`,
+`search_str` and `class`, and `'both'` additionally owns `typed_value` and `datatype`. A
 declared datatype property with one of those names raises `ValueError` from
-`OntologyConfig`, scoped to the placement you actually asked for.
+`OntologyConfig`, scoped to the placement you actually asked for — so the check runs at
+`'subject'` and `'both'`, which are the placements that key a property from the ontology's
+own vocabulary, and not at `'off'` or `'complement'`, which write nothing keyed that way.
+`entityId` is on the list because it is the property every `__Entity__` MERGE keys on
+wherever the store's node id is property-based (Neo4j, FalkorDB).
 
 #### What lands on a node
 
@@ -468,6 +539,28 @@ model to state a bare number, as `news.ttl` does for `:revenue`.
 
 At `'strict'`, `enforce_datatypes` is on and the fact is **dropped** rather than kept
 untyped. Refusal is lossless at `align`; it is not at `strict`.
+
+A **timezone is refused, not discarded.** `xsd:dateTime` and `xsd:time` values carrying an
+offset or a `Z` — `'2020-03-03T23:00:00-05:00'` — do not coerce. Stripping the offset would
+change the value while reporting success: two spellings of the same instant would store as
+different strings, and `-05:00` and `+09:00` would store as identical ones. Converting to UTC
+was rejected for the same reason coercion refuses `'$1.2bn'` — it rewrites what the text said.
+For `xsd:date` an offset *is* dropped, because the value there is a calendar date and the
+offset only says which instant within that day it was anchored to.
+
+<Aside type="note" title="xsd:dateTime accepts marginally more on Python 3.11+">
+  Coercion for `xsd:dateTime` delegates the lexical form to Python's
+  `datetime.fromisoformat`, whose accepted grammar widened in 3.11. On 3.10 a fractional
+  second with other than 3 or 6 digits (`'…:00.5'`), ISO basic format (`'20200303T093000'`)
+  and week dates (`'2020-W10-2'`) are refused; on 3.11 and later they are accepted. Every
+  ordinary form — `'2020-03-03T09:30:00'`, `'2020-03-03T09:30'`, `'2020-03-03 09:30:00'` —
+  behaves identically on both.
+
+  This is deliberate: pinning the grammar would mean owning a date parser. The consequence is
+  that at `ontology_authority='strict'` a build on 3.10 can retain marginally fewer facts than
+  the same build on 3.12. If that matters to you, pin your Python version rather than relying
+  on the coercer.
+</Aside>
 
 ### Who reads typed properties
 

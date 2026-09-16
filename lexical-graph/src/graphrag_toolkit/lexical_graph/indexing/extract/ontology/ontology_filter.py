@@ -49,11 +49,16 @@ the graph from a correct one.
 **Process boundary.** Extraction runs `ProcessPoolExecutor(mp_context='spawn')`,
 so this component is pickled per node batch per worker. It therefore holds only
 `OntologyIndex` - plain `str`, `List[str]`, `Dict[str, ...]` and `FrozenSet[str]`
-- never an `rdflib.Graph`, declares **no custom `__init__`** because
-`BaseComponent.__setstate__` calls `self.__init__(**state['__dict__'])`, and
-imports no rdflib so workers do not pay for the import. Every import below is
-from a submodule rather than from the `ontology` package, whose `__init__`
-imports `ontology.py` and therefore rdflib.
+- never an `rdflib.Graph`, and declares **no custom `__init__`** because
+`BaseComponent.__setstate__` calls `self.__init__(**state['__dict__'])`. Every
+import below is from a submodule rather than from the `ontology` package, whose
+`__init__` imports `ontology.py`.
+
+Note what that submodule discipline does *not* buy: rdflib is still imported in
+the worker. Importing any submodule of this package runs every ancestor
+`__init__`, and `indexing.extract.__init__` re-exports the ontology package. The
+claim that holds is the plain-data one - nothing rdflib-shaped is pickled across
+the boundary - not an import-cost one.
 """
 
 import logging
@@ -70,6 +75,7 @@ from graphrag_toolkit.lexical_graph.indexing.extract.ontology.datatype_utils imp
     validates_datatype,
 )
 from graphrag_toolkit.lexical_graph.indexing.extract.ontology.naming import (
+    compact_key,
     resolution_key,
 )
 from graphrag_toolkit.lexical_graph.indexing.extract.ontology.ontology_index import (
@@ -102,28 +108,12 @@ _DROP_DIMENSIONS = (
     ('facts_dropped_datatype', 'enforce_datatypes'),
 )
 
-_NON_ALPHANUMERIC = re.compile(r'[^a-z0-9]')
-
-def _compact(name:str) -> str:
-    """Fold a name to lowercase alphanumerics, dropping every separator.
-
-    Deliberately coarser than `resolution_key`, which preserves word boundaries
-    because it has to round-trip against the prompt rendering. Here the opposite
-    is wanted: the names being matched are ones no ontology declared and no
-    renderer produced, so there is no round trip to preserve, and every spelling
-    a model might reach for should land on one key.
-
-        'rdf:type' 'RDF_TYPE' 'rdf type'   -> 'rdftype'
-        'subClassOf' 'SUBCLASS_OF'         -> 'subclassof'
-        'isA' 'IS_A' 'is a'                -> 'isa'
-
-    Note what this gives up: it cannot tell `rdfs:label` from a predicate
-    genuinely named `RDFSLABEL`. That is why the prefixed family below is
-    matched on the *whole* compacted string, prefix included - stripping the
-    prefix would fold `rdfs:domain` onto `DOMAIN`, and a web domain is a real
-    attribute.
-    """
-    return _NON_ALPHANUMERIC.sub('', (name or '').lower())
+# The coarse fold lives in `naming.py` with the other naming-convention helpers,
+# because `OntologyIndex` needs the same function for its fallback class key and
+# must not import this module. Aliased rather than renamed at every call site: the
+# leading underscore is what marks it module-private *here*, where it means
+# "match a predicate no ontology declared".
+_compact = compact_key
 
 # Predicates that are ontology *language* rather than domain vocabulary. A fact
 # whose predicate is one of these is never a statement about the world, whatever
@@ -181,6 +171,26 @@ _TYPE_ASSERTING_PREDICATES = frozenset(
 # `OntologyFilter._warn_unvalidated_datatype` for why per-process is the honest
 # contract. Exposed under this name so tests can clear it.
 _warned_unvalidated_datatypes = set()
+
+def _is_reserved_classification(name:Optional[str]) -> bool:
+    """Whether a classification is one the pipeline owns rather than the ontology.
+
+    `__Local_Entity__` is the case that matters. `parse_extracted_topics` stamps
+    it onto a subject or complement whose text matched no entity in the entity
+    block, and a long tail of build-stage guards then compare against it
+    verbatim. It is also a name an ontology can accidentally claim:
+    `resolution_key('__Local_Entity__')` is `'local entity'`, so a declared
+    `:LocalEntity` - or any term labelled "Local Entity" - resolves it, and
+    `normalize_names` (on from `align` upward) rewrites the sentinel to
+    `LocalEntity`. Every `== LOCAL_ENTITY_CLASSIFICATION` check downstream then
+    misses, and `include_local_entities` stops meaning anything.
+
+    Matched on the `__...__` shape rather than against the one constant, because
+    the shape is what the graph model reserves - `label_from` and
+    `search_string_from` both pass `__...__` values through untouched - so any
+    such name is the pipeline's, and no ontology term should answer for it.
+    """
+    return bool(name) and name.startswith('__') and name.endswith('__')
 
 def _complement_literal(complement:Optional[Any]) -> Optional[str]:
     """The string form of a fact's complement.
@@ -488,10 +498,10 @@ class OntologyFilter(TransformComponent):
         """
         resolution = FactResolution()
 
-        resolution.subject_class = self.index.resolve_class(fact.subject.classification or '')
+        resolution.subject_class = self._resolve_class(fact.subject.classification)
 
         if fact.object is not None:
-            resolution.object_class = self.index.resolve_class(fact.object.classification or '')
+            resolution.object_class = self._resolve_class(fact.object.classification)
             resolution.predicate = self.index.resolve_object_predicate(fact.predicate.value or '')
             return resolution
 
@@ -503,6 +513,17 @@ class OntologyFilter(TransformComponent):
 
         resolution.predicate = self.index.resolve_object_predicate(fact.predicate.value or '')
         return resolution
+
+    def _resolve_class(self, classification:Optional[str]) -> Optional[OntologyClass]:
+        """Resolve a classification, except one the pipeline reserves.
+
+        The one place class resolution happens, so a reserved sentinel cannot be
+        resolved by one caller and skipped by another. See
+        `_is_reserved_classification`.
+        """
+        if _is_reserved_classification(classification):
+            return None
+        return self.index.resolve_class(classification or '')
 
     # ------------------------------------------------------------------
     # Normalize
@@ -531,7 +552,7 @@ class OntologyFilter(TransformComponent):
         the fact path. Annotation is unconditional, matching facts: an entity
         whose class resolved records the IRI even with every `enforce_*` off.
         """
-        ontology_class = self.index.resolve_class(entity.classification or '')
+        ontology_class = self._resolve_class(entity.classification)
         if self.normalize_names:
             self._rewrite_classification(entity, ontology_class, counters)
         if ontology_class is not None:
