@@ -58,6 +58,27 @@ Returns:
 - If `return_dict=True`: List of dictionaries with detailed linking results
 - If `return_dict=False`: List of matched entity IDs
 
+**`link_grouped(query_extracted_entities, retriever, topk)`**
+
+Links mentions to graph nodes but keeps the candidates grouped per mention. `link`
+matches all mentions in one call and flattens the hits, so the caller cannot tell
+which candidate came from which mention; `link_grouped` matches one mention at a
+time through the same retriever, preserving that attribution.
+
+Parameters:
+- `query_extracted_entities` (List[str]): List of mention strings to link
+- `retriever` (object, optional): Entity retriever to use for lookup
+- `topk` (int, optional): Number of candidates to return per mention
+
+Returns:
+- `List[List[str]]`: One best-first list of candidate node IDs per mention, in the
+  same order as the mentions
+
+Used by `ByoKGQueryEngine(single_best_match=True)` to keep only each mention's best
+match. Because it routes through the same retriever as `link`, per-mention
+candidates match the union path — including retriever-specific filtering such as
+the fuzzy matcher's length filter.
+
 ### Agentic Retriever
 
 The Agentic Retriever implements an iterative exploration strategy using LLM-guided decision making to dynamically explore the knowledge graph.

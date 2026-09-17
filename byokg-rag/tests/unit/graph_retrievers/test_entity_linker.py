@@ -120,6 +120,23 @@ class TestEntityLinkerLink:
         with pytest.raises(ValueError, match="Either 'retriever' or 'self.retriever' must be provided"):
             linker.link(query_entities)
     
+    def test_link_accepts_id_selector_kwarg(self, mock_retriever):
+        """id_selector stays in the signature (unused) so existing callers don't break."""
+        linker = EntityLinker(retriever=mock_retriever, topk=3)
+
+        result = linker.link([['Amazon']], id_selector=['entity1'], return_dict=True)
+
+        assert isinstance(result, dict)
+
+    def test_link_positional_argument_order(self, mock_retriever):
+        """Pins the positional order: the 4th positional arg is id_selector, not return_dict."""
+        linker = EntityLinker(topk=3)
+
+        # link(entities, retriever, topk, id_selector, return_dict)
+        result = linker.link([['Amazon']], mock_retriever, 3, None, False)
+
+        assert result == [['entity1', 'entity2']]
+
     def test_link_multiple_queries(self, mock_retriever):
         """Verify link handles multiple query entity lists."""
         mock_retriever.retrieve.return_value = {
@@ -137,6 +154,49 @@ class TestEntityLinkerLink:
         assert len(result) == 2
         assert result[0] == ['e1']
         assert result[1] == ['e2']
+
+
+class TestEntityLinkerLinkGrouped:
+    """Tests for EntityLinker.link_grouped (per-mention candidate grouping)."""
+
+    def _matcher(self):
+        # Matches one mention at a time through the same matcher link() uses.
+        # The matcher returns one dict with a scalar document_id per hit.
+        mock_ret = Mock()
+
+        def fake_retrieve(queries, topk):
+            (mention,) = queries
+            return {
+                'Amazon': {'hits': [
+                    {'document_id': 'Amazon', 'document': 'Amazon', 'match_score': 100},
+                    {'document_id': 'Amazon Web Services', 'document': 'Amazon Web Services', 'match_score': 85},
+                ]},
+                'Google': {'hits': [
+                    {'document_id': 'Google', 'document': 'Google', 'match_score': 100},
+                ]},
+            }[mention]
+
+        mock_ret.retrieve.side_effect = fake_retrieve
+        return mock_ret
+
+    def test_link_grouped_preserves_per_mention_grouping(self):
+        """Each mention gets its own best-first candidate list, in input order."""
+        mock_ret = self._matcher()
+        linker = EntityLinker(retriever=mock_ret, topk=3)
+
+        grouped = linker.link_grouped(['Amazon', 'Google'])
+
+        assert grouped == [['Amazon', 'Amazon Web Services'], ['Google']]
+        # one matcher call per mention (not one batched call), with configured topk
+        assert mock_ret.retrieve.call_args_list[0].kwargs == {'queries': ['Amazon'], 'topk': 3}
+        assert mock_ret.retrieve.call_args_list[1].kwargs == {'queries': ['Google'], 'topk': 3}
+
+    def test_link_grouped_no_retriever_error(self):
+        """ValueError when no retriever is available."""
+        linker = EntityLinker()
+
+        with pytest.raises(ValueError, match="Either 'retriever' or 'self.retriever' must be provided"):
+            linker.link_grouped(['Amazon'])
 
 
 class TestLinkerAbstract:
