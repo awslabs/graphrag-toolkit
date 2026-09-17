@@ -24,6 +24,7 @@ from graphrag_toolkit.lexical_graph.indexing.model import SourceDocument, Source
 from graphrag_toolkit.lexical_graph.indexing.constants import PROPOSITIONS_KEY, TOPICS_KEY
 from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
 from graphrag_toolkit.lexical_graph import GraphRAGConfig
+from graphrag_toolkit.lexical_graph.utils.id_validation import validate_id_segment
 
 from llama_index.core.schema import TextNode, BaseComponent
 from llama_index.core.bridge.pydantic import PrivateAttr
@@ -82,6 +83,22 @@ def is_completion_marker(key:str) -> bool:
     chunk whose node id opens with the marker prefix would be dropped.
     """
     return basename(dirname(key)) == COMPLETION_MARKER_DIR
+
+
+def source_document_prefix(collection_prefix:str, doc:SourceDocument, nodes) -> str:
+    """
+    Where a source document's objects go, with the ids that name it checked.
+
+    Both uploaders join ids onto the collection prefix to build a key, so an id
+    is a key segment and has to stay inside one.
+    """
+    source_id = doc.source_id()
+    validate_id_segment(source_id, 'source_id')
+
+    for n in nodes:
+        validate_id_segment(n.node_id, 'node_id')
+
+    return join(collection_prefix, source_id)
 
 
 def written_nodes(doc:SourceDocument) -> List[TextNode]:
@@ -454,7 +471,9 @@ class S3DocUploader(ConfiguredThreadCount, EncryptedPut, BaseComponent):
                     if not source_document.nodes:
                         continue
                     
-                    root_path = join(self.collection_prefix, source_document.source_id())
+                    root_path = source_document_prefix(
+                        self.collection_prefix, source_document, written_nodes(source_document)
+                    )
                    
                     if self._submit_proxy(self._upload_doc, executor, queue, root_path, source_document, s3_client):
                         count += 1
@@ -724,7 +743,7 @@ class S3ChunkUploader(ConfiguredThreadCount, EncryptedPut, BaseComponent):
                 nodes = written_nodes(source_document)
 
                 if nodes:
-                    root_path =  join(self.collection_prefix, source_document.source_id())
+                    root_path = source_document_prefix(self.collection_prefix, source_document, nodes)
                     logger.debug(f'Writing source document to S3 [bucket: {self.bucket_name}, prefix: {root_path}]')
 
                     futures = [

@@ -1482,3 +1482,52 @@ class TestTheJsonlReaderSkipsAnIncompleteDocument:
         objects = {'p/c/doc-a/src-1-abcde.jsonl': self._jsonl(['c1', 'c2'])}
 
         assert self._read(objects, markers=[], recorded=False) == [['c1', 'c2']]
+
+
+def _doc_with_ids(source_id, node_ids):
+    """A source document whose chunk ids the caller chooses."""
+    doc = Mock()
+    doc.nodes = [TextNode(text=f'text for {i}', id_=i) for i in node_ids]
+    doc.source_id.return_value = source_id
+    return doc
+
+
+class TestAnIdThatWouldLeaveThePrefixIsRejected:
+    """
+    Both uploaders join an id onto the collection prefix to make a key. A
+    separator in either id opens a new segment, so the object lands outside the
+    prefix the collection owns. A node id under the reserved marker segment is
+    the same fault with a worse ending: the chunk reads back as a marker, the
+    declared set no longer matches, and the document is skipped on every read.
+    """
+
+    def _upload(self, uploader_cls, doc):
+        uploader = uploader_cls(bucket_name='b', collection_prefix='p/c', num_threads=2)
+        with patch(f'{S3_BASED_DOCS}.GraphRAGConfig') as config:
+            config.s3 = MagicMock()
+            config.extraction_num_threads_per_worker = 2
+            return list(uploader.upload([doc]))
+
+    @pytest.mark.parametrize('uploader_cls', [S3ChunkUploader, S3DocUploader])
+    @pytest.mark.parametrize('source_id', ['../escaped', 'a/b', 'aws::dead:beef/../..'])
+    def test_a_source_id_that_escapes_the_collection_prefix(self, uploader_cls, source_id):
+        with pytest.raises(ValueError, match='source_id'):
+            self._upload(uploader_cls, _doc_with_ids(source_id, ['c1']))
+
+    @pytest.mark.parametrize('uploader_cls', [S3ChunkUploader, S3DocUploader])
+    @pytest.mark.parametrize('node_id', ['../escaped', 'a/b'])
+    def test_a_node_id_that_escapes_the_document_prefix(self, uploader_cls, node_id):
+        with pytest.raises(ValueError, match='node_id'):
+            self._upload(uploader_cls, _doc_with_ids('aws::dead:beef', [node_id]))
+
+    @pytest.mark.parametrize('uploader_cls', [S3ChunkUploader, S3DocUploader])
+    def test_a_node_id_under_the_reserved_marker_segment(self, uploader_cls):
+        # Without this the chunk is written to <prefix>/_markers/x.json, read
+        # back as a completion marker, and the whole document is skipped - on
+        # the first read and on every re-stage, because the key never changes.
+        with pytest.raises(ValueError, match='node_id'):
+            self._upload(uploader_cls, _doc_with_ids('aws::dead:beef', ['c1', '_markers/x']))
+
+    @pytest.mark.parametrize('uploader_cls', [S3ChunkUploader, S3DocUploader])
+    def test_a_generated_id_still_uploads(self, uploader_cls):
+        assert len(self._upload(uploader_cls, _doc_with_ids('aws::dead:beef', ['c1', 'c2']))) == 1
