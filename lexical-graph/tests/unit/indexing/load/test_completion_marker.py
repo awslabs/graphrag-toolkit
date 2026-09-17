@@ -528,3 +528,21 @@ class TestASourceOpenAcrossAnUploadBatch:
 
         assert len(closing) == 1
         assert closing[0]['source_chunk_ids'] == ['c1', 'c2']
+
+
+class TestEndingASourceThatWasNeverOpened:
+
+    def test_it_does_not_declare_an_empty_source(self):
+        # Declaring an empty set would say the source stores nothing, and a
+        # marker saying that certifies a prefix holding chunks as incomplete
+        # for good. Leaving the source open costs a re-stage instead.
+        uploader = _uploader()
+
+        assert uploader._end_source('never-opened') is None
+
+    def test_it_returns_what_an_opened_source_stored(self):
+        uploader = _uploader()
+        uploader._open_source('src-1', 'p/c/src-1', ['c1', 'c2'])
+
+        assert uploader._end_source('src-1') == ['c1', 'c2']
+        assert uploader._end_source('src-1') is None, 'the source is closed now'

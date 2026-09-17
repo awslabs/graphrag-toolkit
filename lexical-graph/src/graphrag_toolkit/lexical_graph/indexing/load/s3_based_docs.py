@@ -226,6 +226,49 @@ class EncryptedPut:
             **encryption
         )
 
+class CompletionMarkers:
+    """
+    How these uploaders record that what they stored is whole.
+
+    A source is opened as its parts are staged and ended by the part that holds
+    its last chunk, which declares every chunk id stored for the source. A
+    source that lost a chunk is poisoned and never ends, so its prefix reads as
+    incomplete and the document is staged again.
+
+    Writing goes through EncryptedPut, which the host class also inherits.
+    """
+
+    # Supplied by the host class.
+    bucket_name:str
+    _open_sources:Dict[str, Tuple[str, List[str]]]
+    _poisoned_sources:Set[str]
+
+    def _open_source(self, source_id:str, root_path:str, node_ids):
+        """
+        Add what this part stored to its source's running set.
+
+        Accumulated on the calling thread rather than in the worker, so the set
+        is not at the mercy of the order the pool runs the parts in.
+        """
+        self._open_sources.setdefault(source_id, (root_path, []))[1].extend(node_ids)
+
+    def _end_source(self, source_id:str) -> Optional[List[str]]:
+        """Every chunk id stored for a source, and the source closed. None if
+        it was never opened, which leaves the source open rather than declaring
+        that it stores nothing."""
+        opened = self._open_sources.pop(source_id, None)
+        return opened[1] if opened is not None else None
+
+    def _poison_source(self, source_id:str):
+        """
+        Record that a source lost a chunk.
+
+        Checked before any marker write, so neither a later part nor the end of
+        the stream can close it.
+        """
+        self._poisoned_sources.add(source_id)
+        self._open_sources.pop(source_id, None)
+
     def record_collection(self, key_prefix:str, collection_id:str, s3_client):
         """
         Record that this collection is staged with completion markers.
@@ -253,8 +296,7 @@ class EncryptedPut:
         key = collection_record_key(key_prefix, collection_id)
         self._put(key, json.dumps({'completion_markers': True}, indent=4), 'application/json', s3_client)
 
-    def _close_open_sources(self, open_sources:Dict[str, Tuple[str, List[str]]], s3_client,
-                            poisoned:Set[str]=frozenset()):
+    def _close_open_sources(self, s3_client):
         """
         End every source still open when the stream runs out.
 
@@ -264,15 +306,15 @@ class EncryptedPut:
         declaring what was stored. A run that dies never reaches here, so its
         sources stay open and their prefixes incomplete.
         """
-        for source_id, (root_path, chunk_ids) in open_sources.items():
-            if source_id in poisoned:
+        for source_id, (root_path, chunk_ids) in self._open_sources.items():
+            if source_id in self._poisoned_sources:
                 logger.debug(f'Leaving a source that lost a chunk unmarked [source: {source_id}]')
                 continue
             logger.debug(f'Ending a source left open by the stream [source: {source_id}, chunks: {len(chunk_ids)}]')
             self._write_completion_marker(
                 root_path, chunk_ids, s3_client, source_chunk_ids=chunk_ids
             )
-        open_sources.clear()
+        self._open_sources.clear()
 
     def _write_completion_marker(self, root_path:str, chunk_ids:List[str], s3_client,
                                  source_chunk_ids:Optional[List[str]]=None):
@@ -340,6 +382,7 @@ def to_batches(xs, n):
     n = max(1, n)
     return [xs[i:i+n] for i in range(0, len(xs), n)]
 
+
 class S3DocDownloader(ConfiguredThreadCount, BaseComponent):
 
     key_prefix:str
@@ -358,6 +401,10 @@ class S3DocDownloader(ConfiguredThreadCount, BaseComponent):
             for node_page in node_pages
             for node_obj in node_page.get('Contents', [])
         ])
+
+        if strict and not marker_keys:
+            logger.warning(f'Skipping an incomplete source document [prefix: {doc_key}, num_objects: {len(node_keys)}]')
+            return None
 
         # Every object under the prefix merges into one SourceDocument, and a
         # run that packs a source's chunks differently writes a new object
@@ -425,7 +472,7 @@ class S3DocDownloader(ConfiguredThreadCount, BaseComponent):
                     logger.debug(f'Yielding source document [source: {doc.source_id()}, num_nodes: {len(doc.nodes)}]')
                     yield doc
 
-class S3DocUploader(ConfiguredThreadCount, EncryptedPut, BaseComponent):
+class S3DocUploader(ConfiguredThreadCount, EncryptedPut, CompletionMarkers, BaseComponent):
 
     bucket_name:str
     collection_prefix:str
@@ -436,7 +483,7 @@ class S3DocUploader(ConfiguredThreadCount, EncryptedPut, BaseComponent):
     _open_sources:Dict[str, Tuple[str, List[str]]] = PrivateAttr(default_factory=dict)
     _poisoned_sources:Set[str] = PrivateAttr(default_factory=set)
     
-    def _doc_suffix(self, doc:SourceDocument) -> str:
+    def _doc_suffix(self, nodes:List[TextNode]) -> str:
         """
         What separates one object from another under a source document's prefix.
 
@@ -452,7 +499,7 @@ class S3DocUploader(ConfiguredThreadCount, EncryptedPut, BaseComponent):
         if not self.deterministic_document_key:
             return uuid.uuid4().hex[:5]
 
-        return node_ids_hash(n.node_id for n in written_nodes(doc))
+        return node_ids_hash(n.node_id for n in nodes)
 
     def _upload_doc(self, root_path:str, doc:SourceDocument, s3_client, source_chunk_ids=None):
 
@@ -461,11 +508,12 @@ class S3DocUploader(ConfiguredThreadCount, EncryptedPut, BaseComponent):
         if not nodes:
             return doc
 
-        doc_output_path = join(root_path, f'{doc.source_id()}-{self._doc_suffix(doc)}.jsonl')
+        doc_output_path = join(root_path, f'{doc.source_id()}-{self._doc_suffix(nodes)}.jsonl')
 
         logger.debug(f'Writing source document as JSONL to S3: [bucket: {self.bucket_name}, key: {doc_output_path}]')
 
         try:
+
 
             s = '\n'.join([
                 json.dumps(n.to_dict())
@@ -528,19 +576,14 @@ class S3DocUploader(ConfiguredThreadCount, EncryptedPut, BaseComponent):
                         continue
 
                     source_id = source_document.source_id()
+                    nodes = written_nodes(source_document)
                     root_path = source_document_prefix(
-                        self.collection_prefix, source_document, written_nodes(source_document)
+                        self.collection_prefix, source_document, nodes
                     )
 
-                    # Accumulated here rather than in the worker, so the set is
-                    # not at the mercy of the order the pool runs the parts in.
-                    self._open_sources.setdefault(source_id, (root_path, []))[1].extend(
-                        n.node_id for n in written_nodes(source_document)
-                    )
+                    self._open_source(source_id, root_path, [n.node_id for n in nodes])
                     source_chunk_ids = (
-                        self._open_sources.pop(source_id)[1]
-                        if source_document.final_part
-                        else None
+                        self._end_source(source_id) if source_document.final_part else None
                     )
 
                     if self._submit_proxy(self._upload_doc, executor, queue, root_path, source_document, s3_client, source_chunk_ids):
@@ -654,7 +697,7 @@ class S3DocUploader(ConfiguredThreadCount, EncryptedPut, BaseComponent):
 
         # Outside the pool: a closing marker supersedes the one its last part
         # wrote, so it cannot be written while that part is in flight.
-        self._close_open_sources(self._open_sources, GraphRAGConfig.s3, self._poisoned_sources)
+        self._close_open_sources(GraphRAGConfig.s3)
 
 class S3ChunkDownloader(ConfiguredThreadCount, BaseComponent):
 
@@ -755,7 +798,7 @@ class S3ChunkDownloader(ConfiguredThreadCount, BaseComponent):
 
                 yield SourceDocument(nodes=nodes)
 
-class S3ChunkUploader(ConfiguredThreadCount, EncryptedPut, BaseComponent):
+class S3ChunkUploader(ConfiguredThreadCount, EncryptedPut, CompletionMarkers, BaseComponent):
 
     bucket_name:str
     collection_prefix:str
@@ -814,17 +857,9 @@ class S3ChunkUploader(ConfiguredThreadCount, EncryptedPut, BaseComponent):
                 source_id = oldest.source_id()
 
                 if not self._drain(oldest_futures):
-                    # A chunk of this source did not land, so the source gets no
-                    # marker here and none when a later part or the end of the
-                    # stream would otherwise close it.
-                    self._poisoned_sources.add(source_id)
-                    self._open_sources.pop(source_id, None)
+                    self._poison_source(source_id)
                 elif nodes and source_id not in self._poisoned_sources:
-                    ends_source = (
-                        self._open_sources.pop(source_id, (root_path, []))[1]
-                        if oldest.final_part
-                        else None
-                    )
+                    ends_source = self._end_source(source_id) if oldest.final_part else None
                     self._write_completion_marker(
                         root_path, [n.node_id for n in nodes], s3_client,
                         source_chunk_ids=ends_source
@@ -840,9 +875,7 @@ class S3ChunkUploader(ConfiguredThreadCount, EncryptedPut, BaseComponent):
                 if nodes:
                     source_id = source_document.source_id()
                     root_path = source_document_prefix(self.collection_prefix, source_document, nodes)
-                    self._open_sources.setdefault(source_id, (root_path, []))[1].extend(
-                        n.node_id for n in nodes
-                    )
+                    self._open_source(source_id, root_path, [n.node_id for n in nodes])
                     logger.debug(f'Writing source document to S3 [bucket: {self.bucket_name}, prefix: {root_path}]')
 
                     futures = [
@@ -867,7 +900,7 @@ class S3ChunkUploader(ConfiguredThreadCount, EncryptedPut, BaseComponent):
             while pending:
                 yield release_oldest()
 
-            self._close_open_sources(self._open_sources, s3_client, self._poisoned_sources)
+            self._close_open_sources(s3_client)
 
 
 
