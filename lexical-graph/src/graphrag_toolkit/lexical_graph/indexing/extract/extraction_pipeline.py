@@ -473,23 +473,7 @@ class ExtractionPipeline():
                 **self.pipeline_kwargs
             )
 
-            extract_timestamp = self.extract_timestamp or int(time.time() * 1000)
-
-            def add_timestamp(node):
-                if EXTRACT_TIMESTAMP in node.metadata:
-                    return node
-                node.metadata[EXTRACT_TIMESTAMP] = extract_timestamp
-                return node
-
-            timestamped_nodes = [
-                add_timestamp(node)
-                for node in output_nodes
-            ]
-  
-            output_source_documents = self._source_documents_from_base_nodes(timestamped_nodes)
-
-            for source_document in output_source_documents:
-                yield self.extraction_decorator.handle_output_doc(source_document)
+            yield from self._emit_extracted(output_nodes)
 
     def _split_transformations(self):
         """Partition the ingestion transformations into a chunking prefix and an
@@ -765,8 +749,9 @@ class ExtractionPipeline():
 
         A source whose chunks span rounds is emitted as several source documents.
         finished_sources names the sources with no chunks left to extract, and
-        only the last document emitted for one of those ends its source. Callers
-        that never split a source leave it None, which ends every document.
+        only the last document emitted for one of those ends its source. None
+        means every source here is finished, which is what a caller that runs
+        each source to completion in one pass has.
         """
         extract_timestamp = self.extract_timestamp or int(time.time() * 1000)
 
@@ -783,19 +768,19 @@ class ExtractionPipeline():
 
         output_source_documents = list(self._source_documents_from_base_nodes(timestamped_nodes))
 
-        if finished_sources is not None:
-            # A source can appear as more than one document in a single round:
-            # the batch extractor sorts its output by node id, and documents are
-            # cut on contiguous runs of source id.
-            last_document = {
-                source_document.source_id(): position
-                for position, source_document in enumerate(output_source_documents)
-            }
-            for position, source_document in enumerate(output_source_documents):
-                source_id = source_document.source_id()
-                source_document.final_part = (
-                    source_id in finished_sources and last_document[source_id] == position
-                )
+        # A source can appear as more than one document in a single round: the
+        # batch extractor sorts its output by node id, and documents are cut on
+        # contiguous runs of source id.
+        last_document = {
+            source_document.source_id(): position
+            for position, source_document in enumerate(output_source_documents)
+        }
+        for position, source_document in enumerate(output_source_documents):
+            source_id = source_document.source_id()
+            source_document.final_part = (
+                (finished_sources is None or source_id in finished_sources)
+                and last_document[source_id] == position
+            )
 
         for source_document in output_source_documents:
             yield self.extraction_decorator.handle_output_doc(source_document)
