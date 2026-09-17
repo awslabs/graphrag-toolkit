@@ -1484,6 +1484,50 @@ class TestTheJsonlReaderSkipsAnIncompleteDocument:
 
         assert self._read(objects, markers=[], recorded=False) == [['c1', 'c2']]
 
+    def test_a_prefix_with_no_marker_is_skipped_without_downloading(self):
+        # A prefix holding no marker cannot read complete whatever the objects
+        # say, and the listing already shows that. Downloading and parsing them
+        # first only to throw the result away costs a GET per object.
+        objects = {'p/c/doc-a/src-1-abcde.jsonl': self._jsonl(['c1', 'c2'])}
+
+        downloaded = self._downloads_during_read(objects, markers=[])
+
+        assert downloaded == []
+
+    def _downloads_during_read(self, objects, markers, recorded=True):
+        """The keys the reader actually fetched."""
+        downloaded = []
+        downloader = S3DocDownloader(
+            key_prefix='p', collection_id='c', bucket_name='b', fn=lambda n: n
+        )
+
+        keys = dict(objects)
+        for node_ids in markers:
+            keys[completion_marker_key('p/c/doc-a', node_ids)] = json.dumps(
+                {'chunk_ids': sorted(node_ids)}
+            )
+
+        mock_s3 = MagicMock()
+        mock_s3.get_paginator.return_value.paginate.side_effect = lambda **kwargs: (
+            [{'CommonPrefixes': [{'Prefix': 'p/c/doc-a/'}],
+              'Contents': [{'Key': collection_record_key('p', 'c')}] if recorded else []}]
+            if kwargs.get('Delimiter') == '/'
+            else [{'Contents': [{'Key': key} for key in keys]}]
+        )
+
+        def download_fileobj(bucket, key, stream):
+            downloaded.append(key)
+            stream.write(keys[key].encode('UTF-8'))
+
+        mock_s3.download_fileobj.side_effect = download_fileobj
+
+        with patch(f'{S3_BASED_DOCS}.GraphRAGConfig') as mock_config:
+            mock_config.s3 = mock_s3
+            mock_config.extraction_num_threads_per_worker = 2
+            list(downloader.download())
+
+        return downloaded
+
 
 def _doc_with_ids(source_id, node_ids):
     """A source document whose chunk ids the caller chooses."""
