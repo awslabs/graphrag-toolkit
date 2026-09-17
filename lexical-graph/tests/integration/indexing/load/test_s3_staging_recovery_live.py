@@ -184,3 +184,62 @@ class TestACollectionStagedBeforeMarkersExisted:
             f'{key_prefix}/{collection_id}/'
         )
         assert _read_back(key_prefix, collection_id, for_jsonl) == ['src-1']
+
+
+def _no_document_objects_under(key_prefix, collection_id):
+    """
+    Nothing of the document reached the bucket.
+
+    The collection record is written before the first document and stays: an
+    empty collection carrying one reads strict and yields nothing.
+    """
+    record_key = f'{key_prefix}/{collection_id}/{COLLECTION_RECORD_NAME}'
+    return [k for k in _keys_under(f'{key_prefix}/') if k != record_key] == []
+
+
+def _doc_with_ids(source_id, node_ids):
+    nodes = []
+    for node_id in node_ids:
+        node = TextNode(text=f'text for {node_id}', id_=node_id)
+        node.relationships[NodeRelationship.SOURCE] = RelatedNodeInfo(node_id=source_id)
+        nodes.append(node)
+    return SourceDocument(nodes=nodes)
+
+
+@pytest.mark.parametrize('for_jsonl', [False, True], ids=['chunks', 'jsonl'])
+class TestAnIdThatWouldLeaveTheCollectionPrefix:
+    """
+    Against a real endpoint, because the escape depends on how S3 treats a key
+    segment: botocore sends segments unencoded, so what a separator does to a
+    key is a property of the service, not of the string.
+    """
+
+    @pytest.mark.parametrize('source_id', ['../escaped', 'a/b'])
+    def test_a_source_id_carrying_a_separator_writes_nothing(
+        self, key_prefix, for_jsonl, source_id
+    ):
+        collection_id = 'hostile-source-id'
+
+        with pytest.raises(ValueError, match='source_id'):
+            _stage(key_prefix, collection_id, [_doc_with_ids(source_id, ['c1'])], for_jsonl)
+
+        assert _no_document_objects_under(key_prefix, collection_id)
+
+    def test_a_node_id_under_the_marker_segment_writes_nothing(self, key_prefix, for_jsonl):
+        collection_id = 'hostile-node-id'
+
+        with pytest.raises(ValueError, match='node_id'):
+            _stage(
+                key_prefix,
+                collection_id,
+                [_doc_with_ids('src-1', ['c1', '_markers/x'])],
+                for_jsonl,
+            )
+
+        assert _no_document_objects_under(key_prefix, collection_id)
+
+    def test_a_generated_id_still_stages_and_reads_back(self, key_prefix, for_jsonl):
+        collection_id = 'generated-ids'
+        _stage(key_prefix, collection_id, [_doc('src-1')], for_jsonl)
+
+        assert _read_back(key_prefix, collection_id, for_jsonl) == ['src-1']
