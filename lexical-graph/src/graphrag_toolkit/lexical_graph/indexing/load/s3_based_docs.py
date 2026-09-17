@@ -16,7 +16,7 @@ from os.path import basename, dirname, join
 from datetime import datetime
 from itertools import repeat, islice
 from threading import Semaphore
-from typing import List, Any, Generator, Optional, Dict, Callable, Tuple
+from typing import List, Any, Generator, Optional, Dict, Callable, Set, Tuple
 
 from graphrag_toolkit.lexical_graph.indexing import NodeHandler
 from graphrag_toolkit.lexical_graph.indexing.utils.hash_utils import get_hash
@@ -192,7 +192,11 @@ def is_complete(node_ids, marker_keys, bucket_name:str, s3_client) -> bool:
 
     declared = set()
     for marker in final_markers:
-        declared.update(marker.get('source_chunk_ids') or marker.get('chunk_ids', []))
+        declared.update(
+            marker['source_chunk_ids']
+            if 'source_chunk_ids' in marker
+            else marker.get('chunk_ids', [])
+        )
 
     return set(node_ids) == declared
 
@@ -240,13 +244,17 @@ class EncryptedPut:
         )
 
         if existing.get('KeyCount'):
-            logger.debug(f'Not recording a collection that already holds objects [collection_path: {collection_path}]')
+            logger.info(
+                f'Not recording a collection that already holds objects, so it is read '
+                f'without completeness checking [collection_path: {collection_path}]'
+            )
             return
 
         key = collection_record_key(key_prefix, collection_id)
         self._put(key, json.dumps({'completion_markers': True}, indent=4), 'application/json', s3_client)
 
-    def _close_open_sources(self, open_sources:Dict[str, Tuple[str, List[str]]], s3_client):
+    def _close_open_sources(self, open_sources:Dict[str, Tuple[str, List[str]]], s3_client,
+                            poisoned:Set[str]=frozenset()):
         """
         End every source still open when the stream runs out.
 
@@ -257,6 +265,9 @@ class EncryptedPut:
         sources stay open and their prefixes incomplete.
         """
         for source_id, (root_path, chunk_ids) in open_sources.items():
+            if source_id in poisoned:
+                logger.debug(f'Leaving a source that lost a chunk unmarked [source: {source_id}]')
+                continue
             logger.debug(f'Ending a source left open by the stream [source: {source_id}, chunks: {len(chunk_ids)}]')
             self._write_completion_marker(
                 root_path, chunk_ids, s3_client, source_chunk_ids=chunk_ids
@@ -423,6 +434,7 @@ class S3DocUploader(ConfiguredThreadCount, EncryptedPut, BaseComponent):
     _semaphore:Semaphore = PrivateAttr(default=None)
     _queue:queue.Queue = PrivateAttr(default=None)
     _open_sources:Dict[str, Tuple[str, List[str]]] = PrivateAttr(default_factory=dict)
+    _poisoned_sources:Set[str] = PrivateAttr(default_factory=set)
     
     def _doc_suffix(self, doc:SourceDocument) -> str:
         """
@@ -534,10 +546,6 @@ class S3DocUploader(ConfiguredThreadCount, EncryptedPut, BaseComponent):
                     if self._submit_proxy(self._upload_doc, executor, queue, root_path, source_document, s3_client, source_chunk_ids):
                         count += 1
 
-            # Outside the pool: a closing marker supersedes the one its last
-            # part wrote, so it cannot be written while that part is in flight.
-            self._close_open_sources(self._open_sources, s3_client)
-
         except BaseException as e:
             logger.exception(f'Error in doc publisher: {str(e)}')
             raise
@@ -643,6 +651,10 @@ class S3DocUploader(ConfiguredThreadCount, EncryptedPut, BaseComponent):
         
             source_docs_batch = []
             logger.debug(f'Total uploaded: {total}')
+
+        # Outside the pool: a closing marker supersedes the one its last part
+        # wrote, so it cannot be written while that part is in flight.
+        self._close_open_sources(self._open_sources, GraphRAGConfig.s3, self._poisoned_sources)
 
 class S3ChunkDownloader(ConfiguredThreadCount, BaseComponent):
 
@@ -753,6 +765,7 @@ class S3ChunkUploader(ConfiguredThreadCount, EncryptedPut, BaseComponent):
     # it. A source split across extraction rounds reaches staging as separate
     # documents, and the part that ends it declares them all.
     _open_sources:Dict[str, Tuple[str, List[str]]] = PrivateAttr(default_factory=dict)
+    _poisoned_sources:Set[str] = PrivateAttr(default_factory=set)
 
     def _upload_chunk(self, root_path:str, n:TextNode, s3_client):
         chunk_output_path = join(root_path, f'{n.node_id}{_CHUNK_SUFFIX}')
@@ -802,9 +815,11 @@ class S3ChunkUploader(ConfiguredThreadCount, EncryptedPut, BaseComponent):
 
                 if not self._drain(oldest_futures):
                     # A chunk of this source did not land, so the source gets no
-                    # marker here and none when the stream ends either.
+                    # marker here and none when a later part or the end of the
+                    # stream would otherwise close it.
+                    self._poisoned_sources.add(source_id)
                     self._open_sources.pop(source_id, None)
-                elif nodes:
+                elif nodes and source_id not in self._poisoned_sources:
                     ends_source = (
                         self._open_sources.pop(source_id, (root_path, []))[1]
                         if oldest.final_part
@@ -852,7 +867,7 @@ class S3ChunkUploader(ConfiguredThreadCount, EncryptedPut, BaseComponent):
             while pending:
                 yield release_oldest()
 
-            self._close_open_sources(self._open_sources, s3_client)
+            self._close_open_sources(self._open_sources, s3_client, self._poisoned_sources)
 
 
 
