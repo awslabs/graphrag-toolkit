@@ -530,3 +530,44 @@ class TestOnlyTheLastDocumentEndsASource:
         )
 
         assert self._parts(docs, 'src-0') == [True]
+
+
+class TestASourceSplitAcrossOutputDocuments:
+    """
+    One source can leave the pipeline as several SourceDocuments: node_batcher
+    slices a flat node list by index, so a source's chunks land in different
+    worker batches, and documents are cut on contiguous runs of source id. Only
+    the last document emitted for a source ends it. A part that ends its source
+    declares every chunk stored for it, so a part wrongly marked final declares
+    only itself and certifies a prefix that is missing the rest.
+    """
+
+    def _chunk(self, source_id, node_id):
+        node = TextNode(text=f'text for {node_id}', id_=node_id)
+        node.relationships[NodeRelationship.SOURCE] = RelatedNodeInfo(node_id=source_id)
+        return node
+
+    def _pipeline(self):
+        return ExtractionPipeline(
+            components=[make_batch_extractor(auto_tune=False)], num_workers=1
+        )
+
+    def test_only_the_last_document_for_a_source_ends_it(self):
+        # srcA is cut into two documents because srcB sits between its chunks.
+        nodes = [
+            self._chunk('srcA', 'a1'),
+            self._chunk('srcB', 'b1'),
+            self._chunk('srcA', 'a2'),
+        ]
+
+        emitted = list(self._pipeline()._emit_extracted(nodes))
+
+        assert [sd.source_id() for sd in emitted] == ['srcA', 'srcB', 'srcA']
+        assert [sd.final_part for sd in emitted] == [False, True, True]
+
+    def test_a_source_arriving_once_still_ends(self):
+        nodes = [self._chunk('srcA', 'a1'), self._chunk('srcA', 'a2')]
+
+        emitted = list(self._pipeline()._emit_extracted(nodes))
+
+        assert [sd.final_part for sd in emitted] == [True]
