@@ -450,3 +450,83 @@ class TestFixedBatchPathUnaffected:
         with patch.object(pipeline, "_extract_fixed_batch", return_value=iter([])) as fixed:
             list(pipeline.extract([Document(text="d")]))
             fixed.assert_called_once()
+
+
+class TestOnlyTheLastDocumentEndsASource:
+    """
+    A source whose chunks span rounds is emitted as several SourceDocuments.
+    Staging records a source as stored when its final part lands, so exactly one
+    of those documents may carry final_part.
+    """
+
+    def _extract(self, pipeline, docs, round_output=None):
+        def fake_round(round_buckets, extractor_transforms):
+            nodes = [node for bucket in round_buckets for node in bucket]
+            yield from (round_output(nodes) if round_output else nodes)
+
+        with patch.object(pipeline, '_run_extractor_round', side_effect=fake_round):
+            return list(pipeline.extract(docs))
+
+    def _pipeline(self, num_workers, max_batch_size):
+        return ExtractionPipeline(
+            components=[make_batch_extractor(auto_tune=True, max_batch_size=max_batch_size)],
+            num_workers=num_workers,
+        )
+
+    def _parts(self, docs, source_id):
+        return [doc.final_part for doc in docs if doc.source_id() == source_id]
+
+    def test_a_source_split_across_rounds_ends_once(self):
+        # 450 chunks against a round capacity of 200, so the source spans rounds
+        # rather than tail-merging back into one.
+        pipeline = self._pipeline(num_workers=2, max_batch_size=100)
+
+        docs = self._extract(pipeline, make_multichunk_documents([450]))
+
+        assert len(docs) > 1
+        assert self._parts(docs, 'src-0') == [False] * (len(docs) - 1) + [True]
+
+    def test_a_source_that_fits_one_round_ends_on_its_only_document(self):
+        pipeline = self._pipeline(num_workers=2, max_batch_size=100)
+
+        docs = self._extract(pipeline, make_multichunk_documents([5]))
+
+        assert self._parts(docs, 'src-0') == [True]
+
+    def test_each_source_ends_on_its_own_last_document(self):
+        pipeline = self._pipeline(num_workers=2, max_batch_size=100)
+
+        docs = self._extract(pipeline, make_multichunk_documents([450, 5]))
+
+        assert self._parts(docs, 'src-0') == [False] * (len(self._parts(docs, 'src-0')) - 1) + [True]
+        assert self._parts(docs, 'src-1') == [True]
+
+    def test_a_source_split_within_one_round_ends_once(self):
+        # The batch extractor sorts its output by node id, so one round can emit
+        # two documents for a source whose chunks bracket another source's.
+        pipeline = self._pipeline(num_workers=1, max_batch_size=25000)
+
+        def sorted_by_node_id(nodes):
+            return sorted(nodes, key=lambda n: n.node_id)
+
+        docs = self._extract(
+            pipeline,
+            make_multichunk_documents([2, 2]),
+            round_output=lambda nodes: sorted_by_node_id(
+                [nodes[0], nodes[2], nodes[1], nodes[3]]
+            ),
+        )
+
+        for source_id in ('src-0', 'src-1'):
+            assert self._parts(docs, source_id).count(True) == 1
+
+    def test_a_round_that_drops_chunks_still_ends_the_source(self):
+        # A checkpointed run extracts fewer nodes than it was given. Counting
+        # what came back rather than what went in would leave the source open.
+        pipeline = self._pipeline(num_workers=2, max_batch_size=100)
+
+        docs = self._extract(
+            pipeline, make_multichunk_documents([5]), round_output=lambda nodes: nodes[:2]
+        )
+
+        assert self._parts(docs, 'src-0') == [True]

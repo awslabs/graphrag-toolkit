@@ -16,6 +16,7 @@ from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import (
     chunk_id_from_key,
     collection_record_key,
     completion_marker_key,
+    is_complete,
     is_completion_marker,
     S3DocDownloader,
     S3DocUploader,
@@ -1106,7 +1107,7 @@ class TestStagingSurfacesUploadFailures:
         docs = self._docs(3)
         uploader = S3DocUploader(bucket_name='b', collection_prefix='p', num_threads=2)
 
-        def upload_doc(root_path, doc, s3_client):
+        def upload_doc(root_path, doc, s3_client, source_chunk_ids=None):
             if doc is docs[1]:
                 raise RuntimeError('S3 write failed')
             return doc
@@ -1119,7 +1120,7 @@ class TestStagingSurfacesUploadFailures:
         docs = self._docs(3)
         uploader = S3DocUploader(bucket_name='b', collection_prefix='p', num_threads=2)
 
-        def upload_doc(root_path, doc, s3_client):
+        def upload_doc(root_path, doc, s3_client, source_chunk_ids=None):
             if doc is docs[1]:
                 raise RuntimeError('S3 write failed')
             return doc
@@ -1132,7 +1133,7 @@ class TestStagingSurfacesUploadFailures:
         docs = self._docs(3)
         uploader = S3DocUploader(bucket_name='b', collection_prefix='p', num_threads=2)
 
-        def upload_doc(root_path, doc, s3_client):
+        def upload_doc(root_path, doc, s3_client, source_chunk_ids=None):
             if doc is docs[1]:
                 raise RuntimeError('S3 write failed')
             return doc
@@ -1147,7 +1148,7 @@ class TestStagingSurfacesUploadFailures:
         uploader = S3DocUploader(bucket_name='b', collection_prefix='p', num_threads=2)
 
         finished, yielded, error = self._consume(
-            uploader, docs, lambda root_path, doc, s3_client: doc
+            uploader, docs, lambda root_path, doc, s3_client, source_chunk_ids=None: doc
         )
 
         assert finished and not error
@@ -1186,7 +1187,7 @@ class TestStagingSurfacesUploadFailures:
         uploader = S3DocUploader(bucket_name='b', collection_prefix='p', num_threads=2)
 
         finished, _, error = self._consume(
-            uploader, self._docs(3), lambda root_path, doc, s3_client: doc,
+            uploader, self._docs(3), lambda root_path, doc, s3_client, source_chunk_ids=None: doc,
             patches=[patch(f'{S3_BASED_DOCS}.GraphRAGConfig', new=ConfigWithoutRegion())],
         )
 
@@ -1199,7 +1200,7 @@ class TestStagingSurfacesUploadFailures:
         uploader = S3DocUploader(bucket_name='b', collection_prefix='p', num_threads=2)
 
         finished, yielded, error = self._consume(
-            uploader, self._docs(3), lambda root_path, doc, s3_client: doc,
+            uploader, self._docs(3), lambda root_path, doc, s3_client, source_chunk_ids=None: doc,
             patches=[patch(
                 f'{S3_BASED_DOCS}.concurrent.futures.ThreadPoolExecutor',
                 side_effect=OSError('cannot start thread'),
@@ -1224,7 +1225,7 @@ class TestStagingSurfacesUploadFailures:
         uploader = S3DocUploader(bucket_name='b', collection_prefix='p', num_threads=2)
 
         finished, yielded, error = self._consume(
-            uploader, self._docs(3), lambda root_path, doc, s3_client: doc,
+            uploader, self._docs(3), lambda root_path, doc, s3_client, source_chunk_ids=None: doc,
             patches=[patch.object(S3DocUploader, '_submit_proxy', new=submit_then_fail)],
         )
 
@@ -1237,7 +1238,7 @@ class TestStagingSurfacesUploadFailures:
         docs = self._docs(3)
         uploader = S3DocUploader(bucket_name='b', collection_prefix='p', num_threads=2)
 
-        def upload_doc(root_path, doc, s3_client):
+        def upload_doc(root_path, doc, s3_client, source_chunk_ids=None):
             if doc is docs[0] or doc is docs[1]:
                 raise RuntimeError('S3 write failed')
             return doc
@@ -1531,3 +1532,184 @@ class TestAnIdThatWouldLeaveThePrefixIsRejected:
     @pytest.mark.parametrize('uploader_cls', [S3ChunkUploader, S3DocUploader])
     def test_a_generated_id_still_uploads(self, uploader_cls):
         assert len(self._upload(uploader_cls, _doc_with_ids('aws::dead:beef', ['c1', 'c2']))) == 1
+class TestASourceSplitAcrossDocuments:
+    """
+    Extraction emits a source as several SourceDocuments when its chunks span
+    rounds, all under one prefix. The part that ends the source declares
+    everything stored for it.
+    """
+
+    def _doc(self, source_id, chunk_ids, final_part=True):
+        nodes = []
+        for chunk_id in chunk_ids:
+            node = TextNode(text='chunk text', id_=chunk_id)
+            node.relationships[NodeRelationship.SOURCE] = RelatedNodeInfo(node_id=source_id)
+            nodes.append(node)
+        return SourceDocument(nodes=nodes, final_part=final_part)
+
+    def _markers_from(self, uploader, docs, jsonl=False):
+        """The markers writing these documents produces, newest last."""
+        puts = {}
+
+        def on_put(**kwargs):
+            puts[kwargs['Key']] = kwargs['Body'].decode('UTF-8')
+
+        with patch(f'{S3_BASED_DOCS}.GraphRAGConfig') as config:
+            config.extraction_num_threads_per_worker = 2
+            config.s3 = MagicMock()
+            config.s3.put_object = on_put
+            list(uploader.upload(docs))
+
+        return [json.loads(body) for key, body in puts.items() if is_completion_marker(key)]
+
+    def test_the_part_that_ends_a_source_declares_every_chunk_stored(self):
+        uploader = S3ChunkUploader(bucket_name='b', collection_prefix='p/c')
+        docs = [
+            self._doc('src-1', ['c1', 'c2'], final_part=False),
+            self._doc('src-1', ['c3', 'c4'], final_part=True),
+        ]
+
+        markers = self._markers_from(uploader, docs)
+
+        opening = next(m for m in markers if not m['final'])
+        closing = next(m for m in markers if m['final'])
+        assert opening['chunk_ids'] == ['c1', 'c2']
+        assert 'source_chunk_ids' not in opening
+        assert closing['source_chunk_ids'] == ['c1', 'c2', 'c3', 'c4']
+
+    def test_the_jsonl_uploader_declares_the_same_set(self):
+        uploader = S3DocUploader(bucket_name='b', collection_prefix='p/c')
+        docs = [
+            self._doc('src-1', ['c1', 'c2'], final_part=False),
+            self._doc('src-1', ['c3', 'c4'], final_part=True),
+        ]
+
+        markers = self._markers_from(uploader, docs, jsonl=True)
+
+        closing = next(m for m in markers if m['final'])
+        assert closing['source_chunk_ids'] == ['c1', 'c2', 'c3', 'c4']
+
+    def test_a_document_of_its_own_declares_only_itself(self):
+        uploader = S3ChunkUploader(bucket_name='b', collection_prefix='p/c')
+
+        markers = self._markers_from(uploader, [self._doc('src-1', ['c1', 'c2'])])
+
+        assert markers[0]['source_chunk_ids'] == ['c1', 'c2']
+
+
+class TestReadingAPrefixThatLostAPart:
+    """Whether the markers under a prefix account for what is there."""
+
+    def _is_complete(self, present, markers):
+        marker_keys = [f'p/c/src-1/_markers/m{i}' for i in range(len(markers))]
+        bodies = dict(zip(marker_keys, markers))
+
+        mock_s3 = MagicMock()
+
+        def download_fileobj(bucket, key, stream):
+            stream.write(json.dumps(bodies[key]).encode('UTF-8'))
+
+        mock_s3.download_fileobj.side_effect = download_fileobj
+        return is_complete(present, marker_keys, 'b', mock_s3)
+
+    def test_a_prefix_holding_every_declared_chunk_is_complete(self):
+        assert self._is_complete(
+            ['c1', 'c2', 'c3'],
+            [{'chunk_ids': ['c1'], 'final': False},
+             {'chunk_ids': ['c2', 'c3'], 'final': True,
+              'source_chunk_ids': ['c1', 'c2', 'c3']}],
+        )
+
+    def test_a_prefix_missing_a_declared_chunk_is_incomplete(self):
+        # The part that ended the source landed; an earlier part did not.
+        assert not self._is_complete(
+            ['c2', 'c3'],
+            [{'chunk_ids': ['c2', 'c3'], 'final': True,
+              'source_chunk_ids': ['c1', 'c2', 'c3']}],
+        )
+
+    def test_a_prefix_whose_source_never_ended_is_incomplete(self):
+        assert not self._is_complete(
+            ['c1', 'c2'], [{'chunk_ids': ['c1', 'c2'], 'final': False}]
+        )
+
+    def test_a_marker_written_before_source_sets_existed_still_reads(self):
+        # What the prefixes staged by earlier code carry.
+        assert self._is_complete(['c1', 'c2'], [{'chunk_ids': ['c1', 'c2']}])
+
+
+class TestASourceLeftOpenWhenTheStreamEnds:
+    """
+    A round can finish a source without emitting a document for it, so the part
+    that would have ended the source never arrives. Running out of stream is
+    what settles it: whatever was stored is all there will be.
+    """
+
+    def _doc(self, source_id, chunk_ids, final_part=True):
+        nodes = []
+        for chunk_id in chunk_ids:
+            node = TextNode(text='chunk text', id_=chunk_id)
+            node.relationships[NodeRelationship.SOURCE] = RelatedNodeInfo(node_id=source_id)
+            nodes.append(node)
+        return SourceDocument(nodes=nodes, final_part=final_part)
+
+    def _markers_written(self, uploader, docs, on_put=None):
+        puts = {}
+
+        def record(**kwargs):
+            if on_put:
+                on_put(**kwargs)
+            puts[kwargs['Key']] = kwargs['Body'].decode('UTF-8')
+
+        with patch(f'{S3_BASED_DOCS}.GraphRAGConfig') as config:
+            config.extraction_num_threads_per_worker = 2
+            config.s3 = MagicMock()
+            config.s3.put_object = record
+            list(uploader.upload(docs))
+
+        return [json.loads(body) for key, body in puts.items() if is_completion_marker(key)]
+
+    def test_a_source_whose_last_part_never_arrives_is_ended_by_the_stream(self):
+        uploader = S3ChunkUploader(bucket_name='b', collection_prefix='p/c')
+
+        markers = self._markers_written(uploader, [self._doc('src-1', ['c1', 'c2'], final_part=False)])
+
+        closing = [marker for marker in markers if marker['final']]
+        assert len(closing) == 1
+        assert closing[0]['source_chunk_ids'] == ['c1', 'c2']
+
+    def test_the_jsonl_path_ends_it_too(self):
+        uploader = S3DocUploader(bucket_name='b', collection_prefix='p/c')
+
+        markers = self._markers_written(uploader, [self._doc('src-1', ['c1', 'c2'], final_part=False)])
+
+        closing = [marker for marker in markers if marker['final']]
+        assert len(closing) == 1
+        assert closing[0]['source_chunk_ids'] == ['c1', 'c2']
+
+    def test_a_source_whose_chunk_failed_is_left_unmarked(self):
+        # The stream ending is not a reason to declare a source whose objects
+        # did not all reach S3.
+        uploader = S3ChunkUploader(bucket_name='b', collection_prefix='p/c')
+
+        def fail_one_chunk(**kwargs):
+            if kwargs['Key'].endswith('c2.json'):
+                raise RuntimeError('upload failed')
+
+        markers = self._markers_written(
+            uploader, [self._doc('src-1', ['c1', 'c2'], final_part=False)], on_put=fail_one_chunk
+        )
+
+        assert markers == []
+
+    def test_a_source_already_ended_is_not_ended_twice(self):
+        uploader = S3ChunkUploader(bucket_name='b', collection_prefix='p/c')
+
+        markers = self._markers_written(uploader, [
+            self._doc('src-1', ['c1'], final_part=False),
+            self._doc('src-1', ['c2'], final_part=True),
+        ])
+
+        closing = [marker for marker in markers if marker['final']]
+        assert len(closing) == 1
+        assert closing[0]['source_chunk_ids'] == ['c1', 'c2']

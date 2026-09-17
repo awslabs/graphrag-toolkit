@@ -56,6 +56,16 @@ def key_prefix():
         s3_client.delete_objects(Bucket=S3_TEST_BUCKET, Delete={'Objects': keys})
 
 
+def _part(source_id, chunk_ids, final_part=True):
+    """One round's worth of a source's chunks, as extraction emits it."""
+    nodes = []
+    for chunk_id in chunk_ids:
+        node = TextNode(text=f'text for {chunk_id}', id_=chunk_id)
+        node.relationships[NodeRelationship.SOURCE] = RelatedNodeInfo(node_id=source_id)
+        nodes.append(node)
+    return SourceDocument(nodes=nodes, final_part=final_part)
+
+
 def _doc(source_id, num_chunks=3):
     nodes = []
     for i in range(num_chunks):
@@ -243,3 +253,46 @@ class TestAnIdThatWouldLeaveTheCollectionPrefix:
         _stage(key_prefix, collection_id, [_doc('src-1')], for_jsonl)
 
         assert _read_back(key_prefix, collection_id, for_jsonl) == ['src-1']
+@pytest.mark.parametrize('for_jsonl', [False, True], ids=['chunks', 'jsonl'])
+class TestASourceSplitAcrossRounds:
+    """
+    Each part of a split source is marked as it arrives, so a prefix holding
+    only the earlier parts still has markers accounting for what is present.
+    """
+
+    def _stage_both_parts(self, key_prefix, collection_id, for_jsonl):
+        """Both rounds through one handler, as one extraction run does."""
+        handler = _handler(key_prefix, collection_id, for_jsonl)
+        list(handler.accept([_part('src-1', ['c1', 'c2'], final_part=False)]))
+        list(handler.accept([_part('src-1', ['c3', 'c4'])]))
+
+    def _objects_for(self, source_prefix, chunk_ids):
+        """The objects holding these chunks. A JSONL object is keyed on its
+        source, so the chunk ids are in the body rather than the key."""
+        found = []
+        for key in _keys_under(source_prefix):
+            if is_completion_marker(key):
+                continue
+            body = GraphRAGConfig.s3.get_object(Bucket=S3_TEST_BUCKET, Key=key)['Body'].read().decode('UTF-8')
+            if any(chunk_id in key[len(source_prefix):] or chunk_id in body for chunk_id in chunk_ids):
+                found.append(key)
+        return found
+
+    def test_both_parts_present_reads_back_whole(self, key_prefix, for_jsonl):
+        collection_id = 'split-intact'
+        self._stage_both_parts(key_prefix, collection_id, for_jsonl)
+
+        assert _read_back(key_prefix, collection_id, for_jsonl) == ['src-1']
+
+    def test_a_source_that_lost_its_opening_part_is_skipped(self, key_prefix, for_jsonl):
+        # The part that ended the source landed and declares all four chunks,
+        # so the two that are gone cannot pass unnoticed.
+        collection_id = 'split-early'
+        self._stage_both_parts(key_prefix, collection_id, for_jsonl)
+
+        source_prefix = f'{key_prefix}/{collection_id}/src-1/'
+        opening = self._objects_for(source_prefix, ['c1', 'c2'])
+        assert opening, 'nothing found for the opening part'
+        _delete(opening)
+
+        assert _read_back(key_prefix, collection_id, for_jsonl) == []

@@ -16,7 +16,7 @@ from os.path import basename, dirname, join
 from datetime import datetime
 from itertools import repeat, islice
 from threading import Semaphore
-from typing import List, Any, Generator, Optional, Dict, Callable, Set, Tuple
+from typing import List, Any, Generator, Optional, Dict, Callable, Tuple
 
 from graphrag_toolkit.lexical_graph.indexing import NodeHandler
 from graphrag_toolkit.lexical_graph.indexing.utils.hash_utils import get_hash
@@ -145,16 +145,15 @@ def list_collection(bucket_name:str, key_prefix:str, collection_id:str, paginato
     return source_doc_prefixes, recorded
 
 
-def marker_chunk_ids(marker_keys, bucket_name:str, s3_client) -> Set[str]:
-    """The chunk ids these markers cover."""
-    chunk_ids = set()
+def read_markers(marker_keys, bucket_name:str, s3_client) -> List[Dict]:
+    """The markers under a source document prefix."""
+    markers = []
     for marker_key in marker_keys:
         with io.BytesIO() as io_stream:
             s3_client.download_fileobj(bucket_name, marker_key, io_stream)
             io_stream.seek(0)
-            marker = json.loads(io_stream.read().decode('UTF-8'))
-        chunk_ids.update(marker.get('chunk_ids', []))
-    return chunk_ids
+            markers.append(json.loads(io_stream.read().decode('UTF-8')))
+    return markers
 
 
 def partition_marker_keys(keys) -> Tuple[List[str], List[str]]:
@@ -180,13 +179,21 @@ def is_complete(node_ids, marker_keys, bucket_name:str, s3_client) -> bool:
     A truncated document leaves nodes no marker covers, and one whose objects
     were partly removed leaves a marker covering nodes that are gone.
 
-    A marker covers one SourceDocument. Extraction emits a source as more than
-    one SourceDocument when its chunks span rounds, and each part is marked as
-    it lands, so a source whose later parts were never stored reads as complete.
-    Telling those apart needs the extraction pipeline to say when a source is
-    finished, which it does not currently record.
+    A source stored in several parts is accounted for by the part that ends it,
+    which declares every chunk id stored for the source. A marker written before
+    that existed declares only its own chunk ids.
     """
-    return set(node_ids) == marker_chunk_ids(marker_keys, bucket_name, s3_client)
+    markers = read_markers(marker_keys, bucket_name, s3_client)
+
+    final_markers = [marker for marker in markers if marker.get('final', True)]
+    if not final_markers:
+        return False
+
+    declared = set()
+    for marker in final_markers:
+        declared.update(marker.get('source_chunk_ids') or marker.get('chunk_ids', []))
+
+    return set(node_ids) == declared
 
 class EncryptedPut:
     """
@@ -238,7 +245,25 @@ class EncryptedPut:
         key = collection_record_key(key_prefix, collection_id)
         self._put(key, json.dumps({'completion_markers': True}, indent=4), 'application/json', s3_client)
 
-    def _write_completion_marker(self, root_path:str, nodes:List[TextNode], s3_client):
+    def _close_open_sources(self, open_sources:Dict[str, Tuple[str, List[str]]], s3_client):
+        """
+        End every source still open when the stream runs out.
+
+        A source is normally ended by its last part, but a round can finish a
+        source without emitting a document for it: a resumed run drops the
+        chunks it has already extracted. The end of the stream ends those,
+        declaring what was stored. A run that dies never reaches here, so its
+        sources stay open and their prefixes incomplete.
+        """
+        for source_id, (root_path, chunk_ids) in open_sources.items():
+            logger.debug(f'Ending a source left open by the stream [source: {source_id}, chunks: {len(chunk_ids)}]')
+            self._write_completion_marker(
+                root_path, chunk_ids, s3_client, source_chunk_ids=chunk_ids
+            )
+        open_sources.clear()
+
+    def _write_completion_marker(self, root_path:str, chunk_ids:List[str], s3_client,
+                                 source_chunk_ids:Optional[List[str]]=None):
         """
         Record that this document is complete.
 
@@ -246,13 +271,22 @@ class EncryptedPut:
         truncated prefix. A failed write is logged rather than raised: no
         marker costs a re-stage, where raising would lose a stream the chunks
         themselves survived.
+
+        source_chunk_ids ends the source, declaring every chunk id stored for
+        it, so a prefix missing an earlier part reads as incomplete whatever
+        order the parts were written in. Passing nothing marks a part that
+        leaves its source open.
         """
-        node_ids = sorted(n.node_id for n in nodes)
+        node_ids = sorted(chunk_ids)
         marker = {
             'chunk_ids': node_ids,
             'count': len(node_ids),
             'content_hash': node_ids_hash(node_ids),
+            'final': source_chunk_ids is not None,
         }
+
+        if source_chunk_ids is not None:
+            marker['source_chunk_ids'] = sorted(source_chunk_ids)
 
         key = completion_marker_key(root_path, node_ids)
         logger.debug(f'Writing completion marker to S3 [bucket: {self.bucket_name}, key: {key}]')
@@ -387,6 +421,7 @@ class S3DocUploader(ConfiguredThreadCount, EncryptedPut, BaseComponent):
     deterministic_document_key:bool=False
     _semaphore:Semaphore = PrivateAttr(default=None)
     _queue:queue.Queue = PrivateAttr(default=None)
+    _open_sources:Dict[str, Tuple[str, List[str]]] = PrivateAttr(default_factory=dict)
     
     def _doc_suffix(self, doc:SourceDocument) -> str:
         """
@@ -402,7 +437,7 @@ class S3DocUploader(ConfiguredThreadCount, EncryptedPut, BaseComponent):
 
         return node_ids_hash(n.node_id for n in written_nodes(doc))[:5]
 
-    def _upload_doc(self, root_path:str, doc:SourceDocument, s3_client):
+    def _upload_doc(self, root_path:str, doc:SourceDocument, s3_client, source_chunk_ids=None):
 
         doc_output_path = join(root_path, f'{doc.source_id()}-{self._doc_suffix(doc)}.jsonl')
 
@@ -420,7 +455,10 @@ class S3DocUploader(ConfiguredThreadCount, EncryptedPut, BaseComponent):
             self._put(doc_output_path, s, 'text/plain', s3_client)
 
             if nodes:
-                self._write_completion_marker(root_path, nodes, s3_client)
+                self._write_completion_marker(
+                    root_path, [n.node_id for n in nodes], s3_client,
+                    source_chunk_ids=source_chunk_ids
+                )
 
             return doc
 
@@ -470,13 +508,29 @@ class S3DocUploader(ConfiguredThreadCount, EncryptedPut, BaseComponent):
 
                     if not source_document.nodes:
                         continue
-                    
+
+                    source_id = source_document.source_id()
                     root_path = source_document_prefix(
                         self.collection_prefix, source_document, written_nodes(source_document)
                     )
-                   
-                    if self._submit_proxy(self._upload_doc, executor, queue, root_path, source_document, s3_client):
+
+                    # Accumulated here rather than in the worker, so the set is
+                    # not at the mercy of the order the pool runs the parts in.
+                    self._open_sources.setdefault(source_id, (root_path, []))[1].extend(
+                        n.node_id for n in written_nodes(source_document)
+                    )
+                    source_chunk_ids = (
+                        self._open_sources.pop(source_id)[1]
+                        if source_document.final_part
+                        else None
+                    )
+
+                    if self._submit_proxy(self._upload_doc, executor, queue, root_path, source_document, s3_client, source_chunk_ids):
                         count += 1
+
+            # Outside the pool: a closing marker supersedes the one its last
+            # part wrote, so it cannot be written while that part is in flight.
+            self._close_open_sources(self._open_sources, s3_client)
 
         except BaseException as e:
             logger.exception(f'Error in doc publisher: {str(e)}')
@@ -689,6 +743,11 @@ class S3ChunkUploader(ConfiguredThreadCount, EncryptedPut, BaseComponent):
     collection_prefix:str
     s3_encryption_key_id:Optional[str]=None
 
+    # Sources still open: source id to its prefix and the chunk ids stored for
+    # it. A source split across extraction rounds reaches staging as separate
+    # documents, and the part that ends it declares them all.
+    _open_sources:Dict[str, Tuple[str, List[str]]] = PrivateAttr(default_factory=dict)
+
     def _upload_chunk(self, root_path:str, n:TextNode, s3_client):
         chunk_output_path = join(root_path, f'{n.node_id}{_CHUNK_SUFFIX}')
                     
@@ -733,8 +792,23 @@ class S3ChunkUploader(ConfiguredThreadCount, EncryptedPut, BaseComponent):
             def release_oldest():
                 nonlocal inflight
                 (oldest, root_path, nodes, oldest_futures) = pending.popleft()
-                if self._drain(oldest_futures) and nodes:
-                    self._write_completion_marker(root_path, nodes, s3_client)
+                source_id = oldest.source_id()
+
+                if not self._drain(oldest_futures):
+                    # A chunk of this source did not land, so the source gets no
+                    # marker here and none when the stream ends either.
+                    self._open_sources.pop(source_id, None)
+                elif nodes:
+                    ends_source = (
+                        self._open_sources.pop(source_id, (root_path, []))[1]
+                        if oldest.final_part
+                        else None
+                    )
+                    self._write_completion_marker(
+                        root_path, [n.node_id for n in nodes], s3_client,
+                        source_chunk_ids=ends_source
+                    )
+
                 inflight -= len(oldest_futures)
                 return oldest
 
@@ -743,7 +817,11 @@ class S3ChunkUploader(ConfiguredThreadCount, EncryptedPut, BaseComponent):
                 nodes = written_nodes(source_document)
 
                 if nodes:
+                    source_id = source_document.source_id()
                     root_path = source_document_prefix(self.collection_prefix, source_document, nodes)
+                    self._open_sources.setdefault(source_id, (root_path, []))[1].extend(
+                        n.node_id for n in nodes
+                    )
                     logger.debug(f'Writing source document to S3 [bucket: {self.bucket_name}, prefix: {root_path}]')
 
                     futures = [
@@ -767,6 +845,8 @@ class S3ChunkUploader(ConfiguredThreadCount, EncryptedPut, BaseComponent):
 
             while pending:
                 yield release_oldest()
+
+            self._close_open_sources(self._open_sources, s3_client)
 
 
 
