@@ -546,3 +546,52 @@ class TestEndingASourceThatWasNeverOpened:
 
         assert uploader._end_source('src-1') == ['c1', 'c2']
         assert uploader._end_source('src-1') is None, 'the source is closed now'
+
+
+@pytest.mark.parametrize('uploader_cls', [S3ChunkUploader, S3DocUploader], ids=['chunks', 'jsonl'])
+class TestAFinalPartWithNothingOfItsOwnToWrite:
+    """
+    A part can end its source while storing nothing itself: every node it
+    carries is a vector store artefact, which written_nodes filters out. The
+    source still has to end, or its prefix reads incomplete for good.
+    """
+
+    def _part(self, chunk_ids, final_part=True, index_only=False):
+        nodes = []
+        for chunk_id in chunk_ids:
+            node = TextNode(text=f'text for {chunk_id}', id_=chunk_id)
+            node.relationships[NodeRelationship.SOURCE] = RelatedNodeInfo(node_id=SOURCE_ID)
+            if index_only:
+                node.metadata[INDEX_KEY] = {'index': 'chunk'}
+            nodes.append(node)
+        return SourceDocument(nodes=nodes, final_part=final_part)
+
+    def _upload(self, uploader_cls, docs):
+        written = {}
+        s3_client = Mock()
+        s3_client.put_object.side_effect = (
+            lambda **kwargs: written.__setitem__(kwargs['Key'], kwargs['Body'])
+        )
+        uploader = uploader_cls(bucket_name='b', collection_prefix=COLLECTION_PREFIX, num_threads=2)
+        with patch(
+            'graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs.GraphRAGConfig'
+        ) as config:
+            config.s3 = s3_client
+            config.extraction_num_threads_per_worker = 2
+            list(uploader.upload(docs))
+        return written
+
+    def test_the_source_is_closed_declaring_what_earlier_parts_stored(self, uploader_cls):
+        written = self._upload(uploader_cls, [
+            self._part(['a', 'b'], final_part=False),
+            self._part(['idx-1'], final_part=True, index_only=True),
+        ])
+
+        closing = [
+            json.loads(body)
+            for key, body in written.items()
+            if is_completion_marker(key) and json.loads(body).get('final')
+        ]
+
+        assert len(closing) == 1, 'the source was left open'
+        assert closing[0]['source_chunk_ids'] == ['a', 'b']
