@@ -196,6 +196,14 @@ The `S3BasedDocs` object has the following parameters:
 | `collection_id` | Id for a particular collection of extracted documents. Optional: if no `collection_id` is supplied, the lexical-graph will create a timestamp value. Extracted documents will be written to `s3://<bucket>/<key_prefix>/<collection_id>/`. | No |
 | `s3_encryption_key_id` | KMS key id (Key ID, Key ARN, or Key Alias) to use for object encryption. Optional: if no `s3_encryption_key_id` is supplied, the lexical-graph will encrypt objects in S3 using Amazon S3 managed keys. | No |
 
+#### Incomplete documents
+
+As the extract stage stores a document, it writes a completion marker recording the chunks it wrote. A large document is stored in several parts, and the part that ends it records every chunk stored for that document. If the stage is interrupted, a document can be left with some of its chunks stored and nothing recording the rest.
+
+The build stage skips a document whose markers do not account for the chunks stored alongside them, and logs a warning naming the S3 prefix. The document is not built, and the next extract run stores it again. Nothing else in the collection is affected.
+
+A collection first written by a version that did not write markers is read as it stands, so documents already stored are not extracted a second time. Adding documents to such a collection leaves it that way; start a new `collection_id` to have the build stage check for incomplete documents.
+
 If you use Amazon Web Services KMS keys to encrypt objects in S3, the identity under which the lexical-graph runs should include the following IAM policy. Replace `<kms-key-arn>` with the ARN of the KMS key you want to use to encrypt objects:
 
 ```

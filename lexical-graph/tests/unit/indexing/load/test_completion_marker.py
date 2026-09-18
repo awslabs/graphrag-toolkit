@@ -23,8 +23,10 @@ from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import (
     S3ChunkDownloader,
     S3ChunkUploader,
     S3DocDownloader,
+    S3DocUploader,
     completion_marker_key,
     completion_marker_name,
+    is_complete,
     is_completion_marker,
     node_ids_hash,
 )
@@ -364,3 +366,270 @@ class TestMarkerNaming:
         assert not is_completion_marker(chunk_key)
         assert is_completion_marker(completion_marker_key(f'{COLLECTION_PREFIX}/src', [node_id]))
         assert completion_marker_name(['c1', 'c2']) != completion_marker_name(['c1', 'c3'])
+
+
+def _s3_holding(markers):
+    """A client serving marker bodies keyed by the marker's own key."""
+    s3_client = Mock()
+
+    def download_fileobj(bucket, key, stream):
+        stream.write(json.dumps(markers[key]).encode('UTF-8'))
+
+    s3_client.download_fileobj.side_effect = download_fileobj
+    return s3_client
+
+
+class TestAMarkerThatDeclaresNothing:
+    """
+    A closing marker declares every chunk id stored for its source. One that
+    declares an empty list is saying the source holds nothing, which cannot be
+    true of a prefix with chunks in it.
+    """
+
+    def test_an_empty_declaration_does_not_certify_the_part(self):
+        key = _marker_key(['c2'])
+        markers = {key: {'chunk_ids': ['c2'], 'final': True, 'source_chunk_ids': []}}
+
+        assert not is_complete(['c2'], [key], 'b', _s3_holding(markers))
+
+    def test_a_declaration_covering_the_prefix_still_certifies(self):
+        key = _marker_key(['c1', 'c2'])
+        markers = {
+            key: {'chunk_ids': ['c1', 'c2'], 'final': True, 'source_chunk_ids': ['c1', 'c2']}
+        }
+
+        assert is_complete(['c1', 'c2'], [key], 'b', _s3_holding(markers))
+
+    def test_a_part_that_leaves_its_source_open_still_falls_back(self):
+        # No source_chunk_ids at all is the earlier format and the non-final
+        # part: the marker speaks for its own chunks.
+        key = _marker_key(['c1'])
+        markers = {key: {'chunk_ids': ['c1'], 'final': True}}
+
+        assert is_complete(['c1'], [key], 'b', _s3_holding(markers))
+
+
+class TestASourceWithAFailedChunkStaysUnmarked:
+    """
+    A source that lost a chunk gets no closing marker, so its prefix reads as
+    incomplete and the document is staged again. A later part of the same
+    source must not undo that.
+    """
+
+    def test_a_later_final_part_does_not_close_a_poisoned_source(self):
+        written, yielded = _upload(
+            _uploader(),
+            [
+                _doc(['c1', 'c2']),
+                _doc(['c3', 'c4']),
+            ],
+            failing_keys=['c1.json'],
+        )
+
+        closing = [
+            json.loads(written[key])
+            for key in _markers(written)
+            if json.loads(written[key]).get('final')
+        ]
+
+        assert closing == [], 'a source that lost a chunk was closed anyway'
+
+
+class TestASourceOpenAcrossAnUploadBatch:
+    """
+    S3DocUploader.upload cuts the stream into batches of 1000 documents. A
+    source whose parts straddle a cut is still open when the first batch ends,
+    and must not be closed until the stream does.
+    """
+
+    BATCH = 1000
+
+    def _part(self, source_id, chunk_ids, final_part=True):
+        nodes = []
+        for chunk_id in chunk_ids:
+            node = TextNode(text='chunk text', id_=chunk_id)
+            node.relationships[NodeRelationship.SOURCE] = RelatedNodeInfo(node_id=source_id)
+            nodes.append(node)
+        return SourceDocument(nodes=nodes, final_part=final_part)
+
+    def _upload_across_the_cut(self):
+        filler = [
+            self._part(f'filler-{i}', [f'f{i}'])
+            for i in range(self.BATCH - 1)
+        ]
+        split = [
+            self._part('split-src', ['c1', 'c2'], final_part=False),
+            self._part('split-src', ['c3', 'c4']),
+        ]
+
+        written = {}
+
+        def put_object(**kwargs):
+            written[kwargs['Key']] = kwargs['Body']
+
+        s3_client = Mock()
+        s3_client.put_object.side_effect = put_object
+
+        uploader = S3DocUploader(bucket_name='b', collection_prefix=COLLECTION_PREFIX)
+        with patch(
+            'graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs.GraphRAGConfig'
+        ) as config:
+            config.s3 = s3_client
+            config.extraction_num_threads_per_worker = 2
+            list(uploader.upload(filler + split))
+
+        return written
+
+    def test_the_source_is_closed_once_declaring_every_part(self):
+        written = self._upload_across_the_cut()
+
+        closing = [
+            json.loads(body)
+            for key, body in written.items()
+            if is_completion_marker(key)
+            and f'{COLLECTION_PREFIX}/split-src/' in key
+            and json.loads(body).get('final')
+        ]
+
+        assert len(closing) == 1, 'the source was closed more than once'
+        assert closing[0]['source_chunk_ids'] == ['c1', 'c2', 'c3', 'c4']
+
+    def test_a_source_left_open_by_the_stream_is_closed_at_the_end(self):
+        # A round can finish a source without emitting a final part for it: a
+        # resumed run drops the chunks it already extracted. Nothing else ends
+        # those, so the end of the stream has to.
+        written = {}
+
+        def put_object(**kwargs):
+            written[kwargs['Key']] = kwargs['Body']
+
+        s3_client = Mock()
+        s3_client.put_object.side_effect = put_object
+
+        uploader = S3DocUploader(bucket_name='b', collection_prefix=COLLECTION_PREFIX)
+        with patch(
+            'graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs.GraphRAGConfig'
+        ) as config:
+            config.s3 = s3_client
+            config.extraction_num_threads_per_worker = 2
+            list(uploader.upload([self._part('open-src', ['c1', 'c2'], final_part=False)]))
+
+        closing = [
+            json.loads(body)
+            for key, body in written.items()
+            if is_completion_marker(key) and json.loads(body).get('final')
+        ]
+
+        assert len(closing) == 1
+        assert closing[0]['source_chunk_ids'] == ['c1', 'c2']
+
+
+class TestEndingASourceThatWasNeverOpened:
+
+    def test_it_does_not_declare_an_empty_source(self):
+        # Declaring an empty set would say the source stores nothing, and a
+        # marker saying that certifies a prefix holding chunks as incomplete
+        # for good. Leaving the source open costs a re-stage instead.
+        uploader = _uploader()
+
+        assert uploader._end_source('never-opened') is None
+
+    def test_it_returns_what_an_opened_source_stored(self):
+        uploader = _uploader()
+        uploader._open_source('src-1', 'p/c/src-1', ['c1', 'c2'])
+
+        assert uploader._end_source('src-1') == ['c1', 'c2']
+        assert uploader._end_source('src-1') is None, 'the source is closed now'
+
+
+@pytest.mark.parametrize('uploader_cls', [S3ChunkUploader, S3DocUploader], ids=['chunks', 'jsonl'])
+class TestAFinalPartWithNothingOfItsOwnToWrite:
+    """
+    A part can end its source while storing nothing itself: every node it
+    carries is a vector store artefact, which written_nodes filters out. The
+    source still has to end, or its prefix reads incomplete for good.
+    """
+
+    def _part(self, chunk_ids, final_part=True, index_only=False):
+        nodes = []
+        for chunk_id in chunk_ids:
+            node = TextNode(text=f'text for {chunk_id}', id_=chunk_id)
+            node.relationships[NodeRelationship.SOURCE] = RelatedNodeInfo(node_id=SOURCE_ID)
+            if index_only:
+                node.metadata[INDEX_KEY] = {'index': 'chunk'}
+            nodes.append(node)
+        return SourceDocument(nodes=nodes, final_part=final_part)
+
+    def _upload(self, uploader_cls, docs):
+        written = {}
+        s3_client = Mock()
+        s3_client.put_object.side_effect = (
+            lambda **kwargs: written.__setitem__(kwargs['Key'], kwargs['Body'])
+        )
+        uploader = uploader_cls(bucket_name='b', collection_prefix=COLLECTION_PREFIX, num_threads=2)
+        with patch(
+            'graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs.GraphRAGConfig'
+        ) as config:
+            config.s3 = s3_client
+            config.extraction_num_threads_per_worker = 2
+            list(uploader.upload(docs))
+        return written
+
+    def test_the_source_is_closed_declaring_what_earlier_parts_stored(self, uploader_cls):
+        written = self._upload(uploader_cls, [
+            self._part(['a', 'b'], final_part=False),
+            self._part(['idx-1'], final_part=True, index_only=True),
+        ])
+
+        closing = [
+            json.loads(body)
+            for key, body in written.items()
+            if is_completion_marker(key) and json.loads(body).get('final')
+        ]
+
+        assert len(closing) == 1, 'the source was left open'
+        assert closing[0]['source_chunk_ids'] == ['a', 'b']
+
+
+class TestAResumedRunThatStagesOnlyWhatIsLeft:
+    """
+    A run that dies mid-source leaves a part marker behind. The resumed run's
+    checkpoint drops the chunks that part already stored, so the part that ends
+    the source declares only what this run staged. The earlier part still
+    accounts for the objects it wrote.
+    """
+
+    def _is_complete(self, markers):
+        s3_client = Mock()
+        s3_client.download_fileobj.side_effect = (
+            lambda bucket, key, stream: stream.write(json.dumps(markers[key]).encode('UTF-8'))
+        )
+        present = sorted({c for m in markers.values() for c in m['chunk_ids']})
+        return is_complete(present, list(markers), 'b', s3_client)
+
+    def test_an_earlier_part_counts_towards_the_declaration(self):
+        markers = {
+            _marker_key(['a', 'b']): {'chunk_ids': ['a', 'b'], 'count': 2, 'final': False},
+            _marker_key(['c', 'd']): {
+                'chunk_ids': ['c', 'd'], 'count': 2, 'final': True,
+                'source_chunk_ids': ['c', 'd'],
+            },
+        }
+
+        assert self._is_complete(markers)
+
+    def test_a_prefix_missing_an_earlier_part_is_still_incomplete(self):
+        # The part marker is there, its objects are not.
+        markers = {
+            _marker_key(['a', 'b']): {'chunk_ids': ['a', 'b'], 'count': 2, 'final': False},
+            _marker_key(['c', 'd']): {
+                'chunk_ids': ['c', 'd'], 'count': 2, 'final': True,
+                'source_chunk_ids': ['c', 'd'],
+            },
+        }
+        s3_client = Mock()
+        s3_client.download_fileobj.side_effect = (
+            lambda bucket, key, stream: stream.write(json.dumps(markers[key]).encode('UTF-8'))
+        )
+
+        assert not is_complete(['c', 'd'], list(markers), 'b', s3_client)

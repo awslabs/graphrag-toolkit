@@ -6,6 +6,7 @@ import math
 import multiprocessing
 import time
 from pipe import Pipe
+from collections import defaultdict
 from typing import List, Optional, Sequence, Generator, Iterable, Any
 
 from graphrag_toolkit.lexical_graph import TenantId
@@ -472,23 +473,7 @@ class ExtractionPipeline():
                 **self.pipeline_kwargs
             )
 
-            extract_timestamp = self.extract_timestamp or int(time.time() * 1000)
-
-            def add_timestamp(node):
-                if EXTRACT_TIMESTAMP in node.metadata:
-                    return node
-                node.metadata[EXTRACT_TIMESTAMP] = extract_timestamp
-                return node
-
-            timestamped_nodes = [
-                add_timestamp(node)
-                for node in output_nodes
-            ]
-  
-            output_source_documents = self._source_documents_from_base_nodes(timestamped_nodes)
-
-            for source_document in output_source_documents:
-                yield self.extraction_decorator.handle_output_doc(source_document)
+            yield from self._emit_extracted(output_nodes)
 
     def _split_transformations(self):
         """Partition the ingestion transformations into a chunking prefix and an
@@ -631,6 +616,35 @@ class ExtractionPipeline():
         # round_state is mutable so the nested closures see updates.
         round_state = {'num': 0, 'docs': 0}
 
+        # Chunks fed in for each source and not yet submitted. Counted on the way
+        # in rather than on the way out, because extraction can emit fewer nodes
+        # than it was given: a checkpointed run drops chunks already extracted.
+        outstanding = defaultdict(int)
+
+        def source_id_of(node):
+            return node.relationships[NodeRelationship.SOURCE].node_id
+
+        def sources_finished_by(round_jobs):
+            """
+            The sources this round leaves with nothing left to extract.
+
+            Consumes from `outstanding` as it counts, so it answers for each
+            round once. Calling it twice on the same round reports no sources
+            the second time.
+            """
+            submitted = defaultdict(int)
+            for job in round_jobs:
+                for node in job:
+                    submitted[source_id_of(node)] += 1
+
+            finished = set()
+            for source_id, count in submitted.items():
+                outstanding[source_id] -= count
+                if outstanding[source_id] <= 0:
+                    del outstanding[source_id]
+                    finished.add(source_id)
+            return finished
+
         # Submission is deferred by one round (`held`) so a final remainder below
         # BEDROCK_MIN_BATCH_SIZE can be merged into the previous round's last job
         # rather than emitted as an undersized round that falls back to slow
@@ -651,8 +665,10 @@ class ExtractionPipeline():
                     f'(num_workers={self.num_workers}) - fewer jobs than workers minimises per-job overhead'
                 )
             logger.debug(f'Auto-tuned round job sizes: {job_sizes}')
+            finished_sources = sources_finished_by(round_jobs)
             yield from self._emit_extracted(
-                self._run_extractor_round(round_jobs, extractor_transforms)
+                self._run_extractor_round(round_jobs, extractor_transforms),
+                finished_sources
             )
 
         def flush(trigger):
@@ -698,6 +714,9 @@ class ExtractionPipeline():
                     f'to keep large documents whole.'
                 )
 
+            for chunk in chunks:
+                outstanding[source_id_of(chunk)] += 1
+
             filler.add_document_chunks(chunks)
             round_state['docs'] += 1
 
@@ -729,10 +748,16 @@ class ExtractionPipeline():
         if final_jobs:
             yield from emit_jobs(final_jobs, 'exhausted', final_docs)
 
-    def _emit_extracted(self, output_nodes):
+    def _emit_extracted(self, output_nodes, finished_sources=None):
         """Apply extract-timestamp and decorator output hook to extracted nodes,
         reconstruct source documents, and yield them - shared post-processing that
         matches the fixed-batch path.
+
+        A source whose chunks span rounds is emitted as several source documents.
+        finished_sources names the sources with no chunks left to extract, and
+        only the last document emitted for one of those ends its source. None
+        means every source here is finished, which is what a caller that runs
+        each source to completion in one pass has.
         """
         extract_timestamp = self.extract_timestamp or int(time.time() * 1000)
 
@@ -747,7 +772,21 @@ class ExtractionPipeline():
             for node in output_nodes
         ]
 
-        output_source_documents = self._source_documents_from_base_nodes(timestamped_nodes)
+        output_source_documents = list(self._source_documents_from_base_nodes(timestamped_nodes))
+
+        # A source can appear as more than one document in a single round: the
+        # batch extractor sorts its output by node id, and documents are cut on
+        # contiguous runs of source id.
+        last_document = {
+            source_document.source_id(): position
+            for position, source_document in enumerate(output_source_documents)
+        }
+        for position, source_document in enumerate(output_source_documents):
+            source_id = source_document.source_id()
+            source_document.final_part = (
+                (finished_sources is None or source_id in finished_sources)
+                and last_document[source_id] == position
+            )
 
         for source_document in output_source_documents:
             yield self.extraction_decorator.handle_output_doc(source_document)
