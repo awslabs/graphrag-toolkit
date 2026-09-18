@@ -197,6 +197,13 @@ def is_complete(node_ids, marker_keys, bucket_name:str, s3_client) -> bool:
             else marker.get('chunk_ids', [])
         )
 
+    # A resumed run declares only what it staged, because the checkpoint drops
+    # the chunks an earlier run already extracted. The part that stored those
+    # still speaks for them.
+    for marker in markers:
+        if not marker.get('final', True):
+            declared.update(marker.get('chunk_ids', []))
+
     return set(node_ids) == declared
 
 class EncryptedPut:

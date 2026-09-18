@@ -589,3 +589,47 @@ class TestAFinalPartWithNothingOfItsOwnToWrite:
 
         assert len(closing) == 1, 'the source was left open'
         assert closing[0]['source_chunk_ids'] == ['a', 'b']
+
+
+class TestAResumedRunThatStagesOnlyWhatIsLeft:
+    """
+    A run that dies mid-source leaves a part marker behind. The resumed run's
+    checkpoint drops the chunks that part already stored, so the part that ends
+    the source declares only what this run staged. The earlier part still
+    accounts for the objects it wrote.
+    """
+
+    def _is_complete(self, markers):
+        s3_client = Mock()
+        s3_client.download_fileobj.side_effect = (
+            lambda bucket, key, stream: stream.write(json.dumps(markers[key]).encode('UTF-8'))
+        )
+        present = sorted({c for m in markers.values() for c in m['chunk_ids']})
+        return is_complete(present, list(markers), 'b', s3_client)
+
+    def test_an_earlier_part_counts_towards_the_declaration(self):
+        markers = {
+            _marker_key(['a', 'b']): {'chunk_ids': ['a', 'b'], 'count': 2, 'final': False},
+            _marker_key(['c', 'd']): {
+                'chunk_ids': ['c', 'd'], 'count': 2, 'final': True,
+                'source_chunk_ids': ['c', 'd'],
+            },
+        }
+
+        assert self._is_complete(markers)
+
+    def test_a_prefix_missing_an_earlier_part_is_still_incomplete(self):
+        # The part marker is there, its objects are not.
+        markers = {
+            _marker_key(['a', 'b']): {'chunk_ids': ['a', 'b'], 'count': 2, 'final': False},
+            _marker_key(['c', 'd']): {
+                'chunk_ids': ['c', 'd'], 'count': 2, 'final': True,
+                'source_chunk_ids': ['c', 'd'],
+            },
+        }
+        s3_client = Mock()
+        s3_client.download_fileobj.side_effect = (
+            lambda bucket, key, stream: stream.write(json.dumps(markers[key]).encode('UTF-8'))
+        )
+
+        assert not is_complete(['c', 'd'], list(markers), 'b', s3_client)
