@@ -19,6 +19,7 @@ Skipped unless S3_TEST_BUCKET is set. To run locally:
 Objects are written under a unique prefix per run and deleted afterwards.
 """
 
+import json
 import os
 import uuid
 
@@ -32,6 +33,7 @@ from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import (
     is_completion_marker,
 )
 from graphrag_toolkit.lexical_graph.indexing.model import SourceDocument
+from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
 
 S3_TEST_BUCKET = os.environ.get('S3_TEST_BUCKET')
 REGION = os.environ.get('AWS_REGION', 'us-east-1')
@@ -296,3 +298,30 @@ class TestASourceSplitAcrossRounds:
         _delete(opening)
 
         assert _read_back(key_prefix, collection_id, for_jsonl) == []
+
+
+def _index_only_part(source_id, chunk_ids, final_part=True):
+    """A part carrying nothing an uploader stores: every node is an index artefact."""
+    part = _part(source_id, chunk_ids, final_part=final_part)
+    for node in part.nodes:
+        node.metadata[INDEX_KEY] = {'index': 'chunk'}
+    return part
+
+
+@pytest.mark.parametrize('for_jsonl', [False, True], ids=['chunks', 'jsonl'])
+class TestASourceEndedByAPartThatStoresNothing:
+    """
+    A part can end its source while storing nothing of its own, because every
+    node it carries is a vector store artefact. Both parts go through one run,
+    since the end of a run closes whatever is still open anyway.
+    """
+
+    def test_the_source_reads_back_complete(self, key_prefix, for_jsonl):
+        collection_id = 'ended-by-empty-part'
+
+        _stage(key_prefix, collection_id, [
+            _part('src-1', ['c1', 'c2'], final_part=False),
+            _index_only_part('src-1', ['idx-1']),
+        ], for_jsonl)
+
+        assert _read_back(key_prefix, collection_id, for_jsonl) == ['src-1']

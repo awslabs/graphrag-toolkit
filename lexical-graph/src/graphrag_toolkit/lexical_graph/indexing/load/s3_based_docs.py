@@ -575,7 +575,9 @@ class S3DocUploader(ConfiguredThreadCount, EncryptedPut, CompletionMarkers, Base
 
                     self._open_source(source_id, root_path, [n.node_id for n in nodes])
                     source_chunk_ids = (
-                        self._end_source(source_id) if source_document.final_part else None
+                        self._end_source(source_id)
+                        if source_document.final_part and nodes
+                        else None
                     )
 
                     if self._submit_proxy(self._upload_doc, executor, queue, root_path, source_document, s3_client, source_chunk_ids):
