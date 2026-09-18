@@ -241,7 +241,10 @@ class CompletionMarkers:
     source that lost a chunk is poisoned and never ends, so its prefix reads as
     incomplete and the document is staged again.
 
-    Writing goes through EncryptedPut, which the host class also inherits.
+    Writing goes through EncryptedPut, which the host class also inherits. The
+    host also declares _open_sources and _poisoned_sources as PrivateAttr:
+    pydantic does not collect them from a plain mixin, and a host that leaves
+    them out fails on the first call rather than at construction.
     """
 
     # Supplied by the host class.

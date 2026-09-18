@@ -625,7 +625,13 @@ class ExtractionPipeline():
             return node.relationships[NodeRelationship.SOURCE].node_id
 
         def sources_finished_by(round_jobs):
-            """The sources this round leaves with nothing left to extract."""
+            """
+            The sources this round leaves with nothing left to extract.
+
+            Consumes from `outstanding` as it counts, so it answers for each
+            round once. Calling it twice on the same round reports no sources
+            the second time.
+            """
             submitted = defaultdict(int)
             for job in round_jobs:
                 for node in job:
