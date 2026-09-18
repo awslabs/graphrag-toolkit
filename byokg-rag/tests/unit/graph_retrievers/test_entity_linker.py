@@ -8,6 +8,7 @@ initialization, linking functionality, return formats, and error handling.
 """
 
 import pytest
+from collections import Counter
 from unittest.mock import Mock
 from graphrag_toolkit.byokg_rag.graph_retrievers.entity_linker import (
     Linker,
@@ -156,8 +157,8 @@ class TestEntityLinkerLink:
         assert result[1] == ['e2']
 
 
-class TestEntityLinkerLinkGrouped:
-    """Tests for EntityLinker.link_grouped (per-mention candidate grouping)."""
+class TestEntityLinkerGroupByMention:
+    """Tests for link(group_by_mention=True) (per-mention candidate grouping)."""
 
     def _matcher(self):
         # Matches one mention at a time through the same matcher link() uses.
@@ -179,24 +180,125 @@ class TestEntityLinkerLinkGrouped:
         mock_ret.retrieve.side_effect = fake_retrieve
         return mock_ret
 
-    def test_link_grouped_preserves_per_mention_grouping(self):
+    def test_group_by_mention_preserves_per_mention_grouping(self):
         """Each mention gets its own best-first candidate list, in input order."""
         mock_ret = self._matcher()
         linker = EntityLinker(retriever=mock_ret, topk=3)
 
-        grouped = linker.link_grouped(['Amazon', 'Google'])
+        grouped = linker.link(['Amazon', 'Google'], group_by_mention=True)
 
         assert grouped == [['Amazon', 'Amazon Web Services'], ['Google']]
         # one matcher call per mention (not one batched call), with configured topk
         assert mock_ret.retrieve.call_args_list[0].kwargs == {'queries': ['Amazon'], 'topk': 3}
         assert mock_ret.retrieve.call_args_list[1].kwargs == {'queries': ['Google'], 'topk': 3}
 
-    def test_link_grouped_no_retriever_error(self):
+    def test_group_by_mention_takes_precedence_over_return_dict(self):
+        """group_by_mention wins over return_dict, as the docstring states."""
+        linker = EntityLinker(retriever=self._matcher(), topk=3)
+
+        grouped = linker.link(['Amazon'], return_dict=True, group_by_mention=True)
+
+        assert grouped == [['Amazon', 'Amazon Web Services']]
+
+    def test_group_by_mention_dedups_repeated_mentions(self):
+        """A repeated mention is looked up once; parse_response does not dedup."""
+        mock_ret = self._matcher()
+        linker = EntityLinker(retriever=mock_ret, topk=3)
+
+        grouped = linker.link(['Amazon', 'Google', 'Amazon'], group_by_mention=True)
+
+        # result still has one entry per input position, duplicates included
+        assert grouped == [
+            ['Amazon', 'Amazon Web Services'],
+            ['Google'],
+            ['Amazon', 'Amazon Web Services'],
+        ]
+        # but only two retriever round trips
+        assert mock_ret.retrieve.call_count == 2
+
+    def test_group_by_mention_no_retriever_error(self):
         """ValueError when no retriever is available."""
         linker = EntityLinker()
 
         with pytest.raises(ValueError, match="Either 'retriever' or 'self.retriever' must be provided"):
-            linker.link_grouped(['Amazon'])
+            linker.link(['Amazon'], group_by_mention=True)
+
+
+class TestEntityLinkerGroupByMentionRealIndex:
+    """link(group_by_mention=True) against a real FuzzyStringIndex, no mocks.
+
+    The mocked tests above pin the call pattern but would stay green if the
+    per-mention loop were swapped for a batched retrieve. These run the real
+    matcher, where FuzzyStringIndex.match concatenates every mention's hits and
+    re-sorts them globally, so a batched implementation cannot reproduce them.
+    """
+
+    # Mixed-length vocab so the matcher's max_len_difference filter engages:
+    # match() drops a candidate when len(candidate) + 4 < len(mention).
+    VOCAB = [
+        'Amazon',
+        'Amazon Web Services',
+        'Amazon River',
+        'African American National Biography Project',
+        'USA',
+        'United States of America',
+        'Seattle',
+        'Seattle Mariners',
+    ]
+    MENTIONS = [
+        'Amazon',
+        'United States of America',
+        'African American Foundation',
+        'Seatle',
+    ]
+
+    @pytest.fixture
+    def linker(self):
+        from graphrag_toolkit.byokg_rag.indexing import FuzzyStringIndex
+        index = FuzzyStringIndex()
+        index.add(self.VOCAB)
+        return EntityLinker(index.as_entity_matcher(), topk=3)
+
+    def test_each_group_equals_linking_that_mention_alone(self, linker):
+        """grouped[i] must be exactly what link() returns for that mention alone.
+
+        This is the attribution guarantee. A batched retrieve sliced into
+        topk-sized chunks fails here, because the fuzzy matcher's length filter
+        removes candidates before the global sort, so chunk boundaries do not
+        line up with mentions.
+        """
+        grouped = linker.link(self.MENTIONS, group_by_mention=True)
+
+        assert len(grouped) == len(self.MENTIONS)
+        for mention, candidates in zip(self.MENTIONS, grouped):
+            # a single-mention batch cannot be reordered across mentions, so its
+            # flat result is that mention's candidate list
+            assert candidates == linker.link([mention], return_dict=False)
+
+    def test_flattened_groups_equal_links_union_as_a_multiset(self, linker):
+        """Grouping changes only attribution, never which candidates survive.
+
+        Compared as a multiset, not a list: link() re-sorts all hits globally by
+        score, while grouping keeps mention order, so the two orders differ.
+        """
+        grouped = linker.link(self.MENTIONS, group_by_mention=True)
+        flattened = [c for group in grouped for c in group]
+        union = linker.link(self.MENTIONS, return_dict=False)
+
+        assert Counter(flattened) == Counter(union)
+
+    def test_length_filter_can_empty_a_group(self, linker):
+        """A mention whose only candidates are too short yields no seeds.
+
+        Pins the behaviour that makes topk=1 unsafe: the length filter runs
+        after process.extract(limit=topk), so a narrow search can return nothing.
+        """
+        at_topk_1 = linker.link(['United States of America'], topk=1, group_by_mention=True)
+        at_topk_3 = linker.link(['United States of America'], topk=3, group_by_mention=True)
+
+        # 'USA' is 21 chars shorter than the mention, so it is filtered out
+        assert 'USA' not in at_topk_1[0]
+        assert 'United States of America' in at_topk_3[0]
 
 
 class TestLinkerAbstract:

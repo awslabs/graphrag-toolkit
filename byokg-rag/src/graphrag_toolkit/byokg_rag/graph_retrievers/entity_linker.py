@@ -18,13 +18,17 @@ class Linker(ABC):
         pass
 
     @abstractmethod
-    def link(self, queries: List[str], return_dict=True, **kwargs):
+    def link(self, queries: List[str], return_dict=True, group_by_mention=False, **kwargs):
         """
         Process to link the given queries to graph (nodes/edges).
 
         Args:
             queries: List of input query texts to perform graph linking on
             return_dict: Whether to return a dictionary of linking results or linked entities only
+            group_by_mention: Return one candidate list per query instead of a flat
+                union, so the caller can tell which candidate came from which query.
+                Takes precedence over return_dict. Implementations that cannot group
+                should fall back to one lookup per query.
             **kwargs: Additional keyword arguments for graph linking configuration
 
         Returns:
@@ -42,7 +46,11 @@ class Linker(ABC):
                     }
             If return_dict is False:
                 List[str]: A list of matched nodes, i.e., documents or entities
+            If group_by_mention is True:
+                List[List[str]]: One candidate list per query, in query order
         """
+        if group_by_mention:
+            return [[] for _ in queries]
         if return_dict:
             return [{'hits': [{'document_id': [],
                             'document': [],
@@ -73,7 +81,8 @@ class EntityLinker(Linker):
         self.retriever = retriever
         self.topk = topk
 
-    def link(self, query_extracted_entities, retriever=None, topk=None, id_selector=None, return_dict=True):
+    def link(self, query_extracted_entities, retriever=None, topk=None, id_selector=None,
+             return_dict=True, group_by_mention=False):
         """
         Process to link the given or extracted query entities to graph entities.
 
@@ -84,8 +93,14 @@ class EntityLinker(Linker):
             topk: The number of items to return per extracted entity
             id_selector: A list of ids to retrieve the topk from (allowlist)
             return_dict: Whether to return a dictionary of linking results or linked entities only
+            group_by_mention: Return one candidate list per mention instead of a flat
+                union, so the caller can tell which candidate came from which mention.
+                Takes precedence over return_dict.
 
         Returns:
+            If group_by_mention is True:
+                List[List[str]]: One best-first candidate list per mention, in the
+                    same order as query_extracted_entities
             If return_dict is True:
                 List[Dict]: A list of dictionaries containing linking results for each query
             If return_dict is False:
@@ -103,48 +118,35 @@ class EntityLinker(Linker):
         if topk is None:
             topk = self.topk
 
+        if group_by_mention:
+            return self._link_per_mention(query_extracted_entities, retriever, topk)
+
+        results = retriever.retrieve(queries=query_extracted_entities, topk=topk)
         if return_dict:
-            return retriever.retrieve(queries=query_extracted_entities, topk=topk)
-        else:
-            results = retriever.retrieve(queries=query_extracted_entities, topk=topk)
-            results = results["hits"]
-            parsed_results = []
-            for res in results:
-                parsed_results.append(res['document_id'])
-            return parsed_results
+            return results
+        return [res['document_id'] for res in results["hits"]]
 
-    def link_grouped(self, query_extracted_entities, retriever=None, topk=None):
+    def _link_per_mention(self, query_extracted_entities, retriever, topk):
         """
-        Link mentions to candidate nodes, keeping candidates grouped per mention.
+        Match one mention at a time so candidates stay attributed to their mention.
 
-        ``link`` matches all mentions at once and flattens and globally sorts the
-        hits, so the caller cannot tell which candidate came from which mention.
-        This matches one mention at a time through the same matcher, so the
-        candidates (and any matcher-specific filtering, such as the fuzzy
-        matcher's length filter) are identical to the union path ``link``
-        produces — just grouped per mention (e.g. to keep only the best match).
+        Costs one retriever call per *unique* mention rather than a single batched
+        call. Batching can't be regrouped after the fact: FuzzyStringIndex.match
+        concatenates every mention's hits and re-sorts them globally by score, and
+        drops candidates by length, so the flat result carries no per-mention
+        boundaries. The dense and graph-store indexes do return hits grouped per
+        input, but relying on that would make grouping index-specific.
 
-        Args:
-            query_extracted_entities: List of mention strings to link
-            retriever: A retriever object to use for entity lookup.
-                If None, the default retriever configured for this instance is used.
-            topk: The number of candidates to return per mention
-
-        Returns:
-            List[List[str]]: one best-first list of candidate node ids per mention,
-                in the same order as ``query_extracted_entities``.
+        topk stays at the configured width instead of 1 because the fuzzy length
+        filter runs after process.extract(limit=topk): at topk=1 the only candidate
+        can be filtered out, and the mention would contribute nothing.
         """
-        if retriever is None:
-            retriever = self.retriever
-        if retriever is None:
-            raise ValueError("Error: Either 'retriever' or 'self.retriever' must be provided")
-        if topk is None:
-            topk = self.topk
-
-        # Match each mention on its own through the same matcher link() uses, so
-        # per-mention candidates agree with the union path regardless of index type.
-        grouped = []
+        # Repeated mentions are common (parse_response does not dedup LLM output),
+        # so look each one up once and reuse the result.
+        per_mention = {}
         for mention in query_extracted_entities:
+            if mention in per_mention:
+                continue
             hits = retriever.retrieve(queries=[mention], topk=topk)["hits"]
-            grouped.append([hit["document_id"] for hit in hits])
-        return grouped
+            per_mention[mention] = [hit["document_id"] for hit in hits]
+        return [per_mention[mention] for mention in query_extracted_entities]
