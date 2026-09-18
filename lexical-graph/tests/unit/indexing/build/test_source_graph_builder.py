@@ -85,3 +85,34 @@ class TestSourceGraphBuilderSourceIdBinding:
 
         params = client.execute_query_with_retry.call_args_list[0][0][1]['params'][0]
         assert params['sourceId'] == 'real'
+
+
+class TestSourceGraphBuilderRecordsTheDocumentHash:
+    """The first document to claim an id owns it."""
+
+    @staticmethod
+    def _source_with_hash(document_hash):
+        node = _make_source_node({'author': 'bob'})
+        node.metadata['source']['documentHash'] = document_hash
+        return node
+
+    def test_the_hash_is_set_on_create_and_kept_on_match(self):
+        client = _make_graph_client()
+
+        SourceGraphBuilder().build(self._source_with_hash('h1'), client)
+
+        query = _setter_query(client)
+        create_clause, match_clause = query.split('ON MATCH SET')
+        assert 'source.documentHash = params.documentHash' in create_clause
+        assert 'source.documentHash = coalesce(source.documentHash, params.documentHash)' in match_clause
+        params = client.execute_query_with_retry.call_args[0][1]['params'][0]
+        assert params['documentHash'] == 'h1'
+
+    def test_a_source_without_a_hash_writes_the_same_query_as_before(self):
+        client = _make_graph_client()
+
+        SourceGraphBuilder().build(_make_source_node({'author': 'bob'}), client)
+
+        query = _setter_query(client)
+        assert 'documentHash' not in query
+        assert 'documentHash' not in client.execute_query_with_retry.call_args[0][1]['params'][0]

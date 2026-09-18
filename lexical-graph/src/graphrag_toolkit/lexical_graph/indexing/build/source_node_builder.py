@@ -9,6 +9,7 @@ from llama_index.core.schema import NodeRelationship
 
 from graphrag_toolkit.lexical_graph.versioning import VERSION_INDEPENDENT_ID_FIELDS
 from graphrag_toolkit.lexical_graph.indexing.build.node_builder import NodeBuilder
+from graphrag_toolkit.lexical_graph.indexing.source_id_collision import DOCUMENT_HASH_PROPERTY
 from graphrag_toolkit.lexical_graph.indexing.constants import TOPICS_KEY
 from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
 
@@ -87,6 +88,9 @@ class SourceNodeBuilder(NodeBuilder):
                 
                 if source_info.metadata:
                     metadata['source'].update(self._get_source_info_metadata(source_info.metadata))
+
+                if source_info.hash:
+                    metadata['source'][DOCUMENT_HASH_PROPERTY] = source_info.hash
 
                 if 'invalid_metadata' in  metadata['source'] and metadata['source']['invalid_metadata']:
                     logger.warning(f"Metadata cannot contain collection-based items. The following items have been removed: [source_id: {source_id}, items: {list(metadata['source']['invalid_metadata'].keys())}]")
