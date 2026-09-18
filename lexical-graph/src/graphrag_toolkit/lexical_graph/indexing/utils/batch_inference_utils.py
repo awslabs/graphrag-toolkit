@@ -6,6 +6,7 @@ import asyncio
 import time
 import os
 import json
+import re
 from typing import Any, Callable, List, Dict, Tuple
 from dataclasses import dataclass
 from os import stat, listdir
@@ -23,7 +24,7 @@ from llama_index.llms.anthropic.utils import messages_to_anthropic_messages
 from llama_index.llms.bedrock_converse.utils import messages_to_converse_messages
 from llama_index.core.schema import TextNode
 from llama_index.core.prompts import PromptTemplate
-from llama_index.core.base.llms.types import ChatMessage
+from llama_index.core.base.llms.types import ChatMessage, MessageRole
 
 
 logger = logging.getLogger(__name__)
@@ -118,18 +119,46 @@ def _build_claude_request(messages: List[ChatMessage], params: dict) -> dict:
     return request_body
 
 
+# Llama special tokens are all '<|' + [a-z0-9_]+ + '|>' ('<|eot_id|>',
+# '<|start_header_id|>', Llama 4's '<|header_start|>', ...). The body excludes
+# '<', '>', '|' and newlines so a stray '<|' in a document can't swallow the text
+# up to some distant '|>'.
+_LLAMA_SPECIAL_TOKEN = re.compile(r'<\|[^<>|\n]*\|>')
+
+
+def _strip_llama_special_tokens(text: str) -> str:
+    """Remove Llama special-token sequences from untrusted message content.
+
+    Chunk text is interpolated into the raw instruct template, so a document
+    containing '<|eot_id|><|start_header_id|>system<|end_header_id|>' would
+    otherwise close its own turn and forge a system turn, steering extraction.
+    Substitution repeats to a fixed point because removing one match can splice
+    the surrounding text into a fresh token ('<|eot_i<|x|>d|>').
+    """
+    while True:
+        stripped = _LLAMA_SPECIAL_TOKEN.sub('', text)
+        if stripped == text:
+            return stripped
+        text = stripped
+
+
 def _format_llama_prompt(messages: List[ChatMessage]) -> str:
     """Render chat messages into Meta Llama's instruct prompt template.
 
     Bedrock's Meta Llama InvokeModel takes a single `prompt` string (not a
     messages array); Llama 3/3.1/3.2/3.3/4 Instruct share this chat template. The
     system message, if any, is folded into the prompt (unlike the Converse-based
-    families which carry it separately).
+    families which carry it separately) — it is hoisted to the front so a later
+    turn can't displace the instructions, and every turn's content is stripped of
+    special tokens because the turn boundaries here are textual, not structural.
     """
+    system_messages = [m for m in messages if m.role == MessageRole.SYSTEM]
+    other_messages = [m for m in messages if m.role != MessageRole.SYSTEM]
+
     parts = ['<|begin_of_text|>']
-    for message in messages:
+    for message in system_messages + other_messages:
         role = message.role.value
-        text = message.content or ''
+        text = _strip_llama_special_tokens(message.content or '')
         parts.append(f'<|start_header_id|>{role}<|end_header_id|>\n\n{text}<|eot_id|>')
     # Trailing empty assistant header cues the model to generate the response.
     parts.append('<|start_header_id|>assistant<|end_header_id|>\n\n')
