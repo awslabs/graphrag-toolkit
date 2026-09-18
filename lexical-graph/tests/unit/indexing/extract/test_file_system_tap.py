@@ -387,7 +387,7 @@ class TestFileSystemTapIdValidation:
                 output_dir=temp_dir
             )
 
-            with pytest.raises(ValueError, match='separator'):
+            with pytest.raises(ValueError, match='invalid characters'):
                 tap.handle_input_docs([_doc(doc_id)])
 
     @pytest.mark.parametrize('doc_id', ['a\nb', 'a\tb', 'a\x00b', 'a\x7fb'])
@@ -399,7 +399,7 @@ class TestFileSystemTapIdValidation:
                 output_dir=temp_dir
             )
 
-            with pytest.raises(ValueError, match='control character'):
+            with pytest.raises(ValueError, match='invalid characters'):
                 tap.handle_input_docs([_doc(doc_id)])
 
     @pytest.mark.parametrize('doc_id', ['', '   '])
@@ -441,7 +441,7 @@ class TestFileSystemTapIdValidation:
             doc = _doc('doc1')
             doc.nodes = [TextNode(text="chunk", id_="../escaped")]
 
-            with pytest.raises(ValueError, match='separator'):
+            with pytest.raises(ValueError, match='invalid characters'):
                 tap.handle_output_doc(doc)
 
     def test_a_rewritten_id_still_writes_both_files(self):
