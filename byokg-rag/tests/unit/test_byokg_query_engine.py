@@ -8,7 +8,7 @@ query processing, context deduplication, and response generation.
 """
 
 import pytest
-from unittest.mock import Mock, MagicMock, patch
+from unittest.mock import Mock, MagicMock, patch, call
 from graphrag_toolkit.byokg_rag.byokg_query_engine import ByoKGQueryEngine
 
 
@@ -213,6 +213,182 @@ class TestQueryEngineSeedOrdering:
         assert captured['seeds'] == ['Organization', 'Portland', 'John Doe']
         # path retriever gets a stable sorted order
         assert captured['path_entities'] == sorted({'Organization', 'Portland'})
+
+
+class TestQueryEngineSingleBestMatch:
+    """Tests for the single_best_match seed-pruning flag."""
+
+    def _kg_linker(self):
+        mock_kg_linker = Mock()
+        mock_kg_linker.task_prompts = "test"
+        mock_kg_linker.task_prompts_iterative = "test"
+        mock_kg_linker.generate_response.return_value = "<task-completion>FINISH</task-completion>"
+        mock_kg_linker.parse_response.return_value = {
+            'entity-extraction': ['MentionA', 'MentionB'],
+            'draft-answer-generation': ['DraftAnswer'],
+        }
+        return mock_kg_linker
+
+    @staticmethod
+    def _grouping_linker():
+        """A linker that honours group_by_mention, like EntityLinker."""
+        mock_entity_linker = Mock()
+
+        def fake_link(entities, return_dict=True, group_by_mention=False):
+            if group_by_mention:
+                # MentionA -> [A1, A2], MentionB -> [B1]
+                return [['A1', 'A2'], ['B1']]
+            return ['ans1']
+
+        mock_entity_linker.link.side_effect = fake_link
+        return mock_entity_linker
+
+    def test_flag_off_by_default_preserves_current_behavior(
+        self, mock_graph_store_with_schema, mock_llm_generator
+    ):
+        """With the flag off (default), seeds come from link()'s flat union."""
+        mock_entity_linker = Mock()
+        # link() is called for extracted mentions then draft answers (current behavior).
+        mock_entity_linker.link.side_effect = [
+            ['A1', 'A2', 'B1'],   # extracted mentions, flattened across mentions
+            ['ans1'],             # draft answers
+        ]
+
+        captured = {}
+        mock_triplet_retriever = Mock()
+        mock_triplet_retriever.retrieve.side_effect = (
+            lambda query, source_entities: captured.__setitem__('seeds', source_entities) or ['ctx']
+        )
+
+        engine = ByoKGQueryEngine(
+            graph_store=mock_graph_store_with_schema,
+            llm_generator=mock_llm_generator,
+            entity_linker=mock_entity_linker,
+            triplet_retriever=mock_triplet_retriever,
+            kg_linker=self._kg_linker(),
+        )
+        assert engine.single_best_match is False
+
+        engine.query("q", iterations=1)
+
+        # never asks for grouping when the flag is off
+        for call in mock_entity_linker.link.call_args_list:
+            assert not call.kwargs.get('group_by_mention', False)
+        assert set(captured['seeds']) == {'A1', 'A2', 'B1', 'ans1'}
+
+    def test_flag_on_keeps_one_seed_per_mention_and_leaves_answers(
+        self, mock_graph_store_with_schema, mock_llm_generator
+    ):
+        """With the flag on, each mention yields at most one seed; draft answers untouched."""
+        mock_entity_linker = self._grouping_linker()
+
+        captured = {}
+        mock_triplet_retriever = Mock()
+        mock_triplet_retriever.retrieve.side_effect = (
+            lambda query, source_entities: captured.__setitem__('seeds', source_entities) or ['ctx']
+        )
+
+        engine = ByoKGQueryEngine(
+            graph_store=mock_graph_store_with_schema,
+            llm_generator=mock_llm_generator,
+            entity_linker=mock_entity_linker,
+            triplet_retriever=mock_triplet_retriever,
+            kg_linker=self._kg_linker(),
+            single_best_match=True,
+        )
+
+        engine.query("q", iterations=1)
+
+        # one seed per mention (A2 dropped) plus the untouched draft answer
+        assert set(captured['seeds']) == {'A1', 'B1', 'ans1'}
+        assert mock_entity_linker.link.call_args_list[0] == call(
+            ['MentionA', 'MentionB'], return_dict=False, group_by_mention=True
+        )
+        # draft answers go through the ungrouped path
+        assert mock_entity_linker.link.call_args_list[1] == call(
+            ['DraftAnswer'], return_dict=False
+        )
+
+    def test_flag_on_also_narrows_the_path_retriever_seeds(
+        self, mock_graph_store_with_schema, mock_llm_generator
+    ):
+        """explored_entities feeds the path retriever, so pruning narrows paths too.
+
+        Documented behaviour, not just a triplet-seed change.
+        """
+        kg_linker = self._kg_linker()
+        kg_linker.parse_response.return_value = {
+            'entity-extraction': ['MentionA', 'MentionB'],
+            'draft-answer-generation': ['DraftAnswer'],
+            'path-extraction': ['A1->B1'],
+        }
+
+        captured = {}
+        mock_path_retriever = Mock()
+        mock_path_retriever.retrieve.side_effect = (
+            lambda entities, metapaths, answers:
+                captured.__setitem__('path_entities', entities) or []
+        )
+
+        engine = ByoKGQueryEngine(
+            graph_store=mock_graph_store_with_schema,
+            llm_generator=mock_llm_generator,
+            entity_linker=self._grouping_linker(),
+            triplet_retriever=Mock(**{'retrieve.return_value': ['ctx']}),
+            path_retriever=mock_path_retriever,
+            kg_linker=kg_linker,
+            single_best_match=True,
+        )
+
+        engine.query("q", iterations=1)
+
+        # A2 is absent from the path seeds as well, not just the triplet seeds
+        assert captured['path_entities'] == ['A1', 'B1']
+
+    def test_flag_on_with_linker_ignoring_group_by_mention_raises(
+        self, mock_graph_store_with_schema, mock_llm_generator
+    ):
+        """A linker that ignores group_by_mention must fail loudly, not seed the flat union.
+
+        Checked at the call site rather than in __init__ because entity_linker is
+        public: a construction-time check is bypassed by reassigning it afterwards.
+        """
+        mock_entity_linker = Mock()
+        # Third-party linker with link(queries, return_dict=True, **kwargs): the
+        # unknown flag lands in **kwargs and is dropped, so it returns a flat list.
+        mock_entity_linker.link.return_value = ['A1', 'A2', 'B1']
+
+        engine = ByoKGQueryEngine(
+            graph_store=mock_graph_store_with_schema,
+            llm_generator=mock_llm_generator,
+            entity_linker=mock_entity_linker,
+            triplet_retriever=Mock(**{'retrieve.return_value': ['ctx']}),
+            kg_linker=self._kg_linker(),
+            single_best_match=True,
+        )
+
+        with pytest.raises(TypeError, match="one candidate list per mention"):
+            engine.query("q", iterations=1)
+
+    def test_reassigning_entity_linker_after_construction_is_still_caught(
+        self, mock_graph_store_with_schema, mock_llm_generator
+    ):
+        """The guard holds even when the linker is swapped in after __init__."""
+        engine = ByoKGQueryEngine(
+            graph_store=mock_graph_store_with_schema,
+            llm_generator=mock_llm_generator,
+            entity_linker=self._grouping_linker(),
+            triplet_retriever=Mock(**{'retrieve.return_value': ['ctx']}),
+            kg_linker=self._kg_linker(),
+            single_best_match=True,
+        )
+
+        bad_linker = Mock()
+        bad_linker.link.return_value = ['A1', 'A2']
+        engine.entity_linker = bad_linker
+
+        with pytest.raises(TypeError, match="one candidate list per mention"):
+            engine.query("q", iterations=1)
 
 
 class TestQueryEngineGenerateResponse:

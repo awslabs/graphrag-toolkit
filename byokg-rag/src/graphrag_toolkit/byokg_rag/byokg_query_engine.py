@@ -22,7 +22,8 @@ class ByoKGQueryEngine:
                  llm_generator=None,
                  kg_linker=None,
                  cypher_kg_linker=None,
-                 direct_query_linking=False):
+                 direct_query_linking=False,
+                 single_best_match=False):
         """
         Initialize the query engine.
 
@@ -36,6 +37,12 @@ class ByoKGQueryEngine:
             kg_linker: Optional KG linker for multi-strategy retrieval
             cypher_kg_linker: Optional Cypher KG linker for cypher-based retrieval
             direct_query_linking: Flag whether to use entity linker with query embedding directly
+            single_best_match: If True, keep only the best-matching node per extracted
+                mention instead of unioning every top-k candidate. This narrows both
+                the triplet retriever's seed set and the entity set fed to the path
+                retriever, so path coverage narrows with it. Draft-answer linking is
+                unaffected. Off by default; when off, the seed set is unchanged.
+                Requires an entity_linker whose link() honours group_by_mention.
         """
         self.graph_store = graph_store
         self.schema = graph_store.get_schema()
@@ -51,6 +58,7 @@ class ByoKGQueryEngine:
             entity_linker = EntityLinker(entity_retriever)
         self.entity_linker = entity_linker
         self.direct_query_linking = direct_query_linking
+        self.single_best_match = single_best_match
         
         if triplet_retriever is None and self.llm_generator is not None:
             from .graph_retrievers import AgenticRetriever
@@ -217,7 +225,24 @@ class ByoKGQueryEngine:
             # Process extracted entities
             linked_entities = []
             if "entity-extraction" in artifacts and artifacts["entity-extraction"] and "FINISH" not in artifacts["entity-extraction"][0]:
-                linked_entities = self.entity_linker.link(artifacts["entity-extraction"], return_dict=False)
+                if self.single_best_match:
+                    # Keep only the top candidate per mention. Checked here rather
+                    # than in __init__ because entity_linker is public and may be
+                    # reassigned after construction; a linker that ignores
+                    # group_by_mention would otherwise silently seed the flat union.
+                    grouped = self.entity_linker.link(
+                        artifacts["entity-extraction"], return_dict=False, group_by_mention=True
+                    )
+                    if not isinstance(grouped, list) or not all(isinstance(c, list) for c in grouped):
+                        raise TypeError(
+                            f"single_best_match=True requires entity_linker.link(..., "
+                            f"group_by_mention=True) to return one candidate list per mention; "
+                            f"{type(self.entity_linker).__name__} returned "
+                            f"{type(grouped).__name__}. The linker likely ignores group_by_mention."
+                        )
+                    linked_entities = [candidates[0] for candidates in grouped if candidates]
+                else:
+                    linked_entities = self.entity_linker.link(artifacts["entity-extraction"], return_dict=False)
                 explored_entities.update(linked_entities)
 
             # Process answer entities

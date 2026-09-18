@@ -58,7 +58,8 @@ query_engine = ByoKGQueryEngine(
     llm_generator=custom_llm,
     kg_linker=custom_kg_linker,
     cypher_kg_linker=custom_cypher_linker,
-    direct_query_linking=False
+    direct_query_linking=False,
+    single_best_match=False
 )
 ```
 
