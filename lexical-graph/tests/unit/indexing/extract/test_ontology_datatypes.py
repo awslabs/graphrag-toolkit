@@ -337,3 +337,41 @@ class TestATimezoneIsRefusedRatherThanStripped:
         says which instant within that day it was anchored to."""
         assert coerce_literal('2020-03-03Z', xsd('date')) == '2020-03-03'
         assert coerce_literal('2020-03-03-05:00', xsd('date')) == '2020-03-03'
+
+
+class TestNothingHereRaises:
+    """`coerce_literal` answers None; it never propagates an exception.
+
+    Both cases are reachable from document text, and an uncaught exception in a
+    coercer ends the build - `graph_construction` re-raises and nothing above it
+    catches.
+    """
+
+    @pytest.mark.parametrize('digits', [4301, 5000, 20000])
+    def test_a_digit_run_over_the_int_conversion_cap_is_refused(self, digits):
+        """CPython caps string-to-int conversion at 4300 digits (3.11+), so `int()`
+        raises rather than returning a number."""
+        assert coerce_literal('1' * digits, xsd('integer')) is None
+
+    def test_a_digit_run_at_the_cap_still_coerces(self):
+        assert coerce_literal('1' * 4300, xsd('integer')) is not None
+
+    @pytest.mark.parametrize('literal', [
+        '2020-03-03T09:30:00-05:00',   # ±HH:MM
+        '2020-03-03T09:30:00Z',        # Z
+        '2020-03-03T09:30:00+0530',    # ±HHMM
+        '2020-03-03T09:30:00+05',      # ±HH
+    ])
+    def test_every_spelling_of_an_offset_is_refused_for_datetime(self, literal):
+        """The zone is detected on the parsed value, not by matching the text, so a
+        form the parser accepts cannot slip past. `+0530` and `+05` previously
+        parsed and stored *with* the offset."""
+        assert coerce_literal(literal, xsd('dateTime')) is None
+
+    @pytest.mark.parametrize('literal', [
+        '23:00:00-05:00', '09:30:00Z', '09:30:00+0530', '09:30:00+05',
+    ])
+    def test_every_spelling_of_an_offset_is_refused_for_time(self, literal):
+        """`_ISO_TIME` is anchored and admits nothing after the optional fraction,
+        so the shape test alone rejects all four."""
+        assert coerce_literal(literal, xsd('time')) is None

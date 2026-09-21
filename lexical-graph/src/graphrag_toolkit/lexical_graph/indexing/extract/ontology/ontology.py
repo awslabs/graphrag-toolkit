@@ -22,7 +22,7 @@ import re
 from pathlib import Path
 from typing import Dict, FrozenSet, List, Optional, Set, Tuple, Union
 
-from rdflib import RDF, RDFS, BNode, Graph, Namespace
+from rdflib import RDF, RDFS, BNode, Graph, Literal, Namespace
 
 from graphrag_toolkit.lexical_graph.indexing.extract.ontology.ontology_index import (
     OWL_THING,
@@ -48,6 +48,10 @@ OWL = Namespace('http://www.w3.org/2002/07/owl#')
 SKOS = Namespace('http://www.w3.org/2004/02/skos/core#')
 
 TURTLE_SUFFIX = '.ttl'
+
+# Collapses an `rdfs:comment` onto one line before it is serialized into the
+# turtle vocabulary block. See `_flattened_comments`.
+_WHITESPACE_RUN = re.compile(r'\s+')
 
 OntologyTerms = Tuple[
     Dict[str, OntologyClass],
@@ -276,7 +280,10 @@ class Ontology:
             return ''
 
         return format_turtle_vocabulary(
-            _stable_blank_node_labels(self.graph.serialize(format='turtle')), level
+            _stable_blank_node_labels(
+                _flattened_comments(self.graph).serialize(format='turtle')
+            ),
+            level,
         )
 
     def format_as_proposition_constraint(self, level:str) -> str:
@@ -341,6 +348,41 @@ class Ontology:
             self._index.datatype_properties,
         )
 
+def _flattened_comments(graph:Graph) -> Graph:
+    """Return a copy of `graph` with every `rdfs:comment` collapsed to one line.
+
+    The prose renderer flattens comments as it writes each vocabulary line, but
+    the `'turtle'` format shows the ontology's own serialization, so a comment
+    reaches the prompt with its newlines intact - and a comment carrying a newline
+    and then `##` forges a section heading in a block whose structure is headings.
+    Measured before this: the turtle block had two `## Using this vocabulary`
+    headings where the prose block had one.
+
+    A copy, not an edit. `Ontology.graph` is public and documented as immutable by
+    convention - `graph.serialize()` is the supported way to write an ontology back
+    out - so flattening in place would change what a caller reads back. Only
+    `rdfs:comment` objects are rewritten, and a literal's language tag and datatype
+    are carried over so the copy differs from the original in whitespace alone.
+
+    Note this does not make the block injection-proof, and is not trying to: the
+    fence is sized to the content by `format_turtle_vocabulary`, and what remains
+    is prose inside a fenced block that the header names as the ontology.
+    """
+    flattened = Graph()
+    for prefix, namespace in graph.namespaces():
+        flattened.bind(prefix, namespace, override=True)
+
+    for (s, p, o) in graph:
+        if p == RDFS.comment and isinstance(o, Literal):
+            o = Literal(
+                _WHITESPACE_RUN.sub(' ', str(o)).strip(),
+                lang=o.language,
+                datatype=o.datatype if o.language is None else None,
+            )
+        flattened.add((s, p, o))
+
+    return flattened
+
 def _stable_blank_node_labels(turtle:str) -> str:
     """Renumber blank-node labels to `_:b1`, `_:b2`, … in first-appearance order.
 
@@ -368,7 +410,12 @@ def _stable_blank_node_labels(turtle:str) -> str:
             labels[label] = f'b{len(labels) + 1}'
         return f'_:{labels[label]}'
 
-    return re.sub(r'_:([A-Za-z][A-Za-z0-9_-]*)', replace, turtle)
+    # The lookbehind is load-bearing. Without it the `_:` matches inside a legal
+    # prefixed name whose prefix ends in an underscore - `@prefix ex_:` makes
+    # `ex_:Company` contain `_:Company` - and the class gets rewritten to
+    # `ex_:b1`, corrupting the vocabulary this function exists to stabilise. A
+    # blank node label is only a blank node label at the start of a token.
+    return re.sub(r'(?<![A-Za-z0-9_\-])_:([A-Za-z][A-Za-z0-9_-]*)', replace, turtle)
 
 def _local_name_of(iri:str) -> str:
     """Return an IRI's last segment, split on `#` then `/`."""

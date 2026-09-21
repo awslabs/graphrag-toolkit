@@ -414,3 +414,40 @@ class TestFilterConfigToOpencypherFilters:
         )
         result = parse_metadata_filters_recursive(filters)
         assert result == ''
+
+
+class TestLabelFromIsIdempotentOnPascalCase:
+    """`string.capwords` lowercases the rest of each word, folding an internal
+    capital away, so `label_from` needs the camel boundary split first.
+
+    Invisible while every classification arrived from the response parser, which
+    title-cases. An ontology's `normalize_names` stores the authored name verbatim,
+    so `:SportsTeam` now reaches `GraphSummaryBuilder` and the domain-label write as
+    written.
+    """
+
+    @pytest.mark.parametrize('value,expected', [
+        ('SportsTeam', 'SportsTeam'),
+        ('Sports Team', 'SportsTeam'),
+        ('SPORTS_TEAM', 'SportsTeam'),
+        ('FinancialInstrument', 'FinancialInstrument'),
+        ('Creative Work', 'CreativeWork'),
+        ('Company', 'Company'),
+        ('unknown', 'Unknown'),
+    ])
+    def test_both_spellings_reach_the_same_label(self, value, expected):
+        from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import label_from
+
+        assert label_from(value) == expected
+
+    def test_a_reserved_value_is_passed_through_untouched(self):
+        from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import label_from
+
+        assert label_from('__Local_Entity__') == '__Local_Entity__'
+
+    def test_it_is_idempotent(self):
+        """The property that matters: applying it twice cannot drift."""
+        from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import label_from
+
+        for value in ['SportsTeam', 'Sports Team', 'FinancialInstrument', 'unknown']:
+            assert label_from(label_from(value)) == label_from(value)

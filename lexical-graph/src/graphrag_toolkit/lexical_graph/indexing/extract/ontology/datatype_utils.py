@@ -146,6 +146,13 @@ _ZERO_FRACTION = re.compile(r'\.0*$')
 
 _INTEGER_LEXICAL = re.compile(r'^[+-]?\d+$')
 
+# CPython's default limit for string-to-int conversion, above which `int()` raises
+# `ValueError` (3.11+). Hard-coded rather than read from
+# `sys.get_int_max_str_digits()`: an interpreter configured with a different limit
+# would otherwise change which literals coerce, and this module's answers should
+# not depend on that.
+_MAX_INTEGER_DIGITS = 4300
+
 # `xsd:anyURI` is almost unconstrained in the standard, so the check here is
 # narrow on purpose: it rejects the failure actually seen from a model, which is
 # a sentence where a URI was asked for. Internal whitespace is the signal.
@@ -192,6 +199,15 @@ def _coerce_integer(text:str, bounds:Tuple[Optional[int], Optional[int]]) -> Opt
         degrouped = degrouped[:degrouped.index('.')]
 
     if not _INTEGER_LEXICAL.match(degrouped):
+        return None
+
+    # `int()` on a very long digit string raises rather than returning a number:
+    # CPython caps string-to-int conversion at 4300 digits by default (3.11+,
+    # CVE-2020-10735). The literal comes from document text, so a run of digits
+    # that long is reachable, and an uncaught `ValueError` here would end the run.
+    # Refused for the same reason a unit-bearing number is: this module returns
+    # None for anything it cannot turn into a value, and never raises.
+    if len(degrouped.lstrip('+-')) > _MAX_INTEGER_DIGITS:
         return None
 
     value = int(degrouped)
@@ -256,14 +272,24 @@ def _coerce_datetime(text:str) -> Optional[str]:
     """An ISO datetime string. Only the ISO lexical form, and only without a zone.
 
     A zoned literal is refused rather than stripped - see `_TRAILING_TIMEZONE`.
+
+    The zone is detected on the *parsed* value rather than by matching the text.
+    A regex has to enumerate the forms, and `_TRAILING_TIMEZONE` only covers `Z`
+    and `±HH:MM`, so `'...+0530'` and `'...+05'` slipped past it and then parsed
+    successfully on 3.11+ - storing the offset, which is the one outcome refusing
+    was meant to prevent, while the spelled-out `'...-05:00'` was refused. Asking
+    `tzinfo` cannot miss a form the parser accepts.
     """
     stripped = text.strip()
-    if _TRAILING_TIMEZONE.search(stripped):
-        return None
     try:
-        return datetime.fromisoformat(stripped).isoformat()
+        parsed = datetime.fromisoformat(stripped)
     except ValueError:
         return None
+
+    if parsed.tzinfo is not None:
+        return None
+
+    return parsed.isoformat()
 
 def _coerce_time(text:str) -> Optional[str]:
     """An ISO time-of-day string.
@@ -273,12 +299,13 @@ def _coerce_time(text:str) -> Optional[str]:
     group admits, and `xsd:dateTime` accepts the same fraction, so rejecting it
     here would make the two types disagree about one lexical form.
 
-    A zoned literal is refused rather than stripped - see `_TRAILING_TIMEZONE`.
-    A time of day is exactly the case where an offset carries all the meaning.
+    A zoned literal is refused, which a time of day is exactly the case for - an
+    offset carries all of the meaning there. No explicit check is needed: unlike
+    `_coerce_datetime`, this path is gated on `_ISO_TIME`, which is anchored and
+    admits nothing after the optional fraction, so every spelling of an offset -
+    `Z`, `±HH:MM`, `±HHMM`, `±HH` - fails the shape test.
     """
     stripped = text.strip()
-    if _TRAILING_TIMEZONE.search(stripped):
-        return None
     if not _ISO_TIME.match(stripped):
         return None
 

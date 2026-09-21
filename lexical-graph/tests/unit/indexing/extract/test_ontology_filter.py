@@ -664,3 +664,50 @@ class TestTheReservedSentinel:
             attribute('FOUNDED YEAR', subject_class=LOCAL),
             enforce_entity_types=True,
         )
+
+
+class TestTheSentinelCannotBeWrittenEither:
+    """The write half of the reserved-name guard.
+
+    Resolution refuses to *find* a term for `__Local_Entity__`, but nothing stopped
+    a term whose `rdfs:label` **is** `__Local_Entity__` from having that name
+    written onto an ordinary entity by `normalize_names` - putting the sentinel on a
+    real entity's `class`, where every downstream
+    `== LOCAL_ENTITY_CLASSIFICATION` guard would act on it.
+    """
+
+    @pytest.fixture
+    def sentinel_labelled_index(self):
+        return Ontology.from_turtle_string(
+            '@prefix : <urn:x#> . '
+            '@prefix owl: <http://www.w3.org/2002/07/owl#> . '
+            '@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> . '
+            f':Thing a owl:Class ; rdfs:label "{LOCAL}" .'
+        ).index()
+
+    def test_the_authored_name_is_not_written_when_it_is_reserved(self, sentinel_labelled_index):
+        [fact] = facts_of(run(
+            OntologyFilter(index=sentinel_labelled_index, normalize_names=True),
+            attribute('FOUNDED YEAR', subject_class='Thing'),
+        ))
+
+        assert fact.subject.classification == 'Thing'
+
+    def test_it_warns_so_the_author_can_fix_the_ontology(self, sentinel_labelled_index, caplog):
+        with caplog.at_level(logging.WARNING):
+            run(
+                OntologyFilter(index=sentinel_labelled_index, normalize_names=True),
+                attribute('FOUNDED YEAR', subject_class='Thing'),
+            )
+
+        assert 'the pipeline reserves' in caplog.text
+
+    def test_the_class_still_resolves_and_annotates(self, sentinel_labelled_index):
+        """Only the *name* is refused - the term is a legitimate class, so the fact
+        keeps its `classIri` and is not dropped."""
+        [fact] = facts_of(run(
+            OntologyFilter(index=sentinel_labelled_index),
+            attribute('FOUNDED YEAR', subject_class='Thing'),
+        ))
+
+        assert fact.subject.classIri == 'urn:x#Thing'

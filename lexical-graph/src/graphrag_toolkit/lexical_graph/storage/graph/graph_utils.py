@@ -68,6 +68,17 @@ def label_from(value:str):
         return value
 
     value = SEARCH_STRING_PATTERN.sub(' ', value)
+    # Split camel-case boundaries before `capwords`, which lowercases the rest of
+    # each word and so folds an existing internal capital away: `'SportsTeam'`
+    # became `'Sportsteam'`, while `'Sports Team'` became `'SportsTeam'`. That was
+    # invisible while every classification arrived from the response parser, which
+    # title-cases; an ontology's `normalize_names` stores the authored name
+    # verbatim, so `:SportsTeam` now reaches here as written. Splitting first makes
+    # the function idempotent on both spellings.
+    #
+    # `CAMEL_BOUNDARY_PATTERN` is the same rule `relationship_name_from` uses, for
+    # the same reason - see its docstring.
+    value = CAMEL_BOUNDARY_PATTERN.sub(' ', value)
     return string.capwords(value).replace(' ', '')
 
 def escape_cypher_label(label:str) -> str:

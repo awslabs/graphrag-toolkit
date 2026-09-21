@@ -569,10 +569,31 @@ class OntologyFilter(TransformComponent):
         In place rather than by replacement: within a topic
         straight off the parser, this object is also a member of
         `topic.entities`, and rebinding would desynchronize the two views.
+
+        The authored name is refused when it is one the pipeline reserves. This is
+        the write half of what `_is_reserved_classification` guards on the read
+        side, and both halves are needed: resolution refuses to *find* a term for
+        `__Local_Entity__`, but nothing stopped a term whose `rdfs:label` **is**
+        `__Local_Entity__` from having that name written onto a perfectly ordinary
+        entity. The sentinel would then be on a real entity's `class`, and every
+        downstream `== LOCAL_ENTITY_CLASSIFICATION` guard would treat it as a local
+        entity. Skipped rather than dropped, and counted as neither a rewrite nor a
+        drop, because the fact itself is fine - only the name the ontology offered
+        for it is not.
         """
         if entity is None or ontology_class is None:
             return
         name = authored_name(ontology_class)
+
+        if _is_reserved_classification(name):
+            logger.warning(
+                'Ontology class %s is named %r, which the pipeline reserves for its '
+                'own use, so it will not be written onto an entity. Rename the '
+                'term, or remove that rdfs:label. Logged per fact.',
+                ontology_class.iri, name,
+            )
+            return
+
         if entity.classification != name:
             entity.classification = name
             counters.classifications_rewritten += 1
