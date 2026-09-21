@@ -204,6 +204,8 @@ The build stage skips a document whose markers do not account for the chunks sto
 
 A collection first written by a version that did not write markers is read as it stands, so documents already stored are not extracted a second time. Adding documents to such a collection leaves it that way; start a new `collection_id` to have the build stage check for incomplete documents.
 
+The identity under which the lexical-graph runs needs `s3:PutObject` and `s3:GetObject` on `arn:aws:s3:::<bucket>/<key_prefix>/*`, and `s3:ListBucket` on `arn:aws:s3:::<bucket>`. Both stages list the objects under a collection: the extract stage to decide what is already stored, the build stage to read a document's chunks and its markers. Without `s3:ListBucket` these listings fail with an access denied error.
+
 If you use Amazon Web Services KMS keys to encrypt objects in S3, the identity under which the lexical-graph runs should include the following IAM policy. Replace `<kms-key-arn>` with the ARN of the KMS key you want to use to encrypt objects:
 
 ```
