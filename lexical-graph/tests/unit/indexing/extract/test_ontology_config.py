@@ -591,6 +591,8 @@ class TestInferenceKeepsTheOntologySeed:
     INFERRED = ['Supplier', 'Factory', 'Shipment']
 
     def inferencer(self, num_classifications=15, seed=None):
+        from llama_index.core.llms.mock import MockLLM
+
         from graphrag_toolkit.lexical_graph.indexing.extract.infer_classifications import (
             InferClassifications,
         )
@@ -604,7 +606,12 @@ class TestInferenceKeepsTheOntologySeed:
             num_samples=1,
             num_iterations=1,
             num_classifications=num_classifications,
-            llm=None,
+            # MockLLM, not None: `InferClassifications` falls back to
+            # `GraphRAGConfig.extraction_llm`, which constructs a real
+            # `BedrockConverse` and raises `NoRegionError` wherever AWS is not
+            # configured - so `llm=None` passes locally and fails in CI. Same
+            # reason `build_pipeline` above substitutes one.
+            llm=MockLLM(),
             replace_default_classifications=False,
             # What `LexicalGraphIndex` sets when an ontology is configured. This
             # class tests that case; `TestSeedingIsGatedOnAnOntology` covers the
