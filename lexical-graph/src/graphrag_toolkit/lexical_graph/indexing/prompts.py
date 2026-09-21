@@ -315,6 +315,14 @@ def with_ontology_constraints(template:str, constraints:str) -> str:
 
     block = _neutralize_format_fields(constraints)
 
+    # Every placeholder, but only the first anchor - the two markers are
+    # different kinds of thing. A placeholder is a request: the template's author
+    # wrote it exactly where they wanted the block, so a template carrying two is
+    # asking for two, and one left unsubstituted would reach the model as the
+    # literal text `{ontology_constraints}`. The empty path above clears all of
+    # them for that second reason. An anchor is a match on prose the author wrote
+    # for its own sake, so a template that happens to repeat it is not asking for
+    # the vocabulary twice.
     if ONTOLOGY_CONSTRAINTS_PLACEHOLDER in template:
         return template.replace(ONTOLOGY_CONSTRAINTS_PLACEHOLDER, block)
 

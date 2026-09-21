@@ -166,6 +166,16 @@ class TestEmptyConstraints:
         assert composed.startswith('before')
         assert composed.endswith('after')
 
+    def test_an_empty_block_clears_every_placeholder(self):
+        """Verify a repeated placeholder cannot leave one behind.
+
+        Same reason as the single-placeholder case, and the reason this path
+        replaces all occurrences rather than the first: any survivor reaches the
+        model as literal text.
+        """
+        template = f'{ONTOLOGY_CONSTRAINTS_PLACEHOLDER}|{ONTOLOGY_CONSTRAINTS_PLACEHOLDER}'
+        assert with_ontology_constraints(template, '') == '|'
+
     def test_a_template_with_an_anchor_is_left_alone(self):
         """Verify an empty block does not disturb the anchor."""
         template = f'preamble\n\n{EXTRACT_TOPICS_ANCHOR}\n'
