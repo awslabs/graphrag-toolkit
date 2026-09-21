@@ -4,6 +4,7 @@
 import pytest
 from unittest.mock import Mock
 from graphrag_toolkit.lexical_graph.indexing.build.source_graph_builder import SourceGraphBuilder
+from graphrag_toolkit.lexical_graph.indexing.constants import SOURCE_HASH_PARAM, SOURCE_HASH_PROPERTY
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
 from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import escape_cypher_label
 
@@ -87,26 +88,40 @@ class TestSourceGraphBuilderSourceIdBinding:
         assert params['sourceId'] == 'real'
 
 
-class TestSourceGraphBuilderRecordsTheDocumentHash:
+class TestSourceGraphBuilderRecordsTheSourceHash:
     """The first document to claim an id owns it."""
 
     @staticmethod
-    def _source_with_hash(document_hash):
-        node = _make_source_node({'author': 'bob'})
-        node.metadata['source']['documentHash'] = document_hash
+    def _source_with_hash(source_hash, metadata=None):
+        node = _make_source_node(metadata if metadata is not None else {'author': 'bob'})
+        node.metadata['source'][SOURCE_HASH_PROPERTY] = source_hash
         return node
 
-    def test_the_hash_is_set_on_create_and_kept_on_match(self):
+    @staticmethod
+    def _query(client):
+        return client.execute_query_with_retry.call_args[0][0]
+
+    def test_the_hash_is_kept_from_before_the_write(self):
+        # owner is read before anything is set, so the coalesce keeps whatever the
+        # id's owner left and the filter compares against it.
         client = _make_graph_client()
 
         SourceGraphBuilder().build(self._source_with_hash('h1'), client)
 
-        query = _setter_query(client)
-        create_clause, match_clause = query.split('ON MATCH SET')
-        assert 'source.documentHash = params.documentHash' in create_clause
-        assert 'source.documentHash = coalesce(source.documentHash, params.documentHash)' in match_clause
+        query = self._query(client)
+        assert f'WITH source, params, source.{SOURCE_HASH_PROPERTY} AS owner' in query
+        assert f'WHERE owner IS NULL OR owner = params.`{SOURCE_HASH_PARAM}`' in query
+        assert f'SET source.{SOURCE_HASH_PROPERTY} = coalesce(owner, params.`{SOURCE_HASH_PARAM}`)' in query
         params = client.execute_query_with_retry.call_args[0][1]['params'][0]
-        assert params['documentHash'] == 'h1'
+        assert params[SOURCE_HASH_PARAM] == 'h1'
+
+    def test_the_metadata_write_is_behind_the_filter(self):
+        client = _make_graph_client()
+
+        SourceGraphBuilder().build(self._source_with_hash('h1'), client)
+
+        query = self._query(client)
+        assert query.index('WHERE owner') < query.index('source.`author`')
 
     def test_a_source_without_a_hash_writes_the_same_query_as_before(self):
         client = _make_graph_client()
@@ -114,5 +129,27 @@ class TestSourceGraphBuilderRecordsTheDocumentHash:
         SourceGraphBuilder().build(_make_source_node({'author': 'bob'}), client)
 
         query = _setter_query(client)
-        assert 'documentHash' not in query
-        assert 'documentHash' not in client.execute_query_with_retry.call_args[0][1]['params'][0]
+        assert SOURCE_HASH_PROPERTY not in query
+        assert 'WHERE owner' not in query
+        assert SOURCE_HASH_PARAM not in client.execute_query_with_retry.call_args[0][1]['params'][0]
+
+    def test_a_metadata_key_of_the_same_name_does_not_displace_it(self):
+        client = _make_graph_client()
+
+        SourceGraphBuilder().build(
+            self._source_with_hash('h1', {SOURCE_HASH_PROPERTY: 'not-the-hash'}), client)
+
+        params = client.execute_query_with_retry.call_args[0][1]['params'][0]
+        assert params[SOURCE_HASH_PARAM] == 'h1'
+        assert params[SOURCE_HASH_PROPERTY] == 'not-the-hash'
+        query = self._query(client)
+        assert query.rindex(f'params.`{SOURCE_HASH_PARAM}`') > query.rindex(f'params.`{SOURCE_HASH_PROPERTY}`')
+
+    def test_a_source_with_a_hash_and_no_metadata_still_records_it(self):
+        client = _make_graph_client()
+
+        SourceGraphBuilder().build(self._source_with_hash('h1', {}), client)
+
+        query = self._query(client)
+        assert f'SET source.{SOURCE_HASH_PROPERTY} = coalesce(owner, params.`{SOURCE_HASH_PARAM}`)' in query
+        assert query.rstrip().endswith(f'params.`{SOURCE_HASH_PARAM}`)')

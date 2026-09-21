@@ -37,7 +37,6 @@ from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 from graphrag_toolkit.lexical_graph.utils.llm_cache import LLMCache
 from graphrag_toolkit.lexical_graph.indexing.progress_monitor import ProgressMonitor
 from graphrag_toolkit.lexical_graph.indexing.source_id_width import SourceIdWidthGuard, StoredSourceIdWidth, read_stored_source_id_width, resolve_source_id_width
-from graphrag_toolkit.lexical_graph.indexing.source_id_collision import SourceIdCollisionGuard
 
 from llama_index.core.node_parser import SentenceSplitter, NodeParser
 from llama_index.core.schema import BaseNode
@@ -442,9 +441,6 @@ class LexicalGraphIndex():
             stored=stored
         ))
 
-    def _source_id_collision_guard(self) -> Pipe:
-        return Pipe(SourceIdCollisionGuard(graph_store=self.graph_store, tenant_id=self.tenant_id))
-
     def extract(
             self,
             nodes: List[BaseNode] = [],
@@ -590,7 +586,7 @@ class LexicalGraphIndex():
         )
 
         sink_fn = sink if not handler else Pipe(handler)
-        nodes | self._source_id_width_guard() | self._source_id_collision_guard() | build_pipeline | sink_fn
+        nodes | self._source_id_width_guard() | build_pipeline | sink_fn
 
     def extract_and_build(
             self,
@@ -666,9 +662,9 @@ class LexicalGraphIndex():
         sink_fn = sink if not handler else Pipe(handler)
         if progress_monitor:
             extraction_monitor = self._create_extraction_monitor_pipe(progress_monitor)
-            nodes | extraction_pipeline | extraction_monitor | self._source_id_width_guard(stored_width) | self._source_id_collision_guard() | build_pipeline | sink_fn
+            nodes | extraction_pipeline | extraction_monitor | self._source_id_width_guard(stored_width) | build_pipeline | sink_fn
         else:
-            nodes | extraction_pipeline | self._source_id_width_guard(stored_width) | self._source_id_collision_guard() | build_pipeline | sink_fn
+            nodes | extraction_pipeline | self._source_id_width_guard(stored_width) | build_pipeline | sink_fn
 
     @staticmethod
     def _create_extraction_monitor_pipe(progress_monitor: ProgressMonitor) -> Pipe:

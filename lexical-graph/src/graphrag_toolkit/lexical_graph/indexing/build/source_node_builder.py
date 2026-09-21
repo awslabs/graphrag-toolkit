@@ -9,8 +9,8 @@ from llama_index.core.schema import NodeRelationship
 
 from graphrag_toolkit.lexical_graph.versioning import VERSION_INDEPENDENT_ID_FIELDS
 from graphrag_toolkit.lexical_graph.indexing.build.node_builder import NodeBuilder
-from graphrag_toolkit.lexical_graph.indexing.source_id_collision import DOCUMENT_HASH_PROPERTY
-from graphrag_toolkit.lexical_graph.indexing.constants import TOPICS_KEY
+from graphrag_toolkit.lexical_graph.indexing.source_id_collision import check_source_hashes_agree, name_of
+from graphrag_toolkit.lexical_graph.indexing.constants import SOURCE_HASH_PROPERTY, TOPICS_KEY
 from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
 
 logger = logging.getLogger(__name__)
@@ -70,6 +70,7 @@ class SourceNodeBuilder(NodeBuilder):
                 relationships and metadata configurations found in the provided `nodes`.
         """
         source_nodes = {}
+        source_hashes = {}
 
         build_timestamp = self._get_build_timestamp(**kwargs)
 
@@ -77,6 +78,8 @@ class SourceNodeBuilder(NodeBuilder):
             
             source_info = node.relationships.get(NodeRelationship.SOURCE, None)
             source_id = source_info.node_id
+
+            source_hashes.setdefault(source_id, []).append(source_info.hash)
             
             if source_id not in source_nodes:
                 
@@ -88,9 +91,6 @@ class SourceNodeBuilder(NodeBuilder):
                 
                 if source_info.metadata:
                     metadata['source'].update(self._get_source_info_metadata(source_info.metadata))
-
-                if source_info.hash:
-                    metadata['source'][DOCUMENT_HASH_PROPERTY] = source_info.hash
 
                 if 'invalid_metadata' in  metadata['source'] and metadata['source']['invalid_metadata']:
                     logger.warning(f"Metadata cannot contain collection-based items. The following items have been removed: [source_id: {source_id}, items: {list(metadata['source']['invalid_metadata'].keys())}]")
@@ -114,6 +114,15 @@ class SourceNodeBuilder(NodeBuilder):
                 )
 
                 source_nodes[source_id] = source_node
+
+        # One id with two hashes among these chunks is two documents read back as
+        # one. The graph write cannot see it: it writes one source node per id.
+        for source_id, source_node in source_nodes.items():
+            hashes = source_hashes[source_id]
+            check_source_hashes_agree(source_id, hashes, name_of(source_node.metadata['source'].get('metadata')))
+            source_hash = next((h for h in hashes if h), None)
+            if source_hash:
+                source_node.metadata['source'][SOURCE_HASH_PROPERTY] = source_hash
 
         return list(source_nodes.values())
 

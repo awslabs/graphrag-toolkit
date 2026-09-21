@@ -54,6 +54,7 @@ DEFAULT_BATCH_WRITES_ENABLED = True
 DEFAULT_INCLUDE_DOMAIN_LABELS = False
 DEFAULT_INCLUDE_LOCAL_ENTITIES = False
 DEFAULT_INCLUDE_CLASSIFICATION_IN_ENTITY_ID = True
+DEFAULT_DETECT_SOURCE_ID_COLLISIONS = True
 DEFAULT_ENABLE_CACHE = False
 DEFAULT_METADATA_DATETIME_SUFFIXES = ['_date', '_datetime']
 DEFAULT_OPENSEARCH_ENGINE = 'nmslib'
@@ -373,6 +374,7 @@ class _GraphRAGConfig:
     _include_domain_labels: Optional[bool] = None
     _include_local_entities: Optional[bool] = None
     _include_classification_in_entity_id: Optional[bool] = None
+    _detect_source_id_collisions: Optional[bool] = None
     _enable_cache: Optional[bool] = None
     _metadata_datetime_suffixes: Optional[List[str]] = None
     _opensearch_engine: Optional[str] = None
@@ -957,6 +959,22 @@ class _GraphRAGConfig:
     @include_classification_in_entity_id.setter
     def include_classification_in_entity_id(self, include_classification_in_entity_id: bool) -> None:
         self._include_classification_in_entity_id = include_classification_in_entity_id
+
+    @property
+    def detect_source_id_collisions(self) -> bool:
+        """
+        Whether a build fails when two different documents claim one source id.
+
+        Detection costs one read per build batch. Turn it off to accept whichever
+        document the graph merged.
+        """
+        if self._detect_source_id_collisions is None:
+            self.detect_source_id_collisions = string_to_bool(os.environ.get('DETECT_SOURCE_ID_COLLISIONS'), DEFAULT_DETECT_SOURCE_ID_COLLISIONS)
+        return self._detect_source_id_collisions
+
+    @detect_source_id_collisions.setter
+    def detect_source_id_collisions(self, detect_source_id_collisions: bool) -> None:
+        self._detect_source_id_collisions = detect_source_id_collisions
 
     @property
     def enable_cache(self) -> bool:

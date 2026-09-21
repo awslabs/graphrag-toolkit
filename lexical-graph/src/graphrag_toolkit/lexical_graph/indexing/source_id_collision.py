@@ -1,141 +1,149 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
-import logging
-from typing import Dict, Iterable, List, Optional, Tuple
+from typing import Any, Dict, Iterable, List, Optional, Tuple
 
-from llama_index.core.schema import NodeRelationship
-
-from graphrag_toolkit.lexical_graph import GraphRAGConfig
-from graphrag_toolkit.lexical_graph.tenant_id import TenantId
-from graphrag_toolkit.lexical_graph.indexing.model import SourceType, SourceDocument
+from graphrag_toolkit.lexical_graph.indexing.constants import SOURCE_HASH_PROPERTY
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
-from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 
-logger = logging.getLogger(__name__)
+# Metadata keys tried, in order, when naming a document in an error. The same list names
+# the incoming document and the one the graph holds, so both sides read the same way.
+NAME_KEYS = ('file_path', 'file_name', 'url', 'source', 'title')
 
-# Property on the __Source__ node holding the document's hash. The value is the
-# hash llama_index computes over a document's text and metadata, which every
-# chunk carries on its SOURCE relationship.
-DOCUMENT_HASH_PROPERTY = 'documentHash'
+# Source ids per lookup. One read covers a build batch unless the batch is larger than this.
+LOOKUP_BATCH_SIZE = 1000
 
 
 class SourceIdCollisionError(ValueError):
     """Raised when two different documents resolve to one source id."""
 
 
-def _name(metadata:Optional[Dict]) -> str:
-    return str((metadata or {}).get('file_path') or 'a document')
+def name_of(metadata:Optional[Dict], default:str='a document') -> str:
+    """The first of NAME_KEYS the metadata carries, or the default."""
+    for key in NAME_KEYS:
+        value = (metadata or {}).get(key)
+        if value:
+            return str(value)
+    return default
 
 
-class SourceIdCollisionGuard:
+class SourceIdClaims:
     """
-    Stops a build when two different documents claim one source id.
+    The source hashes a build batch claimed, checked against the hashes the graph
+    ended up holding.
 
-    A document is identified by the hash on its chunks' SOURCE relationship. A
-    collision is one source id seen with two hashes: within one document (a
-    storage prefix that merged two documents), within one run, or against the
-    hash already recorded on the graph's __Source__ node. A source written before
-    the hash was recorded carries none and is accepted; the build records it.
+    Two documents that collide can both be in one batch, so a claim is checked twice.
+    Against the other claims in the batch, as it is added: that needs no read, names
+    both documents rather than one of them and whatever the graph holds, and is the only
+    check that covers the case, since a batched write keeps the last row's hash rather
+    than the first. Against the graph, after the write: that is the only way to see a
+    document an earlier build wrote.
 
-    Graph lookups run once per ``lookup_batch_size`` documents, so documents are
-    yielded in groups of that size.
+    The source write MERGEs on the source id and keeps the hash already there, so across
+    builds the document that claimed an id owns it and later writers leave that value
+    alone. Reading it back after the write detects a collision however those writes
+    interleave: two concurrent builds both merge, both read the owner's hash, and the one
+    that did not win raises. A read taken before the write cannot do that. The cost is
+    that the colliding document's chunks and lower tiers are written before the build
+    raises, so it has to be re-run once the collision is resolved.
+
+    Collected from source nodes as they pass through graph construction, so a directly
+    wired ``BuildPipeline`` is covered as well as ``LexicalGraphIndex``.
     """
 
-    def __init__(self, graph_store:GraphStore, tenant_id:TenantId, lookup_batch_size:Optional[int]=None):
-        self.graph_store = graph_store
-        self.tenant_id = tenant_id
-        self.lookup_batch_size = coalesce(lookup_batch_size, GraphRAGConfig.build_batch_size)
-        self._seen:Dict[str, Tuple[str, Optional[Dict]]] = {}
-        self._checked_against_graph:set = set()
+    def __init__(self):
+        self._claims:Dict[str, Tuple[str, str]] = {}
 
-    @staticmethod
-    def _sources(item:SourceType) -> List[Tuple[str, Optional[str], Optional[Dict]]]:
-        """(source id, hash, source metadata) for each chunk in the input."""
-        nodes = item.nodes if isinstance(item, SourceDocument) else [item]
-        found = []
-        for node in nodes:
-            source = node.relationships.get(NodeRelationship.SOURCE)
-            if source:
-                found.append((source.node_id, source.hash, source.metadata))
-        return found
+    def __len__(self) -> int:
+        return len(self._claims)
 
-    def _claim(self, item:SourceType) -> Optional[str]:
-        """Records the document's claim on its source id. Returns the id when the
-        graph still has to be consulted for it."""
-        sources = self._sources(item)
-        if not sources:
-            return None
+    def add(self, node:Any) -> None:
+        """
+        Records the hash a source node claims for its id. Nodes without a hash,
+        which is what a build writes for a source whose id was not generated from its
+        text, are not recorded and not checked.
 
-        source_id = sources[0][0]
-        hashes = {h for _, h, _ in sources if h}
-        if len(hashes) > 1:
-            raise SourceIdCollisionError(
-                f'Two different documents share source id {source_id}: chunks in one '
-                f'document carry hashes {" and ".join(sorted(hashes))}. The documents '
-                f'were merged in storage before the build.'
-            )
-        if not hashes:
-            logger.debug(f'Source carries no document hash, so it is not checked for a collision [source_id: {source_id}]')
-            return None
-
-        document_hash = hashes.pop()
-        metadata = sources[0][2]
-        earlier = self._seen.get(source_id)
-        if earlier and earlier[0] != document_hash:
-            raise SourceIdCollisionError(
-                f'Two different documents share source id {source_id}: '
-                f'{_name(earlier[1])} (hash {earlier[0]}) and {_name(metadata)} '
-                f'(hash {document_hash}).'
-            )
-        self._seen[source_id] = (document_hash, metadata)
-
-        return None if source_id in self._checked_against_graph else source_id
-
-    def _check_graph(self, source_ids:List[str]) -> None:
-        if not source_ids:
+        Raises:
+            SourceIdCollisionError: Another node in this batch claimed the same id
+                with a different hash.
+        """
+        source_metadata = (node.metadata or {}).get('source', {})
+        source_id = source_metadata.get('sourceId')
+        source_hash = source_metadata.get(SOURCE_HASH_PROPERTY)
+        if not (source_id and source_hash):
             return
-        rows = self.graph_store.execute_query(
-            f'MATCH (s:`__Source__`) WHERE {self.graph_store.node_id("s.sourceId")} IN $sourceIds '
-            f'RETURN {self.graph_store.node_id("s.sourceId")} AS sourceId, '
-            f's.{DOCUMENT_HASH_PROPERTY} AS {DOCUMENT_HASH_PROPERTY}, s.file_path AS filePath',
+
+        name = name_of(source_metadata.get('metadata'))
+        earlier = self._claims.get(source_id)
+        if earlier and earlier[0] != source_hash:
+            raise SourceIdCollisionError(
+                f'Two different documents claim source id {source_id}: '
+                f'{earlier[1]} (hash {earlier[0]}) and {name} (hash {source_hash}), '
+                f'both in this build. The id is a prefix of the hash, so a build '
+                f'cannot tell these two documents apart. Widen SOURCE_ID_WIDTH on a '
+                f'new graph, or set DETECT_SOURCE_ID_COLLISIONS=false to accept '
+                f'whichever document the graph merges first.'
+            )
+        self._claims[source_id] = (source_hash, name)
+
+    def verify(self, graph_store:GraphStore) -> None:
+        """
+        Raises when the graph holds a different hash for an id this batch claimed.
+
+        Args:
+            graph_store: The store to read the recorded hashes from.
+
+        Raises:
+            SourceIdCollisionError: Two different documents claim one source id.
+        """
+        source_ids = list(self._claims)
+        for start in range(0, len(source_ids), LOOKUP_BATCH_SIZE):
+            self._verify_batch(graph_store, source_ids[start:start + LOOKUP_BATCH_SIZE])
+
+    def _verify_batch(self, graph_store:GraphStore, source_ids:List[str]) -> None:
+        source_id_field = graph_store.node_id('s.sourceId')
+        names = ', '.join(f's.`{key}`' for key in NAME_KEYS)
+        rows = graph_store.execute_query_with_retry(
+            f'MATCH (s:`__Source__`) WHERE {source_id_field} IN $sourceIds '
+            f'RETURN {source_id_field} AS sourceId, '
+            f's.{SOURCE_HASH_PROPERTY} AS sourceHash, coalesce({names}) AS name',
             {'sourceIds': source_ids},
         )
-        for row in rows:
-            stored = row.get(DOCUMENT_HASH_PROPERTY)
-            incoming = self._seen.get(row['sourceId'])
-            if stored and incoming and stored != incoming[0]:
+        for row in rows or []:
+            stored = row.get('sourceHash')
+            claimed = self._claims.get(row['sourceId'])
+            if stored and claimed and stored != claimed[0]:
                 raise SourceIdCollisionError(
-                    f'Two different documents share source id {row["sourceId"]}: '
-                    f'{_name(incoming[1])} (hash {incoming[0]}) and '
-                    f'{_name({"file_path": row.get("filePath")})} already in the graph (hash {stored}).'
+                    f'Two different documents claim source id {row["sourceId"]}: '
+                    f'{claimed[1]} (hash {claimed[0]}) in this build, and '
+                    f'{row.get("name") or "a document"} already in the graph '
+                    f'(hash {stored}). The id is a prefix of the hash, so a build '
+                    f'cannot tell these two documents apart. Widen SOURCE_ID_WIDTH '
+                    f'on a new graph, or set DETECT_SOURCE_ID_COLLISIONS=false to '
+                    f'accept the document the graph already holds.'
                 )
-        self._checked_against_graph.update(source_ids)
 
-    def _check(self, inputs:Iterable[SourceType]):
-        pending:List[SourceType] = []
-        to_look_up:List[str] = []
 
-        def flush():
-            self._check_graph(list(to_look_up))
-            to_look_up.clear()
-            yield from list(pending)
-            pending.clear()
+def check_source_hashes_agree(source_id:str, hashes:Iterable[Optional[str]], name:str) -> None:
+    """
+    Raises when chunks that share a source id do not share a source hash.
 
-        for item in inputs:
-            source_id = self._claim(item)
-            if source_id:
-                to_look_up.append(source_id)
-            pending.append(item)
-            if len(pending) >= self.lookup_batch_size:
-                yield from flush()
+    Two documents whose ids collide share a storage prefix, so a read of that prefix
+    returns one document holding both sets of chunks. Each chunk still carries its
+    own document's hash, which is the only trace of the two.
 
-        yield from flush()
+    Args:
+        source_id: The id the chunks share.
+        hashes: The source hash each chunk carries.
+        name: How to describe the document in an error.
 
-    def __call__(self, inputs:Iterable[SourceType]):
-        """
-        Yields the inputs unchanged. A sized input comes back as a list so the
-        build pipeline can still report batch totals.
-        """
-        checked = self._check(inputs)
-        return list(checked) if hasattr(inputs, '__len__') else checked
+    Raises:
+        SourceIdCollisionError: The chunks carry more than one hash.
+    """
+    distinct = {h for h in hashes if h}
+    if len(distinct) > 1:
+        raise SourceIdCollisionError(
+            f'Two different documents claim source id {source_id}: chunks read as '
+            f'{name} carry hashes {" and ".join(sorted(distinct))}. The two documents '
+            f'share a storage prefix, so they were read back as one.'
+        )
