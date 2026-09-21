@@ -405,22 +405,24 @@ class S3DocUploader(ConfiguredThreadCount, EncryptedPut, BaseComponent):
 
     def _upload_doc(self, root_path:str, doc:SourceDocument, s3_client):
 
+        nodes = written_nodes(doc)
+
+        if not nodes:
+            return doc
+
         doc_output_path = join(root_path, f'{doc.source_id()}-{self._doc_suffix(doc)}.jsonl')
 
         logger.debug(f'Writing source document as JSONL to S3: [bucket: {self.bucket_name}, key: {doc_output_path}]')
-        
-        try:
 
-            nodes = written_nodes(doc)
+        try:
 
             s = '\n'.join([
                 json.dumps(n.to_dict())
                 for n in nodes
             ])
 
-            if nodes:
-                self._put(doc_output_path, s, 'text/plain', s3_client)
-                self._write_completion_marker(root_path, nodes, s3_client)
+            self._put(doc_output_path, s, 'text/plain', s3_client)
+            self._write_completion_marker(root_path, nodes, s3_client)
 
             return doc
 

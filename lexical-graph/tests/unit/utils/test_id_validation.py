@@ -64,34 +64,28 @@ class TestIdsAnAllowlistCatchesAndADenylistDoesNot:
 
 
 class TestIdsAUserSupplies:
-    """
-    A user names a document what they like. IdRewriter replaces any id that does
-    not already start with 'aws:', so the id reaching validation is generated,
-    not the one the user typed.
-    """
+    """IdRewriter replaces any id that does not already start with 'aws:'."""
+
+    @pytest.fixture
+    def rewrite(self):
+        rewriter = IdRewriter(id_generator=IdGenerator())
+        return lambda value: rewriter([Document(text='some text', id_=value)])[0].id_
 
     @pytest.mark.parametrize('user_id', [
         'annual report 2024',
         'rapport-été',
         'отчёт/2024',
     ])
-    def test_a_user_id_is_rewritten_before_it_is_validated(self, user_id):
-        rewriter = IdRewriter(id_generator=IdGenerator())
+    def test_a_user_id_is_rewritten_before_it_is_validated(self, rewrite, user_id):
+        validate_id_segment(rewrite(user_id), 'source_id')
 
-        document = rewriter([Document(text='some text', id_=user_id, metadata={'title': user_id})])[0]
+    def test_an_id_already_claiming_the_aws_prefix_is_kept_and_rejected(self, rewrite):
+        # Generated ids are hex, so this is an id built by hand.
+        document_id = rewrite('aws:annual report 2024')
 
-        validate_id_segment(document.id_, 'source_id')
-
-    def test_an_id_already_claiming_the_aws_prefix_is_kept_and_rejected(self):
-        # The one shape that survives the rewriter unchanged. Generated ids are
-        # hex, so this is an id built by hand.
-        rewriter = IdRewriter(id_generator=IdGenerator())
-
-        document = rewriter([Document(text='some text', id_='aws:annual report 2024')])[0]
-
-        assert document.id_ == 'aws:annual report 2024'
+        assert document_id == 'aws:annual report 2024'
         with pytest.raises(ValueError, match='invalid characters'):
-            validate_id_segment(document.id_, 'source_id')
+            validate_id_segment(document_id, 'source_id')
 
 
 class TestIdsThatAreNotIds:

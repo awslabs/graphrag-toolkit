@@ -154,21 +154,11 @@ class TestMarkerIsWithheldOnFailure:
 
 class TestEdgeCases:
 
-    def test_a_document_with_nothing_to_write_creates_no_prefix(self):
-        # A marker alone in a prefix reads back as a document with no nodes,
-        # whose source_id() is None, and a re-stage cannot build a path from
-        # None. Writing nothing leaves no prefix to read.
-        written, yielded = _upload(_uploader(), [_doc([], index_node_ids=['v1'])])
-
-        assert written == {}
-        assert len(yielded) == 1, 'the document is still yielded'
-
-    def test_a_jsonl_document_with_nothing_to_write_creates_no_prefix(self):
-        # Same for the JSONL uploader: a document whose nodes all carry an
-        # index key has nothing to store. An empty object with no marker beside
-        # it reads back as a document with no nodes, and satisfies is_complete
-        # by comparing one empty set against another.
-        written, yielded = _upload(_doc_uploader(), [_doc([], index_node_ids=['v1'])])
+    @pytest.mark.parametrize('uploader', [_uploader, _doc_uploader], ids=['chunks', 'jsonl'])
+    def test_a_document_with_nothing_to_write_creates_no_prefix(self, uploader):
+        # Whatever is left in the prefix reads back as a document with no nodes,
+        # and passes is_complete on one empty set matching another.
+        written, yielded = _upload(uploader(), [_doc([], index_node_ids=['v1'])])
 
         assert written == {}
         assert len(yielded) == 1, 'the document is still yielded'

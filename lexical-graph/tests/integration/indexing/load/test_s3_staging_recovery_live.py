@@ -32,6 +32,7 @@ from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import (
     is_completion_marker,
 )
 from graphrag_toolkit.lexical_graph.indexing.model import SourceDocument
+from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
 
 S3_TEST_BUCKET = os.environ.get('S3_TEST_BUCKET')
 REGION = os.environ.get('AWS_REGION', 'us-east-1')
@@ -63,6 +64,14 @@ def _doc(source_id, num_chunks=3):
         node.relationships[NodeRelationship.SOURCE] = RelatedNodeInfo(node_id=source_id)
         nodes.append(node)
     return SourceDocument(nodes=nodes)
+
+
+def _index_only_doc(source_id):
+    # An index key marks a vector store artefact, which neither uploader stores.
+    doc = _doc(source_id, num_chunks=1)
+    for node in doc.nodes:
+        node.metadata[INDEX_KEY] = 'x'
+    return doc
 
 
 def _handler(key_prefix, collection_id, for_jsonl):
@@ -147,6 +156,17 @@ class TestAnInterruptedRunReadsBackAsIncomplete:
         _stage(key_prefix, collection_id, [_doc('src-1'), _doc('src-2')], for_jsonl)
 
         assert _read_back(key_prefix, collection_id, for_jsonl) == ['src-1', 'src-2']
+
+
+@pytest.mark.parametrize('for_jsonl', [False, True], ids=['chunks', 'jsonl'])
+class TestADocumentWithNothingToStore:
+
+    def test_a_document_of_index_nodes_alone_leaves_no_prefix(self, key_prefix, for_jsonl):
+        collection_id = 'index-only'
+        _stage(key_prefix, collection_id, [_doc('src-1'), _index_only_doc('src-2')], for_jsonl)
+
+        assert _keys_under(f'{key_prefix}/{collection_id}/src-2/') == []
+        assert _read_back(key_prefix, collection_id, for_jsonl) == ['src-1']
 
 
 @pytest.mark.parametrize('for_jsonl', [False, True], ids=['chunks', 'jsonl'])
