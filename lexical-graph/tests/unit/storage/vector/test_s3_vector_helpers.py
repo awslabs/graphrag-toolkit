@@ -53,16 +53,19 @@ class TestToS3Operator:
 
 
 class TestFormatterForType:
-    def test_text_wraps_in_double_quotes(self):
-        assert formatter_for_type('text')('hello') == '"hello"'
+    def test_text_returns_the_bare_string(self):
+        # No quoting: the value goes into a dict for boto3, not into JSON text.
+        assert formatter_for_type('text')('hello') == 'hello'
 
-    def test_numeric_passthrough(self):
-        assert formatter_for_type('int')(5) == 5
-        assert formatter_for_type('float')(2.5) == 2.5
+    def test_numeric_returns_a_number(self):
+        # The filter dict must carry real numbers, which json.loads used to supply.
+        assert formatter_for_type('int')('5') == 5
+        assert formatter_for_type('float')('2.5') == 2.5
+        assert isinstance(formatter_for_type('int')('5'), int)
+        assert isinstance(formatter_for_type('float')('2.5'), float)
 
-    def test_timestamp_wraps_in_quotes(self):
-        result = formatter_for_type('timestamp')('2024-01-15T10:30:00')
-        assert result.startswith('"2024-01-15')
+    def test_timestamp_returns_an_unquoted_iso_string(self):
+        assert formatter_for_type('timestamp')('2024-01-15T10:30:00') == '2024-01-15T10:30:00'
 
     def test_unsupported_type_raises(self):
         with pytest.raises(ValueError, match='Unsupported type name'):
@@ -74,7 +77,6 @@ class TestParseMetadataFiltersRecursive:
         result = parse_metadata_filters_recursive(MetadataFilters(
             filters=[_eq('category', 'tech')], condition=FilterCondition.AND,
         ))
-        # The text formatter writes "tech" with embedded quotes; json.loads unwraps them.
         assert result == {'$and': [{'source.metadata.category': {'$eq': 'tech'}}]}
 
     def test_and_condition(self):
