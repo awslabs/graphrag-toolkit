@@ -48,7 +48,7 @@ entity_linker = EntityLinker(
 Links extracted entities to graph nodes using the configured retriever.
 
 Parameters:
-- `query_extracted_entities` (List[str]): List of entity lists to perform linking on
+- `query_extracted_entities` (List[str]): Flat list of entity mention strings to link
 - `retriever` (object, optional): Entity retriever to use for lookup
 - `topk` (int, optional): Number of items to return per entity
 - `id_selector` (list, optional): Allowlist of entity IDs to consider
@@ -59,13 +59,18 @@ Parameters:
 Returns:
 - If `group_by_mention=True`: `List[List[str]]`, one best-first list of candidate node
   IDs per mention, in the same order as the mentions
-- If `return_dict=True`: List of dictionaries with detailed linking results
-- If `return_dict=False`: List of matched entity IDs
+- If `return_dict=True`: a single dict with a `hits` list — one hit per match, each
+  field a scalar, globally sorted by score and therefore not sliceable per mention
+- If `return_dict=False`: flat `List[str]` of matched entity IDs
 
-`group_by_mention` is declared on the `Linker` base class, so any linker can be asked
-to group. It is what `ByoKGQueryEngine(single_best_match=True)` uses to keep only each
-mention's best match — without it the caller cannot tell which candidate came from
-which mention.
+`group_by_mention` is declared on the `Linker` base class, whose default implementation
+groups by looking each mention up on its own — so a linker that implements only the flat
+path still honours the flag rather than returning empty groups. It is what
+`ByoKGQueryEngine(single_best_match=True)` uses to keep only each mention's best match —
+without it the caller cannot tell which candidate came from which mention.
+
+`link()` takes a flat `List[str]` of mentions (what `parse_response` returns). Nested
+lists are rejected: the underlying index matches one string per input.
 
 Grouping costs one retriever call per *unique* mention rather than one batched call.
 The reason is `FuzzyStringIndex.match`, which concatenates every mention's hits and
@@ -212,19 +217,17 @@ Returns:
 entity_linker = EntityLinker(retriever=entity_matcher, topk=5)
 
 # Link extracted entities
-extracted_entities = [["aspirin", "headache"], ["drug", "treatment"]]
+extracted_entities = ["aspirin", "headache", "drug", "treatment"]
 linking_results = entity_linker.link(
     query_extracted_entities=extracted_entities,
     return_dict=True
 )
 
-# Access linking results
-for result in linking_results:
-    hits = result['hits']
-    for hit in hits:
-        entity_ids = hit['document_id']
-        entities = hit['document']
-        scores = hit['match_score']
+# Access linking results — one hit per match, each field a scalar
+for hit in linking_results['hits']:
+    entity_id = hit['document_id']
+    entity = hit['document']
+    score = hit['match_score']
 ```
 
 #### Agentic retrieval example

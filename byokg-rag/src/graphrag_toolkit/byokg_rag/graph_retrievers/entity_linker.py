@@ -27,8 +27,7 @@ class Linker(ABC):
             return_dict: Whether to return a dictionary of linking results or linked entities only
             group_by_mention: Return one candidate list per query instead of a flat
                 union, so the caller can tell which candidate came from which query.
-                Takes precedence over return_dict. Implementations that cannot group
-                should fall back to one lookup per query.
+                Takes precedence over return_dict.
             **kwargs: Additional keyword arguments for graph linking configuration
 
         Returns:
@@ -38,27 +37,37 @@ class Linker(ABC):
                     {
                         'hits': [
                             {
-                                'document_id': List[str],  # List of matched entity IDs
-                                'document': List[str],     # List of matched entity documents
-                                'match_score': List[float] # List of matching scores
+                                'document_id': str,    # Matched entity ID
+                                'document': str,       # Matched entity document
+                                'match_score': float   # Matching score
                             }
                         ]
                     }
+                    One hit per match, not one hit per query — the shipped indexes
+                    return a scalar per field, so a flat result cannot be sliced
+                    back apart per query. Use group_by_mention for that.
             If return_dict is False:
                 List[str]: A list of matched nodes, i.e., documents or entities
             If group_by_mention is True:
                 List[List[str]]: One candidate list per query, in query order
         """
         if group_by_mention:
-            return [[] for _ in queries]
+            # One lookup per query is the fallback for implementations that cannot
+            # group natively: a single-query batch cannot be reordered across
+            # queries, so its flat result is that query's candidate list.
+            return [self.link([query], return_dict=False) for query in queries]
         if return_dict:
+            # Empty-match placeholder. The list-valued fields predate the scalar
+            # contract documented above and the List[Dict] wrapper diverges from
+            # EntityLinker's single Dict; both left as-is to avoid changing the
+            # dict path's shape in a seed-pruning change.
             return [{'hits': [{'document_id': [],
                             'document': [],
                             'match_score': []}
                             ]
                     } for _ in queries]
         else:
-            return [[] for _ in queries]
+            return []
 
         
 class EntityLinker(Linker):
@@ -87,7 +96,9 @@ class EntityLinker(Linker):
         Process to link the given or extracted query entities to graph entities.
 
         Args:
-            query_extracted_entities: List of entity lists to perform graph linking on
+            query_extracted_entities: List of entity mention strings to link. Flat
+                List[str], as parse_response returns — the underlying index matches
+                one string per input and rejects nested lists.
             retriever: A retriever object to use for entity lookup.
                 If None, the default retriever configured for this instance will be used.
             topk: The number of items to return per extracted entity
@@ -102,9 +113,12 @@ class EntityLinker(Linker):
                 List[List[str]]: One best-first candidate list per mention, in the
                     same order as query_extracted_entities
             If return_dict is True:
-                List[Dict]: A list of dictionaries containing linking results for each query
+                Dict: The retriever's result, {'hits': [...]} with one hit per match
+                    and scalar fields. Note this is a single dict, not the List[Dict]
+                    the Linker ABC's own default returns — a pre-existing divergence
+                    between the base default and this implementation.
             If return_dict is False:
-                List[str]: A list of matched entities
+                List[str]: A flat list of matched entities, one per hit
 
         Note:
             topk is applied per entity
@@ -140,11 +154,20 @@ class EntityLinker(Linker):
         topk stays at the configured width instead of 1 because the fuzzy length
         filter runs after process.extract(limit=topk): at topk=1 the only candidate
         can be filtered out, and the mention would contribute nothing.
+
+        The per-mention loop is a workaround for FuzzyStringIndex.match losing input
+        boundaries; fixing that at the index layer would remove the need for it.
         """
         # Repeated mentions are common (parse_response does not dedup LLM output),
         # so look each one up once and reuse the result.
         per_mention = {}
         for mention in query_extracted_entities:
+            if not isinstance(mention, str):
+                raise TypeError(
+                    f"link() expects a flat list of mention strings, got "
+                    f"{type(mention).__name__}: {mention!r}. Nested lists are not "
+                    f"supported — the underlying index matches one string per input."
+                )
             if mention in per_mention:
                 continue
             hits = retriever.retrieve(queries=[mention], topk=topk)["hits"]

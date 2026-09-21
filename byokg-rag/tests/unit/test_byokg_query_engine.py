@@ -350,8 +350,9 @@ class TestQueryEngineSingleBestMatch:
     ):
         """A linker that ignores group_by_mention must fail loudly, not seed the flat union.
 
-        Checked at the call site rather than in __init__ because entity_linker is
-        public: a construction-time check is bypassed by reassigning it afterwards.
+        This one passes the __init__ signature check (its link() accepts **kwargs)
+        and is caught by the call-site shape check instead. The two checks cover
+        different failures; neither subsumes the other.
         """
         mock_entity_linker = Mock()
         # Third-party linker with link(queries, return_dict=True, **kwargs): the
@@ -388,6 +389,52 @@ class TestQueryEngineSingleBestMatch:
         engine.entity_linker = bad_linker
 
         with pytest.raises(TypeError, match="one candidate list per mention"):
+            engine.query("q", iterations=1)
+
+    def test_flag_on_with_linker_whose_link_cannot_group_raises_at_construction(
+        self, mock_graph_store_with_schema, mock_llm_generator
+    ):
+        """A link() that can't take group_by_mention fails at __init__, not mid-query.
+
+        Without this the error surfaces only after kg_linker.generate_response()
+        has run — and after the cypher loop when a cypher_kg_linker is set.
+        """
+        class UngroupableLinker:
+            def link(self, queries, return_dict=True):
+                return ['A1', 'A2']
+
+        with pytest.raises(TypeError, match="requires an entity_linker whose link"):
+            ByoKGQueryEngine(
+                graph_store=mock_graph_store_with_schema,
+                llm_generator=mock_llm_generator,
+                entity_linker=UngroupableLinker(),
+                kg_linker=self._kg_linker(),
+                single_best_match=True,
+            )
+
+    def test_flag_on_rejects_a_grouping_whose_length_is_not_the_mention_count(
+        self, mock_graph_store_with_schema, mock_llm_generator
+    ):
+        """One list per *mention*, not one per hit.
+
+        A linker whose document_id is a list returns list-of-lists from its flat
+        path, which satisfies the element-type check. The length check is what
+        separates that from a real grouping.
+        """
+        mock_entity_linker = Mock()
+        # three hits for two mentions
+        mock_entity_linker.link.return_value = [['e1'], ['e2'], ['e3']]
+
+        engine = ByoKGQueryEngine(
+            graph_store=mock_graph_store_with_schema,
+            llm_generator=mock_llm_generator,
+            entity_linker=mock_entity_linker,
+            triplet_retriever=Mock(**{'retrieve.return_value': ['ctx']}),
+            kg_linker=self._kg_linker(),
+            single_best_match=True,
+        )
+
+        with pytest.raises(TypeError, match="of length 3 for 2 mention"):
             engine.query("q", iterations=1)
 
 

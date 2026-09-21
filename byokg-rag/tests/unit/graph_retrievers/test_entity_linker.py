@@ -23,15 +23,16 @@ def mock_retriever():
     
     Returns a mock retriever that simulates entity matching without
     requiring a real index or database connection.
+
+    One hit per match, each field a scalar — the shape all three shipped indexes
+    return. A single hit holding parallel lists would not survive link()'s flat
+    path, which reads hit['document_id'] straight into the result.
     """
     mock_ret = Mock()
     mock_ret.retrieve.return_value = {
         'hits': [
-            {
-                'document_id': ['entity1', 'entity2'],
-                'document': ['Amazon', 'Amazon Web Services'],
-                'match_score': [95.0, 85.0]
-            }
+            {'document_id': 'entity1', 'document': 'Amazon', 'match_score': 95.0},
+            {'document_id': 'entity2', 'document': 'Amazon Web Services', 'match_score': 85.0},
         ]
     }
     return mock_ret
@@ -61,7 +62,7 @@ class TestEntityLinkerLink:
     def test_link_return_dict(self, mock_retriever):
         """Verify link returns dictionary format when return_dict=True."""
         linker = EntityLinker(retriever=mock_retriever, topk=3)
-        query_entities = [['Amazon', 'AWS']]
+        query_entities = ['Amazon', 'AWS']
         
         result = linker.link(query_entities, return_dict=True)
         
@@ -75,13 +76,12 @@ class TestEntityLinkerLink:
     def test_link_return_list(self, mock_retriever):
         """Verify link returns list of entity ID lists when return_dict=False."""
         linker = EntityLinker(retriever=mock_retriever, topk=3)
-        query_entities = [['Amazon']]
+        query_entities = ['Amazon']
         
         result = linker.link(query_entities, return_dict=False)
         
-        assert isinstance(result, list)
-        assert len(result) == 1
-        assert result[0] == ['entity1', 'entity2']
+        # flat list of matched ids, one per hit
+        assert result == ['entity1', 'entity2']
         mock_retriever.retrieve.assert_called_once_with(
             queries=query_entities,
             topk=3
@@ -90,7 +90,7 @@ class TestEntityLinkerLink:
     def test_link_with_custom_topk(self, mock_retriever):
         """Verify link uses custom topk parameter when provided."""
         linker = EntityLinker(retriever=mock_retriever, topk=3)
-        query_entities = [['Amazon']]
+        query_entities = ['Amazon']
         
         linker.link(query_entities, topk=10, return_dict=True)
         
@@ -104,9 +104,9 @@ class TestEntityLinkerLink:
         linker = EntityLinker(topk=3)  # No default retriever
         custom_retriever = Mock()
         custom_retriever.retrieve.return_value = {
-            'hits': [{'document_id': ['custom1'], 'document': ['Custom'], 'match_score': [90.0]}]
+            'hits': [{'document_id': 'custom1', 'document': 'Custom', 'match_score': 90.0}]
         }
-        query_entities = [['Test']]
+        query_entities = ['Test']
         
         result = linker.link(query_entities, retriever=custom_retriever, return_dict=True)
         
@@ -116,7 +116,7 @@ class TestEntityLinkerLink:
     def test_link_no_retriever_error(self):
         """Verify ValueError raised when no retriever is available."""
         linker = EntityLinker()  # No retriever
-        query_entities = [['Amazon']]
+        query_entities = ['Amazon']
         
         with pytest.raises(ValueError, match="Either 'retriever' or 'self.retriever' must be provided"):
             linker.link(query_entities)
@@ -125,7 +125,7 @@ class TestEntityLinkerLink:
         """id_selector stays in the signature (unused) so existing callers don't break."""
         linker = EntityLinker(retriever=mock_retriever, topk=3)
 
-        result = linker.link([['Amazon']], id_selector=['entity1'], return_dict=True)
+        result = linker.link(['Amazon'], id_selector=['entity1'], return_dict=True)
 
         assert isinstance(result, dict)
 
@@ -134,27 +134,24 @@ class TestEntityLinkerLink:
         linker = EntityLinker(topk=3)
 
         # link(entities, retriever, topk, id_selector, return_dict)
-        result = linker.link([['Amazon']], mock_retriever, 3, None, False)
+        result = linker.link(['Amazon'], mock_retriever, 3, None, False)
 
-        assert result == [['entity1', 'entity2']]
+        assert result == ['entity1', 'entity2']
 
     def test_link_multiple_queries(self, mock_retriever):
         """Verify link handles multiple query entity lists."""
         mock_retriever.retrieve.return_value = {
             'hits': [
-                {'document_id': ['e1'], 'document': ['Entity1'], 'match_score': [95.0]},
-                {'document_id': ['e2'], 'document': ['Entity2'], 'match_score': [90.0]}
+                {'document_id': 'e1', 'document': 'Entity1', 'match_score': 95.0},
+                {'document_id': 'e2', 'document': 'Entity2', 'match_score': 90.0}
             ]
         }
         linker = EntityLinker(retriever=mock_retriever, topk=3)
-        query_entities = [['Amazon'], ['Microsoft']]
+        query_entities = ['Amazon', 'Microsoft']
         
         result = linker.link(query_entities, return_dict=False)
         
-        assert isinstance(result, list)
-        assert len(result) == 2
-        assert result[0] == ['e1']
-        assert result[1] == ['e2']
+        assert result == ['e1', 'e2']
 
 
 class TestEntityLinkerGroupByMention:
@@ -223,6 +220,18 @@ class TestEntityLinkerGroupByMention:
         with pytest.raises(ValueError, match="Either 'retriever' or 'self.retriever' must be provided"):
             linker.link(['Amazon'], group_by_mention=True)
 
+    def test_nested_list_input_raises_with_context(self):
+        """Nested lists fail loud, not with 'unhashable type: list'.
+
+        link() takes a flat List[str] (what parse_response returns); a real index
+        rejects nested lists too, with rapidfuzz's opaque 'sentence must be a
+        String'.
+        """
+        linker = EntityLinker(retriever=self._matcher(), topk=3)
+
+        with pytest.raises(TypeError, match="expects a flat list of mention strings"):
+            linker.link([['Amazon', 'AWS']], group_by_mention=True)
+
 
 class TestEntityLinkerGroupByMentionRealIndex:
     """link(group_by_mention=True) against a real FuzzyStringIndex, no mocks.
@@ -287,18 +296,27 @@ class TestEntityLinkerGroupByMentionRealIndex:
 
         assert Counter(flattened) == Counter(union)
 
-    def test_length_filter_can_empty_a_group(self, linker):
-        """A mention whose only candidates are too short yields no seeds.
+    def test_length_filter_can_empty_a_group(self):
+        """A mention whose only candidate is much shorter yields no seeds.
 
-        Pins the behaviour that makes topk=1 unsafe: the length filter runs
-        after process.extract(limit=topk), so a narrow search can return nothing.
+        Pins the behaviour that makes topk=1 unsafe: match() applies the length
+        filter after process.extract(limit=topk), so a mention can contribute
+        nothing even though extract found it a candidate.
+
+        The vocab is deliberately just ['USA'] — with a vocab that also holds the
+        exact mention, extract returns the exact entry and the filter never
+        engages, so the assertion would pass for the wrong reason.
         """
-        at_topk_1 = linker.link(['United States of America'], topk=1, group_by_mention=True)
-        at_topk_3 = linker.link(['United States of America'], topk=3, group_by_mention=True)
+        from graphrag_toolkit.byokg_rag.indexing import FuzzyStringIndex
+        index = FuzzyStringIndex()
+        index.add(['USA'])
+        linker = EntityLinker(index.as_entity_matcher(), topk=3)
 
-        # 'USA' is 21 chars shorter than the mention, so it is filtered out
-        assert 'USA' not in at_topk_1[0]
-        assert 'United States of America' in at_topk_3[0]
+        grouped = linker.link(['United States of America'], group_by_mention=True)
+
+        # extract() scores 'USA' as a candidate, then the length filter drops it
+        # (len('USA') + 4 < len(mention)), leaving the mention with no seeds
+        assert grouped == [[]]
 
 
 class TestLinkerAbstract:
@@ -317,13 +335,31 @@ class TestLinkerAbstract:
             def link(self, queries, return_dict=True, **kwargs):
                 # Use parent's default implementation
                 return super().link(queries, return_dict, **kwargs)
-        
+
         linker = ConcreteLinker()
-        
+
         # Test return_dict=True
         result_dict = linker.link(['query1'], return_dict=True)
         assert result_dict == [{'hits': [{'document_id': [], 'document': [], 'match_score': []}]}]
-        
-        # Test return_dict=False
+
+        # Test return_dict=False — flat List[str], per the documented contract
         result_list = linker.link(['query1'], return_dict=False)
-        assert result_list == [[]]
+        assert result_list == []
+
+    def test_default_group_by_mention_falls_back_to_one_lookup_per_query(self):
+        """The ABC default groups by looking each query up on its own.
+
+        A subclass that only implements the flat path still honours
+        group_by_mention, so the engine's single_best_match seeds real
+        candidates instead of silently seeding nothing.
+        """
+        class FlatOnlyLinker(Linker):
+            def link(self, queries, return_dict=True, group_by_mention=False, **kwargs):
+                if group_by_mention:
+                    return super().link(queries, return_dict, group_by_mention, **kwargs)
+                # flat path: one id per query, as a real index would return
+                return [f'id::{q}' for q in queries]
+
+        grouped = FlatOnlyLinker().link(['Amazon', 'Google'], group_by_mention=True)
+
+        assert grouped == [['id::Amazon'], ['id::Google']]
