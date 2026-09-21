@@ -3,7 +3,6 @@
 
 import concurrent.futures
 import contextlib
-import re
 from urllib.parse import urlparse, parse_qs
 import logging
 from typing import Dict, List, Optional
@@ -12,6 +11,7 @@ from botocore.exceptions import ClientError
 
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.storage.chunk.chunk_store import ChunkStore
+from graphrag_toolkit.lexical_graph.utils.id_validation import validate_id_segment
 
 logger = logging.getLogger(__name__)
 
@@ -108,31 +108,8 @@ class S3ChunkStore(ChunkStore):
 
         return max(1, min(num_items, configured))
 
-    # Allowlist for chunk ids: an allowlist (vs blocking specific separators)
-    # closes URL-encoding, Unicode, and double-encoding bypasses in one check.
-    # IdGenerator ids (aws::<hex>:<hex>:<hex>, optional tenant segment) fit.
-    _CHUNK_ID_PATTERN = re.compile(r'[A-Za-z0-9:._-]+')
-
-    @staticmethod
-    def _validate_chunk_id(chunk_id: str) -> None:
-        """
-        Reject any chunk id that isn't a plain [A-Za-z0-9:._-] token.
-
-        Blocking separators is what matters for the key: botocore sends key
-        segments unencoded, so a normalizing proxy or S3-compatible endpoint
-        could collapse `../` before S3/IAM sees it and escape the prefix. The
-        allowlist blocks that and every encoded variant at once.
-        """
-        if not chunk_id or not chunk_id.strip():
-            raise ValueError('chunk_id must be a non-empty string.')
-        if not S3ChunkStore._CHUNK_ID_PATTERN.fullmatch(chunk_id):
-            raise ValueError(
-                f'chunk_id contains invalid characters (allowed: alphanumeric, colon, '
-                f'period, underscore, hyphen): {chunk_id!r}'
-            )
-
     def _key(self, chunk_id: str) -> str:
-        self._validate_chunk_id(chunk_id)
+        validate_id_segment(chunk_id, 'chunk_id')
         key = f'{self.prefix}/{chunk_id}.txt' if self.prefix else f'{chunk_id}.txt'
         key_bytes = len(key.encode('UTF-8'))
         if key_bytes > MAX_S3_KEY_BYTES:

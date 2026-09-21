@@ -12,6 +12,7 @@ from botocore.exceptions import ClientError
 from unittest.mock import MagicMock, Mock, patch
 
 from graphrag_toolkit.lexical_graph.storage.chunk import ChunkStore
+from graphrag_toolkit.lexical_graph.utils.id_validation import validate_id_segment
 from graphrag_toolkit.lexical_graph.storage.chunk.s3_chunk_store import S3ChunkStore
 
 BUCKET = 'test-bucket'
@@ -104,7 +105,7 @@ class TestS3ChunkStoreKeyValidation:
         # Direct validator check: the allowlist closes the encoding/Unicode
         # bypass class that a separator blocklist would miss.
         with pytest.raises(ValueError):
-            S3ChunkStore._validate_chunk_id(bad_id)
+            validate_id_segment(bad_id, 'chunk_id')
 
     def test_invalid_id_skipped_but_valid_ids_in_batch_survive(self, s3_client):
         # A bad id in the batch is a miss; the good ones still come back.

@@ -23,6 +23,7 @@ from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import (
     S3ChunkDownloader,
     S3ChunkUploader,
     S3DocDownloader,
+    S3DocUploader,
     completion_marker_key,
     completion_marker_name,
     is_completion_marker,
@@ -52,6 +53,12 @@ def _doc(node_ids, index_node_ids=(), source_id=SOURCE_ID):
 
 def _uploader():
     return S3ChunkUploader(
+        bucket_name='b', collection_prefix=COLLECTION_PREFIX, num_threads=2
+    )
+
+
+def _doc_uploader():
+    return S3DocUploader(
         bucket_name='b', collection_prefix=COLLECTION_PREFIX, num_threads=2
     )
 
@@ -147,11 +154,11 @@ class TestMarkerIsWithheldOnFailure:
 
 class TestEdgeCases:
 
-    def test_a_document_with_nothing_to_write_creates_no_prefix(self):
-        # A marker alone in a prefix reads back as a document with no nodes,
-        # whose source_id() is None, and a re-stage cannot build a path from
-        # None. Writing nothing leaves no prefix to read.
-        written, yielded = _upload(_uploader(), [_doc([], index_node_ids=['v1'])])
+    @pytest.mark.parametrize('uploader', [_uploader, _doc_uploader], ids=['chunks', 'jsonl'])
+    def test_a_document_with_nothing_to_write_creates_no_prefix(self, uploader):
+        # Whatever is left in the prefix reads back as a document with no nodes,
+        # and passes is_complete on one empty set matching another.
+        written, yielded = _upload(uploader(), [_doc([], index_node_ids=['v1'])])
 
         assert written == {}
         assert len(yielded) == 1, 'the document is still yielded'
