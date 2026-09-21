@@ -17,6 +17,7 @@ from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import (
     collection_record_key,
     completion_marker_key,
     is_completion_marker,
+    node_ids_hash,
     S3DocDownloader,
     S3DocUploader,
     S3ChunkDownloader,
@@ -973,6 +974,16 @@ class TestDeterministicDocumentKey:
 
         assert key.startswith('root/aws::deadbeef:d41d-')
         assert key.endswith('.jsonl')
+
+    def test_on_uses_the_whole_digest(self):
+        # Truncated, two parts of one source can land on the same key.
+        uploader = S3DocUploader(
+            bucket_name='b', collection_prefix='p', deterministic_document_key=True
+        )
+
+        key = self._key(uploader, self._doc('aws::deadbeef:d41d', ['c1', 'c2']))
+
+        assert key == f"root/aws::deadbeef:d41d-{node_ids_hash(['c1', 'c2'])}.jsonl"
 
     def test_on_separates_the_rounds_of_one_source_document(self):
         # _extract_auto_tuned emits one source as several SourceDocuments when it

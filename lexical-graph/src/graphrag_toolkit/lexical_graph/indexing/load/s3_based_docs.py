@@ -397,11 +397,15 @@ class S3DocUploader(ConfiguredThreadCount, EncryptedPut, BaseComponent):
         object rather than replacing the first. Hashing the ids of the nodes
         written instead makes a retry overwrite, while keeping the separate
         SourceDocuments an auto-tuned run emits for one source apart.
+
+        The digest is not truncated, so two parts of one source cannot share a
+        key. The random suffix keeps the width the existing layout was written
+        with.
         """
         if not self.deterministic_document_key:
             return uuid.uuid4().hex[:5]
 
-        return node_ids_hash(n.node_id for n in written_nodes(doc))[:5]
+        return node_ids_hash(n.node_id for n in written_nodes(doc))
 
     def _upload_doc(self, root_path:str, doc:SourceDocument, s3_client):
 
