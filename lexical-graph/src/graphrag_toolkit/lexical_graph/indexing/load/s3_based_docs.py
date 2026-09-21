@@ -167,7 +167,8 @@ def partition_marker_keys(keys) -> Tuple[List[str], List[str]]:
 def chunk_id_from_key(chunk_key:str, source_doc_prefix:str) -> str:
     """
     The node id a chunk object is keyed on. Taken by stripping what the writer
-    added, because a node id can hold both a '/' and a '.'.
+    added, because a node id can hold a '.', so an id ending in '.json' keys an
+    object ending '.json.json'.
     """
     name = chunk_key[len(source_doc_prefix):] if chunk_key.startswith(source_doc_prefix) else chunk_key
     return name[:-len(_CHUNK_SUFFIX)] if name.endswith(_CHUNK_SUFFIX) else name
@@ -417,9 +418,8 @@ class S3DocUploader(ConfiguredThreadCount, EncryptedPut, BaseComponent):
                 for n in nodes
             ])
 
-            self._put(doc_output_path, s, 'text/plain', s3_client)
-
             if nodes:
+                self._put(doc_output_path, s, 'text/plain', s3_client)
                 self._write_completion_marker(root_path, nodes, s3_client)
 
             return doc
