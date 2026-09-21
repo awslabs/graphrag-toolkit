@@ -606,6 +606,10 @@ class TestInferenceKeepsTheOntologySeed:
             num_classifications=num_classifications,
             llm=None,
             replace_default_classifications=False,
+            # What `LexicalGraphIndex` sets when an ontology is configured. This
+            # class tests that case; `TestSeedingIsGatedOnAnOntology` covers the
+            # default, where the flag is off.
+            seed_classifications=True,
         )
         inferencer.llm = type('StubLLM', (), {'predict': staticmethod(lambda *a, **k: response)})()
         return inferencer
@@ -641,3 +645,63 @@ class TestInferenceKeepsTheOntologySeed:
         result = self.parsed(self.inferencer(seed=['Company', 'Supplier']))
         assert result.count('Supplier') == 1
         assert result.count('Company') == 1
+
+
+class TestSeedingIsGatedOnAnOntology:
+    """`seed_classifications` is the flag that keeps this feature opt-in.
+
+    Keeping `default_classifications` through inference is right when they are an
+    ontology's declared vocabulary. Without an ontology they are the generic
+    `DEFAULT_ENTITY_CLASSIFICATIONS`, and seeding those would change what every
+    existing `infer_entity_classifications` user gets - 11 names prepended and
+    exempt from `num_classifications` - for someone who never mentioned an ontology.
+    """
+
+    def inferencer_for(self, **extraction_kwargs):
+        from graphrag_toolkit.lexical_graph import ExtractionConfig
+        from graphrag_toolkit.lexical_graph.indexing.extract import InferClassifications
+
+        pre_processors = build_pipeline(
+            ExtractionConfig(infer_entity_classifications=True, **extraction_kwargs),
+            pre_processors=True,
+        )
+        return only(pre_processors, InferClassifications)
+
+    def test_it_is_off_without_an_ontology(self):
+        assert self.inferencer_for().seed_classifications is False
+
+    def test_it_is_on_with_an_ontology(self):
+        assert self.inferencer_for(ontology=COMPANY).seed_classifications is True
+
+    def test_without_an_ontology_the_generic_defaults_do_not_survive_inference(self):
+        """The regression this flag exists to prevent, driven through `_parse_nodes`."""
+        from llama_index.core.schema import TextNode
+
+        from graphrag_toolkit.lexical_graph.indexing.constants import (
+            DEFAULT_ENTITY_CLASSIFICATIONS,
+        )
+
+        inferencer = self.inferencer_for()
+        inferencer.llm = type('StubLLM', (), {'predict': staticmethod(
+            lambda *a, **k: '<entity_classifications>\nSupplier\nFactory\n</entity_classifications>'
+        )})()
+
+        inferencer._parse_nodes([TextNode(text='Acme ships widgets.')])
+
+        assert inferencer.classifications == ['Supplier', 'Factory']
+        for name in DEFAULT_ENTITY_CLASSIFICATIONS:
+            assert name not in inferencer.classifications
+
+    def test_num_classifications_is_respected_without_an_ontology(self):
+        """The seed is exempt from truncation; nothing else is."""
+        from llama_index.core.schema import TextNode
+
+        inferencer = self.inferencer_for()
+        inferencer.num_classifications = 2
+        inferencer.llm = type('StubLLM', (), {'predict': staticmethod(
+            lambda *a, **k: '<entity_classifications>\nA\nB\nC\nD\n</entity_classifications>'
+        )})()
+
+        inferencer._parse_nodes([TextNode(text='text')])
+
+        assert len(inferencer.classifications) == 2

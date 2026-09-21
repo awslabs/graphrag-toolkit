@@ -11,6 +11,7 @@ trusted by everything downstream.
 """
 
 import json
+import sys
 
 import pytest
 
@@ -295,10 +296,35 @@ class TestATimezoneIsRefusedRatherThanStripped:
 
     @pytest.mark.parametrize('literal,expected', [
         ('2020-03-03T23:00:00', '2020-03-03T23:00:00'),
-        ('2020-03-03T09:30:00.5', '2020-03-03T09:30:00.500000'),
+        ('2020-03-03T09:30:00.123456', '2020-03-03T09:30:00.123456'),
     ])
     def test_a_naive_datetime_is_unaffected(self, literal, expected):
+        """Only forms every supported Python accepts. `xsd:dateTime` delegates its
+        lexical grammar to `datetime.fromisoformat`, which widened in 3.11, so a
+        fractional second of 3 or 6 digits is the portable shape - see
+        `test_the_fromisoformat_grammar_is_version_dependent` below."""
         assert coerce_literal(literal, xsd('dateTime')) == expected
+
+    @pytest.mark.parametrize('literal', [
+        '2020-03-03T09:30:00.5',        # 1-digit fraction
+        '2020-03-03T09:30:00.1234567',  # 7-digit fraction
+        '20200303T093000',              # ISO basic format
+        '2020-W10-2',                   # week date
+    ])
+    def test_the_fromisoformat_grammar_is_version_dependent(self, literal):
+        """These coerce on 3.11+ and are refused on 3.10, by deliberate choice.
+
+        Pinning the grammar would mean owning a date parser; the divergence is
+        documented instead. The assertion is therefore on the *version*, not on one
+        answer - a bare `== expected` here aborted the whole 3.10 leg of the
+        matrix, which runs `--maxfail=1`.
+        """
+        coerced = coerce_literal(literal, xsd('dateTime'))
+
+        if sys.version_info >= (3, 11):
+            assert coerced is not None
+        else:
+            assert coerced is None
 
     @pytest.mark.parametrize('literal,expected', [
         ('09:30:00', '09:30:00'), ('09:30', '09:30:00'),

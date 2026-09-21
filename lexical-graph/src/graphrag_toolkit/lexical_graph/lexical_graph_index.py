@@ -474,6 +474,12 @@ class LexicalGraphIndex():
                     num_classifications=infer_config.num_classifications,
                     prompt_template=infer_config.prompt_template,
                     replace_default_classifications=infer_config.replace_default_classifications,
+                    # Only an ontology's own class names are worth keeping through
+                    # inference. Without an ontology `default_classifications` is the
+                    # generic `DEFAULT_ENTITY_CLASSIFICATIONS`, and seeding those
+                    # would change what every existing `infer_entity_classifications`
+                    # user gets - see `InferClassifications._parse_nodes`.
+                    seed_classifications=config.extraction.ontology is not None,
                     llm=config.extraction.extraction_llm
                 )
 

@@ -68,6 +68,17 @@ class InferClassifications(SourceDocParser, PreferredValuesProvider):
         'Replace default classifications with new classifications after each cycle'
     )
 
+    seed_classifications:bool = Field(
+        default=False,
+        description=(
+            'Keep default_classifications in the result, ahead of the ranked names '
+            'and exempt from num_classifications. Set only when the defaults are an '
+            'ontology\'s declared vocabulary; off by default, because otherwise the '
+            'generic DEFAULT_ENTITY_CLASSIFICATIONS would be prepended for every '
+            'caller.'
+        ),
+    )
+
     def __init__(self,
                  num_samples:Optional[int]=None, 
                  num_iterations:Optional[int]=None,
@@ -77,7 +88,8 @@ class InferClassifications(SourceDocParser, PreferredValuesProvider):
                  prompt_template:Optional[str]=None,
                  rank_prompt_template:Optional[str]=None,
                  default_classifications:Optional[List[str]]=DEFAULT_ENTITY_CLASSIFICATIONS,
-                 replace_default_classifications:Optional[bool]=False   
+                 replace_default_classifications:Optional[bool]=False,
+                 seed_classifications:Optional[bool]=False
             ):
         
         super().__init__(
@@ -92,7 +104,8 @@ class InferClassifications(SourceDocParser, PreferredValuesProvider):
             prompt_template=prompt_template or DOMAIN_ENTITY_CLASSIFICATIONS_PROMPT,
             rank_prompt_template=rank_prompt_template or RANK_ENTITY_CLASSIFICATIONS_PROMPT,
             default_classifications=[] if default_classifications is None else default_classifications,
-            replace_default_classifications=replace_default_classifications
+            replace_default_classifications=replace_default_classifications,
+            seed_classifications=bool(seed_classifications)
         )
 
         logger.debug(f'Prompt template: {self.prompt_template}')
@@ -175,7 +188,23 @@ class InferClassifications(SourceDocParser, PreferredValuesProvider):
             # Exempt from truncation because `num_classifications` bounds how much
             # inference may *add*; it is not a budget the ontology has to compete
             # for. Seeded names first for the same reason.
-            seeded = [c for c in self.default_classifications if c not in ranked_classifications]
+            #
+            # Gated on `seed_classifications`, which only `LexicalGraphIndex` sets
+            # and only when an ontology is configured. Without the gate this reaches
+            # every caller of `infer_entity_classifications`, whose
+            # `default_classifications` is the generic
+            # `DEFAULT_ENTITY_CLASSIFICATIONS`: 11 names prepended and exempt from
+            # `num_classifications` for someone who never mentioned an ontology.
+            # With `replace_default_classifications=True` it also compounds, because
+            # the result is fed back as the next pass's defaults and `_parse_nodes`
+            # runs per source document - measured at 17, 23, 29, 35, 41, 47 over six
+            # documents. That combination cannot arise once gated, because
+            # `_validate_ontology_combination` refuses an ontology alongside
+            # `replace_default_classifications=True`.
+            seeded = (
+                [c for c in self.default_classifications if c not in ranked_classifications]
+                if self.seed_classifications else []
+            )
 
             logger.info(f'Domain adaptation succeeded [all_classifications: {all_classifications}, ranked_classification: {ranked_classifications}, seeded_classifications: {seeded}]')
 
