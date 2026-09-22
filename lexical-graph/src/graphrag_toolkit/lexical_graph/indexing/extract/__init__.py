@@ -12,3 +12,7 @@ from .file_system_tap import FileSystemTap
 from .infer_classifications import InferClassifications
 from .infer_config import InferClassificationsConfig
 from .preferred_values import PREFERRED_VALUES_PROVIDER_TYPE, PreferredValuesProvider, default_preferred_values
+from .extraction_stage import ExtractionStage
+from .extraction_schema import ExtractionSchema, EntityTypeConfig
+from .pipeline_builder import PipelineBuilder
+from .stages import LLMPropositionStage, LocalPropositionStage, LLMTopicExtractionStage, SchemaFilterStage, NERExtractionStage, EntityMergeStage, BatchLLMPropositionStage, BatchTopicExtractionStage
