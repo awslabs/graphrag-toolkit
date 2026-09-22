@@ -666,6 +666,65 @@ class TestGetPatchedLLMTokenCounts:
         assert result.prompt_token_count == 10
         assert result.completion_token_count == 5
     
+    def test_get_patched_llm_token_counts_with_converse_usage(self):
+        """Verify token counting reads the camelCase usage keys of a Converse API response."""
+        from llama_index.core.utilities.token_counting import TokenCounter
+        from llama_index.core.llms import ChatMessage
+
+        token_counter = TokenCounter()
+
+        messages = [ChatMessage(role='user', content='Hello')]
+
+        response = Mock()
+        response.raw = {
+            'usage': {
+                'inputTokens': 1234,
+                'outputTokens': 56,
+                'totalTokens': 1290
+            }
+        }
+
+        payload = {
+            EventPayload.MESSAGES: messages,
+            EventPayload.RESPONSE: response
+        }
+
+        result = get_patched_llm_token_counts(token_counter, payload, 'event-5')
+
+        assert result.prompt_token_count == 1234
+        assert result.completion_token_count == 56
+
+    @patch('graphrag_toolkit.lexical_graph.utils.fm_observability._fm_observability_queue')
+    def test_bedrock_token_counting_handler_uses_converse_usage(self, mock_queue):
+        """Verify the handler records the usage BedrockConverse returns rather than an estimate."""
+        from botocore.stub import Stubber
+        from llama_index.core.callbacks import CallbackManager
+        from llama_index.core.llms import ChatMessage
+        from llama_index.llms.bedrock_converse import BedrockConverse
+
+        handler = BedrockEnabledTokenCountingHandler()
+        llm = BedrockConverse(
+            model='us.anthropic.claude-haiku-4-5-20251001-v1:0',
+            region_name='us-east-1',
+            callback_manager=CallbackManager([handler])
+        )
+        converse_response = {
+            'output': {'message': {'role': 'assistant', 'content': [{'text': 'Hello'}]}},
+            'stopReason': 'end_turn',
+            'usage': {'inputTokens': 1234, 'outputTokens': 56, 'totalTokens': 1290},
+            'metrics': {'latencyMs': 100}
+        }
+
+        with Stubber(llm._client) as stubber:
+            stubber.add_response('converse', converse_response)
+            llm.chat([ChatMessage(role='user', content='Hello')])
+
+        assert handler.llm_token_counts[-1].prompt_token_count == 1234
+        assert handler.llm_token_counts[-1].completion_token_count == 56
+        queued = mock_queue.put.call_args[0][0]
+        assert queued.payload['llm_prompt_token_count'] == 1234
+        assert queued.payload['llm_completion_token_count'] == 56
+
     def test_get_patched_llm_token_counts_estimates_when_no_usage(self):
         """Verify token counting estimates when usage data not available."""
         from llama_index.core.utilities.token_counting import TokenCounter
