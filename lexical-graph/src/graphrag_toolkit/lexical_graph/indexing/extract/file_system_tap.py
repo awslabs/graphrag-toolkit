@@ -10,7 +10,7 @@ from os.path import join
 
 from graphrag_toolkit.lexical_graph.indexing.extract.pipeline_decorator import PipelineDecorator
 from graphrag_toolkit.lexical_graph.indexing.model import SourceDocument
-from graphrag_toolkit.lexical_graph.indexing.utils.path_utils import validate_id
+from graphrag_toolkit.lexical_graph.utils.id_validation import validate_id_segment
 
 from llama_index.core.schema import Document, BaseNode
 
@@ -70,7 +70,7 @@ class FileSystemTap(PipelineDecorator):
         for doc in docs:
             if doc.refNode and isinstance(doc.refNode, Document):
                 ref_node = doc.refNode
-                validate_id(ref_node.doc_id, 'doc_id')
+                validate_id_segment(ref_node.doc_id, 'doc_id')
                 raw_source_output_path = join(self.raw_sources_dir, ref_node.doc_id)
                 source_output_path = join(self.sources_dir, f'{ref_node.doc_id}.json')
                 with open(raw_source_output_path, 'w') as f:
@@ -93,7 +93,7 @@ class FileSystemTap(PipelineDecorator):
                 unmodified.
         """
         for node in doc.nodes:
-            validate_id(node.node_id, 'node_id')
+            validate_id_segment(node.node_id, 'node_id')
             chunk_output_path = join(self.chunks_dir, f'{node.node_id}.json')
             with open(chunk_output_path, 'w') as f:
                 json.dump(node.to_dict(), f, indent=4)
