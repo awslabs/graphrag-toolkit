@@ -8,6 +8,7 @@ from typing import Any, List
 
 from graphrag_toolkit.lexical_graph.tenant_id import TenantId
 from graphrag_toolkit.lexical_graph.indexing.node_handler import NodeHandler
+from graphrag_toolkit.lexical_graph.indexing.utils.path_utils import validate_id
 from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
 
 from llama_index.core.schema import TransformComponent, BaseNode
@@ -62,8 +63,14 @@ class CheckpointFilter(TransformComponent, DoNotCheckpoint):
             bool: Returns False if the checkpoint exists, indicating the node should
                 be ignored. Returns True if the checkpoint does not exist,
                 indicating the node should be included.
+
+        Raises:
+            ValueError: If the id would resolve outside the checkpoint directory. The
+                writer rejects the same id, so probing it here would only decide the
+                node's fate from an unrelated path.
         """
         tenant_node_id = self.tenant_id.rewrite_id(node_id)
+        validate_id(tenant_node_id, 'node_id')
         node_checkpoint_path = join(self.checkpoint_dir, tenant_node_id)
         if os.path.exists(node_checkpoint_path):
             logger.debug(f'Ignoring node because checkpoint already exists [node_id: {tenant_node_id}, checkpoint: {self.checkpoint_name}, component: {type(self.inner).__name__}]')
@@ -132,6 +139,9 @@ class CheckpointWriter(NodeHandler):
         Yields:
             BaseNode: Nodes that have been processed and classified. Each node is yielded
                 after logging and performing checkpoint-related operations if applicable.
+
+        Raises:
+            ValueError: If a checkpointable node id would write outside the checkpoint directory.
         """
         for node in self.inner.accept(nodes, **kwargs):
             node_id = node.node_id
@@ -139,6 +149,7 @@ class CheckpointWriter(NodeHandler):
                 logger.debug(f'Non-checkpointable node [checkpoint: {self.checkpoint_name}, node_id: {node_id}, component: {type(self.inner).__name__}]') 
             else:
                 logger.debug(f'Checkpointable node [checkpoint: {self.checkpoint_name}, node_id: {node_id}, component: {type(self.inner).__name__}]') 
+                validate_id(node_id, 'node_id')
                 node_checkpoint_path = join(self.checkpoint_dir, node_id)
                 self.touch(node_checkpoint_path)
             yield node

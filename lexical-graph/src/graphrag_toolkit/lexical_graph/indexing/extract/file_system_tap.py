@@ -10,6 +10,7 @@ from os.path import join
 
 from graphrag_toolkit.lexical_graph.indexing.extract.pipeline_decorator import PipelineDecorator
 from graphrag_toolkit.lexical_graph.indexing.model import SourceDocument
+from graphrag_toolkit.lexical_graph.indexing.utils.path_utils import validate_id
 
 from llama_index.core.schema import Document, BaseNode
 
@@ -53,24 +54,6 @@ class FileSystemTap(PipelineDecorator):
         self.chunks_dir = chunks_dir
         self.sources_dir = sources_dir
 
-    @staticmethod
-    def _validate_id(value:str, name:str) -> None:
-        """
-        Reject an id that would write outside the directories the tap prepared.
-
-        Output paths join an id onto a prepared directory, so a separator in the
-        id opens a new path segment and a climbing id lands anywhere. Rewritten
-        ids are IdGenerator hashes and carry no separator.
-        """
-        if not value or not value.strip():
-            raise ValueError(f'{name} must be a non-empty string.')
-        if '/' in value or '\\' in value:
-            raise ValueError(f'{name} must not contain a path separator: {value!r}')
-        if any(ord(c) < 0x20 or ord(c) == 0x7f for c in value):
-            raise ValueError(f'{name} must not contain control characters: {value!r}')
-        if value.strip() in ('.', '..'):
-            raise ValueError(f'{name} must not name a directory: {value!r}')
-
     def handle_input_docs(self, docs:Iterable[SourceDocument]) -> Iterable[SourceDocument]:
         """
         Processes a collection of source documents, saving their raw textual content and JSON representation
@@ -87,7 +70,7 @@ class FileSystemTap(PipelineDecorator):
         for doc in docs:
             if doc.refNode and isinstance(doc.refNode, Document):
                 ref_node = doc.refNode
-                self._validate_id(ref_node.doc_id, 'doc_id')
+                validate_id(ref_node.doc_id, 'doc_id')
                 raw_source_output_path = join(self.raw_sources_dir, ref_node.doc_id)
                 source_output_path = join(self.sources_dir, f'{ref_node.doc_id}.json')
                 with open(raw_source_output_path, 'w') as f:
@@ -110,7 +93,7 @@ class FileSystemTap(PipelineDecorator):
                 unmodified.
         """
         for node in doc.nodes:
-            self._validate_id(node.node_id, 'node_id')
+            validate_id(node.node_id, 'node_id')
             chunk_output_path = join(self.chunks_dir, f'{node.node_id}.json')
             with open(chunk_output_path, 'w') as f:
                 json.dump(node.to_dict(), f, indent=4)
