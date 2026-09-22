@@ -524,7 +524,6 @@ class S3DocUploader(ConfiguredThreadCount, EncryptedPut, CompletionMarkers, Base
 
         try:
 
-
             s = '\n'.join([
                 json.dumps(n.to_dict())
                 for n in nodes
@@ -591,7 +590,9 @@ class S3DocUploader(ConfiguredThreadCount, EncryptedPut, CompletionMarkers, Base
                         self.collection_prefix, source_document, nodes
                     )
 
-                    self._open_source(source_id, root_path, [n.node_id for n in nodes])
+                    if nodes:
+                        self._open_source(source_id, root_path, [n.node_id for n in nodes])
+
                     source_chunk_ids = (
                         self._end_source(source_id)
                         if source_document.final_part and nodes
