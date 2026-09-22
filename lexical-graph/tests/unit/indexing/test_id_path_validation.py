@@ -5,7 +5,8 @@
 
 Each sink joins an id onto a prepared directory, and IdRewriter returns any id
 already starting ``aws:`` as given, so ``aws:../../etc/x`` reaches a sink
-untouched. Before `validate_id` was shared, only FileSystemTap validated, and
+untouched. Before `validate_id_segment` guarded every sink, only FileSystemTap
+validated, and
 `FileBasedDocs.accept`, `CheckpointWriter.accept` and
 `BatchExtractorBase._save_node_in_temp_dir` created directories and wrote files
 outside their output tree; `CheckpointFilter.checkpoint_does_not_exist` probed a
@@ -96,7 +97,7 @@ class TestFileSystemTap:
     def test_doc_id_is_rejected(self, tmp_path, doc_id):
         tap = FileSystemTap(subdirectory_name='run', clean=True, output_dir=str(tmp_path))
 
-        with pytest.raises(ValueError, match='separator'):
+        with pytest.raises(ValueError, match='invalid characters'):
             tap.handle_input_docs([SourceDocument(refNode=Document(text='t', doc_id=doc_id))])
 
     @pytest.mark.parametrize('node_id', [REPORTED_ID, ESCAPING_ID])
@@ -105,7 +106,7 @@ class TestFileSystemTap:
         doc = SourceDocument(refNode=Document(text='t', doc_id=BENIGN_SOURCE_ID))
         doc.nodes = [TextNode(text='chunk', id_=node_id)]
 
-        with pytest.raises(ValueError, match='separator'):
+        with pytest.raises(ValueError, match='invalid characters'):
             tap.handle_output_doc(doc)
 
 
@@ -118,7 +119,7 @@ class TestFileBasedDocs:
         handler = FileBasedDocs(docs_directory=docs_dir, collection_id='coll')
         doc = SourceDocument(nodes=[_node(BENIGN_NODE_ID, source_id)])
 
-        with pytest.raises(ValueError, match='separator'):
+        with pytest.raises(ValueError, match='invalid characters'):
             list(handler.accept([doc]))
 
     @pytest.mark.parametrize('node_id', [REPORTED_ID, ESCAPING_ID])
@@ -127,7 +128,7 @@ class TestFileBasedDocs:
         handler = FileBasedDocs(docs_directory=docs_dir, collection_id='coll')
         doc = SourceDocument(nodes=[_node(node_id, BENIGN_SOURCE_ID)])
 
-        with pytest.raises(ValueError, match='separator'):
+        with pytest.raises(ValueError, match='invalid characters'):
             list(handler.accept([doc]))
 
     def test_nothing_is_created_outside_the_collection_directory(self, tmp_path):
@@ -154,7 +155,7 @@ class TestFileBasedDocs:
         doc = SourceDocument(nodes=[_node(BENIGN_NODE_ID, REPORTED_ID)])
 
         assert '/' in windows_safe_filename(REPORTED_ID)
-        with pytest.raises(ValueError, match='separator'):
+        with pytest.raises(ValueError, match='invalid characters'):
             list(handler.accept([doc]))
 
     def test_a_sanitizer_that_introduces_a_separator_is_rejected(self, tmp_path):
@@ -186,7 +187,7 @@ class TestCheckpointWriter:
             inner=PassThrough(), checkpoint_dir=checkpoint_dir, checkpoint_name='cp',
         )
 
-        with pytest.raises(ValueError, match='separator'):
+        with pytest.raises(ValueError, match='invalid characters'):
             list(writer.accept([TextNode(text='chunk', id_=node_id)]))
 
     def test_nothing_is_created_outside_the_checkpoint_directory(self, tmp_path):
@@ -224,7 +225,7 @@ class TestBatchExtractorTempDir:
         temp_dir = _nested_dir(str(tmp_path), 'batch')
         extractor = self._extractor(temp_dir)
 
-        with pytest.raises(ValueError, match='separator'):
+        with pytest.raises(ValueError, match='invalid characters'):
             extractor._save_node_in_temp_dir(TextNode(text='chunk', id_=node_id), temp_dir)
 
     def test_an_absolute_node_id_is_rejected(self, tmp_path):
@@ -233,7 +234,7 @@ class TestBatchExtractorTempDir:
         temp_dir = _nested_dir(str(tmp_path), 'batch')
         extractor = self._extractor(temp_dir)
 
-        with pytest.raises(ValueError, match='separator'):
+        with pytest.raises(ValueError, match='invalid characters'):
             extractor._save_node_in_temp_dir(TextNode(text='chunk', id_='/tmp/pwned'), temp_dir)
 
 
@@ -250,7 +251,7 @@ class TestCheckpointFilter:
             tenant_id=TenantId(),
         )
 
-        with pytest.raises(ValueError, match='separator'):
+        with pytest.raises(ValueError, match='invalid characters'):
             checkpoint_filter.checkpoint_does_not_exist(node_id)
 
     def test_a_rewritten_id_still_passes(self, tmp_path):

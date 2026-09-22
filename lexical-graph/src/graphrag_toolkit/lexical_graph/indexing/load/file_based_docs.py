@@ -12,7 +12,7 @@ from typing import List, Any, Callable, Generator, Optional, Dict
 from graphrag_toolkit.lexical_graph.indexing import NodeHandler
 from graphrag_toolkit.lexical_graph.indexing.model import SourceDocument, SourceType, source_documents_from_source_types
 from graphrag_toolkit.lexical_graph.indexing.constants import PROPOSITIONS_KEY, TOPICS_KEY
-from graphrag_toolkit.lexical_graph.indexing.utils.path_utils import validate_id
+from graphrag_toolkit.lexical_graph.utils.id_validation import validate_id_segment
 from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY 
 
 from llama_index.core.schema import TextNode, BaseNode
@@ -249,9 +249,9 @@ class FileBasedDocs(NodeHandler):
         def safe_name(value:str, name:str) -> str:
             """Validate the id, then the sanitizer's output, which is what gets joined.
             A custom sanitizer can introduce a separator as easily as remove one."""
-            validate_id(value, name)
+            validate_id_segment(value, name)
             sanitized = sanitize(value)
-            validate_id(sanitized, f'sanitized {name}')
+            validate_id_segment(sanitized, f'sanitized {name}')
             return sanitized
 
         for source_document in source_documents:
