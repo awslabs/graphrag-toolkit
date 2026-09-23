@@ -10,7 +10,7 @@ incremental chunking, bucket filling, round submission, and consolidation.
 """
 
 import pytest
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 from llama_index.core.llms import MockLLM
 from llama_index.core.schema import Document, TextNode, NodeRelationship, RelatedNodeInfo
 
@@ -571,6 +571,54 @@ class TestASourceSplitAcrossOutputDocuments:
         emitted = list(self._pipeline()._emit_extracted(nodes))
 
         assert [sd.final_part for sd in emitted] == [True]
+class TestARunPlanIsRefusedOnTheAutoTunedPath:
+    """
+    Restart does not cover auto-tuning for this release. A run that asked for
+    both would look restartable and would not be, so it is refused where it is
+    asked for rather than somewhere further in.
+    """
+
+    def _pipeline(self, auto_tune):
+        return ExtractionPipeline(
+            components=[make_batch_extractor(auto_tune=auto_tune, max_batch_size=100)],
+            num_workers=2,
+            batch_size=4,
+            run_id='run-1',
+            run_plan_store=Mock(),
+        )
+
+    def test_a_run_id_with_an_auto_tuning_extractor_is_refused(self):
+        with pytest.raises(ValueError, match='auto-tuned path'):
+            list(self._pipeline(auto_tune=True).extract([Document(text='d')]))
+
+    def test_the_refusal_names_both_ways_out(self):
+        with pytest.raises(ValueError) as refused:
+            list(self._pipeline(auto_tune=True).extract([Document(text='d')]))
+
+        assert 'without run_id' in str(refused.value)
+        assert 'without an auto-tuning batch extractor' in str(refused.value)
+
+    def test_nothing_is_planned_before_the_refusal(self):
+        # The refusal comes before the plan is resolved, so a run that asked
+        # for both leaves nothing recorded behind it.
+        pipeline = self._pipeline(auto_tune=True)
+
+        with patch.object(pipeline, '_follow_run_plan', return_value=([], None)) as followed:
+            with pytest.raises(ValueError):
+                list(pipeline.extract([Document(text='d')]))
+
+        followed.assert_not_called()
+
+    def test_the_fixed_batch_path_still_takes_a_run_plan(self):
+        pipeline = self._pipeline(auto_tune=False)
+
+        with patch.object(pipeline, '_follow_run_plan', return_value=([], None)) as followed:
+            with patch.object(pipeline, '_extract_fixed_batch', return_value=iter([])):
+                list(pipeline.extract([Document(text='d')]))
+
+        followed.assert_called_once()
+
+
 class TestAutoTunedRoundsKeepThePinnedPartitionCount:
     """
     On the auto-tuned path the worker count sets how many jobs a round holds.

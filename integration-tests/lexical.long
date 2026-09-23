@@ -3,3 +3,4 @@ batch_build.BuildFromS3
 query.MultiHopQuery
 query.ChunkBasedSemanticSearchMultiHopQuery
 progress_monitor.ProgressMonitorExtractAndBuild
+batch_extract.BatchExtractWithRunPlanToS3
