@@ -18,6 +18,7 @@ from unittest.mock import Mock
 from graphrag_toolkit.lexical_graph.indexing.extract.resume import (
     ResumeReport,
     plan_resume,
+    resuming_handler,
     staged_source_ids,
 )
 from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import completion_marker_key
@@ -31,6 +32,7 @@ BUCKET = 'b'
 KEY_PREFIX = 'p'
 COLLECTION_ID = 'c'
 RUN_ID = 'run-1'
+REGION = 'us-east-1'
 
 
 def _s3(keys, marker_bodies=None):
@@ -182,3 +184,56 @@ class TestWhatARestartReportsBeforeItStarts:
         assert 'Resuming a run' in described
         assert 'partitions already done: 1' in described
         assert 'sources already staged: 1' in described
+
+
+class TestTheHandlerARestartStagesThrough:
+    """
+    The join nothing else covers: the records say what ran, the collection says
+    what is stored, and the handler has to be built from both. The pipeline
+    cannot do it, because the handler is composed downstream of it.
+    """
+
+    def _store(self, s3_client):
+        store = Mock()
+        store.bucket_name = BUCKET
+        store.key_prefix = KEY_PREFIX
+        store.collection_id = COLLECTION_ID
+        store.s3_encryption_key_id = None
+        store.manifest_store.return_value = _manifest_store({})
+        return store
+
+    def test_a_source_already_stored_is_skipped_and_the_rest_are_not(self):
+        s3_client = _collection({'src-1': ['c1', 'c2'], 'src-2': ['c3']},
+                                stored={'src-2': []})
+
+        handler = resuming_handler(self._store(s3_client), RUN_ID, s3_client, region=REGION)
+
+        assert handler.skip_source_ids == {'src-1'}
+
+    def test_the_handler_and_the_records_name_one_collection(self):
+        # Four ordered steps by hand is four chances to point them at different
+        # collections. Derived from the plan store, they cannot disagree.
+        s3_client = _collection({'src-1': ['c1']})
+        store = self._store(s3_client)
+
+        handler = resuming_handler(store, RUN_ID, s3_client, region=REGION)
+
+        assert (handler.bucket_name, handler.key_prefix, handler.collection_id) == (
+            BUCKET, KEY_PREFIX, COLLECTION_ID
+        )
+        store.manifest_store.assert_called_once_with(RUN_ID)
+
+    def test_a_jsonl_handler_is_given_nothing_to_skip(self):
+        s3_client = _collection({'src-1': ['c1']})
+
+        handler = resuming_handler(self._store(s3_client), RUN_ID, s3_client, region=REGION, for_jsonl=True)
+
+        assert handler.skip_source_ids == set()
+        assert handler.for_jsonl is True
+
+    def test_handler_settings_are_passed_through(self):
+        s3_client = _collection({'src-1': ['c1']})
+
+        handler = resuming_handler(self._store(s3_client), RUN_ID, s3_client, region=REGION, num_threads=3)
+
+        assert handler.num_threads == 3
