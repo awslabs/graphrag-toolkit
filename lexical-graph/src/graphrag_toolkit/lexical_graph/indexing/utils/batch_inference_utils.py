@@ -7,7 +7,7 @@ import time
 import os
 import json
 import re
-from typing import Any, Callable, List, Dict, Tuple
+from typing import Any, Callable, List, Dict, Optional, Tuple
 from dataclasses import dataclass
 from os import stat, listdir
 from os.path import isfile, join
@@ -309,10 +309,24 @@ def create_and_run_batch_job(job_name_prefix:str,
                              batch_suffix:str,
                              batch_config:BatchConfig,
                              input_key:str,
-                             output_path:str, 
-                             model_id:str) -> None:
-    """Create and run a Bedrock batch inference job."""
+                             output_path:str,
+                             model_id:str,
+                             job_name:Optional[str]=None,
+                             on_submitted:Optional[Callable[[str, str], None]]=None) -> Optional[str]:
+    """
+    Create and run a Bedrock batch inference job, returning its ARN.
+
+    A caller that has to find this job again passes the name it wants, so the
+    job says which run, partition and attempt it belongs to. Without one the
+    name is the timestamped form, which is what a run that never restarts gets.
+
+    on_submitted is called with the job's ARN and name once the job exists and
+    before the wait begins, so a caller recording the job has the record down
+    before the part of the work that can outlive the process.
+    """
     try:
+        job_name = job_name or f'{job_name_prefix}-{timestamp}-{batch_suffix}'
+
         input_data_config = {
             's3InputDataConfig': {'s3Uri': f's3://{batch_config.bucket_name}/{input_key}'}
         }
@@ -331,7 +345,7 @@ def create_and_run_batch_job(job_name_prefix:str,
             response = bedrock_client.create_model_invocation_job(
                 roleArn=batch_config.role_arn,
                 modelId=model_id,
-                jobName=f'{job_name_prefix}-{timestamp}-{batch_suffix}',
+                jobName=job_name,
                 inputDataConfig=input_data_config,
                 outputDataConfig=output_data_config,
                 vpcConfig={
@@ -343,7 +357,7 @@ def create_and_run_batch_job(job_name_prefix:str,
             response = bedrock_client.create_model_invocation_job(
                 roleArn=batch_config.role_arn,
                 modelId=model_id,
-                jobName=f'{job_name_prefix}-{timestamp}-{batch_suffix}',
+                jobName=job_name,
                 inputDataConfig=input_data_config,
                 outputDataConfig=output_data_config
             )
@@ -352,13 +366,18 @@ def create_and_run_batch_job(job_name_prefix:str,
 
         input_file = input_key.split('/')[-1]
 
-        logger.info(f'Created batch job [job_arn: {job_arn}, input_file: {input_file}]')
+        logger.info(f'Created batch job [job_arn: {job_arn}, job_name: {job_name}, input_file: {input_file}]')
+
+        if on_submitted is not None:
+            on_submitted(job_arn, job_name)
 
         wait_for_job_completion(bedrock_client, job_arn, input_file)
 
         end = time.time()
 
         logger.debug(f'Batch job completed successfully [job_arn: {job_arn}, input_file: {input_file}] ({int(end - start)} seconds)')
+
+        return job_arn
 
     except ClientError as e:
         logger.error(f'Error creating or running batch job: {str(e)}')
