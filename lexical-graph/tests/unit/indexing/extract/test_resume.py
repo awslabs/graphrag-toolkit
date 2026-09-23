@@ -18,9 +18,9 @@ from unittest.mock import Mock
 from graphrag_toolkit.lexical_graph.indexing.extract.resume import (
     ResumeReport,
     plan_resume,
-    resuming_handler,
     staged_source_ids,
 )
+from graphrag_toolkit.lexical_graph.indexing.extract import RunPlanStore
 from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import completion_marker_key
 from graphrag_toolkit.lexical_graph.indexing.extract.run_manifest import (
     COMPLETE,
@@ -194,19 +194,20 @@ class TestTheHandlerARestartStagesThrough:
     """
 
     def _store(self, s3_client):
-        store = Mock()
-        store.bucket_name = BUCKET
-        store.key_prefix = KEY_PREFIX
-        store.collection_id = COLLECTION_ID
-        store.s3_encryption_key_id = None
-        store.manifest_store.return_value = _manifest_store({})
+        """A real plan store, with only its manifests faked."""
+        store = RunPlanStore(
+            bucket_name=BUCKET,
+            key_prefix=KEY_PREFIX,
+            collection_id=COLLECTION_ID,
+        )
+        store.manifest_store = Mock(return_value=_manifest_store({}))
         return store
 
     def test_a_source_already_stored_is_skipped_and_the_rest_are_not(self):
         s3_client = _collection({'src-1': ['c1', 'c2'], 'src-2': ['c3']},
                                 stored={'src-2': []})
 
-        handler = resuming_handler(self._store(s3_client), RUN_ID, s3_client, region=REGION)
+        handler = self._store(s3_client).staging_handler(RUN_ID, s3_client, region=REGION)
 
         assert handler.skip_source_ids == {'src-1'}
 
@@ -216,7 +217,7 @@ class TestTheHandlerARestartStagesThrough:
         s3_client = _collection({'src-1': ['c1']})
         store = self._store(s3_client)
 
-        handler = resuming_handler(store, RUN_ID, s3_client, region=REGION)
+        handler = store.staging_handler(RUN_ID, s3_client, region=REGION)
 
         assert (handler.bucket_name, handler.key_prefix, handler.collection_id) == (
             BUCKET, KEY_PREFIX, COLLECTION_ID
@@ -226,7 +227,7 @@ class TestTheHandlerARestartStagesThrough:
     def test_a_jsonl_handler_is_given_nothing_to_skip(self):
         s3_client = _collection({'src-1': ['c1']})
 
-        handler = resuming_handler(self._store(s3_client), RUN_ID, s3_client, region=REGION, for_jsonl=True)
+        handler = self._store(s3_client).staging_handler(RUN_ID, s3_client, region=REGION, for_jsonl=True)
 
         assert handler.skip_source_ids == set()
         assert handler.for_jsonl is True
@@ -234,6 +235,6 @@ class TestTheHandlerARestartStagesThrough:
     def test_handler_settings_are_passed_through(self):
         s3_client = _collection({'src-1': ['c1']})
 
-        handler = resuming_handler(self._store(s3_client), RUN_ID, s3_client, region=REGION, num_threads=3)
+        handler = self._store(s3_client).staging_handler(RUN_ID, s3_client, region=REGION, num_threads=3)
 
         assert handler.num_threads == 3

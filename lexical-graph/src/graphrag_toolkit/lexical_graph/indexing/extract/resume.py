@@ -7,9 +7,7 @@ from dataclasses import dataclass, field
 from os.path import join
 from typing import Dict, List, Set
 
-from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import (
-    S3BasedDocs,
     chunk_id_from_key,
     is_complete,
     is_completion_marker,
@@ -128,32 +126,3 @@ def plan_resume(manifest_store, s3_client, for_jsonl:bool=False) -> ResumeReport
     logger.info(report.describe())
 
     return report
-
-
-def resuming_handler(run_plan_store, run_id:str, s3_client=None, **handler_kwargs) -> S3BasedDocs:
-    """
-    A staging handler that leaves alone whatever an earlier attempt of this run
-    already stored.
-
-    The plan store names the collection, so the handler and the records cannot
-    disagree about which one they mean, and the operator has one call rather
-    than four ordered ones. The pipeline cannot do this itself: it holds the
-    records, and the handler is composed separately downstream of it.
-    """
-    s3_client = s3_client if s3_client is not None else GraphRAGConfig.s3
-    region = handler_kwargs.pop('region', None) or GraphRAGConfig.aws_region
-    for_jsonl = handler_kwargs.get('for_jsonl', False)
-
-    report = plan_resume(
-        run_plan_store.manifest_store(run_id), s3_client, for_jsonl=for_jsonl
-    )
-
-    return S3BasedDocs(
-        region=region,
-        bucket_name=run_plan_store.bucket_name,
-        key_prefix=run_plan_store.key_prefix,
-        collection_id=run_plan_store.collection_id,
-        s3_encryption_key_id=run_plan_store.s3_encryption_key_id,
-        skip_source_ids=report.staged_source_ids,
-        **handler_kwargs,
-    )
