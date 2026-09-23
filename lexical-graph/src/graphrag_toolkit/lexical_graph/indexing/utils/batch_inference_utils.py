@@ -111,8 +111,12 @@ def _build_claude_request(messages: List[ChatMessage], params: dict) -> dict:
         'anthropic_version': params.get('anthropic_version', 'bedrock-2023-05-31'),
         'messages': anthropic_messages,
         'max_tokens': params['max_tokens'],
-        'temperature': params['temperature']
     }
+    # BedrockConverse omits temperature for Claude models that reject it
+    # (e.g. Opus 4.7 and later), so only forward it when present.
+    temperature = params.get('temperature')
+    if temperature is not None:
+        request_body['temperature'] = temperature
     if system_prompt:
         request_body['system'] = system_prompt
     return request_body
