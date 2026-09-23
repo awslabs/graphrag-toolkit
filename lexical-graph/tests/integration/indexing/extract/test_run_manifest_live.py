@@ -28,8 +28,10 @@ from llama_index.core.schema import NodeRelationship, RelatedNodeInfo, TextNode
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.indexing.extract.resume import (
     plan_resume,
+    resuming_handler,
     staged_source_ids,
 )
+from graphrag_toolkit.lexical_graph.indexing.extract.run_plan import RunPlanStore
 from graphrag_toolkit.lexical_graph.indexing.extract.run_manifest import (
     COMPLETE,
     SUBMITTED,
@@ -260,3 +262,21 @@ class TestARunResumingItsOwnWork:
         report = plan_resume(fresh, GraphRAGConfig.s3)
 
         assert not report.is_restart
+
+    def test_a_handler_built_for_the_run_stages_only_what_is_missing(self, key_prefix):
+        # The whole feature through its operator surface: stage a source, then
+        # build a handler for the same run and stage both.
+        _stage(key_prefix, [_doc('src-1')])
+        before = sorted(_keys_under(f'{key_prefix}/{COLLECTION_ID}/src-1/'))
+
+        plan_store = RunPlanStore(
+            bucket_name=S3_TEST_BUCKET,
+            key_prefix=key_prefix,
+            collection_id=COLLECTION_ID,
+        )
+        handler = resuming_handler(plan_store, RUN_ID, GraphRAGConfig.s3, region=REGION)
+
+        list(handler.accept([_doc('src-1'), _doc('src-2')]))
+
+        assert sorted(_keys_under(f'{key_prefix}/{COLLECTION_ID}/src-1/')) == before
+        assert _keys_under(f'{key_prefix}/{COLLECTION_ID}/src-2/')
