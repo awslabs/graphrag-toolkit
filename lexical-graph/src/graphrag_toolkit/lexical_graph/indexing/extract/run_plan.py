@@ -87,6 +87,22 @@ class RunPlanStore(RunArtifactStore):
     def key(self, run_id:str) -> str:
         return join(self.run_path(run_id), PLAN_NAME)
 
+    def manifest_store(self, run_id:str):
+        """
+        Where this run records what it did with each partition. The manifests
+        sit beside the plan, under the same run, so one set of coordinates
+        answers for both.
+        """
+        from graphrag_toolkit.lexical_graph.indexing.extract.run_manifest import RunManifestStore
+
+        return RunManifestStore(
+            bucket_name=self.bucket_name,
+            key_prefix=self.key_prefix,
+            collection_id=self.collection_id,
+            run_id=run_id,
+            s3_encryption_key_id=self.s3_encryption_key_id,
+        )
+
     def read(self, run_id:str, s3_client) -> Optional[RunPlan]:
         """The plan this run started with, or None if it has not started."""
         body = self._read_json(self.key(run_id), s3_client)

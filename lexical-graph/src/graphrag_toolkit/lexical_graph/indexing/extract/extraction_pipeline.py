@@ -404,6 +404,16 @@ class ExtractionPipeline():
         self.extraction_filters = extraction_filters or FilterConfig()
         self.extract_timestamp = extract_timestamp
         self.pipeline_kwargs = kwargs
+        self.manifest_store = self._manifest_store()
+
+        # The store travels with the extractor, which is all a worker process
+        # receives. A checkpoint wraps every component above, so the extractor
+        # is reached through the wrapper rather than found beside it.
+        if self.manifest_store is not None:
+            for c in components:
+                extractor = self._unwrap_component(c)
+                if isinstance(extractor, BatchExtractorBase):
+                    extractor.manifest_store = self.manifest_store
 
         # Detect auto-tuning batch extraction from the batch extractor's config.
         # Auto-tuning is only meaningful when a Bedrock batch extractor is present.
@@ -500,10 +510,20 @@ class ExtractionPipeline():
                 )
             source_documents, plan = self._follow_run_plan(inputs)
             yield from self._extract_fixed_batch(source_documents, plan=plan)
+            # A run that dies never reaches here, and leaves its records where
+            # a restart still finds them.
+            self.manifest_store.merge_rollup(GraphRAGConfig.s3)
         elif self._auto_tune:
             yield from self._extract_auto_tuned(inputs)
         else:
             yield from self._extract_fixed_batch(inputs)
+
+    def _manifest_store(self):
+        """Where this run records each partition, beside its plan. None when it keeps no record."""
+        if self.run_id is None or self.run_plan_store is None:
+            return None
+
+        return self.run_plan_store.manifest_store(self.run_id)
 
     def _follows_a_run_plan(self) -> bool:
         """
