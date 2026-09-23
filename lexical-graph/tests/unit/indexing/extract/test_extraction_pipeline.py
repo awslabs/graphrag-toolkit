@@ -3,10 +3,11 @@
 
 import pytest
 from unittest.mock import MagicMock, Mock, patch
-from llama_index.core.schema import Document, TextNode
+from llama_index.core.schema import Document, NodeRelationship, RelatedNodeInfo, TextNode
 from graphrag_toolkit.lexical_graph.indexing.extract.extraction_pipeline import (
     PassThroughDecorator,
     ExtractionPipeline,
+    _document_id,
     _in_plan_order
 )
 from graphrag_toolkit.lexical_graph.indexing.extract.run_plan import RunPlan
@@ -277,6 +278,32 @@ class TestARunFollowsThePlanItWroteDown:
         self._divide(pipeline, self._docs())
 
         assert store.resolve.call_count == 0
+
+    def test_the_plan_names_documents_by_their_source_not_their_first_chunk(self):
+        # A collection read back from staging arrives already chunked, where the
+        # first chunk's id is not the document's.
+        chunk = TextNode(text='a chunk', id_='aws::doc-a:chunk-0')
+        chunk.relationships[NodeRelationship.SOURCE] = RelatedNodeInfo(node_id='aws::doc-a')
+
+        assert _document_id(SourceDocument(nodes=[chunk])) == 'aws::doc-a'
+
+    def test_a_document_that_is_its_own_node_is_named_by_that_node(self):
+        assert _document_id(SourceDocument(nodes=[TextNode(text='a doc', id_='aws::doc-a')])) == 'aws::doc-a'
+
+    def test_the_recorded_batch_size_divides_a_restart(self):
+        recorded = RunPlan(run_id='run-1', document_ids=[], num_workers=4, batch_size=2)
+        pipeline = self._pipeline(cores=4, num_workers=4, run_id='run-1', run_plan_store=self._store(recorded))
+        rounds = []
+
+        def capture(pipeline_, node_batches, num_workers=1, **kwargs):
+            rounds.append(len(list(node_batches)))
+            return []
+
+        with patch(f'{PIPELINE}.run_pipeline', side_effect=capture):
+            list(pipeline.extract(self._docs(8)))
+
+        # batch_size 2 over 8 documents is four rounds, not the pipeline's one.
+        assert len(rounds) == 4
 
     def test_a_run_id_with_nowhere_to_keep_its_plan_is_refused(self):
         pipeline = self._pipeline(cores=4, num_workers=4, run_id='run-1')
