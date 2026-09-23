@@ -103,6 +103,38 @@ class RunPlanStore(RunArtifactStore):
             s3_encryption_key_id=self.s3_encryption_key_id,
         )
 
+    def staging_handler(self, run_id:str, s3_client=None, **handler_kwargs) -> 'S3BasedDocs':
+        """
+        Where this run stages its documents, skipping whatever an earlier
+        attempt of the same run already stored whole.
+
+        The store names the collection, so the handler and the records cannot
+        disagree about which one they mean, and the operator has one call
+        rather than four ordered ones. A run with nothing behind it skips
+        nothing, so this is how a first run builds its handler too.
+
+        The pipeline cannot do this itself: it holds the records, and the
+        handler is composed separately downstream of it.
+        """
+        from graphrag_toolkit.lexical_graph.indexing.extract.resume import plan_resume
+        from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import S3BasedDocs
+
+        s3_client = s3_client if s3_client is not None else GraphRAGConfig.s3
+        region = handler_kwargs.pop('region', None) or GraphRAGConfig.aws_region
+        for_jsonl = handler_kwargs.get('for_jsonl', False)
+
+        report = plan_resume(self.manifest_store(run_id), s3_client, for_jsonl=for_jsonl)
+
+        return S3BasedDocs(
+            region=region,
+            bucket_name=self.bucket_name,
+            key_prefix=self.key_prefix,
+            collection_id=self.collection_id,
+            s3_encryption_key_id=self.s3_encryption_key_id,
+            skip_source_ids=report.staged_source_ids,
+            **handler_kwargs,
+        )
+
     def read(self, run_id:str, s3_client) -> Optional[RunPlan]:
         """The plan this run started with, or None if it has not started."""
         body = self._read_json(self.key(run_id), s3_client)

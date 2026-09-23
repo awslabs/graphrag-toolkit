@@ -28,7 +28,6 @@ from llama_index.core.schema import NodeRelationship, RelatedNodeInfo, TextNode
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.indexing.extract.resume import (
     plan_resume,
-    resuming_handler,
     staged_source_ids,
 )
 from graphrag_toolkit.lexical_graph.indexing.extract.run_plan import RunPlanStore
@@ -274,7 +273,7 @@ class TestARunResumingItsOwnWork:
             key_prefix=key_prefix,
             collection_id=COLLECTION_ID,
         )
-        handler = resuming_handler(plan_store, RUN_ID, GraphRAGConfig.s3, region=REGION)
+        handler = plan_store.staging_handler(RUN_ID, GraphRAGConfig.s3, region=REGION)
 
         list(handler.accept([_doc('src-1'), _doc('src-2')]))
 
