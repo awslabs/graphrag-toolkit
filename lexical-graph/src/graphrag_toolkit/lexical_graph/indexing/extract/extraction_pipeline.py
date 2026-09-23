@@ -5,6 +5,7 @@ import logging
 import math
 import multiprocessing
 import time
+from collections import defaultdict, deque
 from pipe import Pipe
 from collections import defaultdict
 from typing import List, Optional, Sequence, Generator, Iterable, Any
@@ -23,6 +24,7 @@ from graphrag_toolkit.lexical_graph.indexing.extract.docs_to_nodes import DocsTo
 from graphrag_toolkit.lexical_graph.indexing.extract.id_rewriter import IdRewriter
 from graphrag_toolkit.lexical_graph.indexing.extract.batch_extractor_base import BatchExtractorBase
 from graphrag_toolkit.lexical_graph.indexing.extract.bucket_filler import BucketFiller
+from graphrag_toolkit.lexical_graph.indexing.extract.run_plan import RunPlan
 from graphrag_toolkit.lexical_graph.indexing.utils.batch_inference_utils import BEDROCK_MIN_BATCH_SIZE, BEDROCK_MAX_BATCH_SIZE
 from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 
@@ -36,7 +38,47 @@ from llama_index.core.schema import BaseNode, Document
 from llama_index.core.schema import NodeRelationship
 
 logger = logging.getLogger(__name__)
-    
+
+
+def _document_id(source_document:SourceDocument) -> Optional[str]:
+    """
+    What a document is known by, however it arrived.
+
+    The id rewriter derives it from the document's content, so it is the same
+    id on every run. Chunks carry it on their source relationship; a document
+    that has not been chunked yet is its own single node.
+    """
+    if source_document.refNode is not None:
+        return source_document.refNode.node_id
+
+    if not source_document.nodes:
+        return None
+
+    # Chunks name their source; an unchunked document is its own node.
+    source = source_document.nodes[0].relationships.get(NodeRelationship.SOURCE)
+
+    return source.node_id if source is not None else source_document.nodes[0].node_id
+
+
+def _in_plan_order(source_documents:List[SourceDocument], document_ids:List[str]) -> List[SourceDocument]:
+    """
+    The documents in the order the plan holds.
+
+    A plan that names no documents leaves the order it was given, which is
+    what a run writing its own plan for the first time gets back. Documents
+    that share an id, because their content is the same, keep their relative
+    order.
+    """
+    if not document_ids:
+        return source_documents
+
+    by_document_id = defaultdict(deque)
+    for source_document in source_documents:
+        by_document_id[_document_id(source_document)].append(source_document)
+
+    return [by_document_id[document_id].popleft() for document_id in document_ids if by_document_id[document_id]]
+
+
 class PassThroughDecorator(PipelineDecorator):
     """
     A decorator class that passes through input and output documents unchanged.
@@ -245,10 +287,23 @@ class ExtractionPipeline():
         include_classification_in_entity_id = coalesce(include_classification_in_entity_id, GraphRAGConfig.include_classification_in_entity_id)
         extract_timestamp = kwargs.pop('extract_timestamp', None)
         source_id_width = kwargs.pop('source_id_width', None)
+        partition_workers = kwargs.pop('partition_workers', None)
+        run_id = kwargs.pop('run_id', None)
+        run_plan_store = kwargs.pop('run_plan_store', None)
 
-        if num_workers > multiprocessing.cpu_count():
+        # num_workers decides how the input is divided; num_processes decides
+        # how many processes run the pieces. A fresh run caps both at the core
+        # count, as before. A run that must divide its input as an earlier run
+        # did passes that run's count as partition_workers, and keeps it even on
+        # a host with fewer cores, where the pieces then queue for processes.
+        if partition_workers is not None:
+            num_workers = partition_workers
+        elif num_workers > multiprocessing.cpu_count():
             num_workers = multiprocessing.cpu_count()
             logger.debug(f'Setting num_workers to CPU count [num_workers: {num_workers}]')
+
+        host_cores = multiprocessing.cpu_count()
+        num_processes = min(num_workers, host_cores)
 
         for c in components:
             if isinstance(c, BaseExtractor):
@@ -311,6 +366,10 @@ class ExtractionPipeline():
         self.pre_processors = pre_processors or []
         self.extraction_decorator = extraction_decorator or PassThroughDecorator()
         self.num_workers = num_workers
+        self.num_processes = num_processes
+        self.run_id = run_id
+        self.run_plan_store = run_plan_store
+        self.host_cores = host_cores
         self.batch_size = batch_size
         self.show_progress = show_progress
         self.id_rewriter = IdRewriter(id_generator=id_generator)
@@ -405,12 +464,61 @@ class ExtractionPipeline():
             SourceDocument: Processed and extracted source documents after
                 being handled by the extraction pipeline and decorators.
         """
-        if self._auto_tune:
+        if self._follows_a_run_plan():
+            if self._auto_tune:
+                raise ValueError(
+                    'A run plan does not yet cover the auto-tuned path. Run without run_id, '
+                    'or without an auto-tuning batch extractor.'
+                )
+            source_documents, plan = self._follow_run_plan(inputs)
+            yield from self._extract_fixed_batch(source_documents, plan=plan)
+        elif self._auto_tune:
             yield from self._extract_auto_tuned(inputs)
         else:
             yield from self._extract_fixed_batch(inputs)
 
-    def _extract_fixed_batch(self, inputs: Iterable[SourceType]):
+    def _follows_a_run_plan(self) -> bool:
+        """
+        Whether this run records how it divided its input.
+
+        A run id with nowhere to keep the plan is a mistake rather than an
+        opt-out: the run would look restartable and not be.
+        """
+        if self.run_id is not None and self.run_plan_store is None:
+            raise ValueError(
+                f'A run id needs somewhere to keep its plan. Pass run_plan_store. '
+                f'[run_id: {self.run_id}]'
+            )
+
+        return self.run_id is not None
+
+    def _follow_run_plan(self, inputs: Iterable[SourceType]) -> List[SourceDocument]:
+        """
+        Fix how this run divides its input, or take up the division an earlier
+        run of the same id recorded.
+
+        Documents come back in the plan's order, so a restart on a host with
+        fewer cores divides them as the original run did.
+
+        Only the id rewriter runs here, because ids are all the plan needs. The
+        pre-processors stay in the batch loop, where they see a batch at a time
+        and a restart that is about to be refused has not paid for them.
+        """
+        source_documents = list(self.id_rewriter.handle_source_docs(
+            list(source_documents_from_source_types(inputs))
+        ))
+
+        plan = self.run_plan_store.resolve(RunPlan(
+            run_id=self.run_id,
+            document_ids=[_document_id(source_document) for source_document in source_documents],
+            num_workers=self.num_workers,
+            batch_size=self.batch_size,
+            config=GraphRAGConfig.get_config_snapshot()
+        ))
+
+        return _in_plan_order(source_documents, plan.document_ids), plan
+
+    def _extract_fixed_batch(self, inputs: Iterable[SourceType], plan:Optional[RunPlan]=None):
         """
         Extracts data using the fixed-``batch_size`` strategy (default behavior).
 
@@ -434,11 +542,17 @@ class ExtractionPipeline():
             else:
                 return node.relationships[NodeRelationship.SOURCE].metadata
 
+        # A plan fixes how this run divides its input, whatever the host or the
+        # current configuration would otherwise choose.
+        batch_size = plan.batch_size if plan else self.batch_size
+        num_workers = plan.num_workers if plan else self.num_workers
+        num_processes = min(num_workers, self.host_cores)
+
         input_source_documents = source_documents_from_source_types(inputs)
 
-        total_batches = math.ceil(len(inputs) / self.batch_size) if hasattr(inputs, '__len__') else None
+        total_batches = math.ceil(len(inputs) / batch_size) if hasattr(inputs, '__len__') else None
 
-        for batch_num, source_documents in enumerate(iter_batch(input_source_documents, self.batch_size), 1):
+        for batch_num, source_documents in enumerate(iter_batch(input_source_documents, batch_size), 1):
 
             for pre_processor in self.pre_processors:
                 source_documents = pre_processor.parse_source_docs(source_documents)
@@ -459,17 +573,17 @@ class ExtractionPipeline():
             ]
 
             batch_label = f'{batch_num}/{total_batches}' if total_batches else f'{batch_num}'
-            logger.info(f'Running extraction pipeline [batch: {batch_label}, batch_size: {self.batch_size}, num_workers: {self.num_workers}]')
+            logger.info(f'Running extraction pipeline [batch: {batch_label}, batch_size: {batch_size}, num_workers: {num_workers}]')
             
             node_batches = node_batcher(
-                num_batches=self.num_workers, 
+                num_batches=num_workers, 
                 nodes=filtered_input_nodes
             )
                         
             output_nodes = run_pipeline(
                 self.ingestion_pipeline,
                 node_batches,
-                num_workers=self.num_workers,
+                num_workers=num_processes,
                 **self.pipeline_kwargs
             )
 
@@ -543,11 +657,11 @@ class ExtractionPipeline():
     def _run_extractor_round(self, round_buckets, extractor_transforms):
         """Run the extractor tail over a round's pre-sized job buckets.
 
-        Buckets are processed across at most ``num_workers`` worker processes,
+        Buckets are processed across at most ``num_processes`` worker processes,
         preserving the existing parallelism. Each bucket is <= max_batch_size
         (except a tail-merged final job, which the batch extractor re-splits).
         """
-        num_workers = min(self.num_workers, len(round_buckets))
+        num_workers = min(self.num_processes, len(round_buckets))
 
         if not extractor_transforms:
             # No extractor tail; nodes pass through unchanged.

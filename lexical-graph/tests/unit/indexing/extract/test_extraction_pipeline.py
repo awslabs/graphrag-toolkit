@@ -2,12 +2,14 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import pytest
-from unittest.mock import Mock
+from unittest.mock import MagicMock, Mock, patch
 from llama_index.core.schema import Document, TextNode
 from graphrag_toolkit.lexical_graph.indexing.extract.extraction_pipeline import (
     PassThroughDecorator,
-    ExtractionPipeline
+    ExtractionPipeline,
+    _in_plan_order
 )
+from graphrag_toolkit.lexical_graph.indexing.extract.run_plan import RunPlan
 from graphrag_toolkit.lexical_graph.indexing.model import SourceDocument
 
 
@@ -184,3 +186,165 @@ class TestExtractionPipelineIntegration:
         result = list(pipeline.extract(docs))
         
         assert len(result) >= 5
+
+
+PIPELINE = 'graphrag_toolkit.lexical_graph.indexing.extract.extraction_pipeline'
+
+
+class TestPartitionsAndProcessesAreCountedApart:
+    """
+    The worker count decides how the input is divided and how many processes
+    run the pieces. A restart on a smaller host has to divide as the original
+    run did while running fewer processes.
+    """
+
+    def _pipeline(self, cores, **kwargs):
+        with patch(f'{PIPELINE}.multiprocessing.cpu_count', return_value=cores):
+            return ExtractionPipeline(components=[], batch_size=8, **kwargs)
+
+    def _divide(self, pipeline, docs):
+        """The pieces the fixed-batch path hands to run_pipeline, and its process count."""
+        seen = {}
+
+        def capture(pipeline_, node_batches, num_workers=1, **kwargs):
+            seen['pieces'] = [[n.node_id for n in batch] for batch in node_batches]
+            seen['processes'] = num_workers
+            return []
+
+        with patch(f'{PIPELINE}.run_pipeline', side_effect=capture):
+            list(pipeline.extract(docs))
+        return seen
+
+    def test_a_fresh_run_caps_both_at_the_core_count(self):
+        pipeline = self._pipeline(cores=2, num_workers=8)
+
+        assert (pipeline.num_workers, pipeline.num_processes) == (2, 2)
+
+    def test_a_fresh_run_below_the_core_count_is_unchanged(self):
+        pipeline = self._pipeline(cores=8, num_workers=4)
+
+        assert (pipeline.num_workers, pipeline.num_processes) == (4, 4)
+
+    def test_a_pinned_partition_count_outlives_a_smaller_host(self):
+        pipeline = self._pipeline(cores=2, num_workers=2, partition_workers=8)
+
+        assert (pipeline.num_workers, pipeline.num_processes) == (8, 2)
+
+    def test_a_smaller_host_divides_the_input_as_the_original_run_did(self):
+        docs = [Document(text=f'document {i}', id_=f'doc-{i}') for i in range(8)]
+
+        original = self._divide(self._pipeline(cores=8, num_workers=8), docs)
+        restarted = self._divide(self._pipeline(cores=2, num_workers=2, partition_workers=8), docs)
+
+        assert restarted['pieces'] == original['pieces']
+
+
+class TestARunFollowsThePlanItWroteDown:
+    """
+    A run records how it divided its input so a restart divides it the same
+    way, instead of submitting different jobs and paying for the work twice.
+    """
+
+    def _store(self, returns=None):
+        """A plan store that hands back what it was given, or a recorded plan."""
+        store = MagicMock()
+        store.resolve.side_effect = lambda plan: returns if returns is not None else plan
+        return store
+
+    def _pipeline(self, cores, **kwargs):
+        with patch(f'{PIPELINE}.multiprocessing.cpu_count', return_value=cores):
+            return ExtractionPipeline(components=[], batch_size=8, **kwargs)
+
+    def _divide(self, pipeline, docs):
+        seen = {}
+
+        def capture(pipeline_, node_batches, num_workers=1, **kwargs):
+            seen.setdefault('pieces', []).extend([n.node_id for n in batch] for batch in node_batches)
+            seen['processes'] = num_workers
+            return []
+
+        with patch(f'{PIPELINE}.run_pipeline', side_effect=capture):
+            list(pipeline.extract(docs))
+        return seen
+
+    def _docs(self, count=8):
+        return [Document(text=f'document {i}', id_=f'doc-{i}') for i in range(count)]
+
+    def test_a_run_without_a_run_id_asks_for_no_plan(self):
+        store = self._store()
+        pipeline = self._pipeline(cores=4, num_workers=4, run_plan_store=store)
+
+        self._divide(pipeline, self._docs())
+
+        assert store.resolve.call_count == 0
+
+    def test_a_run_id_with_nowhere_to_keep_its_plan_is_refused(self):
+        pipeline = self._pipeline(cores=4, num_workers=4, run_id='run-1')
+
+        with pytest.raises(ValueError, match='run_plan_store'):
+            self._divide(pipeline, self._docs())
+
+    def test_the_plan_is_resolved_before_any_work_is_submitted(self):
+        store = self._store()
+        pipeline = self._pipeline(cores=4, num_workers=4, run_id='run-1', run_plan_store=store)
+        order = []
+
+        store.resolve.side_effect = lambda plan: order.append('plan') or plan
+
+        def capture(pipeline_, node_batches, num_workers=1, **kwargs):
+            order.append('work')
+            return []
+
+        with patch(f'{PIPELINE}.run_pipeline', side_effect=capture):
+            list(pipeline.extract(self._docs()))
+
+        assert order[0] == 'plan'
+
+    def test_the_plan_records_the_documents_in_the_order_they_are_extracted(self):
+        store = self._store()
+        pipeline = self._pipeline(cores=4, num_workers=4, run_id='run-1', run_plan_store=store)
+
+        divided = self._divide(pipeline, self._docs())
+
+        planned = store.resolve.call_args.args[0].document_ids
+        extracted = [node_id for piece in divided['pieces'] for node_id in piece]
+        assert planned == extracted
+
+    def test_the_plan_records_the_settings_the_run_started_with(self):
+        store = self._store()
+        pipeline = self._pipeline(cores=4, num_workers=4, run_id='run-1', run_plan_store=store)
+
+        self._divide(pipeline, self._docs())
+
+        plan = store.resolve.call_args.args[0]
+        assert (plan.run_id, plan.num_workers, plan.batch_size) == ('run-1', 4, 8)
+
+    def test_the_recorded_worker_count_divides_a_restart_on_a_smaller_host(self):
+        docs = self._docs()
+
+        original = self._divide(self._pipeline(cores=8, num_workers=8), docs)
+
+        recorded = RunPlan(
+            run_id='run-1',
+            document_ids=[],
+            num_workers=8,
+            batch_size=8,
+        )
+        restarted = self._divide(
+            self._pipeline(cores=2, num_workers=2, run_id='run-1', run_plan_store=self._store(recorded)),
+            docs,
+        )
+
+        assert restarted['pieces'] == original['pieces']
+        assert restarted['processes'] == 2
+        assert (original['processes'], restarted['processes']) == (8, 2)
+
+    def test_documents_sharing_an_id_are_each_extracted_once(self):
+        # The id comes from the content, so two copies of one text share it.
+        first = SourceDocument(refNode=Document(text='same', id_='doc-a'))
+        second = SourceDocument(refNode=Document(text='same', id_='doc-a'))
+        other = SourceDocument(refNode=Document(text='other', id_='doc-b'))
+
+        ordered = _in_plan_order([first, other, second], ['doc-a', 'doc-b', 'doc-a'])
+
+        assert [id(d) for d in ordered] == [id(first), id(other), id(second)]
