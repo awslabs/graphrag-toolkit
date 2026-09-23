@@ -639,3 +639,49 @@ class TestAResumedRunThatStagesOnlyWhatIsLeft:
         )
 
         assert not is_complete(['c', 'd'], list(markers), 'b', s3_client)
+class TestARunResumingItsOwnWork:
+    """
+    A resuming run is handed the sources its earlier attempt staged whole.
+    Storing them again writes the same bytes under the same keys, so it is
+    work the run can leave undone.
+    """
+
+    def _handler(self, skip_source_ids=None, for_jsonl=False):
+        from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import S3BasedDocs
+
+        return S3BasedDocs(
+            region='us-east-1', bucket_name='b', key_prefix='p', collection_id='c',
+            for_jsonl=for_jsonl, skip_source_ids=skip_source_ids,
+        )
+
+    def test_a_source_already_staged_is_not_written_again(self):
+        handler = self._handler(skip_source_ids={SOURCE_ID})
+
+        skipped = []
+        remaining = list(handler._not_already_staged([_doc(['c1'])], skipped))
+
+        assert remaining == []
+        assert len(skipped) == 1, 'still part of the run, just not written again'
+
+    def test_a_source_the_earlier_run_never_reached_is_written(self):
+        handler = self._handler(skip_source_ids={'aws::other:source'})
+
+        remaining = list(handler._not_already_staged([_doc(['c1'])], []))
+
+        assert len(remaining) == 1
+
+    def test_a_run_that_is_not_resuming_writes_everything(self):
+        handler = self._handler(skip_source_ids=None)
+
+        remaining = list(handler._not_already_staged([_doc(['c1']), _doc(['c2'])], []))
+
+        assert len(remaining) == 2
+
+    def test_a_jsonl_run_stores_everything_whatever_it_is_handed(self):
+        # Nothing that reads a listing can say a JSONL source is stored whole,
+        # so a set handed to that format is not acted on.
+        handler = self._handler(skip_source_ids={SOURCE_ID}, for_jsonl=True)
+
+        remaining = list(handler._not_already_staged([_doc(['c1'])], []))
+
+        assert len(remaining) == 1
