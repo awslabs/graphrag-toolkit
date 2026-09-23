@@ -961,6 +961,9 @@ class S3BasedDocs(NodeHandler):
     num_threads:Optional[int]=None
     deterministic_document_key:bool=False
 
+    # Sources a resuming run has already staged whole.
+    skip_source_ids:Optional[Set[str]] = None
+
     _uploader:Any = PrivateAttr(default=None)
     _downloader:Any = PrivateAttr(default=None)
 
@@ -973,7 +976,8 @@ class S3BasedDocs(NodeHandler):
                  metadata_keys:Optional[List[str]]=None,
                  for_jsonl:Optional[bool]=False,
                  num_threads:Optional[int]=None,
-                 deterministic_document_key:bool=False):
+                 deterministic_document_key:bool=False,
+                 skip_source_ids:Optional[Set[str]]=None):
 
         # __init__ runs where GraphRAGConfig was configured; accept() runs in a
         # spawned worker that inherits no parent memory and reads back the
@@ -990,7 +994,8 @@ class S3BasedDocs(NodeHandler):
             metadata_keys=metadata_keys,
             for_jsonl=for_jsonl,
             num_threads=num_threads,
-            deterministic_document_key=deterministic_document_key
+            deterministic_document_key=deterministic_document_key,
+            skip_source_ids=skip_source_ids
         )
 
     def docs(self):
@@ -1116,9 +1121,33 @@ class S3BasedDocs(NodeHandler):
             uploader.record_collection(self.key_prefix, self.collection_id, GraphRAGConfig.s3)
             self._uploader = uploader
 
-        for doc in self._uploader.upload(source_documents):
+        skipped = []
+
+        for doc in self._uploader.upload(self._not_already_staged(source_documents, skipped)):
             doc_count += 1
+            yield doc
+
+        # Still part of this run's output, for a caller reading the stream
+        # rather than the collection.
+        for doc in skipped:
             yield doc
 
         end = time.time()
         logger.debug(f'Finished writing {doc_count} source documents to S3 [bucket: {self.bucket_name}, prefix: {collection_prefix}] ({end - start} seconds)')
+
+    def _not_already_staged(self, source_documents:List[SourceDocument], skipped:List[SourceDocument]) -> Generator[SourceDocument, None, None]:
+        """
+        The documents this run still has to store. Storing the rest again would
+        write the same bytes under the same keys.
+        """
+        # Nothing that reads a listing can say a JSONL source is stored whole.
+        skippable = self.skip_source_ids if not self.for_jsonl else None
+
+        for source_document in source_documents:
+            if skippable and source_document.source_id() in skippable:
+                skipped.append(source_document)
+                continue
+            yield source_document
+
+        if skipped:
+            logger.info(f'Left {len(skipped)} source documents an earlier run staged where they are')
