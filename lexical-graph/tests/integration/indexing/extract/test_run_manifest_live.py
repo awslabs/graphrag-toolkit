@@ -14,13 +14,12 @@ keep treating their directory as something other than a source document.
 Skipped unless S3_TEST_BUCKET is set. To run locally:
 
     S3_TEST_BUCKET=my-bucket \\
-        pytest tests/integration/indexing/load/test_run_manifest_live.py
+        pytest tests/integration/indexing/extract/test_run_manifest_live.py
 
 Objects are written under a unique prefix per run and deleted afterwards.
 """
 
 import os
-import uuid
 
 import pytest
 from llama_index.core.schema import NodeRelationship, RelatedNodeInfo, TextNode
@@ -54,20 +53,6 @@ pytestmark = pytest.mark.skipif(
 
 COLLECTION_ID = 'collection'
 RUN_ID = 'run-1'
-
-
-@pytest.fixture
-def key_prefix():
-    run_prefix = f'run-manifest-tests/{uuid.uuid4()}'
-    yield run_prefix
-
-    s3_client = GraphRAGConfig.s3
-    pages = s3_client.get_paginator('list_objects_v2').paginate(
-        Bucket=S3_TEST_BUCKET, Prefix=run_prefix
-    )
-    keys = [{'Key': o['Key']} for page in pages for o in page.get('Contents', [])]
-    if keys:
-        s3_client.delete_objects(Bucket=S3_TEST_BUCKET, Delete={'Objects': keys})
 
 
 @pytest.fixture

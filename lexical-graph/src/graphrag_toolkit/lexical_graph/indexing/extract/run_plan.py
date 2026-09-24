@@ -7,12 +7,15 @@ import logging
 from collections import Counter
 from dataclasses import MISSING, dataclass, field, asdict, fields
 from os.path import join
-from typing import Any, Dict, List, Optional
+from typing import TYPE_CHECKING, Any, Dict, List, Optional
 
 from botocore.exceptions import ClientError
 
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.indexing.extract.run_store import RunArtifactStore, RunRecordError
+
+if TYPE_CHECKING:
+    from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import S3BasedDocs
 
 logger = logging.getLogger(__name__)
 
