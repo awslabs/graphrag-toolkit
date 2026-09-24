@@ -412,6 +412,12 @@
               ]
             },
             {
+              "Sid": "DeleteTestArtifacts",
+              "Effect": "Allow",
+              "Action": ["s3:DeleteObject"],
+              "Resource": [{"Fn::Sub": "arn:${AWS::Partition}:s3:::${S3Bucket}/*"}]
+            },
+            {
               "Sid": "DescribeCloudFormationStack",
               "Effect": "Allow",
               "Action": [

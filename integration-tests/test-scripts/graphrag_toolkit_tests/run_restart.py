@@ -384,10 +384,15 @@ class ResumeInterruptedExtraction(RestartTest):
                 and not is_completion_marker(key)
             ][:1]
 
-            GraphRAGConfig.s3.delete_objects(
+            # S3 reports a refused delete inside a 200 response. A test that
+            # could not damage the collection must say so, not go on to assert
+            # against one that is still whole.
+            refused = GraphRAGConfig.s3.delete_objects(
                 Bucket=run.bucket_name,
                 Delete={'Objects': [{'Key': key} for key in doomed]}
-            )
+            ).get('Errors', [])
+            if refused:
+                raise RuntimeError(f'Could not construct the interrupted state: {refused}')
 
             report = plan_resume(run_plan_store.manifest_store(run_id), GraphRAGConfig.s3)
 
@@ -490,11 +495,11 @@ class ResumeInterruptedExtraction(RestartTest):
                     self.assertEqual(self._jsonl_skipped, [])
 
                 def test_the_report_says_what_the_restart_will_reuse(self):
-                    """Resume report names the run as resuming and counts what it will leave alone"""
+                    """Resume report counts the sources the collection already holds, which the run leaves alone"""
 
-                    self.assertIn('Resuming a run', self._report)
+                    self.assertIn('sources already staged', self._report)
                     self.assertIn(
-                        f'sources already staged: {len(self._intact_sources)}', self._report
+                        f'sources already staged in the collection: {len(self._intact_sources)}', self._report
                     )
 
             handler.run_assertions(ResumeAssertions)

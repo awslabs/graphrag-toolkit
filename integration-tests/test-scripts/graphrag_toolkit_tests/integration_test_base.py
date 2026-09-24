@@ -37,4 +37,6 @@ def delete_prefix(bucket_name:str, prefix:str):
     keys = [{'Key': obj['Key']} for page in pages for obj in page.get('Contents', [])]
 
     for batch in to_batches(keys, MAX_KEYS_PER_DELETE):
-        s3_client.delete_objects(Bucket=bucket_name, Delete={'Objects': batch})
+        refused = s3_client.delete_objects(Bucket=bucket_name, Delete={'Objects': batch}).get('Errors', [])
+        if refused:
+            raise RuntimeError(f'Could not clean up under {prefix}: {refused}')
