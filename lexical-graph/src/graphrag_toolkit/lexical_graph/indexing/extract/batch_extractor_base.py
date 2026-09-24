@@ -25,7 +25,7 @@ from graphrag_toolkit.lexical_graph.indexing.extract.run_manifest import (
     partition_id,
 )
 
-from graphrag_toolkit.lexical_graph.indexing.utils.batch_inference_utils import get_file_size_mb, get_file_sizes_mb, split_nodes, create_and_run_batch_job, download_output_files, process_batch_output_sync
+from graphrag_toolkit.lexical_graph.indexing.utils.batch_inference_utils import get_file_size_mb, get_file_sizes_mb, split_nodes, create_and_run_batch_job, download_output_files, process_batch_output_sync, wait_for_job_completion
 from graphrag_toolkit.lexical_graph.indexing.utils.batch_inference_utils import BEDROCK_MIN_BATCH_SIZE
 from graphrag_toolkit.lexical_graph.utils.id_validation import validate_id_segment
 
@@ -35,6 +35,11 @@ from llama_index.core.schema import BaseNode, TextNode
 from llama_index.core.schema import NodeRelationship
 
 logger = logging.getLogger(__name__)
+
+# Bedrock's states for a job that may still complete. Waiting on one is cheaper
+# than resubmitting: the first job bills to the end either way. A job that is
+# Stopping can only end Stopped, so it is not among them.
+LIVE_JOB_STATES = ('Submitted', 'Validating', 'Scheduled', 'InProgress')
 
 
 class BatchExtractorBase(BaseExtractor):
@@ -117,14 +122,41 @@ class BatchExtractorBase(BaseExtractor):
 
         return partition_id([node.node_id for node in node_batch], stage=self.description)
 
-    def _recover_partition(self, record:PartitionRecord, s3_client, bedrock_client):
+    def _describes_every_node(self, described:int, expected:int, partition:str, job_name:Optional[str]) -> bool:
+        """
+        Whether a job's output answers for the whole partition. A node the
+        output does not describe would be extracted as nothing, and a record
+        marked complete means no restart comes back for it, so a short output
+        is never recorded complete.
+        """
+        if described == expected:
+            return True
+
+        logger.warning(
+            f'[{self.description} batch] The job described {described} of {expected} nodes; '
+            f'the partition is left for a restart to redo [partition: {partition}, job_name: {job_name}]'
+        )
+        return False
+
+    def _resubmitting(self, record:PartitionRecord, why:str, level:int=logging.INFO) -> None:
+        """Say why an earlier run's job is not being reused. The caller then resubmits."""
+        logger.log(
+            level,
+            f'[{self.description} batch] {why}, resubmitting as attempt {record.attempt + 1} '
+            f'[partition: {record.partition_id}, job_name: {record.job_name}, job_arn: {record.job_arn}]'
+        )
+        return None
+
+    def _recover_partition(self, record:PartitionRecord, expected:int, s3_client, bedrock_client):
         """
         The results of a job an earlier run already paid for, or None if there
         are none to be had.
 
-        A completed job is downloaded. Anything else, including an output that
-        cannot be read, counts as having produced nothing: the assumption that
-        costs a resubmission rather than a silent gap.
+        A job still running is waited on: it will bill whether or not it is
+        resubmitted, so waiting is the cheaper of the two. A completed job is
+        downloaded and has to answer for every node in the partition. Anything
+        else, including an output that cannot be read, counts as having produced
+        nothing: the assumption that costs a resubmission rather than a silent gap.
         """
         if not record.job_arn or not record.output_path:
             return None
@@ -132,26 +164,32 @@ class BatchExtractorBase(BaseExtractor):
         try:
             status = bedrock_client.get_model_invocation_job(jobIdentifier=record.job_arn)['status']
         except Exception as e:
-            logger.warning(
-                f'[{self.description} batch] Could not read the job an earlier run submitted, '
-                f'resubmitting [job_arn: {record.job_arn}, error: {e!s}]'
-            )
-            return None
+            return self._resubmitting(record, f'Could not read the job an earlier run submitted [error: {e!s}]', logging.WARNING)
 
-        if status != 'Completed':
+        if status in LIVE_JOB_STATES:
             logger.info(
-                f'[{self.description} batch] An earlier run left this partition in {status}, '
-                f'resubmitting as attempt {record.attempt + 1} '
+                f'[{self.description} batch] An earlier run left this partition {status}, '
+                f'waiting on it rather than paying for it twice '
                 f'[partition: {record.partition_id}, job_name: {record.job_name}]'
             )
-            return None
+            try:
+                wait_for_job_completion(bedrock_client, record.job_arn, record.input_filename)
+                status = 'Completed'
+            except BatchJobError as e:
+                return self._resubmitting(record, f'The job an earlier run left running did not complete [error: {e!s}]')
+
+        if status != 'Completed':
+            return self._resubmitting(record, f'An earlier run left this partition in {status}')
 
         logger.info(
             f'[{self.description} batch] Downloading the output of a job an earlier run '
             f'completed [partition: {record.partition_id}, job_name: {record.job_name}]'
         )
 
+        # A second recovery of the same partition must not read the first one's
+        # files alongside its own.
         output_dir = os.path.join(self.batch_inference_dir, 'recovered', record.partition_id)
+        shutil.rmtree(output_dir, ignore_errors=True)
         self._prepare_directory(output_dir)
 
         try:
@@ -161,21 +199,13 @@ class BatchExtractorBase(BaseExtractor):
             )
             results = list(process_batch_output_sync(output_dir, record.input_filename, self.llm))
         except Exception as e:
-            logger.warning(
-                f'[{self.description} batch] Could not read the output of a completed job, '
-                f'resubmitting [partition: {record.partition_id}, job_name: {record.job_name}, '
-                f'error: {e!s}]'
-            )
+            return self._resubmitting(record, f'Could not read the output of a completed job [error: {e!s}]', logging.WARNING)
+
+        if not self._describes_every_node(len(results), expected, record.partition_id, record.job_name):
             return None
 
-        if not results:
-            # A partition holds at least one node, so no results describes none
-            # of them.
-            logger.warning(
-                f'[{self.description} batch] The output of a completed job held no results, '
-                f'resubmitting [partition: {record.partition_id}, job_name: {record.job_name}]'
-            )
-            return None
+        if self.batch_config.delete_on_success:
+            shutil.rmtree(output_dir, ignore_errors=True)
 
         return results
 
@@ -189,7 +219,7 @@ class BatchExtractorBase(BaseExtractor):
             recorded = self.manifest_store.read(partition, s3_client) if partition else None
 
             if recorded is not None:
-                recovered = self._recover_partition(recorded, s3_client, bedrock_client)
+                recovered = self._recover_partition(recorded, len(node_batch), s3_client, bedrock_client)
                 if recovered is not None:
                     for (node_id, text) in recovered:
                         yield (node_id, text)
@@ -246,22 +276,22 @@ class BatchExtractorBase(BaseExtractor):
             job_name_prefix = f'extract-{self.description.lower()}s'
             submitted = {}
 
+            def record(state):
+                return PartitionRecord(
+                    partition_id=partition,
+                    attempt=attempt,
+                    state=state,
+                    job_name=submitted.get('job_name'),
+                    job_arn=submitted.get('job_arn'),
+                    output_path=s3_output_path,
+                    input_filename=input_filename,
+                )
+
             def record_submission(job_arn, job_name):
                 # Written before the wait, which is what can outlive the
                 # process. An unrecorded job is one a restart pays for twice.
                 submitted.update(job_arn=job_arn, job_name=job_name)
-                self.manifest_store.write(
-                    PartitionRecord(
-                        partition_id=partition,
-                        attempt=attempt,
-                        state=SUBMITTED,
-                        job_name=job_name,
-                        job_arn=job_arn,
-                        output_path=s3_output_path,
-                        input_filename=input_filename,
-                    ),
-                    s3_client,
-                )
+                self.manifest_store.write(record(SUBMITTED), s3_client)
 
             create_and_run_batch_job(
                 job_name_prefix,
@@ -292,22 +322,14 @@ class BatchExtractorBase(BaseExtractor):
             logger.debug(f'[{self.description} batch outputs] Batch output files ready [files: {output_file_stats}]')
 
             # 4 - Once complete, process batch output
+            described = 0
             for (node_id, text) in process_batch_output_sync(output_dir, input_filename, self.llm):
+                described += 1
                 yield (node_id, text)
 
-            if partition:
-                self.manifest_store.write(
-                    PartitionRecord(
-                        partition_id=partition,
-                        attempt=attempt,
-                        state=COMPLETE,
-                        job_name=submitted.get('job_name'),
-                        job_arn=submitted.get('job_arn'),
-                        output_path=s3_output_path,
-                        input_filename=input_filename,
-                    ),
-                    s3_client,
-                )
+            # Left as submitted when the output is short, so a restart redoes it.
+            if partition and self._describes_every_node(described, len(node_batch), partition, submitted.get('job_name')):
+                self.manifest_store.write(record(COMPLETE), s3_client)
 
             batch_end = time.time()
             logger.debug(f'[{self.description} batch outputs] Completed processing of batch {batch_index} ({int(batch_end-batch_start)} seconds)')

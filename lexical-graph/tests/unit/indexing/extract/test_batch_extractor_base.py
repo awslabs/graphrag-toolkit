@@ -4,6 +4,7 @@
 import pytest
 from unittest.mock import Mock, patch
 from llama_index.core.schema import TextNode
+from graphrag_toolkit.lexical_graph import BatchJobError
 from graphrag_toolkit.lexical_graph.utils import LLMCache
 from graphrag_toolkit.lexical_graph.indexing.extract.run_manifest import (
     COMPLETE,
@@ -100,6 +101,11 @@ def _nodes():
     return [TextNode(text=f'text {i}', id_=f'c{i}') for i in range(3)]
 
 
+def _extracted(count=3):
+    """An output describing the first count nodes of the batch."""
+    return [(f'c{i}', 'extracted') for i in range(count)]
+
+
 def _store(record=None):
     store = Mock()
     store.run_id = 'run-1'
@@ -122,7 +128,7 @@ def _run(extractor, bedrock_client=None):
     with (
         patch(f'{MODULE}.create_and_run_batch_job') as submit,
         patch(f'{MODULE}.download_output_files'),
-        patch(f'{MODULE}.process_batch_output_sync', return_value=[('c0', 'extracted')]),
+        patch(f'{MODULE}.process_batch_output_sync', return_value=_extracted()),
     ):
         results = list(extractor._process_single_batch(
             0, _nodes(), Mock(), bedrock_client or Mock()
@@ -137,7 +143,7 @@ class TestARunThatKeepsNoRecord:
         results, submit = _run(_extractor(tmp_path=tmp_path))
 
         assert submit.called
-        assert results == [('c0', 'extracted')]
+        assert results == _extracted()
 
     def test_the_job_keeps_its_timestamped_name(self, tmp_path):
         _, submit = _run(_extractor(tmp_path=tmp_path))
@@ -174,7 +180,7 @@ class TestAJobAnEarlierRunCompleted:
         results, submit = _run(_extractor(manifest_store=store, tmp_path=tmp_path), bedrock_client)
 
         assert not submit.called, 'the job was paid for once already'
-        assert results == [('c0', 'extracted')]
+        assert results == _extracted()
 
     def test_the_partition_is_recorded_as_complete(self, tmp_path):
         store = _store(record=_record(SUBMITTED))
@@ -189,7 +195,7 @@ class TestAJobAnEarlierRunCompleted:
 
 class TestAJobThatDidNotComplete:
 
-    @pytest.mark.parametrize('status', ['Failed', 'Stopped', 'Expired', 'PartiallyCompleted', 'InProgress'])
+    @pytest.mark.parametrize('status', ['Failed', 'Stopped', 'Stopping', 'Expired', 'PartiallyCompleted'])
     def test_the_partition_is_resubmitted_as_its_next_attempt(self, status, tmp_path):
         store = _store(record=_record(SUBMITTED, attempt=1))
         bedrock_client = Mock()
@@ -235,7 +241,7 @@ class TestTheRecordGoesDownBeforeTheWait:
         with (
             patch(f'{MODULE}.create_and_run_batch_job') as submit,
             patch(f'{MODULE}.download_output_files'),
-            patch(f'{MODULE}.process_batch_output_sync', return_value=[]),
+            patch(f'{MODULE}.process_batch_output_sync', return_value=_extracted()),
         ):
             submit.side_effect = lambda *a, **kw: kw['on_submitted']('arn:job', kw['job_name'])
             list(extractor._process_single_batch(0, _nodes(), Mock(), Mock()))
@@ -257,11 +263,13 @@ class TestAnOutputThatCannotBeUsed:
         bedrock_client.get_model_invocation_job.return_value = {'status': 'Completed'}
         return bedrock_client
 
-    def _run_with_output(self, extractor, bedrock_client, results=None, download=None):
+    def _run_with_output(self, extractor, bedrock_client, results=None, download=None, outputs=None):
+        # results: one output for every read. outputs: one per read in order,
+        # for a recovery that must fail and a redo that must succeed.
         with (
             patch(f'{MODULE}.create_and_run_batch_job') as submit,
             patch(f'{MODULE}.download_output_files', side_effect=download),
-            patch(f'{MODULE}.process_batch_output_sync', return_value=results or []),
+            patch(f'{MODULE}.process_batch_output_sync', **({'side_effect': outputs} if outputs is not None else {'return_value': results or []})),
         ):
             list(extractor._process_single_batch(0, _nodes(), Mock(), bedrock_client))
 
@@ -281,17 +289,20 @@ class TestAnOutputThatCannotBeUsed:
                 raise outcome
 
         submit = self._run_with_output(
-            extractor, self._completed_job(), results=[('c0', 'x')], download=download,
+            extractor, self._completed_job(), results=_extracted(), download=download,
         )
 
         assert submit.called
         assert '-a2-' in submit.call_args.kwargs['job_name']
 
-    def test_an_output_holding_no_results_is_resubmitted(self, tmp_path):
+    @pytest.mark.parametrize('described', [0, 1, 2])
+    def test_an_output_short_of_a_node_is_resubmitted(self, described, tmp_path):
+        # A node the output does not describe would be extracted as nothing,
+        # and a record marked complete means no restart comes back for it.
         store = _store(record=_record(SUBMITTED))
         extractor = _extractor(manifest_store=store, tmp_path=tmp_path)
 
-        submit = self._run_with_output(extractor, self._completed_job(), results=[])
+        submit = self._run_with_output(extractor, self._completed_job(), results=_extracted(described))
 
         assert submit.called
         assert '-a2-' in submit.call_args.kwargs['job_name']
@@ -300,7 +311,7 @@ class TestAnOutputThatCannotBeUsed:
         store = _store(record=_record(SUBMITTED))
         extractor = _extractor(manifest_store=store, tmp_path=tmp_path)
 
-        self._run_with_output(extractor, self._completed_job(), results=[])
+        self._run_with_output(extractor, self._completed_job(), outputs=[[], _extracted()])
 
         assert [r.state for r in store.written] == [COMPLETE], 'recorded once, after the redo'
         assert store.written[0].attempt == 2
@@ -331,3 +342,102 @@ class TestThePartitionAnExtractorAsksAbout:
         _run(extractor)
 
         assert topics.read.call_args.args[0] != propositions.read.call_args.args[0]
+
+
+class TestAJobAnEarlierRunLeftRunning:
+    """
+    The state a restart is most likely to find right after a crash. The job
+    bills to its end whether or not it is resubmitted, so waiting is cheaper,
+    and a second submission would also count against the concurrent-job quota.
+    """
+
+    def _run_waiting(self, extractor, bedrock_client, wait_outcome=None, results=None):
+        with (
+            patch(f'{MODULE}.create_and_run_batch_job') as submit,
+            patch(f'{MODULE}.wait_for_job_completion', side_effect=wait_outcome) as wait,
+            patch(f'{MODULE}.download_output_files'),
+            patch(f'{MODULE}.process_batch_output_sync', return_value=results if results is not None else _extracted()),
+        ):
+            out = list(extractor._process_single_batch(0, _nodes(), Mock(), bedrock_client))
+        return out, submit, wait
+
+    @pytest.mark.parametrize('status', ['Submitted', 'Validating', 'Scheduled', 'InProgress'])
+    def test_it_is_waited_on_and_its_output_used(self, status, tmp_path):
+        store = _store(record=_record(SUBMITTED))
+        bedrock_client = Mock()
+        bedrock_client.get_model_invocation_job.return_value = {'status': status}
+
+        out, submit, wait = self._run_waiting(_extractor(manifest_store=store, tmp_path=tmp_path), bedrock_client)
+
+        assert wait.call_args.args[1] == 'arn:job', 'waited on the job the record names'
+        assert not submit.called, 'the running job is the one paid for'
+        assert out == _extracted()
+        assert [r.state for r in store.written] == [COMPLETE]
+
+    def test_one_that_ends_badly_is_resubmitted(self, tmp_path):
+        store = _store(record=_record(SUBMITTED, attempt=1))
+        bedrock_client = Mock()
+        bedrock_client.get_model_invocation_job.return_value = {'status': 'InProgress'}
+
+        _, submit, _ = self._run_waiting(
+            _extractor(manifest_store=store, tmp_path=tmp_path), bedrock_client,
+            wait_outcome=BatchJobError('ended Failed'),
+        )
+
+        assert submit.called
+        assert '-a2-' in submit.call_args.kwargs['job_name']
+
+
+class TestARecoveryDirectoryIsItsOwn:
+
+    def test_a_second_recovery_does_not_read_the_first_ones_files(self, tmp_path):
+        store = _store(record=_record(SUBMITTED))
+        extractor = _extractor(manifest_store=store, tmp_path=tmp_path)
+        bedrock_client = Mock()
+        bedrock_client.get_model_invocation_job.return_value = {'status': 'Completed'}
+        stale = tmp_path / 'recovered' / store.read.return_value.partition_id / 'stale.jsonl.out'
+        stale.parent.mkdir(parents=True)
+        stale.write_text('left by an earlier recovery')
+
+        _run(extractor, bedrock_client)
+
+        assert not stale.exists(), 'the directory is cleaned before the download lands'
+
+
+class TestAFreshJobThatDescribesFewerNodesThanItWasGiven:
+    """
+    The rule the recovery path applies holds for a job this run submitted: a
+    record marked complete means no restart comes back for the nodes the
+    output left out, so the record stays as submitted and a restart redoes it.
+    """
+
+    def _run_short(self, extractor, described):
+        with (
+            patch(f'{MODULE}.create_and_run_batch_job'),
+            patch(f'{MODULE}.download_output_files'),
+            patch(f'{MODULE}.process_batch_output_sync', return_value=_extracted(described)),
+        ):
+            return list(extractor._process_single_batch(0, _nodes(), Mock(), Mock()))
+
+    def test_the_partition_is_not_recorded_complete(self, tmp_path):
+        store = _store(record=None)
+
+        self._run_short(_extractor(manifest_store=store, tmp_path=tmp_path), described=2)
+
+        assert COMPLETE not in [r.state for r in store.written]
+
+    def test_what_the_job_did_describe_is_still_used(self, tmp_path):
+        # Extraction carries on as it always has; only the record withholds
+        # the word complete.
+        store = _store(record=None)
+
+        out = self._run_short(_extractor(manifest_store=store, tmp_path=tmp_path), described=2)
+
+        assert out == _extracted(2)
+
+    def test_a_full_output_is_recorded_complete(self, tmp_path):
+        store = _store(record=None)
+
+        self._run_short(_extractor(manifest_store=store, tmp_path=tmp_path), described=3)
+
+        assert [r.state for r in store.written][-1] == COMPLETE
