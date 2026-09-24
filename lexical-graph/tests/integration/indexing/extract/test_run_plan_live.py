@@ -19,7 +19,6 @@ Objects are written under a unique prefix per run and deleted afterwards.
 """
 
 import os
-import uuid
 
 import pytest
 from botocore.exceptions import ClientError
@@ -45,20 +44,6 @@ pytestmark = pytest.mark.skipif(
 )
 
 COLLECTION_ID = 'collection'
-
-
-@pytest.fixture
-def key_prefix():
-    run_prefix = f'run-plan-tests/{uuid.uuid4()}'
-    yield run_prefix
-
-    s3_client = GraphRAGConfig.s3
-    pages = s3_client.get_paginator('list_objects_v2').paginate(
-        Bucket=S3_TEST_BUCKET, Prefix=run_prefix
-    )
-    keys = [{'Key': o['Key']} for page in pages for o in page.get('Contents', [])]
-    if keys:
-        s3_client.delete_objects(Bucket=S3_TEST_BUCKET, Delete={'Objects': keys})
 
 
 def _store(prefix):
