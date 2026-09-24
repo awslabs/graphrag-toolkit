@@ -1,6 +1,7 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
+import json
 import logging
 import math
 import multiprocessing
@@ -23,7 +24,7 @@ from graphrag_toolkit.lexical_graph.indexing.extract.docs_to_nodes import DocsTo
 from graphrag_toolkit.lexical_graph.indexing.extract.id_rewriter import IdRewriter
 from graphrag_toolkit.lexical_graph.indexing.extract.batch_extractor_base import BatchExtractorBase
 from graphrag_toolkit.lexical_graph.indexing.extract.bucket_filler import BucketFiller
-from graphrag_toolkit.lexical_graph.indexing.extract.run_plan import RunPlan
+from graphrag_toolkit.lexical_graph.indexing.extract.run_plan import RunPlan, RunPlanMismatch
 from graphrag_toolkit.lexical_graph.indexing.utils.batch_inference_utils import BEDROCK_MIN_BATCH_SIZE, BEDROCK_MAX_BATCH_SIZE
 from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 
@@ -39,7 +40,7 @@ from llama_index.core.schema import NodeRelationship
 logger = logging.getLogger(__name__)
 
 
-def _document_id(source_document:SourceDocument) -> Optional[str]:
+def _document_id(source_document:SourceDocument) -> str:
     """
     What a document is known by, however it arrived.
 
@@ -51,12 +52,29 @@ def _document_id(source_document:SourceDocument) -> Optional[str]:
         return source_document.refNode.node_id
 
     if not source_document.nodes:
-        return None
+        raise ValueError('A source document with no nodes cannot be named in a run plan')
 
     # Chunks name their source; an unchunked document is its own node.
     source = source_document.nodes[0].relationships.get(NodeRelationship.SOURCE)
 
     return source.node_id if source is not None else source_document.nodes[0].node_id
+
+
+def _json_carriable(config:dict) -> dict:
+    """
+    The settings a plan can record. The snapshot keeps whatever pickles, the
+    plan is JSON, and a value JSON cannot carry would fail the plan write
+    before any work was submitted.
+    """
+    carriable = {}
+    for name, value in config.items():
+        try:
+            json.dumps(value)
+        except (TypeError, ValueError):
+            logger.debug(f'Leaving a setting JSON cannot carry out of the run plan [{name}: {type(value).__name__}]')
+            continue
+        carriable[name] = value
+    return carriable
 
 
 def _in_plan_order(source_documents:List[SourceDocument], document_ids:List[str]) -> List[SourceDocument]:
@@ -75,7 +93,18 @@ def _in_plan_order(source_documents:List[SourceDocument], document_ids:List[str]
     for source_document in source_documents:
         by_document_id[_document_id(source_document)].append(source_document)
 
-    return [by_document_id[document_id].popleft() for document_id in document_ids if by_document_id[document_id]]
+    # resolve() has already refused a plan whose ids differ from the collection's,
+    # so this is a guard: a document the plan names and the collection lacks is
+    # never dropped quietly.
+    ordered = []
+    for document_id in document_ids:
+        if not by_document_id[document_id]:
+            raise RunPlanMismatch(
+                f'The plan names a document the collection did not supply [document_id: {document_id}]'
+            )
+        ordered.append(by_document_id[document_id].popleft())
+
+    return ordered
 
 
 class PassThroughDecorator(PipelineDecorator):
@@ -502,6 +531,11 @@ class ExtractionPipeline():
         Only the id rewriter runs here, because ids are all the plan needs. The
         pre-processors stay in the batch loop, where they see a batch at a time
         and a restart that is about to be refused has not paid for them.
+
+        Ids are therefore fixed from the content as supplied. A pre-processor
+        that changed a node's text or metadata would not change its id under a
+        run id, and would under none; a SourceDocParser used with run plans
+        must leave node content as it finds it.
         """
         source_documents = list(self.id_rewriter.handle_source_docs(
             list(source_documents_from_source_types(inputs))
@@ -512,7 +546,7 @@ class ExtractionPipeline():
             document_ids=[_document_id(source_document) for source_document in source_documents],
             num_workers=self.num_workers,
             batch_size=self.batch_size,
-            config=GraphRAGConfig.get_config_snapshot()
+            config=_json_carriable(GraphRAGConfig.get_config_snapshot())
         ))
 
         return _in_plan_order(source_documents, plan.document_ids), plan

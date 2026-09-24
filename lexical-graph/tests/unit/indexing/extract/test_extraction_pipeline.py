@@ -8,9 +8,10 @@ from graphrag_toolkit.lexical_graph.indexing.extract.extraction_pipeline import 
     PassThroughDecorator,
     ExtractionPipeline,
     _document_id,
-    _in_plan_order
+    _in_plan_order,
+    _json_carriable,
 )
-from graphrag_toolkit.lexical_graph.indexing.extract.run_plan import RunPlan
+from graphrag_toolkit.lexical_graph.indexing.extract.run_plan import RunPlan, RunPlanMismatch
 from graphrag_toolkit.lexical_graph.indexing.model import SourceDocument
 
 
@@ -375,3 +376,27 @@ class TestARunFollowsThePlanItWroteDown:
         ordered = _in_plan_order([first, other, second], ['doc-a', 'doc-b', 'doc-a'])
 
         assert [id(d) for d in ordered] == [id(first), id(other), id(second)]
+
+
+class TestWhatAPlanRefusesToRecord:
+    """
+    A plan that named a document badly would refuse the restart it exists to
+    allow, so the naming fails now rather than the restart later.
+    """
+
+    def test_a_document_with_no_nodes_is_refused(self):
+        with pytest.raises(ValueError, match='no nodes'):
+            _document_id(SourceDocument(nodes=[]))
+
+    def test_a_document_the_plan_names_but_the_collection_lacks_is_refused(self):
+        present = SourceDocument(refNode=Document(text='a', id_='doc-a'))
+
+        with pytest.raises(RunPlanMismatch, match='doc-b'):
+            _in_plan_order([present], ['doc-a', 'doc-b'])
+
+    def test_a_setting_json_cannot_carry_is_left_out_of_the_plan(self):
+        from datetime import datetime
+
+        carried = _json_carriable({'model': 'm', 'tags': {'a', 'b'}, 'since': datetime(2026, 1, 1), 'workers': 2})
+
+        assert carried == {'model': 'm', 'workers': 2}
