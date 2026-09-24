@@ -19,6 +19,7 @@ from unittest.mock import Mock, patch
 from llama_index.core.schema import NodeRelationship, RelatedNodeInfo, TextNode
 
 from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import (
+    S3BasedDocs,
     COMPLETION_MARKER_PREFIX,
     S3ChunkDownloader,
     S3ChunkUploader,
@@ -639,49 +640,111 @@ class TestAResumedRunThatStagesOnlyWhatIsLeft:
         )
 
         assert not is_complete(['c', 'd'], list(markers), 'b', s3_client)
+
+
 class TestARunResumingItsOwnWork:
     """
     A resuming run is handed the sources its earlier attempt staged whole.
     Storing them again writes the same bytes under the same keys, so it is
-    work the run can leave undone.
+    work the run can leave undone. The documents still come out of accept()
+    in the order they went in: the build pipeline sits downstream of it.
     """
 
     def _handler(self, skip_source_ids=None, for_jsonl=False):
-        from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import S3BasedDocs
-
-        return S3BasedDocs(
+        handler = S3BasedDocs(
             region='us-east-1', bucket_name='b', key_prefix='p', collection_id='c',
             for_jsonl=for_jsonl, skip_source_ids=skip_source_ids,
         )
+        # An uploader that yields what it is given, in order, and remembers it.
+        uploader = Mock()
+        uploader.uploaded = []
+        def upload(docs):
+            for doc in docs:
+                uploader.uploaded.append(doc.source_id())
+                yield doc
+        uploader.upload.side_effect = upload
+        handler._uploader = uploader
+        return handler
+
+    def _docs(self, *source_ids):
+        return [_doc(['c1'], source_id=s) for s in source_ids]
 
     def test_a_source_already_staged_is_not_written_again(self):
         handler = self._handler(skip_source_ids={SOURCE_ID})
 
-        skipped = []
-        remaining = list(handler._not_already_staged([_doc(['c1'])], skipped))
+        out = list(handler.accept(self._docs(SOURCE_ID)))
 
-        assert remaining == []
-        assert len(skipped) == 1, 'still part of the run, just not written again'
+        assert handler._uploader.uploaded == []
+        assert [d.source_id() for d in out] == [SOURCE_ID], 'still part of the run, just not written again'
 
     def test_a_source_the_earlier_run_never_reached_is_written(self):
         handler = self._handler(skip_source_ids={'aws::other:source'})
 
-        remaining = list(handler._not_already_staged([_doc(['c1'])], []))
+        list(handler.accept(self._docs(SOURCE_ID)))
 
-        assert len(remaining) == 1
+        assert handler._uploader.uploaded == [SOURCE_ID]
 
     def test_a_run_that_is_not_resuming_writes_everything(self):
         handler = self._handler(skip_source_ids=None)
 
-        remaining = list(handler._not_already_staged([_doc(['c1']), _doc(['c2'])], []))
+        list(handler.accept(self._docs('aws::a', 'aws::b')))
 
-        assert len(remaining) == 2
+        assert handler._uploader.uploaded == ['aws::a', 'aws::b']
 
     def test_a_jsonl_run_stores_everything_whatever_it_is_handed(self):
         # Nothing that reads a listing can say a JSONL source is stored whole,
         # so a set handed to that format is not acted on.
         handler = self._handler(skip_source_ids={SOURCE_ID}, for_jsonl=True)
 
-        remaining = list(handler._not_already_staged([_doc(['c1'])], []))
+        list(handler.accept(self._docs(SOURCE_ID)))
 
-        assert len(remaining) == 1
+        assert handler._uploader.uploaded == [SOURCE_ID]
+
+    def test_skipped_documents_keep_their_place_in_the_stream(self):
+        # Skipped in the middle, not held to the end: the build downstream
+        # reads the stream in order and nothing waits on the uploads.
+        handler = self._handler(skip_source_ids={'aws::b', 'aws::d'})
+
+        out = [d.source_id() for d in handler.accept(self._docs('aws::a', 'aws::b', 'aws::c', 'aws::d', 'aws::e'))]
+
+        assert out == ['aws::a', 'aws::b', 'aws::c', 'aws::d', 'aws::e']
+        assert handler._uploader.uploaded == ['aws::a', 'aws::c', 'aws::e']
+
+    def test_the_input_is_read_once_so_a_generator_is_not_lost(self):
+        # In the pipeline accept() is handed a generator, not a list. A second
+        # pass over it finds nothing, and the run would stage and yield nothing.
+        handler = self._handler(skip_source_ids={'aws::b'})
+
+        out = [d.source_id() for d in handler.accept(iter(self._docs('aws::a', 'aws::b', 'aws::c')))]
+
+        assert out == ['aws::a', 'aws::b', 'aws::c']
+        assert handler._uploader.uploaded == ['aws::a', 'aws::c']
+
+    def test_an_uploader_that_returns_short_is_an_error_not_a_quiet_loss(self):
+        handler = self._handler(skip_source_ids={'aws::b'})
+        def short(docs):
+            for i, doc in enumerate(docs):
+                if i == 0:
+                    yield doc
+        handler._uploader.upload.side_effect = short
+
+        with pytest.raises(RuntimeError, match='stopped before'):
+            list(handler.accept(self._docs('aws::a', 'aws::b', 'aws::c', 'aws::d')))
+
+    def test_an_uploader_that_returns_more_than_it_was_handed_is_an_error(self):
+        handler = self._handler(skip_source_ids={'aws::b'})
+        def doubled(docs):
+            for doc in docs:
+                yield doc
+                yield doc
+        handler._uploader.upload.side_effect = doubled
+
+        with pytest.raises(RuntimeError, match='not handed'):
+            list(handler.accept(self._docs('aws::a', 'aws::b')))
+
+    def test_an_uploader_that_never_reads_its_input_is_an_error_not_a_quiet_loss(self):
+        handler = self._handler(skip_source_ids={'aws::b'})
+        handler._uploader.upload.side_effect = lambda docs: iter(())
+
+        with pytest.raises(RuntimeError, match='stopped before'):
+            list(handler.accept(self._docs('aws::a', 'aws::b')))

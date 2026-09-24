@@ -113,8 +113,10 @@ class RunPlanStore(RunArtifactStore):
 
         The store names the collection, so the handler and the records cannot
         disagree about which one they mean, and the operator has one call
-        rather than four ordered ones. A run with nothing behind it skips
-        nothing, so this is how a first run builds its handler too.
+        rather than four ordered ones. The skip is the collection's, not the
+        run's: a source an earlier run of any id stored whole is left where it
+        is. A run pointed at an empty collection skips nothing, so this is how
+        a first run builds its handler too.
 
         The pipeline cannot do this itself: it holds the records, and the
         handler is composed separately downstream of it.
