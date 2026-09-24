@@ -571,6 +571,8 @@ class TestASourceSplitAcrossOutputDocuments:
         emitted = list(self._pipeline()._emit_extracted(nodes))
 
         assert [sd.final_part for sd in emitted] == [True]
+
+
 class TestARunPlanIsRefusedOnTheAutoTunedPath:
     """
     Restart does not cover auto-tuning for this release. A run that asked for
