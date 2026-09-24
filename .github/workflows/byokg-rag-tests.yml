@@ -13,12 +13,12 @@ permissions:
 
 on:
   push:
-    branches: [main]
+    branches: [main, 'v*.*.x']
     paths:
       - "byokg-rag/**"
       - ".github/workflows/byokg-rag-tests.yml"
   pull_request:
-    branches: [main]
+    branches: [main, 'v*.*.x']
     paths:
       - "byokg-rag/**"
       - ".github/workflows/byokg-rag-tests.yml"

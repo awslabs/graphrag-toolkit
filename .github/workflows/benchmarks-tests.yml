@@ -7,12 +7,12 @@ permissions:
 
 on:
   push:
-    branches: [main]
+    branches: [main, 'v*.*.x']
     paths:
       - "benchmarks/**"
       - ".github/workflows/benchmarks-tests.yml"
   pull_request:
-    branches: [main]
+    branches: [main, 'v*.*.x']
     paths:
       - "benchmarks/**"
       - ".github/workflows/benchmarks-tests.yml"
