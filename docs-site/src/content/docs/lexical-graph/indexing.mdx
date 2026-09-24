@@ -198,7 +198,7 @@ The `S3BasedDocs` object has the following parameters:
 
 #### Incomplete documents
 
-As the extract stage stores a document, it writes a completion marker recording the chunks it wrote. If the stage is interrupted, a document can be left with some of its chunks stored and no marker.
+As the extract stage stores a document, it writes a completion marker recording the chunks it wrote. A large document is stored in several parts, and the part that ends it records every chunk stored for that document. If the stage is interrupted, a document can be left with some of its chunks stored and nothing recording the rest.
 
 The build stage skips a document whose markers do not account for the chunks stored alongside them, and logs a warning naming the S3 prefix. The document is not built, and the next extract run stores it again. Nothing else in the collection is affected.
 
