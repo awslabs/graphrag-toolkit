@@ -304,3 +304,30 @@ class TestAnOutputThatCannotBeUsed:
 
         assert [r.state for r in store.written] == [COMPLETE], 'recorded once, after the redo'
         assert store.written[0].attempt == 2
+
+
+class TestThePartitionAnExtractorAsksAbout:
+    """
+    An extractor holding a batch has to name the partition that batch is, or
+    it reads and writes some other partition's record.
+    """
+
+    def test_it_is_named_from_the_nodes_in_hand(self, tmp_path):
+        store = _store(record=None)
+
+        _run(_extractor(manifest_store=store, tmp_path=tmp_path))
+
+        expected = partition_id([n.node_id for n in _nodes()], stage='topic')
+        assert store.read.call_args.args[0] == expected
+        assert store.written[0].partition_id == expected
+
+    def test_two_stages_dividing_the_same_nodes_name_different_partitions(self, tmp_path):
+        topics = _store(record=None)
+        propositions = _store(record=None)
+
+        _run(_extractor(manifest_store=topics, tmp_path=tmp_path))
+        extractor = _extractor(manifest_store=propositions, tmp_path=tmp_path)
+        extractor.description = 'proposition'
+        _run(extractor)
+
+        assert topics.read.call_args.args[0] != propositions.read.call_args.args[0]

@@ -12,7 +12,13 @@ from graphrag_toolkit.lexical_graph.indexing.extract.extraction_pipeline import 
     _json_carriable,
 )
 from graphrag_toolkit.lexical_graph.indexing.extract.run_plan import RunPlan, RunPlanMismatch
+from graphrag_toolkit.lexical_graph import TenantId
+from graphrag_toolkit.lexical_graph.indexing.build.checkpoint import CheckpointFilter
+from graphrag_toolkit.lexical_graph.indexing.extract.batch_config import BatchConfig
+from graphrag_toolkit.lexical_graph.indexing.extract.batch_extractor_base import BatchExtractorBase
+from graphrag_toolkit.lexical_graph.indexing.extract.run_plan import RunPlan
 from graphrag_toolkit.lexical_graph.indexing.model import SourceDocument
+from graphrag_toolkit.lexical_graph.utils import LLMCache
 
 
 class TestPassThroughDecoratorInitialization:
@@ -376,6 +382,81 @@ class TestARunFollowsThePlanItWroteDown:
         ordered = _in_plan_order([first, other, second], ['doc-a', 'doc-b', 'doc-a'])
 
         assert [id(d) for d in ordered] == [id(first), id(other), id(second)]
+
+
+class _BatchExtractor(BatchExtractorBase):
+    """The smallest batch extractor a pipeline will accept as one."""
+
+    @classmethod
+    def class_name(cls) -> str:
+        return '_BatchExtractor'
+
+    def _get_json(self, node, llm, inference_parameters):
+        return {}
+
+    def _run_non_batch_extractor(self, nodes):
+        return []
+
+    def _update_node(self, node, node_metadata_map):
+        return node
+
+
+class TestTheRecordsReachTheExtractorThatWritesThem:
+    """
+    A batch extractor records its partitions through a store it is handed at
+    construction. A worker process receives the extractor and nothing else, so
+    an extractor that was never handed one keeps no record, and every restart
+    pays for its jobs again.
+    """
+
+    def _extractor(self, tmp_path):
+        llm = Mock(spec=LLMCache)
+        llm.llm = Mock(_get_all_kwargs=lambda: {})
+        llm.model = 'anthropic.claude-x'
+
+        return _BatchExtractor(
+            batch_config=BatchConfig(role_arn='arn:role', region='us-east-1', bucket_name='b'),
+            llm=llm,
+            prompt_template='{text}',
+            batch_inference_dir=str(tmp_path),
+            description='topic',
+        )
+
+    def _store(self):
+        store = MagicMock()
+        store.manifest_store.return_value = MagicMock(name='manifest_store')
+        return store
+
+    def _pipeline(self, components, **kwargs):
+        with patch(f'{PIPELINE}.multiprocessing.cpu_count', return_value=4):
+            return ExtractionPipeline(components=components, batch_size=8, num_workers=4, **kwargs)
+
+    def test_the_extractor_is_handed_the_store_this_run_records_to(self, tmp_path):
+        extractor = self._extractor(tmp_path)
+        store = self._store()
+
+        self._pipeline([extractor], run_id='run-1', run_plan_store=store)
+
+        assert extractor.manifest_store is store.manifest_store.return_value
+
+    def test_an_extractor_behind_a_checkpoint_is_reached_too(self, tmp_path):
+        extractor = self._extractor(tmp_path)
+        wrapped = CheckpointFilter(
+            checkpoint_name='cp', checkpoint_dir=str(tmp_path),
+            inner=extractor, tenant_id=TenantId()
+        )
+        store = self._store()
+
+        self._pipeline([wrapped], run_id='run-1', run_plan_store=store)
+
+        assert extractor.manifest_store is store.manifest_store.return_value
+
+    def test_a_run_that_keeps_no_record_hands_over_nothing(self, tmp_path):
+        extractor = self._extractor(tmp_path)
+
+        self._pipeline([extractor])
+
+        assert extractor.manifest_store is None
 
 
 class TestWhatAPlanRefusesToRecord:
