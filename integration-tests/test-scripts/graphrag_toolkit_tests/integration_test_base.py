@@ -4,6 +4,8 @@ import abc
 from typing import Dict, Any
 from graphrag_toolkit_tests.integration_test_handler import IntegrationTestHandler
 from graphrag_toolkit.lexical_graph import GraphRAGConfig
+from graphrag_toolkit.lexical_graph.indexing.extract.run_manifest import MAX_KEYS_PER_DELETE
+from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import to_batches
 
 class IntegrationTestBase():
     
@@ -27,9 +29,6 @@ class IntegrationTestBase():
         self._run_test(handler, params)
 
 
-MAX_KEYS_PER_DELETE = 1000
-
-
 def delete_prefix(bucket_name:str, prefix:str):
     """Remove everything a test wrote under a prefix, in the sizes S3 accepts."""
     s3_client = GraphRAGConfig.s3
@@ -37,8 +36,5 @@ def delete_prefix(bucket_name:str, prefix:str):
     pages = s3_client.get_paginator('list_objects_v2').paginate(Bucket=bucket_name, Prefix=prefix)
     keys = [{'Key': obj['Key']} for page in pages for obj in page.get('Contents', [])]
 
-    for start in range(0, len(keys), MAX_KEYS_PER_DELETE):
-        s3_client.delete_objects(
-            Bucket=bucket_name,
-            Delete={'Objects': keys[start:start + MAX_KEYS_PER_DELETE]}
-        )
+    for batch in to_batches(keys, MAX_KEYS_PER_DELETE):
+        s3_client.delete_objects(Bucket=bucket_name, Delete={'Objects': batch})
