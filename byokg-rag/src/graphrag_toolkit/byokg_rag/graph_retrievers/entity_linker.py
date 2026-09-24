@@ -27,11 +27,13 @@ class Linker(ABC):
             return_dict: Whether to return a dictionary of linking results or linked entities only
             group_by_mention: Return one candidate list per query instead of a flat
                 union, so the caller can tell which candidate came from which query.
-                Takes precedence over return_dict.
+                Overrides return_dict.
             **kwargs: Additional keyword arguments for graph linking configuration
 
         Returns:
-            If return_dict is True:
+            If group_by_mention is True:
+                List[List[str]]: One candidate list per query, in query order
+            elif return_dict is True:
                 List[Dict]: A list of dictionaries containing linking results for each query.
                     Each dictionary has the following structure:
                     {
@@ -46,10 +48,8 @@ class Linker(ABC):
                     One hit per match, not one hit per query — the shipped indexes
                     return a scalar per field, so a flat result cannot be sliced
                     back apart per query. Use group_by_mention for that.
-            If return_dict is False:
+            else:
                 List[str]: A list of matched nodes, i.e., documents or entities
-            If group_by_mention is True:
-                List[List[str]]: One candidate list per query, in query order
         """
         if group_by_mention:
             # One lookup per query is the fallback for implementations that cannot
@@ -66,8 +66,7 @@ class Linker(ABC):
                             'match_score': []}
                             ]
                     } for _ in queries]
-        else:
-            return []
+        return []
 
         
 class EntityLinker(Linker):
@@ -102,22 +101,25 @@ class EntityLinker(Linker):
             retriever: A retriever object to use for entity lookup.
                 If None, the default retriever configured for this instance will be used.
             topk: The number of items to return per extracted entity
-            id_selector: A list of ids to retrieve the topk from (allowlist)
+            id_selector: A list of ids to retrieve the topk from (allowlist). Currently
+                unused — kept in the signature so existing callers don't break. The
+                EntityMatcher path routes through index.match(), which has no
+                id_selector to forward it to.
             return_dict: Whether to return a dictionary of linking results or linked entities only
             group_by_mention: Return one candidate list per mention instead of a flat
                 union, so the caller can tell which candidate came from which mention.
-                Takes precedence over return_dict.
+                Overrides return_dict.
 
         Returns:
             If group_by_mention is True:
                 List[List[str]]: One best-first candidate list per mention, in the
                     same order as query_extracted_entities
-            If return_dict is True:
+            elif return_dict is True:
                 Dict: The retriever's result, {'hits': [...]} with one hit per match
                     and scalar fields. Note this is a single dict, not the List[Dict]
                     the Linker ABC's own default returns — a pre-existing divergence
                     between the base default and this implementation.
-            If return_dict is False:
+            else:
                 List[str]: A flat list of matched entities, one per hit
 
         Note:

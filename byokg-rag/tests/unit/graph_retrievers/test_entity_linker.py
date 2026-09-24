@@ -189,8 +189,8 @@ class TestEntityLinkerGroupByMention:
         assert mock_ret.retrieve.call_args_list[0].kwargs == {'queries': ['Amazon'], 'topk': 3}
         assert mock_ret.retrieve.call_args_list[1].kwargs == {'queries': ['Google'], 'topk': 3}
 
-    def test_group_by_mention_takes_precedence_over_return_dict(self):
-        """group_by_mention wins over return_dict, as the docstring states."""
+    def test_group_by_mention_overrides_return_dict(self):
+        """group_by_mention overrides return_dict, as the docstring states."""
         linker = EntityLinker(retriever=self._matcher(), topk=3)
 
         grouped = linker.link(['Amazon'], return_dict=True, group_by_mention=True)
