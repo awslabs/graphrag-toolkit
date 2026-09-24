@@ -11,12 +11,11 @@ from graphrag_toolkit.lexical_graph.indexing.extract.extraction_pipeline import 
     _in_plan_order,
     _json_carriable,
 )
-from graphrag_toolkit.lexical_graph.indexing.extract.run_plan import RunPlan, RunPlanMismatch
 from graphrag_toolkit.lexical_graph import TenantId
 from graphrag_toolkit.lexical_graph.indexing.build.checkpoint import CheckpointFilter
 from graphrag_toolkit.lexical_graph.indexing.extract.batch_config import BatchConfig
 from graphrag_toolkit.lexical_graph.indexing.extract.batch_extractor_base import BatchExtractorBase
-from graphrag_toolkit.lexical_graph.indexing.extract.run_plan import RunPlan
+from graphrag_toolkit.lexical_graph.indexing.extract.run_plan import RunPlan, RunPlanMismatch
 from graphrag_toolkit.lexical_graph.indexing.model import SourceDocument
 from graphrag_toolkit.lexical_graph.utils import LLMCache
 
@@ -457,6 +456,57 @@ class TestTheRecordsReachTheExtractorThatWritesThem:
         self._pipeline([extractor])
 
         assert extractor.manifest_store is None
+
+
+class TestTheRecordsAreRolledUpWhenTheRunEnds:
+    """
+    A finished run folds its partition records into one object so a restart
+    reads one key rather than one per partition. Only a run that reaches its
+    end does this: a run that dies leaves its records where a restart finds
+    them.
+    """
+
+    def _store(self):
+        store = MagicMock()
+        store.resolve.side_effect = lambda plan: plan
+        return store
+
+    def _pipeline(self, store):
+        with patch(f'{PIPELINE}.multiprocessing.cpu_count', return_value=4):
+            return ExtractionPipeline(components=[], batch_size=2, num_workers=2, run_id='run-1', run_plan_store=store)
+
+    def _docs(self):
+        return [Document(text=f'document {i}', id_=f'doc-{i}') for i in range(4)]
+
+    def test_a_run_that_reaches_its_end_rolls_up_once(self):
+        store = self._store()
+
+        with patch(f'{PIPELINE}.run_pipeline', return_value=[]):
+            list(self._pipeline(store).extract(self._docs()))
+
+        assert store.manifest_store.return_value.merge_rollup.call_count == 1
+
+    def test_a_run_abandoned_before_its_end_leaves_its_records_alone(self):
+        store = self._store()
+        # Each batch yields one document, so the second batch is never reached.
+        node = TextNode(text='n', id_='n0')
+        node.relationships[NodeRelationship.SOURCE] = RelatedNodeInfo(node_id='doc-0')
+
+        with patch(f'{PIPELINE}.run_pipeline', side_effect=lambda pipeline, batches, **kw: [node]):
+            extracting = self._pipeline(store).extract(self._docs())
+            next(extracting)
+            extracting.close()
+
+        assert store.manifest_store.return_value.merge_rollup.call_count == 0
+
+    def test_a_run_without_a_run_id_has_nothing_to_roll_up(self):
+        store = self._store()
+
+        with patch(f'{PIPELINE}.run_pipeline', return_value=[]):
+            with patch(f'{PIPELINE}.multiprocessing.cpu_count', return_value=4):
+                list(ExtractionPipeline(components=[], batch_size=2, num_workers=2, run_plan_store=store).extract(self._docs()))
+
+        assert store.manifest_store.return_value.merge_rollup.call_count == 0
 
 
 class TestWhatAPlanRefusesToRecord:

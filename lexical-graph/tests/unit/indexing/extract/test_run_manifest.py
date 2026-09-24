@@ -59,8 +59,11 @@ def _s3_holding(objects):
         raw = body if isinstance(body, bytes) else body.encode('UTF-8')
         return {'Body': Mock(read=lambda: raw)}
 
+    events = []
+
     def put_object(**kwargs):
         written[kwargs['Key']] = kwargs['Body']
+        events.append(('put', kwargs['Key']))
 
     def paginate(Bucket, Prefix):
         keys = sorted(k for k in {**objects, **written} if k.startswith(Prefix))
@@ -73,9 +76,12 @@ def _s3_holding(objects):
     s3_client.deleted = []
     s3_client.delete_objects.side_effect = lambda Bucket, Delete: (
         s3_client.deleted.extend(o['Key'] for o in Delete['Objects']),
+        events.extend(('delete', o['Key']) for o in Delete['Objects']),
         [written.pop(o['Key'], None) for o in Delete['Objects']],
     )
     s3_client.written = written
+    # One ordered log of writes and deletes, so a test can say which came first.
+    s3_client.events = events
 
     return s3_client
 
@@ -201,8 +207,10 @@ class TestTheRollup:
 
         store.merge_rollup(s3_client)
 
-        assert store.rollup_key() in s3_client.written
-        assert store.partition_key('done') in s3_client.deleted
+        events = s3_client.events
+        rollup_written = events.index(('put', store.rollup_key()))
+        record_deleted = events.index(('delete', store.partition_key('done')))
+        assert rollup_written < record_deleted, 'the rollup must exist before the record it replaces is gone'
         assert store.read_rollup(s3_client)['done'].state == COMPLETE
 
     def test_a_run_with_no_rollup_yet_reads_as_empty(self):
