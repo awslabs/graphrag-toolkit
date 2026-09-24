@@ -206,6 +206,12 @@ class ExtractWithRunPlan(RestartTest):
             except RunPlanMismatch as e:
                 changed_batch_size = str(e)
 
+            # Back to the size the plan recorded: the auto-tune refusal is
+            # raised before the plan is read today, and a changed batch size
+            # would otherwise raise RunPlanMismatch here instead, which the
+            # except below does not catch.
+            GraphRAGConfig.extraction_batch_size = 2
+
             # Restart does not cover auto-tuning for this release, and the
             # refusal is raised before any extraction, so this asks for a
             # batch extractor without paying for one.
@@ -368,6 +374,14 @@ class ResumeInterruptedExtraction(RestartTest):
             # A source that keeps its marker but lost a chunk is refused by
             # the comparison the marker exists for, and only this second
             # case reaches it.
+            # The slicing below names the damaged and intact sources by
+            # position, so a short listing would damage sources the comments
+            # do not describe and fail later as a confusing count.
+            if len(staged_sources) != NUM_DOCS:
+                raise RuntimeError(
+                    f'Expected {NUM_DOCS} staged sources to damage, found {len(staged_sources)}: {staged_sources}'
+                )
+
             unmarked_source = staged_sources[-1]
             short_source = staged_sources[-2]
             damaged_sources = sorted([unmarked_source, short_source])
@@ -494,8 +508,8 @@ class ResumeInterruptedExtraction(RestartTest):
 
                     self.assertEqual(self._jsonl_skipped, [])
 
-                def test_the_report_says_what_the_restart_will_reuse(self):
-                    """Resume report counts the sources the collection already holds, which the run leaves alone"""
+                def test_the_report_counts_the_sources_it_will_leave_alone(self):
+                    """Resume report counts the intact sources, which is what this run does not store again"""
 
                     self.assertIn('sources already staged', self._report)
                     self.assertIn(
