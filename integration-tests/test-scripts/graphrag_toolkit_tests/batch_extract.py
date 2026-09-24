@@ -15,7 +15,7 @@ from graphrag_toolkit.lexical_graph.storage import VectorStoreFactory
 from graphrag_toolkit.lexical_graph.storage.graph import NonRedactedGraphQueryLogFormatting
 from graphrag_toolkit.lexical_graph.indexing.load import S3BasedDocs, JSONArrayReader
 from graphrag_toolkit.lexical_graph.indexing.extract import BatchConfig, InferClassificationsConfig
-from graphrag_toolkit.lexical_graph.indexing.extract.run_manifest import MAX_JOB_NAME
+from graphrag_toolkit.lexical_graph.indexing.extract.run_manifest import COMPLETE, MAX_JOB_NAME
 from graphrag_toolkit.lexical_graph.indexing.extract.run_plan import RunPlanStore
 from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import RUN_ARTIFACT_DIR
 
@@ -269,6 +269,15 @@ class BatchExtractWithRunPlanToS3(IntegrationTestBase):
 
     def _run_test(self, handler:IntegrationTestHandler, params:Dict[str, Any]):
 
+        # apply_extraction_doc_limit can leave a partition under Bedrock's
+        # 100-record floor, and extraction then runs the non-batch path: no
+        # job, no record, and assertions that read like a restart bug rather
+        # than the configuration that caused them.
+        if os.environ.get('BENCHMARK_EXTRACT_DOC_LIMIT', '').strip():
+            print('BENCHMARK_EXTRACT_DOC_LIMIT is set, so there may be no batch job to reuse; skipping test')
+            handler.skip()
+            return
+
         GraphRAGConfig.extraction_llm = os.environ.get('TEST_EXTRACTION_LLM', 'anthropic.claude-sonnet-4-6')
         GraphRAGConfig.extraction_batch_size = 100
         GraphRAGConfig.extraction_num_workers = 2
@@ -436,7 +445,7 @@ class BatchExtractWithRunPlanToS3(IntegrationTestBase):
                         """Each partition the run divided its input into is recorded complete"""
 
                         self.assertGreater(self._num_partitions, 0)
-                        self.assertEqual(self._partition_states, ['complete'])
+                        self.assertEqual(self._partition_states, [COMPLETE])
 
                     def test_a_job_name_says_which_run_it_belongs_to(self):
                         """Every Bedrock job this run submitted carries the run id and an attempt"""
@@ -469,8 +478,11 @@ class BatchExtractWithRunPlanToS3(IntegrationTestBase):
 
                 handler.run_assertions(BatchRunPlanAssertions)
 
-        finally:
-            # A failure is when the long suite leaves the most behind, so this
-            # runs on every path. Nothing downstream reads either prefix.
-            delete_prefix(s3_results_bucket, f'{extracted_prefix}/{collection_id}/')
+            # Only once the assertions have passed: on the failure path the
+            # job's input and output are what there is to diagnose from.
             delete_prefix(s3_results_bucket, f'{batch_inference_prefix}/')
+
+        finally:
+            # The staged collection goes on every path. Nothing downstream
+            # reads it, and it is the larger of the two.
+            delete_prefix(s3_results_bucket, f'{extracted_prefix}/{collection_id}/')

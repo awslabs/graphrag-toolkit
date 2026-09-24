@@ -30,7 +30,15 @@ class IntegrationTestBase():
 
 
 def delete_prefix(bucket_name:str, prefix:str):
-    """Remove everything a test wrote under a prefix, in the sizes S3 accepts."""
+    """
+    Remove everything a test wrote under a prefix, in the sizes S3 accepts.
+
+    The bucket is the caller's, not one the suite created, so an empty prefix
+    would list and delete all of it.
+    """
+    if not prefix or not prefix.strip():
+        raise ValueError('delete_prefix needs a prefix; an empty one covers the whole bucket')
+
     s3_client = GraphRAGConfig.s3
 
     pages = s3_client.get_paginator('list_objects_v2').paginate(Bucket=bucket_name, Prefix=prefix)
