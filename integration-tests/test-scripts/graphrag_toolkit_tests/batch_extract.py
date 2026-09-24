@@ -320,21 +320,18 @@ class BatchExtractWithRunPlanToS3(IntegrationTestBase):
             batch_config=batch_config
         )
 
-        def jobs_for_this_run():
+        def jobs_for_this_run(records):
             """
-            The Bedrock jobs this run has submitted, by the name the records
-            give them.
+            The Bedrock job each partition ran under, as the records name it.
 
-            Paginated: one page holds forty, and a run with more partitions
-            than that would compare two truncated counts and call them equal.
+            Read from the records rather than by listing Bedrock: listing
+            needs bedrock:ListModelInvocationJobs, which operates on no
+            resource and so cannot be granted alongside the job-scoped
+            permissions the rest of this needs. The records are also what a
+            restart reads, so comparing them is comparing what the feature
+            acts on.
             """
-            pages = GraphRAGConfig.bedrock.get_paginator('list_model_invocation_jobs').paginate(
-                nameContains=run_id
-            )
-            return sorted(
-                job['jobName']
-                for page in pages for job in page.get('invocationJobSummaries', [])
-            )
+            return sorted((p, r.job_name, r.job_arn) for p, r in records.items())
 
         def objects_staged():
             pages = GraphRAGConfig.s3.get_paginator('list_objects_v2').paginate(
@@ -382,7 +379,7 @@ class BatchExtractWithRunPlanToS3(IntegrationTestBase):
 
                 records_after_first_run = manifest_store.read_partitions(GraphRAGConfig.s3)
                 leftover_partition_keys = manifest_store.list_partition_keys(GraphRAGConfig.s3)
-                jobs_after_first_run = jobs_for_this_run()
+                jobs_after_first_run = jobs_for_this_run(records_after_first_run)
                 staged_after_first_run = objects_staged()
 
                 # The restart. Every partition is complete and every source stored,
@@ -397,9 +394,9 @@ class BatchExtractWithRunPlanToS3(IntegrationTestBase):
                     run_plan_store=run_plan_store
                 )
 
-                jobs_after_restart = jobs_for_this_run()
                 staged_after_restart = objects_staged()
                 records_after_restart = manifest_store.read_partitions(GraphRAGConfig.s3)
+                jobs_after_restart = jobs_for_this_run(records_after_restart)
 
                 staged_docs = S3BasedDocs(
                     region=aws_region_name,
@@ -451,7 +448,7 @@ class BatchExtractWithRunPlanToS3(IntegrationTestBase):
                         """Every Bedrock job this run submitted carries the run id and an attempt"""
 
                         self.assertGreater(len(self._job_names), 0)
-                        for job_name in self._job_names:
+                        for _, job_name, _ in self._job_names:
                             self.assertIn(run_id, job_name)
                             self.assertRegex(job_name, r'-a\d+')
                             self.assertLessEqual(len(job_name), MAX_JOB_NAME)
@@ -461,9 +458,11 @@ class BatchExtractWithRunPlanToS3(IntegrationTestBase):
 
                         self.assertEqual(self._leftover_partition_keys, [])
 
-                    def test_a_restart_submits_no_new_jobs(self):
-                        """Restarting the same run id submits no further Bedrock jobs"""
+                    def test_a_restart_reuses_the_job_each_partition_already_had(self):
+                        """Every partition still names the job the first run submitted for it"""
 
+                        # A resubmission records a different job arn against the
+                        # partition, and raises its attempt, which the next test pins.
                         self.assertEqual(self._jobs_after_restart, self._job_names)
 
                     def test_a_restart_does_not_raise_the_attempt_count(self):
