@@ -16,7 +16,7 @@ from os.path import basename, dirname, join
 from datetime import datetime
 from itertools import repeat, islice
 from threading import Semaphore
-from typing import List, Any, Generator, Optional, Dict, Callable, Set, Tuple
+from typing import List, Any, Generator, Iterable, Optional, Dict, Callable, Set, Tuple
 
 from graphrag_toolkit.lexical_graph.indexing import NodeHandler
 from graphrag_toolkit.lexical_graph.indexing.utils.hash_utils import get_hash
@@ -1121,33 +1121,74 @@ class S3BasedDocs(NodeHandler):
             uploader.record_collection(self.key_prefix, self.collection_id, GraphRAGConfig.s3)
             self._uploader = uploader
 
-        skipped = []
+        skipped_count = 0
 
-        for doc in self._uploader.upload(self._not_already_staged(source_documents, skipped)):
+        for doc, was_skipped in self._staged_in_order(source_documents):
             doc_count += 1
+            skipped_count += was_skipped
             yield doc
 
-        # Still part of this run's output, for a caller reading the stream
-        # rather than the collection.
-        for doc in skipped:
-            yield doc
+        if skipped_count:
+            logger.info(f'Left {skipped_count} source documents an earlier run staged where they are')
 
         end = time.time()
-        logger.debug(f'Finished writing {doc_count} source documents to S3 [bucket: {self.bucket_name}, prefix: {collection_prefix}] ({end - start} seconds)')
+        logger.debug(f'Finished staging {doc_count} source documents [written: {doc_count - skipped_count}, already staged: {skipped_count}, bucket: {self.bucket_name}, prefix: {collection_prefix}] ({end - start} seconds)')
 
-    def _not_already_staged(self, source_documents:List[SourceDocument], skipped:List[SourceDocument]) -> Generator[SourceDocument, None, None]:
+    def _staged_in_order(self, source_documents:Iterable[SourceDocument]) -> Generator[Tuple[SourceDocument, bool], None, None]:
         """
-        The documents this run still has to store. Storing the rest again would
-        write the same bytes under the same keys.
+        Every document, in the order it arrived, each with whether it was left
+        where an earlier run stored it. A skipped document is yielded in its
+        place: a caller downstream of this handler gets the stream in order and
+        nothing is held back until the uploads finish.
+
+        The input is read once. It is a generator in the pipeline, so the
+        documents to store are fed to the uploader as they arrive, and each
+        skipped document waits only until the stored document before it comes
+        back. The uploader yields one document per document it is handed, in
+        order, which is what lets the two streams be merged by position.
+
+        Storing a skipped document again would write the same bytes under the
+        same keys. Nothing that reads a listing can say a JSONL source is
+        stored whole, so that format skips nothing.
         """
-        # Nothing that reads a listing can say a JSONL source is stored whole.
         skippable = self.skip_source_ids if not self.for_jsonl else None
 
-        for source_document in source_documents:
-            if skippable and source_document.source_id() in skippable:
-                skipped.append(source_document)
-                continue
-            yield source_document
+        if not skippable:
+            for doc in self._uploader.upload(source_documents):
+                yield doc, False
+            return
 
-        if skipped:
-            logger.info(f'Left {len(skipped)} source documents an earlier run staged where they are')
+        skipped_before = deque()  # per document handed to the uploader
+        skipped_after_last = []
+        handed_every_document = False
+
+        def to_upload():
+            nonlocal handed_every_document
+            since = []
+            for doc in source_documents:
+                if doc.source_id() in skippable:
+                    since.append(doc)
+                else:
+                    skipped_before.append(since)
+                    since = []
+                    yield doc
+            skipped_after_last.extend(since)
+            handed_every_document = True
+
+        for stored in self._uploader.upload(to_upload()):
+            if not skipped_before:
+                raise RuntimeError('The uploader returned a document it was not handed')
+            for doc in skipped_before.popleft():
+                yield doc, True
+            yield stored, False
+
+        # An uploader that stopped early, or never read its input, would
+        # otherwise lose documents without a word.
+        if not handed_every_document or skipped_before:
+            raise RuntimeError(
+                f'The uploader stopped before returning every document it was handed '
+                f'[unreturned: {len(skipped_before)}, input exhausted: {handed_every_document}]'
+            )
+
+        for doc in skipped_after_last:
+            yield doc, True

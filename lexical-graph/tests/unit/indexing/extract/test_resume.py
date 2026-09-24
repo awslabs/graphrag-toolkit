@@ -167,6 +167,15 @@ class TestWhatARestartReportsBeforeItStarts:
         assert report.partitions_outstanding == 1
         assert report.outstanding_jobs == ['extract-topics-run-1-started-a1']
 
+    def test_a_new_run_over_a_populated_collection_is_not_called_a_restart(self):
+        # Staging keeps no run id, so the staged sources are the collection's.
+        # Only this run's own records make it a restart.
+        report = plan_resume(_manifest_store({}), _collection({'src-1': ['c1']}))
+
+        assert not report.is_restart
+        assert 'Starting a run over a collection with sources already staged' in report.describe()
+        assert 'sources already staged in the collection: 1' in report.describe()
+
     def test_the_staged_sources_come_back_for_the_handler_to_skip(self):
         s3_client = _collection({'src-1': ['c1']})
 
@@ -183,7 +192,7 @@ class TestWhatARestartReportsBeforeItStarts:
 
         assert 'Resuming a run' in described
         assert 'partitions already done: 1' in described
-        assert 'sources already staged: 1' in described
+        assert 'sources already staged in the collection: 1' in described
 
 
 class TestTheHandlerARestartStagesThrough:
