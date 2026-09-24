@@ -7,8 +7,7 @@ import multiprocessing
 import time
 from collections import defaultdict, deque
 from pipe import Pipe
-from collections import defaultdict
-from typing import List, Optional, Sequence, Generator, Iterable, Any
+from typing import List, Optional, Sequence, Generator, Iterable, Any, Tuple
 
 from graphrag_toolkit.lexical_graph import TenantId
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
@@ -492,7 +491,7 @@ class ExtractionPipeline():
 
         return self.run_id is not None
 
-    def _follow_run_plan(self, inputs: Iterable[SourceType]) -> List[SourceDocument]:
+    def _follow_run_plan(self, inputs: Iterable[SourceType]) -> Tuple[List[SourceDocument], RunPlan]:
         """
         Fix how this run divides its input, or take up the division an earlier
         run of the same id recorded.

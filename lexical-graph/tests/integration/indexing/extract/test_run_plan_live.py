@@ -13,7 +13,7 @@ delimited listing has to agree that its directory is not a source document.
 Skipped unless S3_TEST_BUCKET is set. To run locally:
 
     S3_TEST_BUCKET=my-bucket \\
-        pytest tests/integration/indexing/load/test_run_plan_live.py
+        pytest tests/integration/indexing/extract/test_run_plan_live.py
 
 Objects are written under a unique prefix per run and deleted afterwards.
 """

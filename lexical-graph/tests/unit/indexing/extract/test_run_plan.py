@@ -12,7 +12,6 @@ from graphrag_toolkit.lexical_graph.indexing.extract.run_plan import (
     RunPlan,
     RunPlanMismatch,
     RunPlanStore,
-    run_plan_key,
 )
 
 
@@ -109,7 +108,7 @@ class TestARunWritesItsPlanBeforeSubmittingWork:
 
     def test_a_run_id_that_would_leave_the_collection_is_rejected(self):
         with pytest.raises(ValueError, match='run_id'):
-            run_plan_key('p', 'c', '../../elsewhere')
+            RunPlanStore('b', 'p', 'c').key('../../elsewhere')
 
 
 class TestAPlanIsFixedForTheLifeOfItsRun:

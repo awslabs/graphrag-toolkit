@@ -12,9 +12,7 @@ from typing import Any, Dict, List, Optional
 from botocore.exceptions import ClientError
 
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
-from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import EncryptedPut, RUN_ARTIFACT_DIR
-from graphrag_toolkit.lexical_graph.storage.chunk.s3_chunk_store import MISSING_KEY_CODES
-from graphrag_toolkit.lexical_graph.utils.id_validation import validate_id_segment
+from graphrag_toolkit.lexical_graph.indexing.extract.run_store import RunArtifactStore
 
 logger = logging.getLogger(__name__)
 
@@ -32,11 +30,6 @@ SPLIT_DECIDING = ('batch_size',)
 
 # Codes S3 and S3-compatible endpoints use when a conditional write loses.
 ALREADY_WRITTEN_CODES = ('PreconditionFailed', 'ConditionalRequestConflict', '412')
-
-
-def run_plan_key(key_prefix:str, collection_id:str, run_id:str) -> str:
-    validate_id_segment(run_id, 'run_id')
-    return join(key_prefix, collection_id, RUN_ARTIFACT_DIR, run_id, PLAN_NAME)
 
 
 class RunPlanMismatch(Exception):
@@ -77,37 +70,21 @@ class RunPlan:
         return cls(**{name: value for name, value in recorded.items() if name in known})
 
 
-class RunPlanStore(EncryptedPut):
+class RunPlanStore(RunArtifactStore):
     """
     Where a run's plan is kept, beside the collection it divides.
 
     A plan is written once and read on every restart of the same run id.
     """
 
-    def __init__(self, bucket_name:str, key_prefix:str, collection_id:str, s3_encryption_key_id:Optional[str]=None):
-        self.bucket_name = bucket_name
-        self.key_prefix = key_prefix
-        self.collection_id = collection_id
-        self.s3_encryption_key_id = s3_encryption_key_id
-
     def key(self, run_id:str) -> str:
-        return run_plan_key(self.key_prefix, self.collection_id, run_id)
+        return join(self.run_path(run_id), PLAN_NAME)
 
     def read(self, run_id:str, s3_client) -> Optional[RunPlan]:
         """The plan this run started with, or None if it has not started."""
-        key = self.key(run_id)
+        body = self._read_json(self.key(run_id), s3_client)
 
-        # One exact read rather than a listing and a download: a listing matches
-        # on prefix, so a neighbouring key would answer for this one, and the
-        # object can go between the two calls.
-        try:
-            response = s3_client.get_object(Bucket=self.bucket_name, Key=key)
-        except ClientError as e:
-            if e.response.get('Error', {}).get('Code') in MISSING_KEY_CODES:
-                return None
-            raise
-
-        return RunPlan.from_json(response['Body'].read().decode('UTF-8'))
+        return RunPlan.from_json(body) if body is not None else None
 
     def write(self, plan:RunPlan, s3_client):
         """Store a plan, failing if this run already has one."""
