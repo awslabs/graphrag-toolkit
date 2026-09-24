@@ -315,6 +315,11 @@ class CompletionMarkers:
         chunks it has already extracted. The end of the stream ends those,
         declaring what was stored. A run that dies never reaches here, so its
         sources stay open and their prefixes incomplete.
+
+        What one stream saw does not carry into the next. The uploader outlives
+        a single call, so a source left unmarked because it lost a chunk would
+        otherwise stay unmarked for every later stream as well, and the chunks
+        the next one stores for it would never be accounted for.
         """
         for source_id, (root_path, chunk_ids) in self._open_sources.items():
             if source_id in self._poisoned_sources:
@@ -325,6 +330,7 @@ class CompletionMarkers:
                 root_path, chunk_ids, s3_client, source_chunk_ids=chunk_ids
             )
         self._open_sources.clear()
+        self._poisoned_sources.clear()
 
     def _write_completion_marker(self, root_path:str, chunk_ids:List[str], s3_client,
                                  source_chunk_ids:Optional[List[str]]=None):

@@ -1757,6 +1757,26 @@ class TestASourceLeftOpenWhenTheStreamEnds:
 
         assert markers == []
 
+    def test_a_source_that_lost_a_chunk_can_be_stored_by_a_later_stream(self):
+        # The uploader outlives one call, so what a stream saw must not decide
+        # what the next one may mark.
+        uploader = S3ChunkUploader(bucket_name='b', collection_prefix='p/c')
+
+        def fail_one_chunk(**kwargs):
+            if kwargs['Key'].endswith('c2.json'):
+                raise RuntimeError('upload failed')
+
+        self._markers_written(
+            uploader, [self._doc('src-1', ['c1', 'c2'], final_part=False)], on_put=fail_one_chunk
+        )
+        markers = self._markers_written(
+            uploader, [self._doc('src-1', ['c3', 'c4'], final_part=False)]
+        )
+
+        closing = [marker for marker in markers if marker['final']]
+        assert len(closing) == 1
+        assert closing[0]['source_chunk_ids'] == ['c3', 'c4']
+
     def test_a_source_already_ended_is_not_ended_twice(self):
         uploader = S3ChunkUploader(bucket_name='b', collection_prefix='p/c')
 
