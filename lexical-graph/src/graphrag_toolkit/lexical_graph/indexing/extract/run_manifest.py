@@ -7,13 +7,10 @@ import re
 
 from dataclasses import dataclass, asdict, fields
 from os.path import join
-from typing import Any, Dict, List, Optional
+from typing import Dict, List, Optional
 
-from botocore.exceptions import ClientError
-
-from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import EncryptedPut, RUN_ARTIFACT_DIR, node_ids_hash
-from graphrag_toolkit.lexical_graph.storage.chunk.s3_chunk_store import MISSING_KEY_CODES
-from graphrag_toolkit.lexical_graph.utils.id_validation import validate_id_segment
+from graphrag_toolkit.lexical_graph.indexing.extract.run_store import RunArtifactStore
+from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import node_ids_hash, to_batches
 
 logger = logging.getLogger(__name__)
 
@@ -86,7 +83,7 @@ class PartitionRecord:
         return cls(**{name: value for name, value in recorded.items() if name in known})
 
 
-class RunManifestStore(EncryptedPut):
+class RunManifestStore(RunArtifactStore):
     """
     Where a run records each partition, beside the collection it stages into.
 
@@ -100,34 +97,20 @@ class RunManifestStore(EncryptedPut):
                  collection_id:str,
                  run_id:str,
                  s3_encryption_key_id:Optional[str]=None):
-        validate_id_segment(run_id, 'run_id')
+        super().__init__(bucket_name, key_prefix, collection_id, s3_encryption_key_id)
 
-        self.bucket_name = bucket_name
-        self.key_prefix = key_prefix
-        self.collection_id = collection_id
+        # Checked here as well as on every path built from it, so a run id that
+        # climbs out of the collection is refused before any work starts.
+        self.run_path(run_id)
+
         self.run_id = run_id
-        self.s3_encryption_key_id = s3_encryption_key_id
         self._rollup = None
 
-    @property
-    def run_path(self) -> str:
-        return join(self.key_prefix, self.collection_id, RUN_ARTIFACT_DIR, self.run_id)
-
     def partition_key(self, partition:str) -> str:
-        return join(self.run_path, PARTITION_DIR, f'{partition}.json')
+        return join(self.run_path(self.run_id), PARTITION_DIR, f'{partition}.json')
 
     def rollup_key(self) -> str:
-        return join(self.run_path, ROLLUP_NAME)
-
-    def _read_json(self, key:str, s3_client) -> Optional[str]:
-        try:
-            response = s3_client.get_object(Bucket=self.bucket_name, Key=key)
-        except ClientError as e:
-            if e.response.get('Error', {}).get('Code') in MISSING_KEY_CODES:
-                return None
-            raise
-
-        return response['Body'].read().decode('UTF-8')
+        return join(self.run_path(self.run_id), ROLLUP_NAME)
 
     def read(self, partition:str, s3_client) -> Optional[PartitionRecord]:
         """
@@ -175,7 +158,7 @@ class RunManifestStore(EncryptedPut):
         }
 
     def list_partition_keys(self, s3_client) -> List[str]:
-        prefix = join(self.run_path, PARTITION_DIR, '')
+        prefix = join(self.run_path(self.run_id), PARTITION_DIR, '')
         pages = s3_client.get_paginator('list_objects_v2').paginate(
             Bucket=self.bucket_name, Prefix=prefix
         )
@@ -221,12 +204,10 @@ class RunManifestStore(EncryptedPut):
 
         merged = [self.partition_key(partition) for partition in rolled_up]
 
-        for start in range(0, len(merged), MAX_KEYS_PER_DELETE):
+        for batch in to_batches(merged, MAX_KEYS_PER_DELETE):
             s3_client.delete_objects(
                 Bucket=self.bucket_name,
-                Delete={'Objects': [
-                    {'Key': key} for key in merged[start:start + MAX_KEYS_PER_DELETE]
-                ]},
+                Delete={'Objects': [{'Key': key} for key in batch]},
             )
 
         logger.debug(f'Rolled up {len(rolled_up)} completed partitions [run_id: {self.run_id}]')
