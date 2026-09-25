@@ -10,7 +10,7 @@ incremental chunking, bucket filling, round submission, and consolidation.
 """
 
 import pytest
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 from llama_index.core.llms import MockLLM
 from llama_index.core.schema import Document, TextNode, NodeRelationship, RelatedNodeInfo
 
@@ -571,3 +571,105 @@ class TestASourceSplitAcrossOutputDocuments:
         emitted = list(self._pipeline()._emit_extracted(nodes))
 
         assert [sd.final_part for sd in emitted] == [True]
+
+
+class TestARunPlanIsRefusedOnTheAutoTunedPath:
+    """
+    Restart does not cover auto-tuning for this release. A run that asked for
+    both would look restartable and would not be, so it is refused where it is
+    asked for rather than somewhere further in.
+    """
+
+    def _pipeline(self, auto_tune):
+        return ExtractionPipeline(
+            components=[make_batch_extractor(auto_tune=auto_tune, max_batch_size=100)],
+            num_workers=2,
+            batch_size=4,
+            run_id='run-1',
+            run_plan_store=Mock(),
+        )
+
+    def test_a_run_id_with_an_auto_tuning_extractor_is_refused(self):
+        with pytest.raises(ValueError, match='auto-tuned path'):
+            list(self._pipeline(auto_tune=True).extract([Document(text='d')]))
+
+    def test_the_refusal_names_both_ways_out(self):
+        with pytest.raises(ValueError) as refused:
+            list(self._pipeline(auto_tune=True).extract([Document(text='d')]))
+
+        assert 'without run_id' in str(refused.value)
+        assert 'without an auto-tuning batch extractor' in str(refused.value)
+
+    def test_nothing_is_planned_before_the_refusal(self):
+        # The refusal comes before the plan is resolved, so a run that asked
+        # for both leaves nothing recorded behind it.
+        pipeline = self._pipeline(auto_tune=True)
+
+        with patch.object(pipeline, '_follow_run_plan', return_value=([], None)) as followed:
+            with pytest.raises(ValueError):
+                list(pipeline.extract([Document(text='d')]))
+
+        followed.assert_not_called()
+
+    def test_the_fixed_batch_path_still_takes_a_run_plan(self):
+        pipeline = self._pipeline(auto_tune=False)
+
+        with patch.object(pipeline, '_follow_run_plan', return_value=([], None)) as followed:
+            with patch.object(pipeline, '_extract_fixed_batch', return_value=iter([])):
+                list(pipeline.extract([Document(text='d')]))
+
+        followed.assert_called_once()
+
+
+class TestAutoTunedRoundsKeepThePinnedPartitionCount:
+    """
+    On the auto-tuned path the worker count sets how many jobs a round holds.
+    A restart on a smaller host keeps the original count and runs the jobs on
+    fewer processes.
+    """
+
+    PIPELINE = 'graphrag_toolkit.lexical_graph.indexing.extract.extraction_pipeline'
+
+    def _pipeline(self, cores, **kwargs):
+        with patch(f'{self.PIPELINE}.multiprocessing.cpu_count', return_value=cores):
+            return ExtractionPipeline(
+                components=[make_batch_extractor(auto_tune=True, max_batch_size=100)],
+                **kwargs,
+            )
+
+    def _jobs_per_round(self, pipeline, docs):
+        rounds = []
+
+        def fake_round(round_buckets, extractor_transforms):
+            rounds.append(len(round_buckets))
+            for bucket in round_buckets:
+                yield from bucket
+
+        with patch.object(pipeline, '_run_extractor_round', side_effect=fake_round):
+            list(pipeline.extract(docs))
+        return rounds
+
+    def test_a_smaller_host_fills_rounds_as_the_original_run_did(self):
+        docs = make_multichunk_documents([1600])
+
+        original = self._jobs_per_round(self._pipeline(cores=8, num_workers=8), docs)
+        restarted = self._jobs_per_round(
+            self._pipeline(cores=2, num_workers=2, partition_workers=8), docs
+        )
+
+        assert restarted == original
+        assert max(original) == 8
+
+    def test_a_round_runs_on_the_process_count_not_the_partition_count(self):
+        pipeline = self._pipeline(cores=2, num_workers=2, partition_workers=8)
+        buckets = [[TextNode(text=f'chunk {i}', id_=f'c{i}')] for i in range(8)]
+        seen = {}
+
+        def capture(pipeline_, node_batches, num_workers=1, **kwargs):
+            seen['processes'] = num_workers
+            return []
+
+        with patch(f'{self.PIPELINE}.run_pipeline', side_effect=capture):
+            list(pipeline._run_extractor_round(buckets, [make_batch_extractor(auto_tune=True)]))
+
+        assert seen['processes'] == 2
