@@ -654,8 +654,10 @@ def get_patched_llm_token_counts(
                 if usage is not None:
                     if not isinstance(usage, dict):
                         usage = dict(usage)
-                    messages_tokens = usage.get("prompt_tokens", usage.get("input_tokens", 0))
-                    response_tokens = usage.get("completion_tokens", usage.get("output_tokens", 0))
+                    # BedrockConverse attaches the Converse API response as `raw`, whose
+                    # usage keys are camelCase (inputTokens/outputTokens).
+                    messages_tokens = usage.get("prompt_tokens", usage.get("input_tokens", usage.get("inputTokens", 0)))
+                    response_tokens = usage.get("completion_tokens", usage.get("output_tokens", usage.get("outputTokens", 0)))
 
                 if messages_tokens == 0 or response_tokens == 0:
                     raise ValueError("Invalid token counts!")
