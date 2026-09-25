@@ -571,3 +571,55 @@ class TestASourceSplitAcrossOutputDocuments:
         emitted = list(self._pipeline()._emit_extracted(nodes))
 
         assert [sd.final_part for sd in emitted] == [True]
+class TestAutoTunedRoundsKeepThePinnedPartitionCount:
+    """
+    On the auto-tuned path the worker count sets how many jobs a round holds.
+    A restart on a smaller host keeps the original count and runs the jobs on
+    fewer processes.
+    """
+
+    PIPELINE = 'graphrag_toolkit.lexical_graph.indexing.extract.extraction_pipeline'
+
+    def _pipeline(self, cores, **kwargs):
+        with patch(f'{self.PIPELINE}.multiprocessing.cpu_count', return_value=cores):
+            return ExtractionPipeline(
+                components=[make_batch_extractor(auto_tune=True, max_batch_size=100)],
+                **kwargs,
+            )
+
+    def _jobs_per_round(self, pipeline, docs):
+        rounds = []
+
+        def fake_round(round_buckets, extractor_transforms):
+            rounds.append(len(round_buckets))
+            for bucket in round_buckets:
+                yield from bucket
+
+        with patch.object(pipeline, '_run_extractor_round', side_effect=fake_round):
+            list(pipeline.extract(docs))
+        return rounds
+
+    def test_a_smaller_host_fills_rounds_as_the_original_run_did(self):
+        docs = make_multichunk_documents([1600])
+
+        original = self._jobs_per_round(self._pipeline(cores=8, num_workers=8), docs)
+        restarted = self._jobs_per_round(
+            self._pipeline(cores=2, num_workers=2, partition_workers=8), docs
+        )
+
+        assert restarted == original
+        assert max(original) == 8
+
+    def test_a_round_runs_on_the_process_count_not_the_partition_count(self):
+        pipeline = self._pipeline(cores=2, num_workers=2, partition_workers=8)
+        buckets = [[TextNode(text=f'chunk {i}', id_=f'c{i}')] for i in range(8)]
+        seen = {}
+
+        def capture(pipeline_, node_batches, num_workers=1, **kwargs):
+            seen['processes'] = num_workers
+            return []
+
+        with patch(f'{self.PIPELINE}.run_pipeline', side_effect=capture):
+            list(pipeline._run_extractor_round(buckets, [make_batch_extractor(auto_tune=True)]))
+
+        assert seen['processes'] == 2
