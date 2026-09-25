@@ -125,6 +125,8 @@ class BeamSearch:
             expand_ids = []
             expand_items = []
             for neg_score, depth, current_id, path in batch:
+                if current_id in visited:
+                    continue
                 visited.add(current_id)
                 results.append((current_id, path))
                 if len(results) >= self.beam_width:
