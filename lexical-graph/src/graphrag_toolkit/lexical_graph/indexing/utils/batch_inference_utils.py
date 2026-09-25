@@ -151,6 +151,12 @@ def _format_llama_prompt(messages: List[ChatMessage]) -> str:
     families which carry it separately) — it is hoisted to the front so a later
     turn can't displace the instructions, and every turn's content is stripped of
     special tokens because the turn boundaries here are textual, not structural.
+
+    Hoisting moves *every* system message ahead of the rest, so a caller that
+    deliberately placed one mid-conversation gets a different turn order than it
+    passed in. Relative order is otherwise preserved (stable partition): system
+    messages keep their order among themselves, as do the others. The extraction
+    path is unaffected — a PromptTemplate renders to a single user message.
     """
     system_messages = [m for m in messages if m.role == MessageRole.SYSTEM]
     other_messages = [m for m in messages if m.role != MessageRole.SYSTEM]
