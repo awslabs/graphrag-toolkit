@@ -65,9 +65,12 @@ class CheckpointFilter(TransformComponent, DoNotCheckpoint):
                 indicating the node should be included.
 
         Raises:
-            ValueError: If the id would resolve outside the checkpoint directory. The
-                writer rejects the same id, so probing it here would only decide the
-                node's fate from an unrelated path.
+            ValueError: If the tenant-rewritten id would resolve outside the checkpoint
+                directory. The probe is only os.path.exists, but it reads the joined
+                path, so an unvalidated id decides the node's fate from somewhere
+                else on disk. Note that this checks the rewritten id while the writer
+                checks the id as given, so under a non-default tenant the two are not
+                validating the same string.
         """
         tenant_node_id = self.tenant_id.rewrite_id(node_id)
         validate_id_segment(tenant_node_id, 'node_id')

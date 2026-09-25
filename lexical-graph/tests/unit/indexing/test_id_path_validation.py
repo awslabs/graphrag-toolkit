@@ -1,18 +1,11 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
-"""Red-state tests for path traversal in every id-to-path sink.
+"""Path-traversal tests for the sinks that join an id onto a prepared directory.
 
-Each sink joins an id onto a prepared directory, and IdRewriter returns any id
-already starting ``aws:`` as given, so ``aws:../../etc/x`` reaches a sink
-untouched. Before `validate_id_segment` guarded every sink, only FileSystemTap
-validated, and
-`FileBasedDocs.accept`, `CheckpointWriter.accept` and
-`BatchExtractorBase._save_node_in_temp_dir` created directories and wrote files
-outside their output tree; `CheckpointFilter.checkpoint_does_not_exist` probed a
-path outside it. FileBasedDocs must not lean on `filename_sanitizer` for this:
-it defaults to a no-op, `windows_safe_filename` rewrites colons rather than
-separators, and a custom sanitizer can introduce a separator of its own.
+IdRewriter returns any id already starting ``aws:`` as given, so ``aws:../../etc/x``
+reaches a sink untouched. `FileSystemTap` holds the same guard; its contract is
+pinned in `extract/test_file_system_tap.py`.
 """
 
 import os
@@ -22,14 +15,13 @@ from typing import Any, List
 import pytest
 from llama_index.core.llms import MockLLM
 from llama_index.core.schema import (
-    BaseNode, Document, NodeRelationship, RelatedNodeInfo, TextNode,
+    BaseNode, NodeRelationship, RelatedNodeInfo, TextNode,
 )
 
 from graphrag_toolkit.lexical_graph.indexing import NodeHandler
 from graphrag_toolkit.lexical_graph.indexing.build.checkpoint import CheckpointFilter, CheckpointWriter
 from graphrag_toolkit.lexical_graph.indexing.extract.batch_config import BatchConfig
 from graphrag_toolkit.lexical_graph.indexing.extract.batch_extractor_base import BatchExtractorBase
-from graphrag_toolkit.lexical_graph.indexing.extract.file_system_tap import FileSystemTap
 from graphrag_toolkit.lexical_graph.indexing.load.file_based_docs import (
     FileBasedDocs, windows_safe_filename,
 )
@@ -72,6 +64,18 @@ class _BatchExtractor(BatchExtractorBase):
         return node
 
 
+class _ForgedIdExtractor(_BatchExtractor):
+    """Reports results under an id no node was saved as, the way a tampered batch
+    output's recordId would."""
+
+    @classmethod
+    def class_name(cls) -> str:
+        return '_ForgedIdExtractor'
+
+    def _run_non_batch_extractor(self, nodes):
+        return [{ESCAPING_ID: 'extracted'}]
+
+
 def _node(node_id, source_id):
     node = TextNode(text='chunk', id_=node_id)
     node.relationships[NodeRelationship.SOURCE] = RelatedNodeInfo(node_id=source_id)
@@ -90,28 +94,11 @@ def _nested_dir(root, leaf):
     return path
 
 
-class TestFileSystemTap:
-    """The sink that already validated — pinned so the shared move is a no-op here."""
-
-    @pytest.mark.parametrize('doc_id', [REPORTED_ID, ESCAPING_ID])
-    def test_doc_id_is_rejected(self, tmp_path, doc_id):
-        tap = FileSystemTap(subdirectory_name='run', clean=True, output_dir=str(tmp_path))
-
-        with pytest.raises(ValueError, match='invalid characters'):
-            tap.handle_input_docs([SourceDocument(refNode=Document(text='t', doc_id=doc_id))])
-
-    @pytest.mark.parametrize('node_id', [REPORTED_ID, ESCAPING_ID])
-    def test_node_id_is_rejected(self, tmp_path, node_id):
-        tap = FileSystemTap(subdirectory_name='run', clean=True, output_dir=str(tmp_path))
-        doc = SourceDocument(refNode=Document(text='t', doc_id=BENIGN_SOURCE_ID))
-        doc.nodes = [TextNode(text='chunk', id_=node_id)]
-
-        with pytest.raises(ValueError, match='invalid characters'):
-            tap.handle_output_doc(doc)
-
-
 class TestFileBasedDocs:
-    """`accept` makedirs on the source id and opens a file under the node id."""
+    """`accept` makedirs on the source id and opens a file under the node id. The
+    sanitizer's output is what gets joined, so that is what has to be validated:
+    it defaults to a no-op, `windows_safe_filename` rewrites colons rather than
+    separators, and a custom sanitizer can introduce a separator of its own."""
 
     @pytest.mark.parametrize('source_id', [REPORTED_ID, ESCAPING_ID])
     def test_source_id_is_rejected(self, tmp_path, source_id):
@@ -176,6 +163,22 @@ class TestFileBasedDocs:
 
         assert _names_under(tmp_path) == before
 
+    def test_a_sanitizer_still_gets_to_repair_a_byo_id(self, tmp_path):
+        """Validation runs on the sanitizer's output, so the caller-supplied ids the
+        sanitizer was added for still write instead of raising."""
+        docs_dir = _nested_dir(str(tmp_path), 'docs')
+        handler = FileBasedDocs(
+            docs_directory=docs_dir,
+            collection_id='coll',
+            filename_sanitizer=lambda name: name.replace(' ', '_'),
+        )
+        doc = SourceDocument(nodes=[_node(BENIGN_NODE_ID, 'aws:annual report 2024')])
+
+        list(handler.accept([doc]))
+
+        written = Path(docs_dir) / 'coll' / 'aws:annual_report_2024' / f'{BENIGN_NODE_ID}.json'
+        assert written.exists()
+
 
 class TestCheckpointWriter:
     """`accept` touches a file named for the node id."""
@@ -206,13 +209,14 @@ class TestCheckpointWriter:
 
 
 class TestBatchExtractorTempDir:
-    """`_save_node_in_temp_dir` names a temp file for the node id."""
+    """`_save_node_in_temp_dir` names a temp file for the node id, and the results
+    loop names a temp file for the id the extraction reports back."""
 
-    def _extractor(self, temp_dir):
+    def _extractor(self, temp_dir, cls=_BatchExtractor):
         config = BatchConfig(
             role_arn='arn:aws:iam::123456789012:role/test', region='us-east-1', bucket_name='test',
         )
-        return _BatchExtractor(
+        return cls(
             batch_config=config,
             llm=LLMCache(llm=MockLLM()),
             prompt_template='t',
@@ -236,6 +240,15 @@ class TestBatchExtractorTempDir:
 
         with pytest.raises(ValueError, match='invalid characters'):
             extractor._save_node_in_temp_dir(TextNode(text='chunk', id_='/tmp/pwned'), temp_dir)
+
+    def test_a_node_id_reported_by_the_extraction_is_rejected(self, tmp_path):
+        """The results loop joins the id the output reports, not the one that was
+        written, so the read side needs the guard too."""
+        temp_dir = _nested_dir(str(tmp_path), 'batch')
+        extractor = self._extractor(temp_dir, cls=_ForgedIdExtractor)
+
+        with pytest.raises(ValueError, match='invalid characters'):
+            list(extractor._process_nodes([TextNode(text='chunk', id_=BENIGN_NODE_ID)]))
 
 
 class TestCheckpointFilter:
@@ -269,17 +282,6 @@ class TestCheckpointFilter:
 
 class TestRewrittenIdsStillWrite:
     """The ids the pipeline actually produces carry no separator."""
-
-    def test_file_system_tap_writes_source_and_chunk(self, tmp_path):
-        tap = FileSystemTap(subdirectory_name='run', clean=True, output_dir=str(tmp_path))
-        doc = SourceDocument(refNode=Document(text='t', doc_id=BENIGN_SOURCE_ID))
-        doc.nodes = [TextNode(text='chunk', id_=BENIGN_NODE_ID)]
-
-        tap.handle_input_docs([doc])
-        tap.handle_output_doc(doc)
-
-        assert os.path.exists(os.path.join(tap.raw_sources_dir, BENIGN_SOURCE_ID))
-        assert os.path.exists(os.path.join(tap.chunks_dir, f'{BENIGN_NODE_ID}.json'))
 
     def test_file_based_docs_writes_the_chunk(self, tmp_path):
         handler = FileBasedDocs(docs_directory=str(tmp_path), collection_id='coll')

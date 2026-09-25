@@ -229,8 +229,9 @@ class FileBasedDocs(NodeHandler):
         It then yields the processed source documents.
 
         When a filename_sanitizer is configured, it is applied to source IDs and node IDs
-        to produce filesystem-safe path components. Both the id and the sanitizer's output
-        are validated, because the sanitizer is optional and defaults to a no-op.
+        to produce filesystem-safe path components. The sanitizer's output is validated,
+        because that is the string joined onto the collection directory; with no
+        sanitizer configured that string is the id itself.
 
         Args:
             source_documents (List[SourceDocument]): A list of source documents to be processed.
@@ -247,11 +248,12 @@ class FileBasedDocs(NodeHandler):
         sanitize = self.filename_sanitizer if self.filename_sanitizer else lambda x: x
 
         def safe_name(value:str, name:str) -> str:
-            """Validate the id, then the sanitizer's output, which is what gets joined.
-            A custom sanitizer can introduce a separator as easily as remove one."""
-            validate_id_segment(value, name)
+            """Validate the sanitizer's output, which is the string that gets joined.
+            Checking the id first would reject the BYO ids the sanitizer exists to
+            repair; checking only the output still refuses a sanitizer that
+            introduces a separator, and with no sanitizer it is the id."""
             sanitized = sanitize(value)
-            validate_id_segment(sanitized, f'sanitized {name}')
+            validate_id_segment(sanitized, f'sanitized {name}' if self.filename_sanitizer else name)
             return sanitized
 
         for source_document in source_documents:

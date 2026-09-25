@@ -271,6 +271,10 @@ class BatchExtractorBase(BaseExtractor):
         for results_generator in results_generators:
             for (node_id, text) in results_generator:
 
+                # The id comes back from the extraction results (the batch output's
+                # recordId on the batch path), so it is no more trusted than the one
+                # on the way in. A read, but still a read of whatever path it names.
+                validate_id_segment(node_id, 'node_id')
                 node_file_path = join(temp_dir, f'{node_id}.json')
                 node = next(self._get_nodes_from_temp_dir([node_file_path]))
 
