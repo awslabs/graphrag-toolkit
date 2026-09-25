@@ -70,3 +70,44 @@ class TestBatchLLMPropositionExtractorSyncUpdateNode:
         result = extractor._update_node(node, node_metadata_map)
 
         assert result.metadata[PROPOSITIONS_KEY] == []
+
+
+class TestBatchLLMPropositionExtractorSyncRunNonBatchExtractor:
+    """Tests for _run_non_batch_extractor method.
+
+    Regression tests: when a node set falls below Bedrock's minimum batch
+    size, BatchLLMPropositionExtractorSync falls back to the non-batch
+    LLMPropositionExtractor. That fallback must reuse the configured LLM
+    (self.llm) rather than silently defaulting to
+    GraphRAGConfig.extraction_llm, which is a us.* inference profile and
+    is invalid in any other Bedrock region.
+    """
+
+    def _make_extractor(self, llm, prompt_template="prompt", source_metadata_field=None):
+        """Create a BatchLLMPropositionExtractorSync instance with fields
+        populated via model_construct, bypassing validation/__init__ so no
+        real BatchConfig or AWS setup is needed for this unit test."""
+        return BatchLLMPropositionExtractorSync.model_construct(
+            llm=llm,
+            prompt_template=prompt_template,
+            source_metadata_field=source_metadata_field,
+        )
+
+    @patch("graphrag_toolkit.lexical_graph.indexing.extract.batch_llm_proposition_extractor_sync.LLMPropositionExtractor")
+    def test_run_non_batch_extractor_passes_configured_llm(self, mock_extractor_cls):
+        """Verify the non-batch fallback is constructed with the extractor's
+        own configured llm, not left to default to GraphRAGConfig.extraction_llm."""
+        configured_llm = Mock(name="configured-llm")
+        extractor = self._make_extractor(llm=configured_llm)
+
+        mock_instance = mock_extractor_cls.return_value
+        mock_instance.extract.return_value = [{PROPOSITIONS_KEY: []}]
+
+        nodes = [TextNode(text="test", id_="node-1")]
+        extractor._run_non_batch_extractor(nodes)
+
+        mock_extractor_cls.assert_called_once_with(
+            llm=configured_llm,
+            prompt_template="prompt",
+            source_metadata_field=None,
+        )
