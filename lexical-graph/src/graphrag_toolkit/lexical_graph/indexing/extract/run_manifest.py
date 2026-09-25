@@ -5,12 +5,13 @@ import json
 import logging
 import re
 
-from dataclasses import dataclass, asdict, fields
+from dataclasses import MISSING, dataclass, asdict, fields
 from os.path import join
 from typing import Dict, List, Optional
 
-from graphrag_toolkit.lexical_graph.indexing.extract.run_store import RunArtifactStore
+from graphrag_toolkit.lexical_graph.indexing.extract.run_store import RunArtifactStore, RunRecordError
 from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import node_ids_hash, to_batches
+from graphrag_toolkit.lexical_graph.utils.id_validation import validate_id_segment
 
 logger = logging.getLogger(__name__)
 
@@ -72,13 +73,27 @@ class PartitionRecord:
 
     @classmethod
     def from_json(cls, body:str) -> 'PartitionRecord':
-        """A record read back, without the fields a later build added."""
+        """
+        A record read back, without the fields a later build added.
+
+        A record that lost a field it cannot do without says so, rather than
+        failing as a missing argument. Its partition id is checked here as
+        well as where a key is built from it, because a record is the one way
+        an id that was never hashed reaches the paths a recovery removes.
+        """
         recorded = json.loads(body)
         known = {f.name for f in fields(cls)}
 
         unknown = sorted(set(recorded) - known)
         if unknown:
             logger.warning(f'Ignoring partition record fields this version does not know {unknown}')
+
+        required = [f.name for f in fields(cls) if f.default is MISSING]
+        missing = [name for name in required if name not in recorded]
+        if missing:
+            raise RunRecordError(f'A partition record is missing {missing}')
+
+        validate_id_segment(recorded['partition_id'], 'partition_id')
 
         return cls(**{name: value for name, value in recorded.items() if name in known})
 
@@ -107,6 +122,8 @@ class RunManifestStore(RunArtifactStore):
         self._rollup = None
 
     def partition_key(self, partition:str) -> str:
+        """Where one partition's record sits. An id that climbs out is refused."""
+        validate_id_segment(partition, 'partition_id')
         return join(self.run_path(self.run_id), PARTITION_DIR, f'{partition}.json')
 
     def rollup_key(self) -> str:
