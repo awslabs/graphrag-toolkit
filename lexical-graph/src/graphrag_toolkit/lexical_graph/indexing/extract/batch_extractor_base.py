@@ -19,6 +19,7 @@ from graphrag_toolkit.lexical_graph.indexing.extract.batch_config import BatchCo
 
 from graphrag_toolkit.lexical_graph.indexing.utils.batch_inference_utils import get_file_size_mb, get_file_sizes_mb, split_nodes, create_and_run_batch_job, download_output_files, process_batch_output_sync
 from graphrag_toolkit.lexical_graph.indexing.utils.batch_inference_utils import BEDROCK_MIN_BATCH_SIZE
+from graphrag_toolkit.lexical_graph.utils.id_validation import validate_id_segment
 
 from llama_index.core.extractors.interface import BaseExtractor
 from llama_index.core.bridge.pydantic import Field
@@ -209,6 +210,7 @@ class BatchExtractorBase(BaseExtractor):
         return node
     
     def _save_node_in_temp_dir(self, node:TextNode, temp_dir:str):
+        validate_id_segment(node.node_id, 'node_id')
         node_output_path = join(temp_dir, f'{node.node_id}.json')
         with open(node_output_path, 'w') as f:
             json.dump(node.to_dict(), f, indent=4)
@@ -269,6 +271,10 @@ class BatchExtractorBase(BaseExtractor):
         for results_generator in results_generators:
             for (node_id, text) in results_generator:
 
+                # The id comes back from the extraction results (the batch output's
+                # recordId on the batch path), so it is no more trusted than the one
+                # on the way in. A read, but still a read of whatever path it names.
+                validate_id_segment(node_id, 'node_id')
                 node_file_path = join(temp_dir, f'{node_id}.json')
                 node = next(self._get_nodes_from_temp_dir([node_file_path]))
 

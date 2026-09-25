@@ -12,6 +12,7 @@ from typing import List, Any, Callable, Generator, Optional, Dict
 from graphrag_toolkit.lexical_graph.indexing import NodeHandler
 from graphrag_toolkit.lexical_graph.indexing.model import SourceDocument, SourceType, source_documents_from_source_types
 from graphrag_toolkit.lexical_graph.indexing.constants import PROPOSITIONS_KEY, TOPICS_KEY
+from graphrag_toolkit.lexical_graph.utils.id_validation import validate_id_segment
 from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY 
 
 from llama_index.core.schema import TextNode, BaseNode
@@ -228,7 +229,9 @@ class FileBasedDocs(NodeHandler):
         It then yields the processed source documents.
 
         When a filename_sanitizer is configured, it is applied to source IDs and node IDs
-        to produce filesystem-safe path components.
+        to produce filesystem-safe path components. The sanitizer's output is validated,
+        because that is the string joined onto the collection directory; with no
+        sanitizer configured that string is the id itself.
 
         Args:
             source_documents (List[SourceDocument]): A list of source documents to be processed.
@@ -238,17 +241,29 @@ class FileBasedDocs(NodeHandler):
         Yields:
             SourceDocument: The processed source document after its nodes have been written
                 to corresponding JSON files in the directory structure.
+
+        Raises:
+            ValueError: If a source id or node id would write outside the collection directory.
         """
         sanitize = self.filename_sanitizer if self.filename_sanitizer else lambda x: x
 
+        def safe_name(value:str, name:str) -> str:
+            """Validate the sanitizer's output, which is the string that gets joined.
+            Checking the id first would reject the BYO ids the sanitizer exists to
+            repair; checking only the output still refuses a sanitizer that
+            introduces a separator, and with no sanitizer it is the id."""
+            sanitized = sanitize(value)
+            validate_id_segment(sanitized, f'sanitized {name}' if self.filename_sanitizer else name)
+            return sanitized
+
         for source_document in source_documents:
-            dir_name = sanitize(source_document.source_id())
+            dir_name = safe_name(source_document.source_id(), 'source_id')
             directory_path = join(self.docs_directory, self.collection_id, dir_name)
             self._prepare_directory(directory_path)
             logger.debug(f'Writing source document to directory: {directory_path}')
             for node in source_document.nodes:
                 if not [key for key in [INDEX_KEY] if key in node.metadata]:
-                    file_name = sanitize(node.node_id)
+                    file_name = safe_name(node.node_id, 'node_id')
                     chunk_output_path = join(directory_path, f'{file_name}.json')
                     logger.debug(f'Writing chunk to file: {chunk_output_path}')
                     with open(chunk_output_path, 'w') as f:
