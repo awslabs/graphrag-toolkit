@@ -26,7 +26,6 @@ logger = logging.getLogger(__name__)
 c_red, c_blue, c_green, c_cyan, c_norm = "\x1b[31m",'\033[94m','\033[92m', '\033[96m', '\033[0m'
 
 MAX_ATTEMPTS = 2
-TIMEOUT = 60.0
 
 
 _client_lock = threading.Lock()
@@ -40,12 +39,13 @@ def _bedrock_client(llm, num_threads:int):
     drive through it, and past the pool it discards and reopens connections. Size
     it at twice the thread count as `ResilientClient._client_config` does, with
     the executor's floor added because `pool_size()` reads 0 until something
-    creates the pool.
+    creates the pool. The timeouts are the LLM's own, as in the client
+    BedrockConverse builds for itself.
     """
     config = Config(
         retries={'max_attempts': MAX_ATTEMPTS, 'mode': 'standard'},
-        connect_timeout=TIMEOUT,
-        read_timeout=TIMEOUT,
+        connect_timeout=llm.timeout,
+        read_timeout=llm.timeout,
         max_pool_connections=max(
             BOTOCORE_DEFAULT_MAX_POOL_CONNECTIONS, num_threads * 2, MIN_POOL_SIZE
         ),

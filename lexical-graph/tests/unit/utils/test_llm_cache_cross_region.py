@@ -35,9 +35,9 @@ def patched_config(mock_session):
         mock_config.extraction_num_threads_per_worker = CONFIGURED_NUM_THREADS
         yield mock_config
 
-def unpickled_llm(region_name='us-west-2'):
+def unpickled_llm(region_name='us-west-2', **kwargs):
     """A BedrockConverse through the round-trip ProcessPoolExecutor puts it through."""
-    llm = BedrockConverse(model='us.anthropic.claude-sonnet-4-6', region_name=region_name)
+    llm = BedrockConverse(model='us.anthropic.claude-sonnet-4-6', region_name=region_name, **kwargs)
     return pickle.loads(pickle.dumps(llm))
 
 def trigger_client_creation(cache, method='predict'):
@@ -276,3 +276,21 @@ class TestConcurrentClientCreation:
 
         assert mock_session.client.call_count == 1, \
             f'{entrants} concurrent callers built {mock_session.client.call_count} clients'
+
+
+class TestClientTimeout:
+    """The rebuilt client must keep the LLM's timeout, as it keeps its region."""
+
+    @pytest.mark.parametrize('kwargs, expected', [({}, 60.0), ({'timeout': 300.0}, 300.0)])
+    @patch('boto3.Session')
+    def test_client_uses_the_llms_timeout(self, mock_boto_session, kwargs, expected):
+        """Extraction workers only ever call through the rebuilt client, so a
+        timeout raised for a slow model has to survive the rebuild."""
+        cache = LLMCache(llm=unpickled_llm(**kwargs), enable_cache=False)
+
+        mock_session = MagicMock()
+        with patched_config(mock_session):
+            trigger_client_creation(cache)
+
+        config = client_kwargs(mock_session)['config']
+        assert (config.connect_timeout, config.read_timeout) == (expected, expected)
