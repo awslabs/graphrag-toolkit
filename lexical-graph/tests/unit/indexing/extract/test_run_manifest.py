@@ -25,6 +25,7 @@ from graphrag_toolkit.lexical_graph.indexing.extract.run_manifest import (
     SUBMITTED,
     PartitionRecord,
     RunManifestStore,
+    RunRecordError,
     batch_job_name,
     partition_id,
 )
@@ -231,6 +232,38 @@ class TestWhereTheRecordsLive:
                 bucket_name=BUCKET, key_prefix=KEY_PREFIX,
                 collection_id=COLLECTION_ID, run_id='../elsewhere'
             )
+
+    def test_a_partition_id_that_would_leave_its_directory_is_refused(self):
+        # A recovery joins this id onto a local path and removes what it
+        # resolves to, so an id that never came from the hash cannot be joined.
+        with pytest.raises(ValueError, match='partition_id'):
+            _store().partition_key('../../elsewhere')
+
+
+class TestARecordThatCannotBeReadBack:
+    """
+    A record is the one way a partition id that was never hashed reaches the
+    paths a recovery removes, and the one way a field can go missing.
+    """
+
+    def test_a_record_missing_a_field_it_needs_says_which(self):
+        body = json.dumps({'partition_id': 'abc', 'state': SUBMITTED})
+
+        with pytest.raises(RunRecordError, match='attempt'):
+            PartitionRecord.from_json(body)
+
+    def test_a_record_naming_a_partition_outside_the_run_is_refused(self):
+        body = json.dumps({'partition_id': '../../elsewhere', 'attempt': 1, 'state': SUBMITTED})
+
+        with pytest.raises(ValueError, match='partition_id'):
+            PartitionRecord.from_json(body)
+
+    def test_a_record_a_later_build_wrote_still_reads(self):
+        body = json.dumps({
+            'partition_id': 'abc', 'attempt': 1, 'state': SUBMITTED, 'written_by_a_later_build': True
+        })
+
+        assert PartitionRecord.from_json(body).partition_id == 'abc'
 
 
 class TestAPartitionTheRollupAlreadyHolds:
