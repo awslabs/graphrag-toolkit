@@ -119,6 +119,30 @@ class TestRelationshipNameFrom:
     def test_keeps_digits(self):
         assert relationship_name_from('rev2 of') == 'REV2_OF'
 
+    def test_splits_camel_case(self):
+        """An ontology-normalized predicate arrives authored, not parsed. Without
+        the split `worksFor` becomes `WORKSFOR`, and the domain-summary prompt
+        that `GraphSummary._get_paths` builds from this value reads
+        `(Person)-[WORKSFOR]->(Company)`."""
+        assert relationship_name_from('worksFor') == 'WORKS_FOR'
+        assert relationship_name_from('hasRegisteredAddress') == 'HAS_REGISTERED_ADDRESS'
+
+    def test_the_two_spellings_of_one_predicate_agree(self):
+        """The same relationship named with and without an ontology has to land on
+        the same summary-graph name, or turning `normalize_names` on silently
+        forks the summary graph."""
+        assert relationship_name_from('worksFor') == relationship_name_from('WORKS FOR')
+
+    def test_it_does_not_split_runs_of_capitals(self):
+        """The narrow rule: uppercase after *lowercase* only. Splitting after any
+        non-uppercase character would break `Company2X`, which is what `.title()`
+        makes of `Company2x`."""
+        assert relationship_name_from('HTTPServer') == 'HTTPSERVER'
+        assert relationship_name_from('rev2X of') == 'REV2X_OF'
+
+    def test_already_underscored_names_are_unchanged(self):
+        assert relationship_name_from('WORKS_FOR') == 'WORKS_FOR'
+
 
 class TestNodeResult:
     def test_default_star_properties(self):
@@ -390,3 +414,40 @@ class TestFilterConfigToOpencypherFilters:
         )
         result = parse_metadata_filters_recursive(filters)
         assert result == ''
+
+
+class TestLabelFromIsIdempotentOnPascalCase:
+    """`string.capwords` lowercases the rest of each word, folding an internal
+    capital away, so `label_from` needs the camel boundary split first.
+
+    Invisible while every classification arrived from the response parser, which
+    title-cases. An ontology's `normalize_names` stores the authored name verbatim,
+    so `:SportsTeam` now reaches `GraphSummaryBuilder` and the domain-label write as
+    written.
+    """
+
+    @pytest.mark.parametrize('value,expected', [
+        ('SportsTeam', 'SportsTeam'),
+        ('Sports Team', 'SportsTeam'),
+        ('SPORTS_TEAM', 'SportsTeam'),
+        ('FinancialInstrument', 'FinancialInstrument'),
+        ('Creative Work', 'CreativeWork'),
+        ('Company', 'Company'),
+        ('unknown', 'Unknown'),
+    ])
+    def test_both_spellings_reach_the_same_label(self, value, expected):
+        from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import label_from
+
+        assert label_from(value) == expected
+
+    def test_a_reserved_value_is_passed_through_untouched(self):
+        from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import label_from
+
+        assert label_from('__Local_Entity__') == '__Local_Entity__'
+
+    def test_it_is_idempotent(self):
+        """The property that matters: applying it twice cannot drift."""
+        from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import label_from
+
+        for value in ['SportsTeam', 'Sports Team', 'FinancialInstrument', 'unknown']:
+            assert label_from(label_from(value)) == label_from(value)

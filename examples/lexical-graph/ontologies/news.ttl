@@ -1,0 +1,188 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+#
+# A worked ontology for ontology-guided extraction over a business-news corpus.
+#
+#     from graphrag_toolkit.lexical_graph import ExtractionConfig, IndexingConfig
+#     from graphrag_toolkit.lexical_graph.indexing.extract.ontology import OntologyConfig
+#
+#     ontology = OntologyConfig(
+#         'examples/lexical-graph/ontologies/news.ttl',
+#         ontology_authority='align',
+#         typed_properties='subject',
+#     )
+#     indexing_config = IndexingConfig(extraction=ExtractionConfig(ontology=ontology))
+#
+# Turtle is the only file format the toolkit reads. For any other serialization,
+# parse it into an `rdflib.Graph` yourself and pass the graph:
+#
+#     import rdflib
+#     graph = rdflib.Graph().parse('news.owl', format='xml')
+#     ontology = OntologyConfig(graph, ontology_authority='align')
+#
+# Everything below is here for a reason, and the comments say which. Copy this
+# file as a starting point rather than writing an ontology from scratch: the
+# things that go wrong are mostly things this file gets right by accident.
+
+@prefix :     <http://example.com/news#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.com/news> a owl:Ontology ;
+    rdfs:comment "A small ontology for business news: who works where, who owns what, and the facts about a company you would want to filter on." .
+
+################################################################################
+# Classes
+#
+# `rdfs:label` is what gets stored, and it takes precedence over the IRI local
+# name. `:SportsTeam` is stored as `Sports Team` because that is its label; drop
+# the label and it would be stored as `SportsTeam`. Pick whichever spelling you
+# want to read back out of the graph and put it in the label.
+#
+# One exception, and it matters if you use `typed_properties`: the *typed property
+# key* comes from the IRI local name, not from the label. Label `:revenue` as
+# "Annual Revenue" and the fact predicate reads `Annual Revenue` while the property
+# on the node is still `revenue`. Every datatype property below is labelled to
+# match its local name for exactly that reason. Classes and object properties are
+# not affected - `:SportsTeam` is freely labelled `Sports Team` - because nothing
+# keys a graph property from them.
+#
+# `skos:altLabel` is the other half: a phrasing the model might produce, mapped
+# onto the term you want. `Corporation`, `Ball Club` and `Firm` are not stored -
+# they are how a model's wording finds its way to `Company`.
+#
+# `rdfs:comment` is not decoration. It is rendered into the extraction prompt, so
+# it is the only place you can tell the model what a class means. A class with no
+# comment is a bare name the model has to guess at.
+################################################################################
+
+:Agent      a owl:Class ;
+            rdfs:label "Agent" ;
+            rdfs:comment "Anything that can act - a person or an organization." .
+
+:Person     a owl:Class ; rdfs:subClassOf :Agent ;
+            rdfs:label "Person" ;
+            rdfs:comment "An individual human being, named in the source." .
+
+:Company    a owl:Class ; rdfs:subClassOf :Agent ;
+            rdfs:label "Company" ;
+            skos:altLabel "Corporation" , "Firm" ;
+            rdfs:comment "An incorporated commercial organization." .
+
+:SportsTeam a owl:Class ; rdfs:subClassOf :Company ;
+            rdfs:label "Sports Team" ;
+            skos:altLabel "Ball Club" ;
+            rdfs:comment "A professional team that competes in a league. A sports team is a kind of company." .
+
+:Exchange   a owl:Class ;
+            rdfs:label "Stock Exchange" ;
+            rdfs:comment "A market on which company shares are listed and traded." .
+
+################################################################################
+# Object properties - relationships between two entities
+#
+# `rdfs:domain` and `rdfs:range` are declarations about which classes may sit at
+# each end. At `ontology_authority='strict'` they are enforced and a fact that violates
+# them is dropped; below `strict` they are documentation, and they still shape the
+# prompt. Subclassing is respected: `:playsFor` accepts a `Sports Team` in its
+# range because `:SportsTeam rdfs:subClassOf :Company`, so declaring the range as
+# `:Company` does not exclude teams.
+#
+# Leave domain and range off - as `:acquired` does - and the property applies
+# anywhere. That is the right choice when the relationship genuinely is general,
+# and the wrong one when you have just not decided; an undeclared domain cannot
+# be enforced later without re-extracting.
+################################################################################
+
+:worksFor     a owl:ObjectProperty ;
+              rdfs:label "worksFor" ;
+              rdfs:domain :Person ; rdfs:range :Company ;
+              skos:altLabel "EMPLOYED BY" , "WORKS AT" ;
+              rdfs:comment "Employment of a person by a company." .
+
+:playsFor     a owl:ObjectProperty ;
+              rdfs:label "playsFor" ;
+              rdfs:domain :Person ; rdfs:range :Company ;
+              skos:altLabel "PLAYS ON" ;
+              rdfs:comment "Membership of a person in a sports team." .
+
+:subsidiaryOf a owl:ObjectProperty ;
+              rdfs:label "subsidiaryOf" ;
+              rdfs:domain :Company ; rdfs:range :Company ;
+              rdfs:comment "Majority ownership of one company by another." .
+
+:listedOn     a owl:ObjectProperty ;
+              rdfs:label "listedOn" ;
+              rdfs:domain :Company ; rdfs:range :Exchange ;
+              rdfs:comment "The exchange on which a company's shares trade." .
+
+:acquired     a owl:ObjectProperty ;
+              rdfs:label "acquired" ;
+              rdfs:comment "Purchase of one organization by another. Domain and range are deliberately undeclared: acquisitions in this corpus involve divisions and brands as well as whole companies." .
+
+################################################################################
+# Datatype properties - facts about one entity, with a declared value type
+#
+# These are what `typed_properties` writes. With `typed_properties='subject'`,
+# `:foundedYear` becomes an integer property named `foundedYear` on the company's
+# own `__Entity__` node, so `WHERE c.foundedYear < 2000` is a query you can
+# actually run. Leave `typed_properties` at its `'off'` default and these are
+# still useful - they shape the prompt and they name the predicate - but the value
+# stays a string.
+#
+# The declared `rdfs:range` is what the value is coerced to, so choose it for what
+# you want to query rather than for what the source text looks like. Two rules:
+#
+#   * a property name must not be `value`, `search_str`, `class`, `typed_value` or
+#     `datatype` - the graph model owns those on `__Entity__`, and configuration
+#     is refused outright rather than overwriting them; and
+#   * `xsd:date` is stored as an ISO-8601 **string**, not a native temporal, so
+#     quote the bound in a range query: `WHERE c.incorporatedOn >= '2016-01-01'`.
+#     It sorts and compares correctly as a string.
+#
+# A value that will not parse as its declared range writes no typed property at
+# all - the string is still on the graph, so nothing is lost, but there is no
+# typed value to filter on. `revenue` is the usual casualty: a model that writes
+# "$1.2bn" has stated a number the coercer will not guess at.
+################################################################################
+
+:foundedYear      a owl:DatatypeProperty ;
+                  rdfs:label "foundedYear" ;
+                  rdfs:domain :Company ; rdfs:range xsd:integer ;
+                  skos:altLabel "FOUNDED IN" ;
+                  rdfs:comment "The four-digit year the company was founded." .
+
+:incorporatedOn   a owl:DatatypeProperty ;
+                  rdfs:label "incorporatedOn" ;
+                  rdfs:domain :Company ; rdfs:range xsd:date ;
+                  rdfs:comment "The date of incorporation, as stated in the source." .
+
+:revenue          a owl:DatatypeProperty ;
+                  rdfs:label "revenue" ;
+                  rdfs:domain :Company ; rdfs:range xsd:double ;
+                  skos:altLabel "TURNOVER" ;
+                  rdfs:comment "Annual revenue in US dollars, as a bare number without currency symbols or units." .
+
+:employeeCount    a owl:DatatypeProperty ;
+                  rdfs:label "employeeCount" ;
+                  rdfs:domain :Company ; rdfs:range xsd:integer ;
+                  skos:altLabel "HEADCOUNT" ;
+                  rdfs:comment "Total number of employees." .
+
+:isPubliclyTraded a owl:DatatypeProperty ;
+                  rdfs:label "isPubliclyTraded" ;
+                  rdfs:domain :Company ; rdfs:range xsd:boolean ;
+                  rdfs:comment "Whether the company's shares are listed on a public exchange." .
+
+:tickerSymbol     a owl:DatatypeProperty ;
+                  rdfs:label "tickerSymbol" ;
+                  rdfs:domain :Company ; rdfs:range xsd:string ;
+                  skos:altLabel "Stock Symbol" , "TICKER" ;
+                  rdfs:comment "The company's exchange ticker symbol." .
+
+:jobTitle         a owl:DatatypeProperty ;
+                  rdfs:label "jobTitle" ;
+                  rdfs:domain :Person ; rdfs:range xsd:string ;
+                  rdfs:comment "The person's role at their employer." .

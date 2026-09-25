@@ -11,7 +11,7 @@ from graphrag_toolkit.lexical_graph.indexing.utils.topic_utils import parse_extr
 from graphrag_toolkit.lexical_graph.indexing.extract.preferred_values import PreferredValuesProvider, default_preferred_values
 from graphrag_toolkit.lexical_graph.indexing.model import TopicCollection
 from graphrag_toolkit.lexical_graph.indexing.constants import TOPICS_KEY
-from graphrag_toolkit.lexical_graph.indexing.prompts import EXTRACT_TOPICS_PROMPT
+from graphrag_toolkit.lexical_graph.indexing.prompts import EXTRACT_TOPICS_PROMPT, with_ontology_constraints
 from graphrag_toolkit.lexical_graph.indexing.extract.progress import run_jobs_with_progress
 from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 
@@ -44,6 +44,11 @@ class TopicExtractor(BaseExtractor):
         description='Topic provider'
     )
 
+    ontology_constraints:str = Field(
+        default='',
+        description='Rendered ontology vocabulary block, composed into the prompt template at render time'
+    )
+
     @classmethod
     def class_name(cls) -> str:
         """
@@ -65,7 +70,8 @@ class TopicExtractor(BaseExtractor):
                  source_metadata_field=None,
                  num_workers:Optional[int]=None,
                  entity_classification_provider=None,
-                 topic_provider=None
+                 topic_provider=None,
+                 ontology_constraints:str=''
                  ):
         """
         Initializes the instance with the provided or default parameters to facilitate
@@ -88,6 +94,10 @@ class TopicExtractor(BaseExtractor):
             topic_provider (FixedScopedValueProvider, optional): Provider for topics.
                 Defaults to a fixed-scoped value provider initialized with an empty
                 list.
+            ontology_constraints (str, optional): Rendered ontology vocabulary
+                block, composed into the prompt template at render time.
+                Defaults to the empty string, which leaves the template - and
+                therefore the LLM cache key - exactly as it is today.
         """
         num_workers = coalesce(num_workers, GraphRAGConfig.extraction_num_threads_per_worker)
 
@@ -101,7 +111,8 @@ class TopicExtractor(BaseExtractor):
             source_metadata_field=source_metadata_field,
             num_workers=num_workers,
             entity_classification_provider=entity_classification_provider or default_preferred_values([]),
-            topic_provider=topic_provider or default_preferred_values([])
+            topic_provider=topic_provider or default_preferred_values([]),
+            ontology_constraints=ontology_constraints
         )
 
         logger.debug(f'Prompt template: {self.prompt_template}')
@@ -206,7 +217,9 @@ class TopicExtractor(BaseExtractor):
         """
         def blocking_llm_call():
             return self.llm.predict(
-                PromptTemplate(template=self.prompt_template),
+                PromptTemplate(
+                    template=with_ontology_constraints(self.prompt_template, self.ontology_constraints)
+                ),
                 text=text,
                 preferred_entity_classifications=format_list(preferred_entity_classifications),
                 preferred_topics=format_list(preferred_topics),
