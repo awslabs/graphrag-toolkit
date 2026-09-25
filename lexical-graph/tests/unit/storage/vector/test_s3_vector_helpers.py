@@ -4,6 +4,7 @@
 """Tests for the pure helpers in storage/vector/s3_vector_indexes."""
 
 import json
+import logging
 from unittest.mock import MagicMock
 
 import pytest
@@ -53,6 +54,8 @@ class TestToS3Operator:
 
 
 class TestFormatterForType:
+    """The S3 path reuses metadata.formatter_for_type; these pin the contract it needs."""
+
     def test_text_returns_the_bare_string(self):
         # No quoting: the value goes into a dict for boto3, not into JSON text.
         assert formatter_for_type('text')('hello') == 'hello'
@@ -184,6 +187,31 @@ class TestFilterConfigToS3Filters:
         )
 
         assert 'filter' not in client.query_vectors.call_args.kwargs
+
+    def test_collapsed_filter_group_is_logged(self, caplog):
+        # An unscoped query from a non-empty filter tree is the surprising case, so it
+        # must be visible in the logs even though the request still goes out unfiltered.
+        config = FilterConfig(source_filters=MetadataFilters(
+            filters=[MetadataFilters(filters=[], condition=FilterCondition.AND)],
+            condition=FilterCondition.AND,
+        ))
+
+        with caplog.at_level(
+            logging.WARNING,
+            logger='graphrag_toolkit.lexical_graph.storage.vector.s3_vector_indexes',
+        ):
+            assert filter_config_to_s3_filters(config) == {}
+
+        assert 'will not be scoped' in caplog.text
+
+    def test_absent_filters_are_not_logged(self, caplog):
+        with caplog.at_level(
+            logging.WARNING,
+            logger='graphrag_toolkit.lexical_graph.storage.vector.s3_vector_indexes',
+        ):
+            assert filter_config_to_s3_filters(FilterConfig()) is None
+
+        assert caplog.text == ''
 
 
 class TestNodeToS3Vector:

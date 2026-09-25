@@ -7,7 +7,7 @@ from botocore.exceptions import ClientError
 from tqdm import tqdm
 from typing import List, Dict, Any, Callable, Optional, Sequence
 
-from graphrag_toolkit.lexical_graph.metadata import FilterConfig, type_name_for_key_value, format_datetime
+from graphrag_toolkit.lexical_graph.metadata import FilterConfig, type_name_for_key_value, formatter_for_type
 from graphrag_toolkit.lexical_graph.versioning import VALID_FROM, VALID_TO, TIMESTAMP_LOWER_BOUND, TIMESTAMP_UPPER_BOUND
 from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
 from graphrag_toolkit.lexical_graph.storage.vector import VectorIndex, to_embedded_query
@@ -59,26 +59,6 @@ def to_s3_operator(operator: FilterOperator) -> tuple[str, Callable[[Any], str]]
     
     return operator_map[operator]
 
-def formatter_for_type(type_name:str) -> Callable[[Any], Any]:
-    """Coerce a stringified filter value to the native Python value for the given type.
-
-    The result goes into a dict handed to boto3, not into JSON text, so nothing is
-    quoted or escaped here. Numeric types are parsed to numbers because the
-    filter used to be assembled as a JSON string and relied on json.loads for that.
-    Supports 'text', 'timestamp', 'int', 'float'; raises ValueError otherwise.
-    """
-    if type_name == 'text':
-        return lambda x: str(x)
-    elif type_name == 'timestamp':
-        return lambda x: format_datetime(x)
-    elif type_name == 'int':
-        return lambda x: int(x)
-    elif type_name == 'float':
-        return lambda x: float(x)
-    else:
-        raise ValueError(f'Unsupported type name: {type_name}')
-
-
 def parse_metadata_filters_recursive(metadata_filters:MetadataFilters) -> Dict[str, Any]:
     """Parse a MetadataFilters tree into an S3 Vectors metadata filter dict.
 
@@ -103,6 +83,8 @@ def parse_metadata_filters_recursive(metadata_filters:MetadataFilters) -> Dict[s
         if f.operator == FilterOperator.IS_EMPTY:
             return {key: {operator: False}}
 
+        # The shared formatter coerces to native Python values; the clause is a dict
+        # for boto3, so nothing needs quoting the way the old JSON string did.
         type_name = type_name_for_key_value(f.key, f.value)
         type_formatter = formatter_for_type(type_name)
 
@@ -143,8 +125,16 @@ def filter_config_to_s3_filters(filter_config:FilterConfig) -> Dict[str, Any]:
     
     s3_filters = parse_metadata_filters_recursive(filter_config.source_filters)
 
+    if not s3_filters and filter_config.source_filters.filters:
+        # Every clause collapsed, so search_vectors omits 'filter' and the query runs
+        # unscoped. Callers asked for scoping, so say so rather than widening silently.
+        logger.warning(
+            f'Metadata filters collapsed to an empty S3 Vectors filter, so the query will '
+            f'not be scoped [source_filters: {filter_config.source_filters}]'
+        )
+
     logger.debug(f's3_filters: {s3_filters}')
-    
+
     return s3_filters
 
 def _node_to_s3_vector(id:str, value:str, embedding: List[float], node_metadata:Dict[str, Any]) -> Dict[str, Any]:
