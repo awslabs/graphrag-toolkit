@@ -16,7 +16,7 @@ from os.path import basename, dirname, join
 from datetime import datetime
 from itertools import repeat, islice
 from threading import Semaphore
-from typing import List, Any, Generator, Optional, Dict, Callable, Set, Tuple
+from typing import List, Any, Generator, Iterable, Optional, Dict, Callable, Set, Tuple
 
 from graphrag_toolkit.lexical_graph.indexing import NodeHandler
 from graphrag_toolkit.lexical_graph.indexing.utils.hash_utils import get_hash
@@ -114,9 +114,17 @@ COLLECTION_RECORD_NAME = '_staging.json'
 # Extension the chunk uploader adds to a node id to key its object.
 _CHUNK_SUFFIX = '.json'
 
+# Holds what a run records about itself. A listing delimited on '/' returns it
+# as a prefix, so it is filtered out rather than read as a source document.
+RUN_ARTIFACT_DIR = '_runs'
+
 
 def collection_record_key(key_prefix:str, collection_id:str) -> str:
     return join(key_prefix, collection_id, COLLECTION_RECORD_NAME)
+
+
+def is_run_artifact_prefix(prefix:str) -> bool:
+    return basename(prefix.rstrip('/')) == RUN_ARTIFACT_DIR
 
 
 def list_collection(bucket_name:str, key_prefix:str, collection_id:str, paginator) -> Tuple[List[str], bool]:
@@ -137,6 +145,7 @@ def list_collection(bucket_name:str, key_prefix:str, collection_id:str, paginato
     for page in paginator.paginate(Bucket=bucket_name, Prefix=collection_path, Delimiter='/'):
         source_doc_prefixes.extend(
             source_doc_obj['Prefix'] for source_doc_obj in page.get('CommonPrefixes', [])
+            if not is_run_artifact_prefix(source_doc_obj['Prefix'])
         )
         recorded = recorded or any(
             obj['Key'] == record_key for obj in page.get('Contents', [])
@@ -218,19 +227,29 @@ class EncryptedPut:
     bucket_name:str
     s3_encryption_key_id:Optional[str]
 
-    def _put(self, key:str, body:str, content_type:str, s3_client):
+    def _put(self, key:str, body:str, content_type:str, s3_client, only_if_absent:bool=False):
+        """
+        Store one object.
+
+        ``only_if_absent`` makes the write conditional, so a writer racing
+        another for the same key fails rather than overwriting what the winner
+        stored.
+        """
         encryption = (
             {'ServerSideEncryption': 'aws:kms', 'SSEKMSKeyId': self.s3_encryption_key_id}
             if self.s3_encryption_key_id
             else {'ServerSideEncryption': 'AES256'}
         )
 
+        condition = {'IfNoneMatch': '*'} if only_if_absent else {}
+
         s3_client.put_object(
             Bucket=self.bucket_name,
             Key=key,
             Body=body.encode('UTF-8'),
             ContentType=content_type,
-            **encryption
+            **encryption,
+            **condition
         )
 
 class CompletionMarkers:
@@ -292,11 +311,18 @@ class CompletionMarkers:
         """
         collection_path = join(key_prefix, collection_id, '')
 
+        # A run writes its plan under the run directory before staging starts,
+        # so that directory does not count. It is one entry of a delimited
+        # listing, so two entries are enough to see past it.
         existing = s3_client.list_objects_v2(
-            Bucket=self.bucket_name, Prefix=collection_path, MaxKeys=1
+            Bucket=self.bucket_name, Prefix=collection_path, Delimiter='/', MaxKeys=2
         )
 
-        if existing.get('KeyCount'):
+        holds_objects = bool(existing.get('Contents')) or any(
+            not is_run_artifact_prefix(p['Prefix']) for p in existing.get('CommonPrefixes', [])
+        )
+
+        if holds_objects:
             logger.info(
                 f'Not recording a collection that already holds objects, so it is read '
                 f'without completeness checking [collection_path: {collection_path}]'
@@ -935,6 +961,9 @@ class S3BasedDocs(NodeHandler):
     num_threads:Optional[int]=None
     deterministic_document_key:bool=False
 
+    # Sources a resuming run has already staged whole.
+    skip_source_ids:Optional[Set[str]] = None
+
     _uploader:Any = PrivateAttr(default=None)
     _downloader:Any = PrivateAttr(default=None)
 
@@ -947,7 +976,8 @@ class S3BasedDocs(NodeHandler):
                  metadata_keys:Optional[List[str]]=None,
                  for_jsonl:Optional[bool]=False,
                  num_threads:Optional[int]=None,
-                 deterministic_document_key:bool=False):
+                 deterministic_document_key:bool=False,
+                 skip_source_ids:Optional[Set[str]]=None):
 
         # __init__ runs where GraphRAGConfig was configured; accept() runs in a
         # spawned worker that inherits no parent memory and reads back the
@@ -964,7 +994,8 @@ class S3BasedDocs(NodeHandler):
             metadata_keys=metadata_keys,
             for_jsonl=for_jsonl,
             num_threads=num_threads,
-            deterministic_document_key=deterministic_document_key
+            deterministic_document_key=deterministic_document_key,
+            skip_source_ids=skip_source_ids
         )
 
     def docs(self):
@@ -1090,9 +1121,74 @@ class S3BasedDocs(NodeHandler):
             uploader.record_collection(self.key_prefix, self.collection_id, GraphRAGConfig.s3)
             self._uploader = uploader
 
-        for doc in self._uploader.upload(source_documents):
+        skipped_count = 0
+
+        for doc, was_skipped in self._staged_in_order(source_documents):
             doc_count += 1
+            skipped_count += was_skipped
             yield doc
 
+        if skipped_count:
+            logger.info(f'Left {skipped_count} source documents an earlier run staged where they are')
+
         end = time.time()
-        logger.debug(f'Finished writing {doc_count} source documents to S3 [bucket: {self.bucket_name}, prefix: {collection_prefix}] ({end - start} seconds)')
+        logger.debug(f'Finished staging {doc_count} source documents [written: {doc_count - skipped_count}, already staged: {skipped_count}, bucket: {self.bucket_name}, prefix: {collection_prefix}] ({end - start} seconds)')
+
+    def _staged_in_order(self, source_documents:Iterable[SourceDocument]) -> Generator[Tuple[SourceDocument, bool], None, None]:
+        """
+        Every document, in the order it arrived, each with whether it was left
+        where an earlier run stored it. A skipped document is yielded in its
+        place: a caller downstream of this handler gets the stream in order and
+        nothing is held back until the uploads finish.
+
+        The input is read once. It is a generator in the pipeline, so the
+        documents to store are fed to the uploader as they arrive, and each
+        skipped document waits only until the stored document before it comes
+        back. The uploader yields one document per document it is handed, in
+        order, which is what lets the two streams be merged by position.
+
+        Storing a skipped document again would write the same bytes under the
+        same keys. Nothing that reads a listing can say a JSONL source is
+        stored whole, so that format skips nothing.
+        """
+        skippable = self.skip_source_ids if not self.for_jsonl else None
+
+        if not skippable:
+            for doc in self._uploader.upload(source_documents):
+                yield doc, False
+            return
+
+        skipped_before = deque()  # per document handed to the uploader
+        skipped_after_last = []
+        handed_every_document = False
+
+        def to_upload():
+            nonlocal handed_every_document
+            since = []
+            for doc in source_documents:
+                if doc.source_id() in skippable:
+                    since.append(doc)
+                else:
+                    skipped_before.append(since)
+                    since = []
+                    yield doc
+            skipped_after_last.extend(since)
+            handed_every_document = True
+
+        for stored in self._uploader.upload(to_upload()):
+            if not skipped_before:
+                raise RuntimeError('The uploader returned a document it was not handed')
+            for doc in skipped_before.popleft():
+                yield doc, True
+            yield stored, False
+
+        # An uploader that stopped early, or never read its input, would
+        # otherwise lose documents without a word.
+        if not handed_every_document or skipped_before:
+            raise RuntimeError(
+                f'The uploader stopped before returning every document it was handed '
+                f'[unreturned: {len(skipped_before)}, input exhausted: {handed_every_document}]'
+            )
+
+        for doc in skipped_after_last:
+            yield doc, True

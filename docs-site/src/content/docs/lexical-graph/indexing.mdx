@@ -204,7 +204,36 @@ The build stage skips a document whose markers do not account for the chunks sto
 
 A collection first written by a version that did not write markers is read as it stands, so documents already stored are not extracted a second time. Adding documents to such a collection leaves it that way; start a new `collection_id` to have the build stage check for incomplete documents.
 
-The identity under which the lexical-graph runs needs `s3:PutObject` and `s3:GetObject` on `arn:aws:s3:::<bucket>/<key_prefix>/*`, and `s3:ListBucket` on `arn:aws:s3:::<bucket>`. Both stages list the objects under a collection: the extract stage to decide what is already stored, the build stage to read a document's chunks and its markers. Without `s3:ListBucket` these listings fail with an access denied error.
+#### Restarting an interrupted extraction
+
+An extraction over a large corpus runs for hours or days, and a run that stops part way has paid for Bedrock batch jobs whose output is still in S3. Passing a `run_id` makes a run restartable: run it again with the same `run_id` and it takes up where the earlier run stopped rather than starting over.
+
+```python
+from graphrag_toolkit.lexical_graph.indexing.extract import RunPlanStore
+
+run_plan_store = RunPlanStore(
+    bucket_name='my-bucket',
+    key_prefix='extracted',
+    collection_id='my-collection'
+)
+
+graph_index.extract(
+    docs,
+    handler=run_plan_store.staging_handler('run-2026-09-24'),
+    run_id='run-2026-09-24',
+    run_plan_store=run_plan_store
+)
+```
+
+The run records three things under `s3://<bucket>/<key_prefix>/<collection_id>/_runs/<run_id>/`, beside the collection it stages into:
+
+- **A plan**, written once, before any work is submitted: the document ids in order and the batch size that divides them. A restart divides the input exactly as the first run did, even on a host with fewer cores, so it produces the same batch jobs. A restart whose `extraction_batch_size` or document set differs from the plan is refused with a `RunPlanMismatch`: that is a new run, not a restart of this one.
+- **A record per partition** naming the Bedrock batch job it submitted. On a restart, a partition whose job completed has its output downloaded rather than submitted again; a job still running is waited on, since it bills to its end either way; a job that failed, expired, or described fewer nodes than the partition holds is submitted again as the next attempt. When the run finishes, the records are folded into one `rollup.json`.
+- **Nothing new for staged documents.** `staging_handler` reads the collection and leaves alone every source document already stored whole, whichever run stored it, so the restart writes only what is missing. The JSONL format keeps chunk ids inside its objects where a listing cannot see them, so a JSONL handler stores everything again.
+
+The plan does not yet cover the auto-tuned batch extraction path; a run with a `run_id` and `auto_tune=True` raises a `ValueError`.
+
+The identity under which the lexical-graph runs needs `s3:PutObject`, `s3:GetObject` and `s3:DeleteObject` on `arn:aws:s3:::<bucket>/<key_prefix>/*`, and `s3:ListBucket` on `arn:aws:s3:::<bucket>`. `s3:DeleteObject` is used when a run with a `run_id` finishes and its partition records are folded into the rollup. Both stages list the objects under a collection: the extract stage to decide what is already stored, the build stage to read a document's chunks and its markers. Without `s3:ListBucket` these listings fail with an access denied error.
 
 If you use Amazon Web Services KMS keys to encrypt objects in S3, the identity under which the lexical-graph runs should include the following IAM policy. Replace `<kms-key-arn>` with the ARN of the KMS key you want to use to encrypt objects:
 
