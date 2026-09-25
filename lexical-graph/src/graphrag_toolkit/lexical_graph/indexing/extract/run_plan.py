@@ -5,14 +5,14 @@ import json
 import logging
 
 from collections import Counter
-from dataclasses import dataclass, field, asdict, fields
+from dataclasses import MISSING, dataclass, field, asdict, fields
 from os.path import join
 from typing import Any, Dict, List, Optional
 
 from botocore.exceptions import ClientError
 
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
-from graphrag_toolkit.lexical_graph.indexing.extract.run_store import RunArtifactStore
+from graphrag_toolkit.lexical_graph.indexing.extract.run_store import RunArtifactStore, RunRecordError
 
 logger = logging.getLogger(__name__)
 
@@ -58,7 +58,9 @@ class RunPlan:
         A plan read back from storage.
 
         Fields this version does not know are dropped, so a plan written by a
-        later build still restarts rather than failing on every attempt.
+        later build still restarts rather than failing on every attempt. A plan
+        that lost a field it cannot do without says which, rather than failing
+        as a missing argument.
         """
         recorded = json.loads(body)
         known = {f.name for f in fields(cls)}
@@ -66,6 +68,11 @@ class RunPlan:
         unknown = sorted(set(recorded) - known)
         if unknown:
             logger.warning(f'Ignoring run plan fields this version does not know {unknown}')
+
+        required = [f.name for f in fields(cls) if f.default is MISSING and f.default_factory is MISSING]
+        missing = [name for name in required if name not in recorded]
+        if missing:
+            raise RunRecordError(f'A run plan is missing {missing}')
 
         return cls(**{name: value for name, value in recorded.items() if name in known})
 

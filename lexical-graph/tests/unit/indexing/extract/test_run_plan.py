@@ -8,6 +8,7 @@ from unittest.mock import MagicMock
 
 from botocore.exceptions import ClientError
 
+from graphrag_toolkit.lexical_graph.indexing.extract.run_store import RunRecordError
 from graphrag_toolkit.lexical_graph.indexing.extract.run_plan import (
     RunPlan,
     RunPlanMismatch,
@@ -265,6 +266,13 @@ class TestAPlanSurvivesWhatStorageDoesToIt:
 
         with pytest.raises(RunPlanMismatch, match='batch_size'):
             _store().resolve(_plan(batch_size=16), mock_s3)
+
+    def test_a_plan_missing_a_field_it_needs_says_which(self):
+        recorded = json.loads(_plan().to_json())
+        del recorded['num_workers']
+
+        with pytest.raises(RunRecordError, match='num_workers'):
+            _store().resolve(_plan(), _s3_holding(body=json.dumps(recorded)))
 
     def test_a_plan_carrying_an_unknown_field_still_restarts(self, caplog):
         recorded = json.loads(_plan().to_json())

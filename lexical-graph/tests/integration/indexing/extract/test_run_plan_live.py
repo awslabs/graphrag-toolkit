@@ -61,10 +61,10 @@ def key_prefix():
         s3_client.delete_objects(Bucket=S3_TEST_BUCKET, Delete={'Objects': keys})
 
 
-def _store(key_prefix):
+def _store(prefix):
     return RunPlanStore(
         bucket_name=S3_TEST_BUCKET,
-        key_prefix=key_prefix,
+        key_prefix=prefix,
         collection_id=COLLECTION_ID,
     )
 

@@ -15,6 +15,10 @@ from graphrag_toolkit.lexical_graph.utils.id_validation import validate_id_segme
 logger = logging.getLogger(__name__)
 
 
+class RunRecordError(Exception):
+    """A record a run wrote that cannot be read back as one."""
+
+
 class RunArtifactStore(EncryptedPut):
     """
     Where a run keeps what it records about itself, beside the collection it
