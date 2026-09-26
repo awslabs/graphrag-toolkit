@@ -8,6 +8,7 @@ from typing import Dict, Any, Optional
 from benchmarks.scripts.integration_test_base import IntegrationTestBase
 from benchmarks.scripts.integration_test_handler import IntegrationTestHandler
 from benchmarks.utils.benchmark_env import env_bool, env_int, env_string
+from benchmarks.utils.doc_limit import apply_extraction_doc_limit, capped_expected_docs
 from benchmarks.utils.s3_utils import sync_benchmark_data_from_s3
 
 from graphrag_toolkit.lexical_graph import LexicalGraphIndex
@@ -90,6 +91,9 @@ def run_benchmark_extract(handler: IntegrationTestHandler,
     large datasets. Requires BATCH_INFERENCE_ROLE, S3_RESULTS_BUCKET,
     S3_RESULTS_PREFIX, and AWS_REGION_NAME environment variables.
 
+    BENCHMARK_EXTRACT_DOC_LIMIT caps how many documents are extracted, and
+    lowers the count asserted below to match.
+
     Args:
         handler: Integration test handler for recording assertions and output.
         dataset_name: Dataset key (e.g. 'concurrentqa', 'wikihow', 'pga').
@@ -155,7 +159,9 @@ def run_benchmark_extract(handler: IntegrationTestHandler,
         else:
             graph_index = LexicalGraphIndex(graph_store, vector_store)
 
-        docs = SimpleDirectoryReader(input_dir=input_path).load_data()
+        docs = apply_extraction_doc_limit(
+            SimpleDirectoryReader(input_dir=input_path).load_data()
+        )
         logger.info(f'Starting extraction for {len(docs)} documents')
 
         graph_index.extract(docs, handler=extracted_docs, show_progress=True)
@@ -168,7 +174,7 @@ def run_benchmark_extract(handler: IntegrationTestHandler,
         @classmethod
         def setUpClass(cls):
             cls._num_extracted = num_extracted
-            cls._expected_num_docs = expected_docs
+            cls._expected_num_docs = capped_expected_docs(expected_docs)
 
         def test_extracted_docs_exist(self):
             """At least one document was extracted"""
