@@ -34,7 +34,7 @@ See `integration-tests/env.template` for the full list of configuration variable
 - `BENCHMARK_DATA_S3_URI` — S3 URI containing your benchmark datasets
 - `BENCHMARK_DATA_DIR` — Local directory with benchmark data (alternative to S3)
 - `BENCHMARK_QA_LIMIT` — Limit QA pairs for quick prototype runs
-- `BENCHMARK_EXTRACT_DOC_LIMIT` — Cap the number of source documents extracted by the `batch_extract.py` tests (only the first N docs are extracted); speeds up benchmark runs
+- `BENCHMARK_EXTRACT_DOC_LIMIT` — Cap the number of source documents extracted, by the `batch_extract.py` tests and by the benchmark extract and build steps (only the first N docs are extracted, and the counts those steps assert drop to match); lets one corpus be run at several sizes
 - `BENCHMARK_IS_PROTOTYPE` — Use prototype (small) datasets
 - `BENCHMARK_DOC_STORE` — Where extracted documents are staged between extract and build: `file` (default) or `s3`
 - `BENCHMARK_S3_JSONL` — With `BENCHMARK_DOC_STORE=s3`, store one JSONL object per source document instead of one per chunk
