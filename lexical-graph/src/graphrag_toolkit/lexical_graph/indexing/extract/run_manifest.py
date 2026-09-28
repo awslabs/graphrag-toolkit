@@ -169,10 +169,28 @@ class RunManifestStore(RunArtifactStore):
         if body is None:
             return {}
 
-        return {
-            partition: PartitionRecord.from_json(json.dumps(record))
-            for partition, record in json.loads(body).get('partitions', {}).items()
-        }
+        try:
+            recorded = json.loads(body).get('partitions', {})
+        except (ValueError, AttributeError) as e:
+            logger.warning(f'Ignoring a rollup that cannot be read, its partitions will be redone [key: {self.rollup_key()}, error: {e!s}]')
+            return {}
+
+        partitions = {}
+        for partition, record in recorded.items():
+            readable = self._readable(json.dumps(record), self.rollup_key())
+            if readable is not None:
+                partitions[partition] = readable
+
+        return partitions
+
+    @staticmethod
+    def _readable(body:str, key:str) -> Optional[PartitionRecord]:
+        """The record, or None if it cannot be read, so its partition is redone."""
+        try:
+            return PartitionRecord.from_json(body)
+        except (ValueError, TypeError, RunRecordError) as e:
+            logger.warning(f'Ignoring a partition record that cannot be read, its partition will be redone [key: {key}, error: {e!s}]')
+            return None
 
     def list_partition_keys(self, s3_client) -> List[str]:
         prefix = join(self.run_path(self.run_id), PARTITION_DIR, '')
@@ -193,8 +211,9 @@ class RunManifestStore(RunArtifactStore):
             body = self._read_json(key, s3_client)
             if body is None:
                 continue
-            record = PartitionRecord.from_json(body)
-            partitions[record.partition_id] = record
+            record = self._readable(body, key)
+            if record is not None:
+                partitions[record.partition_id] = record
 
         return partitions
 

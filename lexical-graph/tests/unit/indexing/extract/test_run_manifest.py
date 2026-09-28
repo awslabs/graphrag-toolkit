@@ -266,6 +266,33 @@ class TestARecordThatCannotBeReadBack:
         assert PartitionRecord.from_json(body).partition_id == 'abc'
 
 
+class TestAnUnreadableRecordDoesNotSinkARestart:
+
+    def test_an_unreadable_partition_record_is_skipped(self):
+        store, s3_client = _store(), _s3_holding({})
+        store.write(_record('good', state=COMPLETE), s3_client)
+        s3_client.written[store.partition_key('bad')] = '{not json'
+
+        assert sorted(store.read_partitions(s3_client)) == ['good']
+
+    def test_an_unreadable_rollup_entry_is_skipped(self):
+        store, s3_client = _store(), _s3_holding({})
+        store.write(_record('good', state=COMPLETE), s3_client)
+        store.merge_rollup(s3_client)
+        rollup = json.loads(s3_client.written[store.rollup_key()])
+        rollup['partitions']['bad'] = {'partition_id': '../../elsewhere', 'attempt': 1, 'state': COMPLETE}
+        s3_client.written[store.rollup_key()] = json.dumps(rollup)
+
+        assert sorted(store.read_rollup(s3_client)) == ['good']
+
+    def test_an_unreadable_rollup_reads_as_empty(self):
+        store, s3_client = _store(), _s3_holding({})
+        s3_client.written[store.rollup_key()] = '{not json'
+        store.write(_record('good', state=SUBMITTED), s3_client)
+
+        assert sorted(store.read_partitions(s3_client)) == ['good']
+
+
 class TestAPartitionTheRollupAlreadyHolds:
     """
     merge_rollup folds a completed partition's record into the rollup and
