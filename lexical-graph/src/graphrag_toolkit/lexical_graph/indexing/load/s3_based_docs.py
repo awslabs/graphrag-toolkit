@@ -961,7 +961,7 @@ class S3BasedDocs(NodeHandler):
     num_threads:Optional[int]=None
     deterministic_document_key:bool=False
 
-    # Sources a resuming run has already staged whole.
+    # Sources already stored whole in the collection.
     skip_source_ids:Optional[Set[str]] = None
 
     _uploader:Any = PrivateAttr(default=None)
@@ -1129,28 +1129,20 @@ class S3BasedDocs(NodeHandler):
             yield doc
 
         if skipped_count:
-            logger.info(f'Left {skipped_count} source documents an earlier run staged where they are')
+            logger.info(f'Left {skipped_count} source documents already stored in the collection where they are')
 
         end = time.time()
         logger.debug(f'Finished staging {doc_count} source documents [written: {doc_count - skipped_count}, already staged: {skipped_count}, bucket: {self.bucket_name}, prefix: {collection_prefix}] ({end - start} seconds)')
 
     def _staged_in_order(self, source_documents:Iterable[SourceDocument]) -> Generator[Tuple[SourceDocument, bool], None, None]:
         """
-        Every document, in the order it arrived, each with whether it was left
-        where an earlier run stored it.
+        Every document in the order it arrived, each with whether it was
+        already stored in the collection. A skipped document comes out when the
+        stored document before it returns from the uploader, and those ahead of
+        the first stored document come out at once.
 
-        The input is read once, since the pipeline passes a generator. Skipped
-        documents ahead of the first one to store are yielded straight away.
-        After that, a skipped document waits until the stored document before
-        it comes back from the uploader, which parks documents until more than
-        num_threads * 2 chunks are in flight. Skipped documents after the last
-        stored one wait for the uploads to finish. The uploader yields one
-        document per document it is handed, in order, so the two streams merge
-        by position.
-
-        Storing a skipped document again would write the same bytes under the
-        same keys. Nothing that reads a listing can say a JSONL source is
-        stored whole, so that format skips nothing.
+        A listing cannot show a JSONL source is stored whole, so that format
+        skips nothing.
         """
         skippable = self.skip_source_ids if not self.for_jsonl else None
 
