@@ -6,6 +6,6 @@ llama-index-readers-file>=0.7.0
 llama-index-readers-s3>=0.7.0
 psycopg2-binary>=2.9.13
 pgvector>=0.5.0
-sentence-transformers>=6.0.1
+sentence-transformers>=6.1.0
 torch>=2.14.0
 aiobotocore>=3.9.1
