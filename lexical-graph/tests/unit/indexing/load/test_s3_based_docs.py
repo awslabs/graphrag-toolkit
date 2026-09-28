@@ -1369,7 +1369,10 @@ class TestTheCollectionRecordsThatItIsMarked:
 
     def _s3_holding(self, key_count):
         mock_s3 = MagicMock()
-        mock_s3.list_objects_v2.return_value = {'KeyCount': key_count}
+        mock_s3.list_objects_v2.return_value = {
+            'KeyCount': key_count,
+            'CommonPrefixes': [{'Prefix': f'p/c/doc-{i}/'} for i in range(key_count)],
+        }
         return mock_s3
 
     def test_an_empty_collection_is_recorded(self):

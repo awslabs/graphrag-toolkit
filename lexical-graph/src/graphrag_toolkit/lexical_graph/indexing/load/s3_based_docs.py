@@ -114,9 +114,17 @@ COLLECTION_RECORD_NAME = '_staging.json'
 # Extension the chunk uploader adds to a node id to key its object.
 _CHUNK_SUFFIX = '.json'
 
+# Holds what a run records about itself. A listing delimited on '/' returns it
+# as a prefix, so it is filtered out rather than read as a source document.
+RUN_ARTIFACT_DIR = '_runs'
+
 
 def collection_record_key(key_prefix:str, collection_id:str) -> str:
     return join(key_prefix, collection_id, COLLECTION_RECORD_NAME)
+
+
+def is_run_artifact_prefix(prefix:str) -> bool:
+    return basename(prefix.rstrip('/')) == RUN_ARTIFACT_DIR
 
 
 def list_collection(bucket_name:str, key_prefix:str, collection_id:str, paginator) -> Tuple[List[str], bool]:
@@ -137,6 +145,7 @@ def list_collection(bucket_name:str, key_prefix:str, collection_id:str, paginato
     for page in paginator.paginate(Bucket=bucket_name, Prefix=collection_path, Delimiter='/'):
         source_doc_prefixes.extend(
             source_doc_obj['Prefix'] for source_doc_obj in page.get('CommonPrefixes', [])
+            if not is_run_artifact_prefix(source_doc_obj['Prefix'])
         )
         recorded = recorded or any(
             obj['Key'] == record_key for obj in page.get('Contents', [])
@@ -218,19 +227,29 @@ class EncryptedPut:
     bucket_name:str
     s3_encryption_key_id:Optional[str]
 
-    def _put(self, key:str, body:str, content_type:str, s3_client):
+    def _put(self, key:str, body:str, content_type:str, s3_client, only_if_absent:bool=False):
+        """
+        Store one object.
+
+        ``only_if_absent`` makes the write conditional, so a writer racing
+        another for the same key fails rather than overwriting what the winner
+        stored.
+        """
         encryption = (
             {'ServerSideEncryption': 'aws:kms', 'SSEKMSKeyId': self.s3_encryption_key_id}
             if self.s3_encryption_key_id
             else {'ServerSideEncryption': 'AES256'}
         )
 
+        condition = {'IfNoneMatch': '*'} if only_if_absent else {}
+
         s3_client.put_object(
             Bucket=self.bucket_name,
             Key=key,
             Body=body.encode('UTF-8'),
             ContentType=content_type,
-            **encryption
+            **encryption,
+            **condition
         )
 
 class CompletionMarkers:
@@ -292,11 +311,18 @@ class CompletionMarkers:
         """
         collection_path = join(key_prefix, collection_id, '')
 
+        # A run writes its plan under the run directory before staging starts,
+        # so that directory does not count. It is one entry of a delimited
+        # listing, so two entries are enough to see past it.
         existing = s3_client.list_objects_v2(
-            Bucket=self.bucket_name, Prefix=collection_path, MaxKeys=1
+            Bucket=self.bucket_name, Prefix=collection_path, Delimiter='/', MaxKeys=2
         )
 
-        if existing.get('KeyCount'):
+        holds_objects = bool(existing.get('Contents')) or any(
+            not is_run_artifact_prefix(p['Prefix']) for p in existing.get('CommonPrefixes', [])
+        )
+
+        if holds_objects:
             logger.info(
                 f'Not recording a collection that already holds objects, so it is read '
                 f'without completeness checking [collection_path: {collection_path}]'
