@@ -13,6 +13,8 @@ uuid and empty text rather than rejecting it.
 
 import json
 
+from collections import deque
+
 import pytest
 from unittest.mock import Mock, patch
 
@@ -655,13 +657,19 @@ class TestARunResumingItsOwnWork:
             region='us-east-1', bucket_name='b', key_prefix='p', collection_id='c',
             for_jsonl=for_jsonl, skip_source_ids=skip_source_ids,
         )
-        # An uploader that yields what it is given, in order, and remembers it.
+        # Holds its first three documents, as S3ChunkUploader parks documents
+        # until enough chunks are in flight.
         uploader = Mock()
         uploader.uploaded = []
         def upload(docs):
+            held = deque()
             for doc in docs:
                 uploader.uploaded.append(doc.source_id())
-                yield doc
+                held.append(doc)
+                if len(held) > 3:
+                    yield held.popleft()
+            while held:
+                yield held.popleft()
         uploader.upload.side_effect = upload
         handler._uploader = uploader
         return handler
@@ -701,14 +709,20 @@ class TestARunResumingItsOwnWork:
         assert handler._uploader.uploaded == [SOURCE_ID]
 
     def test_skipped_documents_keep_their_place_in_the_stream(self):
-        # Skipped in the middle, not held to the end: the build downstream
-        # reads the stream in order and nothing waits on the uploads.
         handler = self._handler(skip_source_ids={'aws::b', 'aws::d'})
 
         out = [d.source_id() for d in handler.accept(self._docs('aws::a', 'aws::b', 'aws::c', 'aws::d', 'aws::e'))]
 
         assert out == ['aws::a', 'aws::b', 'aws::c', 'aws::d', 'aws::e']
         assert handler._uploader.uploaded == ['aws::a', 'aws::c', 'aws::e']
+
+    def test_skipped_documents_ahead_of_the_first_stored_one_are_not_held(self):
+        handler = self._handler(skip_source_ids={'aws::a', 'aws::b'})
+
+        out = handler.accept(self._docs('aws::a', 'aws::b', 'aws::c'))
+
+        assert [next(out).source_id(), next(out).source_id()] == ['aws::a', 'aws::b']
+        assert handler._uploader.uploaded == []
 
     def test_the_input_is_read_once_so_a_generator_is_not_lost(self):
         # In the pipeline accept() is handed a generator, not a list. A second

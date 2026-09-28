@@ -14,7 +14,7 @@ import concurrent.futures
 from collections import deque
 from os.path import basename, dirname, join
 from datetime import datetime
-from itertools import repeat, islice
+from itertools import chain, repeat, islice
 from threading import Semaphore
 from typing import List, Any, Generator, Iterable, Optional, Dict, Callable, Set, Tuple
 
@@ -1137,15 +1137,16 @@ class S3BasedDocs(NodeHandler):
     def _staged_in_order(self, source_documents:Iterable[SourceDocument]) -> Generator[Tuple[SourceDocument, bool], None, None]:
         """
         Every document, in the order it arrived, each with whether it was left
-        where an earlier run stored it. A skipped document is yielded in its
-        place: a caller downstream of this handler gets the stream in order and
-        nothing is held back until the uploads finish.
+        where an earlier run stored it.
 
-        The input is read once. It is a generator in the pipeline, so the
-        documents to store are fed to the uploader as they arrive, and each
-        skipped document waits only until the stored document before it comes
-        back. The uploader yields one document per document it is handed, in
-        order, which is what lets the two streams be merged by position.
+        The input is read once, since the pipeline passes a generator. Skipped
+        documents ahead of the first one to store are yielded straight away.
+        After that, a skipped document waits until the stored document before
+        it comes back from the uploader, which parks documents until more than
+        num_threads * 2 chunks are in flight. Skipped documents after the last
+        stored one wait for the uploads to finish. The uploader yields one
+        document per document it is handed, in order, so the two streams merge
+        by position.
 
         Storing a skipped document again would write the same bytes under the
         same keys. Nothing that reads a listing can say a JSONL source is
@@ -1158,6 +1159,15 @@ class S3BasedDocs(NodeHandler):
                 yield doc, False
             return
 
+        documents = iter(source_documents)
+        for doc in documents:
+            if doc.source_id() not in skippable:
+                documents = chain([doc], documents)
+                break
+            yield doc, True
+        else:
+            return
+
         skipped_before = deque()  # per document handed to the uploader
         skipped_after_last = []
         handed_every_document = False
@@ -1165,7 +1175,7 @@ class S3BasedDocs(NodeHandler):
         def to_upload():
             nonlocal handed_every_document
             since = []
-            for doc in source_documents:
+            for doc in documents:
                 if doc.source_id() in skippable:
                     since.append(doc)
                 else:
