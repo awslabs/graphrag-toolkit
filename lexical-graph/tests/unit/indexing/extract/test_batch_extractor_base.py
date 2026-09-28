@@ -206,16 +206,39 @@ class TestAJobThatDidNotComplete:
         assert submit.called
         assert '-a2-' in submit.call_args.kwargs['job_name']
 
-    def test_a_job_that_cannot_be_read_is_resubmitted(self, tmp_path):
-        # An account that lost sight of the job, rather than a job that failed.
-        # Resubmitting costs a job; trusting it costs the chunks.
+    def test_a_job_that_cannot_be_described_is_answered_by_its_output(self, tmp_path):
         store = _store(record=_record(SUBMITTED))
         bedrock_client = Mock()
-        bedrock_client.get_model_invocation_job.side_effect = RuntimeError('denied')
+        bedrock_client.get_model_invocation_job.side_effect = RuntimeError('service unavailable')
 
-        _, submit = _run(_extractor(manifest_store=store, tmp_path=tmp_path), bedrock_client)
+        results, submit = _run(_extractor(manifest_store=store, tmp_path=tmp_path), bedrock_client)
+
+        assert not submit.called
+        assert results == _extracted()
+        assert [(r.state, r.attempt) for r in store.written] == [(COMPLETE, 1)]
+
+    def test_a_job_that_cannot_be_described_and_left_no_output_is_resubmitted(self, tmp_path):
+        store = _store(record=_record(SUBMITTED))
+        bedrock_client = Mock()
+        bedrock_client.get_model_invocation_job.side_effect = RuntimeError('service unavailable')
+        downloads = iter([RuntimeError('no such folder')])
+
+        def download(*args, **kwargs):
+            outcome = next(downloads, None)
+            if outcome:
+                raise outcome
+
+        with (
+            patch(f'{MODULE}.create_and_run_batch_job') as submit,
+            patch(f'{MODULE}.download_output_files', side_effect=download),
+            patch(f'{MODULE}.process_batch_output_sync', return_value=_extracted()),
+        ):
+            list(_extractor(manifest_store=store, tmp_path=tmp_path)._process_single_batch(
+                0, _nodes(), Mock(), bedrock_client
+            ))
 
         assert submit.called
+        assert '-a2-' in submit.call_args.kwargs['job_name']
 
     def test_a_record_with_no_job_is_resubmitted(self, tmp_path):
         # The run died between writing the record and creating the job.

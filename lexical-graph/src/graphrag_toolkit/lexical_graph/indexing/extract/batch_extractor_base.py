@@ -154,8 +154,9 @@ class BatchExtractorBase(BaseExtractor):
 
         A job still running is waited on: it will bill whether or not it is
         resubmitted, so waiting is the cheaper of the two. A completed job is
-        downloaded and has to answer for every node in the partition. Anything
-        else, including an output that cannot be read, counts as having produced
+        downloaded and has to answer for every node in the partition. A job that
+        cannot be described is judged by its output alone. Anything else,
+        including an output that cannot be read, counts as having produced
         nothing: the assumption that costs a resubmission rather than a silent gap.
         """
         if not record.job_arn or not record.output_path:
@@ -164,7 +165,11 @@ class BatchExtractorBase(BaseExtractor):
         try:
             status = bedrock_client.get_model_invocation_job(jobIdentifier=record.job_arn)['status']
         except Exception as e:
-            return self._resubmitting(record, f'Could not read the job an earlier run submitted [error: {e!s}]', logging.WARNING)
+            logger.warning(
+                f'[{self.description} batch] Could not describe the job an earlier run submitted, '
+                f'reading its output instead [partition: {record.partition_id}, job_name: {record.job_name}, error: {e!s}]'
+            )
+            status = None
 
         if status in LIVE_JOB_STATES:
             logger.info(
@@ -178,7 +183,7 @@ class BatchExtractorBase(BaseExtractor):
             except BatchJobError as e:
                 return self._resubmitting(record, f'The job an earlier run left running did not complete [error: {e!s}]')
 
-        if status != 'Completed':
+        if status not in ('Completed', None):
             return self._resubmitting(record, f'An earlier run left this partition in {status}')
 
         logger.info(
