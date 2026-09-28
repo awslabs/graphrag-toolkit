@@ -56,7 +56,7 @@ class Coordinates:
         so the resume test exercises that rather than a handler assembled by
         hand.
         """
-        return self.store.staging_handler(self.run_id, GraphRAGConfig.s3, region=self.region)
+        return self.store.staging_handler(self.run_id, region=self.region)
 
     def reader(self):
         """
@@ -425,7 +425,7 @@ class ResumeInterruptedExtraction(RestartTest):
             # The JSONL format keeps its node ids inside the objects, where
             # a listing cannot reach them, so it is answered with nothing.
             jsonl_handler = run_plan_store.staging_handler(
-                run_id, GraphRAGConfig.s3, region=run.region, for_jsonl=True
+                run_id, region=run.region, for_jsonl=True
             )
 
             handler.add_output('resume_report', report.describe())

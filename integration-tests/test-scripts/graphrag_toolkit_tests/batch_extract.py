@@ -368,7 +368,7 @@ class BatchExtractWithRunPlanToS3(IntegrationTestBase):
                 graph_index.extract(
                     docs,
                     handler=run_plan_store.staging_handler(
-                        run_id, GraphRAGConfig.s3, region=aws_region_name
+                        run_id, region=aws_region_name
                     ),
                     show_progress=True,
                     run_id=run_id,
@@ -387,7 +387,7 @@ class BatchExtractWithRunPlanToS3(IntegrationTestBase):
                 graph_index.extract(
                     docs,
                     handler=run_plan_store.staging_handler(
-                        run_id, GraphRAGConfig.s3, region=aws_region_name
+                        run_id, region=aws_region_name
                     ),
                     show_progress=True,
                     run_id=run_id,
