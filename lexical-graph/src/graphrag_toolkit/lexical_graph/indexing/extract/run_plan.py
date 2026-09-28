@@ -127,7 +127,10 @@ class RunPlanStore(RunArtifactStore):
         region = handler_kwargs.pop('region', None) or GraphRAGConfig.aws_region
         for_jsonl = handler_kwargs.get('for_jsonl', False)
 
-        report = plan_resume(self.manifest_store(run_id), GraphRAGConfig.s3, for_jsonl=for_jsonl)
+        report = plan_resume(
+            self.manifest_store(run_id), GraphRAGConfig.s3,
+            for_jsonl=for_jsonl, num_threads=handler_kwargs.get('num_threads'),
+        )
 
         return S3BasedDocs(
             region=region,

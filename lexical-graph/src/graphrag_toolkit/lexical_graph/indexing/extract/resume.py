@@ -1,11 +1,15 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
+import concurrent.futures
 import logging
 
+from collections import deque
 from dataclasses import dataclass, field
 from os.path import join
-from typing import Dict, List, Set
+from typing import Dict, List, Optional, Set
+
+from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
 
 from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import (
     chunk_id_from_key,
@@ -18,7 +22,7 @@ logger = logging.getLogger(__name__)
 
 
 def staged_source_ids(bucket_name:str, key_prefix:str, collection_id:str, s3_client,
-                      for_jsonl:bool=False) -> Set[str]:
+                      for_jsonl:bool=False, num_threads:Optional[int]=None) -> Set[str]:
     """
     The sources a collection already holds whole, whichever run stored them.
 
@@ -32,6 +36,9 @@ def staged_source_ids(bucket_name:str, key_prefix:str, collection_id:str, s3_cli
     nothing but the keys of the source in hand is held. A directory bucket does
     not list in order, and is not a store this format targets.
 
+    Marker reads run on num_threads threads alongside the listing, with at
+    most twice that many sources queued.
+
     The JSONL format keeps its node ids inside the objects, where a listing
     cannot reach them, so it is answered with nothing.
     """
@@ -39,36 +46,54 @@ def staged_source_ids(bucket_name:str, key_prefix:str, collection_id:str, s3_cli
         logger.debug('The JSONL format keeps its node ids where a listing cannot reach them')
         return set()
 
+    if num_threads is None:
+        num_threads = GraphRAGConfig.extraction_num_threads_per_worker
+
     collection_path = join(key_prefix, collection_id, '')
     staged = set()
+    comparisons = deque()
 
-    def settle(source_id, chunk_keys, marker_keys):
-        if not (source_id and chunk_keys and marker_keys):
-            return
+    def compare(source_id, chunk_keys, marker_keys):
         source_doc_prefix = join(collection_path, source_id, '')
         chunk_ids = [chunk_id_from_key(key, source_doc_prefix) for key in chunk_keys]
-        if is_complete(chunk_ids, marker_keys, bucket_name, s3_client):
+        return source_id, is_complete(chunk_ids, marker_keys, bucket_name, s3_client)
+
+    def collect_oldest():
+        source_id, complete = comparisons.popleft().result()
+        if complete:
             staged.add(source_id)
 
-    current, chunk_keys, marker_keys = None, [], []
+    with concurrent.futures.ThreadPoolExecutor(max_workers=num_threads) as executor:
 
-    for page in s3_client.get_paginator('list_objects_v2').paginate(
-        Bucket=bucket_name, Prefix=collection_path
-    ):
-        for obj in page.get('Contents', []):
-            key = obj['Key']
-            source_id = key[len(collection_path):].split('/')[0]
+        def settle(source_id, chunk_keys, marker_keys):
+            if not (source_id and chunk_keys and marker_keys):
+                return
+            comparisons.append(executor.submit(compare, source_id, chunk_keys, marker_keys))
+            while len(comparisons) > num_threads * 2:
+                collect_oldest()
 
-            if source_id != current:
-                settle(current, chunk_keys, marker_keys)
-                current, chunk_keys, marker_keys = source_id, [], []
+        current, chunk_keys, marker_keys = None, [], []
 
-            if is_completion_marker(key):
-                marker_keys.append(key)
-            else:
-                chunk_keys.append(key)
+        for page in s3_client.get_paginator('list_objects_v2').paginate(
+            Bucket=bucket_name, Prefix=collection_path
+        ):
+            for obj in page.get('Contents', []):
+                key = obj['Key']
+                source_id = key[len(collection_path):].split('/')[0]
 
-    settle(current, chunk_keys, marker_keys)
+                if source_id != current:
+                    settle(current, chunk_keys, marker_keys)
+                    current, chunk_keys, marker_keys = source_id, [], []
+
+                if is_completion_marker(key):
+                    marker_keys.append(key)
+                else:
+                    chunk_keys.append(key)
+
+        settle(current, chunk_keys, marker_keys)
+
+        while comparisons:
+            collect_oldest()
 
     return staged
 
@@ -109,7 +134,8 @@ class ResumeReport:
         return f'Starting a new run [run_id: {self.run_id}]'
 
 
-def plan_resume(manifest_store, s3_client, for_jsonl:bool=False) -> ResumeReport:
+def plan_resume(manifest_store, s3_client, for_jsonl:bool=False,
+                num_threads:Optional[int]=None) -> ResumeReport:
     """
     What an earlier run of this id left behind, read before any work is
     submitted so an operator sees what a long run is about to redo.
@@ -125,7 +151,8 @@ def plan_resume(manifest_store, s3_client, for_jsonl:bool=False) -> ResumeReport
 
     staged = staged_source_ids(
         manifest_store.bucket_name, manifest_store.key_prefix,
-        manifest_store.collection_id, s3_client, for_jsonl=for_jsonl
+        manifest_store.collection_id, s3_client, for_jsonl=for_jsonl,
+        num_threads=num_threads,
     )
 
     report = ResumeReport(

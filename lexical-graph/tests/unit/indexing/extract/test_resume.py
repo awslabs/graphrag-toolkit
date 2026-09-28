@@ -12,6 +12,8 @@ call per document, which at a million documents is its own scale problem.
 """
 
 import json
+import threading
+import time
 
 from unittest.mock import Mock, PropertyMock, patch
 
@@ -134,6 +136,45 @@ class TestWhichSourcesAreAlreadyStaged:
 
         assert staged == {'src-1', 'src-2', 'src-3'}
         assert s3_client.get_paginator.call_count == 1, 'one listing, not one call per document'
+
+    def test_the_markers_are_read_at_once_rather_than_one_source_at_a_time(self):
+        # Each read waits for all three to start, so serial reads never finish.
+        s3_client = _collection({'src-1': ['c1'], 'src-2': ['c2'], 'src-3': ['c3']})
+        serve = s3_client.download_fileobj.side_effect
+        all_started = threading.Barrier(3, timeout=5)
+
+        def download_fileobj(bucket, key, stream):
+            all_started.wait()
+            serve(bucket, key, stream)
+
+        s3_client.download_fileobj.side_effect = download_fileobj
+
+        staged = staged_source_ids(BUCKET, KEY_PREFIX, COLLECTION_ID, s3_client, num_threads=3)
+
+        assert staged == {'src-1', 'src-2', 'src-3'}
+
+    def test_no_more_markers_are_read_at_once_than_the_thread_count(self):
+        s3_client = _collection({f'src-{n}': [f'c{n}'] for n in range(8)})
+        serve = s3_client.download_fileobj.side_effect
+        lock = threading.Lock()
+        running, most = 0, 0
+
+        def download_fileobj(bucket, key, stream):
+            nonlocal running, most
+            with lock:
+                running += 1
+                most = max(most, running)
+            time.sleep(0.01)
+            serve(bucket, key, stream)
+            with lock:
+                running -= 1
+
+        s3_client.download_fileobj.side_effect = download_fileobj
+
+        staged = staged_source_ids(BUCKET, KEY_PREFIX, COLLECTION_ID, s3_client, num_threads=2)
+
+        assert len(staged) == 8
+        assert most == 2
 
     def test_the_jsonl_format_is_not_answered_for(self):
         # Its node ids live inside the objects, so a listing cannot account for
