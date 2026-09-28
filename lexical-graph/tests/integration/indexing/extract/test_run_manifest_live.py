@@ -258,7 +258,7 @@ class TestARunResumingItsOwnWork:
             key_prefix=key_prefix,
             collection_id=COLLECTION_ID,
         )
-        handler = plan_store.staging_handler(RUN_ID, GraphRAGConfig.s3, region=REGION)
+        handler = plan_store.staging_handler(RUN_ID, region=REGION)
 
         list(handler.accept([_doc('src-1'), _doc('src-2')]))
 

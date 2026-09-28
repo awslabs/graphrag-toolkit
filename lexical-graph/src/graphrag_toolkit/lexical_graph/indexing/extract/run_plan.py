@@ -106,7 +106,7 @@ class RunPlanStore(RunArtifactStore):
             s3_encryption_key_id=self.s3_encryption_key_id,
         )
 
-    def staging_handler(self, run_id:str, s3_client=None, **handler_kwargs) -> 'S3BasedDocs':
+    def staging_handler(self, run_id:str, **handler_kwargs) -> 'S3BasedDocs':
         """
         Where this run stages its documents, skipping whatever an earlier
         attempt of the same run already stored whole.
@@ -124,11 +124,10 @@ class RunPlanStore(RunArtifactStore):
         from graphrag_toolkit.lexical_graph.indexing.extract.resume import plan_resume
         from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import S3BasedDocs
 
-        s3_client = s3_client if s3_client is not None else GraphRAGConfig.s3
         region = handler_kwargs.pop('region', None) or GraphRAGConfig.aws_region
         for_jsonl = handler_kwargs.get('for_jsonl', False)
 
-        report = plan_resume(self.manifest_store(run_id), s3_client, for_jsonl=for_jsonl)
+        report = plan_resume(self.manifest_store(run_id), GraphRAGConfig.s3, for_jsonl=for_jsonl)
 
         return S3BasedDocs(
             region=region,
