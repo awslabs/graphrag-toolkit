@@ -176,6 +176,21 @@ class TestWhichSourcesAreAlreadyStaged:
         assert len(staged) == 8
         assert most == 2
 
+    def test_a_marker_that_cannot_be_read_leaves_its_source_to_be_staged_again(self):
+        s3_client = _collection({'src-1': ['c1'], 'src-2': ['c2'], 'src-3': ['c3']})
+        serve = s3_client.download_fileobj.side_effect
+
+        def download_fileobj(bucket, key, stream):
+            if '/src-2/' in key:
+                raise RuntimeError('service unavailable')
+            serve(bucket, key, stream)
+
+        s3_client.download_fileobj.side_effect = download_fileobj
+
+        staged = staged_source_ids(BUCKET, KEY_PREFIX, COLLECTION_ID, s3_client, num_threads=2)
+
+        assert staged == {'src-1', 'src-3'}
+
     def test_the_jsonl_format_is_not_answered_for(self):
         # Its node ids live inside the objects, so a listing cannot account for
         # them and the run stores its documents again.

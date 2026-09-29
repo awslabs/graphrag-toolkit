@@ -38,6 +38,7 @@ def staged_source_ids(bucket_name:str, key_prefix:str, collection_id:str, s3_cli
 
     Marker reads run on num_threads threads alongside the listing, with at
     most twice that many sources queued.
+    A source whose markers cannot be read is staged again.
 
     The JSONL format keeps its node ids inside the objects, where a listing
     cannot reach them, so it is answered with nothing.
@@ -56,7 +57,11 @@ def staged_source_ids(bucket_name:str, key_prefix:str, collection_id:str, s3_cli
     def compare(source_id, chunk_keys, marker_keys):
         source_doc_prefix = join(collection_path, source_id, '')
         chunk_ids = [chunk_id_from_key(key, source_doc_prefix) for key in chunk_keys]
-        return source_id, is_complete(chunk_ids, marker_keys, bucket_name, s3_client)
+        try:
+            return source_id, is_complete(chunk_ids, marker_keys, bucket_name, s3_client)
+        except Exception as e:
+            logger.warning(f'Could not read the markers for a source, it will be staged again [source_id: {source_id}, error: {e!s}]')
+            return source_id, False
 
     def collect_oldest():
         source_id, complete = comparisons.popleft().result()
