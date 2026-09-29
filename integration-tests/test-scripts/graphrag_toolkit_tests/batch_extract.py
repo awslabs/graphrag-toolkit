@@ -479,7 +479,8 @@ class BatchExtractWithRunPlanToS3(IntegrationTestBase):
 
             # Only once the assertions have passed: on the failure path the
             # job's input and output are what there is to diagnose from.
-            delete_prefix(s3_results_bucket, f'{batch_inference_prefix}/')
+            if handler.props['test_results'].get('passed', False):
+                delete_prefix(s3_results_bucket, f'{batch_inference_prefix}/')
 
         finally:
             # The staged collection goes on every path. Nothing downstream
