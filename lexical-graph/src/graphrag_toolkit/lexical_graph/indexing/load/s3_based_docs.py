@@ -14,9 +14,9 @@ import concurrent.futures
 from collections import deque
 from os.path import basename, dirname, join
 from datetime import datetime
-from itertools import repeat, islice
+from itertools import chain, repeat, islice
 from threading import Semaphore
-from typing import List, Any, Generator, Optional, Dict, Callable, Set, Tuple
+from typing import List, Any, Generator, Iterable, Optional, Dict, Callable, Set, Tuple
 
 from graphrag_toolkit.lexical_graph.indexing import NodeHandler
 from graphrag_toolkit.lexical_graph.indexing.utils.hash_utils import get_hash
@@ -961,6 +961,9 @@ class S3BasedDocs(NodeHandler):
     num_threads:Optional[int]=None
     deterministic_document_key:bool=False
 
+    # Sources already stored whole in the collection.
+    skip_source_ids:Optional[Set[str]] = None
+
     _uploader:Any = PrivateAttr(default=None)
     _downloader:Any = PrivateAttr(default=None)
 
@@ -973,7 +976,8 @@ class S3BasedDocs(NodeHandler):
                  metadata_keys:Optional[List[str]]=None,
                  for_jsonl:Optional[bool]=False,
                  num_threads:Optional[int]=None,
-                 deterministic_document_key:bool=False):
+                 deterministic_document_key:bool=False,
+                 skip_source_ids:Optional[Set[str]]=None):
 
         # __init__ runs where GraphRAGConfig was configured; accept() runs in a
         # spawned worker that inherits no parent memory and reads back the
@@ -990,7 +994,8 @@ class S3BasedDocs(NodeHandler):
             metadata_keys=metadata_keys,
             for_jsonl=for_jsonl,
             num_threads=num_threads,
-            deterministic_document_key=deterministic_document_key
+            deterministic_document_key=deterministic_document_key,
+            skip_source_ids=skip_source_ids
         )
 
     def docs(self):
@@ -1116,9 +1121,76 @@ class S3BasedDocs(NodeHandler):
             uploader.record_collection(self.key_prefix, self.collection_id, GraphRAGConfig.s3)
             self._uploader = uploader
 
-        for doc in self._uploader.upload(source_documents):
+        skipped_count = 0
+
+        for doc, was_skipped in self._staged_in_order(source_documents):
             doc_count += 1
+            skipped_count += was_skipped
             yield doc
 
+        if skipped_count:
+            logger.info(f'Left {skipped_count} source documents already stored in the collection where they are')
+
         end = time.time()
-        logger.debug(f'Finished writing {doc_count} source documents to S3 [bucket: {self.bucket_name}, prefix: {collection_prefix}] ({end - start} seconds)')
+        logger.debug(f'Finished staging {doc_count} source documents [written: {doc_count - skipped_count}, already staged: {skipped_count}, bucket: {self.bucket_name}, prefix: {collection_prefix}] ({end - start} seconds)')
+
+    def _staged_in_order(self, source_documents:Iterable[SourceDocument]) -> Generator[Tuple[SourceDocument, bool], None, None]:
+        """
+        Every document in the order it arrived, each with whether it was
+        already stored in the collection. A skipped document comes out when the
+        stored document before it returns from the uploader, and those ahead of
+        the first stored document come out at once.
+
+        A listing cannot show a JSONL source is stored whole, so that format
+        skips nothing.
+        """
+        skippable = self.skip_source_ids if not self.for_jsonl else None
+
+        if not skippable:
+            for doc in self._uploader.upload(source_documents):
+                yield doc, False
+            return
+
+        documents = iter(source_documents)
+        for doc in documents:
+            if doc.source_id() not in skippable:
+                documents = chain([doc], documents)
+                break
+            yield doc, True
+        else:
+            return
+
+        skipped_before = deque()  # per document handed to the uploader
+        skipped_after_last = []
+        handed_every_document = False
+
+        def to_upload():
+            nonlocal handed_every_document
+            since = []
+            for doc in documents:
+                if doc.source_id() in skippable:
+                    since.append(doc)
+                else:
+                    skipped_before.append(since)
+                    since = []
+                    yield doc
+            skipped_after_last.extend(since)
+            handed_every_document = True
+
+        for stored in self._uploader.upload(to_upload()):
+            if not skipped_before:
+                raise RuntimeError('The uploader returned a document it was not handed')
+            for doc in skipped_before.popleft():
+                yield doc, True
+            yield stored, False
+
+        # An uploader that stopped early, or never read its input, would
+        # otherwise lose documents without a word.
+        if not handed_every_document or skipped_before:
+            raise RuntimeError(
+                f'The uploader stopped before returning every document it was handed '
+                f'[unreturned: {len(skipped_before)}, input exhausted: {handed_every_document}]'
+            )
+
+        for doc in skipped_after_last:
+            yield doc, True

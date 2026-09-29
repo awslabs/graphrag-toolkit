@@ -7,12 +7,15 @@ import logging
 from collections import Counter
 from dataclasses import MISSING, dataclass, field, asdict, fields
 from os.path import join
-from typing import Any, Dict, List, Optional
+from typing import TYPE_CHECKING, Any, Dict, List, Optional
 
 from botocore.exceptions import ClientError
 
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.indexing.extract.run_store import RunArtifactStore, RunRecordError
+
+if TYPE_CHECKING:
+    from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import S3BasedDocs
 
 logger = logging.getLogger(__name__)
 
@@ -101,6 +104,42 @@ class RunPlanStore(RunArtifactStore):
             collection_id=self.collection_id,
             run_id=run_id,
             s3_encryption_key_id=self.s3_encryption_key_id,
+        )
+
+    def staging_handler(self, run_id:str, **handler_kwargs) -> 'S3BasedDocs':
+        """
+        Where this run stages its documents, skipping whatever an earlier
+        attempt of the same run already stored whole.
+
+        The store names the collection, so the handler and the records cannot
+        disagree about which one they mean, and the operator has one call
+        rather than four ordered ones. The skip is the collection's, not the
+        run's: a source an earlier run of any id stored whole is left where it
+        is. A run pointed at an empty collection skips nothing, so this is how
+        a first run builds its handler too.
+
+        The pipeline cannot do this itself: it holds the records, and the
+        handler is composed separately downstream of it.
+        """
+        from graphrag_toolkit.lexical_graph.indexing.extract.resume import plan_resume
+        from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import S3BasedDocs
+
+        region = handler_kwargs.pop('region', None) or GraphRAGConfig.aws_region
+        for_jsonl = handler_kwargs.get('for_jsonl', False)
+
+        report = plan_resume(
+            self.manifest_store(run_id), GraphRAGConfig.s3,
+            for_jsonl=for_jsonl, num_threads=handler_kwargs.get('num_threads'),
+        )
+
+        return S3BasedDocs(
+            region=region,
+            bucket_name=self.bucket_name,
+            key_prefix=self.key_prefix,
+            collection_id=self.collection_id,
+            s3_encryption_key_id=self.s3_encryption_key_id,
+            skip_source_ids=report.staged_source_ids,
+            **handler_kwargs,
         )
 
     def read(self, run_id:str, s3_client) -> Optional[RunPlan]:

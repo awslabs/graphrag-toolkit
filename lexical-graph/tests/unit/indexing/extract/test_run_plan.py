@@ -329,3 +329,18 @@ def _body_of(plan):
     stream = MagicMock()
     stream.read.return_value = plan.to_json().encode('UTF-8')
     return {'Body': stream}
+
+
+class TestWhatAnOperatorCanReach:
+    """
+    An operator constructs the store and catches the refusal, so both are
+    reached from the package the way every other example in the docs is.
+    """
+
+    def test_the_store_and_the_refusal_are_reachable_from_the_package(self):
+        from graphrag_toolkit.lexical_graph.indexing import extract
+
+        assert (extract.RunPlanStore, extract.RunPlanMismatch) == (RunPlanStore, RunPlanMismatch)
+
+    def test_a_run_stages_through_a_handler_the_store_builds(self):
+        assert callable(RunPlanStore.staging_handler)
