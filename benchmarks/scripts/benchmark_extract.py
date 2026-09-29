@@ -3,12 +3,15 @@
 import os
 import logging
 import unittest
+import uuid
 from typing import Dict, Any, Optional
 
 from benchmarks.scripts.integration_test_base import IntegrationTestBase
 from benchmarks.scripts.integration_test_handler import IntegrationTestHandler
 from benchmarks.utils.benchmark_env import env_bool, env_int, env_string
 from benchmarks.utils.s3_utils import sync_benchmark_data_from_s3
+from benchmarks.utils.doc_limit import apply_extraction_doc_limit, capped_expected_docs
+from benchmarks.scripts.restart_profile import restarts_from_env, run_with_restarts
 
 from graphrag_toolkit.lexical_graph import LexicalGraphIndex
 from graphrag_toolkit.lexical_graph import GraphRAGConfig, IndexingConfig
@@ -16,6 +19,7 @@ from graphrag_toolkit.lexical_graph.storage import GraphStoreFactory
 from graphrag_toolkit.lexical_graph.storage import VectorStoreFactory
 from graphrag_toolkit.lexical_graph.storage.graph import NonRedactedGraphQueryLogFormatting
 from graphrag_toolkit.lexical_graph.indexing.load import FileBasedDocs, S3BasedDocs
+from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import is_run_artifact_prefix
 from graphrag_toolkit.lexical_graph.indexing.extract import BatchConfig
 
 from llama_index.core import SimpleDirectoryReader
@@ -32,6 +36,10 @@ def _count_source_docs(extracted_docs) -> int:
     Iterating S3BasedDocs downloads every object it lists - ~16.5k GETs on the
     WikiHow run purely to produce a number. Source documents are one key prefix
     each in both layouts, so a delimiter listing counts them without bodies.
+
+    A run that records a plan keeps it under the collection, and the delimited
+    listing returns that as a prefix too, so it is filtered out the way the
+    library's own collection listing filters it.
     """
     if not isinstance(extracted_docs, S3BasedDocs):
         return sum(1 for _ in extracted_docs)
@@ -43,7 +51,12 @@ def _count_source_docs(extracted_docs) -> int:
         Bucket=extracted_docs.bucket_name, Prefix=collection_path, Delimiter='/'
     )
 
-    return sum(len(page.get('CommonPrefixes', [])) for page in pages)
+    return sum(
+        1
+        for page in pages
+        for prefix in page.get('CommonPrefixes', [])
+        if not is_run_artifact_prefix(prefix['Prefix'])
+    )
 
 
 def apply_extraction_config():
@@ -155,10 +168,76 @@ def run_benchmark_extract(handler: IntegrationTestHandler,
         else:
             graph_index = LexicalGraphIndex(graph_store, vector_store)
 
-        docs = SimpleDirectoryReader(input_dir=input_path).load_data()
+        docs = apply_extraction_doc_limit(
+            SimpleDirectoryReader(input_dir=input_path).load_data()
+        )
         logger.info(f'Starting extraction for {len(docs)} documents')
 
-        graph_index.extract(docs, handler=extracted_docs, show_progress=True)
+        restarts = restarts_from_env(len(docs))
+
+        if not restarts:
+            graph_index.extract(docs, handler=extracted_docs, show_progress=True)
+        else:
+            if doc_store != 's3':
+                # The plan and the records live beside the collection, and a
+                # restart decides what to skip by reading it back.
+                raise ValueError(
+                    'BENCHMARK_RESTARTS needs BENCHMARK_DOC_STORE=s3; a restart reads '
+                    f'the collection it is resuming, and this run stores to {doc_store}'
+                )
+
+            if extracted_docs.for_jsonl:
+                # JSONL keeps its node ids inside the objects, where the listing
+                # a resume reads cannot see them, so a resume of a JSONL
+                # collection skips nothing and every run restages from the
+                # first document. The profile would report per-run counts that
+                # look like progress and restart timings that are really the
+                # cost of staging the same documents again.
+                raise ValueError(
+                    'BENCHMARK_RESTARTS cannot be used with BENCHMARK_S3_JSONL; a resume '
+                    'of a JSONL collection skips nothing, so every run would restage from '
+                    'the first document and the profile would measure duplicate staging'
+                )
+
+            # Imported here, not at module scope: a run with no restarts must
+            # not need the restart feature present to load this module.
+            from graphrag_toolkit.lexical_graph.indexing.extract.run_plan import RunPlanStore
+
+            run_plan_store = RunPlanStore(
+                bucket_name=extracted_docs.bucket_name,
+                key_prefix=extracted_docs.key_prefix,
+                collection_id=extracted_docs.collection_id,
+            )
+            run_id = f'bench{uuid.uuid4().hex[:8]}'
+            handler.add_output('run_id', run_id)
+
+            def extract_once(documents, staging_handler):
+                graph_index.extract(
+                    documents,
+                    handler=staging_handler,
+                    show_progress=True,
+                    run_id=run_id,
+                    run_plan_store=run_plan_store,
+                )
+
+            def new_staging_handler():
+                return run_plan_store.staging_handler(
+                    run_id,
+                    region=os.environ['AWS_REGION_NAME'],
+                    for_jsonl=extracted_docs.for_jsonl,
+                )
+
+            report = run_with_restarts(extract_once, new_staging_handler, docs, restarts)
+
+            for name, value in report.as_output().items():
+                handler.add_output(name, value)
+
+            # Read from the records rather than by listing Bedrock, which needs
+            # a permission that cannot be scoped to this run's jobs.
+            records = run_plan_store.manifest_store(run_id).read_partitions(GraphRAGConfig.s3)
+            handler.add_output('partitions', len(records))
+            handler.add_output('jobs_submitted', len({r.job_arn for r in records.values() if r.job_arn}))
+            handler.add_output('max_attempt', max([r.attempt for r in records.values()], default=0))
 
     num_extracted = _count_source_docs(extracted_docs)
     handler.add_output('num_extracted_docs', num_extracted)
@@ -168,7 +247,7 @@ def run_benchmark_extract(handler: IntegrationTestHandler,
         @classmethod
         def setUpClass(cls):
             cls._num_extracted = num_extracted
-            cls._expected_num_docs = expected_docs
+            cls._expected_num_docs = capped_expected_docs(expected_docs)
 
         def test_extracted_docs_exist(self):
             """At least one document was extracted"""

@@ -295,3 +295,47 @@ class TestVariableNameIsPinned:
     @pytest.mark.parametrize('name', ['EXTRACTION_NUM_WORKERS', 'EXTRACTION_BATCH_SIZE'])
     def test_harness_exports_the_extraction_variables(self, name):
         assert name in self.BUILD_TESTS.read_text()
+
+
+class TestTheDocumentCapIsApplied:
+    """
+    The cap has two halves in this file, and each is useless alone: capping the
+    documents without lowering the asserted count turns every capped run into a
+    failed assertion on the full corpus's size, and lowering the count without
+    capping the documents extracts the whole corpus anyway.
+    """
+
+    def test_loaded_documents_pass_through_the_cap(self):
+        fn = _function('run_benchmark_extract')
+        capped = [
+            n for n in ast.walk(fn)
+            if isinstance(n, ast.Call)
+            and getattr(n.func, 'id', None) == 'apply_extraction_doc_limit'
+        ]
+        assert capped, (
+            'run_benchmark_extract does not pass its loaded documents through '
+            'apply_extraction_doc_limit, so BENCHMARK_EXTRACT_DOC_LIMIT is inert'
+        )
+        assert any(
+            isinstance(arg, ast.Call)
+            and getattr(arg.func, 'attr', None) == 'load_data'
+            for call in capped
+            for arg in call.args
+        ), 'the cap is applied to something other than the reader\'s documents'
+
+    def test_the_asserted_count_is_capped_too(self):
+        fn = _function('run_benchmark_extract')
+        assert any(
+            isinstance(n, ast.Call)
+            and getattr(n.func, 'id', None) == 'capped_expected_docs'
+            for n in ast.walk(fn)
+        ), (
+            'the expected document count is not capped, so a capped run asserts '
+            'the full corpus size and fails'
+        )
+
+    def test_harness_exports_the_cap(self):
+        assert 'BENCHMARK_EXTRACT_DOC_LIMIT' in TestVariableNameIsPinned.BUILD_TESTS.read_text(), (
+            'build-tests.sh does not export BENCHMARK_EXTRACT_DOC_LIMIT, so the '
+            'cap never reaches the notebook'
+        )
