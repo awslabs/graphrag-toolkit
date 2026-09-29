@@ -38,6 +38,12 @@ See `integration-tests/env.template` for the full list of configuration variable
 - `BENCHMARK_IS_PROTOTYPE` — Use prototype (small) datasets
 - `BENCHMARK_DOC_STORE` — Where extracted documents are staged between extract and build: `file` (default) or `s3`
 - `BENCHMARK_S3_JSONL` — With `BENCHMARK_DOC_STORE=s3`, store one JSONL object per source document instead of one per chunk
+- `BENCHMARK_RESTARTS` — Interrupt extraction this many times and restart it under the same run id, or `every-document` for one interruption per document. Needs `BENCHMARK_DOC_STORE=s3`, since a restart reads the collection it is resuming, and is refused with `BENCHMARK_S3_JSONL`, since a JSONL collection keeps its node ids where the listing a resume reads cannot see them. Unset is a single uninterrupted run, the baseline the restart profiles are compared against. The results carry `first_run_seconds`, `restart_seconds` and `documents_staged_per_run`
+
+Two things to know before quoting restart numbers:
+
+- **Pair `every-document` with `BENCHMARK_EXTRACT_DOC_LIMIT`.** Every run rebuilds its staging handler, which reads the manifest and lists a collection that keeps growing, so the listing work alone grows with the square of the document count. On the full NTSB corpus `every-document` is 1,103 runs. Measure the per-restart overhead at 100 documents and multiply it out before committing to a larger slice.
+- **An interruption is cheaper than a crash.** The run is stopped by raising inside the staging generator, and tearing that down runs the uploader's `ThreadPoolExecutor.__exit__`, which waits for the chunk uploads already in flight. A process killed outright does not. Restart timings are therefore slightly optimistic against a real crash.
 - `EXISTING_VPC_ID` / `EXISTING_SUBNET_IDS` — Reuse an existing VPC to avoid quota limits
 
 ## S3 Data Layout
