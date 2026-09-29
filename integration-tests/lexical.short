@@ -18,6 +18,8 @@ query_gpu.RerankingBeamGraphSearchGPU
 extract_and_build.ExtractAndBuild
 checkpoint.ExtractWithCheckpoint
 checkpoint.BuildWithCheckpoint
+run_restart.ExtractWithRunPlan
+run_restart.ResumeInterruptedExtraction
 falkordb.TestFalkorDBContrib 
 batch_fallback.BatchExtractToS3Fallback
 delete_sources.DeleteSourceDocs
