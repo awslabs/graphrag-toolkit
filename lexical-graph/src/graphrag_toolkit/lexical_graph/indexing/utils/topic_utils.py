@@ -44,6 +44,30 @@ def remove_articles(s:str):
     return s
 
 
+def parse_extracted_topics_json(raw_text: str) -> Tuple[TopicCollection, List[str]]:
+    """Parse JSON-formatted topic extraction output into a TopicCollection.
+
+    Returns:
+        Tuple of (TopicCollection, garbage list). Garbage is empty on success,
+        or contains the error message on failure.
+    """
+    import json
+
+    text = raw_text.strip()
+    # Strip markdown code fences if present
+    if text.startswith('```'):
+        lines = text.split('\n')
+        lines = [l for l in lines if not l.strip().startswith('```')]
+        text = '\n'.join(lines)
+
+    try:
+        data = json.loads(text)
+        tc = TopicCollection(**data)
+        return (tc, [])
+    except Exception as e:
+        return (TopicCollection(topics=[]), [f'JSON_PARSE_ERROR: {e}'])
+
+
 def parse_extracted_topics(raw_text:str) -> Tuple[TopicCollection, List[str]]:
     
     garbage = []
