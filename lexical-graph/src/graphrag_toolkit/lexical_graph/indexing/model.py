@@ -128,14 +128,35 @@ class Entity(BaseModel):
             attribute.
         classification (Optional[str]): Optional classification or category of
             the entity. Defaults to None.
+        classIri (Optional[str]): IRI of the ontology class this entity's
+            classification resolved to, when an ontology was configured and the
+            filter resolved it. Defaults to None.
+        datatype (Optional[str]): XSD datatype IRI for a complement entity whose
+            predicate resolved to a datatype property. Defaults to None.
     """
     model_config = ConfigDict(strict=True)
-    
+
     entityId: Optional[str]=None
     altEntityId: Optional[str]=None
 
     value: str
     classification: Optional[str]=None
+
+    # Ontology annotations. Written once by `OntologyFilter` during extraction and
+    # never recomputed downstream, so the build stage needs no
+    # ontology knowledge and a checkpoint cannot lose them.
+    #
+    # Plain `str`, never `rdflib.URIRef`: this metadata goes through `json.dump`
+    # in `file_based_docs.py` and through `mp_context='spawn'` pickling, and
+    # `ConfigDict(strict=True)` above is in the path too. Because `URIRef`
+    # subclasses `str`, strict mode *accepts and coerces* one rather than
+    # rejecting it, which is the behaviour that matters here.
+    #
+    # Declared rather than relied on as extras: `strict=True` with pydantic's
+    # default `extra='ignore'` silently discards undeclared keys at both
+    # `model_dump()` and `model_validate()`.
+    classIri: Optional[str]=None
+    datatype: Optional[str]=None
 
 class Relation(BaseModel):
     """
@@ -149,10 +170,21 @@ class Relation(BaseModel):
         model_config (ConfigDict): Configuration dictionary enforcing a strict
             model behavior.
         value (str): The value representing the relation.
+        propertyIri (Optional[str]): IRI of the ontology property this relation
+            resolved to. Defaults to None.
+        canonicalName (Optional[str]): The resolved property's `local_name`, which
+            is the key typed-property storage writes under. Defaults to None.
     """
     model_config = ConfigDict(strict=True)
 
     value: str
+
+    # See `Entity` above for why these are declared, optional, and plain `str`.
+    # `canonicalName` is separate from `propertyIri` because the IRI is the
+    # identity and the local name is the storage key - a graph property cannot be
+    # keyed on a full IRI.
+    propertyIri: Optional[str]=None
+    canonicalName: Optional[str]=None
 
 EntityType = Union[Entity, str]
 

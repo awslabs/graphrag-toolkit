@@ -171,7 +171,22 @@ def create_property_assigment_fn_for_neptune(key:str, value:Any) -> Callable[[st
         try:
             format_datetime(value)
             return lambda x: f'datetime({x})'
-        except ValueError as e:
+        except (TypeError, ValueError, OverflowError):
+            # `TypeError` as well as `ValueError`, because `is_datetime_key` keys on
+            # the property *name* and says nothing about the value's type, while
+            # `format_datetime` hands a non-string straight to `dateutil.parse`,
+            # which raises `TypeError`. Unreachable while every property came from
+            # document metadata, where values are strings; typed properties
+            # (`typed_properties`) are the first source of native ints, floats and
+            # bools, so an ontology property named `founded_date` with a numeric
+            # range would otherwise abort the build here rather than fall back to
+            # a plain assignment.
+            #
+            # `OverflowError` because `dateutil.parse` raises it, not `ValueError`,
+            # for a numeric string too large for a C long ('9' * 20). Nothing
+            # between here and `build_pipeline` catches it -
+            # `graph_construction` re-raises - so it would kill the run mid-batch,
+            # and unlike document metadata this value came from LLM output.
             return lambda x: x
     else:
         return lambda x: x
