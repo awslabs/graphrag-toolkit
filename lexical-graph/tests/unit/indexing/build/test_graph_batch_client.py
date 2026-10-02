@@ -121,6 +121,52 @@ class TestGraphBatchClientExecuteQuery:
 
 
 class TestGraphBatchClientOperations:
+    @pytest.mark.parametrize('properties', [{}, None])
+    def test_parameterless_operation_raises_when_batching(self, mock_neptune_store, properties):
+        client = GraphBatchClient(mock_neptune_store, True, 10)
+
+        with pytest.raises(ValueError, match='Cannot batch a parameterless query with a graph operation'):
+            client.execute_query_with_retry(
+                'MERGE (n:`__Entity__`) // awsqid:entity',
+                properties,
+                operation=GraphQueryOperation.UPSERT_ENTITY,
+            )
+
+        assert client.batches == {}
+        assert client.parameterless_queries == {}
+        mock_neptune_store.execute_query_with_retry.assert_not_called()
+
+    def test_parameterless_operation_executes_when_batching_disabled(self, mock_neptune_store):
+        client = GraphBatchClient(mock_neptune_store, False, 10)
+        query = 'MERGE (n:`__Entity__`)'
+
+        client.execute_query_with_retry(
+            query,
+            {},
+            operation=GraphQueryOperation.UPSERT_ENTITY,
+        )
+
+        mock_neptune_store.execute_query_with_retry.assert_called_once_with(
+            query, {}, operation=GraphQueryOperation.UPSERT_ENTITY,
+        )
+
+    @pytest.mark.parametrize('kwargs', [{}, {'operation': None}])
+    def test_parameterless_native_query_is_batched(self, mock_neptune_store, kwargs):
+        client = GraphBatchClient(mock_neptune_store, True, 10)
+        query = 'MERGE (n:`__Entity__`) // awsqid:entity'
+
+        client.execute_query_with_retry(query, {}, **kwargs)
+        mock_neptune_store.execute_query_with_retry.assert_not_called()
+
+        client.apply_batch_operations()
+
+        mock_neptune_store.execute_query_with_retry.assert_called_once_with(
+            '// parameterless queries\nMERGE (n:`__Entity__`)',
+            {},
+            max_attempts=10,
+            max_wait=7,
+        )
+
     def test_batch_forwards_operation(self, mock_neptune_store):
         client = GraphBatchClient(mock_neptune_store, True, 10)
 

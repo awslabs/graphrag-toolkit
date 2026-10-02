@@ -512,6 +512,7 @@ class GraphStore(BaseModel):
 
     def _execute_operation(self, operation:GraphQueryOperation, query:str, parameters:Dict[str, Any], correlation_id=None, **kwargs) -> List[Any]:
         """Execute the existing native query for stores without an override."""
+        # Existing _execute_query implementations do not accept tenant_id or other operation context.
         return self._execute_query(query, parameters, correlation_id=correlation_id)
 
     

@@ -143,6 +143,11 @@ class GraphBatchClient():
                     self.batches[query].extend(properties['params'])
                 elif kwargs.get('operation') is None:
                     self._add_parameterless_query(query)
+                else:
+                    raise ValueError(
+                        'Cannot batch a parameterless query with a graph operation; '
+                        "provide a 'params' wrapper or disable batch writes."
+                    )
             elif isinstance(query, QueryTree):
                 properties = properties or {'params':[]}
                 if query.id not in self.batches:
