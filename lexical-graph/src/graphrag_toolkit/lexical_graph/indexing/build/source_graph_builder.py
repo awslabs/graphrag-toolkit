@@ -4,7 +4,7 @@
 import logging
 from typing import Any
 
-from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
+from graphrag_toolkit.lexical_graph.storage.graph import GraphQueryOperation, GraphStore
 from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import escape_cypher_label
 from graphrag_toolkit.lexical_graph.indexing.build.graph_builder import GraphBuilder
 from graphrag_toolkit.lexical_graph.versioning import VALID_FROM, VALID_TO, VERSION_INDEPENDENT_ID_FIELDS
@@ -119,7 +119,11 @@ class SourceGraphBuilder(GraphBuilder):
             # key of the same name can't override the merge key.
             properties = {**clean_metadata, 'sourceId': source_id}
 
-            graph_client.execute_query_with_retry(query, self._to_params(properties))
+            graph_client.execute_query_with_retry(
+                query,
+                self._to_params(properties),
+                operation=GraphQueryOperation.UPSERT_SOURCE,
+            )
 
             # prev_source_ids = source_metadata.get('prev_versions', [])
 
