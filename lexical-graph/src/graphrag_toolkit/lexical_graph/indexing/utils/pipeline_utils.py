@@ -2,7 +2,9 @@
 # SPDX-License-Identifier: Apache-2.0
 
 from pipe import Pipe
+import logging
 import multiprocessing
+import pickle
 from concurrent.futures import ProcessPoolExecutor
 from functools import partial
 from typing import List, Optional, Sequence, Any, cast, Callable, Generator, Union
@@ -14,9 +16,12 @@ from llama_index.core.schema import BaseNode, Document
 
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.utils import llm_concurrency
+from graphrag_toolkit.lexical_graph.logging import apply_logging_config, get_applied_logging_config
+
+logger = logging.getLogger(__name__)
 
 
-def _init_worker(config_snapshot):
+def _init_worker(config_snapshot, logging_config=None):
     """Re-apply the parent's GraphRAGConfig scalars in a spawn-started worker.
 
     spawn re-imports config.py in a clean interpreter, so the GraphRAGConfig
@@ -25,9 +30,49 @@ def _init_worker(config_snapshot):
     the ambient role) and mis-placing data (s3_chunk_store -> None falls back to
     the in-graph chunk store, dropping the intended KMS CMK). Re-applying the
     snapshot keeps workers consistent with the parent.
+
+    The logging config needs the same treatment for the same reason, and is
+    passed separately because it is `logging.config.dictConfig` state rather
+    than a GraphRAGConfig field. Without it a worker's root logger sits at
+    WARNING with no handler but `lastResort`, so anything an extraction
+    component logs below WARNING is discarded - and extraction components run
+    *only* in workers, which makes their INFO logging unreachable rather than
+    merely quiet. None means the parent never configured logging, in which case
+    the worker is left at the interpreter default.
     """
     GraphRAGConfig.apply_config_snapshot(config_snapshot)
+    apply_logging_config(logging_config)
 
+
+def _picklable_logging_config(logging_config):
+    """Return `logging_config` if a spawn worker can receive it, else None.
+
+    Both initargs cross the spawn boundary, but only `config_snapshot` was
+    checked: `GraphRAGConfig.get_config_snapshot` pickle-tests each field and
+    warns rather than propagating a value that would fail. This gives the logging
+    config the same treatment. A `dictConfig` is usually plain data, but nothing
+    stops one holding a filter or formatter *instance*, and an unpicklable initarg
+    fails at worker startup - before any transform runs, with a traceback pointing
+    at multiprocessing rather than at logging.
+
+    Degrading to None is the right failure: the worker is left at the interpreter
+    default rather than the run being lost over a log line.
+    """
+    if logging_config is None:
+        return None
+
+    try:
+        pickle.dumps(logging_config)
+    except Exception:
+        logger.warning(
+            'The applied logging config is not picklable, so it cannot be '
+            'propagated to spawn-started extraction workers. Those workers will '
+            'use the interpreter default, and anything an extraction component '
+            'logs below WARNING will be discarded.'
+        )
+        return None
+
+    return logging_config
 
 def _sink():
     def _sink_from(generator):
@@ -72,11 +117,12 @@ def run_pipeline(
     # which also drops the GraphRAGConfig singleton's programmatically-set
     # values - so propagate a picklable snapshot via the worker initializer.
     config_snapshot = GraphRAGConfig.get_config_snapshot()
+    logging_config = _picklable_logging_config(get_applied_logging_config())
     with ProcessPoolExecutor(
         max_workers=num_workers,
         mp_context=multiprocessing.get_context('spawn'),
         initializer=_init_worker,
-        initargs=(config_snapshot,),
+        initargs=(config_snapshot, logging_config),
     ) as p:
         processed_node_batches = p.map(transform, node_batches)
         

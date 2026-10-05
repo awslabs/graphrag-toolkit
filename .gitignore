@@ -53,3 +53,7 @@ examples/lexical-graph-hybrid-dev/notebooks/output.log
 examples/lexical-graph-hybrid-dev/notebooks/run_notebooks.py
 examples/lexical-graph-local-dev/notebooks/run_notebooks.py
 .kiro/
+
+# Ad-hoc run logs, wherever they land. Two specific notebook paths were
+# already listed above; this covers the rest.
+output.log

@@ -1,0 +1,7 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+#
+# Not parseable Turtle. The prefix is never declared and the
+# final statement is unterminated.
+
+:Company a owl:Class ;
