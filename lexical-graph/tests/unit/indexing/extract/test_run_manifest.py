@@ -34,6 +34,7 @@ BUCKET = 'b'
 KEY_PREFIX = 'p'
 COLLECTION_ID = 'c'
 RUN_ID = 'run-1'
+JOB_ARN = 'arn:aws:bedrock:us-east-1:123456789012:model-invocation-job/8fd2n4x1kqpz'
 
 
 def _record(partition='abc', state=SUBMITTED, attempt=1, **kwargs):
@@ -145,10 +146,10 @@ class TestReadingWhatARunRecorded:
 
     def test_a_record_reads_back_as_it_was_written(self):
         store, s3_client = _store(), _s3_holding({})
-        store.write(_record(job_name='j', job_arn='arn', output_path='out/'), s3_client)
+        store.write(_record(job_name='j', job_arn=JOB_ARN, output_path='out/'), s3_client)
 
         assert store.read('abc', s3_client) == _record(
-            job_name='j', job_arn='arn', output_path='out/'
+            job_name='j', job_arn=JOB_ARN, output_path='out/'
         )
 
     def test_the_last_write_for_a_partition_wins(self):
@@ -342,3 +343,67 @@ class TestRemovingTheRecordsTheRollupTookOver:
             len(call.kwargs['Delete']['Objects']) <= MAX_KEYS_PER_DELETE
             for call in s3_client.delete_objects.call_args_list
         )
+
+
+class TestARecordWhoseFieldsWouldSendARestartElsewhere:
+    """
+    A restart hands the recorded fields to Bedrock and to S3 without looking:
+    the job arn picks the job it reads a status from, and the input filename
+    picks the output folder it downloads and the local files it parses. The
+    record is the only place those arrive from, and whoever can write under the
+    run prefix writes them.
+    """
+
+    @pytest.mark.parametrize('input_filename', [
+        'inputs/in.jsonl', '../in.jsonl', '..', '.', '', 'a/b',
+    ])
+    def test_an_input_filename_that_is_not_a_plain_name_is_refused(self, input_filename):
+        body = json.dumps({
+            'partition_id': 'abc', 'attempt': 1, 'state': SUBMITTED, 'input_filename': input_filename
+        })
+
+        with pytest.raises(RunRecordError, match='input_filename'):
+            PartitionRecord.from_json(body)
+
+    @pytest.mark.parametrize('job_arn', [
+        'arn:job',
+        'arn:aws:bedrock:us-east-1:123456789012:evaluation-job/abc123',
+        'arn:aws:s3:us-east-1:123456789012:model-invocation-job/abc123',
+        'arn:aws:bedrock:us-east-1:123456789012:model-invocation-job/',
+        f'{JOB_ARN} and whatever else',
+        f'not an arn, but holds {JOB_ARN}',
+        '',
+    ])
+    def test_a_job_arn_that_does_not_name_a_model_invocation_job_is_refused(self, job_arn):
+        body = json.dumps({
+            'partition_id': 'abc', 'attempt': 1, 'state': SUBMITTED, 'job_arn': job_arn
+        })
+
+        with pytest.raises(RunRecordError, match='job_arn'):
+            PartitionRecord.from_json(body)
+
+    def test_the_fields_a_run_writes_read_back(self):
+        body = json.dumps({
+            'partition_id': 'abc', 'attempt': 1, 'state': SUBMITTED,
+            'job_arn': JOB_ARN,
+            'input_filename': 'topic-extraction-20260101-120000-batch-0-ab12e.jsonl',
+            'output_path': 'batch-topics/20260101-120000/0-ab12e/outputs/',
+        })
+
+        record = PartitionRecord.from_json(body)
+
+        assert record.input_filename == 'topic-extraction-20260101-120000-batch-0-ab12e.jsonl'
+
+    def test_a_record_from_a_build_that_kept_no_job_still_reads(self):
+        body = json.dumps({'partition_id': 'abc', 'attempt': 1, 'state': SUBMITTED})
+
+        assert PartitionRecord.from_json(body).job_arn is None
+
+    def test_such_a_record_is_skipped_rather_than_sinking_a_restart(self):
+        store, s3_client = _store(), _s3_holding({})
+        store.write(_record('good', state=COMPLETE), s3_client)
+        s3_client.written[store.partition_key('bad')] = json.dumps({
+            'partition_id': 'bad', 'attempt': 1, 'state': COMPLETE, 'input_filename': '../in.jsonl'
+        })
+
+        assert sorted(store.read_partitions(s3_client)) == ['good']
