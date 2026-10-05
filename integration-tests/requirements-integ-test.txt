@@ -8,4 +8,4 @@ psycopg2-binary>=2.9.13
 pgvector>=0.5.0
 sentence-transformers>=6.1.0
 torch>=2.14.1
-aiobotocore>=3.9.1
+aiobotocore>=3.9.2
