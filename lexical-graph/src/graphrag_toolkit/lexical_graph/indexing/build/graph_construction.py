@@ -5,7 +5,9 @@ import logging
 from tqdm import tqdm
 from typing import Any, List, Union
 
+from graphrag_toolkit.lexical_graph import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.indexing.build.graph_builder import GraphBuilder
+from graphrag_toolkit.lexical_graph.indexing.source_id_collision import SourceIdClaims
 from graphrag_toolkit.lexical_graph.indexing.node_handler import NodeHandler
 from graphrag_toolkit.lexical_graph.indexing.build.graph_batch_client import GraphBatchClient
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
@@ -138,6 +140,9 @@ class GraphConstruction(NodeHandler):
         logger.debug(f'Batch config: [batch_writes_enabled: {batch_writes_enabled}, batch_write_size: {batch_write_size}]')
         logger.debug(f'Graph construction kwargs: {kwargs}')
 
+        detect_collisions = GraphRAGConfig.detect_source_id_collisions
+        claims = SourceIdClaims()
+
         with GraphBatchClient(self.graph_client, batch_writes_enabled=batch_writes_enabled, batch_write_size=batch_write_size) as batch_client:
         
             node_iterable = nodes if not self.show_progress else tqdm(nodes, desc=f'Building graph [batch_writes_enabled: {batch_writes_enabled}, batch_write_size: {batch_write_size}]')
@@ -152,6 +157,9 @@ class GraphConstruction(NodeHandler):
                     
                         index = node.metadata[INDEX_KEY]['index']
                         builders = builders_dict.get(index, None)
+
+                        if detect_collisions and index == SourceGraphBuilder.index_key():
+                            claims.add(node)
 
                         if builders:
                             for builder in builders:
@@ -170,6 +178,9 @@ class GraphConstruction(NodeHandler):
                     yield node
 
             batch_nodes = batch_client.apply_batch_operations()
+
+            claims.verify(self.graph_client)
+
             for node in batch_nodes:
                 yield node
 

@@ -7,6 +7,7 @@ from typing import Any
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
 from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import escape_cypher_label
 from graphrag_toolkit.lexical_graph.indexing.build.graph_builder import GraphBuilder
+from graphrag_toolkit.lexical_graph.indexing.constants import SOURCE_HASH_PARAM, SOURCE_HASH_PROPERTY
 from graphrag_toolkit.lexical_graph.versioning import VALID_FROM, VALID_TO, VERSION_INDEPENDENT_ID_FIELDS
 from graphrag_toolkit.lexical_graph.versioning import EXTRACT_TIMESTAMP, BUILD_TIMESTAMP, PREV_VERSIONS
 from graphrag_toolkit.lexical_graph.metadata import format_metadata_list
@@ -108,16 +109,33 @@ class SourceGraphBuilder(GraphBuilder):
                 assigment = f'params.`{escape_cypher_label(key)}`'
                 return metadata_assignments_fns[key](assigment)
 
-            if clean_metadata:
-                all_properties = ', '.join(f'source.`{escape_cypher_label(key)}` = {format_assigment(key)}' for key,_ in clean_metadata.items())
+            assignments = [f'source.`{escape_cypher_label(key)}` = {format_assigment(key)}' for key in clean_metadata]
+
+            # A later write that carries a different hash changes neither the hash nor
+            # the metadata, so the document that claimed an id keeps it. That holds per
+            # query: one batched UNWIND reads owner for every row before any row's SET,
+            # and its last row wins. The hash binds to a reserved parameter, so a
+            # metadata key named sourceHash cannot displace it.
+            source_hash = source_metadata.get(SOURCE_HASH_PROPERTY)
+
+            if source_hash:
+                statements.append(f'WITH source, params, source.{SOURCE_HASH_PROPERTY} AS owner')
+                statements.append(f'WHERE owner IS NULL OR owner = params.`{SOURCE_HASH_PARAM}`')
+                if assignments:
+                    statements.append(f'SET {", ".join(assignments)}')
+                statements.append(f'SET source.{SOURCE_HASH_PROPERTY} = coalesce(owner, params.`{SOURCE_HASH_PARAM}`)')
+            elif assignments:
+                all_properties = ', '.join(assignments)
                 statements.append(f'ON CREATE SET {all_properties} ON MATCH SET {all_properties}')
-            
+
             query = '\n'.join(statements)
 
             # Bind sourceId as a param (not inlined) so a quote in the id can't
             # close the literal and inject Cypher. sourceId last, so a metadata
             # key of the same name can't override the merge key.
             properties = {**clean_metadata, 'sourceId': source_id}
+            if source_hash:
+                properties[SOURCE_HASH_PARAM] = source_hash
 
             graph_client.execute_query_with_retry(query, self._to_params(properties))
 

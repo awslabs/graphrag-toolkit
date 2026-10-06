@@ -73,6 +73,21 @@ class IdRewriter(NodeParser, DoNotCheckpoint):
         """
         metadata_str = self._get_properties_str(node.metadata, '')  
         return self.id_generator.create_source_id(str(node.text), metadata_str)     
+
+    def _source_hash(self, node):
+        """
+        The source hash for a document: the digests its source id truncates, kept
+        whole. Computed from the same text and metadata string as the id, so a document
+        whose id is unchanged has an unchanged hash.
+
+        Args:
+            node: The document the hash identifies.
+
+        Returns:
+            str: The document's source hash.
+        """
+        metadata_str = self._get_properties_str(node.metadata, '')
+        return self.id_generator.create_source_hash(str(node.text), metadata_str)
         
     def _new_node_id(self, node):
         """
@@ -149,10 +164,13 @@ class IdRewriter(NodeParser, DoNotCheckpoint):
             relationships reflecting the transformation applied.
         """
         id_mappings = {}
+        source_hashes = {}
         
         for n in nodes:
             n.id_ = self._new_id(n)
             id_mappings[n.id_] = n.id_
+            if isinstance(n, Document):
+                source_hashes[n.id_] = self._source_hash(n)
                       
         if not self.inner:
             return nodes
@@ -166,6 +184,9 @@ class IdRewriter(NodeParser, DoNotCheckpoint):
             n.id_ = id_mappings[n.id_]
             for r in n.relationships.values():
                 r.node_id = id_mappings.get(r.node_id, r.node_id)
+            source = n.relationships.get(NodeRelationship.SOURCE, None)
+            if source and source.node_id in source_hashes:
+                source.hash = source_hashes[source.node_id]
             return n
             
         return [

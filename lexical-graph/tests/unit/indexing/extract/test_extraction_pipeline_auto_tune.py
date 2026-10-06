@@ -10,7 +10,7 @@ incremental chunking, bucket filling, round submission, and consolidation.
 """
 
 import pytest
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 from llama_index.core.llms import MockLLM
 from llama_index.core.schema import Document, TextNode, NodeRelationship, RelatedNodeInfo
 
@@ -450,3 +450,226 @@ class TestFixedBatchPathUnaffected:
         with patch.object(pipeline, "_extract_fixed_batch", return_value=iter([])) as fixed:
             list(pipeline.extract([Document(text="d")]))
             fixed.assert_called_once()
+
+
+class TestOnlyTheLastDocumentEndsASource:
+    """
+    A source whose chunks span rounds is emitted as several SourceDocuments.
+    Staging records a source as stored when its final part lands, so exactly one
+    of those documents may carry final_part.
+    """
+
+    def _extract(self, pipeline, docs, round_output=None):
+        def fake_round(round_buckets, extractor_transforms):
+            nodes = [node for bucket in round_buckets for node in bucket]
+            yield from (round_output(nodes) if round_output else nodes)
+
+        with patch.object(pipeline, '_run_extractor_round', side_effect=fake_round):
+            return list(pipeline.extract(docs))
+
+    def _pipeline(self, num_workers, max_batch_size):
+        return ExtractionPipeline(
+            components=[make_batch_extractor(auto_tune=True, max_batch_size=max_batch_size)],
+            num_workers=num_workers,
+        )
+
+    def _parts(self, docs, source_id):
+        return [doc.final_part for doc in docs if doc.source_id() == source_id]
+
+    def test_a_source_split_across_rounds_ends_once(self):
+        # 450 chunks against a round capacity of 200, so the source spans rounds
+        # rather than tail-merging back into one.
+        pipeline = self._pipeline(num_workers=2, max_batch_size=100)
+
+        docs = self._extract(pipeline, make_multichunk_documents([450]))
+
+        assert len(docs) > 1
+        assert self._parts(docs, 'src-0') == [False] * (len(docs) - 1) + [True]
+
+    def test_a_source_that_fits_one_round_ends_on_its_only_document(self):
+        pipeline = self._pipeline(num_workers=2, max_batch_size=100)
+
+        docs = self._extract(pipeline, make_multichunk_documents([5]))
+
+        assert self._parts(docs, 'src-0') == [True]
+
+    def test_each_source_ends_on_its_own_last_document(self):
+        pipeline = self._pipeline(num_workers=2, max_batch_size=100)
+
+        docs = self._extract(pipeline, make_multichunk_documents([450, 5]))
+
+        assert self._parts(docs, 'src-0') == [False] * (len(self._parts(docs, 'src-0')) - 1) + [True]
+        assert self._parts(docs, 'src-1') == [True]
+
+    def test_a_source_split_within_one_round_ends_once(self):
+        # The batch extractor sorts its output by node id, so one round can emit
+        # two documents for a source whose chunks bracket another source's.
+        pipeline = self._pipeline(num_workers=1, max_batch_size=25000)
+
+        def sorted_by_node_id(nodes):
+            return sorted(nodes, key=lambda n: n.node_id)
+
+        docs = self._extract(
+            pipeline,
+            make_multichunk_documents([2, 2]),
+            round_output=lambda nodes: sorted_by_node_id(
+                [nodes[0], nodes[2], nodes[1], nodes[3]]
+            ),
+        )
+
+        for source_id in ('src-0', 'src-1'):
+            assert self._parts(docs, source_id).count(True) == 1
+
+    def test_a_round_that_drops_chunks_still_ends_the_source(self):
+        # A checkpointed run extracts fewer nodes than it was given. Counting
+        # what came back rather than what went in would leave the source open.
+        pipeline = self._pipeline(num_workers=2, max_batch_size=100)
+
+        docs = self._extract(
+            pipeline, make_multichunk_documents([5]), round_output=lambda nodes: nodes[:2]
+        )
+
+        assert self._parts(docs, 'src-0') == [True]
+
+
+class TestASourceSplitAcrossOutputDocuments:
+    """
+    One source can leave the pipeline as several SourceDocuments: node_batcher
+    slices a flat node list by index, so a source's chunks land in different
+    worker batches, and documents are cut on contiguous runs of source id. Only
+    the last document emitted for a source ends it. A part that ends its source
+    declares every chunk stored for it, so a part wrongly marked final declares
+    only itself and certifies a prefix that is missing the rest.
+    """
+
+    def _chunk(self, source_id, node_id):
+        node = TextNode(text=f'text for {node_id}', id_=node_id)
+        node.relationships[NodeRelationship.SOURCE] = RelatedNodeInfo(node_id=source_id)
+        return node
+
+    def _pipeline(self):
+        return ExtractionPipeline(
+            components=[make_batch_extractor(auto_tune=False)], num_workers=1
+        )
+
+    def test_only_the_last_document_for_a_source_ends_it(self):
+        # srcA is cut into two documents because srcB sits between its chunks.
+        nodes = [
+            self._chunk('srcA', 'a1'),
+            self._chunk('srcB', 'b1'),
+            self._chunk('srcA', 'a2'),
+        ]
+
+        emitted = list(self._pipeline()._emit_extracted(nodes))
+
+        assert [sd.source_id() for sd in emitted] == ['srcA', 'srcB', 'srcA']
+        assert [sd.final_part for sd in emitted] == [False, True, True]
+
+    def test_a_source_arriving_once_still_ends(self):
+        nodes = [self._chunk('srcA', 'a1'), self._chunk('srcA', 'a2')]
+
+        emitted = list(self._pipeline()._emit_extracted(nodes))
+
+        assert [sd.final_part for sd in emitted] == [True]
+
+
+class TestARunPlanIsRefusedOnTheAutoTunedPath:
+    """
+    Restart does not cover auto-tuning for this release. A run that asked for
+    both would look restartable and would not be, so it is refused where it is
+    asked for rather than somewhere further in.
+    """
+
+    def _pipeline(self, auto_tune):
+        return ExtractionPipeline(
+            components=[make_batch_extractor(auto_tune=auto_tune, max_batch_size=100)],
+            num_workers=2,
+            batch_size=4,
+            run_id='run-1',
+            run_plan_store=Mock(),
+        )
+
+    def test_a_run_id_with_an_auto_tuning_extractor_is_refused(self):
+        with pytest.raises(ValueError, match='auto-tuned path'):
+            list(self._pipeline(auto_tune=True).extract([Document(text='d')]))
+
+    def test_the_refusal_names_both_ways_out(self):
+        with pytest.raises(ValueError) as refused:
+            list(self._pipeline(auto_tune=True).extract([Document(text='d')]))
+
+        assert 'without run_id' in str(refused.value)
+        assert 'without an auto-tuning batch extractor' in str(refused.value)
+
+    def test_nothing_is_planned_before_the_refusal(self):
+        # The refusal comes before the plan is resolved, so a run that asked
+        # for both leaves nothing recorded behind it.
+        pipeline = self._pipeline(auto_tune=True)
+
+        with patch.object(pipeline, '_follow_run_plan', return_value=([], None)) as followed:
+            with pytest.raises(ValueError):
+                list(pipeline.extract([Document(text='d')]))
+
+        followed.assert_not_called()
+
+    def test_the_fixed_batch_path_still_takes_a_run_plan(self):
+        pipeline = self._pipeline(auto_tune=False)
+
+        with patch.object(pipeline, '_follow_run_plan', return_value=([], None)) as followed:
+            with patch.object(pipeline, '_extract_fixed_batch', return_value=iter([])):
+                list(pipeline.extract([Document(text='d')]))
+
+        followed.assert_called_once()
+
+
+class TestAutoTunedRoundsKeepThePinnedPartitionCount:
+    """
+    On the auto-tuned path the worker count sets how many jobs a round holds.
+    A restart on a smaller host keeps the original count and runs the jobs on
+    fewer processes.
+    """
+
+    PIPELINE = 'graphrag_toolkit.lexical_graph.indexing.extract.extraction_pipeline'
+
+    def _pipeline(self, cores, **kwargs):
+        with patch(f'{self.PIPELINE}.multiprocessing.cpu_count', return_value=cores):
+            return ExtractionPipeline(
+                components=[make_batch_extractor(auto_tune=True, max_batch_size=100)],
+                **kwargs,
+            )
+
+    def _jobs_per_round(self, pipeline, docs):
+        rounds = []
+
+        def fake_round(round_buckets, extractor_transforms):
+            rounds.append(len(round_buckets))
+            for bucket in round_buckets:
+                yield from bucket
+
+        with patch.object(pipeline, '_run_extractor_round', side_effect=fake_round):
+            list(pipeline.extract(docs))
+        return rounds
+
+    def test_a_smaller_host_fills_rounds_as_the_original_run_did(self):
+        docs = make_multichunk_documents([1600])
+
+        original = self._jobs_per_round(self._pipeline(cores=8, num_workers=8), docs)
+        restarted = self._jobs_per_round(
+            self._pipeline(cores=2, num_workers=2, partition_workers=8), docs
+        )
+
+        assert restarted == original
+        assert max(original) == 8
+
+    def test_a_round_runs_on_the_process_count_not_the_partition_count(self):
+        pipeline = self._pipeline(cores=2, num_workers=2, partition_workers=8)
+        buckets = [[TextNode(text=f'chunk {i}', id_=f'c{i}')] for i in range(8)]
+        seen = {}
+
+        def capture(pipeline_, node_batches, num_workers=1, **kwargs):
+            seen['processes'] = num_workers
+            return []
+
+        with patch(f'{self.PIPELINE}.run_pipeline', side_effect=capture):
+            list(pipeline._run_extractor_round(buckets, [make_batch_extractor(auto_tune=True)]))
+
+        assert seen['processes'] == 2

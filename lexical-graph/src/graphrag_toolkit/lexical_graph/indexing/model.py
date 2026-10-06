@@ -22,11 +22,14 @@ class SourceDocument(BaseModel):
             associate with the document.
         nodes (List[BaseNode]): A list of nodes associated with the source
             document. Defaults to an empty list.
+        final_part (bool): Whether this document holds the last of its source's
+            nodes. A producer that emits a source as one document leaves it true.
     """
     model_config = ConfigDict(strict=True)
-    
+
     refNode:Optional[BaseNode]=None
     nodes:List[BaseNode]=[]
+    final_part:bool=True
 
     def source_id(self):
         """

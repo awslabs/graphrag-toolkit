@@ -59,65 +59,79 @@ def to_s3_operator(operator: FilterOperator) -> tuple[str, Callable[[Any], str]]
     
     return operator_map[operator]
 
-def formatter_for_type(type_name:str) -> Callable[[Any], str]:
-    
+def formatter_for_type(type_name:str) -> Callable[[Any], Any]:
+    """Coerce a stringified filter value to the native Python value for the given type.
+
+    The result goes into a dict handed to boto3, not into JSON text, so nothing is
+    quoted or escaped here. Numeric types are parsed to numbers because the
+    filter used to be assembled as a JSON string and relied on json.loads for that.
+    Supports 'text', 'timestamp', 'int', 'float'; raises ValueError otherwise.
+    """
     if type_name == 'text':
-        return lambda x: f'"{x}"'
+        return lambda x: str(x)
     elif type_name == 'timestamp':
-        return lambda x: f'"{format_datetime(x)}"'
-    elif type_name in ['int', 'float']:
-        return lambda x:x
+        return lambda x: format_datetime(x)
+    elif type_name == 'int':
+        return lambda x: int(x)
+    elif type_name == 'float':
+        return lambda x: float(x)
     else:
         raise ValueError(f'Unsupported type name: {type_name}')
 
 
 def parse_metadata_filters_recursive(metadata_filters:MetadataFilters) -> Dict[str, Any]:
+    """Parse a MetadataFilters tree into an S3 Vectors metadata filter dict.
 
+    The filter is built as native dicts and handed to boto3 as-is, so a metadata
+    key or value containing JSON punctuation ('"', '}', ']', '$and') stays literal
+    text and cannot add, replace or escape a clause. Raises ValueError on an
+    invalid filter type or condition.
+    """
     def to_key(key: str) -> str:
         if key == VALID_FROM:
-            return f'{SOURCE_VERSIONING_PREFIX}valid_from'      
+            return f'{SOURCE_VERSIONING_PREFIX}valid_from'
         elif key == VALID_TO:
             return f'{SOURCE_VERSIONING_PREFIX}valid_to'
         else:
             return f'{SOURCE_METADATA_PREFIX}{key}'
-    
-    def to_s3_filter(f: MetadataFilter) -> str:
-        
+
+    def to_s3_filter(f: MetadataFilter) -> Dict[str, Any]:
+
         key = to_key(f.key)
         (operator, operator_formatter) = to_s3_operator(f.operator)
 
         if f.operator == FilterOperator.IS_EMPTY:
-            return f'{{"{key}": {{ "{operator}": false }}}}'
-        else:
-            type_name = type_name_for_key_value(f.key, f.value)
-            type_formatter = formatter_for_type(type_name)
+            return {key: {operator: False}}
 
-        return f'{{"{key}": {{ "{operator}": {type_formatter(operator_formatter(str(f.value)))} }}}}'
+        type_name = type_name_for_key_value(f.key, f.value)
+        type_formatter = formatter_for_type(type_name)
 
-    filter_strs = []
+        return {key: {operator: type_formatter(operator_formatter(str(f.value)))}}
+
+    filter_clauses = []
 
     for metadata_filter in metadata_filters.filters:
         if isinstance(metadata_filter, MetadataFilter):
             if metadata_filters.condition == FilterCondition.NOT:
                 raise ValueError(f'Expected MetadataFilters for FilterCondition.NOT, but found MetadataFilter')
-            filter_strs.append(to_s3_filter(metadata_filter))
+            filter_clauses.append(to_s3_filter(metadata_filter))
         elif isinstance(metadata_filter, MetadataFilters):
             nested_filters = parse_metadata_filters_recursive(metadata_filter)
             if nested_filters:
-                filter_strs.append(json.dumps(nested_filters))
+                filter_clauses.append(nested_filters)
         else:
             raise ValueError(f'Invalid metadata filter type: {type(metadata_filter)}')
 
-    if not filter_strs and (
+    if not filter_clauses and (
         metadata_filters.condition == FilterCondition.AND
         or metadata_filters.condition == FilterCondition.OR
     ):
         return {}
 
-    if metadata_filters.condition == FilterCondition.AND:       
-        return json.loads(f'{{"$and": [{",".join(filter_strs)}]}}')
+    if metadata_filters.condition == FilterCondition.AND:
+        return {'$and': filter_clauses}
     elif metadata_filters.condition == FilterCondition.OR:
-        return json.loads(f'{{"$or": [{",".join(filter_strs)}]}}')
+        return {'$or': filter_clauses}
     else:
         raise ValueError(f'Unsupported filters condition: {metadata_filters.condition}')
 

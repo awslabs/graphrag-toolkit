@@ -97,7 +97,33 @@ class IdGenerator(BaseModel):
             hashed substrings derived from the input text and metadata.
 
         """
-        return f"{SOURCE_ID_PREFIX}::{self._get_hash(text)[:self.source_id_width]}:{self._get_hash(metadata_str)[:METADATA_DIGEST_LENGTH]}"
+        text_digest, metadata_digest = self._source_digests(text, metadata_str)
+        return f"{SOURCE_ID_PREFIX}::{text_digest[:self.source_id_width]}:{metadata_digest[:METADATA_DIGEST_LENGTH]}"
+
+    def create_source_hash(self, text:str, metadata_str:str):
+        """
+        Generates the source hash: the digests a source id truncates, kept whole.
+
+        A source id keeps the first `source_id_width` characters of the text digest and
+        the first `METADATA_DIGEST_LENGTH` of the metadata digest, so two documents can
+        share an id without being the same document. The whole digests separate them.
+
+        Built from the same text and metadata string as the id, so a document whose id
+        is unchanged has an unchanged hash, and metadata the id ignores the hash ignores
+        too.
+
+        Args:
+            text: The same text passed to create_source_id.
+            metadata_str: The same metadata string passed to create_source_id.
+
+        Returns:
+            str: The two digests, separated by a colon.
+        """
+        text_digest, metadata_digest = self._source_digests(text, metadata_str)
+        return f'{text_digest}:{metadata_digest}'
+
+    def _source_digests(self, text:str, metadata_str:str):
+        return self._get_hash(text), self._get_hash(metadata_str)
 
     @staticmethod
     def width_of_source_id(source_id:str) -> Optional[SourceIdWidth]:

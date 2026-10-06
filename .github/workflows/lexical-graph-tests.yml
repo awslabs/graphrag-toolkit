@@ -13,12 +13,12 @@ permissions:
 
 on:
   push:
-    branches: [main]
+    branches: [main, 'v*.*.x']
     paths:
       - "lexical-graph/**"
       - ".github/workflows/lexical-graph-tests.yml"
   pull_request:
-    branches: [main]
+    branches: [main, 'v*.*.x']
     paths:
       - "lexical-graph/**"
       - ".github/workflows/lexical-graph-tests.yml"

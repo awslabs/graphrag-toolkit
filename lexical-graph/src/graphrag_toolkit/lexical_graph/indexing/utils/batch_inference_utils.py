@@ -6,7 +6,8 @@ import asyncio
 import time
 import os
 import json
-from typing import Any, Callable, List, Dict, Tuple
+import re
+from typing import Any, Callable, List, Dict, Optional, Tuple
 from dataclasses import dataclass
 from os import stat, listdir
 from os.path import isfile, join
@@ -23,7 +24,7 @@ from llama_index.llms.anthropic.utils import messages_to_anthropic_messages
 from llama_index.llms.bedrock_converse.utils import messages_to_converse_messages
 from llama_index.core.schema import TextNode
 from llama_index.core.prompts import PromptTemplate
-from llama_index.core.base.llms.types import ChatMessage
+from llama_index.core.base.llms.types import ChatMessage, MessageRole
 
 
 logger = logging.getLogger(__name__)
@@ -122,18 +123,52 @@ def _build_claude_request(messages: List[ChatMessage], params: dict) -> dict:
     return request_body
 
 
+# Llama special tokens are all '<|' + [a-z0-9_]+ + '|>' ('<|eot_id|>',
+# '<|start_header_id|>', Llama 4's '<|header_start|>', ...). The body excludes
+# '<', '>', '|' and newlines so a stray '<|' in a document can't swallow the text
+# up to some distant '|>'.
+_LLAMA_SPECIAL_TOKEN = re.compile(r'<\|[^<>|\n]*\|>')
+
+
+def _strip_llama_special_tokens(text: str) -> str:
+    """Remove Llama special-token sequences from untrusted message content.
+
+    Chunk text is interpolated into the raw instruct template, so a document
+    containing '<|eot_id|><|start_header_id|>system<|end_header_id|>' would
+    otherwise close its own turn and forge a system turn, steering extraction.
+    Substitution repeats to a fixed point because removing one match can splice
+    the surrounding text into a fresh token ('<|eot_i<|x|>d|>').
+    """
+    while True:
+        stripped = _LLAMA_SPECIAL_TOKEN.sub('', text)
+        if stripped == text:
+            return stripped
+        text = stripped
+
+
 def _format_llama_prompt(messages: List[ChatMessage]) -> str:
     """Render chat messages into Meta Llama's instruct prompt template.
 
     Bedrock's Meta Llama InvokeModel takes a single `prompt` string (not a
     messages array); Llama 3/3.1/3.2/3.3/4 Instruct share this chat template. The
     system message, if any, is folded into the prompt (unlike the Converse-based
-    families which carry it separately).
+    families which carry it separately) — it is hoisted to the front so a later
+    turn can't displace the instructions, and every turn's content is stripped of
+    special tokens because the turn boundaries here are textual, not structural.
+
+    Hoisting moves *every* system message ahead of the rest, so a caller that
+    deliberately placed one mid-conversation gets a different turn order than it
+    passed in. Relative order is otherwise preserved (stable partition): system
+    messages keep their order among themselves, as do the others. The extraction
+    path is unaffected — a PromptTemplate renders to a single user message.
     """
+    system_messages = [m for m in messages if m.role == MessageRole.SYSTEM]
+    other_messages = [m for m in messages if m.role != MessageRole.SYSTEM]
+
     parts = ['<|begin_of_text|>']
-    for message in messages:
+    for message in system_messages + other_messages:
         role = message.role.value
-        text = message.content or ''
+        text = _strip_llama_special_tokens(message.content or '')
         parts.append(f'<|start_header_id|>{role}<|end_header_id|>\n\n{text}<|eot_id|>')
     # Trailing empty assistant header cues the model to generate the response.
     parts.append('<|start_header_id|>assistant<|end_header_id|>\n\n')
@@ -278,10 +313,24 @@ def create_and_run_batch_job(job_name_prefix:str,
                              batch_suffix:str,
                              batch_config:BatchConfig,
                              input_key:str,
-                             output_path:str, 
-                             model_id:str) -> None:
-    """Create and run a Bedrock batch inference job."""
+                             output_path:str,
+                             model_id:str,
+                             job_name:Optional[str]=None,
+                             on_submitted:Optional[Callable[[str, str], None]]=None) -> Optional[str]:
+    """
+    Create and run a Bedrock batch inference job, returning its ARN.
+
+    A caller that has to find this job again passes the name it wants, so the
+    job says which run, partition and attempt it belongs to. Without one the
+    name is the timestamped form, which is what a run that never restarts gets.
+
+    on_submitted is called with the job's ARN and name once the job exists and
+    before the wait begins, so a caller recording the job has the record down
+    before the part of the work that can outlive the process.
+    """
     try:
+        job_name = job_name or f'{job_name_prefix}-{timestamp}-{batch_suffix}'
+
         input_data_config = {
             's3InputDataConfig': {'s3Uri': f's3://{batch_config.bucket_name}/{input_key}'}
         }
@@ -300,7 +349,7 @@ def create_and_run_batch_job(job_name_prefix:str,
             response = bedrock_client.create_model_invocation_job(
                 roleArn=batch_config.role_arn,
                 modelId=model_id,
-                jobName=f'{job_name_prefix}-{timestamp}-{batch_suffix}',
+                jobName=job_name,
                 inputDataConfig=input_data_config,
                 outputDataConfig=output_data_config,
                 vpcConfig={
@@ -312,7 +361,7 @@ def create_and_run_batch_job(job_name_prefix:str,
             response = bedrock_client.create_model_invocation_job(
                 roleArn=batch_config.role_arn,
                 modelId=model_id,
-                jobName=f'{job_name_prefix}-{timestamp}-{batch_suffix}',
+                jobName=job_name,
                 inputDataConfig=input_data_config,
                 outputDataConfig=output_data_config
             )
@@ -321,13 +370,18 @@ def create_and_run_batch_job(job_name_prefix:str,
 
         input_file = input_key.split('/')[-1]
 
-        logger.info(f'Created batch job [job_arn: {job_arn}, input_file: {input_file}]')
+        logger.info(f'Created batch job [job_arn: {job_arn}, job_name: {job_name}, input_file: {input_file}]')
+
+        if on_submitted is not None:
+            on_submitted(job_arn, job_name)
 
         wait_for_job_completion(bedrock_client, job_arn, input_file)
 
         end = time.time()
 
         logger.debug(f'Batch job completed successfully [job_arn: {job_arn}, input_file: {input_file}] ({int(end - start)} seconds)')
+
+        return job_arn
 
     except ClientError as e:
         logger.error(f'Error creating or running batch job: {str(e)}')

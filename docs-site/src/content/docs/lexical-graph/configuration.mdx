@@ -53,6 +53,7 @@ The configuration includes the following parameters:
 | `include_domain_labels` | Determines whether entities will have a domain-specific label (e.g. `Company`) as well as the [graph model's](/graphrag-toolkit/lexical-graph/graph-model/#entity-relationship-tier) `__Entity__` label | `False` | `INCLUDE_DOMAIN_LABELS` |
 | `include_local_entities` | Whether to include local-context entities in the graph | `False` | `INCLUDE_LOCAL_ENTITIES` |
 | `include_classification_in_entity_id` | Whether to include an entity's classification in its graph node id | `True` | `INCLUDE_CLASSIFICATION_IN_ENTITY_ID` |
+| `detect_source_id_collisions` | Whether a build fails when two different documents resolve to one source id. Costs one read per build batch | `True` | `DETECT_SOURCE_ID_COLLISIONS` |
 | `enable_versioning` | Whether to enable versioned updates (see [Versioned Updates](/graphrag-toolkit/lexical-graph/versioned-updates/)) | `False` | `ENABLE_VERSIONING` |
 | `enable_cache` | Determines whether the results of LLM calls to models on Amazon Bedrock are cached to the local filesystem (see [Caching Amazon Bedrock LLM responses](#caching-amazon-bedrock-llm-responses)) | `False` | `ENABLE_CACHE` |
 | `aws_profile` | AWS CLI named profile used to authenticate requests to Bedrock and other services | *None* | `AWS_PROFILE` |

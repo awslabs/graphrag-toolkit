@@ -19,6 +19,7 @@ Skipped unless S3_TEST_BUCKET is set. To run locally:
 Objects are written under a unique prefix per run and deleted afterwards.
 """
 
+import json
 import os
 import uuid
 
@@ -55,6 +56,16 @@ def key_prefix():
     keys = [{'Key': o['Key']} for page in pages for o in page.get('Contents', [])]
     if keys:
         s3_client.delete_objects(Bucket=S3_TEST_BUCKET, Delete={'Objects': keys})
+
+
+def _part(source_id, chunk_ids, final_part=True):
+    """One round's worth of a source's chunks, as extraction emits it."""
+    nodes = []
+    for chunk_id in chunk_ids:
+        node = TextNode(text=f'text for {chunk_id}', id_=chunk_id)
+        node.relationships[NodeRelationship.SOURCE] = RelatedNodeInfo(node_id=source_id)
+        nodes.append(node)
+    return SourceDocument(nodes=nodes, final_part=final_part)
 
 
 def _doc(source_id, num_chunks=3):
@@ -263,3 +274,134 @@ class TestAnIdThatWouldLeaveTheCollectionPrefix:
         _stage(key_prefix, collection_id, [_doc('src-1')], for_jsonl)
 
         assert _read_back(key_prefix, collection_id, for_jsonl) == ['src-1']
+@pytest.mark.parametrize('for_jsonl', [False, True], ids=['chunks', 'jsonl'])
+class TestASourceSplitAcrossRounds:
+    """
+    Each part of a split source is marked as it arrives, so a prefix holding
+    only the earlier parts still has markers accounting for what is present.
+    """
+
+    def _stage_both_parts(self, key_prefix, collection_id, for_jsonl):
+        """Both rounds through one handler, as one extraction run does."""
+        handler = _handler(key_prefix, collection_id, for_jsonl)
+        list(handler.accept([_part('src-1', ['c1', 'c2'], final_part=False)]))
+        list(handler.accept([_part('src-1', ['c3', 'c4'])]))
+
+    def _objects_for(self, source_prefix, chunk_ids):
+        """The objects holding these chunks. A JSONL object is keyed on its
+        source, so the chunk ids are in the body rather than the key."""
+        found = []
+        for key in _keys_under(source_prefix):
+            if is_completion_marker(key):
+                continue
+            body = GraphRAGConfig.s3.get_object(Bucket=S3_TEST_BUCKET, Key=key)['Body'].read().decode('UTF-8')
+            if any(chunk_id in key[len(source_prefix):] or chunk_id in body for chunk_id in chunk_ids):
+                found.append(key)
+        return found
+
+    def test_both_parts_present_reads_back_whole(self, key_prefix, for_jsonl):
+        collection_id = 'split-intact'
+        self._stage_both_parts(key_prefix, collection_id, for_jsonl)
+
+        assert _read_back(key_prefix, collection_id, for_jsonl) == ['src-1']
+
+    def test_a_source_that_lost_its_opening_part_is_skipped(self, key_prefix, for_jsonl):
+        # The part that ended the source landed and declares all four chunks,
+        # so the two that are gone cannot pass unnoticed.
+        collection_id = 'split-early'
+        self._stage_both_parts(key_prefix, collection_id, for_jsonl)
+
+        source_prefix = f'{key_prefix}/{collection_id}/src-1/'
+        opening = self._objects_for(source_prefix, ['c1', 'c2'])
+        assert opening, 'nothing found for the opening part'
+        _delete(opening)
+
+        assert _read_back(key_prefix, collection_id, for_jsonl) == []
+
+
+def _index_only_part(source_id, chunk_ids, final_part=True):
+    """A part carrying nothing an uploader stores: every node is an index artefact."""
+    part = _part(source_id, chunk_ids, final_part=final_part)
+    for node in part.nodes:
+        node.metadata[INDEX_KEY] = {'index': 'chunk'}
+    return part
+
+
+def _reopen_the_part_marker(source_prefix):
+    """
+    The marker a run killed before it closed the source leaves behind.
+
+    A run that reaches the end of its stream closes the source, overwriting the
+    part marker at the same key. Rewriting it back to a part marker is the only
+    way to reach the state a death mid-source leaves.
+    """
+    marker_keys = [key for key in _keys_under(source_prefix) if is_completion_marker(key)]
+    assert len(marker_keys) == 1, f'expected one marker, found {marker_keys}'
+
+    key = marker_keys[0]
+    body = json.loads(
+        GraphRAGConfig.s3.get_object(Bucket=S3_TEST_BUCKET, Key=key)['Body'].read().decode('UTF-8')
+    )
+    body.pop('source_chunk_ids', None)
+    body['final'] = False
+    GraphRAGConfig.s3.put_object(
+        Bucket=S3_TEST_BUCKET, Key=key, Body=json.dumps(body).encode('UTF-8'),
+        ContentType='application/json', ServerSideEncryption='AES256',
+    )
+
+
+@pytest.mark.parametrize('for_jsonl', [False, True], ids=['chunks', 'jsonl'])
+class TestASourceEndedByAPartThatStoresNothing:
+    """
+    A part can end its source while storing nothing of its own, because every
+    node it carries is a vector store artefact. Both parts go through one run,
+    since the end of a run closes whatever is still open anyway.
+    """
+
+    def test_the_source_reads_back_complete(self, key_prefix, for_jsonl):
+        collection_id = 'ended-by-empty-part'
+
+        _stage(key_prefix, collection_id, [
+            _part('src-1', ['c1', 'c2'], final_part=False),
+            _index_only_part('src-1', ['idx-1']),
+        ], for_jsonl)
+
+        assert _read_back(key_prefix, collection_id, for_jsonl) == ['src-1']
+
+
+@pytest.mark.parametrize('for_jsonl', [False, True], ids=['chunks', 'jsonl'])
+class TestARunResumedAfterAnEarlierRunDied:
+    """
+    A run that died mid-source left a part behind. The resumed run's checkpoint
+    drops the chunks that part stored, so the part that ends the source
+    declares only what this run staged. The objects the earlier run wrote are
+    still under the prefix and still count.
+    """
+
+    def _stage_across_two_runs(self, key_prefix, collection_id, for_jsonl):
+        _stage(key_prefix, collection_id, [_part('src-1', ['c1', 'c2'], final_part=False)], for_jsonl)
+        _reopen_the_part_marker(f'{key_prefix}/{collection_id}/src-1/')
+        _stage(key_prefix, collection_id, [_part('src-1', ['c3', 'c4'])], for_jsonl)
+
+    def test_the_source_reads_back_complete(self, key_prefix, for_jsonl):
+        collection_id = 'resumed-run'
+        self._stage_across_two_runs(key_prefix, collection_id, for_jsonl)
+
+        assert _read_back(key_prefix, collection_id, for_jsonl) == ['src-1']
+
+    def test_losing_the_earlier_run_s_objects_still_reads_incomplete(self, key_prefix, for_jsonl):
+        collection_id = 'resumed-run-damaged'
+        self._stage_across_two_runs(key_prefix, collection_id, for_jsonl)
+
+        source_prefix = f'{key_prefix}/{collection_id}/src-1/'
+        opening = [
+            key for key in _keys_under(source_prefix)
+            if not is_completion_marker(key)
+            and ('c1' in key[len(source_prefix):]
+                 or 'c1' in GraphRAGConfig.s3.get_object(
+                     Bucket=S3_TEST_BUCKET, Key=key)['Body'].read().decode('UTF-8'))
+        ]
+        assert opening, 'nothing found for the earlier run'
+        _delete(opening)
+
+        assert _read_back(key_prefix, collection_id, for_jsonl) == []
