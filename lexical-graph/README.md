@@ -35,6 +35,16 @@ Or install from a release zip file:
 $ pip install https://github.com/awslabs/graphrag-toolkit/archive/refs/tags/graphrag-lexical-graph/v3.19.1.zip#subdirectory=lexical-graph
 ```
 
+### Installing with uv
+
+If you install with [uv](https://docs.astral.sh/uv/), do not let it hardlink packages into the environment:
+
+```
+$ UV_LINK_MODE=copy uv pip install graphrag-lexical-graph
+```
+
+NLTK 3.10.3 added a check that refuses to open any file with more than one hard link. LlamaIndex ships NLTK's corpus data inside the installed package, and uv hardlinks files out of its cache by default on Linux, which leaves that data multiply-linked — so sentence splitting fails with a `PermissionError` on `stopwords/english`. Passing `--link-mode=copy`, setting `UV_LINK_MODE=copy`, or adding `link-mode = "copy"` under `[tool.uv]` avoids it. `clone` also works where the filesystem supports copy-on-write, which is why macOS is unaffected by default.
+
 If you're running on AWS, you must run your application in an AWS region containing the Amazon Bedrock foundation models used by the lexical graph (see the [configuration](https://awslabs.github.io/graphrag-toolkit/lexical-graph/configuration/#graphragconfig) section in the documentation for details on the default models used), and must [enable access](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html) to these models before running any part of the solution.
 
 ### Additional dependencies

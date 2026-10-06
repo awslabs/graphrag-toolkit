@@ -20,7 +20,7 @@ The graphrag-toolkit [lexical-graph](https://github.com/awslabs/graphrag-toolkit
   </TabItem>
   <TabItem label="uv">
     ```sh
-    uv add graphrag-lexical-graph
+    uv add --link-mode=copy graphrag-lexical-graph
     ```
   </TabItem>
   <TabItem label="poetry">
@@ -34,6 +34,10 @@ The graphrag-toolkit [lexical-graph](https://github.com/awslabs/graphrag-toolkit
     ```
   </TabItem>
 </Tabs>
+
+<Aside type="caution" title="Installing with uv">
+  `--link-mode=copy` is not optional on Linux. NLTK 3.10.3 refuses to open any file with more than one hard link, LlamaIndex ships NLTK's corpus data inside the installed package, and uv hardlinks from its cache by default — so sentence splitting fails with a `PermissionError` on `stopwords/english`. Set `UV_LINK_MODE=copy` or add `link-mode = "copy"` under `[tool.uv]` to apply it everywhere. `clone` works too where the filesystem supports copy-on-write, which is why macOS is unaffected by default.
+</Aside>
 
 ## At a glance
 
