@@ -235,6 +235,8 @@ The plan does not yet cover the auto-tuned batch extraction path; a run with a `
 
 The identity under which the lexical-graph runs needs `s3:PutObject`, `s3:GetObject` and `s3:DeleteObject` on `arn:aws:s3:::<bucket>/<key_prefix>/*`, and `s3:ListBucket` on `arn:aws:s3:::<bucket>`. `s3:DeleteObject` is used when a run with a `run_id` finishes and its partition records are folded into the rollup. Both stages list the objects under a collection: the extract stage to decide what is already stored, the build stage to read a document's chunks and its markers. Without `s3:ListBucket` these listings fail with an access denied error.
 
+A restart trusts what it reads under this prefix: the plan, the partition records and the completion markers. Anyone who can write there can make a restart reuse other batch output in the same bucket, or skip a document it should store. Limit write access to the identity that runs the lexical-graph. The bucket always comes from your configuration, never from a record.
+
 If you use Amazon Web Services KMS keys to encrypt objects in S3, the identity under which the lexical-graph runs should include the following IAM policy. Replace `<kms-key-arn>` with the ARN of the KMS key you want to use to encrypt objects:
 
 ```
