@@ -172,6 +172,49 @@ class DefaultSourceMetadataFormatter(SourceMetadataFormatter):
         return formatted_metadata
 
 
+def _simplify_metadata_filters(metadata_filters: MetadataFilters) -> Union[bool, MetadataFilters]:
+    """
+    Reduces a filter tree to one that holds no empty groups.
+
+    An AND over no conditions matches everything and an OR over no conditions
+    matches nothing. Those two values are carried up the tree, so the result is
+    True when the filters match everything, False when they match nothing, and
+    otherwise an equivalent tree in which every group has at least one member.
+
+    Args:
+        metadata_filters (MetadataFilters): The filters to reduce.
+
+    Returns:
+        Union[bool, MetadataFilters]: True, False, or the reduced filters.
+    """
+    condition = metadata_filters.condition
+
+    if condition == FilterCondition.NOT:
+        if len(metadata_filters.filters) != 1 or not isinstance(metadata_filters.filters[0], MetadataFilters):
+            return metadata_filters
+        negated = _simplify_metadata_filters(metadata_filters.filters[0])
+        if isinstance(negated, bool):
+            return not negated
+        return MetadataFilters(filters=[negated], condition=condition)
+
+    members = []
+
+    for metadata_filter in metadata_filters.filters:
+        if not isinstance(metadata_filter, MetadataFilters):
+            members.append(metadata_filter)
+            continue
+        member = _simplify_metadata_filters(metadata_filter)
+        if not isinstance(member, bool):
+            members.append(member)
+        elif member == (condition == FilterCondition.OR):
+            return member
+
+    if not members:
+        return condition != FilterCondition.OR
+
+    return MetadataFilters(filters=members, condition=condition)
+
+
 class FilterConfig(BaseModel):
     """
     Configuration class for filter settings.
@@ -211,10 +254,29 @@ class FilterConfig(BaseModel):
         else:
             raise ValueError(f'Invalid source filters type: {type(source_filters)}')
 
+        if source_filters is not None:
+            simplified = _simplify_metadata_filters(source_filters)
+            if simplified is True:
+                source_filters = None
+            elif simplified is False:
+                source_filters = MetadataFilters(filters=[], condition=FilterCondition.OR)
+            else:
+                source_filters = simplified
+
         super().__init__(
             source_filters=source_filters,
             source_metadata_dictionary_filter_fn=DictionaryFilter(source_filters) if source_filters else lambda x: True
         )
+
+    @property
+    def matches_nothing(self) -> bool:
+        """
+        Whether no source can satisfy these filters.
+
+        The filters are reduced when the config is created, so the only group
+        left without members is an OR that stands for the whole filter.
+        """
+        return self.source_filters is not None and not self.source_filters.filters
 
     def filter_source_metadata_dictionary(self, d: Dict[str, Any]) -> bool:
         """
@@ -234,38 +296,6 @@ class FilterConfig(BaseModel):
         if not result:
             logger.debug(f'filter result: [{str(d)}: {result}]')
         return result
-
-
-def metadata_filters_match_nothing(metadata_filters: Optional[MetadataFilters]) -> bool:
-    """
-    Determines whether no metadata at all can satisfy the given filters.
-
-    An OR over no conditions matches nothing, so a group whose every branch
-    matches nothing matches nothing too, as does an AND with any such branch.
-    An AND over no conditions matches everything, and so does `None`. `NOT` is
-    reported as matching something.
-
-    Args:
-        metadata_filters (Optional[MetadataFilters]): The filters to inspect.
-
-    Returns:
-        bool: True if the filters can never be satisfied; otherwise, False.
-    """
-    if metadata_filters is None:
-        return False
-
-    results = [
-        metadata_filters_match_nothing(metadata_filter)
-        for metadata_filter in metadata_filters.filters
-        if isinstance(metadata_filter, MetadataFilters)
-    ]
-
-    if metadata_filters.condition == FilterCondition.OR:
-        return len(results) == len(metadata_filters.filters) and all(results)
-    elif metadata_filters.condition == FilterCondition.AND:
-        return any(results)
-    else:
-        return False
 
 
 class DictionaryFilter(BaseModel):

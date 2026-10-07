@@ -7,7 +7,7 @@ from botocore.exceptions import ClientError
 from tqdm import tqdm
 from typing import List, Dict, Any, Callable, Optional, Sequence
 
-from graphrag_toolkit.lexical_graph.metadata import FilterConfig, metadata_filters_match_nothing, type_name_for_key_value, format_datetime
+from graphrag_toolkit.lexical_graph.metadata import FilterConfig, type_name_for_key_value, format_datetime
 from graphrag_toolkit.lexical_graph.versioning import VALID_FROM, VALID_TO, TIMESTAMP_LOWER_BOUND, TIMESTAMP_UPPER_BOUND
 from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
 from graphrag_toolkit.lexical_graph.storage.vector import VectorIndex, to_embedded_query
@@ -140,6 +140,9 @@ def filter_config_to_s3_filters(filter_config:FilterConfig) -> Dict[str, Any]:
 
     if filter_config is None or filter_config.source_filters is None:
         return None
+
+    if filter_config.matches_nothing:
+        raise ValueError('S3 Vectors cannot express a filter that matches nothing')
     
     s3_filters = parse_metadata_filters_recursive(filter_config.source_filters)
 
@@ -560,7 +563,7 @@ class S3VectorIndex(VectorIndex):
     def top_k(self, query_bundle:QueryBundle, top_k:int=5, filter_config:Optional[FilterConfig]=None) -> Sequence[Dict[str, Any]]:
         
         # S3 Vectors has no filter expression that matches nothing.
-        if filter_config and metadata_filters_match_nothing(filter_config.source_filters):
+        if filter_config and filter_config.matches_nothing:
             return []
 
         if top_k > MAX_RESULTS:

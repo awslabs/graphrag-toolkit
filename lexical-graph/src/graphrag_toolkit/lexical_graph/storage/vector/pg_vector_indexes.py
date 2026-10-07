@@ -126,9 +126,6 @@ def parse_metadata_filters_recursive(metadata_filters:MetadataFilters) -> tuple[
             bound_value = type_formatter(operator_formatter(f.value))
             return (f"(({key_sql})::{type_name} {operator} %s)", key_params + [bound_value])
 
-    if not metadata_filters.filters:
-        return ('FALSE', []) if metadata_filters.condition == FilterCondition.OR else ('', [])
-
     filter_strs = []
     params = []
 
@@ -164,6 +161,8 @@ def filter_config_to_sql_filters(filter_config:FilterConfig) -> tuple[str, list]
     """
     if filter_config is None or filter_config.source_filters is None:
         return ('', [])
+    if filter_config.matches_nothing:
+        return ('FALSE', [])
     return parse_metadata_filters_recursive(filter_config.source_filters)
 
 class PGIndex(VectorIndex):

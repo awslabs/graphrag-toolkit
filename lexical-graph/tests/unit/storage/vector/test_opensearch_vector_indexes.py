@@ -128,6 +128,20 @@ class TestTopKWithMatchNothingFilter:
         assert results == []
         assert not mock_client.query.called
 
+    def test_an_empty_or_inside_an_or_is_not_sent_to_the_client(self):
+        config = FilterConfig(source_filters=MetadataFilters(
+            filters=[
+                MetadataFilter(key='category', value='tech', operator=FilterOperator.EQ),
+                MetadataFilters(filters=[], condition=FilterCondition.OR),
+            ],
+            condition=FilterCondition.OR,
+        ))
+
+        _, mock_client = self._top_k(config)
+
+        filters = mock_client.query.call_args.kwargs['filters']
+        assert [f.key for f in filters.filters] == ['source.metadata.category']
+
     def test_empty_and_group_still_queries(self):
         config = FilterConfig(source_filters=MetadataFilters(
             filters=[], condition=FilterCondition.AND,

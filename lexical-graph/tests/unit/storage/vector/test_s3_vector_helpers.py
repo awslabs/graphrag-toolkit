@@ -164,7 +164,15 @@ class TestFilterConfigToS3Filters:
             filters=[], condition=FilterCondition.AND,
         ))
 
-        assert filter_config_to_s3_filters(config) == {}
+        assert filter_config_to_s3_filters(config) is None
+
+    def test_a_filter_that_matches_nothing_is_refused(self):
+        config = FilterConfig(source_filters=MetadataFilters(
+            filters=[], condition=FilterCondition.OR,
+        ))
+
+        with pytest.raises(ValueError, match='matches nothing'):
+            filter_config_to_s3_filters(config)
 
     @pytest.mark.parametrize('condition', [FilterCondition.AND, FilterCondition.OR])
     def test_empty_filter_group_is_omitted_from_query_request(self, condition):

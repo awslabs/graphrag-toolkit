@@ -174,7 +174,7 @@ The constructor of the `FilterConfig` object accepts either a `MetadataFilters` 
 
 A `MetadataFilters` object can hold a collection of `MetadataFilter` objects as well as other, nested `MetadataFilters` objects. Elements in a `MetadataFilters` object's `filters` collection are chained to form complex conditions using either a `FilterCondition.AND` or `FilterCondition.OR` condition.
 
-An empty `filters` collection follows ordinary boolean logic. A `FilterCondition.AND` over no filters matches everything, so it applies no filtering. A `FilterCondition.OR` over no filters matches nothing, so it returns no results, including when it is nested inside another condition. If you build an `OR` from a list of values the user is allowed to see, an empty list returns nothing rather than everything.
+An empty `filters` collection follows ordinary boolean logic. A `FilterCondition.AND` over no filters matches everything, and a `FilterCondition.OR` over no filters matches nothing. Both hold when the group is nested: an `AND` that contains an empty `OR` returns nothing, and an `OR` that contains an empty `AND` returns everything. If you build an `OR` group from the values a user is allowed to see, an empty group returns nothing. A plain list of filters is an `AND`, so an empty list applies no filtering.
 
 `MetadataFilters` also supports a third condition: `FilterCondition.NOT`. If you use the `FilterCondition.NOT` condition with a `MetadataFilters` object, the `filters` collection of that object must contain a single nested `MetadataFilters` object.
 
