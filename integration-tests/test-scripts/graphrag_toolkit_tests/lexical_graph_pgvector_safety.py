@@ -212,3 +212,66 @@ class LexicalGraphPGVectorInjectionSafety(IntegrationTestBase):
                 self.assertEqual(self._redstate_bypass_count, 2)
 
         handler.run_assertions(PGVectorInjectionAssertions)
+
+
+class LexicalGraphPGVectorEmptyOrFilter(LexicalGraphPGVectorInjectionSafety):
+    """Drive the real PGVector top_k with an empty OR filter and confirm it
+    matches no rows, alone and nested inside an AND.
+    """
+
+    @property
+    def description(self):
+        return 'PGVector store makes an empty OR metadata filter match nothing'
+
+    def _config(self, condition, *filters):
+        return FilterConfig(source_filters=MetadataFilters(filters=list(filters), condition=condition))
+
+    def _category_is(self, value):
+        return MetadataFilter(key='category', value=value, operator=FilterOperator.EQ)
+
+    def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
+
+        if not self._is_pgvector():
+            handler.skip()
+            return
+
+        empty_or = MetadataFilters(filters=[], condition=FilterCondition.OR)
+
+        with VectorStoreFactory.for_vector_store(os.environ['VECTOR_STORE']) as vector_store:
+
+            index = vector_store.get_index('chunk')
+            index.enable_for_versioning(ids=SEED_IDS)
+
+            self._reset(index)
+            try:
+                categories = {
+                    'empty_or': self._top_k_categories(index, self._config(FilterCondition.OR)),
+                    'and_with_empty_or': self._top_k_categories(
+                        index, self._config(FilterCondition.AND, self._category_is('tech'), empty_or)
+                    ),
+                    'or_with_empty_or': self._top_k_categories(
+                        index, self._config(FilterCondition.OR, self._category_is('tech'), empty_or)
+                    ),
+                    'empty_and': self._top_k_categories(index, self._config(FilterCondition.AND)),
+                }
+            finally:
+                self._reset(index)
+
+        for name, matched in categories.items():
+            handler.add_output(name, matched)
+
+        class PGVectorEmptyOrAssertions(unittest.TestCase):
+
+            def test_an_empty_or_matches_nothing(self):
+                self.assertEqual(categories['empty_or'], [])
+
+            def test_an_and_holding_an_empty_or_matches_nothing(self):
+                self.assertEqual(categories['and_with_empty_or'], [])
+
+            def test_an_or_holding_an_empty_or_keeps_its_other_branch(self):
+                self.assertEqual(categories['or_with_empty_or'], ['tech'])
+
+            def test_an_empty_and_still_applies_no_filter(self):
+                self.assertEqual(sorted(categories['empty_and']), ['science', 'tech'])
+
+        handler.run_assertions(PGVectorEmptyOrAssertions)

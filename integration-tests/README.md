@@ -87,12 +87,14 @@ sh build-tests.sh --env-type neptune-graph --test 'extract.ExtractToFileSystem b
 
 ### Security Tests
 
-The `lexical.short` suite includes two security tests that run against the live environment:
+The `lexical.short` suite includes security tests that run against the live environment:
 
 - `lexical_graph_cypher_safety.LexicalGraphLabelInjectionSafety` — Cypher label escaping at the graph store.
 - `lexical_graph_pgvector_safety.LexicalGraphPGVectorInjectionSafety` — SQL parameter binding at the PGVector store.
+- `lexical_graph_cypher_safety.LexicalGraphEmptyOrFilterSafety` — an empty OR metadata filter matches nothing at the graph store.
+- `lexical_graph_pgvector_safety.LexicalGraphPGVectorEmptyOrFilter` — an empty OR metadata filter matches nothing at the PGVector store.
 
-The PGVector test needs a Postgres-backed vector store (`VECTOR_STORE` set to a `postgres://` or `postgresql://` connection). Run it with a PostgreSQL env-type, which the CloudFormation template provisions along with the `VECTOR_STORE` value:
+The PGVector tests need a Postgres-backed vector store (`VECTOR_STORE` set to a `postgres://` or `postgresql://` connection). Run them with a PostgreSQL env-type, which the CloudFormation template provisions along with the `VECTOR_STORE` value:
 
 ```bash
 sh build-tests.sh --test-file lexical.short --env-type neptune-db-postgresql
