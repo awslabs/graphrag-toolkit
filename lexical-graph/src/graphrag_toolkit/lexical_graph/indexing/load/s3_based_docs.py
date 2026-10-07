@@ -258,19 +258,19 @@ class CompletionMarkers:
 
     A source is opened as its parts are staged and ended by the part that holds
     its last chunk, which declares every chunk id stored for the source. A
-    source that lost a chunk is poisoned and never ends, so its prefix reads as
-    incomplete and the document is staged again.
+    source that lost a chunk never ends, because the upload raises before any
+    marker is written, so its prefix reads as incomplete and the document is
+    staged again.
 
     Writing goes through EncryptedPut, which the host class also inherits. The
-    host also declares _open_sources and _poisoned_sources as PrivateAttr:
-    pydantic does not collect them from a plain mixin, and a host that leaves
-    them out fails on the first call rather than at construction.
+    host also declares _open_sources as PrivateAttr: pydantic does not collect
+    it from a plain mixin, and a host that leaves it out fails on the first
+    call rather than at construction.
     """
 
     # Supplied by the host class.
     bucket_name:str
     _open_sources:Dict[str, Tuple[str, List[str]]]
-    _poisoned_sources:Set[str]
 
     def _open_source(self, source_id:str, root_path:str, node_ids):
         """
@@ -287,16 +287,6 @@ class CompletionMarkers:
         that it stores nothing."""
         opened = self._open_sources.pop(source_id, None)
         return opened[1] if opened is not None else None
-
-    def _poison_source(self, source_id:str):
-        """
-        Record that a source lost a chunk.
-
-        Checked before any marker write, so neither a later part nor the end of
-        the stream can close it.
-        """
-        self._poisoned_sources.add(source_id)
-        self._open_sources.pop(source_id, None)
 
     def record_collection(self, key_prefix:str, collection_id:str, s3_client):
         """
@@ -340,23 +330,15 @@ class CompletionMarkers:
         source without emitting a document for it: a resumed run drops the
         chunks it has already extracted. The end of the stream ends those,
         declaring what was stored. A run that dies never reaches here, so its
-        sources stay open and their prefixes incomplete.
-
-        What one stream saw does not carry into the next. The uploader outlives
-        a single call, so a source left unmarked because it lost a chunk would
-        otherwise stay unmarked for every later stream as well, and the chunks
-        the next one stores for it would never be accounted for.
+        sources stay open and their prefixes incomplete. A lost chunk raises out
+        of the stream, so it ends a run the same way.
         """
         for source_id, (root_path, chunk_ids) in self._open_sources.items():
-            if source_id in self._poisoned_sources:
-                logger.debug(f'Leaving a source that lost a chunk unmarked [source: {source_id}]')
-                continue
             logger.debug(f'Ending a source left open by the stream [source: {source_id}, chunks: {len(chunk_ids)}]')
             self._write_completion_marker(
                 root_path, chunk_ids, s3_client, source_chunk_ids=chunk_ids
             )
         self._open_sources.clear()
-        self._poisoned_sources.clear()
 
     def _write_completion_marker(self, root_path:str, chunk_ids:List[str], s3_client,
                                  source_chunk_ids:Optional[List[str]]=None):
@@ -523,8 +505,7 @@ class S3DocUploader(ConfiguredThreadCount, EncryptedPut, CompletionMarkers, Base
     _semaphore:Semaphore = PrivateAttr(default=None)
     _queue:queue.Queue = PrivateAttr(default=None)
     _open_sources:Dict[str, Tuple[str, List[str]]] = PrivateAttr(default_factory=dict)
-    _poisoned_sources:Set[str] = PrivateAttr(default_factory=set)
-    
+
     def _doc_suffix(self, nodes:List[TextNode]) -> str:
         """
         What separates one object from another under a source document's prefix.
@@ -853,7 +834,6 @@ class S3ChunkUploader(ConfiguredThreadCount, EncryptedPut, CompletionMarkers, Ba
     # it. A source split across extraction rounds reaches staging as separate
     # documents, and the part that ends it declares them all.
     _open_sources:Dict[str, Tuple[str, List[str]]] = PrivateAttr(default_factory=dict)
-    _poisoned_sources:Set[str] = PrivateAttr(default_factory=set)
 
     def _upload_chunk(self, root_path:str, n:TextNode, s3_client):
         chunk_output_path = join(root_path, f'{n.node_id}{_CHUNK_SUFFIX}')
@@ -864,26 +844,33 @@ class S3ChunkUploader(ConfiguredThreadCount, EncryptedPut, CompletionMarkers, Ba
             chunk_output_path, json.dumps(n.to_dict(), indent=4), 'application/json', s3_client
         )
 
-    def _drain(self, futures) -> bool:
-        """Wait on a document's uploads, reporting whether all of them landed."""
-        succeeded = True
+    def _drain(self, futures) -> Optional[BaseException]:
+        """
+        Wait on a document's uploads, returning the first failure among them.
+
+        Waits on every future before returning, so a failure does not leave the
+        rest of the document's uploads running unobserved.
+        """
+        failure = None
         for future in futures:
             try:
                 future.result()
             except Exception as e:
                 logger.error(f'Error uploading chunk: {str(e)}')
-                succeeded = False
-        return succeeded
+                failure = failure or e
+        return failure
 
     def upload(self, source_documents: List[SourceDocument]):
         """
-        Upload each document's chunks, yielding a document once its own uploads
-        have been attempted.
+        Upload each document's chunks, yielding a document once all of its own
+        uploads have landed.
 
         Chunks for several documents are in flight at once; waiting for one
         document first capped them at that document's chunk count rather than at
-        the pool. Documents are yielded in order. A failed chunk is logged, not
-        raised, so a yielded document is not proof every chunk reached S3.
+        the pool. Documents are yielded in order.
+
+        A lost chunk raises, as it does for the JSONL format, so the document is
+        neither yielded nor marked and a restart stages it again.
         """
         s3_client = GraphRAGConfig.s3
         num_threads = self._num_threads()
@@ -899,18 +886,22 @@ class S3ChunkUploader(ConfiguredThreadCount, EncryptedPut, CompletionMarkers, Ba
             def release_oldest():
                 nonlocal inflight
                 (oldest, root_path, nodes, oldest_futures) = pending.popleft()
-                source_id = oldest.source_id()
-
-                if not self._drain(oldest_futures):
-                    self._poison_source(source_id)
-                elif nodes and source_id not in self._poisoned_sources:
+                failure = self._drain(oldest_futures)
+                inflight -= len(oldest_futures)
+                if failure is not None:
+                    # The uploader outlives one call, so the chunk ids this
+                    # source accumulated have to go with the stream. A later
+                    # stream would otherwise end the source declaring them,
+                    # certifying the chunk that never reached S3.
+                    self._open_sources.pop(oldest.source_id(), None)
+                    raise failure
+                if nodes:
+                    source_id = oldest.source_id()
                     ends_source = self._end_source(source_id) if oldest.final_part else None
                     self._write_completion_marker(
                         root_path, [n.node_id for n in nodes], s3_client,
                         source_chunk_ids=ends_source
                     )
-
-                inflight -= len(oldest_futures)
                 return oldest
 
             for source_document in source_documents:

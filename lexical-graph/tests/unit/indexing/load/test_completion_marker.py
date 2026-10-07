@@ -12,6 +12,7 @@ uuid and empty text rather than rejecting it.
 """
 
 import json
+import os
 
 from collections import deque
 
@@ -20,6 +21,10 @@ from unittest.mock import Mock, patch
 
 from llama_index.core.schema import NodeRelationship, RelatedNodeInfo, TextNode
 
+from graphrag_toolkit.lexical_graph import TenantId
+from graphrag_toolkit.lexical_graph.indexing.build.build_pipeline import BuildPipeline
+from graphrag_toolkit.lexical_graph.indexing.build.checkpoint import Checkpoint
+from graphrag_toolkit.lexical_graph.indexing.build.null_builder import NullBuilder
 from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import (
     S3BasedDocs,
     COMPLETION_MARKER_PREFIX,
@@ -67,12 +72,15 @@ def _doc_uploader():
     )
 
 
-def _upload(uploader, docs, failing_keys=()):
+def _upload(uploader, docs, failing_keys=(), expect_failure=False):
     """
-    Run the uploader against a mock S3, returning the objects it wrote.
+    Run the uploader against a mock S3, returning the objects it wrote and the
+    documents it returned.
 
     failing_keys are matched as fragments, so a marker can be failed without
-    reproducing the digest in its name.
+    reproducing the digest in its name. expect_failure runs the stream under
+    pytest.raises, so the objects written and the documents returned before the
+    failure are still available to the caller.
     """
     written = {}
 
@@ -85,12 +93,22 @@ def _upload(uploader, docs, failing_keys=()):
     s3_client = Mock()
     s3_client.put_object.side_effect = put_object
 
+    yielded = []
+
+    def run():
+        for doc in uploader.upload(docs):
+            yielded.append(doc)
+
     with patch(
         'graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs.GraphRAGConfig'
     ) as config:
         config.s3 = s3_client
         config.extraction_num_threads_per_worker = 2
-        yielded = list(uploader.upload(docs))
+        if expect_failure:
+            with pytest.raises(RuntimeError, match='upload failed'):
+                run()
+        else:
+            run()
 
     return written, yielded
 
@@ -141,16 +159,27 @@ class TestMarkerIsWrittenOnSuccess:
 class TestMarkerIsWithheldOnFailure:
 
     def test_a_failed_chunk_leaves_no_marker(self):
-        written, yielded = _upload(
-            _uploader(), [_doc(['c1', 'c2'])], failing_keys=['c2.json']
+        written, _ = _upload(
+            _uploader(), [_doc(['c1', 'c2'])], failing_keys=['c2.json'],
+            expect_failure=True,
         )
 
         assert _markers(written) == []
-        assert len(yielded) == 1, 'the document is still yielded, as it is today'
+
+    def test_a_failed_chunk_does_not_yield_its_document(self):
+        # A yielded document is checkpointed and built from, so one missing a
+        # chunk loses it from the corpus and records it as done.
+        _, yielded = _upload(
+            _uploader(), [_doc(['c1', 'c2'])], failing_keys=['c2.json'],
+            expect_failure=True,
+        )
+
+        assert yielded == []
 
     def test_the_chunks_that_did_succeed_are_still_written(self):
         written, _ = _upload(
-            _uploader(), [_doc(['c1', 'c2'])], failing_keys=['c2.json']
+            _uploader(), [_doc(['c1', 'c2'])], failing_keys=['c2.json'],
+            expect_failure=True,
         )
 
         assert f'{COLLECTION_PREFIX}/{SOURCE_ID}/c1.json' in written
@@ -187,6 +216,7 @@ class TestEdgeCases:
             _uploader(),
             [_doc(['c1', 'c2']), _doc(['c3', 'c4'])],
             failing_keys=['c4.json'],
+            expect_failure=True,
         )
 
         markers = _markers(written)
@@ -421,11 +451,11 @@ class TestAMarkerThatDeclaresNothing:
 class TestASourceWithAFailedChunkStaysUnmarked:
     """
     A source that lost a chunk gets no closing marker, so its prefix reads as
-    incomplete and the document is staged again. A later part of the same
-    source must not undo that.
+    incomplete and the document is staged again. The upload raises, which ends
+    the stream before any later part of the source can close it.
     """
 
-    def test_a_later_final_part_does_not_close_a_poisoned_source(self):
+    def test_the_failure_raises_and_leaves_the_source_unclosed(self):
         written, yielded = _upload(
             _uploader(),
             [
@@ -433,6 +463,7 @@ class TestASourceWithAFailedChunkStaysUnmarked:
                 _doc(['c3', 'c4']),
             ],
             failing_keys=['c1.json'],
+            expect_failure=True,
         )
 
         closing = [
@@ -442,6 +473,7 @@ class TestASourceWithAFailedChunkStaysUnmarked:
         ]
 
         assert closing == [], 'a source that lost a chunk was closed anyway'
+        assert yielded == []
 
 
 class TestASourceOpenAcrossAnUploadBatch:
@@ -762,3 +794,59 @@ class TestARunResumingItsOwnWork:
 
         with pytest.raises(RuntimeError, match='stopped before'):
             list(handler.accept(self._docs('aws::a', 'aws::b')))
+
+
+class TestAFailedChunkIsNotCheckpointed:
+    """
+    What a checkpoint records is skipped by the next run, so a chunk that never
+    reached S3 must not be in one. The wiring is extract()'s: the staging
+    handler feeds a build pipeline whose builder is wrapped by the checkpoint.
+    """
+
+    def _run(self, tmp_path, failing_keys):
+        written = {}
+
+        def put_object(**kwargs):
+            key = kwargs['Key']
+            if any(f in key for f in failing_keys):
+                raise RuntimeError(f'upload failed: {key}')
+            written[key] = kwargs['Body']
+
+        s3_client = Mock()
+        s3_client.put_object.side_effect = put_object
+        s3_client.list_objects_v2.return_value = {}
+
+        checkpoint = Checkpoint('staged', output_dir=str(tmp_path))
+
+        with patch(
+            'graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs.GraphRAGConfig'
+        ) as config:
+            config.s3 = s3_client
+            config.extraction_num_threads_per_worker = 2
+            handler = S3BasedDocs(
+                region='us-east-1', bucket_name='b', key_prefix='p',
+                collection_id='c', num_threads=2,
+            )
+            build = BuildPipeline(
+                components=[NullBuilder()], builders=[], show_progress=False,
+                checkpoint=checkpoint, num_workers=1, tenant_id=TenantId(),
+            )
+            staged = handler.accept([_doc(['c1', 'c2'])])
+            if failing_keys:
+                with pytest.raises(RuntimeError, match='upload failed'):
+                    list(build.build(staged))
+            else:
+                list(build.build(staged))
+
+        return sorted(os.listdir(checkpoint.checkpoint_dir)), written
+
+    def test_a_document_that_lost_a_chunk_leaves_no_checkpoint(self, tmp_path):
+        checkpoints, _ = self._run(tmp_path, failing_keys=['c2.json'])
+
+        assert checkpoints == []
+
+    def test_a_document_whose_chunks_all_landed_is_checkpointed(self, tmp_path):
+        checkpoints, written = self._run(tmp_path, failing_keys=[])
+
+        assert checkpoints == ['c1', 'c2']
+        assert _markers(written) == [_marker_key(['c1', 'c2'])]

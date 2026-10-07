@@ -819,15 +819,19 @@ class TestS3ChunkUploaderConcurrency:
 
         assert len(chunk_keys) == 2
 
-    def test_a_failed_chunk_does_not_stop_the_stream(self):
+    def test_a_failed_chunk_stops_the_stream_at_its_document(self):
         def on_put(**kwargs):
             if 'src-1' in kwargs['Key']:
                 raise RuntimeError('upload failed')
 
-        with _uploader_with(4, on_put) as uploader:
-            yielded = list(uploader.upload([_doc(f'src-{i}', 2) for i in range(4)]))
+        yielded = []
 
-        assert [d.source_id() for d in yielded] == [f'src-{i}' for i in range(4)]
+        with _uploader_with(4, on_put) as uploader:
+            with pytest.raises(RuntimeError, match='upload failed'):
+                for doc in uploader.upload([_doc(f'src-{i}', 2) for i in range(4)]):
+                    yielded.append(doc)
+
+        assert [d.source_id() for d in yielded] == ['src-0']
 
 
 class TestUploadThreadPropagation:
@@ -1711,7 +1715,7 @@ class TestASourceLeftOpenWhenTheStreamEnds:
             nodes.append(node)
         return SourceDocument(nodes=nodes, final_part=final_part)
 
-    def _markers_written(self, uploader, docs, on_put=None):
+    def _markers_written(self, uploader, docs, on_put=None, expect_failure=False):
         puts = {}
 
         def record(**kwargs):
@@ -1723,7 +1727,11 @@ class TestASourceLeftOpenWhenTheStreamEnds:
             config.extraction_num_threads_per_worker = 2
             config.s3 = MagicMock()
             config.s3.put_object = record
-            list(uploader.upload(docs))
+            if expect_failure:
+                with pytest.raises(RuntimeError, match='upload failed'):
+                    list(uploader.upload(docs))
+            else:
+                list(uploader.upload(docs))
 
         return [json.loads(body) for key, body in puts.items() if is_completion_marker(key)]
 
@@ -1746,8 +1754,8 @@ class TestASourceLeftOpenWhenTheStreamEnds:
         assert closing[0]['source_chunk_ids'] == ['c1', 'c2']
 
     def test_a_source_whose_chunk_failed_is_left_unmarked(self):
-        # The stream ending is not a reason to declare a source whose objects
-        # did not all reach S3.
+        # The failure raises out of the stream, so nothing declares a source
+        # whose objects did not all reach S3.
         uploader = S3ChunkUploader(bucket_name='b', collection_prefix='p/c')
 
         def fail_one_chunk(**kwargs):
@@ -1755,14 +1763,16 @@ class TestASourceLeftOpenWhenTheStreamEnds:
                 raise RuntimeError('upload failed')
 
         markers = self._markers_written(
-            uploader, [self._doc('src-1', ['c1', 'c2'], final_part=False)], on_put=fail_one_chunk
+            uploader, [self._doc('src-1', ['c1', 'c2'], final_part=False)],
+            on_put=fail_one_chunk, expect_failure=True,
         )
 
         assert markers == []
 
     def test_a_source_that_lost_a_chunk_can_be_stored_by_a_later_stream(self):
         # The uploader outlives one call, so what a stream saw must not decide
-        # what the next one may mark.
+        # what the next one may mark. The chunk ids the failed stream
+        # accumulated must not be declared by the stream that follows it.
         uploader = S3ChunkUploader(bucket_name='b', collection_prefix='p/c')
 
         def fail_one_chunk(**kwargs):
@@ -1770,7 +1780,8 @@ class TestASourceLeftOpenWhenTheStreamEnds:
                 raise RuntimeError('upload failed')
 
         self._markers_written(
-            uploader, [self._doc('src-1', ['c1', 'c2'], final_part=False)], on_put=fail_one_chunk
+            uploader, [self._doc('src-1', ['c1', 'c2'], final_part=False)],
+            on_put=fail_one_chunk, expect_failure=True,
         )
         markers = self._markers_written(
             uploader, [self._doc('src-1', ['c3', 'c4'], final_part=False)]
