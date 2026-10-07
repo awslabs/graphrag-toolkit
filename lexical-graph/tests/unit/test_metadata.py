@@ -17,6 +17,7 @@ from graphrag_toolkit.lexical_graph.metadata import (
     DefaultSourceMetadataFormatter,
     FilterConfig,
     DictionaryFilter,
+    metadata_filters_match_nothing,
     to_metadata_filter
 )
 from llama_index.core.vector_stores.types import (
@@ -252,6 +253,92 @@ class TestFilterConfig:
         
         metadata = {'status': 'inactive', 'name': 'test'}
         assert config.filter_source_metadata_dictionary(metadata) is False
+
+
+class TestMetadataFiltersMatchNothing:
+    """Tests for metadata_filters_match_nothing function."""
+
+    def _eq(self, key='status', value='active'):
+        return MetadataFilter(key=key, value=value, operator=FilterOperator.EQ)
+
+    def test_none_matches_everything(self):
+        """Verify no filters is not a match-nothing filter."""
+        assert metadata_filters_match_nothing(None) is False
+
+    def test_empty_and_matches_everything(self):
+        """Verify an AND over no conditions is not a match-nothing filter."""
+        filters = MetadataFilters(filters=[], condition=FilterCondition.AND)
+
+        assert metadata_filters_match_nothing(filters) is False
+
+    def test_empty_or_matches_nothing(self):
+        """Verify an OR over no conditions matches nothing."""
+        filters = MetadataFilters(filters=[], condition=FilterCondition.OR)
+
+        assert metadata_filters_match_nothing(filters) is True
+
+    def test_ordinary_filters_match_something(self):
+        """Verify a filter with conditions is not a match-nothing filter."""
+        filters = MetadataFilters(filters=[self._eq()], condition=FilterCondition.OR)
+
+        assert metadata_filters_match_nothing(filters) is False
+
+    def test_empty_or_inside_and_matches_nothing(self):
+        """Verify AND(x, OR()) matches nothing."""
+        filters = MetadataFilters(
+            filters=[
+                self._eq(),
+                MetadataFilters(filters=[], condition=FilterCondition.OR)
+            ],
+            condition=FilterCondition.AND
+        )
+
+        assert metadata_filters_match_nothing(filters) is True
+
+    def test_empty_or_inside_or_leaves_the_other_branch(self):
+        """Verify OR(x, OR()) still matches whatever x matches."""
+        filters = MetadataFilters(
+            filters=[
+                self._eq(),
+                MetadataFilters(filters=[], condition=FilterCondition.OR)
+            ],
+            condition=FilterCondition.OR
+        )
+
+        assert metadata_filters_match_nothing(filters) is False
+
+    def test_or_of_empty_ors_matches_nothing(self):
+        """Verify OR(OR(), OR()) matches nothing."""
+        filters = MetadataFilters(
+            filters=[
+                MetadataFilters(filters=[], condition=FilterCondition.OR),
+                MetadataFilters(filters=[], condition=FilterCondition.OR)
+            ],
+            condition=FilterCondition.OR
+        )
+
+        assert metadata_filters_match_nothing(filters) is True
+
+    def test_empty_and_inside_and_leaves_the_other_branch(self):
+        """Verify AND(AND(), x) still matches whatever x matches."""
+        filters = MetadataFilters(
+            filters=[
+                MetadataFilters(filters=[], condition=FilterCondition.AND),
+                self._eq()
+            ],
+            condition=FilterCondition.AND
+        )
+
+        assert metadata_filters_match_nothing(filters) is False
+
+    def test_not_of_empty_or_matches_everything(self):
+        """Verify NOT over an empty group is not reported as matching nothing."""
+        filters = MetadataFilters(
+            filters=[MetadataFilters(filters=[], condition=FilterCondition.OR)],
+            condition=FilterCondition.NOT
+        )
+
+        assert metadata_filters_match_nothing(filters) is False
 
 
 class TestDictionaryFilter:

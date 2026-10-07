@@ -236,6 +236,38 @@ class FilterConfig(BaseModel):
         return result
 
 
+def metadata_filters_match_nothing(metadata_filters: Optional[MetadataFilters]) -> bool:
+    """
+    Determines whether no metadata at all can satisfy the given filters.
+
+    An OR over no conditions matches nothing, so a group whose every branch
+    matches nothing matches nothing too, as does an AND with any such branch.
+    An AND over no conditions matches everything, and so does `None`. `NOT` is
+    reported as matching something.
+
+    Args:
+        metadata_filters (Optional[MetadataFilters]): The filters to inspect.
+
+    Returns:
+        bool: True if the filters can never be satisfied; otherwise, False.
+    """
+    if metadata_filters is None:
+        return False
+
+    results = [
+        metadata_filters_match_nothing(metadata_filter)
+        for metadata_filter in metadata_filters.filters
+        if isinstance(metadata_filter, MetadataFilters)
+    ]
+
+    if metadata_filters.condition == FilterCondition.OR:
+        return len(results) == len(metadata_filters.filters) and all(results)
+    elif metadata_filters.condition == FilterCondition.AND:
+        return any(results)
+    else:
+        return False
+
+
 class DictionaryFilter(BaseModel):
     """
     Filters metadata dictionaries based on specified filter criteria.

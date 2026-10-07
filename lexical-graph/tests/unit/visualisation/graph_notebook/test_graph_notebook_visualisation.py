@@ -15,10 +15,9 @@ import graphrag_toolkit.lexical_graph.visualisation.graph_notebook.graph_noteboo
 
 @pytest.fixture(params=[
     (FilterCondition.AND, False),
-    (FilterCondition.OR, False),
     (FilterCondition.AND, True),
     (FilterCondition.OR, True),
-], ids=['and', 'or', 'nested-and', 'nested-or'])
+], ids=['and', 'nested-and', 'or-of-nested-and'])
 def empty_filter_config(request):
     condition, nested = request.param
     filters = (
@@ -31,7 +30,7 @@ def empty_filter_config(request):
     ))
 
 
-def test_empty_filter_does_not_add_where_clause(empty_filter_config):
+def test_empty_and_filter_does_not_add_where_clause(empty_filter_config):
     query = visualisation.get_sources_query(
         TenantId(), filter=empty_filter_config,
     )
@@ -39,7 +38,7 @@ def test_empty_filter_does_not_add_where_clause(empty_filter_config):
     assert 'WHERE' not in query
 
 
-def test_empty_filter_does_not_add_leading_or_before_source_ids(
+def test_empty_and_filter_does_not_add_leading_or_before_source_ids(
     empty_filter_config,
 ):
     query = visualisation.get_sources_query(
@@ -48,6 +47,16 @@ def test_empty_filter_does_not_add_leading_or_before_source_ids(
 
     assert "WHERE (id(source) in ['source-1'])" in query
     assert 'WHERE  OR' not in query
+
+
+def test_empty_or_filter_matches_no_sources():
+    filter_config = FilterConfig(source_filters=MetadataFilters(
+        filters=[], condition=FilterCondition.OR,
+    ))
+
+    query = visualisation.get_sources_query(TenantId(), filter=filter_config)
+
+    assert 'WHERE false' in query
 
 
 @pytest.mark.parametrize('condition', [FilterCondition.AND, FilterCondition.OR])

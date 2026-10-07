@@ -312,13 +312,61 @@ class TestParseMetadataFiltersRecursive:
         assert ' OR ' in result
 
     @pytest.mark.parametrize('condition', [FilterCondition.AND, FilterCondition.OR])
-    def test_nested_empty_filter_group_returns_empty_string(self, condition):
+    def test_nested_empty_and_group_returns_empty_string(self, condition):
         filters = MetadataFilters(
             filters=[MetadataFilters(filters=[], condition=FilterCondition.AND)],
             condition=condition,
         )
 
         assert parse_metadata_filters_recursive(filters) == ''
+
+    def test_empty_or_group_matches_nothing(self):
+        filters = MetadataFilters(filters=[], condition=FilterCondition.OR)
+
+        assert parse_metadata_filters_recursive(filters) == 'false'
+
+    @pytest.mark.parametrize('condition', [FilterCondition.AND, FilterCondition.OR])
+    def test_nested_empty_or_group_matches_nothing(self, condition):
+        filters = MetadataFilters(
+            filters=[MetadataFilters(filters=[], condition=FilterCondition.OR)],
+            condition=condition,
+        )
+
+        assert parse_metadata_filters_recursive(filters) == '(false)'
+
+    def test_empty_or_group_makes_the_whole_and_match_nothing(self):
+        filters = MetadataFilters(
+            filters=[
+                _eq_filter('category', 'tech'),
+                MetadataFilters(filters=[], condition=FilterCondition.OR),
+            ],
+            condition=FilterCondition.AND,
+        )
+
+        assert parse_metadata_filters_recursive(filters) == (
+            "((source.`category` = 'tech') AND false)"
+        )
+
+    def test_empty_or_group_leaves_the_other_or_branch(self):
+        filters = MetadataFilters(
+            filters=[
+                _eq_filter('category', 'tech'),
+                MetadataFilters(filters=[], condition=FilterCondition.OR),
+            ],
+            condition=FilterCondition.OR,
+        )
+
+        assert parse_metadata_filters_recursive(filters) == (
+            "((source.`category` = 'tech') OR false)"
+        )
+
+    def test_not_of_empty_or_group_matches_everything(self):
+        filters = MetadataFilters(
+            filters=[MetadataFilters(filters=[], condition=FilterCondition.OR)],
+            condition=FilterCondition.NOT,
+        )
+
+        assert parse_metadata_filters_recursive(filters) == '(NOT false)'
 
     @pytest.mark.parametrize('condition', [FilterCondition.AND, FilterCondition.OR])
     def test_nested_empty_filter_group_is_ignored_next_to_valid_filter(self, condition):
@@ -382,11 +430,16 @@ class TestFilterConfigToOpencypherFilters:
         result = parse_metadata_filters_recursive(filters)
         assert result == ''
 
-    def test_empty_filters_list_or_condition_returns_empty_string(self):
-        """Same as above but with OR condition."""
+    def test_empty_filters_list_or_condition_returns_a_false_literal(self):
+        """Same as above but with OR condition.
+
+        An OR over no conditions matches nothing, so it cannot collapse to ''.
+        It returns a boolean literal, which is still a valid Cypher expression
+        wherever a clause is interpolated.
+        """
         filters = MetadataFilters(
             filters=[],
             condition=FilterCondition.OR,
         )
         result = parse_metadata_filters_recursive(filters)
-        assert result == ''
+        assert result == 'false'

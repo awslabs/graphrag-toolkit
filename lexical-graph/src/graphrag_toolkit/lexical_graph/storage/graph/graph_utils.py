@@ -303,6 +303,9 @@ def parse_metadata_filters_recursive(metadata_filters:MetadataFilters) -> str:
     
     condition = metadata_filters.condition.value
 
+    if not metadata_filters.filters:
+        return 'false' if metadata_filters.condition == FilterCondition.OR else ''
+
     filter_strs = []
 
     for metadata_filter in metadata_filters.filters:

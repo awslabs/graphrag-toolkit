@@ -7,7 +7,7 @@ from botocore.exceptions import ClientError
 from tqdm import tqdm
 from typing import List, Dict, Any, Callable, Optional, Sequence
 
-from graphrag_toolkit.lexical_graph.metadata import FilterConfig, type_name_for_key_value, format_datetime
+from graphrag_toolkit.lexical_graph.metadata import FilterConfig, metadata_filters_match_nothing, type_name_for_key_value, format_datetime
 from graphrag_toolkit.lexical_graph.versioning import VALID_FROM, VALID_TO, TIMESTAMP_LOWER_BOUND, TIMESTAMP_UPPER_BOUND
 from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
 from graphrag_toolkit.lexical_graph.storage.vector import VectorIndex, to_embedded_query
@@ -559,6 +559,10 @@ class S3VectorIndex(VectorIndex):
 
     def top_k(self, query_bundle:QueryBundle, top_k:int=5, filter_config:Optional[FilterConfig]=None) -> Sequence[Dict[str, Any]]:
         
+        # S3 Vectors has no filter expression that matches nothing.
+        if filter_config and metadata_filters_match_nothing(filter_config.source_filters):
+            return []
+
         if top_k > MAX_RESULTS:
             logger.warning(f'Reducing top_k from {top_k} to {MAX_RESULTS} because S3 vectors supports a maximum of {MAX_RESULTS} Top-K results per QueryVectors request')
             top_k = MAX_RESULTS

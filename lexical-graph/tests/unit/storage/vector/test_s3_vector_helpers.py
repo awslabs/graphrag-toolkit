@@ -4,10 +4,10 @@
 """Tests for the pure helpers in storage/vector/s3_vector_indexes."""
 
 import json
-from unittest.mock import MagicMock
+from unittest.mock import MagicMock, patch, PropertyMock
 
 import pytest
-from llama_index.core.schema import TextNode
+from llama_index.core.schema import QueryBundle, TextNode
 from llama_index.core.vector_stores.types import (
     FilterCondition,
     FilterOperator,
@@ -16,6 +16,8 @@ from llama_index.core.vector_stores.types import (
 )
 
 from graphrag_toolkit.lexical_graph.metadata import FilterConfig
+from graphrag_toolkit.lexical_graph.tenant_id import TenantId
+import graphrag_toolkit.lexical_graph.storage.vector.s3_vector_indexes as svi
 from graphrag_toolkit.lexical_graph.storage.vector.s3_vector_indexes import (
     _node_to_s3_vector,
     filter_config_to_s3_filters,
@@ -184,6 +186,78 @@ class TestFilterConfigToS3Filters:
         )
 
         assert 'filter' not in client.query_vectors.call_args.kwargs
+
+
+class TestTopKWithMatchNothingFilter:
+    """S3 Vectors has no always-false filter, so top_k skips the query instead."""
+
+    def _index(self):
+        return svi.S3VectorIndex.model_construct(
+            index_name='chunk',
+            bucket_name='bucket',
+            prefix=None,
+            kms_key_arn=None,
+            embed_model=MagicMock(),
+            dimensions=3,
+            tenant_id=TenantId(),
+            initialized=True,
+        )
+
+    def _top_k(self, filter_config):
+        index = self._index()
+        client = MagicMock()
+        bundle = QueryBundle(query_str='q', embedding=[0.1, 0.2, 0.3])
+
+        with patch.object(svi.S3VectorIndex, 'client', new_callable=PropertyMock, return_value=client):
+            with patch.object(svi, 'to_embedded_query', return_value=bundle):
+                results = index.top_k(bundle, top_k=5, filter_config=filter_config)
+
+        return results, client
+
+    def test_empty_or_group_returns_no_results_without_querying(self):
+        config = FilterConfig(source_filters=MetadataFilters(
+            filters=[], condition=FilterCondition.OR,
+        ))
+
+        results, client = self._top_k(config)
+
+        assert results == []
+        assert not client.query_vectors.called
+
+    def test_empty_or_group_inside_an_and_returns_no_results_without_querying(self):
+        config = FilterConfig(source_filters=MetadataFilters(
+            filters=[
+                _eq('category', 'tech'),
+                MetadataFilters(filters=[], condition=FilterCondition.OR),
+            ],
+            condition=FilterCondition.AND,
+        ))
+
+        results, client = self._top_k(config)
+
+        assert results == []
+        assert not client.query_vectors.called
+
+    def test_empty_and_group_still_queries_without_a_filter(self):
+        config = FilterConfig(source_filters=MetadataFilters(
+            filters=[], condition=FilterCondition.AND,
+        ))
+
+        _, client = self._top_k(config)
+
+        assert client.query_vectors.called
+        assert 'filter' not in client.query_vectors.call_args.kwargs
+
+    def test_ordinary_filter_still_reaches_the_query(self):
+        config = FilterConfig(source_filters=MetadataFilters(
+            filters=[_eq('category', 'tech')], condition=FilterCondition.AND,
+        ))
+
+        _, client = self._top_k(config)
+
+        assert client.query_vectors.call_args.kwargs['filter'] == {
+            '$and': [{'source.metadata.category': {'$eq': 'tech'}}]
+        }
 
 
 class TestNodeToS3Vector:

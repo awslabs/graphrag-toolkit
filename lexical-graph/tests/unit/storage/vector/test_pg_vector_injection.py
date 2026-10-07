@@ -131,7 +131,7 @@ class TestTopKFilterInjection:
     """top_k() builds its WHERE clause from filter_config."""
 
     @pytest.mark.parametrize('condition', [FilterCondition.AND, FilterCondition.OR])
-    def test_empty_filter_group_does_not_emit_where_clause(self, condition):
+    def test_empty_and_group_does_not_emit_where_clause(self, condition):
         index = _make_pg_index()
         mock_conn, mock_cur = _mock_conn_cursor()
         bundle = QueryBundle(query_str='q', embedding=[0.1, 0.2, 0.3])
@@ -148,6 +148,25 @@ class TestTopKFilterInjection:
 
         sql_text, _ = _captured_execute(mock_cur)
         assert 'WHERE' not in sql_text
+
+    @pytest.mark.parametrize('condition', [FilterCondition.AND, FilterCondition.OR])
+    def test_empty_or_group_emits_a_where_clause_that_matches_nothing(self, condition):
+        index = _make_pg_index()
+        mock_conn, mock_cur = _mock_conn_cursor()
+        bundle = QueryBundle(query_str='q', embedding=[0.1, 0.2, 0.3])
+        filter_config = FilterConfig(source_filters=MetadataFilters(
+            filters=[
+                MetadataFilters(filters=[], condition=FilterCondition.OR),
+            ],
+            condition=condition,
+        ))
+
+        with patch.object(pvi.PGIndex, '_get_connection', return_value=mock_conn):
+            with patch.object(pvi, 'to_embedded_query', return_value=bundle):
+                index.top_k(bundle, top_k=5, filter_config=filter_config)
+
+        sql_text, _ = _captured_execute(mock_cur)
+        assert 'WHERE (FALSE)' in sql_text
 
     def test_filter_value_is_bound_not_interpolated(self):
         index = _make_pg_index()
@@ -296,20 +315,52 @@ class TestClauseBuilderContract:
     def test_none_config_returns_empty_fragment_and_params(self):
         assert pvi.filter_config_to_sql_filters(None) == ('', [])
 
-    @pytest.mark.parametrize('condition', [FilterCondition.AND, FilterCondition.OR])
-    def test_empty_filter_group_returns_empty_fragment_and_params(self, condition):
-        filters = MetadataFilters(filters=[], condition=condition)
+    def test_empty_and_group_returns_empty_fragment_and_params(self):
+        filters = MetadataFilters(filters=[], condition=FilterCondition.AND)
 
         assert pvi.parse_metadata_filters_recursive(filters) == ('', [])
 
     @pytest.mark.parametrize('condition', [FilterCondition.AND, FilterCondition.OR])
-    def test_nested_empty_filter_group_returns_empty_fragment_and_params(self, condition):
+    def test_nested_empty_and_group_returns_empty_fragment_and_params(self, condition):
         filters = MetadataFilters(
             filters=[MetadataFilters(filters=[], condition=FilterCondition.AND)],
             condition=condition,
         )
 
         assert pvi.parse_metadata_filters_recursive(filters) == ('', [])
+
+    def test_empty_or_group_returns_a_false_fragment(self):
+        filters = MetadataFilters(filters=[], condition=FilterCondition.OR)
+
+        assert pvi.parse_metadata_filters_recursive(filters) == ('FALSE', [])
+
+    def test_empty_or_group_makes_the_whole_and_match_nothing(self):
+        filters = MetadataFilters(
+            filters=[
+                MetadataFilter(key='category', value='tech', operator=FilterOperator.EQ),
+                MetadataFilters(filters=[], condition=FilterCondition.OR),
+            ],
+            condition=FilterCondition.AND,
+        )
+
+        (fragment, params) = pvi.parse_metadata_filters_recursive(filters)
+
+        assert fragment.endswith(' AND FALSE)')
+        assert params == ['category', 'tech']
+
+    def test_empty_or_group_leaves_the_other_or_branch(self):
+        filters = MetadataFilters(
+            filters=[
+                MetadataFilter(key='category', value='tech', operator=FilterOperator.EQ),
+                MetadataFilters(filters=[], condition=FilterCondition.OR),
+            ],
+            condition=FilterCondition.OR,
+        )
+
+        (fragment, params) = pvi.parse_metadata_filters_recursive(filters)
+
+        assert fragment.endswith(' OR FALSE)')
+        assert params == ['category', 'tech']
 
     @pytest.mark.parametrize('condition', [FilterCondition.AND, FilterCondition.OR])
     def test_nested_empty_filter_group_is_ignored_next_to_valid_filter(self, condition):

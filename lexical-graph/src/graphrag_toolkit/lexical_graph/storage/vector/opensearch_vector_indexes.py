@@ -16,7 +16,7 @@ from llama_index.core.vector_stores.types import  VectorStoreQueryResult, Vector
 from llama_index.core.indices.utils import embed_nodes
 from llama_index.core.vector_stores.types import MetadataFilters
 
-from graphrag_toolkit.lexical_graph.metadata import FilterConfig, is_datetime_key, format_datetime
+from graphrag_toolkit.lexical_graph.metadata import FilterConfig, metadata_filters_match_nothing, is_datetime_key, format_datetime
 from graphrag_toolkit.lexical_graph.versioning import  VALID_FROM, VALID_TO, TIMESTAMP_LOWER_BOUND, TIMESTAMP_UPPER_BOUND
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig, EmbeddingType, OpenSearchServerlessGeneration
 from graphrag_toolkit.lexical_graph.storage.vector import VectorIndex, to_embedded_query
@@ -894,6 +894,10 @@ class OpenSearchIndex(VectorIndex):
         Raises:
             ValueError: See index_exists().
         """
+        # llama-index builds this query and cannot express a filter that matches nothing.
+        if filter_config and metadata_filters_match_nothing(filter_config.source_filters):
+            return []
+
         query_bundle = to_embedded_query(query_bundle, self.embed_model)
 
         scored_nodes = []

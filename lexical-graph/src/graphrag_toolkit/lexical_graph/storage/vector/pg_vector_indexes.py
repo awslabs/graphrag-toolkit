@@ -126,6 +126,9 @@ def parse_metadata_filters_recursive(metadata_filters:MetadataFilters) -> tuple[
             bound_value = type_formatter(operator_formatter(f.value))
             return (f"(({key_sql})::{type_name} {operator} %s)", key_params + [bound_value])
 
+    if not metadata_filters.filters:
+        return ('FALSE', []) if metadata_filters.condition == FilterCondition.OR else ('', [])
+
     filter_strs = []
     params = []
 
