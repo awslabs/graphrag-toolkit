@@ -445,11 +445,13 @@ class BatchExtractWithRunPlanToS3(IntegrationTestBase):
                         self.assertEqual(self._partition_states, [COMPLETE])
 
                     def test_a_job_name_says_which_run_it_belongs_to(self):
-                        """Every Bedrock job this run submitted carries the run id and an attempt"""
+                        """Every Bedrock job this run submitted carries the run id, its partition and an attempt"""
 
                         self.assertGreater(len(self._job_names), 0)
-                        for _, job_name, _ in self._job_names:
+                        for partition, job_name, _ in self._job_names:
                             self.assertIn(run_id, job_name)
+                            # The name keeps the first ten characters of the partition id.
+                            self.assertIn(partition[:10], job_name)
                             self.assertRegex(job_name, r'-a\d+')
                             self.assertLessEqual(len(job_name), MAX_JOB_NAME)
 
