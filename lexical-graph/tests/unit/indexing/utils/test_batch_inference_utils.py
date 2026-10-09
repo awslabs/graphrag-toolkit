@@ -19,6 +19,7 @@ from graphrag_toolkit.lexical_graph.indexing.utils.batch_inference_utils import 
     create_inference_inputs_for_messages,
     create_inference_inputs,
     get_parse_output_text_fn,
+    download_output_files,
     BATCH_MODEL_PROVIDERS,
     BatchModelProvider,
     BEDROCK_MIN_BATCH_SIZE,
@@ -704,3 +705,55 @@ class TestParseRealBedrockBatchOutput:
             },
         }
         assert parse_fn(record) == 'Llama answer.'
+
+
+class TestDownloadingAnOutputStaysUnderTheLocalDirectory:
+    """
+    The local path of an output file is built from its S3 key, and anyone who
+    can put an object under the batch output prefix chooses that key. A key
+    holding '..' names a local file outside the directory the caller prepared.
+    """
+
+    # The retry wrapper repeats the call and reports its own error; the
+    # containment check belongs to the function under it.
+    download = staticmethod(download_output_files.__wrapped__)
+
+    @staticmethod
+    def _s3_holding(keys):
+        contents = {'Contents': [{'Key': key} for key in keys]}
+        s3_client = Mock()
+        s3_client.get_paginator.return_value = Mock(paginate=lambda Bucket, Prefix: [contents])
+        s3_client.list_objects_v2.return_value = contents
+        return s3_client
+
+    def test_a_key_naming_a_file_outside_the_directory_is_refused(self, tmp_path):
+        local = tmp_path / 'outputs'
+        local.mkdir()
+        s3_client = self._s3_holding(['out/in.jsonl.out', 'out/../../escaped.jsonl.out'])
+
+        with pytest.raises(BatchJobError, match='outside'):
+            self.download(s3_client, 'b', 'out/', 'in.jsonl', str(local))
+
+        downloaded = [call.kwargs['Filename'] for call in s3_client.download_file.call_args_list]
+        assert all(name.startswith(str(local) + os.sep) for name in downloaded)
+        assert not (tmp_path / 'escaped.jsonl.out').exists()
+
+    def test_the_refused_key_is_not_written_anywhere(self, tmp_path):
+        local = tmp_path / 'outputs'
+        local.mkdir()
+        s3_client = self._s3_holding(['out/../../escaped.json', 'out/in.jsonl.out'])
+
+        with pytest.raises(BatchJobError, match='outside'):
+            self.download(s3_client, 'b', 'out/', 'in.jsonl', str(local))
+
+        s3_client.download_file.assert_not_called()
+
+    def test_a_key_in_a_folder_of_its_own_is_still_downloaded(self, tmp_path):
+        local = tmp_path / 'outputs'
+        local.mkdir()
+        s3_client = self._s3_holding(['out/job-1/in.jsonl.out', 'out/job-1/manifest.json'])
+
+        self.download(s3_client, 'b', 'out/', 'in.jsonl', str(local))
+
+        downloaded = sorted(call.kwargs['Filename'] for call in s3_client.download_file.call_args_list)
+        assert downloaded == [str(local / 'in.jsonl.out'), str(local / 'manifest.json')]

@@ -422,12 +422,16 @@ def download_output_files(s3_client: Any, bucket_name:str, output_path:str, inpu
         raise BatchJobError(f"No folder containing a file matching '{input_filename}' was found in bucket {bucket_name}.")
 
     output_files = s3_client.list_objects_v2(Bucket=bucket_name, Prefix=output_folder)
+    local_root = os.path.realpath(local_directory)
     for obj in output_files.get('Contents', []):
         key = obj['Key']
         if key.endswith('/'):
             continue
-        
-        local_file_path = os.path.join(local_directory, os.path.relpath(key, output_folder))
+
+        local_file_path = os.path.realpath(os.path.join(local_directory, os.path.relpath(key, output_folder)))
+        if not local_file_path.startswith(local_root + os.sep):
+            raise BatchJobError(f'Refusing to download {key} to {local_file_path}, which is outside {local_root}.')
+
         os.makedirs(os.path.dirname(local_file_path), exist_ok=True)
         
         logger.debug(f'Started downloading {key} to {local_file_path}')

@@ -147,6 +147,21 @@ class BatchExtractorBase(BaseExtractor):
         )
         return None
 
+    def _under_the_batch_prefix(self, output_path:str) -> bool:
+        """
+        Whether a recorded prefix names the batch output area this run writes.
+
+        The prefix is listed and whatever it holds is parsed as the partition's
+        extraction, so a record is not allowed to send the listing to another
+        collection's prefix or climb out of the one this run was given.
+        """
+        if output_path.startswith('/') or '..' in output_path.split('/'):
+            return False
+
+        key_prefix = self.batch_config.key_prefix
+
+        return not key_prefix or output_path.startswith(f'{key_prefix.strip("/")}/')
+
     def _recover_partition(self, record:PartitionRecord, expected:int, s3_client, bedrock_client):
         """
         The results of a job an earlier run already paid for, or None if there
@@ -156,11 +171,19 @@ class BatchExtractorBase(BaseExtractor):
         resubmitted, so waiting is the cheaper of the two. A completed job is
         downloaded and has to answer for every node in the partition. A job that
         cannot be described is judged by its output alone. Anything else,
-        including an output that cannot be read, counts as having produced
-        nothing: the assumption that costs a resubmission rather than a silent gap.
+        including an output that cannot be read and a record pointing somewhere
+        this run does not write, counts as having produced nothing: the
+        assumption that costs a resubmission rather than a silent gap.
         """
         if not record.job_arn or not record.output_path:
             return None
+
+        if not self._under_the_batch_prefix(record.output_path):
+            return self._resubmitting(
+                record,
+                f'The recorded output prefix is not one this run writes [output_path: {record.output_path}]',
+                logging.WARNING,
+            )
 
         try:
             status = bedrock_client.get_model_invocation_job(jobIdentifier=record.job_arn)['status']

@@ -6,7 +6,7 @@ import logging
 import re
 
 from dataclasses import MISSING, dataclass, asdict, fields
-from os.path import join
+from os.path import basename, join
 from typing import Dict, List, Optional
 
 from graphrag_toolkit.lexical_graph.indexing.extract.run_store import RunArtifactStore, RunRecordError
@@ -26,6 +26,40 @@ MAX_JOB_NAME = 63
 MAX_KEYS_PER_DELETE = 1000
 
 _NOT_IN_A_JOB_NAME = re.compile(r'[^a-zA-Z0-9]+')
+
+_MODEL_INVOCATION_JOB_ARN = re.compile(
+    r'arn:[a-z0-9-]+:bedrock:[a-z0-9-]+:\d{12}:model-invocation-job/[A-Za-z0-9]+'
+)
+
+
+def _validate_job_arn(value:Optional[str]) -> None:
+    """
+    Reject an arn that does not name a job this code submits.
+
+    A restart asks Bedrock for this arn's status and takes a Completed answer
+    as its partition's, so an arn naming another kind of job, or another
+    service, would have the run skip extraction on somebody else's say-so.
+    None is a record from a build that kept no arn.
+    """
+    if value is None:
+        return
+    if not _MODEL_INVOCATION_JOB_ARN.fullmatch(value):
+        raise RunRecordError(f'A partition record has a job_arn that is not a model invocation job: {value!r}')
+
+
+def _validate_input_filename(value:Optional[str]) -> None:
+    """
+    Reject a filename that is not the plain name a run wrote.
+
+    It is the name a restart matches output files against, in S3 to pick the
+    folder to download and on disk to pick the files to parse, so a name
+    holding a separator reaches past both. None is a record from a build that
+    kept no filename.
+    """
+    if value is None:
+        return
+    if not value or value in ('.', '..') or basename(value) != value:
+        raise RunRecordError(f'A partition record has an input_filename that is not a plain filename: {value!r}')
 
 
 def partition_id(node_ids, stage:str) -> str:
@@ -79,7 +113,10 @@ class PartitionRecord:
         A record that lost a field it cannot do without says so, rather than
         failing as a missing argument. Its partition id is checked here as
         well as where a key is built from it, because a record is the one way
-        an id that was never hashed reaches the paths a recovery removes.
+        an id that was never hashed reaches the paths a recovery removes. The
+        job and the filename are checked for the same reason: a restart hands
+        them to Bedrock and to S3 without looking. The output path is checked
+        where the batch config says which prefix a run writes.
         """
         recorded = json.loads(body)
         known = {f.name for f in fields(cls)}
@@ -94,6 +131,8 @@ class PartitionRecord:
             raise RunRecordError(f'A partition record is missing {missing}')
 
         validate_id_segment(recorded['partition_id'], 'partition_id')
+        _validate_job_arn(recorded.get('job_arn'))
+        _validate_input_filename(recorded.get('input_filename'))
 
         return cls(**{name: value for name, value in recorded.items() if name in known})
 

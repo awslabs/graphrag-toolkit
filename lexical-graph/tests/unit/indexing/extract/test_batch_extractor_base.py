@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import pytest
+from dataclasses import replace
 from unittest.mock import Mock, patch
 from llama_index.core.schema import TextNode
 from graphrag_toolkit.lexical_graph import BatchJobError
@@ -78,9 +79,11 @@ class _Extractor(BatchExtractorBase):
         return node
 
 
-def _extractor(manifest_store=None, tmp_path=None):
+def _extractor(manifest_store=None, tmp_path=None, key_prefix=None):
     return _Extractor(
-        batch_config=BatchConfig(role_arn='arn:role', region='us-east-1', bucket_name='b'),
+        batch_config=BatchConfig(
+            role_arn='arn:role', region='us-east-1', bucket_name='b', key_prefix=key_prefix
+        ),
         llm=_llm(),
         prompt_template='{text}',
         batch_inference_dir=str(tmp_path),
@@ -464,3 +467,46 @@ class TestAFreshJobThatDescribesFewerNodesThanItWasGiven:
         self._run_short(_extractor(manifest_store=store, tmp_path=tmp_path), described=3)
 
         assert [r.state for r in store.written][-1] == COMPLETE
+
+
+class TestTheOutputPrefixARecordPointsAt:
+    """
+    output_path is handed to S3 as the prefix a recovery lists, and whatever it
+    finds there is parsed as this partition's extraction. The record is the
+    only place it arrives from, so a prefix outside the run's own output area
+    would have a restart read somebody else's output and record it complete.
+    The partition is redone instead, which is what every other unusable record
+    costs.
+    """
+
+    @pytest.mark.parametrize('output_path', [
+        'batch-topics/../../elsewhere/outputs/',
+        '/batch-topics/20260101-120000/0-ab12e/outputs/',
+        '',
+        None,
+    ])
+    def test_one_that_is_not_a_key_under_the_bucket_is_redone(self, output_path, tmp_path):
+        store = _store(record=replace(_record(SUBMITTED), output_path=output_path))
+
+        _, submit = _run(_extractor(manifest_store=store, tmp_path=tmp_path))
+
+        assert submit.called
+        assert '-a2-' in submit.call_args.kwargs['job_name']
+
+    def test_one_outside_the_configured_key_prefix_is_redone(self, tmp_path):
+        store = _store(record=replace(_record(SUBMITTED), output_path='other-collection/outputs/'))
+
+        _, submit = _run(_extractor(manifest_store=store, tmp_path=tmp_path, key_prefix='extraction'))
+
+        assert submit.called
+        assert '-a2-' in submit.call_args.kwargs['job_name']
+
+    def test_the_prefix_a_run_of_its_own_wrote_is_used(self, tmp_path):
+        store = _store(record=replace(
+            _record(SUBMITTED), output_path='extraction/batch-topics/20260101-120000/0-ab12e/outputs/'
+        ))
+
+        results, submit = _run(_extractor(manifest_store=store, tmp_path=tmp_path, key_prefix='extraction'))
+
+        assert not submit.called
+        assert results == _extracted()
