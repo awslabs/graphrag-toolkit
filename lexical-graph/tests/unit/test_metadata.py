@@ -254,6 +254,126 @@ class TestFilterConfig:
         assert config.filter_source_metadata_dictionary(metadata) is False
 
 
+class TestFilterConfigReducesEmptyGroups:
+    """An AND over no conditions matches everything and an OR over no
+    conditions matches nothing. FilterConfig carries both up the tree, so every
+    backend is handed filters with no empty group in them."""
+
+    def _eq(self, key='status', value='active'):
+        return MetadataFilter(key=key, value=value, operator=FilterOperator.EQ)
+
+    def _group(self, condition, *filters):
+        return MetadataFilters(filters=list(filters), condition=condition)
+
+    def _empty_or(self):
+        return self._group(FilterCondition.OR)
+
+    def _empty_and(self):
+        return self._group(FilterCondition.AND)
+
+    @pytest.mark.parametrize('source_filters', [None, []])
+    def test_no_filters_match_everything(self, source_filters):
+        config = FilterConfig(source_filters=source_filters)
+
+        assert config.source_filters is None
+        assert not config.matches_nothing
+
+    def test_an_empty_and_matches_everything(self):
+        config = FilterConfig(source_filters=self._empty_and())
+
+        assert config.source_filters is None
+        assert not config.matches_nothing
+
+    def test_an_empty_or_matches_nothing(self):
+        config = FilterConfig(source_filters=self._empty_or())
+
+        assert config.matches_nothing
+        assert not config.filter_source_metadata_dictionary({'status': 'active'})
+
+    def test_an_and_holding_an_empty_or_matches_nothing(self):
+        config = FilterConfig(source_filters=self._group(
+            FilterCondition.AND, self._eq(), self._empty_or()
+        ))
+
+        assert config.matches_nothing
+
+    def test_an_or_holding_an_empty_or_keeps_its_other_branch(self):
+        config = FilterConfig(source_filters=self._group(
+            FilterCondition.OR, self._eq(), self._empty_or()
+        ))
+
+        assert not config.matches_nothing
+        assert config.source_filters.filters == [self._eq()]
+
+    def test_an_and_holding_an_empty_and_keeps_its_other_branch(self):
+        config = FilterConfig(source_filters=self._group(
+            FilterCondition.AND, self._empty_and(), self._eq()
+        ))
+
+        assert config.source_filters.filters == [self._eq()]
+
+    def test_an_or_holding_an_empty_and_matches_everything(self):
+        config = FilterConfig(source_filters=self._group(
+            FilterCondition.OR, self._eq(), self._empty_and()
+        ))
+
+        assert config.source_filters is None
+
+    def test_an_or_of_an_empty_and_and_an_empty_or_matches_everything(self):
+        config = FilterConfig(source_filters=self._group(
+            FilterCondition.OR, self._empty_and(), self._empty_or()
+        ))
+
+        assert config.source_filters is None
+
+    def test_an_or_of_empty_ors_matches_nothing(self):
+        config = FilterConfig(source_filters=self._group(
+            FilterCondition.OR, self._empty_or(), self._empty_or()
+        ))
+
+        assert config.matches_nothing
+
+    def test_not_of_an_empty_or_matches_everything(self):
+        config = FilterConfig(source_filters=self._group(
+            FilterCondition.NOT, self._empty_or()
+        ))
+
+        assert config.source_filters is None
+
+    def test_not_of_an_empty_and_matches_nothing(self):
+        config = FilterConfig(source_filters=self._group(
+            FilterCondition.NOT, self._empty_and()
+        ))
+
+        assert config.matches_nothing
+
+    def test_an_empty_group_with_no_condition_matches_everything(self):
+        config = FilterConfig(source_filters=MetadataFilters(filters=[], condition=None))
+
+        assert config.source_filters is None
+
+    def test_an_empty_group_deep_in_the_tree_is_removed(self):
+        config = FilterConfig(source_filters=self._group(
+            FilterCondition.AND,
+            self._eq('a', 'x'),
+            self._group(FilterCondition.OR, self._eq('b', 'y'), self._empty_or()),
+        ))
+
+        nested = config.source_filters.filters[1]
+
+        assert nested.condition == FilterCondition.OR
+        assert nested.filters == [self._eq('b', 'y')]
+
+    def test_filters_with_no_empty_group_are_unchanged(self):
+        filters = self._group(
+            FilterCondition.AND,
+            self._eq('a', 'x'),
+            self._group(FilterCondition.OR, self._eq('b', 'y'), self._eq('c', 'z')),
+        )
+
+        assert FilterConfig(source_filters=filters).source_filters == filters
+
+
 class TestDictionaryFilter:
     """Tests for DictionaryFilter class."""
     

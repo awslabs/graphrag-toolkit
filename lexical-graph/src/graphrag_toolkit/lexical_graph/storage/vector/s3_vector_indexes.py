@@ -140,6 +140,9 @@ def filter_config_to_s3_filters(filter_config:FilterConfig) -> Dict[str, Any]:
 
     if filter_config is None or filter_config.source_filters is None:
         return None
+
+    if filter_config.matches_nothing:
+        raise ValueError('S3 Vectors cannot express a filter that matches nothing')
     
     s3_filters = parse_metadata_filters_recursive(filter_config.source_filters)
 
@@ -559,6 +562,10 @@ class S3VectorIndex(VectorIndex):
 
     def top_k(self, query_bundle:QueryBundle, top_k:int=5, filter_config:Optional[FilterConfig]=None) -> Sequence[Dict[str, Any]]:
         
+        # S3 Vectors has no filter expression that matches nothing.
+        if filter_config and filter_config.matches_nothing:
+            return []
+
         if top_k > MAX_RESULTS:
             logger.warning(f'Reducing top_k from {top_k} to {MAX_RESULTS} because S3 vectors supports a maximum of {MAX_RESULTS} Top-K results per QueryVectors request')
             top_k = MAX_RESULTS

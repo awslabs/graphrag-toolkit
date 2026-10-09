@@ -331,6 +331,45 @@ class TestClauseBuilderContract:
         )
 
 
+class TestEmptyOrMatchesNothing:
+
+    def _config(self, condition, *filters):
+        return FilterConfig(source_filters=MetadataFilters(filters=list(filters), condition=condition))
+
+    def _empty_or(self):
+        return MetadataFilters(filters=[], condition=FilterCondition.OR)
+
+    def _tech(self):
+        return MetadataFilter(key='category', value='tech', operator=FilterOperator.EQ)
+
+    def test_an_empty_or_returns_a_false_fragment(self):
+        assert pvi.filter_config_to_sql_filters(self._config(FilterCondition.OR)) == ('FALSE', [])
+
+    def test_an_and_holding_an_empty_or_returns_a_false_fragment(self):
+        config = self._config(FilterCondition.AND, self._tech(), self._empty_or())
+
+        assert pvi.filter_config_to_sql_filters(config) == ('FALSE', [])
+
+    def test_an_or_holding_an_empty_or_keeps_its_other_branch(self):
+        config = self._config(FilterCondition.OR, self._tech(), self._empty_or())
+
+        assert pvi.filter_config_to_sql_filters(config) == pvi.filter_config_to_sql_filters(
+            self._config(FilterCondition.OR, self._tech())
+        )
+
+    def test_top_k_emits_a_where_clause_that_matches_nothing(self):
+        index = _make_pg_index()
+        mock_conn, mock_cur = _mock_conn_cursor()
+        bundle = QueryBundle(query_str='q', embedding=[0.1, 0.2, 0.3])
+
+        with patch.object(pvi.PGIndex, '_get_connection', return_value=mock_conn):
+            with patch.object(pvi, 'to_embedded_query', return_value=bundle):
+                index.top_k(bundle, top_k=5, filter_config=self._config(FilterCondition.OR))
+
+        sql_text, _ = _captured_execute(mock_cur)
+        assert 'WHERE FALSE' in sql_text
+
+
 class TestLegitimateFilterStillWorks:
     """Positive path: a normal filter must still flow through to the sink."""
 

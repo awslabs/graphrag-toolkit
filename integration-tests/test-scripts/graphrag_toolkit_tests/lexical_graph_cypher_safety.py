@@ -459,3 +459,97 @@ class LexicalGraphFilterInjectionSafety(IntegrationTestBase):
                 )
 
         handler.run_assertions(FilterInjectionAssertions)
+
+
+EMPTY_OR_PROBE_IDS = ['__lexemptyor_source_x__', '__lexemptyor_source_y__']
+
+
+def _group(condition, *filters):
+    return MetadataFilters(filters=list(filters), condition=condition)
+
+
+def _category_is(value):
+    return MetadataFilter(key='category', value=value, operator=FilterOperator.EQ)
+
+
+class LexicalGraphEmptyOrFilterSafety(LexicalGraphFilterInjectionSafety):
+    """Run the OpenCypher clause the real filter builder emits for an empty OR
+    against a live Neptune graph and confirm it matches no source, alone and
+    nested inside an AND.
+    """
+
+    @property
+    def description(self):
+        return 'OpenCypher metadata filter builder makes an empty OR match nothing'
+
+    def _cleanup(self, graph_store):
+        graph_store.execute_query_with_retry(
+            'MATCH (s:`__Source__`) WHERE s.probe IN $probes DETACH DELETE s',
+            {'probes': EMPTY_OR_PROBE_IDS},
+        )
+
+    def _seed_sources(self, graph_store):
+        for probe, category in zip(EMPTY_OR_PROBE_IDS, ['x', 'y']):
+            graph_store.execute_query_with_retry(
+                'MERGE (s:`__Source__` {probe: $probe}) SET s.category = $category',
+                {'probe': probe, 'category': category},
+            )
+
+    def _matching(self, graph_store, source_filters):
+        """The number of probe sources the filter lets through. An empty clause
+        means no filter, so it is left out, as the filter consumers do."""
+        clause = filter_config_to_opencypher_filters(FilterConfig(source_filters=source_filters))
+        where = f'source.probe IN $probes AND {clause}' if clause else 'source.probe IN $probes'
+        rows = graph_store.execute_query_with_retry(
+            f'MATCH (source:`__Source__`) WHERE {where} RETURN count(source) AS n',
+            {'probes': EMPTY_OR_PROBE_IDS},
+        )
+        return rows[0]['n'] if rows else 0
+
+    def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
+
+        engine, graph_store = self._make_graph_store()
+
+        empty_or = _group(FilterCondition.OR)
+
+        self._cleanup(graph_store)
+        self._seed_sources(graph_store)
+        try:
+            counts = {
+                'empty_or': self._matching(graph_store, empty_or),
+                'and_with_empty_or': self._matching(
+                    graph_store, _group(FilterCondition.AND, _category_is('x'), empty_or)
+                ),
+                'or_with_empty_or': self._matching(
+                    graph_store, _group(FilterCondition.OR, _category_is('x'), empty_or)
+                ),
+                'empty_and': self._matching(graph_store, _group(FilterCondition.AND)),
+                'category_x': self._matching(
+                    graph_store, _group(FilterCondition.AND, _category_is('x'))
+                ),
+            }
+        finally:
+            self._cleanup(graph_store)
+
+        handler.add_output('engine', engine)
+        for name, count in counts.items():
+            handler.add_output(name, count)
+
+        class EmptyOrFilterAssertions(unittest.TestCase):
+
+            def test_an_empty_or_matches_nothing(self):
+                self.assertEqual(counts['empty_or'], 0)
+
+            def test_an_and_holding_an_empty_or_matches_nothing(self):
+                self.assertEqual(counts['and_with_empty_or'], 0)
+
+            def test_an_or_holding_an_empty_or_keeps_its_other_branch(self):
+                self.assertEqual(counts['or_with_empty_or'], 1)
+
+            def test_an_empty_and_still_applies_no_filter(self):
+                self.assertEqual(counts['empty_and'], 2)
+
+            def test_an_ordinary_filter_is_unchanged(self):
+                self.assertEqual(counts['category_x'], 1)
+
+        handler.run_assertions(EmptyOrFilterAssertions)
