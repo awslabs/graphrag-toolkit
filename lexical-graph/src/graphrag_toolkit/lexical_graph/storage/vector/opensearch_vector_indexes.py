@@ -894,6 +894,10 @@ class OpenSearchIndex(VectorIndex):
         Raises:
             ValueError: See index_exists().
         """
+        # llama-index builds this query and cannot express a filter that matches nothing.
+        if filter_config and filter_config.matches_nothing:
+            return []
+
         query_bundle = to_embedded_query(query_bundle, self.embed_model)
 
         scored_nodes = []

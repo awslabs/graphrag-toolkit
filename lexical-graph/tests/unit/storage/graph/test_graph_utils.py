@@ -390,3 +390,48 @@ class TestFilterConfigToOpencypherFilters:
         )
         result = parse_metadata_filters_recursive(filters)
         assert result == ''
+
+    def test_an_empty_or_matches_nothing(self):
+        config = FilterConfig(source_filters=MetadataFilters(
+            filters=[], condition=FilterCondition.OR,
+        ))
+
+        assert filter_config_to_opencypher_filters(config) == 'false'
+
+    def test_an_and_holding_an_empty_or_matches_nothing(self):
+        config = FilterConfig(source_filters=MetadataFilters(
+            filters=[
+                _eq_filter('category', 'tech'),
+                MetadataFilters(filters=[], condition=FilterCondition.OR),
+            ],
+            condition=FilterCondition.AND,
+        ))
+
+        assert filter_config_to_opencypher_filters(config) == 'false'
+
+    def test_an_or_holding_an_empty_or_keeps_its_other_branch(self):
+        config = FilterConfig(source_filters=MetadataFilters(
+            filters=[
+                _eq_filter('category', 'tech'),
+                MetadataFilters(filters=[], condition=FilterCondition.OR),
+            ],
+            condition=FilterCondition.OR,
+        ))
+
+        assert filter_config_to_opencypher_filters(config) == "((source.`category` = 'tech'))"
+
+    def test_an_or_of_an_empty_and_and_an_empty_or_adds_no_filter(self):
+        config = FilterConfig(source_filters=MetadataFilters(
+            filters=[
+                MetadataFilters(filters=[], condition=FilterCondition.AND),
+                MetadataFilters(filters=[], condition=FilterCondition.OR),
+            ],
+            condition=FilterCondition.OR,
+        ))
+
+        assert filter_config_to_opencypher_filters(config) == ''
+
+    def test_an_empty_group_with_no_condition_adds_no_filter(self):
+        config = FilterConfig(source_filters=MetadataFilters(filters=[], condition=None))
+
+        assert filter_config_to_opencypher_filters(config) == ''

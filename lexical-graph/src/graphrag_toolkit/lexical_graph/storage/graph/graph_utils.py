@@ -301,8 +301,6 @@ def parse_metadata_filters_recursive(metadata_filters:MetadataFilters) -> str:
                 return f"({key} {operator} {type_formatter(operator_formatter(str(f.value)))})"
  
     
-    condition = metadata_filters.condition.value
-
     filter_strs = []
 
     for metadata_filter in metadata_filters.filters:
@@ -349,4 +347,6 @@ def filter_config_to_opencypher_filters(filter_config:FilterConfig) -> str:
     """
     if filter_config is None or filter_config.source_filters is None:
         return ''
+    if filter_config.matches_nothing:
+        return 'false'
     return parse_metadata_filters_recursive(filter_config.source_filters)

@@ -161,6 +161,8 @@ def filter_config_to_sql_filters(filter_config:FilterConfig) -> tuple[str, list]
     """
     if filter_config is None or filter_config.source_filters is None:
         return ('', [])
+    if filter_config.matches_nothing:
+        return ('FALSE', [])
     return parse_metadata_filters_recursive(filter_config.source_filters)
 
 class PGIndex(VectorIndex):
