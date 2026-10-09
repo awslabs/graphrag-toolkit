@@ -9,14 +9,14 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "@astrojs/react": "^6.0.6",
-    "@astrojs/starlight": "0.42.1",
+    "@astrojs/react": "^7.0.0",
+    "@astrojs/starlight": "0.42.5",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.3.0",
-    "astro": "7.3.3",
+    "astro": "7.3.5",
     "react": "^19.2.8",
     "react-dom": "^19.3.0",
-    "sharp": "^0.35.4"
+    "sharp": "^0.35.5"
   },
   "overrides": {
     "postcss": "^8.5.10"

@@ -247,6 +247,27 @@ class TestGetRequestBody:
             assert 'system' not in request_body
             assert request_body['messages'] == [{'role': 'user', 'content': 'User message'}]
 
+    def test_get_request_body_claude_without_temperature(self):
+        """Verify get_request_body omits 'temperature' for Claude models when the params don't carry one."""
+        mock_llm = Mock(spec=BedrockConverse)
+        mock_llm.model = 'us.anthropic.claude-opus-5'
+
+        messages = [
+            ChatMessage(role=MessageRole.USER, content="User message")
+        ]
+        # BedrockConverse._get_all_kwargs() leaves temperature out for Claude
+        # models that reject it (e.g. Opus 4.7 and later).
+        inference_params = {'max_tokens': 2000}
+
+        with patch('graphrag_toolkit.lexical_graph.indexing.utils.batch_inference_utils.messages_to_anthropic_messages') as mock_convert:
+            mock_convert.return_value = ([{'role': 'user', 'content': 'User message'}], None)
+
+            request_body = get_request_body(mock_llm, messages, inference_params)
+
+            assert 'temperature' not in request_body
+            assert request_body['max_tokens'] == 2000
+            assert request_body['anthropic_version'] == 'bedrock-2023-05-31'
+
     def test_get_request_body_llama_model(self):
         """Verify get_request_body emits the Bedrock InvokeModel schema for Llama.
 
