@@ -20,7 +20,14 @@ The graphrag-toolkit [lexical-graph](https://github.com/awslabs/graphrag-toolkit
   </TabItem>
   <TabItem label="uv">
     ```sh
+    # uv must not hardlink NLTK's data files into the environment - see the note below
     uv add graphrag-lexical-graph
+    ```
+
+    ```toml
+    # pyproject.toml
+    [tool.uv]
+    link-mode = "copy"
     ```
   </TabItem>
   <TabItem label="poetry">
@@ -34,6 +41,10 @@ The graphrag-toolkit [lexical-graph](https://github.com/awslabs/graphrag-toolkit
     ```
   </TabItem>
 </Tabs>
+
+<Aside type="caution" title="Installing with uv">
+  Copy link mode is required on Linux. NLTK 3.10.3, a LlamaIndex dependency, refuses to open any file with more than one hard link, and uv hardlinks by default — so creating a `LexicalGraphIndex` fails with a `PermissionError`. Set it in `[tool.uv]` rather than passing `--link-mode=copy`, which applies to one command only: a later `uv sync` would hardlink again. `UV_LINK_MODE=copy` works for `uv pip install`. See issues [#468](https://github.com/awslabs/graphrag-toolkit/issues/468) and [#471](https://github.com/awslabs/graphrag-toolkit/issues/471).
+</Aside>
 
 ## At a glance
 
