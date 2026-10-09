@@ -37,13 +37,20 @@ $ pip install https://github.com/awslabs/graphrag-toolkit/archive/refs/tags/grap
 
 ### Installing with uv
 
-If you install with [uv](https://docs.astral.sh/uv/), do not let it hardlink packages into the environment:
+If you install with [uv](https://docs.astral.sh/uv/), do not let it hardlink packages into the environment (see issues [#468](https://github.com/awslabs/graphrag-toolkit/issues/468) and [#471](https://github.com/awslabs/graphrag-toolkit/issues/471)):
 
 ```
 $ UV_LINK_MODE=copy uv pip install graphrag-lexical-graph
 ```
 
-NLTK 3.10.3 added a check that refuses to open any file with more than one hard link. LlamaIndex ships NLTK's corpus data inside the installed package, and uv hardlinks files out of its cache by default on Linux, which leaves that data multiply-linked — so sentence splitting fails with a `PermissionError` on `stopwords/english`. Passing `--link-mode=copy`, setting `UV_LINK_MODE=copy`, or adding `link-mode = "copy"` under `[tool.uv]` avoids it. `clone` also works where the filesystem supports copy-on-write, which is why macOS is unaffected by default.
+In a uv project, set it in `pyproject.toml` so every later `uv sync` keeps it:
+
+```toml
+[tool.uv]
+link-mode = "copy"
+```
+
+NLTK 3.10.3, a LlamaIndex dependency, refuses to open any file with more than one hard link, and uv hardlinks by default on Linux — so creating a `LexicalGraphIndex` fails with a `PermissionError`. Prefer the `[tool.uv]` setting over `--link-mode=copy`, which applies to a single command.
 
 If you're running on AWS, you must run your application in an AWS region containing the Amazon Bedrock foundation models used by the lexical graph (see the [configuration](https://awslabs.github.io/graphrag-toolkit/lexical-graph/configuration/#graphragconfig) section in the documentation for details on the default models used), and must [enable access](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html) to these models before running any part of the solution.
 
