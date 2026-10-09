@@ -89,6 +89,7 @@ if [[ "$#" -gt 0 ]]; then
     echo "  --benchmark-data-s3-uri <S3 URI for benchmark data (synced at runtime instead of uploading)>"
     echo "  --benchmark-qa-limit <max number of QA pairs to evaluate (for prototype runs)>"
     echo "  --benchmark-extract-doc-limit <cap the number of source documents extracted by the batch_extract.py tests (only the first N docs are extracted); speeds up benchmark runs>"
+    echo "  --benchmark-restarts <interrupt extraction this many times and restart under the same run id, or 'every-document' for one interruption per document; needs BENCHMARK_DOC_STORE=s3; overrides BENCHMARK_RESTARTS from .env>"
     echo "  --extraction-num-threads-per-worker <threads per extraction worker; overrides EXTRACTION_NUM_THREADS_PER_WORKER from .env>"
     echo "  --benchmark-prototype"
     echo "  --benchmark-all-retrievers  Run all retrievers in a single pass (loops query+evaluate per retriever)"
