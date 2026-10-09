@@ -4,7 +4,7 @@
 import logging
 from typing import Any
 
-from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
+from graphrag_toolkit.lexical_graph.storage.graph import GraphQueryOperation, GraphStore
 from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import escape_cypher_label
 from graphrag_toolkit.lexical_graph.indexing.build.graph_builder import GraphBuilder
 from graphrag_toolkit.lexical_graph.indexing.constants import SOURCE_HASH_PARAM, SOURCE_HASH_PROPERTY
@@ -137,7 +137,11 @@ class SourceGraphBuilder(GraphBuilder):
             if source_hash:
                 properties[SOURCE_HASH_PARAM] = source_hash
 
-            graph_client.execute_query_with_retry(query, self._to_params(properties))
+            graph_client.execute_query_with_retry(
+                query,
+                self._to_params(properties),
+                operation=GraphQueryOperation.UPSERT_SOURCE,
+            )
 
             # prev_source_ids = source_metadata.get('prev_versions', [])
 
