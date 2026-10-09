@@ -89,6 +89,7 @@ if [[ "$#" -gt 0 ]]; then
     echo "  --benchmark-data-s3-uri <S3 URI for benchmark data (synced at runtime instead of uploading)>"
     echo "  --benchmark-qa-limit <max number of QA pairs to evaluate (for prototype runs)>"
     echo "  --benchmark-extract-doc-limit <cap the number of source documents extracted by the batch_extract.py tests (only the first N docs are extracted); speeds up benchmark runs>"
+    echo "  --extraction-num-threads-per-worker <threads per extraction worker; overrides EXTRACTION_NUM_THREADS_PER_WORKER from .env>"
     echo "  --benchmark-prototype"
     echo "  --benchmark-all-retrievers  Run all retrievers in a single pass (loops query+evaluate per retriever)"
     echo "  --benchmark-dataset <dataset>  Dataset for all-retrievers mode (cuad|concurrentqa|pga|pga_bio|pga_stat|wikihow)"
@@ -187,6 +188,7 @@ while [[ "$#" -gt 0 ]]; do
         --benchmark-qa-limit) BENCHMARK_QA_LIMIT="$2"; shift ;;
         --benchmark-extract-doc-limit) BENCHMARK_EXTRACT_DOC_LIMIT="$2"; shift ;;
         --benchmark-restarts) BENCHMARK_RESTARTS="$2"; shift ;;
+        --extraction-num-threads-per-worker) EXTRACTION_NUM_THREADS_PER_WORKER="$2"; shift ;;
         --benchmark-prototype) BENCHMARK_IS_PROTOTYPE=true ;;
         --benchmark-all-retrievers) BENCHMARK_ALL_RETRIEVERS=true ;;
         --benchmark-dataset) BENCHMARK_DATASET="$2"; shift ;;
@@ -426,12 +428,13 @@ fi
 
 # Benchmarks require this. Defaulting to true.
 printf 'export BENCHMARK_USE_BATCH=%q\n' "${BENCHMARK_USE_BATCH:-true}" >> lexical-graph-examples/.env.testing
-if [[ "${EXTRACTION_NUM_WORKERS:-}" ]]; then
-	printf 'export EXTRACTION_NUM_WORKERS=%q\n' "$EXTRACTION_NUM_WORKERS" >> lexical-graph-examples/.env.testing
-fi
-if [[ "${EXTRACTION_BATCH_SIZE:-}" ]]; then
-	printf 'export EXTRACTION_BATCH_SIZE=%q\n' "$EXTRACTION_BATCH_SIZE" >> lexical-graph-examples/.env.testing
-fi
+# Forwarded only when set, so the notebook keeps the library defaults otherwise.
+for setting in EXTRACTION_NUM_WORKERS EXTRACTION_BATCH_SIZE EXTRACTION_NUM_THREADS_PER_WORKER \
+	SOURCE_ID_WIDTH DETECT_SOURCE_ID_COLLISIONS; do
+	if [[ "${!setting:-}" ]]; then
+		printf "export $setting=%q\n" "${!setting}" >> lexical-graph-examples/.env.testing
+	fi
+done
 
 zip -r graphrag-toolkit.zip graphrag-toolkit # zip under directory
 
@@ -494,6 +497,9 @@ echo "BENCHMARK_DATA_S3_URI    : $BENCHMARK_DATA_S3_URI"
 echo "BENCHMARK_QA_LIMIT       : $BENCHMARK_QA_LIMIT"
 echo "BENCHMARK_EXTRACT_DOC_LIMIT : ${BENCHMARK_EXTRACT_DOC_LIMIT:-}"
 echo "BENCHMARK_RESTARTS       : ${BENCHMARK_RESTARTS:-}"
+echo "EXTRACTION_NUM_WORKERS   : ${EXTRACTION_NUM_WORKERS:-}"
+echo "EXTRACTION_BATCH_SIZE    : ${EXTRACTION_BATCH_SIZE:-}"
+echo "EXTRACTION_NUM_THREADS_PER_WORKER : ${EXTRACTION_NUM_THREADS_PER_WORKER:-}"
 echo "BENCHMARK_ALL_RETRIEVERS : ${BENCHMARK_ALL_RETRIEVERS:-}"
 echo "BENCHMARK_DATASET        : ${BENCHMARK_DATASET:-}"
 echo "EXISTING_VPC_ID          : $EXISTING_VPC_ID"
@@ -501,6 +507,13 @@ echo "EXISTING_SUBNET_IDS      : $EXISTING_SUBNET_IDS"
 echo "PREV_STACK_NAME"         : $PREV_STACK_NAME
 echo "----------------------------------------------------"
 echo ""
+
+for setting in EXTRACTION_NUM_WORKERS EXTRACTION_BATCH_SIZE EXTRACTION_NUM_THREADS_PER_WORKER; do
+  if [[ "${!setting:-}" && ! "${!setting}" =~ ^[1-9][0-9]*$ ]]; then
+    echo "ERROR: $setting must be a positive integer, got '${!setting}'."
+    exit 1
+  fi
+done
 
 if [[ -z "$DRY_RUN" ]]; then
 

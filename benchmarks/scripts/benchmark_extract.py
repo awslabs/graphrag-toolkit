@@ -72,6 +72,9 @@ def apply_extraction_config():
     )
     GraphRAGConfig.extraction_batch_size = env_int('EXTRACTION_BATCH_SIZE', 15000)
     GraphRAGConfig.extraction_num_workers = env_int('EXTRACTION_NUM_WORKERS', 2)
+    GraphRAGConfig.extraction_num_threads_per_worker = env_int(
+        'EXTRACTION_NUM_THREADS_PER_WORKER', 4
+    )
 
 
 def build_indexing_config(dataset_name: str) -> IndexingConfig:

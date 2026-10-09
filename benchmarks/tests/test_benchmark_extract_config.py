@@ -17,6 +17,7 @@ benchmarks/tests runs without either installed.
 
 import ast
 import pathlib
+import re
 
 import pytest
 
@@ -250,7 +251,12 @@ class TestExtractionConfigIsOverridable:
         raise AssertionError(f'no assignment to {attribute} in {SCRIPT.name}')
 
     @pytest.mark.parametrize(
-        'attribute', ['extraction_batch_size', 'extraction_num_workers']
+        'attribute',
+        [
+            'extraction_batch_size',
+            'extraction_num_workers',
+            'extraction_num_threads_per_worker',
+        ],
     )
     def test_not_a_hardcoded_constant(self, attribute):
         value = self._assigned_value(attribute)
@@ -292,9 +298,46 @@ class TestVariableNameIsPinned:
             'benchmarks would require a variable that never reaches the notebook'
         )
 
-    @pytest.mark.parametrize('name', ['EXTRACTION_NUM_WORKERS', 'EXTRACTION_BATCH_SIZE'])
-    def test_harness_exports_the_extraction_variables(self, name):
-        assert name in self.BUILD_TESTS.read_text()
+    ENV_TEMPLATE = (
+        pathlib.Path(__file__).resolve().parents[2]
+        / 'integration-tests' / 'env.template'
+    )
+
+    def _forwarded_settings(self):
+        """The names build-tests.sh copies into the notebook's .env.testing."""
+        text = self.BUILD_TESTS.read_text()
+        loop = re.search(r'for setting in (.+?); do', text, re.S)
+        assert loop, 'build-tests.sh no longer has the settings forwarding loop'
+        return set(loop.group(1).replace('\\\n', ' ').split())
+
+    @pytest.mark.parametrize(
+        'name',
+        [
+            'EXTRACTION_NUM_WORKERS',
+            'EXTRACTION_BATCH_SIZE',
+            'EXTRACTION_NUM_THREADS_PER_WORKER',
+        ],
+    )
+    def test_harness_forwards_the_extraction_variables(self, name):
+        # Naming the variable in a flag or an echo is not forwarding it: the
+        # notebook reads .env.testing, so it has to be in the loop's list.
+        assert name in self._forwarded_settings(), (
+            f'{name} is not forwarded to .env.testing, so a value set locally '
+            f'never reaches the extraction run'
+        )
+
+    def test_every_documented_variable_is_known_to_the_harness(self):
+        # SOURCE_ID_WIDTH and DETECT_SOURCE_ID_COLLISIONS were documented here
+        # and never forwarded, so a run silently used the library defaults.
+        documented = re.findall(
+            r'^export ([A-Z0-9_]+)=', self.ENV_TEMPLATE.read_text(), re.M
+        )
+        harness = self.BUILD_TESTS.read_text()
+        unused = [name for name in documented if name not in harness]
+        assert not unused, (
+            f'env.template documents {unused}, which build-tests.sh never reads, '
+            f'so setting them has no effect on a run'
+        )
 
 
 class TestTheDocumentCapIsApplied:

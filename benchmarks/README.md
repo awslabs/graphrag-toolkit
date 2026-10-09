@@ -38,6 +38,7 @@ See `integration-tests/env.template` for the full list of configuration variable
 - `BENCHMARK_IS_PROTOTYPE` — Use prototype (small) datasets
 - `BENCHMARK_DOC_STORE` — Where extracted documents are staged between extract and build: `file` (default) or `s3`
 - `BENCHMARK_S3_JSONL` — With `BENCHMARK_DOC_STORE=s3`, store one JSONL object per source document instead of one per chunk
+- `EXTRACTION_NUM_THREADS_PER_WORKER` — Threads each extraction worker runs, default 4. It sets LLM concurrency and the S3 upload pool size, so it is the knob a throughput sweep varies. No integration test pins it, so a high value also raises Bedrock concurrency for any other suite the same run executes
 - `BENCHMARK_RESTARTS` — Interrupt extraction this many times and restart it under the same run id, or `every-document` for one interruption per document. Needs `BENCHMARK_DOC_STORE=s3`, since a restart reads the collection it is resuming, and is refused with `BENCHMARK_S3_JSONL`, since a JSONL collection keeps its node ids where the listing a resume reads cannot see them. Unset is a single uninterrupted run, the baseline the restart profiles are compared against. The results carry `first_run_seconds`, `restart_seconds` and `documents_staged_per_run`
 
 Two things to know before quoting restart numbers:
