@@ -63,6 +63,26 @@ GitHub provides additional document on [forking a repository](https://help.githu
 Looking at the existing issues is a great way to find something to contribute on. As our projects, by default, use the default GitHub issue labels (enhancement/bug/duplicate/help wanted/invalid/question/wontfix), looking at any 'help wanted' issues is a great place to start.
 
 
+## Release process
+`graphrag-lexical-graph` and `graphrag-byokg` are released separately, each with its own version and tags (`graphrag-lexical-graph/vX.Y.Z`, `graphrag-byokg/vX.Y.Z`). [lexical-graph/RELEASE.md](lexical-graph/RELEASE.md) and [byokg-rag/RELEASE.md](byokg-rag/RELEASE.md) have the steps for tagging and publishing. This section covers when releases happen and which branch a change belongs on.
+
+### Release cadence
+
+* An `X.Y.0` release goes out at least once a quarter, and can go out sooner. It passes a security review before it is published.
+* `X.Y.Z` patch releases (for example `3.20.1`) carry fixes in between. They go out as needed and do not go through the security review.
+
+### Branches
+
+* `main` is the development branch.
+* Each `X.Y` release line has a release branch named `vX.Y.x` (for example `v3.20.x`), cut from `main`. It holds the changes for `X.Y.0` and for the patch releases that follow it.
+* Open your pull request against the release branch if the change is for that release line, and against `main` otherwise. The package test workflows run on pull requests to both.
+* A release branch is merged back into `main` with a pull request so that `main` has everything that shipped. Merge that pull request with a merge commit. A squash leaves the release branch's commits out of `main`'s history, so the next merge from the same branch lists them again and can conflict.
+
+### Tagging work to a release
+
+The target release of an issue or pull request is its GitHub milestone. Milestones are named for the package and version, for example `lexical-graph 3.19.0`.
+
+
 ## Code of Conduct
 This project has adopted the [Amazon Open Source Code of Conduct](https://aws.github.io/code-of-conduct).
 For more information see the [Code of Conduct FAQ](https://aws.github.io/code-of-conduct-faq) or contact
