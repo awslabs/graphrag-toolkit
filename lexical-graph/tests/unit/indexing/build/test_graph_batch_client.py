@@ -4,6 +4,7 @@
 import pytest
 from unittest.mock import Mock
 from graphrag_toolkit.lexical_graph.indexing.build.graph_batch_client import GraphBatchClient
+from graphrag_toolkit.lexical_graph.storage.graph import GraphQueryOperation, Query, QueryTree
 
 
 class TestGraphBatchClientInitialization:
@@ -117,3 +118,89 @@ class TestGraphBatchClientExecuteQuery:
         )
         with pytest.raises(TypeError):
             client.execute_query('MATCH (n) RETURN n', {}, max_attempts=3)
+
+
+class TestGraphBatchClientOperations:
+    @pytest.mark.parametrize('properties', [{}, None])
+    def test_parameterless_operation_raises_when_batching(self, mock_neptune_store, properties):
+        client = GraphBatchClient(mock_neptune_store, True, 10)
+
+        with pytest.raises(ValueError, match='Cannot batch a parameterless query with a graph operation'):
+            client.execute_query_with_retry(
+                'MERGE (n:`__Entity__`) // awsqid:entity',
+                properties,
+                operation=GraphQueryOperation.UPSERT_ENTITY,
+            )
+
+        assert client.batches == {}
+        assert client.parameterless_queries == {}
+        mock_neptune_store.execute_query_with_retry.assert_not_called()
+
+    def test_parameterless_operation_executes_when_batching_disabled(self, mock_neptune_store):
+        client = GraphBatchClient(mock_neptune_store, False, 10)
+        query = 'MERGE (n:`__Entity__`)'
+
+        client.execute_query_with_retry(
+            query,
+            {},
+            operation=GraphQueryOperation.UPSERT_ENTITY,
+        )
+
+        mock_neptune_store.execute_query_with_retry.assert_called_once_with(
+            query, {}, operation=GraphQueryOperation.UPSERT_ENTITY,
+        )
+
+    @pytest.mark.parametrize('kwargs', [{}, {'operation': None}])
+    def test_parameterless_native_query_is_batched(self, mock_neptune_store, kwargs):
+        client = GraphBatchClient(mock_neptune_store, True, 10)
+        query = 'MERGE (n:`__Entity__`) // awsqid:entity'
+
+        client.execute_query_with_retry(query, {}, **kwargs)
+        mock_neptune_store.execute_query_with_retry.assert_not_called()
+
+        client.apply_batch_operations()
+
+        mock_neptune_store.execute_query_with_retry.assert_called_once_with(
+            '// parameterless queries\nMERGE (n:`__Entity__`)',
+            {},
+            max_attempts=10,
+            max_wait=7,
+        )
+
+    def test_batch_forwards_operation(self, mock_neptune_store):
+        client = GraphBatchClient(mock_neptune_store, True, 10)
+
+        client.execute_query_with_retry(
+            'UPSERT',
+            {'params': [{'chunk_id': 'c1'}]},
+            operation=GraphQueryOperation.UPSERT_CHUNK,
+        )
+        client.apply_batch_operations()
+
+        kwargs = mock_neptune_store.execute_query_with_retry.call_args.kwargs
+        assert kwargs['operation'] is GraphQueryOperation.UPSERT_CHUNK
+
+    def test_query_tree_batch_forwards_operation(self, mock_neptune_store):
+        client = GraphBatchClient(mock_neptune_store, True, 10)
+        tree = QueryTree(
+            'lookup',
+            Query('SELECT', operation=GraphQueryOperation.FIND_COMPLEMENTS),
+        )
+
+        client.execute_query_with_retry(tree, {'params': [{'nId': 'e1'}]})
+        client.apply_batch_operations()
+
+        kwargs = mock_neptune_store.execute_query_with_retry.call_args.kwargs
+        assert kwargs['operation'] is GraphQueryOperation.FIND_COMPLEMENTS
+
+    def test_empty_operation_is_a_noop(self, mock_neptune_store):
+        client = GraphBatchClient(mock_neptune_store, True, 10)
+
+        client.execute_query_with_retry(
+            'UNWIND $params AS params',
+            {'params': []},
+            operation=GraphQueryOperation.LINK_FACT_ENTITY,
+        )
+        client.apply_batch_operations()
+
+        mock_neptune_store.execute_query_with_retry.assert_not_called()

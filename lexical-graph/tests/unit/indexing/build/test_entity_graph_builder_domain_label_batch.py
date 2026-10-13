@@ -82,4 +82,7 @@ def test_domain_entity_insert_uses_batch_params_shape():
     assert 'UNWIND $params AS params' in query
     assert 'params.entityId' in query
     assert '$entityId' not in query
-    assert params == [{'entityId': ENTITY_ID}]
+    assert params == [{
+        'entityId': ENTITY_ID,
+        '_classification': 'Company',
+    }]

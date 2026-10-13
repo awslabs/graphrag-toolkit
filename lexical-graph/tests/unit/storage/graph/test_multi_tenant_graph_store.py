@@ -3,13 +3,17 @@
 
 """Tests for storage/graph/multi_tenant_graph_store."""
 
-from unittest.mock import MagicMock
+from unittest.mock import MagicMock, Mock, patch
+
+import pytest
 
 from graphrag_toolkit.lexical_graph import TenantId
 from graphrag_toolkit.lexical_graph.storage.graph.dummy_graph_store import DummyGraphStore
 from graphrag_toolkit.lexical_graph.storage.graph.multi_tenant_graph_store import (
     MultiTenantGraphStore,
 )
+from graphrag_toolkit.lexical_graph.storage.graph.graph_query_operation import GraphQueryOperation
+from graphrag_toolkit.lexical_graph.storage.graph.query_tree import Query, QueryTree
 
 
 def _wrap(tenant_value=None, labels=None):
@@ -59,12 +63,105 @@ class TestRewriteQuery:
 
 
 class TestDelegation:
+    @pytest.mark.parametrize('operation', [None, GraphQueryOperation.GET_FACTS])
+    def test_native_execution_preserves_tenant_labels_and_correlation_id(self, operation):
+        inner = DummyGraphStore()
+        store = MultiTenantGraphStore(
+            inner=inner, tenant_id=TenantId(value='acme'), labels=['Source'],
+        )
+        parameters = {'sourceId': 's1'}
+        results = [{'sourceId': 's1'}]
+
+        with patch(
+            'graphrag_toolkit.lexical_graph.storage.graph.graph_store.uuid.uuid4',
+            return_value=Mock(hex='abcde12345'),
+        ), patch.object(
+            DummyGraphStore, '_execute_query', autospec=True, return_value=results,
+        ) as execute_query:
+            result = store.execute_query_with_retry(
+                'MATCH (n:`Source`) RETURN n',
+                parameters,
+                max_attempts=1,
+                max_wait=0,
+                correlation_id='request-1',
+                operation=operation,
+            )
+
+        assert result == results
+        execute_query.assert_called_once_with(
+            inner,
+            'MATCH (n:`Sourceacme__`) RETURN n',
+            parameters,
+            correlation_id='request-1/abcde',
+        )
+
+    def test_operation_override_receives_tenant_context(self):
+        inner = DummyGraphStore()
+        store = MultiTenantGraphStore(
+            inner=inner, tenant_id=TenantId(value='acme'), labels=['Source'],
+        )
+        parameters = {'sourceId': 's1'}
+        results = [{'sourceId': 's1'}]
+
+        with patch(
+            'graphrag_toolkit.lexical_graph.storage.graph.graph_store.uuid.uuid4',
+            return_value=Mock(hex='abcde12345'),
+        ), patch.object(
+            DummyGraphStore, '_execute_operation', autospec=True, return_value=results,
+        ) as execute_operation:
+            result = store.execute_query_with_retry(
+                'MATCH (n:`Source`) RETURN n',
+                parameters,
+                max_attempts=1,
+                max_wait=0,
+                correlation_id='request-1',
+                operation=GraphQueryOperation.GET_FACTS,
+            )
+
+        assert result == results
+        execute_operation.assert_called_once_with(
+            inner,
+            GraphQueryOperation.GET_FACTS,
+            'MATCH (n:`Sourceacme__`) RETURN n',
+            parameters,
+            correlation_id='request-1/abcde',
+            tenant_id='acme',
+        )
+
     def test_execute_query_with_retry_rewrites_and_delegates(self):
         store, inner = _wrap(tenant_value='acme', labels=['Source'])
         store.execute_query_with_retry('MATCH (n:`Source`)', {'k': 1})
         called_query = inner.execute_query_with_retry.call_args.kwargs['query']
         assert '`Sourceacme__`' in called_query
         assert inner.execute_query_with_retry.call_args.kwargs['parameters'] == {'k': 1}
+        assert 'tenant_id' not in inner.execute_query_with_retry.call_args.kwargs
+
+    def test_operation_receives_tenant_id(self):
+        store, inner = _wrap(tenant_value='acme', labels=['Source'])
+
+        store.execute_query_with_retry(
+            'MATCH (n:`Source`)',
+            {'k': 1},
+            operation=GraphQueryOperation.GET_FACTS,
+        )
+
+        kwargs = inner.execute_query_with_retry.call_args.kwargs
+        assert kwargs['operation'] is GraphQueryOperation.GET_FACTS
+        assert kwargs['tenant_id'] == 'acme'
+
+    def test_query_tree_operations_receive_tenant_id(self):
+        store, inner = _wrap(tenant_value='acme', labels=['Source'])
+        inner.execute_query_with_retry.return_value = []
+        tree = QueryTree(
+            'lookup',
+            Query('MATCH (n:`Source`)', operation=GraphQueryOperation.GET_FACTS),
+        )
+
+        list(store.execute_query_with_retry(tree, {'statementIds': ['s1']}))
+
+        kwargs = inner.execute_query_with_retry.call_args.kwargs
+        assert kwargs['operation'] is GraphQueryOperation.GET_FACTS
+        assert kwargs['tenant_id'] == 'acme'
 
     def test_execute_query_rewrites_and_delegates(self):
         store, inner = _wrap(tenant_value='acme', labels=['Source'])

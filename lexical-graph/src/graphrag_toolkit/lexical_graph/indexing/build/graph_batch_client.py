@@ -46,6 +46,7 @@ class GraphBatchClient():
         self.batch_writes_enabled = batch_writes_enabled
         self.batch_write_size = batch_write_size
         self.batches:Dict[str, List] = {}
+        self.batch_operations:Dict[str, Any] = {}
         self.query_trees:Dict[str, QueryTree] = {}
         self.all_nodes = []
         self.parameterless_queries:Dict[str, str] = {}
@@ -138,9 +139,15 @@ class GraphBatchClient():
                 if properties:
                     if query not in self.batches:
                         self.batches[query] = []
+                        self.batch_operations[query] = kwargs.get('operation')
                     self.batches[query].extend(properties['params'])
-                else:
+                elif kwargs.get('operation') is None:
                     self._add_parameterless_query(query)
+                else:
+                    raise ValueError(
+                        'Cannot batch a parameterless query with a graph operation; '
+                        "provide a 'params' wrapper or disable batch writes."
+                    )
             elif isinstance(query, QueryTree):
                 properties = properties or {'params':[]}
                 if query.id not in self.batches:
@@ -224,7 +231,7 @@ class GraphBatchClient():
                 'params': p
             }
             try:
-                self.graph_client.execute_query_with_retry(query, params, max_attempts=BATCH_MAX_ATTEMPTS, max_wait=BATCH_MAX_WAIT)
+                self._execute_batch(query, params)
             except Exception as e:
                 logger.debug(f'Batch failed - queuing for retry: [query: {query}, params: {params}]')
                 retry_batches.append((query, params))
@@ -233,12 +240,21 @@ class GraphBatchClient():
 
         for (query, params) in retry_batches:
             try:
-                self.graph_client.execute_query_with_retry(query, params, max_attempts=BATCH_MAX_ATTEMPTS, max_wait=BATCH_MAX_WAIT)
+                self._execute_batch(query, params)
             except Exception as e:
                 logger.debug(f'Retry batch failed - queuing for return: [query: {query}, params: {params}]')
                 failed_batches.append((query, params))
 
         return failed_batches
+
+    def _execute_batch(self, query, parameters):
+        return self.graph_client.execute_query_with_retry(
+            query,
+            parameters,
+            max_attempts=BATCH_MAX_ATTEMPTS,
+            max_wait=BATCH_MAX_WAIT,
+            operation=self.batch_operations.get(query),
+        )
     
     def _retry_failed_batches(self, failed_batches):
 
@@ -246,7 +262,7 @@ class GraphBatchClient():
 
         for (query, params) in failed_batches:
             try:
-                self.graph_client.execute_query_with_retry(query, params, max_attempts=BATCH_MAX_ATTEMPTS, max_wait=BATCH_MAX_WAIT)
+                self._execute_batch(query, params)
             except Exception as e:
                 logger.debug(f'Retry failed batch failed - queuing for individual writes retry: [query: {query}, params: {params}]')
                 last_chance_batches.append((query, params))
@@ -259,7 +275,7 @@ class GraphBatchClient():
                     'params': [p]
                 }
                 try:
-                    self.graph_client.execute_query_with_retry(query, single_params, max_attempts=BATCH_MAX_ATTEMPTS, max_wait=BATCH_MAX_WAIT)
+                    self._execute_batch(query, single_params)
                 except Exception as e:
                     logger.error(f'Failed single write: [query: {query}, params: {params}, error: {str(e)}]') 
                     raise e    
@@ -269,7 +285,7 @@ class GraphBatchClient():
 
         query_tree = self.query_trees[query_tree_id]
 
-        def graph_store_op(q, p):
+        def graph_store_op(q, p, **kwargs):
 
             all_params = p['params']
 
@@ -284,7 +300,7 @@ class GraphBatchClient():
                     'params': chunk
                 }
 
-                results = self.graph_client.execute_query_with_retry(q, params, max_attempts=BATCH_MAX_ATTEMPTS, max_wait=BATCH_MAX_WAIT)
+                results = self.graph_client.execute_query_with_retry(q, params, max_attempts=BATCH_MAX_ATTEMPTS, max_wait=BATCH_MAX_WAIT, **kwargs)
 
                 for r in results:
                     yield r
