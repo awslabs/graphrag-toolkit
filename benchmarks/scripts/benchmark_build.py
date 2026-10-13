@@ -9,6 +9,7 @@ import logging
 from benchmarks.scripts.integration_test_base import IntegrationTestBase
 from benchmarks.scripts.integration_test_handler import IntegrationTestHandler
 from benchmarks.utils.benchmark_env import env_bool
+from benchmarks.utils.doc_limit import capped_expected_docs
 from benchmarks.utils.s3_utils import sync_benchmark_data_from_s3
 
 from graphrag_toolkit.lexical_graph import LexicalGraphIndex
@@ -100,7 +101,9 @@ def run_benchmark_build(handler: IntegrationTestHandler,
         graph_index = LexicalGraphIndex(graph_store, vector_store)
         graph_index.build(docs, show_progress=True)
 
-        expected_num_docs = config.get('num_docs')
+        # Capped the same way extraction was, or a capped run would assert the
+        # full corpus's count against the subset it actually built.
+        expected_num_docs = capped_expected_docs(config.get('num_docs'))
 
         class BenchmarkBuildAssertions(unittest.TestCase):
             @classmethod
