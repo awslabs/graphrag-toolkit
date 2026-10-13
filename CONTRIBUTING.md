@@ -55,6 +55,18 @@ git secrets --register-aws
 
 The pre-commit framework will automatically run git-secrets on staged files before each commit, preventing accidental secret leaks.
 
+### If the secret scan flags a commit
+
+The Secret Scan workflow runs gitleaks on every pull request and push to `main` and the `v*.*.x` release branches, and over the full history every Monday. Findings are attached to the workflow run as a SARIF report and appear in the repository's Security tab.
+
+The pull request check fails when the files on the branch still contain the secret. When a secret was added and then removed within the same pull request, the check passes with a warning: the files are clean, but the secret is still in the branch's commit history.
+
+Rotate the credential in both cases, before the pull request is merged. This repository is public, so a secret is exposed from the moment it is pushed, and deleting it from the files does not undo that.
+
+Removing the secret from the history comes second: squash the commits that introduced it, or ask a maintainer to rewrite the branch. The Monday full-history run fails until it is gone.
+
+Maintainers review secret-scan warnings and the Security tab, and confirm on the pull request that the credential was rotated before merging. If you are the contributor, say in the pull request thread that you have rotated it. Do not assume someone saw the warning.
+
 GitHub provides additional document on [forking a repository](https://help.github.com/articles/fork-a-repo/) and
 [creating a pull request](https://help.github.com/articles/creating-a-pull-request/).
 
