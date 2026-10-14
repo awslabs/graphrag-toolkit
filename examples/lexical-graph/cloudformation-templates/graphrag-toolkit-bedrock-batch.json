@@ -1,0 +1,267 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "Adds Bedrock batch inference to a graphrag-toolkit lexical-graph stack: a bucket for batch input and output, a role Bedrock assumes to run the jobs, and a policy for the notebook role. Pass the BatchClientPolicyArn output to the main stack's IamPolicyArn parameter.",
+  "Parameters": {
+    "ApplicationId": {
+      "Description": "Prefix for the names of the role and policy this stack creates",
+      "Type": "String",
+      "Default": "graphrag-toolkit",
+      "AllowedPattern": "[a-z0-9-]{1,32}"
+    }
+  },
+  "Resources": {
+    "BatchBucket": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "BucketEncryption": {
+          "ServerSideEncryptionConfiguration": [
+            {
+              "ServerSideEncryptionByDefault": {
+                "SSEAlgorithm": "AES256"
+              }
+            }
+          ]
+        },
+        "PublicAccessBlockConfiguration": {
+          "BlockPublicAcls": true,
+          "BlockPublicPolicy": true,
+          "IgnorePublicAcls": true,
+          "RestrictPublicBuckets": true
+        }
+      }
+    },
+    "BatchBucketPolicy": {
+      "Type": "AWS::S3::BucketPolicy",
+      "Properties": {
+        "Bucket": {
+          "Ref": "BatchBucket"
+        },
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Sid": "DenyInsecureTransport",
+              "Effect": "Deny",
+              "Principal": "*",
+              "Action": "s3:*",
+              "Resource": [
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:s3:::${BatchBucket}"
+                },
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:s3:::${BatchBucket}/*"
+                }
+              ],
+              "Condition": {
+                "Bool": {
+                  "aws:SecureTransport": "false"
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "BatchInferenceRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "RoleName": {
+          "Fn::Sub": "${ApplicationId}-batch-inference-role"
+        },
+        "Path": "/graphrag-toolkit/",
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "bedrock.amazonaws.com"
+              },
+              "Action": "sts:AssumeRole",
+              "Condition": {
+                "StringEquals": {
+                  "aws:SourceAccount": {
+                    "Ref": "AWS::AccountId"
+                  }
+                },
+                "ArnLike": {
+                  "aws:SourceArn": {
+                    "Fn::Sub": "arn:${AWS::Partition}:bedrock:*:${AWS::AccountId}:model-invocation-job/*"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "Policies": [
+          {
+            "PolicyName": "batch-inference",
+            "PolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "s3:ListBucket"
+                  ],
+                  "Resource": [
+                    {
+                      "Fn::Sub": "arn:${AWS::Partition}:s3:::${BatchBucket}"
+                    }
+                  ]
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "s3:GetObject",
+                    "s3:PutObject"
+                  ],
+                  "Resource": [
+                    {
+                      "Fn::Sub": "arn:${AWS::Partition}:s3:::${BatchBucket}/*"
+                    }
+                  ]
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "bedrock:InvokeModel"
+                  ],
+                  "Resource": [
+                    {
+                      "Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/anthropic.*"
+                    },
+                    {
+                      "Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/amazon.nova*"
+                    },
+                    {
+                      "Fn::Sub": "arn:${AWS::Partition}:bedrock:*:${AWS::AccountId}:inference-profile/*.anthropic.*"
+                    },
+                    {
+                      "Fn::Sub": "arn:${AWS::Partition}:bedrock:*:${AWS::AccountId}:inference-profile/*.amazon.nova*"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "BatchClientPolicy": {
+      "Type": "AWS::IAM::ManagedPolicy",
+      "Properties": {
+        "ManagedPolicyName": {
+          "Fn::Sub": "${ApplicationId}-batch-client-policy"
+        },
+        "Path": "/graphrag-toolkit/",
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Sid": "PassBatchRole",
+              "Effect": "Allow",
+              "Action": [
+                "iam:PassRole"
+              ],
+              "Resource": {
+                "Fn::GetAtt": [
+                  "BatchInferenceRole",
+                  "Arn"
+                ]
+              },
+              "Condition": {
+                "StringEquals": {
+                  "iam:PassedToService": "bedrock.amazonaws.com"
+                }
+              }
+            },
+            {
+              "Sid": "ManageBatchJobs",
+              "Effect": "Allow",
+              "Action": [
+                "bedrock:CreateModelInvocationJob",
+                "bedrock:GetModelInvocationJob",
+                "bedrock:StopModelInvocationJob"
+              ],
+              "Resource": [
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*:${AWS::AccountId}:model-invocation-job/*"
+                },
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/anthropic.*"
+                },
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/amazon.nova*"
+                },
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*:${AWS::AccountId}:inference-profile/*.anthropic.*"
+                },
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*:${AWS::AccountId}:inference-profile/*.amazon.nova*"
+                }
+              ]
+            },
+            {
+              "Sid": "ListBatchJobs",
+              "Effect": "Allow",
+              "Action": [
+                "bedrock:ListModelInvocationJobs"
+              ],
+              "Resource": "*"
+            },
+            {
+              "Sid": "ListBatchBucket",
+              "Effect": "Allow",
+              "Action": [
+                "s3:ListBucket"
+              ],
+              "Resource": [
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:s3:::${BatchBucket}"
+                }
+              ]
+            },
+            {
+              "Sid": "ReadWriteBatchBucket",
+              "Effect": "Allow",
+              "Action": [
+                "s3:GetObject",
+                "s3:PutObject",
+                "s3:DeleteObject"
+              ],
+              "Resource": [
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:s3:::${BatchBucket}/*"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "Outputs": {
+    "BatchClientPolicyArn": {
+      "Description": "Pass to the main stack's IamPolicyArn parameter",
+      "Value": {
+        "Ref": "BatchClientPolicy"
+      }
+    },
+    "BatchInferenceRole": {
+      "Description": "BATCH_INFERENCE_ROLE in .env",
+      "Value": {
+        "Fn::GetAtt": [
+          "BatchInferenceRole",
+          "Arn"
+        ]
+      }
+    },
+    "BatchBucket": {
+      "Description": "EXTRACTION_BUCKET in .env",
+      "Value": {
+        "Ref": "BatchBucket"
+      }
+    }
+  }
+}

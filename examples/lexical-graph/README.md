@@ -74,6 +74,10 @@ You must run the CloudFormation stack in a region containing these models, and m
 
 The CloudFormation stack includes an input parameter, `IamPolicyArn`, that allows you to add an additional IAM policy to the GraphRAG client IAM role created by the stack. Use this parameter to add a custom policy containing permissions to additional resources that you want to use, such as specific Amazon S3 buckets, or additional Amazon Bedrock foundation models.
 
+#### Batch extraction
+
+The stacks above do not set up [batch extraction](https://awslabs.github.io/graphrag-toolkit/lexical-graph/batch-extraction/). [`graphrag-toolkit-bedrock-batch.json`](./cloudformation-templates/graphrag-toolkit-bedrock-batch.json) creates an S3 bucket for batch input and output, a role Bedrock assumes to run the jobs, and a policy that lets the notebook role submit, check and stop them. Deploy it first, pass its `BatchClientPolicyArn` output in the `IamPolicyArn` parameter, and add its `BatchBucket` and `BatchInferenceRole` outputs to `.env` as `EXTRACTION_BUCKET` and `BATCH_INFERENCE_ROLE`.
+
 #### Installing example notebooks
 
 The CloudFormation stack includes an input parameter, `ExampleNotebooksURL` that specifies the URL of a zip file containing the lexical-graph example notebooks. By default this parameter is set to:
