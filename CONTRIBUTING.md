@@ -77,7 +77,14 @@ Looking at the existing issues is a great way to find something to contribute on
 * `main` is the development branch.
 * Each `X.Y` release line has a release branch named `vX.Y.x` (for example `v3.20.x`), cut from `main`. It holds the changes for `X.Y.0` and for the patch releases that follow it.
 * Open your pull request against the release branch if the change is for that release line, and against `main` otherwise. The package test workflows run on pull requests to both.
-* A release branch is merged back into `main` with a pull request so that `main` has everything that shipped. Merge that pull request with a merge commit. A squash leaves the release branch's commits out of `main`'s history, so the next merge from the same branch lists them again and can conflict.
+* Changes flow from a release branch down to `main`, not the other way around. Do not cherry-pick a change from `main` into a release branch; merge it to the release branch and downmerge it.
+
+### Downmerging a release branch into `main`
+
+1. Cut a branch from the release branch, for example `downmerge/v3.20.x-to-main`.
+2. Open a pull request from it into `main`, titled `[CHORE] Downmerge vX.Y.x to main`, and list the pull requests it carries in the description.
+3. If it conflicts with `main`, merge `main` into the downmerge branch and resolve the conflicts there, so the release branch is left unchanged.
+4. Merge the pull request with a merge commit. A squash leaves the release branch's commits out of `main`'s history, so the next downmerge from the same branch lists them again and can conflict.
 
 ### Tagging work to a release
 
