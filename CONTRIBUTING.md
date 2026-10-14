@@ -57,15 +57,9 @@ The pre-commit framework will automatically run git-secrets on staged files befo
 
 ### If the secret scan flags a commit
 
-The Secret Scan workflow runs gitleaks on every pull request and push to `main` and the `v*.*.x` release branches, and over the full history every Monday. Findings are attached to the workflow run as a SARIF report and appear in the repository's Security tab.
+The Secret Scan workflow runs gitleaks on every pull request and push to `main` and the `v*.*.x` release branches. Findings are attached to the workflow run as a SARIF report and appear in the repository's Security tab.
 
-The pull request check fails when the files on the branch still contain the secret. When a secret was added and then removed within the same pull request, the check passes with a warning: the files are clean, but the secret is still in the branch's commit history.
-
-Rotate the credential in both cases, before the pull request is merged. This repository is public, so a secret is exposed from the moment it is pushed, and deleting it from the files does not undo that.
-
-Removing the secret from the history comes second: squash the commits that introduced it, or ask a maintainer to rewrite the branch. The Monday full-history run fails until it is gone.
-
-Maintainers review secret-scan warnings and the Security tab, and confirm on the pull request that the credential was rotated before merging. If you are the contributor, say in the pull request thread that you have rotated it. Do not assume someone saw the warning.
+The pull request check fails when the files on the branch contain a secret, and warns when the secret is only in the commit history. Either way, rotate the credential before the pull request is merged and say in the pull request that you have. Then remove the secret from the history: squash the commits that introduced it, or ask a maintainer to rewrite the branch.
 
 GitHub provides additional document on [forking a repository](https://help.github.com/articles/fork-a-repo/) and
 [creating a pull request](https://help.github.com/articles/creating-a-pull-request/).
@@ -76,12 +70,7 @@ Looking at the existing issues is a great way to find something to contribute on
 
 
 ## Release process
-`graphrag-lexical-graph` and `graphrag-byokg` are released separately, each with its own version and tags (`graphrag-lexical-graph/vX.Y.Z`, `graphrag-byokg/vX.Y.Z`). [lexical-graph/RELEASE.md](lexical-graph/RELEASE.md) and [byokg-rag/RELEASE.md](byokg-rag/RELEASE.md) have the steps for tagging and publishing. This section covers when releases happen and which branch a change belongs on.
-
-### Release cadence
-
-* An `X.Y.0` release goes out at least once a quarter, and can go out sooner. It passes a security review before it is published.
-* `X.Y.Z` patch releases (for example `3.20.1`) carry fixes in between. They go out as needed and do not go through the security review.
+`graphrag-lexical-graph` and `graphrag-byokg` are released separately, each with its own version and tags (`graphrag-lexical-graph/vX.Y.Z`, `graphrag-byokg/vX.Y.Z`). [lexical-graph/RELEASE.md](lexical-graph/RELEASE.md) and [byokg-rag/RELEASE.md](byokg-rag/RELEASE.md) have the steps for tagging and publishing. This section covers which branch a change belongs on.
 
 ### Branches
 
