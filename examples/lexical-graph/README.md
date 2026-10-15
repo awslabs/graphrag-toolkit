@@ -8,6 +8,7 @@
   - [**03-Traversal-Based Querying**](./notebooks/03-Traversal-Based-Querying.ipynb) – Examples of [querying the graph](https://awslabs.github.io/graphrag-toolkit/lexical-graph/querying/) using [traversal-based search](https://awslabs.github.io/graphrag-toolkit/lexical-graph/traversal-based-search/). Includes examples of visualising the results.
   - [**04-Multi-Tenancy**](./notebooks/04-Multi-Tenancy.ipynb) – An example of creating and querying a [multi-tenant](https://awslabs.github.io/graphrag-toolkit/lexical-graph/multi-tenancy/) graph.
   - [**05-Agentic-GraphRAG**](./notebooks/05-Agentic-GraphRAG.ipynb) – Example of creating an MCP server for a multi-tenant graph, and using an agent to interact with the lexical graph tools exposed by the server.
+  - [**06-Restart-Extraction**](./notebooks/06-Restart-Extraction.ipynb) – An example of [restarting an interrupted batch extraction](https://awslabs.github.io/graphrag-toolkit/lexical-graph/indexing/#restarting-an-interrupted-extraction) with the same `run_id`. Needs lexical-graph 3.20 or later and the [batch extraction](#batch-extraction) template.
   
 #### Environment variables
 
@@ -73,6 +74,10 @@ You must run the CloudFormation stack in a region containing these models, and m
 #### Adding additional IAM permissions
 
 The CloudFormation stack includes an input parameter, `IamPolicyArn`, that allows you to add an additional IAM policy to the GraphRAG client IAM role created by the stack. Use this parameter to add a custom policy containing permissions to additional resources that you want to use, such as specific Amazon S3 buckets, or additional Amazon Bedrock foundation models.
+
+#### Batch extraction
+
+The stacks above do not set up [batch extraction](https://awslabs.github.io/graphrag-toolkit/lexical-graph/batch-extraction/). [`graphrag-toolkit-bedrock-batch.json`](./cloudformation-templates/graphrag-toolkit-bedrock-batch.json) creates an S3 bucket for batch input and output, a role Bedrock assumes to run the jobs, and a policy that lets the notebook role submit, check and stop them. Deploy it first, pass its `BatchClientPolicyArn` output in the `IamPolicyArn` parameter, and add its `BatchBucket` and `BatchInferenceRole` outputs to `.env` as `EXTRACTION_BUCKET` and `BATCH_INFERENCE_ROLE`.
 
 #### Installing example notebooks
 
