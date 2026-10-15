@@ -582,6 +582,10 @@ class RestartWhileBatchJobsAreRunning(IntegrationTestBase):
     """
     Kill a batch extraction while its Bedrock jobs are queued, stop one of
     those jobs, then restart the same run id.
+
+    The longest test in lexical.restart: the whole corpus goes through Bedrock
+    batch inference, about 97 minutes with Haiku 4.5. Set TEST_EXTRACTION_LLM
+    to a cheaper model than the Sonnet default.
     """
 
     @property
@@ -857,7 +861,12 @@ class RestartWhileBatchJobsAreRunning(IntegrationTestBase):
             # Stop jobs a failed run left with nothing waiting on them.
             try:
                 if not handler.props.get('test_results', {}).get('passed', False):
-                    for record in jobs_recorded().values():
+                    try:
+                        recorded = jobs_recorded().values()
+                    except Exception:
+                        logger.warning('Could not list the jobs to stop', exc_info=True)
+                        recorded = []
+                    for record in recorded:
                         try:
                             if job_state(record) in LIVE_JOB_STATES:
                                 GraphRAGConfig.bedrock.stop_model_invocation_job(jobIdentifier=record.job_arn)

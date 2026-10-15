@@ -584,22 +584,28 @@ class ResumeInterruptedJsonlExtraction(RestartTest):
             missing_source = staged_sources[-1]
             unmarked_source = staged_sources[-2]
 
-            doomed = [
+            missing_objects = [
                 key for key in after_first_run
                 if f'{collection_path}{missing_source}/' in key
             ]
-            doomed += [
+            unmarked_markers = [
                 key for key in after_first_run
                 if f'{collection_path}{unmarked_source}/' in key
                 and is_completion_marker(key)
             ]
+            if not missing_objects or not unmarked_markers:
+                raise RuntimeError(
+                    f'Could not construct the interrupted state: {len(missing_objects)} objects for the '
+                    f'missing source, {len(unmarked_markers)} markers for the unmarked one'
+                )
+            doomed = missing_objects + unmarked_markers
 
             refused = GraphRAGConfig.s3.delete_objects(
                 Bucket=run.bucket_name,
                 Delete={'Objects': [{'Key': key} for key in doomed]}
             ).get('Errors', [])
-            if refused or not doomed:
-                raise RuntimeError(f'Could not construct the interrupted state: {refused or "nothing to delete"}')
+            if refused:
+                raise RuntimeError(f'Could not construct the interrupted state: {refused}')
 
             resuming = staging_handler()
 
