@@ -38,7 +38,12 @@ def staged_source_ids(bucket_name:str, key_prefix:str, collection_id:str, s3_cli
 
     Marker reads run on num_threads threads alongside the listing, with at
     most twice that many sources queued.
-    A source whose markers cannot be read is staged again.
+    A source whose markers cannot be read, or are not ones the writer writes,
+    is staged again.
+
+    Nothing ties a marker to the run that wrote it, so a source put there by
+    anything with write access to the collection is skipped like one a run
+    stored. See is_complete.
 
     The JSONL format keeps its node ids inside the objects, where a listing
     cannot reach them, so it is answered with nothing.
