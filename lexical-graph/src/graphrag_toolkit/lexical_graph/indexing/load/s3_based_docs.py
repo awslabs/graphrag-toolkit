@@ -134,7 +134,9 @@ def list_collection(bucket_name:str, key_prefix:str, collection_id:str, paginato
 
     Both come out of the one listing, so the record costs no second call and no
     permission the listing did not already need. A collection with no record was
-    staged before markers existed and is read as it stands.
+    staged before markers existed and is read as it stands. Only the record's
+    presence decides this, so deleting it turns the check off for the whole
+    collection.
     """
     collection_path = join(key_prefix, collection_id, '')
     record_key = collection_record_key(key_prefix, collection_id)
@@ -154,6 +156,36 @@ def list_collection(bucket_name:str, key_prefix:str, collection_id:str, paginato
     return source_doc_prefixes, recorded
 
 
+def _is_id_list(value) -> bool:
+    return isinstance(value, list) and all(isinstance(item, str) for item in value)
+
+
+def _parse_marker(marker_key:str, body:bytes) -> Dict:
+    """
+    A completion marker, checked for the fields is_complete reads.
+
+    One the writer could not have produced raises naming its key, which the
+    parse error alone does not. The key is what an operator has to delete: a
+    re-stage replaces only the marker named for the chunks it writes.
+    """
+    try:
+        marker = json.loads(body.decode('UTF-8'))
+    except ValueError as e:
+        raise ValueError(f'A completion marker is not JSON [key: {marker_key}]: {e!s}') from e
+
+    if not isinstance(marker, dict):
+        raise ValueError(f'A completion marker is not a JSON object [key: {marker_key}]')
+
+    for name in ('chunk_ids', 'source_chunk_ids'):
+        if name in marker and not _is_id_list(marker[name]):
+            raise ValueError(f'A completion marker has a {name} that is not a list of chunk ids [key: {marker_key}]')
+
+    if not isinstance(marker.get('final', True), bool):
+        raise ValueError(f'A completion marker has a final that is not true or false [key: {marker_key}]')
+
+    return marker
+
+
 def read_markers(marker_keys, bucket_name:str, s3_client) -> List[Dict]:
     """The markers under a source document prefix."""
     markers = []
@@ -161,7 +193,7 @@ def read_markers(marker_keys, bucket_name:str, s3_client) -> List[Dict]:
         with io.BytesIO() as io_stream:
             s3_client.download_fileobj(bucket_name, marker_key, io_stream)
             io_stream.seek(0)
-            markers.append(json.loads(io_stream.read().decode('UTF-8')))
+            markers.append(_parse_marker(marker_key, io_stream.read()))
     return markers
 
 
@@ -192,6 +224,11 @@ def is_complete(node_ids, marker_keys, bucket_name:str, s3_client) -> bool:
     A source stored in several parts is accounted for by the part that ends it,
     which declares every chunk id stored for the source. A marker written before
     that existed declares only its own chunk ids.
+
+    This checks that a write finished, not who made it. Markers are unsigned and
+    name no run, and they cover chunk ids, not content (content_hash hashes the
+    ids), so a marker that accounts for the chunks beside it is trusted whoever
+    wrote both. Write access to the collection prefix is the boundary.
     """
     markers = read_markers(marker_keys, bucket_name, s3_client)
 
