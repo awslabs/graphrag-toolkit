@@ -223,13 +223,28 @@ class TestNeo4jDatabaseClientExecuteQuery:
             results = client._execute_query("MATCH (n) RETURN n", {})
         assert results == [{"key": "value"}]
 
+    def test_execute_query_runs_the_statement_once(self):
+        client, mock_driver, mock_session = self._make_client_with_mock_driver()
+        mock_neo4j = MagicMock()
+        with patch.dict("sys.modules", {"neo4j": mock_neo4j}):
+            client._execute_query("CREATE (n) RETURN n", {"a": 1})
+        mock_session.run.assert_called_once_with("CREATE (n) RETURN n", {"a": 1})
+        mock_driver.execute_query.assert_not_called()
+
     def test_execute_query_with_database(self):
         client, mock_driver, mock_session = self._make_client_with_mock_driver()
         client.database = "neo4j"
         mock_neo4j = MagicMock()
         with patch.dict("sys.modules", {"neo4j": mock_neo4j}):
-            results = client._execute_query("MATCH (n) RETURN n", {})
-        mock_driver.execute_query.assert_called()
+            client._execute_query("MATCH (n) RETURN n", {})
+        mock_driver.session.assert_called_once_with(database="neo4j")
+
+    def test_execute_query_without_database_uses_the_default(self):
+        client, mock_driver, mock_session = self._make_client_with_mock_driver()
+        mock_neo4j = MagicMock()
+        with patch.dict("sys.modules", {"neo4j": mock_neo4j}):
+            client._execute_query("MATCH (n) RETURN n", {})
+        mock_driver.session.assert_called_once_with(database=None)
 
     def test_execute_query_default_empty_params(self):
         client, mock_driver, mock_session = self._make_client_with_mock_driver()
