@@ -8,6 +8,7 @@
   - [**03-Traversal-Based Querying**](./notebooks/03-Traversal-Based-Querying.ipynb) – Examples of [querying the graph](https://awslabs.github.io/graphrag-toolkit/lexical-graph/querying/) using [traversal-based search](https://awslabs.github.io/graphrag-toolkit/lexical-graph/traversal-based-search/). Includes examples of visualising the results.
   - [**04-Multi-Tenancy**](./notebooks/04-Multi-Tenancy.ipynb) – An example of creating and querying a [multi-tenant](https://awslabs.github.io/graphrag-toolkit/lexical-graph/multi-tenancy/) graph.
   - [**05-Agentic-GraphRAG**](./notebooks/05-Agentic-GraphRAG.ipynb) – Example of creating an MCP server for a multi-tenant graph, and using an agent to interact with the lexical graph tools exposed by the server.
+  - [**06-Restart-Extraction**](./notebooks/06-Restart-Extraction.ipynb) – An example of [restarting an interrupted batch extraction](https://awslabs.github.io/graphrag-toolkit/lexical-graph/indexing/#restarting-an-interrupted-extraction) with the same `run_id`. Needs lexical-graph 3.20 or later and the [batch extraction](#batch-extraction) template.
   
 #### Environment variables
 

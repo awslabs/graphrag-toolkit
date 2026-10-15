@@ -12,6 +12,20 @@
   "Resources": {
     "BatchBucket": {
       "Type": "AWS::S3::Bucket",
+      "Metadata": {
+        "checkov": {
+          "skip": [
+            {
+              "id": "CKV_AWS_18",
+              "comment": "Holds short-lived batch input and output for the example notebooks; access logging would need a second bucket"
+            },
+            {
+              "id": "CKV_AWS_21",
+              "comment": "Versioning is off so that deleting objects removes them and the stack can delete the bucket"
+            }
+          ]
+        }
+      },
       "Properties": {
         "BucketEncryption": {
           "ServerSideEncryptionConfiguration": [
@@ -201,14 +215,6 @@
                   "Fn::Sub": "arn:${AWS::Partition}:bedrock:*:${AWS::AccountId}:inference-profile/*.amazon.nova*"
                 }
               ]
-            },
-            {
-              "Sid": "ListBatchJobs",
-              "Effect": "Allow",
-              "Action": [
-                "bedrock:ListModelInvocationJobs"
-              ],
-              "Resource": "*"
             },
             {
               "Sid": "ListBatchBucket",
