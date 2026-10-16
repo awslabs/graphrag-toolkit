@@ -3,10 +3,11 @@
 
 import json
 import logging
+import os
 import numpy as np
 
 from typing import List, Sequence, Dict, Any, Optional, Callable
-from urllib.parse import urlparse
+from urllib.parse import urlparse, parse_qs
 
 from graphrag_toolkit.lexical_graph.metadata import FilterConfig, type_name_for_key_value, format_datetime
 from graphrag_toolkit.lexical_graph.versioning import VALID_FROM, VALID_TO, TIMESTAMP_LOWER_BOUND, TIMESTAMP_UPPER_BOUND
@@ -20,6 +21,8 @@ from llama_index.core.indices.utils import embed_nodes
 from llama_index.core.vector_stores.types import FilterCondition, FilterOperator, MetadataFilter, MetadataFilters
 
 logger = logging.getLogger(__name__)
+
+DEFAULT_SSLMODE = 'require'
 
 try:
     import psycopg2
@@ -178,7 +181,9 @@ class PGIndex(VectorIndex):
                   password:str=None,
                   embed_model:EmbeddingType=None,
                   dimensions:int=None,
-                  enable_iam_db_auth=False):
+                  enable_iam_db_auth=False,
+                  sslmode:Optional[str]=None,
+                  sslrootcert:Optional[str]=None):
         """
         Creates an instance of the `PGIndex` class based on the provided database connection
         information, index name, and embedding configuration. It parses the `connection_string`
@@ -199,6 +204,10 @@ class PGIndex(VectorIndex):
             dimensions (int, optional): The dimensionality of the embeddings. Defaults to None.
             enable_iam_db_auth (bool, optional): A flag indicating whether to enable IAM
             database authentication. Defaults to False.
+            sslmode (str, optional): The libpq sslmode for the connection. When neither this
+            nor PGSSLMODE is set, the connection uses 'require'.
+            sslrootcert (str, optional): Path to the CA certificate libpq verifies the server
+            against, for the verify-ca and verify-full modes.
 
         Returns:
             PGIndex: An instance of the `PGIndex` class properly configured with the provided
@@ -224,6 +233,9 @@ class PGIndex(VectorIndex):
         username = parsed.username or username
         password = parsed.password or password
         enable_iam_db_auth = compute_enable_iam_db_auth(parsed.query, enable_iam_db_auth)
+        query = parse_qs(parsed.query)
+        sslmode = query.get('sslmode', [sslmode])[0]
+        sslrootcert = query.get('sslrootcert', [sslrootcert])[0]
         
         embed_model = embed_model or GraphRAGConfig.embed_model
         dimensions = coalesce(dimensions, GraphRAGConfig.embed_dimensions)
@@ -237,7 +249,9 @@ class PGIndex(VectorIndex):
                        password=password, 
                        dimensions=dimensions, 
                        embed_model=embed_model, 
-                       enable_iam_db_auth=enable_iam_db_auth)
+                       enable_iam_db_auth=enable_iam_db_auth,
+                       sslmode=sslmode,
+                       sslrootcert=sslrootcert)
 
     index_name:str
     database:str
@@ -249,6 +263,8 @@ class PGIndex(VectorIndex):
     dimensions:int
     embed_model:EmbeddingType
     enable_iam_db_auth:bool=False
+    sslmode:Optional[str]=None
+    sslrootcert:Optional[str]=None
     initialized:bool=False
 
     def underlying_index_name(self) -> str:
@@ -295,13 +311,22 @@ class PGIndex(VectorIndex):
 
         password = token or self.password
 
+        ssl_args = {}
+        if self.sslmode:
+            ssl_args['sslmode'] = self.sslmode
+        elif 'PGSSLMODE' not in os.environ:
+            ssl_args['sslmode'] = DEFAULT_SSLMODE
+        if self.sslrootcert:
+            ssl_args['sslrootcert'] = self.sslrootcert
+
         dbconn = psycopg2.connect(
             host=self.host,
             user=self.username, 
             password=password,
             port=self.port, 
             database=self.database,
-            connect_timeout=30
+            connect_timeout=30,
+            **ssl_args
         )
 
         dbconn.set_session(autocommit=True)

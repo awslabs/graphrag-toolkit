@@ -8,6 +8,7 @@ title: Postgres Vector Store
   - [Install dependencies](#install-dependencies)
   - [Creating Postgres vector store](#creating-a-postgres-vector-store)
     - [Connecting to an IAM auth-enabled Postgres vector store](#connecting-to-an-iam-auth-enabled-postgres-vector-store)
+    - [TLS](#tls)
 
 ### Overview
 
@@ -46,3 +47,19 @@ postgresql://graphrag@mydbcluster.cluster-123456789012.us-west-2.rds.amazonaws.c
 ```
 
 You will need to create a database user, and [grant the `rds_iam` role](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.DBAccounts.html#UsingWithRDS.IAMDBAuth.DBAccounts.PostgreSQL) to use IAM authentication.
+
+#### TLS
+
+The connection uses TLS by default (`sslmode=require`), and fails if the server does not support it. To choose a different mode, add `sslmode` to the connection string query parameters, or set the `PGSSLMODE` environment variable. A mode in the connection string takes precedence over `PGSSLMODE`.
+
+`require` encrypts the connection but does not check the server's certificate. To verify the certificate and host name, use `sslmode=verify-full` and point `sslrootcert` at the CA certificate. For Amazon RDS and Aurora, that is the [RDS certificate bundle](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html):
+
+```
+postgresql://graphrag@mydbcluster.cluster-123456789012.us-west-2.rds.amazonaws.com:5432/postgres?enable_iam_db_auth=True&sslmode=verify-full&sslrootcert=/path/to/global-bundle.pem
+```
+
+A local Postgres that has no TLS configured, such as a Docker container, needs `sslmode=disable`:
+
+```
+postgresql://postgres:password@localhost:5432/graphrag?sslmode=disable
+```
