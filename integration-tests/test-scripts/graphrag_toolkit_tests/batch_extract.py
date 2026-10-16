@@ -626,6 +626,21 @@ class RestartWhileBatchJobsAreRunning(IntegrationTestBase):
         def job_state(record):
             return GraphRAGConfig.bedrock.get_model_invocation_job(jobIdentifier=record.job_arn)['status']
 
+        def stop_jobs_left_running():
+            """Stops any recorded job still live after a failed run. Failures are logged and skipped
+            so that this never raises over the exception that failed the test."""
+            try:
+                recorded = list(jobs_recorded().values())
+            except Exception:
+                logger.warning('Could not list the jobs to stop', exc_info=True)
+                return
+            for record in recorded:
+                try:
+                    if job_state(record) in LIVE_JOB_STATES:
+                        GraphRAGConfig.bedrock.stop_model_invocation_job(jobIdentifier=record.job_arn)
+                except Exception:
+                    logger.warning(f'Could not stop job {record.job_arn}', exc_info=True)
+
         settings = ('extraction_batch_size', 'extraction_num_workers',
                     'build_num_workers', 'build_batch_size', 'build_batch_write_size')
         original_settings = {name: getattr(GraphRAGConfig, name) for name in settings}
@@ -858,21 +873,8 @@ class RestartWhileBatchJobsAreRunning(IntegrationTestBase):
                 delete_prefix(s3_results_bucket, f'{batch_inference_prefix}/')
 
         finally:
-            # Stop jobs a failed run left with nothing waiting on them.
-            try:
-                if not handler.props.get('test_results', {}).get('passed', False):
-                    try:
-                        recorded = jobs_recorded().values()
-                    except Exception:
-                        logger.warning('Could not list the jobs to stop', exc_info=True)
-                        recorded = []
-                    for record in recorded:
-                        try:
-                            if job_state(record) in LIVE_JOB_STATES:
-                                GraphRAGConfig.bedrock.stop_model_invocation_job(jobIdentifier=record.job_arn)
-                        except Exception:
-                            logger.warning(f'Could not stop job {record.job_arn}', exc_info=True)
-            finally:
-                for name, value in original_settings.items():
-                    setattr(GraphRAGConfig, name, value)
-                delete_prefix(s3_results_bucket, f'{extracted_prefix}/{collection_id}/')
+            if not handler.props.get('test_results', {}).get('passed', False):
+                stop_jobs_left_running()
+            for name, value in original_settings.items():
+                setattr(GraphRAGConfig, name, value)
+            delete_prefix(s3_results_bucket, f'{extracted_prefix}/{collection_id}/')
