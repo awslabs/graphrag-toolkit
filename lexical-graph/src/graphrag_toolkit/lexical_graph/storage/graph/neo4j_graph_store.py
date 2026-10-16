@@ -127,9 +127,8 @@ class Neo4jDatabaseClient(GraphStore):
 
         start = time.time()
 
-        with self.client.session(database=self.database) as session:
-            result = session.run(cypher, parameters)
-            results = [record.data() for record in result]
+        records = self.client.execute_query(cypher, parameters, database_=self.database).records
+        results = [record.data() for record in records]
 
         end = time.time()
 
