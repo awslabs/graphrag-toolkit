@@ -12,6 +12,7 @@ from typing import Dict, List, Optional, Set
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
 
 from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import (
+    CompletionMarkerError,
     chunk_id_from_key,
     is_complete,
     is_completion_marker,
@@ -64,7 +65,12 @@ def staged_source_ids(bucket_name:str, key_prefix:str, collection_id:str, s3_cli
         chunk_ids = [chunk_id_from_key(key, source_doc_prefix) for key in chunk_keys]
         try:
             return source_id, is_complete(chunk_ids, marker_keys, bucket_name, s3_client)
+        except CompletionMarkerError as e:
+            # No retry fixes this one, and the build skips the source over it.
+            logger.warning(f'A completion marker cannot be read, the source will be staged again [source_id: {source_id}]: {e!s}. Delete the marker, or the build skips this source.')
+            return source_id, False
         except Exception as e:
+            # A failed read costs only a re-stage, so a throttled GetObject is not fatal.
             logger.warning(f'Could not read the markers for a source, it will be staged again [source_id: {source_id}, error: {e!s}]')
             return source_id, False
 

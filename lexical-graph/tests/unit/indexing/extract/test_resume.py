@@ -371,7 +371,11 @@ class TestWhatARestartTrusts:
         b'["c1", "c2"]',
         json.dumps({'chunk_ids': 'c1,c2'}).encode('UTF-8'),
         json.dumps({'chunk_ids': ['c1', 'c2'], 'final': 'true'}).encode('UTF-8'),
-    ], ids=['not JSON', 'not an object', 'chunk ids not a list', 'final not a boolean'])
+        b'{}',
+        json.dumps({'chunk_ids': [], 'final': True}).encode('UTF-8'),
+        json.dumps({'chunk_ids': ['c1', 'c2'], 'count': 99, 'final': True}).encode('UTF-8'),
+    ], ids=['not JSON', 'not an object', 'chunk ids not a list', 'final not a boolean',
+            'empty object', 'empty chunk ids', 'count disagrees'])
     def test_a_marker_the_writer_could_not_have_written_leaves_its_source_to_be_staged_again(self, body, caplog):
         s3_client = self._planted(['c1', 'c2'], body=body)
 
@@ -380,4 +384,7 @@ class TestWhatARestartTrusts:
 
         assert skipped == set()
         marker_key = completion_marker_key(f'{KEY_PREFIX}/{COLLECTION_ID}/{self.PLANTED}', ['c1', 'c2'])
-        assert any(marker_key in record.getMessage() for record in caplog.records), 'the warning names the marker'
+        assert any(
+            marker_key in record.getMessage() and 'Delete the marker' in record.getMessage()
+            for record in caplog.records
+        ), 'the warning names the marker and says what clears it'
