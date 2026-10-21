@@ -87,6 +87,7 @@ if [[ "$#" -gt 0 ]]; then
     echo "  --ssh-cidr <SSH CIDR block (default: auto-detected IP/32, use 0.0.0.0/0 for open access)>"
     echo "  --benchmark-data-dir <local directory containing benchmark data to upload>"
     echo "  --benchmark-data-s3-uri <S3 URI for benchmark data (synced at runtime instead of uploading)>"
+    echo "  --byokg-data-s3-uri <S3 prefix of the BYOKG KGQA datasets, for the benchmark.byokg-kgqa suite; BYOKG_KGQA_RUNS, BYOKG_SINGLE_BEST_MATCH, BYOKG_MAX_ITERATIONS are read from .env>"
     echo "  --benchmark-qa-limit <max number of QA pairs to evaluate (for prototype runs)>"
     echo "  --benchmark-extract-doc-limit <cap the number of source documents extracted by the batch_extract.py tests (only the first N docs are extracted); speeds up benchmark runs>"
     echo "  --benchmark-restarts <interrupt extraction this many times and restart under the same run id, or 'every-document' for one interruption per document; needs BENCHMARK_DOC_STORE=s3; overrides BENCHMARK_RESTARTS from .env>"
@@ -186,6 +187,7 @@ while [[ "$#" -gt 0 ]]; do
         --ssh-cidr) SSHCIDR="$2"; shift ;;
         --benchmark-data-dir) BENCHMARK_DATA_DIR="$2"; shift ;;
         --benchmark-data-s3-uri) BENCHMARK_DATA_S3_URI="$2"; shift ;;
+        --byokg-data-s3-uri) BYOKG_DATA_S3_URI="$2"; shift ;;
         --benchmark-qa-limit) BENCHMARK_QA_LIMIT="$2"; shift ;;
         --benchmark-extract-doc-limit) BENCHMARK_EXTRACT_DOC_LIMIT="$2"; shift ;;
         --benchmark-restarts) BENCHMARK_RESTARTS="$2"; shift ;;
@@ -431,7 +433,8 @@ fi
 printf 'export BENCHMARK_USE_BATCH=%q\n' "${BENCHMARK_USE_BATCH:-true}" >> lexical-graph-examples/.env.testing
 # Forwarded only when set, so the notebook keeps the library defaults otherwise.
 for setting in EXTRACTION_NUM_WORKERS EXTRACTION_BATCH_SIZE EXTRACTION_NUM_THREADS_PER_WORKER \
-	SOURCE_ID_WIDTH DETECT_SOURCE_ID_COLLISIONS; do
+	SOURCE_ID_WIDTH DETECT_SOURCE_ID_COLLISIONS \
+	BYOKG_DATA_S3_URI BYOKG_KGQA_RUNS BYOKG_SINGLE_BEST_MATCH BYOKG_MAX_ITERATIONS; do
 	if [[ "${!setting:-}" ]]; then
 		printf "export $setting=%q\n" "${!setting}" >> lexical-graph-examples/.env.testing
 	fi
