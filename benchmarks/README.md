@@ -220,8 +220,7 @@ sh build-tests.sh \
   --test-file benchmark.byokg-kgqa
 ```
 
-The suite runs its four datasets one after another on one notebook, which takes many
-hours. To run them in parallel, launch one stack per dataset with a distinct
+The suite runs its four datasets one after another on one notebook. To run them in parallel, launch one stack per dataset with a distinct
 `STACK_PREFIX` and `--test benchmark_byokg_kgqa.<Dataset>ByokgKgqa`
 (`Medqa`, `Cronquestions`, `Webqsp`, `Cwq`), one `build-tests.sh` call at a time —
 calls share the local `temp/` and `target/` directories. `--benchmark-qa-limit` takes a
