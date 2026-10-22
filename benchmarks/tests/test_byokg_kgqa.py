@@ -6,7 +6,8 @@ import json
 import pytest
 
 from benchmarks.utils.byokg_kgqa import (
-    DATASETS, Question, build_schema, f1, filter_answer_in_kg, hit, hit_at_2, hop_distance,
+    DATASETS, Question, _quantile, build_schema, f1, filter_answer_in_kg, hit, hit_at_2,
+    hop_distance, validate_graph,
     load_questions, normalize, sample, showcase_reasons, strip_choices, summarize,
 )
 
@@ -122,12 +123,27 @@ class TestScoring:
         assert hit([], ['x']) == 0
 
     def test_f1(self):
-        assert f1(['A', 'B'], ['A']) == pytest.approx(2 * 0.5 * 1 / 1.5)
-        assert f1([], ['A']) == 0.0
+        assert f1(['Heparin', 'Aspirin'], ['Heparin']) == pytest.approx(2 * 0.5 * 1 / 1.5)
+        assert f1([], ['Heparin']) == 0.0
+
+    def test_f1_never_exceeds_one(self):
+        # One prediction naming both gold answers: precision 1/1, recall 2/2.
+        assert f1(['Jamaican English and Jamaican Creole'],
+                  ['Jamaican English', 'Jamaican Creole']) == pytest.approx(1.0)
+
+    def test_empty_normalized_gold_matches_nothing(self):
+        assert hit(['anything'], ['']) == 0
+        assert hit(['something else'], ['the']) == 0  # normalize('the') == ''
+        assert hit(['the Beatles'], ['', 'Beatles']) == 1
 
     def test_hit_at_2_accepts_either_guess(self):
         assert hit_at_2(['Aspirin'], ['Clopidogrel'], ['Clopidogrel']) == 1
         assert hit_at_2(['Aspirin'], ['Heparin'], ['Clopidogrel']) == 0
+
+    def test_hit_at_2_uses_only_the_first_answer_of_each_list(self):
+        assert hit_at_2(['A1', 'A2', 'A3', 'A4'], ['B1', 'B2', 'Gold'], ['Gold']) == 0
+        assert hit_at_2(['A1', 'Gold'], ['B1'], ['Gold']) == 0
+        assert hit_at_2([], ['Gold', 'B2'], ['Gold']) == 1
 
 
 class TestHopDistance:
@@ -166,6 +182,26 @@ class TestShowcase:
     def test_all_signals(self):
         r = {**self.BASE, 'hops': 3, 'q_entities': ['A', 'B'], 'qtype': 'before_after'}
         assert showcase_reasons(r) == ['multi_hop:3', 'multi_entity', 'temporal:before_after']
+
+
+class TestValidateGraph:
+    def test_accepts_store_format(self):
+        validate_graph(_graph(('A', 'r', 'B')), 'g.json')
+
+    @pytest.mark.parametrize('bad', [
+        {'A': {'r': {'triplets': [['A', 'r', 'B', '1999']]}}},   # 4-element triplet
+        {'A': {'r': {'items': [['A', 'r', 'B']]}}},              # wrong key
+        {'A': ['r']},                                            # relations not a dict
+    ])
+    def test_rejects_malformed_entries(self, bad):
+        with pytest.raises(ValueError, match='g.json'):
+            validate_graph(bad, 'g.json')
+
+
+def test_quantile_interpolates_and_reports_none_when_empty():
+    # Nearest-rank would return the max (19) for p95 of 20 values.
+    assert _quantile(list(range(20)), 0.95) == 18.05
+    assert _quantile([], 0.5) is None
 
 
 class TestSummarize:

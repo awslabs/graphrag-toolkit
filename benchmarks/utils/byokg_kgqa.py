@@ -17,6 +17,8 @@ from collections import deque
 from dataclasses import dataclass, field
 from typing import Any, Dict, Iterable, List, Optional, Sequence
 
+from benchmarks.utils.metrics_summary import _percentile
+
 
 @dataclass(frozen=True)
 class DatasetSpec:
@@ -114,6 +116,22 @@ def filter_answer_in_kg(questions: Sequence[Question], graph: Dict[str, Any]) ->
     return [q for q in questions if any(a in graph for a in q.answers)]
 
 
+def validate_graph(graph: Dict[str, Any], graph_file: str) -> None:
+    """Fail before any LLM call if the graph isn't {head: {rel: {"triplets": [[h, r, t]]}}}.
+
+    hop_distance and LocalKGStore both index this shape directly; a malformed entry
+    is a data error to stop on, not a per-question miss to record thousands of times.
+    """
+    for head, rels in graph.items():
+        if not isinstance(rels, dict):
+            raise ValueError(f'{graph_file}: node {head!r} maps to {type(rels).__name__}, not a dict')
+        for rel, entry in rels.items():
+            triplets = entry.get('triplets') if isinstance(entry, dict) else None
+            if not isinstance(triplets, list) or any(len(t) != 3 for t in triplets):
+                raise ValueError(f'{graph_file}: {head!r} -> {rel!r} is not '
+                                 f'{{"triplets": [[head, relation, tail], ...]}}: {str(entry)[:200]}')
+
+
 def sample(questions: Sequence[Question], limit: Optional[int], seed: int) -> List[Question]:
     """Seeded subset, so a --limit run mixes question types instead of taking a block."""
     if limit is None or limit >= len(questions):
@@ -166,7 +184,9 @@ def normalize(s: str) -> str:
 
 
 def _match(prediction: str, answer: str) -> bool:
-    return normalize(answer) in normalize(prediction)
+    # A gold answer that normalizes to '' ('the', '') would be a substring of anything.
+    gold = normalize(answer)
+    return bool(gold) and gold in normalize(prediction)
 
 
 def hit(predictions: Sequence[str], answers: Iterable[str]) -> int:
@@ -176,18 +196,20 @@ def hit(predictions: Sequence[str], answers: Iterable[str]) -> int:
 
 
 def f1(predictions: Sequence[str], answers: Sequence[str]) -> float:
+    """Precision counts predictions matching a gold answer, recall counts gold answers
+    recovered — so one prediction naming two gold answers cannot push F1 past 1."""
     if not predictions or not answers:
         return 0.0
-    joined = ' '.join(predictions)
-    matched = sum(1 for a in answers if _match(joined, a))
-    precision, recall = matched / len(predictions), matched / len(answers)
+    recall = sum(1 for a in answers if _match(' '.join(predictions), a)) / len(answers)
+    precision = sum(1 for p in predictions if any(_match(p, a) for a in answers)) / len(predictions)
     return 0.0 if precision + recall == 0 else 2 * precision * recall / (precision + recall)
 
 
 def hit_at_2(kg_predictions: Sequence[str], vanilla_predictions: Sequence[str],
              answers: Iterable[str]) -> int:
-    """MedQA H@2: KG-grounded prediction augmented with the LLM's own prediction."""
-    return hit(list(kg_predictions) + list(vanilla_predictions), answers)
+    """MedQA H@2: the first KG answer plus the first LLM-only answer — two guesses,
+    however many answers each list holds."""
+    return hit(list(kg_predictions[:1]) + list(vanilla_predictions[:1]), answers)
 
 
 # --- showcase signals --------------------------------------------------------
@@ -253,10 +275,10 @@ def _pct(values: Sequence[float]) -> Optional[float]:
 
 
 def _quantile(values: Sequence[float], q: float) -> Optional[float]:
+    """Interpolated percentile (q in 0–1); None rather than 0.0 for an empty run."""
     if not values:
         return None
-    ordered = sorted(values)
-    return ordered[min(len(ordered) - 1, int(q * len(ordered)))]
+    return round(_percentile(sorted(values), 100 * q), 2)
 
 
 def summarize(records: Sequence[Dict[str, Any]], metric: str) -> Dict[str, Any]:
@@ -274,6 +296,7 @@ def summarize(records: Sequence[Dict[str, Any]], metric: str) -> Dict[str, Any]:
         'latency_s_p95': _quantile([r['latency_s'] for r in ok], 0.95),
         'context_chars_median': _quantile([r['context_chars'] for r in ok], 0.5),
         'n_showcase': sum(1 for r in records if r.get('showcase')),
+        'showcase_ids': [r['id'] for r in records if r.get('showcase')],
     }
     if metric == 'hit@2':
         summary['hit@2'] = _pct([r['hit@2'] for r in records])

@@ -24,7 +24,7 @@ import subprocess
 import sys
 import time
 import unittest
-from typing import Any, Dict, List, Optional, Sequence
+from typing import Any, Callable, Dict, List, Optional, Sequence
 
 from benchmarks.scripts.integration_test_base import IntegrationTestBase
 from benchmarks.scripts.integration_test_handler import IntegrationTestHandler
@@ -33,6 +33,7 @@ from benchmarks.utils.s3_utils import upload_benchmark_results_to_s3
 from benchmarks.utils.byokg_kgqa import (
     DATASETS, Question, answer_in_context, build_schema, f1, filter_answer_in_kg,
     hit, hit_at_2, hop_distance, load_questions, sample, showcase_reasons, summarize,
+    validate_graph,
 )
 
 logger = logging.getLogger(__name__)
@@ -75,8 +76,12 @@ def build_engine(graph: Dict[str, Any], model: Optional[str], region: Optional[s
 
 
 def run_question(engine, counter: CountingGenerator, question: Question,
-                 graph: Dict[str, Any], schema_mode: str, iterations: int) -> Dict[str, Any]:
-    """Score one question. Exceptions are recorded, not raised, and count as misses."""
+                 schema: Dict[str, Any], hops: Optional[int], iterations: int) -> Dict[str, Any]:
+    """Score one question. Exceptions are recorded, not raised, and count as misses.
+
+    schema and hops are precomputed by run_benchmark, so nothing here can raise
+    outside the try.
+    """
     artifacts: List[Dict[str, List[str]]] = []
     parse = engine.kg_linker.parse_response
 
@@ -87,12 +92,11 @@ def run_question(engine, counter: CountingGenerator, question: Question,
 
     record: Dict[str, Any] = {
         'id': question.id, 'question': question.question, 'answers': question.answers,
-        'q_entities': question.q_entities, 'qtype': question.qtype,
-        'hops': hop_distance(graph, question.q_entities, question.a_entities),
+        'q_entities': question.q_entities, 'qtype': question.qtype, 'hops': hops,
     }
     engine.kg_linker.parse_response = recording_parse
     try:
-        engine.schema = build_schema(schema_mode, graph, question)
+        engine.schema = schema
         counter.calls = 0
         start = time.monotonic()
         context = engine.query(question.question, iterations=iterations)
@@ -122,15 +126,15 @@ def run_question(engine, counter: CountingGenerator, question: Question,
     return record
 
 
-def run_once(engine, counter, questions: Sequence[Question], graph, dataset: str,
-             iterations: int, out_dir: str) -> Dict[str, Any]:
-    spec = DATASETS[dataset]
+def run_once(engine, counter, questions: Sequence[Question], schemas: Dict[str, Any],
+             hops: Dict[str, Optional[int]], metric: str, iterations: int,
+             out_dir: str) -> Dict[str, Any]:
     os.makedirs(out_dir, exist_ok=True)
     records = []
     with open(os.path.join(out_dir, 'predictions.jsonl'), 'w', encoding='utf-8') as preds, \
             open(os.path.join(out_dir, 'showcase_candidates.jsonl'), 'w', encoding='utf-8') as show:
         for i, q in enumerate(questions, 1):
-            record = run_question(engine, counter, q, graph, spec.schema_mode, iterations)
+            record = run_question(engine, counter, q, schemas[q.id], hops[q.id], iterations)
             records.append(record)
             preds.write(json.dumps(record) + '\n')
             if record['showcase']:
@@ -140,7 +144,7 @@ def run_once(engine, counter, questions: Sequence[Question], graph, dataset: str
             if i % 25 == 0:
                 logger.info('%s: %d/%d, running Hit %.1f', out_dir, i, len(questions),
                             100 * sum(r['hit'] for r in records) / i)
-    summary = summarize(records, spec.metric)
+    summary = summarize(records, metric)
     with open(os.path.join(out_dir, 'summary.json'), 'w', encoding='utf-8') as f:
         json.dump(summary, f, indent=2)
     if summary['n_errors']:
@@ -152,9 +156,27 @@ def run_once(engine, counter, questions: Sequence[Question], graph, dataset: str
 def aggregate(summaries: Sequence[Dict[str, Any]], metric: str) -> Dict[str, Any]:
     key = 'hit@2' if metric == 'hit@2' else 'hit'
     scores = [s[key] for s in summaries]
+    # The repeats share one question list, so showcase counts are per run (mean) or
+    # distinct questions across runs — never summed, which multiplies by the run count.
+    distinct = set().union(*(s['showcase_ids'] for s in summaries))
     return {'metric': key, 'runs': len(scores), 'mean': round(sum(scores) / len(scores), 1),
             'min': min(scores), 'max': max(scores), 'spread': round(max(scores) - min(scores), 1),
+            'showcase_per_run_mean': round(sum(s['n_showcase'] for s in summaries) / len(summaries), 1),
+            'showcase_distinct': len(distinct),
             'per_run': list(summaries)}
+
+
+SINGLE_BEST_MATCH_SETTINGS = {'off': [False], 'on': [True], 'both': [False, True]}
+
+
+def validate_config(single_best_match: str, runs: int, iterations: int) -> None:
+    """Checked before any download or graph load, so a typo costs seconds, not ~7 GB."""
+    if single_best_match not in SINGLE_BEST_MATCH_SETTINGS:
+        raise ValueError(f'single_best_match must be one of {sorted(SINGLE_BEST_MATCH_SETTINGS)}, '
+                         f'got {single_best_match!r}')
+    for name, value in (('runs', runs), ('iterations', iterations)):
+        if value < 1:
+            raise ValueError(f'{name} must be >= 1, got {value}')
 
 
 def _aws(*args: str) -> None:
@@ -183,11 +205,18 @@ def fetch_dataset(s3_uri: str, dataset: str, data_dir: str) -> None:
 def run_benchmark(dataset: str, data_dir: str, out: str, limit: Optional[int] = None,
                   seed: int = 0, runs: int = 3, single_best_match: str = 'both',
                   iterations: int = 2, model: Optional[str] = None, region: Optional[str] = None,
-                  medqa_kg_filter: bool = True) -> Dict[str, Any]:
-    """Run every (single_best_match setting × repeat) and write aggregate.json."""
+                  medqa_kg_filter: bool = True,
+                  after_run: Optional[Callable[[str, str], None]] = None) -> Dict[str, Any]:
+    """Run every (single_best_match setting × repeat) and write aggregate.json.
+
+    after_run(run_dir, relative_path) is called as each run finishes, so callers can
+    persist completed runs before a later one crashes.
+    """
+    validate_config(single_best_match, runs, iterations)
     spec = DATASETS[dataset]
     with open(os.path.join(data_dir, spec.graph_file), encoding='utf-8') as f:
         graph = json.load(f)
+    validate_graph(graph, spec.graph_file)
     questions = load_questions(dataset, data_dir)
     if dataset == 'medqa' and medqa_kg_filter:
         before = len(questions)
@@ -199,7 +228,14 @@ def run_benchmark(dataset: str, data_dir: str, out: str, limit: Optional[int] = 
     logger.info('%s: %d questions, graph %s, schema %s, reference: %s', dataset,
                 len(questions), spec.graph_file, spec.schema_mode, spec.paper_reference)
 
-    settings = {'off': [False], 'on': [True], 'both': [False, True]}[single_best_match]
+    # Both depend only on fixed inputs: compute once, not once per setting × run. Only
+    # per_question schemas differ by question.
+    shared = None if spec.schema_mode == 'per_question' else build_schema(
+        spec.schema_mode, graph, questions[0])
+    schemas = {q.id: shared or build_schema(spec.schema_mode, graph, q) for q in questions}
+    hops = {q.id: hop_distance(graph, q.q_entities, q.a_entities) for q in questions}
+
+    settings = SINGLE_BEST_MATCH_SETTINGS[single_best_match]
     report = {'dataset': dataset, 'n_questions': len(questions),
               'question_ids': [q.id for q in questions], 'paper_reference': spec.paper_reference,
               'config': {'limit': limit, 'seed': seed, 'runs': runs, 'iterations': iterations,
@@ -207,12 +243,18 @@ def run_benchmark(dataset: str, data_dir: str, out: str, limit: Optional[int] = 
                          'medqa_kg_filter': medqa_kg_filter},
               'settings': {}}
     for sbm in settings:
+        # Drop the previous engine (and its node index) before building the next.
+        engine = counter = None
         engine, counter = build_engine(graph, model, region, sbm)
         tag = f"single_best_match-{'on' if sbm else 'off'}"
         report['config']['model'] = counter.model_name
-        summaries = [run_once(engine, counter, questions, graph, dataset, iterations,
-                              os.path.join(out, dataset, tag, f'run{r}'))
-                     for r in range(1, runs + 1)]
+        summaries = []
+        for r in range(1, runs + 1):
+            rel = os.path.join(dataset, tag, f'run{r}')
+            summaries.append(run_once(engine, counter, questions, schemas, hops, spec.metric,
+                                      iterations, os.path.join(out, rel)))
+            if after_run:
+                after_run(os.path.join(out, rel), rel)
         report['settings'][tag] = aggregate(summaries, spec.metric)
 
     agg_path = os.path.join(out, dataset, 'aggregate.json')
@@ -236,25 +278,32 @@ RESULTS_DIR = os.path.join('benchmark-results', 'byokg-kgqa')
 def run_byokg_kgqa_test(handler: IntegrationTestHandler, params: Dict[str, Any], dataset: str):
     s3_uri = env_string('BYOKG_DATA_S3_URI')  # required: no silent local fallback on the stack
     data_dir = env_string('BYOKG_DATA_DIR', 'byokg-data')
-    fetch_dataset(s3_uri, dataset, data_dir)
-
-    report = run_benchmark(
-        dataset, data_dir, RESULTS_DIR,
+    config = dict(
         limit=env_int('BENCHMARK_QA_LIMIT', None),
         runs=env_int('BYOKG_KGQA_RUNS', 3),
         single_best_match=env_string('BYOKG_SINGLE_BEST_MATCH', 'both'),
         iterations=env_int('BYOKG_MAX_ITERATIONS', 2),
+    )
+    validate_config(config['single_best_match'], config['runs'], config['iterations'])
+    fetch_dataset(s3_uri, dataset, data_dir)
+
+    def upload_run(run_dir: str, rel: str) -> None:
+        # Each finished run is persisted now: the notebook volume is ephemeral, and a
+        # crash in a later run must not take the completed ones with it.
+        upload_benchmark_results_to_s3(run_dir, f'byokg-kgqa/{rel}')
+
+    report = run_benchmark(
+        dataset, data_dir, RESULTS_DIR, **config,
         model=env_string('TEST_RESPONSE_LLM', None),
         region=env_string('AWS_REGION_NAME', None),
+        after_run=upload_run,
     )
     for tag, agg in report['settings'].items():
         handler.add_output(f"{tag}.{agg['metric']}", agg['mean'])
         handler.add_output(f'{tag}.spread', agg['spread'])
-        handler.add_output(f'{tag}.showcase', sum(r['n_showcase'] for r in agg['per_run']))
-    params['byokg_kgqa'] = {tag: {k: v for k, v in agg.items() if k != 'per_run'}
-                            for tag, agg in report['settings'].items()}
+        handler.add_output(f'{tag}.showcase_distinct', agg['showcase_distinct'])
 
-    # Persist before assertions so results survive an assertion failure.
+    # Adds aggregate.json; re-uploading the already-persisted runs is idempotent.
     upload_benchmark_results_to_s3(os.path.join(RESULTS_DIR, dataset), f'byokg-kgqa/{dataset}')
 
     runs = [(tag, i, s) for tag, agg in report['settings'].items()
@@ -327,6 +376,7 @@ def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
 def main(argv: Optional[Sequence[str]] = None) -> int:
     logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s %(message)s')
     args = parse_args(argv)
+    validate_config(args.single_best_match, args.runs, args.iterations)
     if args.s3_data:
         fetch_dataset(args.s3_data, args.dataset, args.data_dir)
     run_benchmark(args.dataset, args.data_dir, args.out, limit=args.limit, seed=args.seed,

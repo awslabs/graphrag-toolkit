@@ -7,7 +7,7 @@ import unittest
 import pytest
 
 from benchmarks.scripts import benchmark_byokg_kgqa as runner
-from benchmarks.utils.byokg_kgqa import Question
+from benchmarks.utils.byokg_kgqa import Question, hop_distance
 
 
 GRAPH = {
@@ -57,6 +57,12 @@ class FakeEngine:
         return [answer], f'<answers>{answer}</answers>'
 
 
+def _precomputed(questions):
+    """The schemas / hops maps run_benchmark builds once and passes to run_once."""
+    return ({q.id: q.schema for q in questions},
+            {q.id: hop_distance(GRAPH, q.q_entities, q.a_entities) for q in questions})
+
+
 def _engine(**kw):
     counter = runner.CountingGenerator(FakeGenerator())
     return FakeEngine(counter, **kw), counter
@@ -65,32 +71,32 @@ def _engine(**kw):
 class TestRunQuestion:
     def test_kg_grounded_multi_hop_win_is_showcase(self):
         engine, counter = _engine()
-        r = runner.run_question(engine, counter, QUESTION, GRAPH, 'per_question', 2)
+        r = runner.run_question(engine, counter, QUESTION, QUESTION.schema, 2, 2)
         assert (r['hit'], r['vanilla_hit'], r['answer_in_context'], r['hops']) == (1, 0, True, 2)
         assert r['showcase'] == ['multi_hop:2'] and r['error'] is None
         assert engine.schema == QUESTION.schema
 
     def test_llm_calls_exclude_the_vanilla_answer(self):
         engine, counter = _engine(kg_calls=4)
-        assert runner.run_question(engine, counter, QUESTION, GRAPH, 'per_question', 2)['llm_calls'] == 4
+        assert runner.run_question(engine, counter, QUESTION, QUESTION.schema, 2, 2)['llm_calls'] == 4
 
     def test_artifacts_recorded_and_parse_response_restored(self):
         engine, counter = _engine()
         original = engine.kg_linker.parse_response
-        r = runner.run_question(engine, counter, QUESTION, GRAPH, 'per_question', 2)
+        r = runner.run_question(engine, counter, QUESTION, QUESTION.schema, 2, 2)
         assert r['kg_linker_artifacts'] == [{'entity-extraction': ['Lou Seal'],
                                             'path-extraction': ['mascot of -> won']}]
         assert engine.kg_linker.parse_response == original
 
     def test_vanilla_also_right_is_not_showcase(self):
         engine, counter = _engine(vanilla_answer='2014 World Series')
-        r = runner.run_question(engine, counter, QUESTION, GRAPH, 'per_question', 2)
+        r = runner.run_question(engine, counter, QUESTION, QUESTION.schema, 2, 2)
         assert r['hit'] == r['vanilla_hit'] == 1 and r['showcase'] == []
 
     def test_failure_is_recorded_as_miss_and_parse_restored(self):
         engine, counter = _engine(fail=True)
         original = engine.kg_linker.parse_response
-        r = runner.run_question(engine, counter, QUESTION, GRAPH, 'per_question', 2)
+        r = runner.run_question(engine, counter, QUESTION, QUESTION.schema, 2, 2)
         assert r['error'] == 'RuntimeError: ThrottlingException' and r['hit'] == 0
         assert engine.kg_linker.parse_response == original
 
@@ -98,7 +104,7 @@ class TestRunQuestion:
 class TestRunOnce:
     def test_writes_outputs(self, tmp_path):
         engine, counter = _engine()
-        s = runner.run_once(engine, counter, [QUESTION], GRAPH, 'webqsp', 2, str(tmp_path))
+        s = runner.run_once(engine, counter, [QUESTION], *_precomputed([QUESTION]), 'hit', 2, str(tmp_path))
         assert (s['hit'], s['n_showcase']) == (100.0, 1)
         assert json.loads((tmp_path / 'summary.json').read_text())['n'] == 1
         assert len((tmp_path / 'showcase_candidates.jsonl').read_text().splitlines()) == 1
@@ -108,16 +114,27 @@ class TestRunOnce:
         engine, counter = _engine(fail=True)
         qs = [QUESTION] * (runner.ABORT_IF_FIRST_N_FAIL + 3)
         with pytest.raises(RuntimeError, match='all failed'):
-            runner.run_once(engine, counter, qs, GRAPH, 'webqsp', 2, str(tmp_path))
+            runner.run_once(engine, counter, qs, *_precomputed(qs), 'hit', 2, str(tmp_path))
+
+
+def _summary(score, ids, key='hit'):
+    return {key: score, 'n_showcase': len(ids), 'showcase_ids': ids}
 
 
 def test_aggregate_reports_spread():
-    agg = runner.aggregate([{'hit': 80.0}, {'hit': 84.0}, {'hit': 82.0}], 'hit')
+    agg = runner.aggregate([_summary(80.0, []), _summary(84.0, []), _summary(82.0, [])], 'hit')
     assert (agg['mean'], agg['min'], agg['max'], agg['spread'], agg['runs']) == (82.0, 80.0, 84.0, 4.0, 3)
 
 
+def test_aggregate_counts_showcase_per_run_and_distinct_not_summed():
+    # Three repeats of one question list: 2, 2 and 3 candidates, 3 distinct questions.
+    agg = runner.aggregate([_summary(80.0, ['q1', 'q2']), _summary(80.0, ['q1', 'q2']),
+                            _summary(80.0, ['q1', 'q2', 'q3'])], 'hit')
+    assert (agg['showcase_per_run_mean'], agg['showcase_distinct']) == (2.3, 3)
+
+
 def test_aggregate_uses_hit_at_2_for_medqa():
-    assert runner.aggregate([{'hit@2': 60.0, 'hit': 50.0}], 'hit@2')['mean'] == 60.0
+    assert runner.aggregate([{**_summary(60.0, [], 'hit@2'), 'hit': 50.0}], 'hit@2')['mean'] == 60.0
 
 
 def test_counting_generator_delegates_attributes():
@@ -168,6 +185,24 @@ def test_run_benchmark_covers_both_settings_and_writes_aggregate(tmp_path, fake_
     assert report['settings']['single_best_match-off']['runs'] == 2
     assert json.loads((out / 'webqsp' / 'aggregate.json').read_text())['question_ids'] == ['q1']
     assert (out / 'webqsp' / 'single_best_match-on' / 'run2' / 'summary.json').exists()
+
+
+def test_hops_and_schema_computed_once_per_question_not_per_run(tmp_path, fake_engine, monkeypatch):
+    calls = {'hops': 0, 'schema': 0}
+    real_hops, real_schema = runner.hop_distance, runner.build_schema
+
+    def count(key, fn):
+        def wrapped(*a, **k):
+            calls[key] += 1
+            return fn(*a, **k)
+        return wrapped
+
+    monkeypatch.setattr(runner, 'hop_distance', count('hops', real_hops))
+    monkeypatch.setattr(runner, 'build_schema', count('schema', real_schema))
+    (tmp_path / 'data').mkdir()
+    runner.run_benchmark('webqsp', _dataset_on_disk(tmp_path / 'data'), str(tmp_path / 'out'), runs=3)
+    # 1 question × 2 settings × 3 runs = 6 run_question calls, but one computation each.
+    assert calls == {'hops': 1, 'schema': 1}
 
 
 def test_run_benchmark_fails_loud_on_empty_question_set(tmp_path, fake_engine):
@@ -229,10 +264,36 @@ class TestStackEntryPoint:
         handler, params = FakeHandler(), {}
         runner.WebqspByokgKgqa()._run_test(handler, params)
         assert handler.outputs['single_best_match-off.hit'] == 100.0
-        assert handler.outputs['single_best_match-on.showcase'] == 1
-        assert 'per_run' not in params['byokg_kgqa']['single_best_match-off']
-        assert [s for _, s in stack_env] == ['byokg-kgqa/webqsp']
+        assert handler.outputs['single_best_match-on.showcase_distinct'] == 1
+        assert 'byokg_kgqa' not in params, 'shared suite params must not carry per-dataset results'
+        # Each finished run is uploaded as it completes, then the dataset dir for aggregate.json.
+        assert [s for _, s in stack_env] == ['byokg-kgqa/webqsp/single_best_match-off/run1',
+                                             'byokg-kgqa/webqsp/single_best_match-on/run1',
+                                             'byokg-kgqa/webqsp']
         assert handler.failures == []
+
+    def test_completed_runs_are_uploaded_before_a_later_run_crashes(self, stack_env, monkeypatch):
+        built = []
+
+        def build(*a):
+            built.append(a)
+            # Second setting's engine dies on every question → run_once aborts.
+            return _engine(fail=len(built) > 1)
+
+        monkeypatch.setattr(runner, 'build_engine', build)
+        with pytest.raises(RuntimeError, match='all failed'):
+            # ABORT_IF_FIRST_N_FAIL needs 5 questions to trigger.
+            monkeypatch.setattr(runner, 'sample', lambda qs, limit, seed: list(qs) * 5)
+            runner.run_byokg_kgqa_test(FakeHandler(), {}, 'webqsp')
+        assert [s for _, s in stack_env] == ['byokg-kgqa/webqsp/single_best_match-off/run1']
+
+    def test_bad_setting_fails_before_download(self, stack_env, monkeypatch):
+        fetched = []
+        monkeypatch.setattr(runner, 'fetch_dataset', lambda *a: fetched.append(a))
+        monkeypatch.setenv('BYOKG_SINGLE_BEST_MATCH', 'true')
+        with pytest.raises(ValueError, match="single_best_match must be one of"):
+            runner.run_byokg_kgqa_test(FakeHandler(), {}, 'webqsp')
+        assert fetched == [], 'config must be validated before any download'
 
     def test_error_rate_assertion_fails_the_test(self, stack_env, monkeypatch):
         monkeypatch.setattr(runner, 'build_engine', lambda *a: _engine(fail=True))
