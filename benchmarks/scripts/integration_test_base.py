@@ -8,7 +8,7 @@ import abc
 from typing import Dict, Any
 from benchmarks.scripts.integration_test_handler import IntegrationTestHandler
 
-class IntegrationTestBase():
+class IntegrationTestBase(abc.ABC):
     
     @property
     @abc.abstractmethod

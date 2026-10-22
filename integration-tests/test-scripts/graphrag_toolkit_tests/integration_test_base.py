@@ -7,7 +7,7 @@ from graphrag_toolkit.lexical_graph import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.indexing.extract.run_manifest import MAX_KEYS_PER_DELETE
 from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import to_batches
 
-class IntegrationTestBase():
+class IntegrationTestBase(abc.ABC):
     
     @property
     @abc.abstractmethod
