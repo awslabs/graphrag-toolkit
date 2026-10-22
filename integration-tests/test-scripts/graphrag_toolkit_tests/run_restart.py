@@ -517,3 +517,129 @@ class ResumeInterruptedExtraction(RestartTest):
                     )
 
             handler.run_assertions(ResumeAssertions)
+
+
+class ResumeInterruptedJsonlExtraction(RestartTest):
+
+    @property
+    def description(self):
+        return 'Resume an interrupted extraction staged as JSONL, storing every source again over what the first run left'
+
+    def _run_test(self, handler:IntegrationTestHandler, params:Dict[str, Any]):
+
+        with self._collection(params, 'run-resume-jsonl', 'rj') as (run, graph_store, vector_store):
+
+            collection_path = run.collection_path
+            run_id = run.run_id
+            run_plan_store = run.store
+
+            def staging_handler():
+                # Keyed on node ids, so a second attempt overwrites rather than adds an object.
+                return run_plan_store.staging_handler(
+                    run_id, region=run.region, for_jsonl=True, deterministic_document_key=True
+                )
+
+            def staged():
+                """The node ids of each source the collection holds, as the reader sees them."""
+                reader = S3BasedDocs(
+                    region=run.region,
+                    bucket_name=run.bucket_name,
+                    key_prefix=run.key_prefix,
+                    collection_id=run.collection_id,
+                    for_jsonl=True
+                )
+                return {d.source_id(): [n.node_id for n in d.nodes] for d in reader}
+
+            def source_objects():
+                """Every object under a source's prefix, leaving out what the collection keeps beside them."""
+                return {
+                    key: written for key, written in objects_under(run.bucket_name, collection_path).items()
+                    if '/' in key[len(collection_path):]
+                    and not key.startswith(run_plan_store.run_path(run_id))
+                }
+
+            docs = run.docs(NUM_DOCS)
+
+            graph_index = LexicalGraphIndex(graph_store, vector_store)
+
+            graph_index.extract(
+                docs,
+                handler=staging_handler(),
+                show_progress=True,
+                run_id=run_id,
+                run_plan_store=run_plan_store
+            )
+
+            after_first_run = source_objects()
+            staged_by_first_run = staged()
+
+            staged_sources = sorted(staged_by_first_run)
+
+            if len(staged_sources) != NUM_DOCS:
+                raise RuntimeError(
+                    f'Expected {NUM_DOCS} staged sources to damage, found {len(staged_sources)}: {staged_sources}'
+                )
+
+            # One source never reached, one whose marker never landed.
+            missing_source = staged_sources[-1]
+            unmarked_source = staged_sources[-2]
+
+            missing_prefix = f'{collection_path}{missing_source}/'
+            unmarked_prefix = f'{collection_path}{unmarked_source}/'
+            doomed = [
+                key for key in after_first_run
+                if missing_prefix in key
+                or (unmarked_prefix in key and is_completion_marker(key))
+            ]
+            if not any(missing_prefix in key for key in doomed) or not any(unmarked_prefix in key for key in doomed):
+                raise RuntimeError(
+                    f'Could not construct the interrupted state from {len(doomed)} objects: {doomed}'
+                )
+
+            refused = GraphRAGConfig.s3.delete_objects(
+                Bucket=run.bucket_name,
+                Delete={'Objects': [{'Key': key} for key in doomed]}
+            ).get('Errors', [])
+            if refused:
+                raise RuntimeError(f'Could not construct the interrupted state: {refused}')
+
+            resuming = staging_handler()
+
+            graph_index.extract(
+                docs,
+                handler=resuming,
+                show_progress=True,
+                run_id=run_id,
+                run_plan_store=run_plan_store
+            )
+
+            after_restart = source_objects()
+            staged_after_restart = staged()
+
+            class ResumeJsonlAssertions(unittest.TestCase):
+
+                def test_the_restart_writes_no_object_the_first_run_did_not(self):
+                    """Collection holds the objects the first run wrote, the removed ones back and none added"""
+
+                    self.assertEqual(sorted(after_restart), sorted(after_first_run))
+
+                def test_every_surviving_object_is_written_again(self):
+                    """Restart stores the sources that survived again, over the objects already there"""
+
+                    survivors = [key for key in after_first_run if key not in doomed]
+
+                    self.assertGreater(len(survivors), 0)
+                    self.assertEqual(
+                        [key for key in survivors if after_restart[key] == after_first_run[key]], []
+                    )
+
+                def test_the_collection_holds_every_source_after_the_restart(self):
+                    """Collection reads back as every input document, with the chunks the first run gave each"""
+
+                    self.assertEqual(len(staged_after_restart), NUM_DOCS)
+                    self.assertEqual(
+                        {s: sorted(ids) for s, ids in staged_after_restart.items()},
+                        {s: sorted(ids) for s, ids in staged_by_first_run.items()}
+                    )
+
+            handler.run_assertions(ResumeJsonlAssertions)

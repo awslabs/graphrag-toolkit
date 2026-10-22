@@ -1,3 +1,5 @@
 run_restart.ExtractWithRunPlan
 run_restart.ResumeInterruptedExtraction
+run_restart.ResumeInterruptedJsonlExtraction
 batch_extract.BatchExtractWithRunPlanToS3
+batch_extract.RestartWhileBatchJobsAreRunning
