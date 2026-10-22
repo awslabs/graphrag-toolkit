@@ -505,7 +505,7 @@ echo "BENCHMARK_ALL_RETRIEVERS : ${BENCHMARK_ALL_RETRIEVERS:-}"
 echo "BENCHMARK_DATASET        : ${BENCHMARK_DATASET:-}"
 echo "EXISTING_VPC_ID          : $EXISTING_VPC_ID"
 echo "EXISTING_SUBNET_IDS      : $EXISTING_SUBNET_IDS"
-echo "PREV_STACK_NAME"         : $PREV_STACK_NAME
+echo "PREV_STACK_NAME          : $PREV_STACK_NAME"
 echo "----------------------------------------------------"
 echo ""
 
@@ -552,13 +552,11 @@ if [[ -z "$DRY_RUN" ]]; then
   if [[ "$PREV_STACK_NAME" ]]; then
     echo "Deleting previous stack: $PREV_STACK_NAME"
     aws cloudformation delete-stack --stack-name "$PREV_STACK_NAME" --region $REGION_NAME
-    STACK_STATUS=$(aws cloudformation describe-stacks --stack-name "$PREV_STACK_NAME" --region $REGION_NAME | jq -r ".Stacks[0].StackStatus")
-    while [[ "$STACK_STATUS" != "DELETE_COMPLETE" ]]
-    do
-      echo "Waiting for prev stack to be deleted ($STACK_STATUS), sleeping 10 seconds"
-      sleep 10
-      STACK_STATUS=$(aws cloudformation describe-stacks --stack-name "$PREV_STACK_NAME" --region $REGION_NAME | jq -r ".Stacks[0].StackStatus")
-    done
+    echo "Waiting for previous stack to be deleted"
+    if ! aws cloudformation wait stack-delete-complete --stack-name "$PREV_STACK_NAME" --region "$REGION_NAME"; then
+      echo "ERROR: Previous stack $PREV_STACK_NAME did not finish deleting. Check its status in the CloudFormation console."
+      exit 1
+    fi
   fi
 	aws cloudformation create-stack --stack-name "$GRAPH_NAME-tests" \
 	  --template-url "$S3_URL_ROOT/cloudformation-templates/graphrag-toolkit-tests.json" \
