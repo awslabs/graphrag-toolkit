@@ -108,16 +108,36 @@ class TestSchema:
 
 
 class TestScoring:
-    """Hit / F1: a normalized gold answer must be a substring of the joined predictions."""
+    """Hit / F1: a normalized gold answer must appear as whole tokens in one prediction."""
 
     def test_normalize_drops_case_punctuation_articles(self):
         assert normalize('The  U.S.A.,  an Example!') == 'usa example'
+        assert normalize('1935-1945', punctuation_as_space=True) == '1935 1945'
 
-    def test_hit_is_substring_of_joined_predictions(self):
+    def test_hit_matches_gold_inside_a_single_prediction(self):
         assert hit(['Jamaican English', 'Spanish'], ['jamaican english']) == 1
         # gold contained in a longer prediction counts
         assert hit(['English (Jamaican English dialect)'], ['Jamaican English']) == 1
         assert hit(['English'], ['Jamaican English']) == 0
+
+    @pytest.mark.parametrize('predictions, gold', [
+        (['female'], 'male'),                 # substring of a word
+        (['1920'], '92'),                     # substring of a number
+        (['Henry VIII'], 'Henry VII'),        # prefix of a token
+        (['Jamaican', 'English'], 'Jamaican English'),  # spans two separate answers
+    ])
+    def test_hit_rejects_partial_token_and_cross_answer_matches(self, predictions, gold):
+        assert hit(predictions, [gold]) == 0
+
+    @pytest.mark.parametrize('prediction, gold', [
+        ('1935-1945', '1945'),                                  # range, punctuation as separator
+        ('Cyclophosphamide-induced cystitis', 'Cyclophosphamide'),
+        ('U.S. President', 'US President'),                     # abbreviation, punctuation deleted
+        ('Post-Traumatic Stress Disorder', 'Posttraumatic stress disorder'),
+        ('Kim Jong-un', 'Kim Jong Un'),
+    ])
+    def test_hit_tolerates_punctuation_either_way(self, prediction, gold):
+        assert hit([prediction], [gold]) == 1
 
     def test_hit_on_empty_predictions_is_zero(self):
         assert hit([], ['x']) == 0
@@ -207,7 +227,8 @@ def test_quantile_interpolates_and_reports_none_when_empty():
 class TestSummarize:
     def _rec(self, **kw):
         base = {'hit': 1, 'vanilla_hit': 0, 'f1': 1.0, 'answer_in_context': True, 'llm_calls': 4,
-                'latency_s': 2.0, 'context_chars': 100, 'showcase': [], 'error': None, 'hit@2': 1}
+                'latency_s': 2.0, 'context_chars': 100, 'showcase': [], 'error': None, 'hit@2': 1,
+                'predictions': ['Heparin'], 'vanilla_error': None}
         return {**base, **kw}
 
     def test_errors_count_as_misses_and_are_reported(self):
@@ -216,6 +237,15 @@ class TestSummarize:
         s = summarize(recs, 'hit')
         assert (s['n'], s['n_errors'], s['hit'], s['llm_calls_mean']) == (2, 1, 50.0, 4.0)
         assert 'hit@2' not in s
+
+    def test_hit_ok_excludes_errored_and_predictions_per_question_reported(self):
+        recs = [self._rec(predictions=['A1', 'A2', 'A3']),
+                self._rec(hit=0, error='ThrottlingException', predictions=[], llm_calls=None,
+                          latency_s=None),
+                self._rec(vanilla_error='ThrottlingException')]
+        s = summarize(recs, 'hit')
+        assert (s['hit'], s['hit_ok'], s['n_errors'], s['n_vanilla_errors']) == (66.7, 100.0, 1, 1)
+        assert s['predictions_per_q_mean'] == 2.0   # (3 + 1) over the 2 non-errored
 
     def test_hit_at_2_reported_for_medqa(self):
         assert summarize([self._rec()], 'hit@2')['hit@2'] == 100.0

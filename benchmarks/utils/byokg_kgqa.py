@@ -30,6 +30,8 @@ class DatasetSpec:
     metric: str
     # Published reference scores, for comparison.
     paper_reference: str
+    # Same numbers, machine-readable: {model: {'full': score, 'agentic': score}}.
+    references: Dict[str, Dict[str, float]] = field(default_factory=dict)
 
 
 # The data prefix ships alternates that must not be loaded: graph_cwq_2.json and a
@@ -43,17 +45,26 @@ DATASETS: Dict[str, DatasetSpec] = {
     'webqsp': DatasetSpec(
         'questions_webqsp.json', 'graph/graph_webqsp.json', 'per_question', 'hit',
         'Hit. Table 2 full set: 87.1 (Sonnet-3.5). Table 1 IH subset: '
-        'Sonnet-3.5 86.6 / 86.2 agentic; Haiku-3.5 82.8 / 81.0 agentic'),
+        'Sonnet-3.5 86.6 / 86.2 agentic; Haiku-3.5 82.8 / 81.0 agentic',
+        {'claude-3.5-sonnet': {'full': 86.6, 'agentic': 86.2},
+         'claude-3.5-haiku': {'full': 82.8, 'agentic': 81.0}}),
     'cwq': DatasetSpec(
         'questions_cwq.json', 'graph/graph_cwq.json', 'per_question', 'hit',
         'Hit. Table 2 full set: 71.1 (Sonnet-3.5). Table 1 IH subset: '
-        'Sonnet-3.5 73.6 / 69.3 agentic; Haiku-3.5 66.8 / 64.2 agentic'),
+        'Sonnet-3.5 73.6 / 69.3 agentic; Haiku-3.5 66.8 / 64.2 agentic',
+        {'claude-3.5-sonnet': {'full': 73.6, 'agentic': 69.3},
+         'claude-3.5-haiku': {'full': 66.8, 'agentic': 64.2}}),
     'cronquestions': DatasetSpec(
         'cronquestions_in_house.json', 'graph/graph_tempwiki_one.json', 'base_relations', 'hit',
-        'Hit. Table 1: Sonnet-3.5 65.5 / 57.3 agentic; Haiku-3.5 61.9 / 40.8 agentic'),
+        'Hit. Table 1: Sonnet-3.5 65.5 / 57.3 agentic; Haiku-3.5 61.9 / 40.8 agentic',
+        {'claude-3.5-sonnet': {'full': 65.5, 'agentic': 57.3},
+         'claude-3.5-haiku': {'full': 61.9, 'agentic': 40.8}}),
     'medqa': DatasetSpec(
         'medQA_in_house.json', 'graph/graph_ddb.json', 'global', 'hit@2',
-        'H@2. Table 1 (227 Q): Sonnet-3.5 65.0 / 59.2 agentic; Haiku-3.5 54.2 / 46.2 agentic'),
+        'H@2. Table 1 on 227 Q: Sonnet-3.5 65.0 / 59.2 agentic; Haiku-3.5 54.2 / 46.2 agentic. '
+        'This suite runs 236 Q (answer is an exact KG node), so not like-for-like',
+        {'claude-3.5-sonnet': {'full': 65.0, 'agentic': 59.2},
+         'claude-3.5-haiku': {'full': 54.2, 'agentic': 46.2}}),
 }
 
 CRON_TEMPORAL_TYPES = {'first_last', 'before_after', 'time_join'}
@@ -111,7 +122,8 @@ def load_questions(dataset: str, data_dir: str) -> List[Question]:
 def filter_answer_in_kg(questions: Sequence[Question], graph: Dict[str, Any]) -> List[Question]:
     """Keep MedQA questions whose answer is a KG node (exact match: 236 of 277).
 
-    A question whose answer is absent from the KG cannot be answered from it.
+    A question whose answer is absent from the KG cannot be answered from it. The
+    published 227 used an entity-matching filter that isn't specified, so the sets differ.
     """
     return [q for q in questions if any(a in graph for a in q.answers)]
 
@@ -170,37 +182,55 @@ def build_schema(mode: str, graph: Dict[str, Any], question: Question) -> Dict[s
     return {'graphSummary': {'edgeLabels': labels}}
 
 
-# --- scoring: the standard KGQA Hit / F1 convention ---------------------------
+# --- scoring: KGQA Hit / F1 with whole-token matching --------------------------
 
 _PUNCTUATION = set(string.punctuation)
+_PUNCTUATION_RE = re.compile('[' + re.escape(string.punctuation) + ']')
 
 
-def normalize(s: str) -> str:
+def normalize(s: str, punctuation_as_space: bool = False) -> str:
     s = s.lower()
-    s = ''.join(ch for ch in s if ch not in _PUNCTUATION)
+    if punctuation_as_space:
+        s = _PUNCTUATION_RE.sub(' ', s)
+    else:
+        s = ''.join(ch for ch in s if ch not in _PUNCTUATION)
     s = re.sub(r'\b(a|an|the)\b', ' ', s)
     s = re.sub(r'\b(<pad>)\b', ' ', s)
     return ' '.join(s.split())
 
 
 def _match(prediction: str, answer: str) -> bool:
-    # A gold answer that normalizes to '' ('the', '') would be a substring of anything.
-    gold = normalize(answer)
-    return bool(gold) and gold in normalize(prediction)
+    """Gold answer appears in one prediction as whole tokens.
+
+    Whole tokens, so 'male' does not match 'female' nor '92' match '1920'. Punctuation
+    is tried both deleted ('U.S.' = 'US', 'Post-Traumatic' = 'Posttraumatic') and as a
+    separator ('1935-1945' contains '1945'), the same way on both sides. A gold answer
+    that normalizes to '' ('the') matches nothing.
+    """
+    for as_space in (False, True):
+        gold = normalize(answer, as_space)
+        if gold and re.search(rf'(?<!\S){re.escape(gold)}(?!\S)', normalize(prediction, as_space)):
+            return True
+    return False
 
 
 def hit(predictions: Sequence[str], answers: Iterable[str]) -> int:
-    """1 if any gold answer is a normalized substring of the joined predictions."""
-    joined = ' '.join(predictions)
-    return int(any(_match(joined, a) for a in answers))
+    """1 if any gold answer matches any single prediction.
+
+    Predictions are matched one at a time: joining them would let ['Jamaican',
+    'English'] match 'Jamaican English' across two separate answers.
+    """
+    answers = list(answers)
+    return int(any(_match(p, a) for p in predictions for a in answers))
 
 
 def f1(predictions: Sequence[str], answers: Sequence[str]) -> float:
     """Precision counts predictions matching a gold answer, recall counts gold answers
-    recovered — so one prediction naming two gold answers cannot push F1 past 1."""
+    matched by some prediction — so one prediction naming two gold answers cannot push
+    F1 past 1."""
     if not predictions or not answers:
         return 0.0
-    recall = sum(1 for a in answers if _match(' '.join(predictions), a)) / len(answers)
+    recall = sum(1 for a in answers if any(_match(p, a) for p in predictions)) / len(answers)
     precision = sum(1 for p in predictions if any(_match(p, a) for a in answers)) / len(predictions)
     return 0.0 if precision + recall == 0 else 2 * precision * recall / (precision + recall)
 
@@ -282,12 +312,21 @@ def _quantile(values: Sequence[float], q: float) -> Optional[float]:
 
 
 def summarize(records: Sequence[Dict[str, Any]], metric: str) -> Dict[str, Any]:
-    """Per-run summary. Errored questions count as misses and are reported separately."""
+    """Per-run summary.
+
+    Errored questions count as misses in `hit`; `hit_ok` is over the non-errored ones,
+    so throttling noise can be told apart from a quality change. `vanilla_*` is the
+    BYOKG answer prompt with an empty graph context, not a separate LLM-only prompt.
+    """
     ok = [r for r in records if not r.get('error')]
+    vanilla_ok = [r for r in records if not r.get('vanilla_error')]
     summary = {
         'n': len(records),
         'n_errors': len(records) - len(ok),
+        'n_vanilla_errors': len(records) - len(vanilla_ok),
         'hit': _pct([r['hit'] for r in records]),
+        'hit_ok': _pct([r['hit'] for r in ok]),
+        'predictions_per_q_mean': round(sum(len(r['predictions']) for r in ok) / len(ok), 2) if ok else None,
         'vanilla_hit': _pct([r['vanilla_hit'] for r in records]),
         'f1': _pct([r['f1'] for r in records]),
         'answer_in_context': _pct([r['answer_in_context'] for r in records]),

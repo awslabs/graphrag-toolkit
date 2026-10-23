@@ -37,10 +37,11 @@ class FakeEngine:
     generate_response() -> (List[str], str)."""
 
     def __init__(self, counter, kg_answer='2014 World Series', vanilla_answer='2010 World Series',
-                 fail=False, kg_calls=4):
+                 fail=False, kg_calls=4, vanilla_fail=False):
         self.kg_linker, self.counter = FakeLinker(), counter
         self.kg_answer, self.vanilla_answer, self.fail, self.kg_calls = \
             kg_answer, vanilla_answer, fail, kg_calls
+        self.vanilla_fail = vanilla_fail
         self.schema = None
 
     def query(self, query, iterations=2):
@@ -52,6 +53,8 @@ class FakeEngine:
         return ['Lou Seal -> mascot of -> Giants', 'Giants -> won -> 2014 World Series']
 
     def generate_response(self, query, graph_context=''):
+        if not graph_context and self.vanilla_fail:
+            raise RuntimeError('ThrottlingException')
         self.counter.generate('p')
         answer = self.kg_answer if graph_context else self.vanilla_answer
         return [answer], f'<answers>{answer}</answers>'
@@ -92,6 +95,19 @@ class TestRunQuestion:
         engine, counter = _engine(vanilla_answer='2014 World Series')
         r = runner.run_question(engine, counter, QUESTION, QUESTION.schema, 2, 2)
         assert r['hit'] == r['vanilla_hit'] == 1 and r['showcase'] == []
+
+    def test_no_kg_failure_keeps_the_byokg_result(self):
+        engine, counter = _engine(vanilla_fail=True)
+        r = runner.run_question(engine, counter, QUESTION, QUESTION.schema, 2, 2)
+        assert (r['hit'], r['error']) == (1, None), 'a throttled no-KG call must not void BYOKG'
+        assert r['vanilla_error'] == 'RuntimeError: ThrottlingException'
+        assert r['vanilla_predictions'] == [] and r['vanilla_hit'] == 0
+
+    def test_parse_response_restored_to_class_lookup(self):
+        engine, counter = _engine()
+        assert 'parse_response' not in vars(engine.kg_linker)
+        runner.run_question(engine, counter, QUESTION, QUESTION.schema, 2, 2)
+        assert 'parse_response' not in vars(engine.kg_linker), 'no instance attribute left behind'
 
     def test_failure_is_recorded_as_miss_and_parse_restored(self):
         engine, counter = _engine(fail=True)
@@ -205,6 +221,60 @@ def test_hops_and_schema_computed_once_per_question_not_per_run(tmp_path, fake_e
     assert calls == {'hops': 1, 'schema': 1}
 
 
+class TestResume:
+    def _run(self, tmp_path, monkeypatch, **kw):
+        asked = []
+        real = runner.run_question
+        monkeypatch.setattr(runner, 'run_question', lambda *a, **k: asked.append(a) or real(*a, **k))
+        report = runner.run_benchmark('webqsp', self.data, str(tmp_path / 'out'), runs=2, **kw)
+        return report, len(asked)
+
+    @pytest.fixture(autouse=True)
+    def data(self, tmp_path, fake_engine):
+        (tmp_path / 'data').mkdir()
+        self.data = _dataset_on_disk(tmp_path / 'data')
+
+    def test_rerun_reuses_completed_runs(self, tmp_path, monkeypatch):
+        first, n1 = self._run(tmp_path, monkeypatch)
+        second, n2 = self._run(tmp_path, monkeypatch)
+        assert (n1, n2) == (4, 0), '2 settings x 2 runs, then nothing to redo'
+        assert second['settings'] == first['settings']
+
+    def test_no_resume_reruns(self, tmp_path, monkeypatch):
+        self._run(tmp_path, monkeypatch)
+        assert self._run(tmp_path, monkeypatch, resume=False)[1] == 4
+
+    def test_summary_from_another_configuration_fails_loud(self, tmp_path, monkeypatch):
+        self._run(tmp_path, monkeypatch)
+        with pytest.raises(RuntimeError, match='different configuration'):
+            self._run(tmp_path, monkeypatch, iterations=3)
+
+
+class TestProvenance:
+    def test_records_inference_config_and_source_hashes(self, monkeypatch):
+        monkeypatch.setenv('GRAPHRAG_TOOLKIT_GIT_SHA', 'abc123-dirty')
+        p = runner.provenance(runner.CountingGenerator(FakeGenerator()))
+        assert p['git_sha'] == 'abc123-dirty'
+        assert p['inference']['model_name'] == 'fake-model'
+        assert set(p) == {'git_sha', 'byokg_rag_source_sha256', 'byokg_rag_prompts_sha256', 'inference'}
+
+    def test_tree_hash_changes_with_content_and_ignores_other_files(self, tmp_path):
+        (tmp_path / 'a.yaml').write_text('prompt: v1')
+        (tmp_path / 'notes.txt').write_text('ignored')
+        before = runner._tree_sha256(str(tmp_path), ('.yaml',))
+        (tmp_path / 'notes.txt').write_text('still ignored')
+        assert runner._tree_sha256(str(tmp_path), ('.yaml',)) == before
+        (tmp_path / 'a.yaml').write_text('prompt: v2')
+        assert runner._tree_sha256(str(tmp_path), ('.yaml',)) != before
+
+    def test_written_to_aggregate(self, tmp_path, fake_engine):
+        (tmp_path / 'data').mkdir()
+        report = runner.run_benchmark('webqsp', _dataset_on_disk(tmp_path / 'data'),
+                                      str(tmp_path / 'out'), runs=1)
+        assert report['provenance']['inference']['max_retries'] is None  # FakeGenerator lacks it
+        assert 'provenance' in json.loads((tmp_path / 'out' / 'webqsp' / 'aggregate.json').read_text())
+
+
 def test_run_benchmark_fails_loud_on_empty_question_set(tmp_path, fake_engine):
     (tmp_path / 'data').mkdir()
     data = _dataset_on_disk(tmp_path / 'data')
@@ -265,6 +335,9 @@ class TestStackEntryPoint:
         runner.WebqspByokgKgqa()._run_test(handler, params)
         assert handler.outputs['single_best_match-off.hit'] == 100.0
         assert handler.outputs['single_best_match-on.showcase_distinct'] == 1
+        # Deltas against each structured reference: 100.0 - 82.8 (Haiku-3.5, full system).
+        assert handler.outputs['single_best_match-off.delta_vs_claude-3.5-haiku_full'] == 17.2
+        assert 'inference' in handler.outputs['provenance']
         assert 'byokg_kgqa' not in params, 'shared suite params must not carry per-dataset results'
         # Each finished run is uploaded as it completes, then the dataset dir for aggregate.json.
         assert [s for _, s in stack_env] == ['byokg-kgqa/webqsp/single_best_match-off/run1',

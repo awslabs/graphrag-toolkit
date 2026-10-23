@@ -17,6 +17,7 @@ aggregate.json summarizes across runs.
 """
 
 import argparse
+import hashlib
 import json
 import logging
 import os
@@ -75,6 +76,49 @@ def build_engine(graph: Dict[str, Any], model: Optional[str], region: Optional[s
     return engine, counter
 
 
+def _tree_sha256(root: str, suffixes: Sequence[str]) -> str:
+    h = hashlib.sha256()
+    for dirpath, dirnames, filenames in sorted(os.walk(root)):
+        dirnames[:] = sorted(d for d in dirnames if d != '__pycache__')
+        for name in sorted(filenames):
+            if name.endswith(tuple(suffixes)):
+                path = os.path.join(dirpath, name)
+                h.update(os.path.relpath(path, root).encode())
+                with open(path, 'rb') as f:
+                    h.update(f.read())
+    return h.hexdigest()
+
+
+def provenance(counter) -> Dict[str, Any]:
+    """What produced a result, so two runs can be shown to differ only in the code
+    under test.
+
+    The stack copies byokg-rag in as source (no version, no .git), so the reliable
+    fingerprint is a content hash of the package and its prompts. The git SHA comes
+    from GRAPHRAG_TOOLKIT_GIT_SHA (set by build-tests.sh) or a local checkout.
+    """
+    git_sha = os.environ.get('GRAPHRAG_TOOLKIT_GIT_SHA')
+    if not git_sha:
+        try:
+            git_sha = subprocess.run(['git', 'rev-parse', 'HEAD'], cwd=os.path.dirname(__file__),
+                                     check=True, capture_output=True, text=True).stdout.strip()
+        except (OSError, subprocess.CalledProcessError):
+            git_sha = None
+    try:
+        import graphrag_toolkit.byokg_rag as byokg_rag
+        root = os.path.dirname(byokg_rag.__file__)
+        source, prompts = _tree_sha256(root, ('.py', '.yaml')), _tree_sha256(root, ('.yaml',))
+    except ImportError:
+        source = prompts = None
+    return {
+        'git_sha': git_sha,
+        'byokg_rag_source_sha256': source,
+        'byokg_rag_prompts_sha256': prompts,
+        'inference': {name: getattr(counter, name, None) for name in (
+            'model_name', 'max_new_tokens', 'inference_config', 'reasoning_config', 'max_retries')},
+    }
+
+
 def run_question(engine, counter: CountingGenerator, question: Question,
                  schema: Dict[str, Any], hops: Optional[int], iterations: int) -> Dict[str, Any]:
     """Score one question. Exceptions are recorded, not raised, and count as misses.
@@ -83,7 +127,9 @@ def run_question(engine, counter: CountingGenerator, question: Question,
     outside the try.
     """
     artifacts: List[Dict[str, List[str]]] = []
-    parse = engine.kg_linker.parse_response
+    linker = engine.kg_linker
+    shadowed = 'parse_response' in vars(linker)  # normally a class attribute
+    parse = linker.parse_response
 
     def recording_parse(response):
         parsed = parse(response)
@@ -94,27 +140,37 @@ def run_question(engine, counter: CountingGenerator, question: Question,
         'id': question.id, 'question': question.question, 'answers': question.answers,
         'q_entities': question.q_entities, 'qtype': question.qtype, 'hops': hops,
     }
-    engine.kg_linker.parse_response = recording_parse
+    linker.parse_response = recording_parse
     try:
         engine.schema = schema
         counter.calls = 0
         start = time.monotonic()
         context = engine.query(question.question, iterations=iterations)
         predictions, _ = engine.generate_response(question.question, '\n'.join(context))
-        record.update(latency_s=round(time.monotonic() - start, 2), llm_calls=counter.calls)
-        # No-KG answer: the LLM-only baseline, MedQA's H@2 second guess, and the
-        # showcase gate. Outside the timer and the call count.
-        vanilla, _ = engine.generate_response(question.question, '')
-        record.update(predictions=predictions, vanilla_predictions=vanilla,
-                      context=context, context_chars=sum(len(c) for c in context),
-                      kg_linker_artifacts=artifacts, error=None)
+        record.update(latency_s=round(time.monotonic() - start, 2), llm_calls=counter.calls,
+                      predictions=predictions, context=context,
+                      context_chars=sum(len(c) for c in context), error=None)
     except Exception as e:  # recorded per question; the run continues
         logger.exception('question %s failed', question.id)
-        record.update(predictions=[], vanilla_predictions=[], context=[], context_chars=0,
-                      kg_linker_artifacts=artifacts, latency_s=None, llm_calls=None,
-                      error=f'{type(e).__name__}: {e}')
+        record.update(predictions=[], context=[], context_chars=0, latency_s=None,
+                      llm_calls=None, error=f'{type(e).__name__}: {e}')
     finally:
-        engine.kg_linker.parse_response = parse
+        if shadowed:
+            linker.parse_response = parse
+        else:
+            del linker.parse_response  # back to the class lookup, exactly as before
+    record['kg_linker_artifacts'] = artifacts
+
+    # No-KG answer: the BYOKG answer prompt with an empty graph context. Feeds the
+    # LLM-only baseline, MedQA's H@2 second guess and the showcase gate. Its own try,
+    # so a throttle here cannot turn a BYOKG success into a miss; outside the timer
+    # and the call count.
+    try:
+        record['vanilla_predictions'], _ = engine.generate_response(question.question, '')
+        record['vanilla_error'] = None
+    except Exception as e:
+        logger.exception('question %s: no-KG answer failed', question.id)
+        record.update(vanilla_predictions=[], vanilla_error=f'{type(e).__name__}: {e}')
 
     record['hit'] = hit(record['predictions'], question.answers)
     record['vanilla_hit'] = hit(record['vanilla_predictions'], question.answers)
@@ -128,7 +184,7 @@ def run_question(engine, counter: CountingGenerator, question: Question,
 
 def run_once(engine, counter, questions: Sequence[Question], schemas: Dict[str, Any],
              hops: Dict[str, Optional[int]], metric: str, iterations: int,
-             out_dir: str) -> Dict[str, Any]:
+             out_dir: str, run_key: Optional[str] = None) -> Dict[str, Any]:
     os.makedirs(out_dir, exist_ok=True)
     records = []
     with open(os.path.join(out_dir, 'predictions.jsonl'), 'w', encoding='utf-8') as preds, \
@@ -145,6 +201,7 @@ def run_once(engine, counter, questions: Sequence[Question], schemas: Dict[str, 
                 logger.info('%s: %d/%d, running Hit %.1f', out_dir, i, len(questions),
                             100 * sum(r['hit'] for r in records) / i)
     summary = summarize(records, metric)
+    summary['run_key'] = run_key
     with open(os.path.join(out_dir, 'summary.json'), 'w', encoding='utf-8') as f:
         json.dump(summary, f, indent=2)
     if summary['n_errors']:
@@ -179,6 +236,33 @@ def validate_config(single_best_match: str, runs: int, iterations: int) -> None:
             raise ValueError(f'{name} must be >= 1, got {value}')
 
 
+def run_key(question_ids: Sequence[str], single_best_match: bool, iterations: int,
+            prov: Dict[str, Any]) -> str:
+    """Fingerprint of everything that determines a run's result except sampling noise."""
+    payload = {'question_ids': list(question_ids), 'single_best_match': single_best_match,
+               'iterations': iterations, 'inference': prov['inference'],
+               'source': prov['byokg_rag_source_sha256']}
+    return hashlib.sha256(json.dumps(payload, sort_keys=True, default=str).encode()).hexdigest()
+
+
+def completed_run(run_dir: str, key: str) -> Optional[Dict[str, Any]]:
+    """The summary of a finished run with this exact fingerprint, or None to run it.
+
+    A summary.json left by a different configuration fails loudly rather than being
+    reused or silently overwritten.
+    """
+    path = os.path.join(run_dir, 'summary.json')
+    if not os.path.exists(path):
+        return None
+    with open(path, encoding='utf-8') as f:
+        summary = json.load(f)
+    if summary.get('run_key') != key:
+        raise RuntimeError(f'{path} was produced by a different configuration '
+                           f'(run_key {summary.get("run_key")!r} != {key!r}); '
+                           f'use a fresh output directory or --no-resume')
+    return summary
+
+
 def _aws(*args: str) -> None:
     try:
         subprocess.run(['aws', 's3', *args], check=True, capture_output=True, text=True)
@@ -206,11 +290,13 @@ def run_benchmark(dataset: str, data_dir: str, out: str, limit: Optional[int] = 
                   seed: int = 0, runs: int = 3, single_best_match: str = 'both',
                   iterations: int = 2, model: Optional[str] = None, region: Optional[str] = None,
                   medqa_kg_filter: bool = True,
-                  after_run: Optional[Callable[[str, str], None]] = None) -> Dict[str, Any]:
+                  after_run: Optional[Callable[[str, str], None]] = None,
+                  resume: bool = True) -> Dict[str, Any]:
     """Run every (single_best_match setting × repeat) and write aggregate.json.
 
     after_run(run_dir, relative_path) is called as each run finishes, so callers can
-    persist completed runs before a later one crashes.
+    persist completed runs before a later one crashes. With resume, a run whose
+    summary.json already exists for the same fingerprint is reused, not rerun.
     """
     validate_config(single_best_match, runs, iterations)
     spec = DATASETS[dataset]
@@ -248,11 +334,18 @@ def run_benchmark(dataset: str, data_dir: str, out: str, limit: Optional[int] = 
         engine, counter = build_engine(graph, model, region, sbm)
         tag = f"single_best_match-{'on' if sbm else 'off'}"
         report['config']['model'] = counter.model_name
+        prov = report.setdefault('provenance', provenance(counter))
+        key = run_key(report['question_ids'], sbm, iterations, prov)
         summaries = []
         for r in range(1, runs + 1):
             rel = os.path.join(dataset, tag, f'run{r}')
+            done = completed_run(os.path.join(out, rel), key) if resume else None
+            if done:
+                logger.info('%s: already complete with this configuration, reusing', rel)
+                summaries.append(done)
+                continue
             summaries.append(run_once(engine, counter, questions, schemas, hops, spec.metric,
-                                      iterations, os.path.join(out, rel)))
+                                      iterations, os.path.join(out, rel), run_key=key))
             if after_run:
                 after_run(os.path.join(out, rel), rel)
         report['settings'][tag] = aggregate(summaries, spec.metric)
@@ -302,6 +395,10 @@ def run_byokg_kgqa_test(handler: IntegrationTestHandler, params: Dict[str, Any],
         handler.add_output(f"{tag}.{agg['metric']}", agg['mean'])
         handler.add_output(f'{tag}.spread', agg['spread'])
         handler.add_output(f'{tag}.showcase_distinct', agg['showcase_distinct'])
+        for model, scores in DATASETS[dataset].references.items():
+            for kind, value in scores.items():
+                handler.add_output(f'{tag}.delta_vs_{model}_{kind}', round(agg['mean'] - value, 1))
+    handler.add_output('provenance', report['provenance'])
 
     # Adds aggregate.json; re-uploading the already-persisted runs is idempotent.
     upload_benchmark_results_to_s3(os.path.join(RESULTS_DIR, dataset), f'byokg-kgqa/{dataset}')
@@ -370,6 +467,8 @@ def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
     p.add_argument('--region')
     p.add_argument('--no-medqa-kg-filter', action='store_true',
                    help='keep MedQA questions whose answer is not a KG node')
+    p.add_argument('--no-resume', action='store_true',
+                   help='rerun runs that already have a summary.json for this configuration')
     return p.parse_args(argv)
 
 
@@ -382,7 +481,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     run_benchmark(args.dataset, args.data_dir, args.out, limit=args.limit, seed=args.seed,
                   runs=args.runs, single_best_match=args.single_best_match,
                   iterations=args.iterations, model=args.model, region=args.region,
-                  medqa_kg_filter=not args.no_medqa_kg_filter)
+                  medqa_kg_filter=not args.no_medqa_kg_filter, resume=not args.no_resume)
     if args.s3_out:
         _aws('sync', args.out, args.s3_out)
     return 0

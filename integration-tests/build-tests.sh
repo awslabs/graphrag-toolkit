@@ -381,6 +381,11 @@ printf 'export FAIL_FAST=%q\n' "$FAIL_FAST" >> lexical-graph-examples/.env.testi
 printf 'export TEST_EXTRACTION_LLM=%q\n' "$TEST_EXTRACTION_LLM" >> lexical-graph-examples/.env.testing
 printf 'export TEST_RESPONSE_LLM=%q\n' "$TEST_RESPONSE_LLM" >> lexical-graph-examples/.env.testing
 printf 'export BENCHMARK_JUDGE_LLM=%q\n' "$BENCHMARK_JUDGE_LLM" >> lexical-graph-examples/.env.testing
+GRAPHRAG_TOOLKIT_GIT_SHA=$(git -C "$GRAPHRAG_TOOLKIT_DIR" rev-parse HEAD 2>/dev/null || echo unknown)
+if ! git -C "$GRAPHRAG_TOOLKIT_DIR" diff --quiet HEAD 2>/dev/null; then
+	GRAPHRAG_TOOLKIT_GIT_SHA="$GRAPHRAG_TOOLKIT_GIT_SHA-dirty"
+fi
+printf 'export GRAPHRAG_TOOLKIT_GIT_SHA=%q\n' "$GRAPHRAG_TOOLKIT_GIT_SHA" >> lexical-graph-examples/.env.testing
 printf 'export INCLUDE_CLASSIFICATION_IN_ENTITY_ID=%q\n' "False" >> lexical-graph-examples/.env.testing
 if [[ "$TESTS" ]]; then
 	printf 'export TESTS=%q\n' "$TESTS" >> lexical-graph-examples/.env.testing
