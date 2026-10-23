@@ -1,23 +1,33 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
+import logging
 import os
+import signal
+import subprocess
+import sys
+import time
 import unittest
 import uuid
+from datetime import datetime, timezone
 from typing import Dict, Any
 
 from graphrag_toolkit_tests.integration_test_base import IntegrationTestBase, delete_prefix
 from graphrag_toolkit_tests.integration_test_handler import IntegrationTestHandler
 
 from graphrag_toolkit.lexical_graph import LexicalGraphIndex
-from graphrag_toolkit.lexical_graph import GraphRAGConfig, IndexingConfig, ExtractionConfig, BuildConfig
+from graphrag_toolkit.lexical_graph import GraphRAGConfig, IndexingConfig, ExtractionConfig, BuildConfig, TenantId
 from graphrag_toolkit.lexical_graph.storage import GraphStoreFactory
 from graphrag_toolkit.lexical_graph.storage import VectorStoreFactory
-from graphrag_toolkit.lexical_graph.storage.graph import NonRedactedGraphQueryLogFormatting
+from graphrag_toolkit.lexical_graph.storage.graph import NonRedactedGraphQueryLogFormatting, MultiTenantGraphStore
 from graphrag_toolkit.lexical_graph.indexing.load import S3BasedDocs, JSONArrayReader
 from graphrag_toolkit.lexical_graph.indexing.extract import BatchConfig, InferClassificationsConfig
+from graphrag_toolkit.lexical_graph.indexing.extract.batch_extractor_base import LIVE_JOB_STATES
 from graphrag_toolkit.lexical_graph.indexing.extract.run_manifest import COMPLETE, MAX_JOB_NAME
 from graphrag_toolkit.lexical_graph.indexing.extract.run_plan import RunPlanStore
 from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import RUN_ARTIFACT_DIR
+
+logger = logging.getLogger(__name__)
+
 
 def get_text(data):
     return f"Title: {data.get('title', '')}\nCategory: {data.get('category', '')}\nAuthor: {data.get('author', '')}\nSource: {data.get('source', '')}\nPublished At: {data.get('published_at', '')}\nURL: {data.get('url', '')}\n\n{data.get('body', '')}"
@@ -140,6 +150,14 @@ class BatchExtractToS3(IntegrationTestBase):
             
             params['batch_collection_id'] = collection_id
             params['multihop_expected_num_batch_docs'] = len(docs)
+
+            run_record_pages = GraphRAGConfig.s3.get_paginator('list_objects_v2').paginate(
+                Bucket=s3_results_bucket,
+                Prefix=f'{extracted_prefix}/{collection_id}/{RUN_ARTIFACT_DIR}/'
+            )
+            run_record_keys = [
+                obj['Key'] for page in run_record_pages for obj in page.get('Contents', [])
+            ]
             
             class BatchExtractAssertions(unittest.TestCase):
                 
@@ -152,6 +170,11 @@ class BatchExtractToS3(IntegrationTestBase):
                     """Extracted directory in S3 contains one source doc per source URL"""
                     
                     self.assertEqual(self._num_extracted_docs, self._expected_num_docs)
+
+                def test_an_extraction_with_no_run_id_writes_no_run_records(self):
+                    """Extraction given no run id leaves no plan or partition records in the collection"""
+
+                    self.assertEqual(run_record_keys, [])
                     
             handler.run_assertions(BatchExtractAssertions)
         
@@ -487,4 +510,373 @@ class BatchExtractWithRunPlanToS3(IntegrationTestBase):
         finally:
             # The staged collection goes on every path. Nothing downstream
             # reads it, and it is the larger of the two.
+            delete_prefix(s3_results_bucket, f'{extracted_prefix}/{collection_id}/')
+
+
+IN_FLIGHT_BATCH_PREFIX = 'batch-inference-in-flight'
+SECONDS_TO_WAIT_FOR_A_JOB = 1800
+SECONDS_TO_WAIT_FOR_A_STOP = 1800
+
+
+def extract_under_a_run_plan(collection_id:str, run_id:str):
+    """One batch extraction of the corpus under a run id. The killed run and the restart both call it."""
+    GraphRAGConfig.extraction_llm = os.environ.get('TEST_EXTRACTION_LLM', 'anthropic.claude-sonnet-4-6')
+    GraphRAGConfig.extraction_batch_size = 100
+    GraphRAGConfig.extraction_num_workers = 2
+
+    s3_results_bucket = os.environ['S3_RESULTS_BUCKET']
+    s3_results_prefix = os.environ['S3_RESULTS_PREFIX']
+    aws_region_name = os.environ['AWS_REGION_NAME']
+
+    run_plan_store = RunPlanStore(
+        bucket_name=s3_results_bucket,
+        key_prefix=f'{s3_results_prefix}/extracted',
+        collection_id=collection_id
+    )
+
+    indexing_config = IndexingConfig(
+        extraction=ExtractionConfig(
+            infer_entity_classifications=InferClassificationsConfig(
+                num_samples=5,
+                num_iterations=10
+            ),
+        ),
+        build=BuildConfig(
+            include_local_entities=True
+        ),
+        batch_config=BatchConfig(
+            region=aws_region_name,
+            bucket_name=s3_results_bucket,
+            key_prefix=f'{s3_results_prefix}/{IN_FLIGHT_BATCH_PREFIX}',
+            role_arn=os.environ['BATCH_INFERENCE_ROLE'],
+            max_batch_size=250,
+            max_num_concurrent_batches=2
+        )
+    )
+
+    with(
+        GraphStoreFactory.for_graph_store(
+            os.environ['GRAPH_STORE'],
+            log_formatting=NonRedactedGraphQueryLogFormatting()
+        ) as graph_store,
+        VectorStoreFactory.for_vector_store(os.environ['VECTOR_STORE']) as vector_store
+    ):
+
+        reader = JSONArrayReader(text_fn=get_text, metadata_fn=get_metadata)
+        docs = reader.load_data('./source-data/corpus-modified.json')
+
+        LexicalGraphIndex(
+            graph_store,
+            vector_store,
+            indexing_config=indexing_config
+        ).extract(
+            docs,
+            handler=run_plan_store.staging_handler(run_id, region=aws_region_name),
+            show_progress=True,
+            run_id=run_id,
+            run_plan_store=run_plan_store
+        )
+
+        return len(docs)
+
+
+class RestartWhileBatchJobsAreRunning(IntegrationTestBase):
+    """
+    Kill a batch extraction while its Bedrock jobs are queued, stop one of
+    those jobs, then restart the same run id.
+
+    The longest test in lexical.restart: the whole corpus goes through Bedrock
+    batch inference, about 97 minutes with Haiku 4.5. Set TEST_EXTRACTION_LLM
+    to a cheaper model than the Sonnet default.
+    """
+
+    @property
+    def description(self):
+        return ('Restart a batch extraction whose Bedrock jobs are still running, waiting on them instead of '
+                'submitting again, and submitting again only the one that was stopped')
+
+    def _run_test(self, handler:IntegrationTestHandler, params:Dict[str, Any]):
+
+        # A capped corpus can fall under Bedrock's 100-record floor and submit no job.
+        if os.environ.get('BENCHMARK_EXTRACT_DOC_LIMIT', '').strip():
+            print('BENCHMARK_EXTRACT_DOC_LIMIT is set, so there may be no batch job to interrupt; skipping test')
+            handler.skip()
+            return
+
+        s3_results_bucket = os.environ['S3_RESULTS_BUCKET']
+        s3_results_prefix = os.environ['S3_RESULTS_PREFIX']
+        aws_region_name = os.environ['AWS_REGION_NAME']
+        batch_inference_prefix = f'{s3_results_prefix}/{IN_FLIGHT_BATCH_PREFIX}'
+        extracted_prefix = f'{s3_results_prefix}/extracted'
+
+        collection_id = f'bf{uuid.uuid4().hex[:8]}'
+        run_id = f'run{uuid.uuid4().hex[:8]}'
+
+        params['in_flight_batch_collection_id'] = collection_id
+        params['in_flight_batch_run_id'] = run_id
+
+        manifest_store = RunPlanStore(
+            bucket_name=s3_results_bucket,
+            key_prefix=extracted_prefix,
+            collection_id=collection_id
+        ).manifest_store(run_id)
+
+        def jobs_recorded():
+            records = manifest_store.read_partitions(GraphRAGConfig.s3)
+            return {p: r for p, r in records.items() if r.job_arn}
+
+        def job_state(record):
+            return GraphRAGConfig.bedrock.get_model_invocation_job(jobIdentifier=record.job_arn)['status']
+
+        def stop_jobs_left_running():
+            """Stops any recorded job still live after a failed run. Failures are logged and skipped
+            so that this never raises over the exception that failed the test."""
+            try:
+                recorded = list(jobs_recorded().values())
+            except Exception:
+                logger.warning('Could not list the jobs to stop', exc_info=True)
+                return
+            for record in recorded:
+                try:
+                    if job_state(record) in LIVE_JOB_STATES:
+                        GraphRAGConfig.bedrock.stop_model_invocation_job(jobIdentifier=record.job_arn)
+                except Exception:
+                    logger.warning(f'Could not stop job {record.job_arn}', exc_info=True)
+
+        settings = ('extraction_batch_size', 'extraction_num_workers',
+                    'build_num_workers', 'build_batch_size', 'build_batch_write_size')
+        original_settings = {name: getattr(GraphRAGConfig, name) for name in settings}
+
+        try:
+
+            # Its own session, so the kill takes the extraction workers with it.
+            first_run = subprocess.Popen(
+                [
+                    sys.executable, '-c',
+                    'import sys; '
+                    'from graphrag_toolkit_tests.batch_extract import extract_under_a_run_plan; '
+                    'extract_under_a_run_plan(sys.argv[1], sys.argv[2])',
+                    collection_id, run_id
+                ],
+                env={**os.environ, 'PYTHONPATH': os.pathsep.join(sys.path)},
+                start_new_session=True
+            )
+
+            try:
+                # Each of the two extraction workers submits a job; wait for both records.
+                deadline = time.time() + SECONDS_TO_WAIT_FOR_A_JOB
+                while len(jobs_recorded()) < 2:
+                    if first_run.poll() is not None:
+                        raise RuntimeError(
+                            f'The first run ended before it recorded two jobs [exit code: {first_run.returncode}]'
+                        )
+                    if time.time() > deadline:
+                        raise RuntimeError(
+                            f'The first run recorded fewer than two jobs in {SECONDS_TO_WAIT_FOR_A_JOB} seconds'
+                        )
+                    time.sleep(5)
+            finally:
+                if first_run.poll() is None:
+                    os.killpg(first_run.pid, signal.SIGKILL)
+                first_run.wait()
+
+            interrupted = jobs_recorded()
+            states_when_interrupted = {
+                partition: job_state(record) for partition, record in interrupted.items()
+            }
+
+            handler.add_output('job_states_when_interrupted', sorted(states_when_interrupted.values()))
+
+            left_running = sorted(p for p, state in states_when_interrupted.items() if state in LIVE_JOB_STATES)
+            if len(left_running) < 2:
+                raise RuntimeError(
+                    f'Two jobs have to be running when the first run is killed, one to stop '
+                    f'and one to wait on: {states_when_interrupted}'
+                )
+
+            stopped_partition = left_running[0]
+            waited_on = left_running[1:]
+
+            GraphRAGConfig.bedrock.stop_model_invocation_job(
+                jobIdentifier=interrupted[stopped_partition].job_arn
+            )
+
+            deadline = time.time() + SECONDS_TO_WAIT_FOR_A_STOP
+            while job_state(interrupted[stopped_partition]) in LIVE_JOB_STATES + ('Stopping',):
+                if time.time() > deadline:
+                    raise RuntimeError(f'The job did not stop in {SECONDS_TO_WAIT_FOR_A_STOP} seconds')
+                time.sleep(10)
+
+            states_at_restart = {
+                partition: job_state(record) for partition, record in interrupted.items()
+            }
+
+            handler.add_output('job_states_at_restart', sorted(states_at_restart.values()))
+
+            if states_at_restart[stopped_partition] != 'Stopped':
+                raise RuntimeError(f'The job asked to stop ended otherwise: {states_at_restart}')
+
+            if not any(states_at_restart[p] in LIVE_JOB_STATES for p in waited_on):
+                raise RuntimeError(
+                    f'No job was still running by the time the other had stopped: {states_at_restart}'
+                )
+
+            restart_began = datetime.now(timezone.utc)
+
+            num_docs = extract_under_a_run_plan(collection_id, run_id)
+
+            records_after_restart = manifest_store.read_partitions(GraphRAGConfig.s3)
+            end_times_of_waited_on_jobs = {
+                p: GraphRAGConfig.bedrock.get_model_invocation_job(
+                    jobIdentifier=interrupted[p].job_arn
+                ).get('endTime')
+                for p in waited_on
+            }
+
+            staged_docs = [
+                d for d in S3BasedDocs(
+                    region=aws_region_name,
+                    bucket_name=s3_results_bucket,
+                    key_prefix=extracted_prefix,
+                    collection_id=collection_id
+                )
+            ]
+
+            tenant_id = TenantId(f't{uuid.uuid4().hex[:5]}')
+            params['in_flight_batch_tenant_id'] = tenant_id.value
+
+            GraphRAGConfig.build_num_workers = 2
+            GraphRAGConfig.build_batch_size = 32
+            GraphRAGConfig.build_batch_write_size = 100
+
+            with(
+                GraphStoreFactory.for_graph_store(
+                    os.environ['GRAPH_STORE'],
+                    log_formatting=NonRedactedGraphQueryLogFormatting()
+                ) as graph_store,
+                VectorStoreFactory.for_vector_store(os.environ['VECTOR_STORE']) as vector_store
+            ):
+
+                LexicalGraphIndex(
+                    graph_store,
+                    vector_store,
+                    tenant_id=tenant_id,
+                    indexing_config=BuildConfig(include_domain_labels=True)
+                ).build(staged_docs, show_progress=True)
+
+                tenant_graph = MultiTenantGraphStore.wrap(graph_store, tenant_id)
+
+                # Not DISTINCT: an id the graph held twice has to show as two.
+                source_ids_in_graph = sorted(
+                    r['id'] for r in tenant_graph.execute_query(
+                        f'MATCH (s:`__Source__`) RETURN {graph_store.node_id("s.sourceId")} AS id'
+                    )
+                )
+                chunk_ids_in_graph = sorted(
+                    r['id'] for r in tenant_graph.execute_query(
+                        f'MATCH (c:`__Chunk__`) RETURN {graph_store.node_id("c.chunkId")} AS id'
+                    )
+                )
+
+            class RestartWhileRunningAssertions(unittest.TestCase):
+
+                @classmethod
+                def setUpClass(cls):
+                    cls._num_extracted_docs = len(staged_docs)
+                    cls._staged_source_ids = sorted(
+                        tenant_id.rewrite_id(d.source_id()) for d in staged_docs
+                    )
+                    cls._staged_chunk_ids = sorted(
+                        tenant_id.rewrite_id(n.node_id) for d in staged_docs for n in d.nodes
+                    )
+                    cls._jobs_when_interrupted = {
+                        p: (r.job_name, r.job_arn) for p, r in interrupted.items()
+                    }
+                    cls._jobs_after_restart = {
+                        p: (r.job_name, r.job_arn) for p, r in records_after_restart.items()
+                    }
+                    cls._partitions_with_no_job_when_interrupted = sorted(
+                        set(records_after_restart) - set(interrupted)
+                    )
+
+                def test_a_job_left_running_is_the_job_its_partition_finished_under(self):
+                    """Every partition whose job was still running at the restart finishes under that job"""
+
+                    for partition in waited_on:
+                        self.assertEqual(
+                            self._jobs_after_restart.get(partition),
+                            self._jobs_when_interrupted[partition]
+                        )
+
+                def test_only_the_stopped_partition_is_attempted_twice(self):
+                    """The stopped job's partition is on its second attempt, and every other on its first"""
+
+                    self.assertEqual(
+                        {p: r.attempt for p, r in records_after_restart.items()},
+                        {p: 2 if p == stopped_partition else 1 for p in records_after_restart}
+                    )
+
+                def test_the_stopped_partition_is_given_a_new_job(self):
+                    """The partition whose job was stopped finishes under a job submitted by the restart"""
+
+                    self.assertIsNotNone(self._jobs_after_restart[stopped_partition][1])
+                    self.assertNotEqual(
+                        self._jobs_after_restart[stopped_partition][1],
+                        self._jobs_when_interrupted[stopped_partition][1]
+                    )
+
+                def test_a_job_left_running_ends_after_the_restart_began(self):
+                    """The job the restart waited on was still running when the restart began"""
+
+                    for partition, end_time in end_times_of_waited_on_jobs.items():
+                        self.assertIsNotNone(end_time, partition)
+                        self.assertGreater(end_time, restart_began)
+
+                def test_each_partition_finishes_under_a_job_of_its_own(self):
+                    """Every partition names one job and no two name the same, so the runs submitted one each and the one resubmission"""
+
+                    arns = [arn for (_, arn) in self._jobs_after_restart.values()]
+
+                    self.assertNotIn(None, arns)
+                    self.assertEqual(len(set(arns)), len(records_after_restart))
+
+                def test_a_partition_with_no_job_is_given_one(self):
+                    """Partitions the first run never reached are submitted by the restart"""
+
+                    self.assertGreater(len(self._partitions_with_no_job_when_interrupted), 0)
+                    for partition in self._partitions_with_no_job_when_interrupted:
+                        self.assertIsNotNone(self._jobs_after_restart[partition][1])
+
+                def test_every_partition_is_recorded_complete(self):
+                    """Each partition, waited on or submitted, is recorded complete"""
+
+                    self.assertEqual(sorted({r.state for r in records_after_restart.values()}), [COMPLETE])
+
+                def test_extracted_one_doc_for_each_source(self):
+                    """Extracted collection holds one source doc per input document"""
+
+                    self.assertEqual(self._num_extracted_docs, num_docs)
+
+                def test_the_graph_holds_each_source_once(self):
+                    """Graph built from the collection has every staged source id, and each once"""
+
+                    self.assertEqual(source_ids_in_graph, self._staged_source_ids)
+
+                def test_the_graph_holds_each_chunk_once(self):
+                    """Graph built from the collection has every staged chunk id, and each once"""
+
+                    self.assertGreater(len(self._staged_chunk_ids), 0)
+                    self.assertEqual(chunk_ids_in_graph, self._staged_chunk_ids)
+
+            handler.run_assertions(RestartWhileRunningAssertions)
+
+            # Kept on failure for diagnosis.
+            if handler.props.get('test_results', {}).get('passed', False):
+                delete_prefix(s3_results_bucket, f'{batch_inference_prefix}/')
+
+        finally:
+            if not handler.props.get('test_results', {}).get('passed', False):
+                stop_jobs_left_running()
+            for name, value in original_settings.items():
+                setattr(GraphRAGConfig, name, value)
             delete_prefix(s3_results_bucket, f'{extracted_prefix}/{collection_id}/')

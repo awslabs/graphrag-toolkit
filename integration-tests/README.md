@@ -55,7 +55,7 @@ Tests can be supplied via a file (using the `--test-file` option), or as a quote
 |------|-------------|
 | `lexical.short` | Short-running lexical graph tests (extraction, build, query, etc.) |
 | `lexical.long` | Long-running lexical graph tests (auto-tune batch extraction, batch build, multi-hop queries) |
-| `lexical.restart` | The extraction restart tests on their own: run plan, resume from an interrupted run, and the batch job reuse (the last one submits real Bedrock batch jobs) |
+| `lexical.restart` | The extraction restart tests on their own: run plan, resume from an interrupted run in both staging formats, the batch job reuse, and a restart while batch jobs are still running, one of them stopped (the last two submit real Bedrock batch jobs; set `TEST_EXTRACTION_LLM` to a cheaper model than the Sonnet default, since the last one runs the whole corpus, about 97 minutes on Haiku 4.5) |
 | `lexical.versioning` | Versioning-related tests |
 | `byokg.all` | Bring-your-own-knowledge-graph tests |
 

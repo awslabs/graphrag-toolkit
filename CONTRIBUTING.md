@@ -55,12 +55,40 @@ git secrets --register-aws
 
 The pre-commit framework will automatically run git-secrets on staged files before each commit, preventing accidental secret leaks.
 
+### If the secret scan flags a commit
+
+The Secret Scan workflow runs gitleaks on every pull request and push to `main` and the `v*.*.x` release branches. Findings are attached to the workflow run as a SARIF report and appear in the repository's Security tab.
+
+The pull request check fails when the files on the branch contain a secret, and warns when the secret is only in the commit history. Either way, rotate the credential before the pull request is merged and say in the pull request that you have. Then remove the secret from the history: squash the commits that introduced it, or ask a maintainer to rewrite the branch.
+
 GitHub provides additional document on [forking a repository](https://help.github.com/articles/fork-a-repo/) and
 [creating a pull request](https://help.github.com/articles/creating-a-pull-request/).
 
 
 ## Finding contributions to work on
 Looking at the existing issues is a great way to find something to contribute on. As our projects, by default, use the default GitHub issue labels (enhancement/bug/duplicate/help wanted/invalid/question/wontfix), looking at any 'help wanted' issues is a great place to start.
+
+
+## Release process
+`graphrag-lexical-graph` and `graphrag-byokg` are released separately, each with its own version and tags (`graphrag-lexical-graph/vX.Y.Z`, `graphrag-byokg/vX.Y.Z`). [lexical-graph/RELEASE.md](lexical-graph/RELEASE.md) and [byokg-rag/RELEASE.md](byokg-rag/RELEASE.md) have the steps for tagging and publishing. This section covers which branch a change belongs on.
+
+### Branches
+
+* `main` is the development branch.
+* Each `X.Y` release line has a release branch named `vX.Y.x` (for example `v3.20.x`), cut from `main`. It holds the changes for `X.Y.0` and for the patch releases that follow it.
+* Open your pull request against the release branch if the change is for that release line, and against `main` otherwise. The package test workflows run on pull requests to both.
+* Changes flow from a release branch down to `main`, not the other way around. Do not cherry-pick a change from `main` into a release branch; merge it to the release branch and downmerge it.
+
+### Downmerging a release branch into `main`
+
+1. Cut a branch from the release branch, for example `downmerge/v3.20.x-to-main`.
+2. Open a pull request from it into `main`, titled `[CHORE] Downmerge vX.Y.x to main`, and list the pull requests it carries in the description.
+3. If it conflicts with `main`, merge `main` into the downmerge branch and resolve the conflicts there, so the release branch is left unchanged.
+4. Merge the pull request with a merge commit. A squash leaves the release branch's commits out of `main`'s history, so the next downmerge from the same branch lists them again and can conflict.
+
+### Tagging work to a release
+
+The target release of an issue or pull request is its GitHub milestone. Milestones are named for the package and version, for example `lexical-graph 3.19.0`.
 
 
 ## Code of Conduct
