@@ -16,11 +16,13 @@ on:
     branches: [main, 'v*.*.x']
     paths:
       - "lexical-graph/**"
+      - "lexical-graph-contrib/sparql/**"
       - ".github/workflows/lexical-graph-tests.yml"
   pull_request:
     branches: [main, 'v*.*.x']
     paths:
       - "lexical-graph/**"
+      - "lexical-graph-contrib/sparql/**"
       - ".github/workflows/lexical-graph-tests.yml"
 
 jobs:
@@ -42,7 +44,7 @@ jobs:
               echo "MISSING: $file"
               MISSING=$((MISSING + 1))
             fi
-          done < <(find lexical-graph -name '*.py' -print0)
+          done < <(find lexical-graph lexical-graph-contrib/sparql -name '*.py' -print0)
           if [ "$MISSING" -gt 0 ]; then
             echo ""
             echo "ERROR: $MISSING file(s) missing the license header."
@@ -87,6 +89,7 @@ jobs:
           uv pip install --python .venv/bin/python \
             -r src/graphrag_toolkit/lexical_graph/requirements.txt
           uv pip install --python .venv/bin/python -e '.[test]'
+          uv pip install --python .venv/bin/python -e '../lexical-graph-contrib/sparql[neptune]'
 
       - name: Run tests
         id: run_tests
@@ -96,7 +99,7 @@ jobs:
           PYTHONPATH=src .venv/bin/python -m pytest \
             -v --cov-config=.coveragerc --cov=graphrag_toolkit.lexical_graph \
             -l --tb=short --maxfail=1 --cov-fail-under=56 \
-            tests/
+            tests/ ../lexical-graph-contrib/sparql/tests/
 
       - name: Package coverage reports
         id: coverage

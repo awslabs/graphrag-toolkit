@@ -93,10 +93,10 @@ class ChunkGraphBuilder(GraphBuilder):
 
             # Skip reserved keys: 'chunkId'/'chunk_id' are the merge key ('chunk_id'
             # is the bound param, so a metadata field of that name would overwrite
-            # the real id and redirect the MERGE), and 'value' is chunk text already
-            # written via chunk_store.put() above.
+            # the real id and redirect the MERGE), and 'value'/'text' are chunk
+            # content already written via chunk_store.put() above.
             for key, value in chunk_metadata.items():
-                if key not in ('chunkId', 'chunk_id', 'value'):
+                if key not in ('chunkId', 'chunk_id', 'value', 'text'):
                     escaped_key = escape_cypher_label(key)
                     chunk_property_setters.append(f'chunk.`{escaped_key}` = params.`{escaped_key}`')
                     properties_c[key] = value

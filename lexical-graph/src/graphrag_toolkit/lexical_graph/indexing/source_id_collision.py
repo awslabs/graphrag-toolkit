@@ -4,7 +4,7 @@
 from typing import Any, Dict, Iterable, List, Optional, Tuple
 
 from graphrag_toolkit.lexical_graph.indexing.constants import SOURCE_HASH_PROPERTY
-from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
+from graphrag_toolkit.lexical_graph.storage.graph import GraphQueryOperation, GraphStore
 
 # Metadata keys tried, in order, when naming a document in an error. The same list names
 # the incoming document and the one the graph holds, so both sides read the same way.
@@ -108,6 +108,7 @@ class SourceIdClaims:
             f'RETURN {source_id_field} AS sourceId, '
             f's.{SOURCE_HASH_PROPERTY} AS sourceHash, coalesce({names}) AS name',
             {'sourceIds': source_ids},
+            operation=GraphQueryOperation.GET_SOURCE_HASHES,
         )
         for row in rows or []:
             stored = row.get('sourceHash')

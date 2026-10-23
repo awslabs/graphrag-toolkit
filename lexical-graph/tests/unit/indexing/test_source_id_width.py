@@ -19,7 +19,7 @@ from llama_index.core.schema import TextNode, NodeRelationship, RelatedNodeInfo
 from graphrag_toolkit.lexical_graph import TenantId, GraphRAGConfig
 from graphrag_toolkit.lexical_graph.config import SourceIdWidth
 from graphrag_toolkit.lexical_graph.indexing.model import SourceDocument
-from graphrag_toolkit.lexical_graph.storage.graph import DummyGraphStore, MultiTenantGraphStore
+from graphrag_toolkit.lexical_graph.storage.graph import DummyGraphStore, GraphQueryOperation, MultiTenantGraphStore
 from graphrag_toolkit.lexical_graph.indexing.source_id_width import (
     SourceIdWidthMismatchError,
     SourceIdWidthGuard,
@@ -125,6 +125,20 @@ class TestGraphSourceIdWidth:
         record_graph_source_id_width(store, TenantId(), FULL)
 
         assert store.recorded['width'] == 32
+
+    @pytest.mark.parametrize('read, operation', [
+        (recorded_source_id_width, GraphQueryOperation.GET_SOURCE_ID_WIDTH),
+        (sampled_source_id_width, GraphQueryOperation.SAMPLE_SOURCE_IDS),
+    ])
+    def test_reads_dispatch_a_backend_neutral_operation(self, read, operation):
+        store = graph_store()
+        read(store)
+        assert store.execute_query.call_args.kwargs['operation'] == operation
+
+    def test_write_dispatches_a_backend_neutral_operation(self):
+        store = graph_store()
+        record_graph_source_id_width(store, TenantId(), FULL)
+        assert store.execute_query.call_args.kwargs['operation'] == GraphQueryOperation.RECORD_SOURCE_ID_WIDTH
 
     def test_the_record_is_scoped_to_the_tenant(self):
         store = graph_store()
