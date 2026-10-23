@@ -1265,12 +1265,22 @@ class TestStagingSurfacesUploadFailures:
         assert any('2 source documents failed to upload' in r.message for r in caplog.records)
 
 
-def _chunk_collection(layout, markers, recorded=True):
+def _as_written(node_ids) -> str:
+    """The marker the chunk uploader stores on ending a source with these chunks."""
+    s3_client = Mock()
+    S3ChunkUploader(bucket_name='b', collection_prefix='p/c')._write_completion_marker(
+        'p/c/root', list(node_ids), s3_client, source_chunk_ids=list(node_ids)
+    )
+    return s3_client.put_object.call_args.kwargs['Body'].decode('UTF-8')
+
+
+def _chunk_collection(layout, markers, recorded=True, marker_body=None):
     """
     A mocked S3 holding one collection: layout maps a source document prefix to
     its chunk keys, markers maps the same prefix to the chunk ids its marker
-    covers.
+    covers. marker_body gives a marker's stored body from those chunk ids.
     """
+    marker_body = marker_body or (lambda node_ids: json.dumps({'chunk_ids': sorted(node_ids)}))
     bodies = {}
     contents = {}
     chunk_ids_by_key = {}
@@ -1282,7 +1292,7 @@ def _chunk_collection(layout, markers, recorded=True):
         for node_ids in markers.get(prefix, []):
             marker_key = completion_marker_key(prefix.rstrip('/'), node_ids)
             keys.append(marker_key)
-            bodies[marker_key] = json.dumps({'chunk_ids': sorted(node_ids)})
+            bodies[marker_key] = marker_body(node_ids)
         contents[prefix] = keys
 
     def paginate(**kwargs):
@@ -1368,6 +1378,90 @@ class TestAPrefixNoMarkerAccountsForIsIncomplete:
         assert _read_chunk_collection(mock_s3) == [[node_id]]
 
 
+# Bodies the writer could not have stored, keyed by what is wrong with them.
+MALFORMED_MARKERS = {
+    'not JSON': lambda node_ids: '{"chunk_ids": [',
+    'not an object': lambda node_ids: json.dumps(sorted(node_ids)),
+    'chunk ids not a list': lambda node_ids: json.dumps({'chunk_ids': ','.join(node_ids)}),
+    'final not a boolean': lambda node_ids: json.dumps({'chunk_ids': sorted(node_ids), 'final': 'true'}),
+    'empty object': lambda node_ids: '{}',
+    'no chunk ids': lambda node_ids: json.dumps({'count': len(node_ids)}),
+    'empty chunk ids': lambda node_ids: json.dumps({'chunk_ids': []}),
+    'count disagrees': lambda node_ids: json.dumps(
+        {'chunk_ids': sorted(node_ids), 'count': 99, 'final': True}
+    ),
+    'content hash disagrees': lambda node_ids: json.dumps(
+        {'chunk_ids': sorted(node_ids), 'content_hash': 'not-the-hash', 'final': True}
+    ),
+}
+
+
+class TestWhatTheBuildTrusts:
+    """
+    The build reads whatever the markers vouch for. It does not ask which run
+    wrote them, and it does not check at all once the collection record is
+    gone. Write access to the collection prefix is the boundary.
+    """
+
+    def test_a_source_no_run_staged_is_read_when_its_marker_accounts_for_it(self):
+        layout = {'p/c/doc-planted/': ['p/c/doc-planted/x1.json', 'p/c/doc-planted/x2.json']}
+        mock_s3 = _chunk_collection(layout, {'p/c/doc-planted/': [['x1', 'x2']]}, marker_body=_as_written)
+
+        assert _read_chunk_collection(mock_s3) == [['x1', 'x2']]
+
+    def test_deleting_the_record_reads_a_truncated_source_whole(self):
+        # The marker declares a2, which has since gone from the prefix.
+        layout = {'p/c/doc-a/': ['p/c/doc-a/a1.json']}
+        markers = {'p/c/doc-a/': [['a1', 'a2']]}
+
+        recorded = _chunk_collection(layout, markers, marker_body=_as_written)
+        unrecorded = _chunk_collection(layout, markers, recorded=False, marker_body=_as_written)
+
+        assert _read_chunk_collection(recorded) == []
+        assert _read_chunk_collection(unrecorded) == [['a1']]
+
+    @pytest.mark.parametrize('marker_body', list(MALFORMED_MARKERS.values()), ids=list(MALFORMED_MARKERS))
+    def test_a_malformed_marker_skips_only_its_document_naming_it(self, marker_body, caplog):
+        # Raising would end the read for every document after this one. The
+        # warning names the key: a re-stage does not replace a marker under a
+        # name it does not write, so an operator has to delete it.
+        layout = {
+            'p/c/doc-a/': ['p/c/doc-a/a1.json'],
+            'p/c/doc-b/': ['p/c/doc-b/b1.json', 'p/c/doc-b/b2.json'],
+            'p/c/doc-c/': ['p/c/doc-c/c1.json'],
+        }
+        markers = {'p/c/doc-a/': [['a1']], 'p/c/doc-b/': [['b1', 'b2']], 'p/c/doc-c/': [['c1']]}
+        mock_s3 = _chunk_collection(
+            layout, markers,
+            marker_body=lambda node_ids: marker_body(node_ids) if node_ids == ['b1', 'b2'] else _as_written(node_ids)
+        )
+
+        with caplog.at_level(logging.WARNING):
+            read = _read_chunk_collection(mock_s3)
+
+        assert read == [['a1'], ['c1']]
+        marker_key = completion_marker_key('p/c/doc-b', ['b1', 'b2'])
+        assert any(marker_key in r.getMessage() and 'Delete the marker' in r.getMessage() for r in caplog.records)
+
+    def test_a_marker_declaring_nothing_over_an_empty_prefix_is_not_a_document(self):
+        # A prefix holding only a marker would otherwise read as a document with
+        # no nodes, whose source_id() is None.
+        layout = {'p/c/doc-a/': [], 'p/c/doc-b/': ['p/c/doc-b/b1.json']}
+        markers = {'p/c/doc-a/': [[]], 'p/c/doc-b/': [['b1']]}
+        mock_s3 = _chunk_collection(layout, markers)
+
+        assert _read_chunk_collection(mock_s3) == [['b1']]
+
+    def test_a_malformed_marker_is_not_read_in_an_unrecorded_collection(self):
+        # No record, no marker check: the build never opens the marker.
+        layout = {'p/c/doc-a/': ['p/c/doc-a/a1.json']}
+        mock_s3 = _chunk_collection(
+            layout, {'p/c/doc-a/': [['a1']]}, recorded=False, marker_body=MALFORMED_MARKERS['not JSON']
+        )
+
+        assert _read_chunk_collection(mock_s3) == [['a1']]
+
+
 class TestTheCollectionRecordsThatItIsMarked:
     """Whether a prefix must carry a marker is the collection's to answer."""
 
@@ -1450,16 +1544,15 @@ class TestTheJsonlUploaderMarksWhatItWrites:
 class TestTheJsonlReaderSkipsAnIncompleteDocument:
     """The JSONL path reads node ids out of the objects rather than off the keys."""
 
-    def _read(self, objects, markers, recorded=True):
+    def _read(self, objects, markers, recorded=True, marker_body=None):
         downloader = S3DocDownloader(
             key_prefix='p', collection_id='c', bucket_name='b', fn=lambda n: n
         )
 
+        marker_body = marker_body or (lambda node_ids: json.dumps({'chunk_ids': sorted(node_ids)}))
         keys = dict(objects)
         for node_ids in markers:
-            keys[completion_marker_key('p/c/doc-a', node_ids)] = json.dumps(
-                {'chunk_ids': sorted(node_ids)}
-            )
+            keys[completion_marker_key('p/c/doc-a', node_ids)] = marker_body(node_ids)
 
         mock_s3 = MagicMock()
         mock_s3.get_paginator.return_value.paginate.side_effect = lambda **kwargs: (
@@ -1501,6 +1594,63 @@ class TestTheJsonlReaderSkipsAnIncompleteDocument:
         objects = {'p/c/doc-a/src-1-abcde.jsonl': self._jsonl(['c1', 'c2'])}
 
         assert self._read(objects, markers=[], recorded=False) == [['c1', 'c2']]
+
+    def _read_batch(self, sources, bad_source, marker_body):
+        """
+        Reads one batch of single-object prefixes, bad_source carrying the
+        malformed marker. Returns the documents read and the keys fetched.
+        """
+        keys = {}
+        prefixes = []
+        for source, node_ids in sources.items():
+            prefix = f'p/c/{source}'
+            prefixes.append(f'{prefix}/')
+            keys[f'{prefix}/{source}-abcde.jsonl'] = self._jsonl(node_ids)
+            body = marker_body if source == bad_source else _as_written
+            keys[completion_marker_key(prefix, node_ids)] = body(node_ids)
+
+        downloaded = []
+        mock_s3 = MagicMock()
+        mock_s3.get_paginator.return_value.paginate.side_effect = lambda **kwargs: (
+            [{'CommonPrefixes': [{'Prefix': p} for p in prefixes],
+              'Contents': [{'Key': collection_record_key('p', 'c')}]}]
+            if kwargs.get('Delimiter') == '/'
+            else [{'Contents': [{'Key': k} for k in keys if k.startswith(kwargs['Prefix'])]}]
+        )
+
+        def download_fileobj(bucket, key, stream):
+            downloaded.append(key)
+            stream.write(keys[key].encode('UTF-8'))
+
+        mock_s3.download_fileobj.side_effect = download_fileobj
+
+        downloader = S3DocDownloader(key_prefix='p', collection_id='c', bucket_name='b', fn=lambda n: n)
+        with patch(f'{S3_BASED_DOCS}.GraphRAGConfig') as mock_config:
+            mock_config.s3 = mock_s3
+            mock_config.extraction_num_threads_per_worker = 2
+            read = [sorted(n.node_id for n in doc.nodes) for doc in downloader.download()]
+
+        return read, downloaded
+
+    @pytest.mark.parametrize('marker_body', list(MALFORMED_MARKERS.values()), ids=list(MALFORMED_MARKERS))
+    def test_a_malformed_marker_skips_only_its_document_naming_it(self, marker_body, caplog):
+        # The prefixes of a batch are read together, so raising here would
+        # discard every document in the batch.
+        sources = {f'doc-{i}': [f'c{i}'] for i in range(6)}
+
+        with caplog.at_level(logging.WARNING):
+            read, _ = self._read_batch(sources, 'doc-2', marker_body)
+
+        assert read == [[f'c{i}'] for i in range(6) if i != 2]
+        marker_key = completion_marker_key('p/c/doc-2', ['c2'])
+        assert any(marker_key in r.getMessage() and 'Delete the marker' in r.getMessage() for r in caplog.records)
+
+    def test_a_malformed_marker_costs_no_object_download(self):
+        sources = {'doc-a': ['c1', 'c2']}
+
+        _, downloaded = self._read_batch(sources, 'doc-a', MALFORMED_MARKERS['not JSON'])
+
+        assert downloaded == [completion_marker_key('p/c/doc-a', ['c1', 'c2'])]
 
     def test_a_prefix_with_no_marker_is_skipped_without_downloading(self):
         # A prefix holding no marker cannot read complete whatever the objects

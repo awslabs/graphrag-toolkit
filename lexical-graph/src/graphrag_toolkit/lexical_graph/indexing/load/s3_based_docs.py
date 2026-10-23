@@ -134,7 +134,9 @@ def list_collection(bucket_name:str, key_prefix:str, collection_id:str, paginato
 
     Both come out of the one listing, so the record costs no second call and no
     permission the listing did not already need. A collection with no record was
-    staged before markers existed and is read as it stands.
+    staged before markers existed and is read as it stands. Only the record's
+    presence decides this, so deleting it turns the check off for the whole
+    collection.
     """
     collection_path = join(key_prefix, collection_id, '')
     record_key = collection_record_key(key_prefix, collection_id)
@@ -154,6 +156,67 @@ def list_collection(bucket_name:str, key_prefix:str, collection_id:str, paginato
     return source_doc_prefixes, recorded
 
 
+class CompletionMarkerError(ValueError):
+    """A completion marker the writer could not have stored. Names its key."""
+
+
+def _is_id_list(value) -> bool:
+    return isinstance(value, list) and all(isinstance(item, str) for item in value)
+
+
+def _parse_marker(marker_key:str, body:bytes) -> Dict:
+    """
+    A completion marker, checked for the fields is_complete reads.
+
+    One the writer could not have produced raises naming its key, which the
+    parse error alone does not. The key is what an operator has to delete: a
+    re-stage replaces only the marker named for the chunks it writes.
+
+    Every writer stores a non-empty chunk_ids, so one missing or empty is
+    rejected rather than read as covering nothing. count and content_hash are
+    derived from chunk_ids, so they are checked for agreement when present.
+    That catches an edited marker, not a forged one: anyone who can write a
+    marker can compute both.
+    """
+    try:
+        marker = json.loads(body.decode('UTF-8'))
+    except ValueError as e:
+        raise CompletionMarkerError(f'A completion marker is not JSON [key: {marker_key}]: {e!s}') from e
+
+    if not isinstance(marker, dict):
+        raise CompletionMarkerError(f'A completion marker is not a JSON object [key: {marker_key}]')
+
+    if 'chunk_ids' not in marker:
+        raise CompletionMarkerError(f'A completion marker has no chunk_ids [key: {marker_key}]')
+
+    for name in ('chunk_ids', 'source_chunk_ids'):
+        if name in marker and not _is_id_list(marker[name]):
+            raise CompletionMarkerError(f'A completion marker has a {name} that is not a list of chunk ids [key: {marker_key}]')
+
+    if not marker['chunk_ids']:
+        raise CompletionMarkerError(f'A completion marker declares no chunk ids [key: {marker_key}]')
+
+    if not isinstance(marker.get('final', True), bool):
+        raise CompletionMarkerError(f'A completion marker has a final that is not true or false [key: {marker_key}]')
+
+    if 'count' in marker and marker['count'] != len(marker['chunk_ids']):
+        raise CompletionMarkerError(f'A completion marker has a count that does not match its chunk_ids [key: {marker_key}]')
+
+    if 'content_hash' in marker and marker['content_hash'] != node_ids_hash(marker['chunk_ids']):
+        raise CompletionMarkerError(f'A completion marker has a content_hash that does not match its chunk_ids [key: {marker_key}]')
+
+    return marker
+
+
+def warn_unreadable_marker(source_doc_prefix:str, error:CompletionMarkerError):
+    """Logs a marker that makes its document read as incomplete, and the fix."""
+    logger.warning(
+        f'A completion marker cannot be read, so its source document reads as incomplete '
+        f'[prefix: {source_doc_prefix}]: {error!s}. Delete the marker: a re-stage replaces '
+        f'a marker only under the name it writes, so until then every build skips this document.'
+    )
+
+
 def read_markers(marker_keys, bucket_name:str, s3_client) -> List[Dict]:
     """The markers under a source document prefix."""
     markers = []
@@ -161,7 +224,7 @@ def read_markers(marker_keys, bucket_name:str, s3_client) -> List[Dict]:
         with io.BytesIO() as io_stream:
             s3_client.download_fileobj(bucket_name, marker_key, io_stream)
             io_stream.seek(0)
-            markers.append(json.loads(io_stream.read().decode('UTF-8')))
+            markers.append(_parse_marker(marker_key, io_stream.read()))
     return markers
 
 
@@ -192,9 +255,20 @@ def is_complete(node_ids, marker_keys, bucket_name:str, s3_client) -> bool:
     A source stored in several parts is accounted for by the part that ends it,
     which declares every chunk id stored for the source. A marker written before
     that existed declares only its own chunk ids.
-    """
-    markers = read_markers(marker_keys, bucket_name, s3_client)
 
+    This checks that a write finished, not who made it. Markers are unsigned and
+    name no run, and they cover chunk ids, not content (content_hash hashes the
+    ids), so a marker that accounts for the chunks beside it is trusted whoever
+    wrote both. Write access to the collection prefix is the boundary.
+
+    Raises:
+        CompletionMarkerError: If a marker is not one the writer could have stored.
+    """
+    return markers_account_for(node_ids, read_markers(marker_keys, bucket_name, s3_client))
+
+
+def markers_account_for(node_ids, markers:List[Dict]) -> bool:
+    """is_complete over markers already read."""
     final_markers = [marker for marker in markers if marker.get('final', True)]
     if not final_markers:
         return False
@@ -430,6 +504,17 @@ class S3DocDownloader(ConfiguredThreadCount, BaseComponent):
             logger.warning(f'Skipping an incomplete source document [prefix: {doc_key}, num_objects: {len(node_keys)}]')
             return None
 
+        # Read before the objects, so a marker that cannot be read costs no
+        # download, and skips this document rather than the batch beside it.
+        markers = None
+        if strict:
+            try:
+                markers = read_markers(marker_keys, self.bucket_name, s3_client)
+            except CompletionMarkerError as e:
+                warn_unreadable_marker(doc_key, e)
+                logger.warning(f'Skipping an incomplete source document [prefix: {doc_key}, num_objects: {len(node_keys)}]')
+                return None
+
         # Every object under the prefix merges into one SourceDocument, and a
         # run that packs a source's chunks differently writes a new object
         # beside the old one, so a node id can arrive twice. Keys sort
@@ -450,7 +535,7 @@ class S3DocDownloader(ConfiguredThreadCount, BaseComponent):
                         nodes.append(self.fn(node))
                     data = io_stream.readline().decode('UTF-8')
 
-        if strict and not is_complete(seen_node_ids, marker_keys, self.bucket_name, s3_client):
+        if strict and not markers_account_for(seen_node_ids, markers):
             logger.warning(f'Skipping an incomplete source document [prefix: {doc_key}, num_nodes: {len(nodes)}]')
             return None
 
@@ -787,7 +872,13 @@ class S3ChunkDownloader(ConfiguredThreadCount, BaseComponent):
                     for chunk_key in chunk_keys
                 ]
 
-                return chunk_keys, is_complete(chunk_ids, marker_keys, self.bucket_name, s3_client)
+                # Settled here rather than raised out of result(), which would end
+                # the read for every document after this one.
+                try:
+                    return chunk_keys, is_complete(chunk_ids, marker_keys, self.bucket_name, s3_client)
+                except CompletionMarkerError as e:
+                    warn_unreadable_marker(source_doc_prefix, e)
+                    return chunk_keys, False
 
             # Bounded sliding window: at most num_threads listings prefetch ahead,
             # so listing overlaps downloading without reading the whole collection.
