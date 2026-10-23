@@ -186,7 +186,8 @@ pytest lexical-graph-contrib/sparql/tests
 pytest lexical-graph/tests
 ```
 
-The integration tests use an in-memory RDFLib dataset by default. To also run
+The integration tests use an in-memory RDFLib dataset behind a test HTTP adapter
+by default, exercising the production client and result parsing. To also run
 against a SPARQL server and exercise the complete ingestion/query pipeline with
 PostgreSQL, install `psycopg2-binary` and `pgvector`, enable the `vector` extension
 in a test database, and set:
