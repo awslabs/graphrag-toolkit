@@ -59,6 +59,8 @@ class NamespaceConfig:
         return URIRef(f'{self.schema_namespace}{local_name}').n3()
 
     def instance_iri(self, kind: str, id_value) -> str:
+        if id_value is None:
+            raise ValueError(f'{kind} ID must not be None')
         value = quote(str(id_value), safe='')
         return URIRef(f'{self.instance_namespace}{kind}/{value}').n3()
 

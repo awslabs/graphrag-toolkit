@@ -259,6 +259,22 @@ class TestChunkGraphBuilding:
         assert 'chunk.`chunk_id`' not in query
         assert params.get('title') == 'ok'
 
+    def test_metadata_text_key_is_not_sent_as_chunk_content(self):
+        builder = ChunkGraphBuilder()
+        node = self._make_chunk_node()
+        node.metadata['chunk']['metadata'] = {'text': 'Metadata text', 'title': 'ok'}
+        client = self._make_graph_client()
+        with patch(
+            'graphrag_toolkit.lexical_graph.indexing.build.chunk_graph_builder.ChunkStoreFactory.for_chunk_store',
+            return_value=Mock(),
+        ):
+            builder.build(node, client)
+        query = self._metadata_setter_query(client)
+        params = client.execute_query_with_retry.call_args_list[0][0][1]['params'][0]
+        assert 'text' not in params
+        assert 'chunk.`text`' not in query
+        assert params['title'] == 'ok'
+
     @pytest.mark.parametrize('key', [
         '',                                    # empty
         '`);//',                               # only special chars, incl. backtick

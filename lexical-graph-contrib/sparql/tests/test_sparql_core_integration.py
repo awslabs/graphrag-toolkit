@@ -27,6 +27,7 @@ from graphrag_toolkit.lexical_graph.storage.chunk.in_graph_chunk_store import In
 from graphrag_toolkit.lexical_graph.storage.graph import GraphQueryOperation, MultiTenantGraphStore
 from graphrag_toolkit.lexical_graph.storage.vector import VectorStore
 from graphrag_toolkit.lexical_graph.versioning import VALID_FROM, VALID_TO
+from graphrag_toolkit_contrib.lexical_graph.storage.graph.sparql.ontology import instance_iri, tenant_graph_iri
 
 
 def source_node(source_id='doc1', title='Original', source_hash=None, metadata=None):
@@ -194,3 +195,64 @@ def test_standard_metadata_postprocessor_filters_native_results(graph_store, cat
     config = FilterConfig(source_filters=MetadataFilter(key='category', value=category))
     filtered = FilterByMetadata(ProcessorArgs(), config).process_results(collection, QueryBundle('query'), 'test')
     assert len(filtered.results) == expected_count
+
+
+@pytest.mark.parametrize('batch_enabled', [False, True])
+def test_chunk_metadata_text_does_not_overwrite_content(graph_store, batch_enabled):
+    node = TextNode(text='Original chunk body', metadata={
+        'chunk': {'chunkId': 'c1', 'metadata': {'text': 'Metadata text', 'page': 2}},
+    })
+    with GraphBatchClient(graph_store, batch_writes_enabled=batch_enabled, batch_write_size=1) as batch:
+        ChunkGraphBuilder().build(node, batch)
+        batch.apply_batch_operations()
+    assert InGraphChunkStore(graph_store).get_batch(['c1']) == {'c1': 'Original chunk body'}
+
+
+@pytest.mark.parametrize('delete_first', [False, True])
+def test_complement_rewrite_preserves_all_incoming_predicates(graph_store, delete_first):
+    namespace = graph_store.namespace
+    graph = tenant_graph_iri(str(graph_store.tenant_id), namespace)
+    other_graph = tenant_graph_iri('other', namespace)
+    local = instance_iri('entity', 'local', namespace)
+    resolved = instance_iri('entity', 'resolved', namespace)
+    graph_store.client.update(f'''{namespace.sparql_prefixes()}
+        INSERT DATA {{
+            GRAPH {graph} {{
+                {local} a lg:Entity ; lg:id "local" .
+                <urn:fact> lg:subject {local} ; lg:object {local} ; <urn:custom> {local} .
+            }}
+            GRAPH {other_graph} {{ <urn:fact> lg:subject {local} }}
+        }}''')
+    operations = [GraphQueryOperation.COPY_COMPLEMENT_RELATIONSHIPS, GraphQueryOperation.DELETE_COMPLEMENT]
+    if delete_first:
+        operations.reverse()
+    for _ in range(2):
+        for operation in operations:
+            graph_store.execute_query('', {'params': [{'c_id': 'local', 'n_id': 'resolved'}]}, operation=operation)
+    rows = graph_store.client.query('SELECT ?predicate ?target WHERE { <urn:fact> ?predicate ?target }',
+                                    default_graph=graph[1:-1])
+    assert {(row['predicate'], row['target']) for row in rows} == {
+        (namespace.schema_namespace + 'subject', resolved[1:-1]),
+        (namespace.schema_namespace + 'object', resolved[1:-1]),
+        ('urn:custom', resolved[1:-1]),
+    }
+    assert graph_store.client.query('SELECT ?target WHERE { <urn:fact> ?predicate ?target }',
+                                     default_graph=other_graph[1:-1]) == [{'target': local[1:-1]}]
+
+
+@pytest.mark.parametrize('missing_label', ['sc', 'oc'])
+def test_graph_summary_skips_null_class_labels(graph_store, missing_label):
+    row = {'sc_id': 'person', 'oc_id': 'company', 'sc': 'Person', 'oc': 'Company', 'p': 'WORKS_FOR'}
+    row[missing_label] = None
+    graph_store.execute_query('', {'params': [row]}, operation=GraphQueryOperation.UPDATE_GRAPH_SUMMARY)
+    namespace = graph_store.namespace
+    graph = tenant_graph_iri(str(graph_store.tenant_id), namespace)
+    rows = graph_store.client.query(f'''{namespace.sparql_prefixes()}
+        SELECT ?id ?value ?count WHERE {{
+            ?node a lg:SysClass ; lg:id ?id ; lg:count ?count .
+            OPTIONAL {{ ?node lg:value ?value }}
+        }}''', default_graph=graph[1:-1])
+    assert {result['id']: result.get('value') for result in rows} == {
+        'person': row['sc'], 'company': row['oc'],
+    }
+    assert all(result['count'] == 1 for result in rows)

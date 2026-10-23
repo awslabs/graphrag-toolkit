@@ -94,6 +94,8 @@ WHERE {{
 
 
 def _record_source_id_width(row: Dict[str, Any], graph, namespace: NamespaceConfig) -> str:
+    if row['width'] is None:
+        raise ValueError('Source ID width must not be None')
     config = instance_iri('sysconfig', row['configId'], namespace)
     pattern = _wrap(f'{config} {RDF_TYPE} {term("SysConfig", namespace)}', graph)
     triples = '\n'.join([
@@ -205,23 +207,27 @@ def _graph_summary(row: Dict[str, Any], graph, namespace: NamespaceConfig) -> st
     delta = 1 if two_class else 2
 
     sc_iri = instance_iri('sysclass', row['sc_id'], namespace)
+    sc_triples = [
+        f'{sc_iri} {RDF_TYPE} {term("SysClass", namespace)} .',
+        f'{sc_iri} {term("id", namespace)} {_lit(row["sc_id"])} .',
+    ]
+    if row.get('sc') is not None:
+        sc_triples.append(f'{sc_iri} {term("value", namespace)} {_lit(row["sc"])} .')
     ops = [
-        _insert_data('\n'.join([
-            f'{sc_iri} {RDF_TYPE} {term("SysClass", namespace)} .',
-            f'{sc_iri} {term("id", namespace)} {_lit(row["sc_id"])} .',
-            f'{sc_iri} {term("value", namespace)} {_lit(row.get("sc"))} .',
-        ]), graph),
+        _insert_data('\n'.join(sc_triples), graph),
         _increment(sc_iri, term('count', namespace), delta, graph),
     ]
 
     object_class_id = row['oc_id'] if two_class else row['sc_id']
     if two_class:
         oc_iri = instance_iri('sysclass', row['oc_id'], namespace)
-        ops.append(_insert_data('\n'.join([
+        oc_triples = [
             f'{oc_iri} {RDF_TYPE} {term("SysClass", namespace)} .',
             f'{oc_iri} {term("id", namespace)} {_lit(row["oc_id"])} .',
-            f'{oc_iri} {term("value", namespace)} {_lit(row.get("oc"))} .',
-        ]), graph))
+        ]
+        if row.get('oc') is not None:
+            oc_triples.append(f'{oc_iri} {term("value", namespace)} {_lit(row["oc"])} .')
+        ops.append(_insert_data('\n'.join(oc_triples), graph))
         ops.append(_increment(oc_iri, term('count', namespace), delta, graph))
     else:
         oc_iri = sc_iri
@@ -371,15 +377,9 @@ def _fact_relation_is_reified(row, graph, namespace):
 def _copy_complement_relationships(row, graph, namespace):
     complement = instance_iri('entity', row['c_id'], namespace)
     resolved = instance_iri('entity', row['n_id'], namespace)
-    predicate = term('object', namespace)
-    existing = _wrap(f'?fact {predicate} {complement}', graph)
-    old = _wrap(f'?fact {predicate} {complement}', graph)
-    new = _wrap(f'?fact {predicate} {resolved}', graph)
-    incoming = _wrap(f'?subject ?predicate {complement}', graph)
-    return (
-        f'DELETE {{ {old} }} INSERT {{ {new} }} WHERE {{ {existing} }} ;\n'
-        f'DELETE WHERE {{ {incoming} }}'
-    )
+    old = _wrap(f'?subject ?predicate {complement}', graph)
+    new = _wrap(f'?subject ?predicate {resolved}', graph)
+    return f'DELETE {{ {old} }} INSERT {{ {new} }} WHERE {{ {old} }}'
 
 
 def _delete_complement(row, graph, namespace):

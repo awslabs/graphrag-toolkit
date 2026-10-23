@@ -183,7 +183,7 @@ def test_local_entity_rewrite_preserves_reified_fact():
 
     assert 'DELETE' in update and 'INSERT' in update
     assert 'entity/local' in update and 'entity/resolved' in update
-    assert '#object>' in update
+    assert '?subject ?predicate' in update
     assert 'entity/local' in delete and 'DELETE WHERE' in delete
 
 
@@ -222,3 +222,17 @@ def test_local_entity_rewrite_moves_fact_object_when_delete_runs_first():
 def test_read_operation_cannot_be_rendered_as_update():
     with pytest.raises(NotImplementedError, match='get_facts'):
         render_update(GraphQueryOperation.GET_FACTS, {'statementIds': ['s1']})
+
+
+@pytest.mark.parametrize('operation, row', [
+    (GraphQueryOperation.RECORD_SOURCE_ID_WIDTH, {'configId': 'config', 'width': None}),
+    (GraphQueryOperation.RECORD_SOURCE_ID_WIDTH, {'configId': None, 'width': 32}),
+    (GraphQueryOperation.LINK_CHUNK_SOURCE, {'chunk_id': None, 'source_id': 's1'}),
+    (GraphQueryOperation.LINK_CHUNK_SOURCE, {'chunk_id': 'c1', 'source_id': None}),
+    (GraphQueryOperation.UPSERT_SOURCE, {'sourceId': None}),
+    (GraphQueryOperation.UPSERT_ENTITY, {'e_id': None}),
+    (GraphQueryOperation.UPSERT_FACT, {'fact_id': 'f1', 'statement_id': None}),
+])
+def test_null_required_values_are_rejected_before_rendering(operation, row):
+    with pytest.raises(ValueError, match='must not be None'):
+        render_update(operation, _rows(row))
