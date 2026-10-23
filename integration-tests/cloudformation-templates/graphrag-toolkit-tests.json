@@ -67,9 +67,9 @@
       "ConstraintDescription": "Must be a valid CIDR range of the form x.x.x.x/x."
     },
     "AllowPublicAccess": {
-      "Description": "Allow public access to the OpenSearch Serverless collection endpoint (only applies to environments that use OpenSearch Serverless). Note: SageMaker notebook instances require public access as OpenSearch Serverless VPC endpoints do not support private DNS resolution",
+      "Description": "Allow public access to the OpenSearch Serverless collection endpoint (only applies to environments that use OpenSearch Serverless). When false, the collection is reachable only through the VPC endpoint that the environment template creates",
       "Type": "String",
-      "Default": "true",
+      "Default": "false",
       "AllowedValues": [
         "true",
         "false"
@@ -78,6 +78,10 @@
     "DbPassword": {
 			"Description": "Database password (used by some store providers)",
 			"Type": "String",
+			"MinLength": 8,
+			"MaxLength": 64,
+			"AllowedPattern": "[A-Za-z0-9!._~-]+",
+			"ConstraintDescription": "Must contain between 8 and 64 characters, and only letters, numbers and the characters ! . _ ~ -",
 			"NoEcho": true
 		},
     "ExistingVpcId": {
