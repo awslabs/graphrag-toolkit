@@ -84,6 +84,32 @@ def test_client_property_uses_neptune_iam_store():
     store.client.close()
 
 
+@pytest.mark.parametrize('kwargs, message', [
+    ({'update_endpoint': 'https://example.test/update'}, 'one SPARQL endpoint'),
+    ({'username': 'user', 'password': 'secret'}, 'Basic authentication'),
+    ({'username': 'user'}, 'Basic authentication'),
+    ({'password': 'secret'}, 'Basic authentication'),
+    ({'headers': {'authorization': 'Bearer token'}}, 'Authorization header'),
+    ({'query_endpoint': 'http://example.test/sparql'}, 'HTTPS endpoint'),
+    ({'query_endpoint': 'https://user:secret@example.test/sparql'}, 'Basic authentication'),
+])
+def test_direct_client_rejects_conflicting_iam_configuration(kwargs, message):
+    arguments = {'query_endpoint': 'https://example.test/sparql', 'neptune_iam': True, **kwargs}
+    with pytest.raises(ValueError, match=message):
+        SPARQLDatabaseClient(**arguments)
+
+
+def test_direct_iam_client_accepts_the_same_query_and_update_endpoint():
+    endpoint = 'https://example.test:8182/sparql'
+    store = SPARQLDatabaseClient(
+        query_endpoint=endpoint, update_endpoint=endpoint,
+        neptune_iam=True, region_name='eu-central-1',
+    )
+    assert store.client.store.query_endpoint == endpoint
+    assert store.client.store.update_endpoint == endpoint
+    store.client.close()
+
+
 def test_execute_query_runs_caller_supplied_sparql_directly():
     store = _store()
     fake = _FakeClient()

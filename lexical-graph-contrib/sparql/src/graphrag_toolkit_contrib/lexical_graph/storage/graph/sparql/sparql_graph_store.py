@@ -5,6 +5,7 @@ import logging
 import time
 import uuid
 from typing import Any, Dict, List, Optional
+from urllib.parse import urlparse
 
 from llama_index.core.bridge.pydantic import Field, PrivateAttr, SecretStr
 
@@ -77,6 +78,23 @@ class SPARQLDatabaseClient(GraphStore):
             headers=headers or {},
             **kwargs,
         )
+        if self.neptune_iam:
+            parsed = urlparse(self.query_endpoint)
+            if parsed.scheme != 'https' or not parsed.hostname:
+                raise ValueError('Amazon Neptune IAM authentication requires an HTTPS endpoint')
+            if (self.username is not None or self.password is not None
+                    or parsed.username is not None or parsed.password is not None):
+                raise ValueError(
+                    'Amazon Neptune IAM authentication cannot be combined with Basic authentication'
+                )
+            if any(name.lower() == 'authorization' for name in self.headers):
+                raise ValueError(
+                    'Amazon Neptune IAM authentication cannot be combined with an Authorization header'
+                )
+            if self.update_endpoint is not None and self.update_endpoint != self.query_endpoint:
+                raise ValueError(
+                    'Amazon Neptune IAM uses one SPARQL endpoint for queries and updates'
+                )
 
     def __getstate__(self):
         self._client = None

@@ -74,21 +74,6 @@ class SPARQLGraphStoreFactory(GraphStoreFactoryMethod):
             )
 
         neptune_iam = auth_type == AWS_IAM_AUTH_TYPE
-        if neptune_iam:
-            if parsed.scheme != 'https':
-                raise ValueError('Amazon Neptune IAM authentication requires an HTTPS endpoint')
-            if username:
-                raise ValueError(
-                    'Amazon Neptune IAM authentication cannot be combined with Basic authentication'
-                )
-            if has_authorization_header:
-                raise ValueError(
-                    'Amazon Neptune IAM authentication cannot be combined with an Authorization header'
-                )
-            if update_endpoint is not None and update_endpoint != query_endpoint:
-                raise ValueError(
-                    'Amazon Neptune IAM uses one SPARQL endpoint for queries and updates'
-                )
 
         kwargs.pop('config', None)
         logger.debug(
