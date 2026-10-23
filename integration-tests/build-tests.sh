@@ -87,6 +87,7 @@ if [[ "$#" -gt 0 ]]; then
     echo "  --ssh-cidr <SSH CIDR block (default: auto-detected IP/32, use 0.0.0.0/0 for open access)>"
     echo "  --benchmark-data-dir <local directory containing benchmark data to upload>"
     echo "  --benchmark-data-s3-uri <S3 URI for benchmark data (synced at runtime instead of uploading)>"
+    echo "  --byokg-data-s3-uri <S3 prefix of the BYOKG KGQA datasets, for the benchmark.byokg-kgqa suite; BYOKG_KGQA_RUNS, BYOKG_SINGLE_BEST_MATCH, BYOKG_MAX_ITERATIONS are read from .env>"
     echo "  --benchmark-qa-limit <max number of QA pairs to evaluate (for prototype runs)>"
     echo "  --benchmark-extract-doc-limit <cap the number of source documents extracted by the batch_extract.py tests (only the first N docs are extracted); speeds up benchmark runs>"
     echo "  --benchmark-restarts <interrupt extraction this many times and restart under the same run id, or 'every-document' for one interruption per document; needs BENCHMARK_DOC_STORE=s3; overrides BENCHMARK_RESTARTS from .env>"
@@ -186,6 +187,7 @@ while [[ "$#" -gt 0 ]]; do
         --ssh-cidr) SSHCIDR="$2"; shift ;;
         --benchmark-data-dir) BENCHMARK_DATA_DIR="$2"; shift ;;
         --benchmark-data-s3-uri) BENCHMARK_DATA_S3_URI="$2"; shift ;;
+        --byokg-data-s3-uri) BYOKG_DATA_S3_URI="$2"; shift ;;
         --benchmark-qa-limit) BENCHMARK_QA_LIMIT="$2"; shift ;;
         --benchmark-extract-doc-limit) BENCHMARK_EXTRACT_DOC_LIMIT="$2"; shift ;;
         --benchmark-restarts) BENCHMARK_RESTARTS="$2"; shift ;;
@@ -379,6 +381,11 @@ printf 'export FAIL_FAST=%q\n' "$FAIL_FAST" >> lexical-graph-examples/.env.testi
 printf 'export TEST_EXTRACTION_LLM=%q\n' "$TEST_EXTRACTION_LLM" >> lexical-graph-examples/.env.testing
 printf 'export TEST_RESPONSE_LLM=%q\n' "$TEST_RESPONSE_LLM" >> lexical-graph-examples/.env.testing
 printf 'export BENCHMARK_JUDGE_LLM=%q\n' "$BENCHMARK_JUDGE_LLM" >> lexical-graph-examples/.env.testing
+GRAPHRAG_TOOLKIT_GIT_SHA=$(git -C "$GRAPHRAG_TOOLKIT_DIR" rev-parse HEAD 2>/dev/null || echo unknown)
+if ! git -C "$GRAPHRAG_TOOLKIT_DIR" diff --quiet HEAD 2>/dev/null; then
+	GRAPHRAG_TOOLKIT_GIT_SHA="$GRAPHRAG_TOOLKIT_GIT_SHA-dirty"
+fi
+printf 'export GRAPHRAG_TOOLKIT_GIT_SHA=%q\n' "$GRAPHRAG_TOOLKIT_GIT_SHA" >> lexical-graph-examples/.env.testing
 printf 'export INCLUDE_CLASSIFICATION_IN_ENTITY_ID=%q\n' "False" >> lexical-graph-examples/.env.testing
 if [[ "$TESTS" ]]; then
 	printf 'export TESTS=%q\n' "$TESTS" >> lexical-graph-examples/.env.testing
@@ -431,7 +438,8 @@ fi
 printf 'export BENCHMARK_USE_BATCH=%q\n' "${BENCHMARK_USE_BATCH:-true}" >> lexical-graph-examples/.env.testing
 # Forwarded only when set, so the notebook keeps the library defaults otherwise.
 for setting in EXTRACTION_NUM_WORKERS EXTRACTION_BATCH_SIZE EXTRACTION_NUM_THREADS_PER_WORKER \
-	SOURCE_ID_WIDTH DETECT_SOURCE_ID_COLLISIONS; do
+	SOURCE_ID_WIDTH DETECT_SOURCE_ID_COLLISIONS \
+	BYOKG_DATA_S3_URI BYOKG_KGQA_RUNS BYOKG_SINGLE_BEST_MATCH BYOKG_MAX_ITERATIONS; do
 	if [[ "${!setting:-}" ]]; then
 		printf "export $setting=%q\n" "${!setting}" >> lexical-graph-examples/.env.testing
 	fi
@@ -495,6 +503,7 @@ echo "SSHCIDR                  : $SSHCIDR"
 echo "TESTS                    : $TESTS"
 echo "BENCHMARK_DATA_DIR       : $BENCHMARK_DATA_DIR"
 echo "BENCHMARK_DATA_S3_URI    : $BENCHMARK_DATA_S3_URI"
+echo "BYOKG_DATA_S3_URI        : ${BYOKG_DATA_S3_URI:-}"
 echo "BENCHMARK_QA_LIMIT       : $BENCHMARK_QA_LIMIT"
 echo "BENCHMARK_EXTRACT_DOC_LIMIT : ${BENCHMARK_EXTRACT_DOC_LIMIT:-}"
 echo "BENCHMARK_RESTARTS       : ${BENCHMARK_RESTARTS:-}"

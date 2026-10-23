@@ -195,6 +195,59 @@ sh build-tests.sh \
 - Notebook: `ml.m5.xlarge` (16GB) — sufficient for 507 documents
 - Neptune: `db.r8g.2xlarge`
 
+### BYOKG KGQA (WebQSP, CWQ, CronQuestions, MedQA)
+
+BYOKG works on an existing knowledge graph, not a lexical graph built from documents, so
+it has its own suite on four KGQA datasets that ship with their KGs. There is no extract
+or build step: each test downloads its question and graph files from
+`BYOKG_DATA_S3_URI`, loads the graph in memory (`LocalKGStore`), and scores BYOKG with
+exact-match Hit (H@2 for MedQA: the KG answer plus the LLM's own answer). The stack's
+graph and vector stores are provisioned but not used.
+
+The data prefix must be in `BUCKET_NAME`: the notebook role's S3 access is scoped to
+that bucket, so a prefix anywhere else fails with AccessDenied. The response LLM is
+`TEST_RESPONSE_LLM`.
+
+```bash
+cd integration-tests
+source .env
+
+export STACK_PREFIX=byokg
+sh build-tests.sh \
+  --env-type neptune-graph \
+  --notebook-instance-type ml.m5.4xlarge \
+  --byokg-data-s3-uri s3://my-benchmarking-bucket/byokg-data/ \
+  --test-file benchmark.byokg-kgqa
+```
+
+The suite runs its four datasets one after another on one notebook. To run them in parallel, launch one stack per dataset with a distinct
+`STACK_PREFIX` and `--test benchmark_byokg_kgqa.<Dataset>ByokgKgqa`
+(`Medqa`, `Cronquestions`, `Webqsp`, `Cwq`), one `build-tests.sh` call at a time —
+calls share the local `temp/` and `target/` directories. `--benchmark-qa-limit` takes a
+seeded random subset and applies to every dataset in the run, so set it per stack: it
+is useful for WebQSP (1,628 Q) and CWQ (3,531 Q), while MedQA (236) and CronQuestions
+(600) are best run in full.
+
+Optional `.env` settings: `BYOKG_KGQA_RUNS` (repeats per setting, default 3),
+`BYOKG_SINGLE_BEST_MATCH` (`off`/`on`/`both`, default `both`), `BYOKG_MAX_ITERATIONS`
+(default 2). `build-tests.sh` sources `.env` after the shell environment, so values set
+there override inline ones. Results land under `benchmark-results/byokg-kgqa/<dataset>/`:
+`aggregate.json` (mean/min/max/spread per setting, with published reference scores)
+and per run `predictions.jsonl`, `summary.json`, `showcase_candidates.jsonl` — questions
+BYOKG answered from the graph that the LLM alone got wrong and that need multi-hop,
+multi-entity or temporal reasoning.
+
+**Resource requirements:**
+- Notebook: `ml.m5.4xlarge` (64GB) for WebQSP and CWQ — parsing the CWQ questions file
+  peaks at ~7.2 GB; `ml.m5.xlarge` is enough for MedQA and CronQuestions
+- Disk: the default 5 GB notebook volume fits all four datasets (~2.2 GB) because only
+  the question and graph files are fetched
+
+Running locally instead (no stack): `pip install -e lexical-graph -e byokg-rag`, then
+`python -m benchmarks.scripts.benchmark_byokg_kgqa --dataset cronquestions --s3-data
+s3://my-benchmarking-bucket/byokg-data/`. Data defaults to `./byokg-data`; keep it out
+of `benchmarks/`, which `build-tests.sh` packages wholesale.
+
 ## Running Multi-Retriever Comparison
 
 After the initial build + traversal run completes for a dataset, you can run all other retrievers against the same graph without rebuilding. This is done directly on the SageMaker notebook.
