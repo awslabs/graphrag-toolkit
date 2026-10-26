@@ -269,6 +269,23 @@ class TestGetRequestBody:
             assert request_body['max_tokens'] == 2000
             assert request_body['anthropic_version'] == 'bedrock-2023-05-31'
 
+    def test_get_request_body_claude_converts_messages(self):
+        """Verify get_request_body converts Claude messages with the installed anthropic SDK."""
+        mock_llm = Mock(spec=BedrockConverse)
+        mock_llm.model = 'us.anthropic.claude-haiku-4-5-20251001-v1:0'
+
+        messages = [
+            ChatMessage(role=MessageRole.SYSTEM, content="System prompt"),
+            ChatMessage(role=MessageRole.USER, content="User message")
+        ]
+
+        request_body = get_request_body(mock_llm, messages, {'max_tokens': 2000})
+
+        assert request_body['system'] == 'System prompt'
+        assert request_body['messages'] == [
+            {'role': 'user', 'content': [{'type': 'text', 'text': 'User message'}]}
+        ]
+
     def test_get_request_body_llama_model(self):
         """Verify get_request_body emits the Bedrock InvokeModel schema for Llama.
 
