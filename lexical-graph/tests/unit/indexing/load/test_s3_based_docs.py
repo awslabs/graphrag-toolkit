@@ -9,6 +9,7 @@ import threading
 import time
 
 import pytest
+from botocore.exceptions import ClientError
 from unittest.mock import Mock, patch, MagicMock
 from llama_index.core.schema import NodeRelationship, RelatedNodeInfo, TextNode
 from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import (
@@ -19,6 +20,7 @@ from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import (
     is_complete,
     is_completion_marker,
     node_ids_hash,
+    read_markers,
     S3DocDownloader,
     S3DocUploader,
     S3ChunkDownloader,
@@ -1319,6 +1321,20 @@ def _chunk_collection(layout, markers, recorded=True, marker_body=None):
     return mock_s3
 
 
+def _throttled(*args):
+    """The error botocore raises once its retries on a throttled read run out."""
+    raise ClientError({'Error': {'Code': 'SlowDown', 'Message': 'Please reduce your request rate.'}}, 'GetObject')
+
+
+def _failing(mock_s3, key):
+    """mock_s3, with reads of key raising as a throttled read does."""
+    serve = mock_s3.download_fileobj.side_effect
+    mock_s3.download_fileobj.side_effect = (
+        lambda bucket, k, stream: _throttled() if k == key else serve(bucket, k, stream)
+    )
+    return mock_s3
+
+
 def _read_chunk_collection(mock_s3):
     downloader = S3ChunkDownloader(
         key_prefix='p', collection_id='c', bucket_name='b', fn=lambda n: n
@@ -1422,9 +1438,8 @@ class TestWhatTheBuildTrusts:
 
     @pytest.mark.parametrize('marker_body', list(MALFORMED_MARKERS.values()), ids=list(MALFORMED_MARKERS))
     def test_a_malformed_marker_skips_only_its_document_naming_it(self, marker_body, caplog):
-        # Raising would end the read for every document after this one. The
-        # warning names the key: a re-stage does not replace a marker under a
-        # name it does not write, so an operator has to delete it.
+        # Left out with a warning naming the key, so its document reads as
+        # incomplete and the rest of the collection is still read.
         layout = {
             'p/c/doc-a/': ['p/c/doc-a/a1.json'],
             'p/c/doc-b/': ['p/c/doc-b/b1.json', 'p/c/doc-b/b2.json'],
@@ -1441,7 +1456,7 @@ class TestWhatTheBuildTrusts:
 
         assert read == [['a1'], ['c1']]
         marker_key = completion_marker_key('p/c/doc-b', ['b1', 'b2'])
-        assert any(marker_key in r.getMessage() and 'Delete the marker' in r.getMessage() for r in caplog.records)
+        assert any(marker_key in r.getMessage() and 'Ignoring a completion marker' in r.getMessage() for r in caplog.records)
 
     def test_a_marker_declaring_nothing_over_an_empty_prefix_is_not_a_document(self):
         # A prefix holding only a marker would otherwise read as a document with
@@ -1460,6 +1475,102 @@ class TestWhatTheBuildTrusts:
         )
 
         assert _read_chunk_collection(mock_s3) == [['a1']]
+
+    def test_a_malformed_marker_beside_one_that_accounts_for_the_prefix_is_ignored(self):
+        # What a re-stage leaves when the bad marker is under a name it does
+        # not write: the document reads again rather than staying skipped.
+        layout = {'p/c/doc-a/': ['p/c/doc-a/a1.json', 'p/c/doc-a/a2.json']}
+        mock_s3 = _chunk_collection(
+            layout, {'p/c/doc-a/': [['a1', 'a2'], ['a1']]},
+            marker_body=lambda node_ids: _as_written(node_ids) if len(node_ids) == 2 else 'not json',
+        )
+
+        assert _read_chunk_collection(mock_s3) == [['a1', 'a2']]
+
+    def test_a_marker_that_cannot_be_fetched_skips_only_its_document(self, caplog):
+        layout = {'p/c/doc-a/': ['p/c/doc-a/a1.json'], 'p/c/doc-b/': ['p/c/doc-b/b1.json']}
+        mock_s3 = _failing(
+            _chunk_collection(layout, {'p/c/doc-a/': [['a1']], 'p/c/doc-b/': [['b1']]}, marker_body=_as_written),
+            completion_marker_key('p/c/doc-a', ['a1']),
+        )
+
+        with caplog.at_level(logging.WARNING):
+            read = _read_chunk_collection(mock_s3)
+
+        assert read == [['b1']]
+        per_document = [r.getMessage() for r in caplog.records if "prefix: p/c/doc-a/" in r.getMessage()]
+        assert len(per_document) == 1, 'one line per skipped document'
+        assert 'Could not read the markers' in per_document[0] and 'SlowDown' in per_document[0]
+
+    def test_the_read_ends_with_one_line_naming_what_it_left_out(self, caplog):
+        layout = {'p/c/doc-a/': ['p/c/doc-a/a1.json'], 'p/c/doc-b/': ['p/c/doc-b/b1.json']}
+        mock_s3 = _chunk_collection(layout, {'p/c/doc-b/': [['b1']]}, marker_body=_as_written)
+
+        with caplog.at_level(logging.WARNING):
+            _read_chunk_collection(mock_s3)
+
+        summaries = [r.getMessage() for r in caplog.records if 'Read the collection without' in r.getMessage()]
+        assert summaries == ["Read the collection without 1 of 2 source documents, which read as incomplete [prefixes: ['p/c/doc-a/']]"]
+
+
+def _stored_marker(chunk_ids, source_chunk_ids=None):
+    """The key and body the chunk uploader stores for one part."""
+    s3_client = Mock()
+    S3ChunkUploader(bucket_name='b', collection_prefix='p/c')._write_completion_marker(
+        'p/c/src', list(chunk_ids), s3_client, source_chunk_ids=source_chunk_ids
+    )
+    put = s3_client.put_object.call_args.kwargs
+    return put['Key'], put['Body']
+
+
+class TestWhichMarkersTheReaderKeeps:
+    """Each rule the reader holds a marker to, against what the writer stores."""
+
+    def _kept(self, stored):
+        s3_client = MagicMock()
+        s3_client.download_fileobj.side_effect = lambda bucket, key, stream: stream.write(stored[key])
+        return read_markers(list(stored), 'b', s3_client)
+
+    @pytest.mark.parametrize('chunk_ids, source_chunk_ids', [
+        (['a', 'b'], ['a', 'b']),
+        (['a'], None),
+        (['b'], ['a', 'b']),
+    ], ids=['a source in one part', 'a part that leaves its source open', 'the part that ends a source'])
+    def test_every_marker_the_writer_stores_is_kept(self, chunk_ids, source_chunk_ids):
+        key, body = _stored_marker(chunk_ids, source_chunk_ids)
+
+        assert self._kept({key: body}) == [json.loads(body)]
+
+    def test_a_marker_from_before_the_other_fields_is_kept(self):
+        key = completion_marker_key('p/c/src', ['a'])
+
+        assert self._kept({key: b'{"chunk_ids": ["a"]}'}) == [{'chunk_ids': ['a']}]
+
+    @pytest.mark.parametrize('named_for, body', [
+        (['a'], {'chunk_ids': ['a'], 'count': True}),
+        (['a'], {'chunk_ids': ['a'], 'count': 1.0}),
+        (['a', 'b'], {'chunk_ids': ['a']}),
+        (['a', 'b'], {'chunk_ids': ['a', 'b'], 'final': True, 'source_chunk_ids': ['a']}),
+        (['a'], {'chunk_ids': ['a'], 'final': True, 'source_chunk_ids': []}),
+        (['a'], {'chunk_ids': ['a'], 'final': False, 'source_chunk_ids': ['a']}),
+    ], ids=['count is a boolean', 'count is a float', 'named for other chunks',
+            'source ids leave out the chunk ids', 'source ids empty', 'source ids on a part that is not final'])
+    def test_a_marker_the_writer_could_not_have_stored_is_left_out_naming_it(self, named_for, body, caplog):
+        key = completion_marker_key('p/c/src', named_for)
+
+        with caplog.at_level(logging.WARNING):
+            kept = self._kept({key: json.dumps(body).encode('UTF-8')})
+
+        assert kept == []
+        assert any(key in r.getMessage() and 'Ignoring a completion marker' in r.getMessage() for r in caplog.records)
+
+    def test_a_marker_that_cannot_be_fetched_raises(self):
+        # Not the marker's fault, so not left out: the caller decides.
+        s3_client = MagicMock()
+        s3_client.download_fileobj.side_effect = _throttled
+
+        with pytest.raises(ClientError):
+            read_markers([completion_marker_key('p/c/src', ['a'])], 'b', s3_client)
 
 
 class TestTheCollectionRecordsThatItIsMarked:
@@ -1595,10 +1706,11 @@ class TestTheJsonlReaderSkipsAnIncompleteDocument:
 
         assert self._read(objects, markers=[], recorded=False) == [['c1', 'c2']]
 
-    def _read_batch(self, sources, bad_source, marker_body):
+    def _read_batch(self, sources, bad_source, marker_body, raising=()):
         """
         Reads one batch of single-object prefixes, bad_source carrying the
-        malformed marker. Returns the documents read and the keys fetched.
+        malformed marker and reads of the keys in raising failing. Returns the
+        documents read and the keys fetched.
         """
         keys = {}
         prefixes = []
@@ -1620,6 +1732,8 @@ class TestTheJsonlReaderSkipsAnIncompleteDocument:
 
         def download_fileobj(bucket, key, stream):
             downloaded.append(key)
+            if key in raising:
+                _throttled()
             stream.write(keys[key].encode('UTF-8'))
 
         mock_s3.download_fileobj.side_effect = download_fileobj
@@ -1643,7 +1757,7 @@ class TestTheJsonlReaderSkipsAnIncompleteDocument:
 
         assert read == [[f'c{i}'] for i in range(6) if i != 2]
         marker_key = completion_marker_key('p/c/doc-2', ['c2'])
-        assert any(marker_key in r.getMessage() and 'Delete the marker' in r.getMessage() for r in caplog.records)
+        assert any(marker_key in r.getMessage() and 'Ignoring a completion marker' in r.getMessage() for r in caplog.records)
 
     def test_a_malformed_marker_costs_no_object_download(self):
         sources = {'doc-a': ['c1', 'c2']}
@@ -1651,6 +1765,29 @@ class TestTheJsonlReaderSkipsAnIncompleteDocument:
         _, downloaded = self._read_batch(sources, 'doc-a', MALFORMED_MARKERS['not JSON'])
 
         assert downloaded == [completion_marker_key('p/c/doc-a', ['c1', 'c2'])]
+
+    def test_a_marker_declaring_a_node_the_objects_lack_is_incomplete(self):
+        objects = {'p/c/doc-a/src-1-abcde.jsonl': self._jsonl(['c1', 'c2'])}
+
+        assert self._read(objects, markers=[['c1', 'c2', 'c3']]) == []
+
+    def test_a_marker_that_cannot_be_fetched_skips_only_its_document(self):
+        sources = {f'doc-{i}': [f'c{i}'] for i in range(3)}
+
+        read, _ = self._read_batch(
+            sources, None, _as_written, raising={completion_marker_key('p/c/doc-1', ['c1'])}
+        )
+
+        assert read == [['c0'], ['c2']]
+
+    def test_the_read_ends_with_one_line_naming_what_it_left_out(self, caplog):
+        sources = {f'doc-{i}': [f'c{i}'] for i in range(3)}
+
+        with caplog.at_level(logging.WARNING):
+            self._read_batch(sources, 'doc-1', MALFORMED_MARKERS['not JSON'])
+
+        summaries = [r.getMessage() for r in caplog.records if 'Read the collection without' in r.getMessage()]
+        assert summaries == ["Read the collection without 1 of 3 source documents, which read as incomplete [prefixes: ['p/c/doc-1/']]"]
 
     def test_a_prefix_with_no_marker_is_skipped_without_downloading(self):
         # A prefix holding no marker cannot read complete whatever the objects
@@ -1813,7 +1950,7 @@ class TestReadingAPrefixThatLostAPart:
     """Whether the markers under a prefix account for what is there."""
 
     def _is_complete(self, present, markers):
-        marker_keys = [f'p/c/src-1/_markers/m{i}' for i in range(len(markers))]
+        marker_keys = [completion_marker_key('p/c/src-1', marker['chunk_ids']) for marker in markers]
         bodies = dict(zip(marker_keys, markers))
 
         mock_s3 = MagicMock()

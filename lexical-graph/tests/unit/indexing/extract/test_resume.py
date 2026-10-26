@@ -385,6 +385,20 @@ class TestWhatARestartTrusts:
         assert skipped == set()
         marker_key = completion_marker_key(f'{KEY_PREFIX}/{COLLECTION_ID}/{self.PLANTED}', ['c1', 'c2'])
         assert any(
-            marker_key in record.getMessage() and 'Delete the marker' in record.getMessage()
+            marker_key in record.getMessage() and 'Ignoring a completion marker' in record.getMessage()
             for record in caplog.records
         ), 'the warning names the marker and says what clears it'
+
+    def test_one_re_stage_settles_a_source_whose_bad_marker_it_cannot_replace(self):
+        # The re-stage writes the marker named for its chunks; the bad one,
+        # under another name, stays and is ignored, so the next restart skips
+        # the source rather than staging it again every time.
+        root = f'{KEY_PREFIX}/{COLLECTION_ID}/{self.PLANTED}'
+        written_key = completion_marker_key(root, ['c1', 'c2'])
+        foreign_key = completion_marker_key(root, ['foreign'])
+        s3_client = _s3(
+            [f'{root}/c1.json', f'{root}/c2.json', written_key, foreign_key],
+            {written_key: _as_written(['c1', 'c2']), foreign_key: b'not json'},
+        )
+
+        assert self._skipped(s3_client) == {self.PLANTED}
