@@ -20,6 +20,7 @@ from graphrag_toolkit.lexical_graph.indexing.utils.batch_inference_utils import 
     create_inference_inputs,
     get_parse_output_text_fn,
     download_output_files,
+    process_batch_output_sync,
     BATCH_MODEL_PROVIDERS,
     BatchModelProvider,
     BEDROCK_MIN_BATCH_SIZE,
@@ -757,3 +758,119 @@ class TestDownloadingAnOutputStaysUnderTheLocalDirectory:
 
         downloaded = sorted(call.kwargs['Filename'] for call in s3_client.download_file.call_args_list)
         assert downloaded == [str(local / 'in.jsonl.out'), str(local / 'manifest.json')]
+
+
+class TestRecordsTheBatchJobReportsAsErrors:
+    """
+    A job whose every record failed still ends Completed. Each failed record
+    comes back with an error object in place of modelOutput.
+    """
+
+    model_id = 'anthropic.claude-3-5-sonnet-20241022-v2:0'
+
+    @staticmethod
+    def _success(record_id):
+        return {
+            'recordId': record_id,
+            'modelInput': {'messages': [{'content': [{'text': f'prompt {record_id}'}]}]},
+            'modelOutput': {'content': [{'type': 'text', 'text': f'batch {record_id}'}]},
+        }
+
+    @staticmethod
+    def _error(record_id, retryable=False, expired=False, **error):
+        return {
+            'recordId': record_id,
+            'modelInput': {'messages': [{'content': [{'text': f'prompt {record_id}'}]}]},
+            'error': error or {
+                'errorCode': 400,
+                'errorMessage': 'messages.0.content.0.type: Field required',
+                'expired': expired,
+                'retryable': retryable,
+            },
+        }
+
+    def _process(self, tmp_path, records, files=None):
+        for (name, file_records) in (files or {'in.jsonl.out': records}).items():
+            with open(tmp_path / name, 'w', encoding='utf-8') as f:
+                for record in file_records:
+                    f.write(json.dumps(record) + '\n')
+        llm = Mock()
+        llm.llm.model = self.model_id
+        llm.predict.return_value = 'on demand'
+        return llm, (lambda: list(process_batch_output_sync(str(tmp_path), 'in.jsonl', llm)))
+
+    def test_an_output_with_no_errors_is_used_as_it_is(self, tmp_path, caplog):
+        llm, process = self._process(tmp_path, [self._success('r1'), self._success('r2')])
+
+        with caplog.at_level('WARNING'):
+            results = process()
+
+        assert results == [('r1', 'batch r1'), ('r2', 'batch r2')]
+        llm.predict.assert_not_called()
+        assert not [r for r in caplog.records if r.levelname == 'WARNING']
+
+    def test_some_errors_are_reported_and_redone_one_at_a_time(self, tmp_path, caplog):
+        llm, process = self._process(tmp_path, [self._success('r1'), self._error('r2'), self._error('r3')])
+
+        with caplog.at_level('WARNING'):
+            results = process()
+
+        assert sorted(results) == [('r1', 'batch r1'), ('r2', 'on demand'), ('r3', 'on demand')]
+        assert llm.predict.call_count == 2
+        warnings = [r.getMessage() for r in caplog.records if r.levelname == 'WARNING']
+        assert len(warnings) == 1
+        assert 'succeeded: 1' in warnings[0]
+        assert 'failed: 2' in warnings[0]
+        assert 'total: 3' in warnings[0]
+
+    def test_every_record_failing_fails_the_batch_before_any_record_is_redone(self, tmp_path):
+        llm, process = self._process(tmp_path, [self._error('r1'), self._error('r2'), self._error('r3')])
+
+        with pytest.raises(BatchJobError) as raised:
+            process()
+
+        message = str(raised.value)
+        assert 'succeeded: 0' in message
+        assert 'failed: 3' in message
+        assert 'total: 3' in message
+        assert 'messages.0.content.0.type: Field required' in message
+        llm.predict.assert_not_called()
+
+    def test_every_record_failing_with_a_retryable_error_is_redone_one_at_a_time(self, tmp_path, caplog):
+        llm, process = self._process(tmp_path, [self._error('r1'), self._error('r2', retryable=True)])
+
+        with caplog.at_level('WARNING'):
+            results = process()
+
+        assert sorted(results) == [('r1', 'on demand'), ('r2', 'on demand')]
+        assert llm.predict.call_count == 2
+        warnings = [r.getMessage() for r in caplog.records if r.levelname == 'WARNING']
+        assert len(warnings) == 1
+        assert 'succeeded: 0' in warnings[0]
+
+    def test_every_record_failing_with_an_expired_record_is_redone_one_at_a_time(self, tmp_path):
+        llm, process = self._process(tmp_path, [self._error('r1'), self._error('r2', expired=True)])
+
+        results = process()
+
+        assert sorted(results) == [('r1', 'on demand'), ('r2', 'on demand')]
+        assert llm.predict.call_count == 2
+
+    def test_an_error_that_does_not_say_whether_it_can_be_retried_is_not_retried(self, tmp_path):
+        llm, process = self._process(tmp_path, [self._error('r1', errorCode=500), self._error('r2', errorCode=500)])
+
+        with pytest.raises(BatchJobError) as raised:
+            process()
+
+        assert str(raised.value).endswith(' - 500')
+        llm.predict.assert_not_called()
+
+    def test_a_success_in_another_output_file_keeps_the_batch(self, tmp_path):
+        llm, process = self._process(tmp_path, None, files={
+            'in.jsonl.out': [self._error('r1'), self._error('r2')],
+            'in.jsonl.1.out': [self._success('r3')],
+        })
+
+        results = process()
+
+        assert sorted(results) == [('r1', 'on demand'), ('r2', 'on demand'), ('r3', 'batch r3')]

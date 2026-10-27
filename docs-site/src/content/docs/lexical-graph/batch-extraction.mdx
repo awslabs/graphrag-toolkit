@@ -184,6 +184,7 @@ Each batch extraction job must follow Amazon Bedrock's [batch inference quotas](
   - Each batch job needs 100-50,000 records
   - Jobs with fewer than 100 records are processed individually, not in batch
   - The feature doesn't check input file sizes — jobs will fail if they exceed Bedrock quotas
+  - Records a job fails are retried one at a time with on-demand calls. If every record fails and none is marked retryable or expired, extraction raises `BatchJobError` instead
 
 #### Worker configuration
 

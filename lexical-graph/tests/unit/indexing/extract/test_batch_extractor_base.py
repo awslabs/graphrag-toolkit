@@ -333,6 +333,19 @@ class TestAnOutputThatCannotBeUsed:
         assert submit.called
         assert '-a2-' in submit.call_args.kwargs['job_name']
 
+    def test_an_output_where_every_record_failed_is_resubmitted(self, tmp_path):
+        store = _store(record=_record(SUBMITTED))
+        extractor = _extractor(manifest_store=store, tmp_path=tmp_path)
+
+        submit = self._run_with_output(
+            extractor, self._completed_job(),
+            outputs=[BatchJobError('Batch job failed every record'), _extracted()],
+        )
+
+        assert submit.called
+        assert '-a2-' in submit.call_args.kwargs['job_name']
+        extractor.llm.predict.assert_not_called()
+
     def test_neither_is_recorded_as_complete_before_the_work_is_redone(self, tmp_path):
         store = _store(record=_record(SUBMITTED))
         extractor = _extractor(manifest_store=store, tmp_path=tmp_path)

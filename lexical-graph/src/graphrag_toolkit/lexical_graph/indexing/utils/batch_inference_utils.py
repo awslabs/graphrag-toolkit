@@ -522,6 +522,8 @@ def process_batch_output_sync(local_output_directory:str, input_filename:str, ll
             return (record_id, None)
 
 
+    error_records = []
+
     for filename in os.listdir(local_output_directory):
         if filename.startswith(input_filename):
             output_filepath = os.path.join(local_output_directory, filename)
@@ -536,13 +538,29 @@ def process_batch_output_sync(local_output_directory:str, input_filename:str, ll
                         success_count += 1
                         yield (record_id, model_output_text)
                     else:
-                        (record_id, response) = process_failed_record(record_id, json_data.get('modelInput', {}).get('messages', [{}])[0].get('content', [{}])[0].get('text', ''), error)
-                        if response:
-                            success_count += 1
-                        else:
-                            failure_count += 1
-                            logger.debug
-                        yield (record_id, response)
+                        error_records.append((record_id, json_data.get('modelInput', {}).get('messages', [{}])[0].get('content', [{}])[0].get('text', ''), error))
+
+    if error_records:
+        total_count = success_count + len(error_records)
+        counts = f'succeeded: {success_count}, failed: {len(error_records)}, total: {total_count}'
+        any_recoverable = any(
+            isinstance(error, dict) and (error.get('retryable') is True or error.get('expired') is True)
+            for (_, _, error) in error_records
+        )
+        if not success_count and not any_recoverable:
+            first_error = error_records[0][2]
+            first_error_message = (first_error.get('errorMessage') or first_error.get('errorCode')) if isinstance(first_error, dict) else first_error
+            logger.error(f'[Batch outputs] Batch job failed every record [input_file: {input_filename}, {counts}]')
+            raise BatchJobError(f'Batch job failed every record [input_file: {input_filename}, {counts}] - {first_error_message}')
+        logger.warning(f'[Batch outputs] Batch job failed records, processing them individually [input_file: {input_filename}, {counts}]')
+
+    for (record_id, text, error) in error_records:
+        (record_id, response) = process_failed_record(record_id, text, error)
+        if response:
+            success_count += 1
+        else:
+            failure_count += 1
+        yield (record_id, response)
 
     process_output_end = time.time()
                         
