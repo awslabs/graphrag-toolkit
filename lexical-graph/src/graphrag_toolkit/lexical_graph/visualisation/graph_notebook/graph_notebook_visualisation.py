@@ -11,32 +11,14 @@ from typing import Optional, List
 from graphrag_toolkit.lexical_graph.retrieval.model import SearchResult, EntityContexts
 from graphrag_toolkit.lexical_graph.tenant_id import to_tenant_id
 from graphrag_toolkit.lexical_graph.metadata import to_metadata_filter, FilterType
-from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import filter_config_to_opencypher_filters, search_string_from, escape_cypher_string
+from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import filter_config_to_opencypher_filters, search_string_from
 
 
 LABELS_TO_REFORMAT = ['Source', 'Chunk', 'Topic', 'Statement', 'Fact', 'Entity']
 
-def to_cypher_literal(value):
-    """Render a string, or a list or dict of them, as an openCypher literal with every string escaped.
-
-    Raises:
-        TypeError: For any other value type.
-        ValueError: For a dict key that is not a plain identifier.
-    """
-    if isinstance(value, str):
-        return f"'{escape_cypher_string(value)}'"
-    if isinstance(value, (list, tuple)):
-        return f"[{', '.join(to_cypher_literal(v) for v in value)}]"
-    if isinstance(value, dict):
-        for key in value:
-            if not isinstance(key, str) or not key.isidentifier():
-                raise ValueError(f'Cypher map key must be an identifier, got {key!r}')
-        entries = ', '.join(f'{key}: {to_cypher_literal(v)}' for key, v in value.items())
-        return '{' + entries + '}'
-    raise TypeError(f'Cannot render {type(value).__name__} as a Cypher literal')
-
-def format_params(params):
-    return f'[{",".join(set(map(to_cypher_literal, params)))}]'
+def distinct_params(params):
+    distinct = {json.dumps(param, sort_keys=True): param for param in params}
+    return list(distinct.values())
 
 def for_each_disjoint_unique(values):
     params = []
@@ -106,9 +88,14 @@ def get_query_params(nodes):
     return query_parameters
 
 def get_query(query_parameters, include_sources=True):
-    
-    sources_cypher = '' if not include_sources else f'''
-    UNWIND {format_params(query_parameters["source_topic_ids"])} AS source_topic_ids
+
+    param_names = ['topic_statement_ids', 'statement_id_sets', 'entity_statement_ids']
+    if include_sources:
+        param_names.insert(0, 'source_topic_ids')
+    params = {name: distinct_params(query_parameters[name]) for name in param_names}
+
+    sources_cypher = '' if not include_sources else '''
+    UNWIND $source_topic_ids AS source_topic_ids
     MATCH p=(s)<-[:`__EXTRACTED_FROM__`]-(c)<-[:`__MENTIONED_IN__`]-(t)
     WHERE id(s) = source_topic_ids.startId
     AND id(c) in source_topic_ids.intermediateIds
@@ -118,12 +105,12 @@ def get_query(query_parameters, include_sources=True):
     '''
     
     cypher = f'''{sources_cypher}
-    UNWIND {format_params(query_parameters["topic_statement_ids"])} AS topic_statement_ids
+    UNWIND $topic_statement_ids AS topic_statement_ids
     MATCH p=(t)<-[:`__BELONGS_TO__`]-(l)<-[:`__SUPPORTS__`]-()
     WHERE id(t) = topic_statement_ids.startId AND id(l) = topic_statement_ids.endId
     RETURN p
     UNION
-    UNWIND {format_params(query_parameters["statement_id_sets"])} AS statement_id_sets
+    UNWIND $statement_id_sets AS statement_id_sets
     CALL {{
     WITH statement_id_sets
     MATCH p=(l)<-[:`__SUPPORTS__`]-()<-[:`__SUBJECT__`|`__OBJECT__`]-()
@@ -133,7 +120,7 @@ def get_query(query_parameters, include_sources=True):
     }}
     RETURN p
     UNION
-    UNWIND {format_params(query_parameters["entity_statement_ids"])} AS entity_statement_ids
+    UNWIND $entity_statement_ids AS entity_statement_ids
     CALL {{
     WITH entity_statement_ids
     MATCH p=(e)-[:`__SUBJECT__`|`__OBJECT__`]->()-[:`__SUPPORTS__`]->(f)
@@ -142,24 +129,29 @@ def get_query(query_parameters, include_sources=True):
     }}
     RETURN p
     '''
-    
-    return cypher
+
+    return cypher, params
 
 def get_entity_context_query(query_parameters):
-    
-    cypher = f'''
+
+    cypher = '''
     MATCH p=(e)
-    WHERE id(e) in {to_cypher_literal(query_parameters["entity_ids"])}
+    WHERE id(e) in $entity_ids
     RETURN p
     UNION
-    UNWIND {format_params(query_parameters["entity_entity_ids"])} AS entity_entity_ids
+    UNWIND $entity_entity_ids AS entity_entity_ids
     MATCH p=(e1)-->(e2)
     WHERE id(e1) = entity_entity_ids.startId
     AND id(e2) = entity_entity_ids.endId
     RETURN p
     '''
-    
-    return cypher
+
+    params = {
+        'entity_ids': query_parameters['entity_ids'],
+        'entity_entity_ids': distinct_params(query_parameters['entity_entity_ids'])
+    }
+
+    return cypher, params
 
 def get_schema_query(tenant_id):
 
@@ -181,12 +173,17 @@ def get_sources_query(tenant_id, source_ids:Optional[List[str]]=None, filter:Opt
 
     label = tenant_id.format_label('__Source__')
     
+    if isinstance(source_ids, str):
+        raise TypeError('source_ids must be a list of source ids, not a string')
+
     where_clauses = []
-    
+    params = {}
+
     if filter:
         where_clauses.append(filter_config_to_opencypher_filters(to_metadata_filter(filter)))
     if source_ids:
-        where_clauses.append(f'(id(source) in {to_cypher_literal(source_ids)})')
+        where_clauses.append('(id(source) in $source_ids)')
+        params['source_ids'] = list(source_ids)
 
     where_clauses = [clause for clause in where_clauses if clause]
     where_clause = '' if not where_clauses else f"WHERE {' OR '.join(where_clauses)}"
@@ -198,31 +195,35 @@ def get_sources_query(tenant_id, source_ids:Optional[List[str]]=None, filter:Opt
     {where_clause}
     RETURN p LIMIT 1000
     '''
-    
-    return cypher
+
+    return cypher, params
 
 def get_entity_paths_query(tenant_id, entity_1, entity_2:Optional[str]=None, depth:int=3):
 
-    if type(depth) is not int or depth < 1 or depth > 3:
+    if isinstance(depth, bool) or not isinstance(depth, int):
+        raise TypeError(f'depth must be an int, got {type(depth).__name__}')
+    if depth < 1 or depth > 3:
         raise ValueError('depth must be between 1-3')
 
     label = tenant_id.format_label('__Entity__')
+    params = {'entity_1': search_string_from(entity_1)}
 
     if entity_2:
+        params['entity_2'] = search_string_from(entity_2)
         cypher = f"""MATCH p=(e1:{label})-[:`__RELATION__`*1..{depth}]-(e2:{label})
-        WHERE e1.search_str starts with '{search_string_from(entity_1)}'
-        AND e2.search_str starts with '{search_string_from(entity_2)}'
+        WHERE e1.search_str starts with $entity_1
+        AND e2.search_str starts with $entity_2
         AND e1 <> e2
         RETURN p LIMIT 1000
         """
     else:
         cypher = f"""MATCH p=(e1:{label})-[:`__RELATION__`*1..{depth}]-()
-        WHERE e1.search_str starts with '{search_string_from(entity_1)}'
+        WHERE e1.search_str starts with $entity_1
         RETURN p LIMIT 1000
         """
 
-    
-    return cypher
+
+    return cypher, params
 
 def get_entities_query(tenant_id):
 
@@ -369,7 +370,7 @@ class GraphNotebookVisualisation():
 
         return GraphHolder(g, original_oc_results_df)
 
-    def _display(self, cypher, edge_display_property:str=None):
+    def _display(self, cypher, edge_display_property:str=None, params:Optional[dict]=None):
         
         face = 'FontAwesome' if self.nb_classic else "'Font Awesome 5 Free'"
         
@@ -477,35 +478,40 @@ class GraphNotebookVisualisation():
           else:
               edge_label_length = 25 if self.display_edge_labels else 0
               line = f'query -d value -l 25 -rel {edge_label_length}'
-          
-          g.oc(line, cell=cypher, local_ns={}) 
-    
+
+          local_ns = {}
+          if params:
+              line = f'{line} -qp params'
+              local_ns['params'] = params
+
+          g.oc(line, cell=cypher, local_ns=local_ns)
+
     def display_results(self, response, include_sources=True):
 
         nodes = response if isinstance(response, list) else response.source_nodes
         query_parameters = get_query_params(nodes)
-        cypher = get_query(query_parameters, include_sources)
-        
-        self._display(cypher)
-        
+        cypher, params = get_query(query_parameters, include_sources)
+
+        self._display(cypher, params=params)
+
     def display_entity_contexts(self, response):
 
         nodes = response if isinstance(response, list) else response.source_nodes
         query_parameters = get_query_params(nodes)
-        cypher = get_entity_context_query(query_parameters)
-        
-        self._display(cypher)
-        
+        cypher, params = get_entity_context_query(query_parameters)
+
+        self._display(cypher, params=params)
+
     def display_sources(self, source_ids:Optional[List[str]]=None, filter:Optional[FilterType]=None, tenant_id:Optional[str]=None):
 
-        cypher = get_sources_query(to_tenant_id(tenant_id), source_ids, filter)
-        
-        self._display(cypher)
-        
+        cypher, params = get_sources_query(to_tenant_id(tenant_id), source_ids, filter)
+
+        self._display(cypher, params=params)
+
     def display_entity_paths(self, entity_1:str, entity_2:Optional[str]=None, tenant_id:Optional[str]=None, depth:int=3):
-        cypher = get_entity_paths_query(to_tenant_id(tenant_id), entity_1, entity_2, depth)
-        
-        self._display(cypher)
+        cypher, params = get_entity_paths_query(to_tenant_id(tenant_id), entity_1, entity_2, depth)
+
+        self._display(cypher, params=params)
 
     def display_entities(self, tenant_id:Optional[str]=None):
         cypher = get_entities_query(to_tenant_id(tenant_id))
