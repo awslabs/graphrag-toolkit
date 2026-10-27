@@ -20,11 +20,11 @@ from graphrag_toolkit.lexical_graph.utils import LLMCache
 from graphrag_toolkit.lexical_graph.indexing.extract.batch_config import BatchConfig
 
 from llama_index.llms.bedrock_converse import BedrockConverse
-from llama_index.llms.anthropic.utils import messages_to_anthropic_messages
+from llama_index.llms.anthropic.utils import blocks_to_anthropic_blocks
 from llama_index.llms.bedrock_converse.utils import messages_to_converse_messages
 from llama_index.core.schema import TextNode
 from llama_index.core.prompts import PromptTemplate
-from llama_index.core.base.llms.types import ChatMessage, MessageRole
+from llama_index.core.base.llms.types import ChatMessage, MessageRole, TextBlock
 
 
 logger = logging.getLogger(__name__)
@@ -106,8 +106,29 @@ def _build_nova_request(messages: List[ChatMessage], params: dict) -> dict:
     return request_body
 
 
+def _messages_to_anthropic_messages(messages: List[ChatMessage]) -> Tuple[List[dict], str]:
+    """Convert chat messages to Anthropic message dicts and a system prompt.
+
+    Handles system, user and assistant messages. Consecutive messages with the
+    same role are merged. The outer message dicts are built here rather than with
+    anthropic's MessageParam, which cannot be instantiated in anthropic 2.x.
+    """
+    anthropic_messages: List[dict] = []
+    system_prompt: List[str] = []
+    for message in messages:
+        if message.role == MessageRole.SYSTEM:
+            system_prompt.extend(b.text for b in message.blocks if isinstance(b, TextBlock))
+            continue
+        content = blocks_to_anthropic_blocks(message.blocks, message.additional_kwargs)
+        if anthropic_messages and anthropic_messages[-1]['role'] == message.role.value:
+            anthropic_messages[-1]['content'] += content
+        else:
+            anthropic_messages.append({'role': message.role.value, 'content': content})
+    return anthropic_messages, '\n'.join(system_prompt)
+
+
 def _build_claude_request(messages: List[ChatMessage], params: dict) -> dict:
-    anthropic_messages, system_prompt = messages_to_anthropic_messages(messages)
+    anthropic_messages, system_prompt = _messages_to_anthropic_messages(messages)
     request_body = {
         'anthropic_version': params.get('anthropic_version', 'bedrock-2023-05-31'),
         'messages': anthropic_messages,

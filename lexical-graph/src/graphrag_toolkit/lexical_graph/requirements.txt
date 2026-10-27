@@ -1,6 +1,5 @@
 --only-binary :all:
 
-anthropic<2
 anthropic-bedrock==0.8.0
 boto3>=1.40.61
 botocore>=1.40.61
