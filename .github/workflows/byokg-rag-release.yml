@@ -24,7 +24,7 @@ jobs:
         working-directory: byokg-rag
 
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           # Full history + tags so the changelog generator can find the previous
           # release tag and diff commit paths against it.
@@ -32,7 +32,7 @@ jobs:
           fetch-tags: true
 
       - name: Set up Python
-        uses: actions/setup-python@v7
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: "3.x"
 
@@ -54,7 +54,7 @@ jobs:
           cp dist/*.tar.gz dist/byokg-rag-latest.tar.gz
 
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: byokg-rag-dist
           path: byokg-rag/dist/
@@ -87,7 +87,7 @@ jobs:
           cp dist/byokg-rag-${{ steps.version.outputs.version }}.zip dist/byokg-rag-latest.zip
 
       - name: Upload byokg-rag zip artifact
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: byokg-rag-zip
           path: |
@@ -103,7 +103,7 @@ jobs:
           cp byokg-notebooks.zip byokg-notebooks-latest.zip
 
       - name: Upload byokg-notebooks zip artifact
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: byokg-notebooks
           path: |
