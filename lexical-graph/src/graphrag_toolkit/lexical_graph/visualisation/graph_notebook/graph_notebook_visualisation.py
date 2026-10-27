@@ -11,23 +11,32 @@ from typing import Optional, List
 from graphrag_toolkit.lexical_graph.retrieval.model import SearchResult, EntityContexts
 from graphrag_toolkit.lexical_graph.tenant_id import to_tenant_id
 from graphrag_toolkit.lexical_graph.metadata import to_metadata_filter, FilterType
-from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import filter_config_to_opencypher_filters, search_string_from
+from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import filter_config_to_opencypher_filters, search_string_from, escape_cypher_string
 
 
 LABELS_TO_REFORMAT = ['Source', 'Chunk', 'Topic', 'Statement', 'Fact', 'Entity']
 
+def to_cypher_literal(value):
+    """Render a string, or a list or dict of them, as an openCypher literal with every string escaped.
+
+    Raises:
+        TypeError: For any other value type.
+        ValueError: For a dict key that is not a plain identifier.
+    """
+    if isinstance(value, str):
+        return f"'{escape_cypher_string(value)}'"
+    if isinstance(value, (list, tuple)):
+        return f"[{', '.join(to_cypher_literal(v) for v in value)}]"
+    if isinstance(value, dict):
+        for key in value:
+            if not isinstance(key, str) or not key.isidentifier():
+                raise ValueError(f'Cypher map key must be an identifier, got {key!r}')
+        entries = ', '.join(f'{key}: {to_cypher_literal(v)}' for key, v in value.items())
+        return '{' + entries + '}'
+    raise TypeError(f'Cannot render {type(value).__name__} as a Cypher literal')
+
 def format_params(params):
-    
-    params_strs = [
-        (str(param)
-        .replace("'startId'", 'startId')
-        .replace("'intermediateIds'", 'intermediateIds')
-        .replace("'endId'", 'endId')
-        .replace("'endIds'", 'endIds'))
-        for param in params
-    ]
-    
-    return f'[{",".join(s for s in set(params_strs))}]'
+    return f'[{",".join(set(map(to_cypher_literal, params)))}]'
 
 def for_each_disjoint_unique(values):
     params = []
@@ -140,7 +149,7 @@ def get_entity_context_query(query_parameters):
     
     cypher = f'''
     MATCH p=(e)
-    WHERE id(e) in {str(query_parameters["entity_ids"])} 
+    WHERE id(e) in {to_cypher_literal(query_parameters["entity_ids"])}
     RETURN p
     UNION
     UNWIND {format_params(query_parameters["entity_entity_ids"])} AS entity_entity_ids
@@ -177,7 +186,7 @@ def get_sources_query(tenant_id, source_ids:Optional[List[str]]=None, filter:Opt
     if filter:
         where_clauses.append(filter_config_to_opencypher_filters(to_metadata_filter(filter)))
     if source_ids:
-        where_clauses.append(f'(id(source) in {str(source_ids)})')
+        where_clauses.append(f'(id(source) in {to_cypher_literal(source_ids)})')
 
     where_clauses = [clause for clause in where_clauses if clause]
     where_clause = '' if not where_clauses else f"WHERE {' OR '.join(where_clauses)}"
@@ -192,7 +201,10 @@ def get_sources_query(tenant_id, source_ids:Optional[List[str]]=None, filter:Opt
     
     return cypher
 
-def get_entity_paths_query(tenant_id, entity_1, entity_2:Optional[str]=None, depth:Optional[int]=3):
+def get_entity_paths_query(tenant_id, entity_1, entity_2:Optional[str]=None, depth:int=3):
+
+    if type(depth) is not int or depth < 1 or depth > 3:
+        raise ValueError('depth must be between 1-3')
 
     label = tenant_id.format_label('__Entity__')
 
@@ -490,11 +502,7 @@ class GraphNotebookVisualisation():
         
         self._display(cypher)
         
-    def display_entity_paths(self, entity_1:str, entity_2:Optional[str]=None, tenant_id:Optional[str]=None, depth:Optional[int]=3):
-        
-        if depth < 1 or depth > 3:
-            raise ValueError('depth must be between 1-3')
-           
+    def display_entity_paths(self, entity_1:str, entity_2:Optional[str]=None, tenant_id:Optional[str]=None, depth:int=3):
         cypher = get_entity_paths_query(to_tenant_id(tenant_id), entity_1, entity_2, depth)
         
         self._display(cypher)
