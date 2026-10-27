@@ -252,12 +252,19 @@ class GraphHolder():
             import graph_notebook.magics.graph_magic
         except ImportError as e:
             raise ImportError(
-                "graph_notebook package not found, install with 'pip install graph_notebook'"
+                "graph_notebook package not found, install with 'pip install \"graph_notebook>=3.8.2\"'"
             ) from e
         graph_notebook.magics.graph_magic.oc_results_df = self.original_oc_results_df
         return False
 
 class GraphNotebookVisualisation():
+    """
+    Displays graph query results in a graph-notebook (https://github.com/aws/graph-notebook) cell.
+
+    Requires graph-notebook 3.8.2 or later. The queries bind their ids as
+    openCypher query parameters, which graph-notebook passes with the %%oc
+    magic's -qp argument. Earlier versions reject -qp with an argparse usage error.
+    """
 
     def __init__(self, display_edge_labels=False, formatting_config=None, nb_classic=False):
         self.display_edge_labels = display_edge_labels
@@ -274,7 +281,7 @@ class GraphNotebookVisualisation():
             from graph_notebook.visualization.rows_and_columns import opencypher_get_rows_and_columns
         except ImportError as e:
             raise ImportError(
-                "graph_notebook package not found, install with 'pip install graph_notebook'"
+                "graph_notebook package not found, install with 'pip install \"graph_notebook>=3.8.2\"'"
             ) from e
         
         def oc_results_df(oc_res, oc_res_format: str = None):
