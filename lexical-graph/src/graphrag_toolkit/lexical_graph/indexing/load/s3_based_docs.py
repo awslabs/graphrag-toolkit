@@ -27,6 +27,7 @@ from graphrag_toolkit.lexical_graph import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.utils.id_validation import validate_id_segment
 
 from botocore.exceptions import BotoCoreError, ClientError
+from s3transfer.exceptions import RetriesExceededError, S3DownloadFailedError
 from llama_index.core.schema import TextNode, BaseComponent
 from llama_index.core.bridge.pydantic import PrivateAttr
 
@@ -165,6 +166,16 @@ def _is_id_list(value) -> bool:
     return isinstance(value, list) and all(isinstance(item, str) for item in value)
 
 
+# How many digest characters the writer kept before it kept the whole digest.
+_EARLIER_DIGEST_LENGTH = 5
+
+
+def _names_for(chunk_ids) -> Tuple[str, str]:
+    """The names a writer has stored a marker for these chunk ids under."""
+    name = completion_marker_name(chunk_ids)
+    return name, name[:len(COMPLETION_MARKER_PREFIX) + _EARLIER_DIGEST_LENGTH]
+
+
 def _parse_marker(marker_key:str, body:bytes) -> Dict:
     """
     A completion marker, checked against what the writer stores.
@@ -172,15 +183,17 @@ def _parse_marker(marker_key:str, body:bytes) -> Dict:
     Raises naming the key for anything else. The writer always stores a
     non-empty chunk_ids under the name derived from it, an integer count of
     them, and source_chunk_ids, covering at least chunk_ids, only on a final
-    part. count, content_hash and source_chunk_ids may be absent: markers
-    written before them lack them.
+    part. count, content_hash and source_chunk_ids may be absent, and the
+    name's digest cut to five characters: markers written before those
+    changes look that way.
 
     These catch an edited marker, not a forged one: anyone who can write a
     marker can compute every field and the name.
     """
     try:
         marker = json.loads(body.decode('UTF-8'))
-    except ValueError as e:
+    # RecursionError is what deeply nested JSON raises, and it is no ValueError.
+    except (ValueError, RecursionError) as e:
         raise CompletionMarkerError(f'A completion marker is not JSON [key: {marker_key}]: {e!s}') from e
 
     if not isinstance(marker, dict):
@@ -196,7 +209,7 @@ def _parse_marker(marker_key:str, body:bytes) -> Dict:
     if not marker['chunk_ids']:
         raise CompletionMarkerError(f'A completion marker declares no chunk ids [key: {marker_key}]')
 
-    if basename(marker_key) != completion_marker_name(marker['chunk_ids']):
+    if basename(marker_key) not in _names_for(marker['chunk_ids']):
         raise CompletionMarkerError(f'A completion marker is not named for its chunk_ids [key: {marker_key}]')
 
     final = marker.get('final', True)
@@ -226,10 +239,15 @@ def read_markers(marker_keys, bucket_name:str, s3_client) -> List[Dict]:
 
     Any other is left out with a warning naming it, and the rest decide. A
     malformed marker is always foreign, since S3 never stores part of an
-    object, and leaving it out loosens nothing: whoever can write one can
-    write a valid one. Raising instead would leave its document incomplete
-    for good, because a re-stage replaces a marker only under the name it
-    writes. Left out, one re-stage writes a marker that settles the document.
+    object, and leaving it out loosens nothing against a writer: whoever can
+    write one can write a valid one. Raising instead would leave its document
+    incomplete for good, because a re-stage replaces a marker only under the
+    name it writes. Left out, one re-stage writes a marker that settles the
+    document.
+
+    Leaving one out can only shrink what the markers declare. A source that
+    lost a chunk can read as complete only if the marker declaring that chunk
+    is the one left out, which takes a second, unrelated accident.
 
     A failed download raises.
     """
@@ -286,6 +304,12 @@ def is_complete(node_ids, marker_keys, bucket_name:str, s3_client) -> bool:
 # How many skipped prefixes the end-of-read summary names before only counting.
 _SKIPPED_NAMED = 20
 
+# What fetching a marker raises once botocore and s3transfer stop retrying.
+# s3transfer's errors derive from Exception, not BotoCoreError: a body that
+# breaks mid-read ends in RetriesExceededError, an object replaced mid-read in
+# S3DownloadFailedError.
+_MARKER_FETCH_ERRORS = (ClientError, BotoCoreError, RetriesExceededError, S3DownloadFailedError)
+
 
 def _warn_unread_markers(source_doc_prefix:str, error:Exception):
     logger.warning(
@@ -301,7 +325,7 @@ def _summarise_skipped(skipped:List[str], num_prefixes:int):
     more = len(skipped) - _SKIPPED_NAMED
     logger.warning(
         f'Read the collection without {len(skipped)} of {num_prefixes} source documents, '
-        f'which read as incomplete [prefixes: {skipped[:_SKIPPED_NAMED]}'
+        f'skipped as incomplete or unreadable [prefixes: {skipped[:_SKIPPED_NAMED]}'
         f'{f", and {more} more" if more > 0 else ""}]'
     )
 
@@ -549,7 +573,7 @@ class S3DocDownloader(ConfiguredThreadCount, BaseComponent):
         if strict:
             try:
                 markers = read_markers(marker_keys, self.bucket_name, s3_client)
-            except (ClientError, BotoCoreError) as e:
+            except _MARKER_FETCH_ERRORS as e:
                 _warn_unread_markers(doc_key, e)
                 return None
 
@@ -925,7 +949,7 @@ class S3ChunkDownloader(ConfiguredThreadCount, BaseComponent):
                 # already retried, and the summary reports the document.
                 try:
                     return chunk_keys, is_complete(chunk_ids, marker_keys, self.bucket_name, s3_client), None
-                except (ClientError, BotoCoreError) as e:
+                except _MARKER_FETCH_ERRORS as e:
                     return chunk_keys, False, e
 
             # Bounded sliding window: at most num_threads listings prefetch ahead,

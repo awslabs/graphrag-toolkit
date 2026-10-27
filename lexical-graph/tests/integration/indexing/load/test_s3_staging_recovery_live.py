@@ -29,6 +29,7 @@ from llama_index.core.schema import NodeRelationship, RelatedNodeInfo, TextNode
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import (
     COLLECTION_RECORD_NAME,
+    COMPLETION_MARKER_PREFIX,
     S3BasedDocs,
     is_completion_marker,
 )
@@ -205,6 +206,24 @@ class TestAMalformedMarker:
         _stage(key_prefix, collection_id, [_doc('src-2')], for_jsonl)
 
         assert _read_back(key_prefix, collection_id, for_jsonl) == ['src-1', 'src-2']
+
+    def test_a_marker_the_earlier_writer_stored_still_reads(self, key_prefix, for_jsonl):
+        # The earlier writer was the chunk uploader alone. It cut the name's
+        # digest to five characters and stored only these three fields.
+        if for_jsonl:
+            pytest.skip('the earlier writer stored no JSONL markers')
+
+        collection_id = 'short-name'
+        _stage(key_prefix, collection_id, [_doc('src-1')], for_jsonl)
+
+        marker_key, = self._markers_of(key_prefix, collection_id, 'src-1')
+        written = json.loads(GraphRAGConfig.s3.get_object(Bucket=S3_TEST_BUCKET, Key=marker_key)['Body'].read())
+        earlier = {name: written[name] for name in ('chunk_ids', 'count', 'content_hash')}
+        short_key = marker_key[:marker_key.rindex(COMPLETION_MARKER_PREFIX) + len(COMPLETION_MARKER_PREFIX) + 5]
+        _put(short_key, json.dumps(earlier).encode('UTF-8'))
+        _delete([marker_key])
+
+        assert _read_back(key_prefix, collection_id, for_jsonl) == ['src-1']
 
 
 @pytest.mark.parametrize('for_jsonl', [False, True], ids=['chunks', 'jsonl'])

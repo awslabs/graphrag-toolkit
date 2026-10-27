@@ -26,7 +26,12 @@ from graphrag_toolkit.lexical_graph.indexing.extract.resume import (
 )
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.indexing.extract import RunPlanStore
-from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import S3ChunkUploader, completion_marker_key
+from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import (
+    COMPLETION_MARKER_PREFIX,
+    S3ChunkUploader,
+    completion_marker_key,
+    node_ids_hash,
+)
 from graphrag_toolkit.lexical_graph.indexing.extract.run_manifest import (
     COMPLETE,
     SUBMITTED,
@@ -388,6 +393,16 @@ class TestWhatARestartTrusts:
             marker_key in record.getMessage() and 'Ignoring a completion marker' in record.getMessage()
             for record in caplog.records
         ), 'the warning names the marker and says what clears it'
+
+    def test_a_marker_named_by_the_earlier_writer_still_counts(self):
+        # Before the digest was kept whole the writer cut the name to five
+        # characters, with this body.
+        root = f'{KEY_PREFIX}/{COLLECTION_ID}/{self.PLANTED}'
+        key = f'{root}/_markers/{COMPLETION_MARKER_PREFIX}{node_ids_hash(["c1", "c2"])[:5]}'
+        body = {'chunk_ids': ['c1', 'c2'], 'count': 2, 'content_hash': node_ids_hash(['c1', 'c2'])}
+        s3_client = _s3([f'{root}/c1.json', f'{root}/c2.json', key], {key: body})
+
+        assert self._skipped(s3_client) == {self.PLANTED}
 
     def test_one_re_stage_settles_a_source_whose_bad_marker_it_cannot_replace(self):
         # The re-stage writes the marker named for its chunks; the bad one,
