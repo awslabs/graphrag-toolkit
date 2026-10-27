@@ -67,7 +67,7 @@
       "ConstraintDescription": "Must be a valid CIDR range of the form x.x.x.x/x."
     },
     "AllowPublicAccess": {
-      "Description": "Allow public access to the OpenSearch Serverless collection endpoint (only applies to environments that use OpenSearch Serverless). When false, the collection is reachable only through the VPC endpoint that the environment template creates",
+      "Description": "Allow public access to the OpenSearch Serverless collection endpoint (only applies to environments that use OpenSearch Serverless). When false, the collection is reachable only through the VPC endpoint that the environment template creates. Note: a VPC you supply through ExistingVpcId needs DNS hostnames and DNS support enabled and an OpenSearch Serverless interface endpoint. Without them the SageMaker notebook cannot resolve the collection endpoint, and the failure appears as a name-resolution error or timeout partway through a test run. Set this to true to use the public endpoint instead",
       "Type": "String",
       "Default": "false",
       "AllowedValues": [
