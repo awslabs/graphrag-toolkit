@@ -7,7 +7,7 @@ import json
 import tempfile
 from unittest.mock import Mock, patch, MagicMock
 from llama_index.core.schema import TextNode
-from llama_index.core.base.llms.types import ChatMessage, MessageRole
+from llama_index.core.base.llms.types import ChatMessage, ImageBlock, MessageRole, TextBlock
 from llama_index.llms.bedrock_converse import BedrockConverse
 
 from graphrag_toolkit.lexical_graph import BatchJobError
@@ -143,6 +143,12 @@ class TestSplitNodes:
         assert len(batches[1]) == 150
 
 
+def claude_request_body(messages, model='us.anthropic.claude-haiku-4-5-20251001-v1:0', **inference_params):
+    mock_llm = Mock(spec=BedrockConverse)
+    mock_llm.model = model
+    return get_request_body(mock_llm, messages, {'max_tokens': 2000, **inference_params})
+
+
 class TestGetRequestBody:
     """Tests for get_request_body function."""
     
@@ -189,33 +195,25 @@ class TestGetRequestBody:
     
     def test_get_request_body_claude_model(self):
         """Verify get_request_body creates correct structure for Claude models."""
-        mock_llm = Mock(spec=BedrockConverse)
-        mock_llm.model = 'anthropic.claude-3-sonnet-20240229-v1:0'
-        
         messages = [
             ChatMessage(role=MessageRole.USER, content="Test message")
         ]
-        inference_params = {'max_tokens': 2000, 'temperature': 0.8}
-        
-        request_body = get_request_body(mock_llm, messages, inference_params)
+
+        request_body = claude_request_body(messages, max_tokens=2000, temperature=0.8)
 
         assert 'anthropic_version' in request_body
         assert 'messages' in request_body
         assert request_body['max_tokens'] == 2000
         assert request_body['temperature'] == 0.8
-    
+
     def test_get_request_body_claude_with_system_prompt(self):
         """Verify get_request_body puts the system prompt in the top-level 'system' field for Claude models."""
-        mock_llm = Mock(spec=BedrockConverse)
-        mock_llm.model = 'anthropic.claude-3-sonnet-20240229-v1:0'
-
         messages = [
             ChatMessage(role=MessageRole.SYSTEM, content="System prompt"),
             ChatMessage(role=MessageRole.USER, content="User message")
         ]
-        inference_params = {'max_tokens': 2000, 'temperature': 0.8}
 
-        request_body = get_request_body(mock_llm, messages, inference_params)
+        request_body = claude_request_body(messages, max_tokens=2000, temperature=0.8)
 
         # System prompt belongs in the top-level 'system' field per the Anthropic
         # Bedrock invoke schema, not injected as a chat message.
@@ -228,15 +226,11 @@ class TestGetRequestBody:
 
     def test_get_request_body_claude_without_system_prompt(self):
         """Verify get_request_body omits the 'system' field for Claude models when there is no system prompt."""
-        mock_llm = Mock(spec=BedrockConverse)
-        mock_llm.model = 'anthropic.claude-3-sonnet-20240229-v1:0'
-
         messages = [
             ChatMessage(role=MessageRole.USER, content="User message")
         ]
-        inference_params = {'max_tokens': 2000, 'temperature': 0.8}
 
-        request_body = get_request_body(mock_llm, messages, inference_params)
+        request_body = claude_request_body(messages, max_tokens=2000, temperature=0.8)
 
         assert 'system' not in request_body
         assert request_body['messages'] == [
@@ -245,17 +239,13 @@ class TestGetRequestBody:
 
     def test_get_request_body_claude_without_temperature(self):
         """Verify get_request_body omits 'temperature' for Claude models when the params don't carry one."""
-        mock_llm = Mock(spec=BedrockConverse)
-        mock_llm.model = 'us.anthropic.claude-opus-5'
-
         messages = [
             ChatMessage(role=MessageRole.USER, content="User message")
         ]
+
         # BedrockConverse._get_all_kwargs() leaves temperature out for Claude
         # models that reject it (e.g. Opus 4.7 and later).
-        inference_params = {'max_tokens': 2000}
-
-        request_body = get_request_body(mock_llm, messages, inference_params)
+        request_body = claude_request_body(messages, model='us.anthropic.claude-opus-5', max_tokens=2000)
 
         assert 'temperature' not in request_body
         assert request_body['max_tokens'] == 2000
@@ -263,16 +253,13 @@ class TestGetRequestBody:
 
     def test_get_request_body_claude_merges_consecutive_roles(self):
         """Verify consecutive messages with the same role are merged into one."""
-        mock_llm = Mock(spec=BedrockConverse)
-        mock_llm.model = 'us.anthropic.claude-haiku-4-5-20251001-v1:0'
-
         messages = [
             ChatMessage(role=MessageRole.USER, content="First"),
             ChatMessage(role=MessageRole.USER, content="Second"),
             ChatMessage(role=MessageRole.ASSISTANT, content="Reply")
         ]
 
-        request_body = get_request_body(mock_llm, messages, {'max_tokens': 2000})
+        request_body = claude_request_body(messages)
 
         assert request_body['messages'] == [
             {'role': 'user', 'content': [
@@ -281,6 +268,29 @@ class TestGetRequestBody:
             ]},
             {'role': 'assistant', 'content': [{'type': 'text', 'text': 'Reply'}]}
         ]
+
+    def test_get_request_body_claude_joins_system_messages_with_newlines(self):
+        """Verify the text of several system messages is joined on newlines."""
+        messages = [
+            ChatMessage(role=MessageRole.SYSTEM, content="First rule"),
+            ChatMessage(role=MessageRole.SYSTEM, content="Second rule"),
+            ChatMessage(role=MessageRole.USER, content="User message")
+        ]
+
+        assert claude_request_body(messages)['system'] == 'First rule\nSecond rule'
+
+    def test_get_request_body_claude_keeps_only_text_blocks_of_a_system_message(self):
+        """Verify a system message contributes every text block and drops other block types."""
+        messages = [
+            ChatMessage(role=MessageRole.SYSTEM, blocks=[
+                TextBlock(text="Part one"),
+                ImageBlock(url="https://example.com/diagram.png"),
+                TextBlock(text="Part two")
+            ]),
+            ChatMessage(role=MessageRole.USER, content="User message")
+        ]
+
+        assert claude_request_body(messages)['system'] == 'Part one\nPart two'
 
     def test_get_request_body_llama_model(self):
         """Verify get_request_body emits the Bedrock InvokeModel schema for Llama.
