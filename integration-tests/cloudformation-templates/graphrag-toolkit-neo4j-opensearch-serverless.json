@@ -30,6 +30,9 @@
 			"Description": "Neo4j password",
 			"Type": "String",
 			"MinLength": 8,
+			"MaxLength": 64,
+			"AllowedPattern": "[A-Za-z0-9!._~-]+",
+			"ConstraintDescription": "Must contain between 8 and 64 characters, and only letters, numbers and the characters ! . _ ~ -",
 			"NoEcho": true
 		},
 		"SSHCIDR": {
@@ -652,6 +655,10 @@
 					}
 				],
 				"EbsOptimized": true,
+				"MetadataOptions": {
+					"HttpEndpoint": "enabled",
+					"HttpTokens": "required"
+				},
 				"BlockDeviceMappings": [
 					{
 						"DeviceName": "/dev/xvda",
