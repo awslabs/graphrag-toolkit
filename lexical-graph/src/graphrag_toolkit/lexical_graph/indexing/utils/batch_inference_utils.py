@@ -109,8 +109,8 @@ def _build_nova_request(messages: List[ChatMessage], params: dict) -> dict:
 def _messages_to_anthropic_messages(messages: List[ChatMessage]) -> Tuple[List[dict], str]:
     """Convert chat messages to Anthropic message dicts and a system prompt.
 
-    Handles system, user and assistant messages. Consecutive messages with the
-    same role are merged. The outer message dicts are built here rather than with
+    Handles system, user and assistant messages and raises ValueError for any
+    other role. Consecutive messages with the same role are merged. The outer message dicts are built here rather than with
     anthropic's MessageParam, which cannot be instantiated in anthropic 2.x.
     """
     anthropic_messages: List[dict] = []
@@ -119,6 +119,8 @@ def _messages_to_anthropic_messages(messages: List[ChatMessage]) -> Tuple[List[d
         if message.role == MessageRole.SYSTEM:
             system_prompt.extend(b.text for b in message.blocks if isinstance(b, TextBlock))
             continue
+        if message.role not in (MessageRole.USER, MessageRole.ASSISTANT):
+            raise ValueError(f'Unsupported message role for Claude batch request: {message.role}')
         content = blocks_to_anthropic_blocks(message.blocks, message.additional_kwargs)
         if anthropic_messages and anthropic_messages[-1]['role'] == message.role.value:
             anthropic_messages[-1]['content'] += content

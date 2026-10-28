@@ -292,6 +292,16 @@ class TestGetRequestBody:
 
         assert claude_request_body(messages)['system'] == 'Part one\nPart two'
 
+    def test_get_request_body_claude_rejects_roles_it_cannot_send(self):
+        """Verify a tool message fails when the request is built, not after the batch job runs."""
+        messages = [
+            ChatMessage(role=MessageRole.USER, content="User message"),
+            ChatMessage(role=MessageRole.TOOL, content="Tool result", additional_kwargs={'tool_call_id': 'call-1'})
+        ]
+
+        with pytest.raises(ValueError, match='Unsupported message role for Claude batch request'):
+            claude_request_body(messages)
+
     def test_get_request_body_llama_model(self):
         """Verify get_request_body emits the Bedrock InvokeModel schema for Llama.
 
