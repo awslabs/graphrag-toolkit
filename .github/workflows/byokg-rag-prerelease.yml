@@ -126,7 +126,7 @@ jobs:
             examples/byokg-rag/byokg-notebooks-${{ steps.version.outputs.version }}.zip
 
       - name: Attach artifacts to GitHub Pre-Release
-        uses: softprops/action-gh-release@efb35369e0ad2afab669f228072c1b0d510eae64 # v3
+        uses: softprops/action-gh-release@efb35369e0ad2afab669f228072c1b0d510eae64 # v3.0.3
         with:
           # Assets only; the changelog is written idempotently in the next step
           # (append_body here would duplicate it when a pre-release is re-run).

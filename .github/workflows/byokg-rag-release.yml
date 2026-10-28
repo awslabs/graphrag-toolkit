@@ -128,7 +128,7 @@ jobs:
             examples/byokg-rag/byokg-notebooks-${{ steps.version.outputs.version }}.zip
 
       - name: Attach artifacts to GitHub Release
-        uses: softprops/action-gh-release@efb35369e0ad2afab669f228072c1b0d510eae64 # v3
+        uses: softprops/action-gh-release@efb35369e0ad2afab669f228072c1b0d510eae64 # v3.0.3
         with:
           # Assets only; the changelog is written idempotently in the next step
           # (append_body here would duplicate it when a release is re-run).
@@ -169,6 +169,6 @@ jobs:
       - name: Remove non-versioned dist copies
         run: rm -f dist/*-latest.*
       - name: Publish to PyPI
-        uses: pypa/gh-action-pypi-publish@dc37677b2e1c63e2034f94d8a5b11f265b73ba33 # release/v1
+        uses: pypa/gh-action-pypi-publish@dc37677b2e1c63e2034f94d8a5b11f265b73ba33 # v1.14.2
         with:
           attestations: true
