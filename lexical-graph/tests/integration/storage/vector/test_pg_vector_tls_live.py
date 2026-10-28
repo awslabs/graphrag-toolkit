@@ -20,9 +20,12 @@ Run it on its own. The unit tests replace psycopg2 with a fake for the whole ses
 
 import os
 
-import psycopg2
 import pytest
 from llama_index.core.embeddings import MockEmbedding
+
+
+psycopg2 = pytest.importorskip('psycopg2')
+pytest.importorskip('pgvector')
 
 from graphrag_toolkit.lexical_graph.storage.vector.pg_vector_indexes import PGIndex
 
