@@ -26,6 +26,8 @@ from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
 from graphrag_toolkit.lexical_graph import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.utils.id_validation import validate_id_segment
 
+from botocore.exceptions import BotoCoreError, ClientError
+from s3transfer.exceptions import RetriesExceededError, S3DownloadFailedError
 from llama_index.core.schema import TextNode, BaseComponent
 from llama_index.core.bridge.pydantic import PrivateAttr
 
@@ -134,7 +136,9 @@ def list_collection(bucket_name:str, key_prefix:str, collection_id:str, paginato
 
     Both come out of the one listing, so the record costs no second call and no
     permission the listing did not already need. A collection with no record was
-    staged before markers existed and is read as it stands.
+    staged before markers existed and is read as it stands. Only the record's
+    presence decides this, so deleting it turns the check off for the whole
+    collection.
     """
     collection_path = join(key_prefix, collection_id, '')
     record_key = collection_record_key(key_prefix, collection_id)
@@ -154,14 +158,109 @@ def list_collection(bucket_name:str, key_prefix:str, collection_id:str, paginato
     return source_doc_prefixes, recorded
 
 
+class CompletionMarkerError(ValueError):
+    """A completion marker the writer could not have stored. Names its key."""
+
+
+def _is_id_list(value) -> bool:
+    return isinstance(value, list) and all(isinstance(item, str) for item in value)
+
+
+# How many digest characters the writer kept before it kept the whole digest.
+_EARLIER_DIGEST_LENGTH = 5
+
+
+def _names_for(chunk_ids) -> Tuple[str, str]:
+    """The names a writer has stored a marker for these chunk ids under."""
+    name = completion_marker_name(chunk_ids)
+    return name, name[:len(COMPLETION_MARKER_PREFIX) + _EARLIER_DIGEST_LENGTH]
+
+
+def _parse_marker(marker_key:str, body:bytes) -> Dict:
+    """
+    A completion marker, checked against what the writer stores.
+
+    Raises naming the key for anything else. The writer always stores a
+    non-empty chunk_ids under the name derived from it, an integer count of
+    them, and source_chunk_ids, covering at least chunk_ids, only on a final
+    part. count, content_hash and source_chunk_ids may be absent, and the
+    name's digest cut to five characters: markers written before those
+    changes look that way.
+
+    These catch an edited marker, not a forged one: anyone who can write a
+    marker can compute every field and the name.
+    """
+    try:
+        marker = json.loads(body.decode('UTF-8'))
+    # RecursionError is what deeply nested JSON raises, and it is no ValueError.
+    except (ValueError, RecursionError) as e:
+        raise CompletionMarkerError(f'A completion marker is not JSON [key: {marker_key}]: {e!s}') from e
+
+    if not isinstance(marker, dict):
+        raise CompletionMarkerError(f'A completion marker is not a JSON object [key: {marker_key}]')
+
+    if 'chunk_ids' not in marker:
+        raise CompletionMarkerError(f'A completion marker has no chunk_ids [key: {marker_key}]')
+
+    for name in ('chunk_ids', 'source_chunk_ids'):
+        if name in marker and not _is_id_list(marker[name]):
+            raise CompletionMarkerError(f'A completion marker has a {name} that is not a list of chunk ids [key: {marker_key}]')
+
+    if not marker['chunk_ids']:
+        raise CompletionMarkerError(f'A completion marker declares no chunk ids [key: {marker_key}]')
+
+    if basename(marker_key) not in _names_for(marker['chunk_ids']):
+        raise CompletionMarkerError(f'A completion marker is not named for its chunk_ids [key: {marker_key}]')
+
+    final = marker.get('final', True)
+    if not isinstance(final, bool):
+        raise CompletionMarkerError(f'A completion marker has a final that is not true or false [key: {marker_key}]')
+
+    count = marker.get('count', len(marker['chunk_ids']))
+    if not isinstance(count, int) or isinstance(count, bool) or count != len(marker['chunk_ids']):
+        raise CompletionMarkerError(f'A completion marker has a count that does not match its chunk_ids [key: {marker_key}]')
+
+    if 'content_hash' in marker and marker['content_hash'] != node_ids_hash(marker['chunk_ids']):
+        raise CompletionMarkerError(f'A completion marker has a content_hash that does not match its chunk_ids [key: {marker_key}]')
+
+    if 'source_chunk_ids' in marker:
+        if not final:
+            raise CompletionMarkerError(f'A completion marker has source_chunk_ids on a part that is not final [key: {marker_key}]')
+        if not set(marker['chunk_ids']) <= set(marker['source_chunk_ids']):
+            raise CompletionMarkerError(f'A completion marker has source_chunk_ids that leave out its chunk_ids [key: {marker_key}]')
+
+    return marker
+
+
 def read_markers(marker_keys, bucket_name:str, s3_client) -> List[Dict]:
-    """The markers under a source document prefix."""
+    """
+    The markers under a source document prefix that the writer could have
+    stored.
+
+    Any other is left out with a warning naming it, and the rest decide. A
+    malformed marker is always foreign, since S3 never stores part of an
+    object, and leaving it out loosens nothing against a writer: whoever can
+    write one can write a valid one. Raising instead would leave its document
+    incomplete for good, because a re-stage replaces a marker only under the
+    name it writes. Left out, one re-stage writes a marker that settles the
+    document.
+
+    Leaving one out can only shrink what the markers declare. A source that
+    lost a chunk can read as complete only if the marker declaring that chunk
+    is the one left out, which takes a second, unrelated accident.
+
+    A failed download raises.
+    """
     markers = []
     for marker_key in marker_keys:
         with io.BytesIO() as io_stream:
             s3_client.download_fileobj(bucket_name, marker_key, io_stream)
             io_stream.seek(0)
-            markers.append(json.loads(io_stream.read().decode('UTF-8')))
+            body = io_stream.read()
+        try:
+            markers.append(_parse_marker(marker_key, body))
+        except CompletionMarkerError as e:
+            logger.warning(f'Ignoring a completion marker the writer could not have stored, delete it to stop this warning: {e!s}')
     return markers
 
 
@@ -192,9 +291,47 @@ def is_complete(node_ids, marker_keys, bucket_name:str, s3_client) -> bool:
     A source stored in several parts is accounted for by the part that ends it,
     which declares every chunk id stored for the source. A marker written before
     that existed declares only its own chunk ids.
-    """
-    markers = read_markers(marker_keys, bucket_name, s3_client)
 
+    This checks that a write finished, not who made it. Markers are unsigned and
+    name no run, and they cover chunk ids, not content (content_hash hashes the
+    ids), so a marker that accounts for the chunks beside it is trusted whoever
+    wrote both. Write access to the collection prefix is the boundary. A marker
+    the writer could not have stored is left out, see read_markers.
+    """
+    return markers_account_for(node_ids, read_markers(marker_keys, bucket_name, s3_client))
+
+
+# How many skipped prefixes the end-of-read summary names before only counting.
+_SKIPPED_NAMED = 20
+
+# What fetching a marker raises once botocore and s3transfer stop retrying.
+# s3transfer's errors derive from Exception, not BotoCoreError: a body that
+# breaks mid-read ends in RetriesExceededError, an object replaced mid-read in
+# S3DownloadFailedError.
+_MARKER_FETCH_ERRORS = (ClientError, BotoCoreError, RetriesExceededError, S3DownloadFailedError)
+
+
+def _warn_unread_markers(source_doc_prefix:str, error:Exception):
+    logger.warning(
+        f'Could not read the markers for a source document, it is skipped by this build '
+        f'[prefix: {source_doc_prefix}, error: {error!s}]'
+    )
+
+
+def _summarise_skipped(skipped:List[str], num_prefixes:int):
+    """One line at the end of a read, so a build that left documents out does not end looking clean."""
+    if not skipped:
+        return
+    more = len(skipped) - _SKIPPED_NAMED
+    logger.warning(
+        f'Read the collection without {len(skipped)} of {num_prefixes} source documents, '
+        f'skipped as incomplete or unreadable [prefixes: {skipped[:_SKIPPED_NAMED]}'
+        f'{f", and {more} more" if more > 0 else ""}]'
+    )
+
+
+def markers_account_for(node_ids, markers:List[Dict]) -> bool:
+    """is_complete over markers already read."""
     final_markers = [marker for marker in markers if marker.get('final', True)]
     if not final_markers:
         return False
@@ -430,6 +567,21 @@ class S3DocDownloader(ConfiguredThreadCount, BaseComponent):
             logger.warning(f'Skipping an incomplete source document [prefix: {doc_key}, num_objects: {len(node_keys)}]')
             return None
 
+        # Read before the objects, so a marker that cannot be fetched costs no
+        # download, and skips this document rather than the batch beside it.
+        markers = None
+        if strict:
+            try:
+                markers = read_markers(marker_keys, self.bucket_name, s3_client)
+            except _MARKER_FETCH_ERRORS as e:
+                _warn_unread_markers(doc_key, e)
+                return None
+
+            # Nothing left to end the source, so no download can complete it.
+            if not any(marker.get('final', True) for marker in markers):
+                logger.warning(f'Skipping an incomplete source document [prefix: {doc_key}, num_objects: {len(node_keys)}]')
+                return None
+
         # Every object under the prefix merges into one SourceDocument, and a
         # run that packs a source's chunks differently writes a new object
         # beside the old one, so a node id can arrive twice. Keys sort
@@ -450,7 +602,7 @@ class S3DocDownloader(ConfiguredThreadCount, BaseComponent):
                         nodes.append(self.fn(node))
                     data = io_stream.readline().decode('UTF-8')
 
-        if strict and not is_complete(seen_node_ids, marker_keys, self.bucket_name, s3_client):
+        if strict and not markers_account_for(seen_node_ids, markers):
             logger.warning(f'Skipping an incomplete source document [prefix: {doc_key}, num_nodes: {len(nodes)}]')
             return None
 
@@ -472,6 +624,8 @@ class S3DocDownloader(ConfiguredThreadCount, BaseComponent):
 
         logger.debug(f'Started getting source documents from S3 [bucket: {self.bucket_name}, collection_path: {collection_path}, num_prefixes: {len(source_doc_prefixes)}]')
 
+        skipped = []
+
         with concurrent.futures.ThreadPoolExecutor(max_workers=self._num_threads()) as executor:
 
             for source_doc_prefixes_batch in source_doc_prefixes_batches:
@@ -490,11 +644,14 @@ class S3DocDownloader(ConfiguredThreadCount, BaseComponent):
                     repeat(strict)
                 )))
 
-                for doc in docs:
+                for key, doc in zip(keys, docs):
                     if doc is None:
+                        skipped.append(key)
                         continue
                     logger.debug(f'Yielding source document [source: {doc.source_id()}, num_nodes: {len(doc.nodes)}]')
                     yield doc
+
+        _summarise_skipped(skipped, len(source_doc_prefixes))
 
 class S3DocUploader(ConfiguredThreadCount, EncryptedPut, CompletionMarkers, BaseComponent):
 
@@ -780,18 +937,25 @@ class S3ChunkDownloader(ConfiguredThreadCount, BaseComponent):
                 ])
 
                 if not strict:
-                    return chunk_keys, True
+                    return chunk_keys, True, None
 
                 chunk_ids = [
                     chunk_id_from_key(chunk_key, source_doc_prefix)
                     for chunk_key in chunk_keys
                 ]
 
-                return chunk_keys, is_complete(chunk_ids, marker_keys, self.bucket_name, s3_client)
+                # Settled here rather than raised out of result(), which would end
+                # the read for every document after this one. botocore has
+                # already retried, and the summary reports the document.
+                try:
+                    return chunk_keys, is_complete(chunk_ids, marker_keys, self.bucket_name, s3_client), None
+                except _MARKER_FETCH_ERRORS as e:
+                    return chunk_keys, False, e
 
             # Bounded sliding window: at most num_threads listings prefetch ahead,
             # so listing overlaps downloading without reading the whole collection.
             remaining_prefixes = iter(source_doc_prefixes)
+            skipped = []
             in_flight = deque(
                 (source_doc_prefix, list_executor.submit(_list_chunk_keys, source_doc_prefix))
                 for source_doc_prefix in islice(remaining_prefixes, num_threads)
@@ -799,7 +963,7 @@ class S3ChunkDownloader(ConfiguredThreadCount, BaseComponent):
 
             while in_flight:
                 source_doc_prefix, listing = in_flight.popleft()
-                chunk_keys, complete = listing.result()
+                chunk_keys, complete, unread = listing.result()
 
                 next_prefix = next(remaining_prefixes, None)
                 if next_prefix is not None:
@@ -808,7 +972,11 @@ class S3ChunkDownloader(ConfiguredThreadCount, BaseComponent):
                     )
 
                 if not complete:
-                    logger.warning(f'Skipping an incomplete source document [prefix: {source_doc_prefix}, num_chunks: {len(chunk_keys)}]')
+                    if unread is not None:
+                        _warn_unread_markers(source_doc_prefix, unread)
+                    else:
+                        logger.warning(f'Skipping an incomplete source document [prefix: {source_doc_prefix}, num_chunks: {len(chunk_keys)}]')
+                    skipped.append(source_doc_prefix)
                     continue
 
                 # Download the current document's chunks only, then yield, so at
@@ -823,6 +991,8 @@ class S3ChunkDownloader(ConfiguredThreadCount, BaseComponent):
                 logger.debug(f'Yielding source document [source: {source_doc_prefix}, num_nodes: {len(nodes)}]')
 
                 yield SourceDocument(nodes=nodes)
+
+            _summarise_skipped(skipped, len(source_doc_prefixes))
 
 class S3ChunkUploader(ConfiguredThreadCount, EncryptedPut, CompletionMarkers, BaseComponent):
 

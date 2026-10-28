@@ -38,7 +38,13 @@ def staged_source_ids(bucket_name:str, key_prefix:str, collection_id:str, s3_cli
 
     Marker reads run on num_threads threads alongside the listing, with at
     most twice that many sources queued.
-    A source whose markers cannot be read is staged again.
+    A source whose markers cannot be fetched is staged again. A marker the
+    writer could not have stored is left out and the rest decide, so the first
+    re-stage writes one that settles the source; see read_markers.
+
+    Nothing ties a marker to the run that wrote it, so a source put there by
+    anything with write access to the collection is skipped like one a run
+    stored. See is_complete.
 
     The JSONL format keeps its node ids inside the objects, where a listing
     cannot reach them, so it is answered with nothing.
@@ -60,6 +66,7 @@ def staged_source_ids(bucket_name:str, key_prefix:str, collection_id:str, s3_cli
         try:
             return source_id, is_complete(chunk_ids, marker_keys, bucket_name, s3_client)
         except Exception as e:
+            # A failed read costs only a re-stage, so a throttled GetObject is not fatal.
             logger.warning(f'Could not read the markers for a source, it will be staged again [source_id: {source_id}, error: {e!s}]')
             return source_id, False
 
