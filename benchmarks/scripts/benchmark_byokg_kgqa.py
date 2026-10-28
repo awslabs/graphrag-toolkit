@@ -78,7 +78,9 @@ def build_engine(graph: Dict[str, Any], model: Optional[str], region: Optional[s
 
 def _tree_sha256(root: str, suffixes: Sequence[str]) -> str:
     h = hashlib.sha256()
-    for dirpath, dirnames, filenames in sorted(os.walk(root)):
+    # Pruning and sorting dirnames in place makes os.walk skip __pycache__ and visit
+    # directories in a fixed order (sorting the walk itself would consume it first).
+    for dirpath, dirnames, filenames in os.walk(root):
         dirnames[:] = sorted(d for d in dirnames if d != '__pycache__')
         for name in sorted(filenames):
             if name.endswith(tuple(suffixes)):
@@ -89,13 +91,31 @@ def _tree_sha256(root: str, suffixes: Sequence[str]) -> str:
     return h.hexdigest()
 
 
-def provenance(counter) -> Dict[str, Any]:
+def _file_sha256(path: str) -> str:
+    h = hashlib.sha256()
+    with open(path, 'rb') as f:
+        for block in iter(lambda: f.read(1 << 20), b''):
+            h.update(block)
+    return h.hexdigest()
+
+
+# The benchmark's own code: scoring, preprocessing and orchestration. It lives in this
+# repo, not in byokg_rag, so the package hash cannot see a scorer change.
+BENCHMARK_CODE = (os.path.abspath(__file__),
+                  os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'utils',
+                               'byokg_kgqa.py'))
+
+
+def provenance(counter, data_files: Optional[Dict[str, str]] = None) -> Dict[str, Any]:
     """What produced a result, so two runs can be shown to differ only in the code
     under test.
 
-    The stack copies byokg-rag in as source (no version, no .git), so the reliable
-    fingerprint is a content hash of the package and its prompts. The git SHA comes
-    from GRAPHRAG_TOOLKIT_GIT_SHA (set by build-tests.sh) or a local checkout.
+    Content hashes are the fingerprint: of the byokg-rag package and its prompts
+    (the stack copies it in as source, with no version or .git), of this benchmark's
+    own code, and of the data files actually loaded (data_files: {label: path}), so
+    a scorer change or a wrong graph file at the expected path is visible. The git
+    SHA (GRAPHRAG_TOOLKIT_GIT_SHA from build-tests.sh, else a local checkout) is
+    recorded for humans but not trusted: '-dirty' stays the same across edits.
     """
     git_sha = os.environ.get('GRAPHRAG_TOOLKIT_GIT_SHA')
     if not git_sha:
@@ -110,10 +130,15 @@ def provenance(counter) -> Dict[str, Any]:
         source, prompts = _tree_sha256(root, ('.py', '.yaml')), _tree_sha256(root, ('.yaml',))
     except ImportError:
         source = prompts = None
+    code = hashlib.sha256()
+    for path in BENCHMARK_CODE:
+        code.update(_file_sha256(path).encode())
     return {
         'git_sha': git_sha,
         'byokg_rag_source_sha256': source,
         'byokg_rag_prompts_sha256': prompts,
+        'benchmark_code_sha256': code.hexdigest(),
+        'data_sha256': {label: _file_sha256(path) for label, path in (data_files or {}).items()},
         'inference': {name: getattr(counter, name, None) for name in (
             'model_name', 'max_new_tokens', 'inference_config', 'reasoning_config', 'max_retries')},
     }
@@ -174,8 +199,9 @@ def run_question(engine, counter: CountingGenerator, question: Question,
 
     record['hit'] = hit(record['predictions'], question.answers)
     record['vanilla_hit'] = hit(record['vanilla_predictions'], question.answers)
-    record['hit@2'] = hit_at_2(record['predictions'], record['vanilla_predictions'],
-                               question.answers)
+    # An errored KG path is a miss here too: H@2 must not fall back to the no-KG guess alone.
+    record['hit@2'] = 0 if record['error'] else hit_at_2(
+        record['predictions'], record['vanilla_predictions'], question.answers)
     record['f1'] = f1(record['predictions'], question.answers)
     record['answer_in_context'] = answer_in_context(record['context'], question.answers)
     record['showcase'] = showcase_reasons(record)
@@ -195,8 +221,13 @@ def run_once(engine, counter, questions: Sequence[Question], schemas: Dict[str, 
             preds.write(json.dumps(record) + '\n')
             if record['showcase']:
                 show.write(json.dumps(record) + '\n')
-            if i == ABORT_IF_FIRST_N_FAIL and all(r['error'] for r in records):
-                raise RuntimeError(f'first {i} questions all failed; last error: {record["error"]}')
+            if i == ABORT_IF_FIRST_N_FAIL:
+                # Either path failing throughout makes the run unusable (the error gate
+                # would reject it at the end), so stop before paying for the rest.
+                for field_ in ('error', 'vanilla_error'):
+                    if all(r[field_] for r in records):
+                        raise RuntimeError(f'first {i} questions all failed ({field_}); '
+                                           f'last: {record[field_]}')
             if i % 25 == 0:
                 logger.info('%s: %d/%d, running Hit %.1f', out_dir, i, len(questions),
                             100 * sum(r['hit'] for r in records) / i)
@@ -204,9 +235,10 @@ def run_once(engine, counter, questions: Sequence[Question], schemas: Dict[str, 
     summary['run_key'] = run_key
     with open(os.path.join(out_dir, 'summary.json'), 'w', encoding='utf-8') as f:
         json.dump(summary, f, indent=2)
-    if summary['n_errors']:
-        logger.warning('%s: %d/%d questions errored — see "error" in predictions.jsonl',
-                       out_dir, summary['n_errors'], summary['n'])
+    for count, field_ in (('n_errors', 'error'), ('n_vanilla_errors', 'vanilla_error')):
+        if summary[count]:
+            logger.warning('%s: %d/%d questions errored — see "%s" in predictions.jsonl',
+                           out_dir, summary[count], summary['n'], field_)
     return summary
 
 
@@ -236,20 +268,40 @@ def validate_config(single_best_match: str, runs: int, iterations: int) -> None:
             raise ValueError(f'{name} must be >= 1, got {value}')
 
 
+# More than this share of errored questions in any run — on the KG path or the no-KG
+# baseline — fails the test, and keeps resume from reusing the run: the result would
+# be measuring throttling or misconfiguration, not BYOKG.
+MAX_ERROR_RATE = 0.05
+
+
+def error_rates(summary: Dict[str, Any]) -> Dict[str, float]:
+    return {'KG path': summary['n_errors'] / summary['n'],
+            'no-KG baseline': summary['n_vanilla_errors'] / summary['n']}
+
+
 def run_key(question_ids: Sequence[str], single_best_match: bool, iterations: int,
             prov: Dict[str, Any]) -> str:
-    """Fingerprint of everything that determines a run's result except sampling noise."""
+    """Fingerprint of every input that determines a run's result.
+
+    Inputs only: two runs with the same key can still differ by sampling or
+    throttling; that is what the repeats and the error-rate gate are for. Content
+    hashes, not git_sha, cover the code and data — a '-dirty' SHA does not change
+    with further edits.
+    """
     payload = {'question_ids': list(question_ids), 'single_best_match': single_best_match,
                'iterations': iterations, 'inference': prov['inference'],
-               'source': prov['byokg_rag_source_sha256']}
+               'byokg_rag_source': prov['byokg_rag_source_sha256'],
+               'benchmark_code': prov['benchmark_code_sha256'], 'data': prov['data_sha256']}
     return hashlib.sha256(json.dumps(payload, sort_keys=True, default=str).encode()).hexdigest()
 
 
 def completed_run(run_dir: str, key: str) -> Optional[Dict[str, Any]]:
-    """The summary of a finished run with this exact fingerprint, or None to run it.
+    """The summary of a finished, healthy run with this exact fingerprint, or None
+    to run it.
 
     A summary.json left by a different configuration fails loudly rather than being
-    reused or silently overwritten.
+    reused or silently overwritten. One whose error rates exceed MAX_ERROR_RATE is
+    rerun, so a throttled run is never carried forward.
     """
     path = os.path.join(run_dir, 'summary.json')
     if not os.path.exists(path):
@@ -260,6 +312,11 @@ def completed_run(run_dir: str, key: str) -> Optional[Dict[str, Any]]:
         raise RuntimeError(f'{path} was produced by a different configuration '
                            f'(run_key {summary.get("run_key")!r} != {key!r}); '
                            f'use a fresh output directory or --no-resume')
+    unhealthy = {k: v for k, v in error_rates(summary).items() if v > MAX_ERROR_RATE}
+    if unhealthy:
+        logger.warning('%s: rerunning, error rates over %.0f%%: %s', run_dir,
+                       100 * MAX_ERROR_RATE, unhealthy)
+        return None
     return summary
 
 
@@ -334,7 +391,9 @@ def run_benchmark(dataset: str, data_dir: str, out: str, limit: Optional[int] = 
         engine, counter = build_engine(graph, model, region, sbm)
         tag = f"single_best_match-{'on' if sbm else 'off'}"
         report['config']['model'] = counter.model_name
-        prov = report.setdefault('provenance', provenance(counter))
+        prov = report.setdefault('provenance', provenance(counter, {
+            'questions': os.path.join(data_dir, spec.questions_file),
+            'graph': os.path.join(data_dir, spec.graph_file)}))
         key = run_key(report['question_ids'], sbm, iterations, prov)
         summaries = []
         for r in range(1, runs + 1):
@@ -362,9 +421,6 @@ def run_benchmark(dataset: str, data_dir: str, out: str, limit: Optional[int] = 
 
 # --- integration-tests stack entry point -------------------------------------
 
-# More than this share of errored questions in any run fails the test: the
-# aggregate would be measuring throttling or misconfiguration, not BYOKG.
-MAX_ERROR_RATE = 0.05
 RESULTS_DIR = os.path.join('benchmark-results', 'byokg-kgqa')
 
 
@@ -395,9 +451,13 @@ def run_byokg_kgqa_test(handler: IntegrationTestHandler, params: Dict[str, Any],
         handler.add_output(f"{tag}.{agg['metric']}", agg['mean'])
         handler.add_output(f'{tag}.spread', agg['spread'])
         handler.add_output(f'{tag}.showcase_distinct', agg['showcase_distinct'])
+        # Published scores were measured with other models (and, where the reference
+        # key is suffixed, other question sets): context for a reader, not a
+        # like-for-like comparison, hence the paper_ prefix.
         for model, scores in DATASETS[dataset].references.items():
             for kind, value in scores.items():
-                handler.add_output(f'{tag}.delta_vs_{model}_{kind}', round(agg['mean'] - value, 1))
+                handler.add_output(f'{tag}.paper_delta_vs_{model}_{kind}',
+                                   round(agg['mean'] - value, 1))
     handler.add_output('provenance', report['provenance'])
 
     # Adds aggregate.json; re-uploading the already-persisted runs is idempotent.
@@ -408,10 +468,12 @@ def run_byokg_kgqa_test(handler: IntegrationTestHandler, params: Dict[str, Any],
 
     class ByokgKgqaAssertions(unittest.TestCase):
         def test_error_rate_is_low(self):
-            """Every run's errored-question share is within MAX_ERROR_RATE"""
+            """Every run's errored share is within MAX_ERROR_RATE, on the KG path and on
+            the no-KG baseline the KG-vs-no-KG comparison rests on"""
             for tag, i, s in runs:
-                self.assertLessEqual(s['n_errors'] / s['n'], MAX_ERROR_RATE,
-                                     f"{tag} run{i}: {s['n_errors']}/{s['n']} questions errored")
+                for path, rate in error_rates(s).items():
+                    self.assertLessEqual(rate, MAX_ERROR_RATE,
+                                         f'{tag} run{i}: {path} errored on {rate:.1%} of questions')
 
         def test_scores_are_plausible(self):
             """Aggregate scores are percentages"""

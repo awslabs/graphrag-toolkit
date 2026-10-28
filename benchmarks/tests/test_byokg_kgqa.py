@@ -111,7 +111,9 @@ class TestScoring:
     """Hit / F1: a normalized gold answer must appear as whole tokens in one prediction."""
 
     def test_normalize_drops_case_punctuation_articles(self):
-        assert normalize('The  U.S.A.,  an Example!') == 'usa example'
+        # Only a leading article is dropped; one inside the string is part of the name.
+        assert normalize('The  U.S.A.,  an Example!') == 'usa an example'
+        assert normalize('the') == '' and normalize('Theodore') == 'theodore'
         assert normalize('1935-1945', punctuation_as_space=True) == '1935 1945'
 
     def test_hit_matches_gold_inside_a_single_prediction(self):
@@ -121,6 +123,8 @@ class TestScoring:
         assert hit(['English'], ['Jamaican English']) == 0
 
     @pytest.mark.parametrize('predictions, gold', [
+        (['Hepatitis B'], 'Hepatitis A'),     # trailing single-letter disambiguator
+        (['Vitamin D'], 'Vitamin A'),
         (['female'], 'male'),                 # substring of a word
         (['1920'], '92'),                     # substring of a number
         (['Henry VIII'], 'Henry VII'),        # prefix of a token
@@ -198,6 +202,9 @@ class TestShowcase:
 
     def test_single_hop_single_entity_not_showcase(self):
         assert showcase_reasons({**self.BASE, 'hops': 1}) == []
+
+    def test_failed_no_kg_call_is_not_a_wrong_answer(self):
+        assert showcase_reasons({**self.BASE, 'vanilla_error': 'ThrottlingException'}) == []
 
     def test_all_signals(self):
         r = {**self.BASE, 'hops': 3, 'q_entities': ['A', 'B'], 'qtype': 'before_after'}

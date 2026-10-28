@@ -30,7 +30,10 @@ class DatasetSpec:
     metric: str
     # Published reference scores, for comparison.
     paper_reference: str
-    # Same numbers, machine-readable: {model: {'full': score, 'agentic': score}}.
+    # Same numbers, machine-readable: {model: {kind: score}}. kind is 'full' (full
+    # system) or 'agentic' (agentic retrieval only), suffixed with the question set
+    # when it differs from this suite's: '_ih500' (another 500-question subset),
+    # '_227q' (MedQA's 227-question selection). No suffix = same question set.
     references: Dict[str, Dict[str, float]] = field(default_factory=dict)
 
 
@@ -40,20 +43,21 @@ class DatasetSpec:
 # graph_temp.json (a preprocessing intermediate). graph_tempwiki_one.json is the
 # one-direction Temp-Wikidata KG (~325K triplets).
 DATASETS: Dict[str, DatasetSpec] = {
-    # References are full system / agentic-retrieval-only, per LLM. Some WebQSP and
-    # CWQ references are on 500-question subsets; this runs the full sets.
+    # WebQSP / CWQ run the full test sets (or a seeded sample of them): only the
+    # Sonnet-3.5 full-system scores are on that set; the rest are on a different
+    # 500-question subset.
     'webqsp': DatasetSpec(
         'questions_webqsp.json', 'graph/graph_webqsp.json', 'per_question', 'hit',
         'Hit. Table 2 full set: 87.1 (Sonnet-3.5). Table 1 IH subset: '
         'Sonnet-3.5 86.6 / 86.2 agentic; Haiku-3.5 82.8 / 81.0 agentic',
-        {'claude-3.5-sonnet': {'full': 86.6, 'agentic': 86.2},
-         'claude-3.5-haiku': {'full': 82.8, 'agentic': 81.0}}),
+        {'claude-3.5-sonnet': {'full': 87.1, 'full_ih500': 86.6, 'agentic_ih500': 86.2},
+         'claude-3.5-haiku': {'full_ih500': 82.8, 'agentic_ih500': 81.0}}),
     'cwq': DatasetSpec(
         'questions_cwq.json', 'graph/graph_cwq.json', 'per_question', 'hit',
         'Hit. Table 2 full set: 71.1 (Sonnet-3.5). Table 1 IH subset: '
         'Sonnet-3.5 73.6 / 69.3 agentic; Haiku-3.5 66.8 / 64.2 agentic',
-        {'claude-3.5-sonnet': {'full': 73.6, 'agentic': 69.3},
-         'claude-3.5-haiku': {'full': 66.8, 'agentic': 64.2}}),
+        {'claude-3.5-sonnet': {'full': 71.1, 'full_ih500': 73.6, 'agentic_ih500': 69.3},
+         'claude-3.5-haiku': {'full_ih500': 66.8, 'agentic_ih500': 64.2}}),
     'cronquestions': DatasetSpec(
         'cronquestions_in_house.json', 'graph/graph_tempwiki_one.json', 'base_relations', 'hit',
         'Hit. Table 1: Sonnet-3.5 65.5 / 57.3 agentic; Haiku-3.5 61.9 / 40.8 agentic',
@@ -63,8 +67,8 @@ DATASETS: Dict[str, DatasetSpec] = {
         'medQA_in_house.json', 'graph/graph_ddb.json', 'global', 'hit@2',
         'H@2. Table 1 on 227 Q: Sonnet-3.5 65.0 / 59.2 agentic; Haiku-3.5 54.2 / 46.2 agentic. '
         'This suite runs 236 Q (answer is an exact KG node), so not like-for-like',
-        {'claude-3.5-sonnet': {'full': 65.0, 'agentic': 59.2},
-         'claude-3.5-haiku': {'full': 54.2, 'agentic': 46.2}}),
+        {'claude-3.5-sonnet': {'full_227q': 65.0, 'agentic_227q': 59.2},
+         'claude-3.5-haiku': {'full_227q': 54.2, 'agentic_227q': 46.2}}),
 }
 
 CRON_TEMPORAL_TYPES = {'first_last', 'before_after', 'time_join'}
@@ -189,14 +193,22 @@ _PUNCTUATION_RE = re.compile('[' + re.escape(string.punctuation) + ']')
 
 
 def normalize(s: str, punctuation_as_space: bool = False) -> str:
+    """Lowercase, handle punctuation, collapse whitespace, drop a *leading* article.
+
+    Only a leading article goes: stripping a/an/the anywhere (the SQuAD-style rule)
+    turns 'Hepatitis A' into 'hepatitis', which then matches 'Hepatitis B'. A string
+    that is only an article normalizes to '' and matches nothing.
+    """
     s = s.lower()
     if punctuation_as_space:
         s = _PUNCTUATION_RE.sub(' ', s)
     else:
         s = ''.join(ch for ch in s if ch not in _PUNCTUATION)
-    s = re.sub(r'\b(a|an|the)\b', ' ', s)
     s = re.sub(r'\b(<pad>)\b', ' ', s)
-    return ' '.join(s.split())
+    s = ' '.join(s.split())
+    if s in ('a', 'an', 'the'):
+        return ''
+    return re.sub(r'^(?:a|an|the) ', '', s)
 
 
 def _match(prediction: str, answer: str) -> bool:
@@ -277,11 +289,13 @@ def hop_distance(graph: Dict[str, Any], sources: Iterable[str], targets: Iterabl
 def showcase_reasons(record: Dict[str, Any]) -> List[str]:
     """Why a scored question is a demo candidate; empty if it is not one.
 
-    Gate: BYOKG right, the no-KG LLM wrong, and the gold answer present in the
-    retrieved context — so the KG demonstrably supplied it. Then at least one
-    signal that the question is hard to write as a direct lookup query.
+    Gate: BYOKG right, the no-KG LLM wrong (an errored no-KG call is not "wrong" —
+    it never answered), and the gold answer present in the retrieved context — so
+    the KG demonstrably supplied it. Then at least one signal that the question is
+    hard to write as a direct lookup query.
     """
-    if not (record['hit'] and not record['vanilla_hit'] and record['answer_in_context']):
+    if not (record['hit'] and not record['vanilla_hit'] and not record.get('vanilla_error')
+            and record['answer_in_context']):
         return []
     reasons = []
     hops = record.get('hops')
@@ -314,7 +328,7 @@ def _quantile(values: Sequence[float], q: float) -> Optional[float]:
 def summarize(records: Sequence[Dict[str, Any]], metric: str) -> Dict[str, Any]:
     """Per-run summary.
 
-    Errored questions count as misses in `hit`; `hit_ok` is over the non-errored ones,
+    Errored questions count as misses in `hit` and `hit@2`; `hit_ok` is over the non-errored ones,
     so throttling noise can be told apart from a quality change. `vanilla_*` is the
     BYOKG answer prompt with an empty graph context, not a separate LLM-only prompt.
     """

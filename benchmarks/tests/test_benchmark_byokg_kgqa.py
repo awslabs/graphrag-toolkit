@@ -103,6 +103,12 @@ class TestRunQuestion:
         assert r['vanilla_error'] == 'RuntimeError: ThrottlingException'
         assert r['vanilla_predictions'] == [] and r['vanilla_hit'] == 0
 
+    def test_errored_kg_path_scores_zero_on_hit_at_2(self):
+        # The no-KG guess is right, but the KG path errored: a miss, as for hit.
+        engine, counter = _engine(fail=True, vanilla_answer='2014 World Series')
+        r = runner.run_question(engine, counter, QUESTION, QUESTION.schema, 2, 2)
+        assert (r['vanilla_hit'], r['hit'], r['hit@2']) == (1, 0, 0)
+
     def test_parse_response_restored_to_class_lookup(self):
         engine, counter = _engine()
         assert 'parse_response' not in vars(engine.kg_linker)
@@ -125,6 +131,12 @@ class TestRunOnce:
         assert json.loads((tmp_path / 'summary.json').read_text())['n'] == 1
         assert len((tmp_path / 'showcase_candidates.jsonl').read_text().splitlines()) == 1
         assert len((tmp_path / 'predictions.jsonl').read_text().splitlines()) == 1
+
+    def test_aborts_when_no_kg_call_fails_on_first_n(self, tmp_path):
+        engine, counter = _engine(vanilla_fail=True)
+        qs = [QUESTION] * (runner.ABORT_IF_FIRST_N_FAIL + 3)
+        with pytest.raises(RuntimeError, match=r'all failed \(vanilla_error\)'):
+            runner.run_once(engine, counter, qs, *_precomputed(qs), 'hit', 2, str(tmp_path))
 
     def test_aborts_when_first_n_all_fail(self, tmp_path):
         engine, counter = _engine(fail=True)
@@ -249,6 +261,34 @@ class TestResume:
         with pytest.raises(RuntimeError, match='different configuration'):
             self._run(tmp_path, monkeypatch, iterations=3)
 
+    def test_scorer_change_invalidates_resume(self, tmp_path, monkeypatch):
+        # The reviewer's repro: same command twice with the scorer edited in between.
+        code = tmp_path / 'byokg_kgqa.py'
+        code.write_text('def hit(): ...')
+        monkeypatch.setattr(runner, 'BENCHMARK_CODE', (str(code),))
+        self._run(tmp_path, monkeypatch)
+        code.write_text('def hit(): return 0')
+        with pytest.raises(RuntimeError, match='different configuration'):
+            self._run(tmp_path, monkeypatch)
+
+    def test_different_graph_file_invalidates_resume(self, tmp_path, monkeypatch):
+        self._run(tmp_path, monkeypatch)
+        graph = tmp_path / 'data' / runner.DATASETS['webqsp'].graph_file
+        g = json.loads(graph.read_text())
+        g['Giants']['won']['triplets'].append(['Giants', 'won', '2010 World Series'])
+        graph.write_text(json.dumps(g))  # e.g. an alternate file dropped at the expected path
+        with pytest.raises(RuntimeError, match='different configuration'):
+            self._run(tmp_path, monkeypatch)
+
+    def test_unhealthy_run_is_rerun_not_reused(self, tmp_path, monkeypatch, fake_engine):
+        monkeypatch.setattr(runner, 'build_engine', lambda *a: _engine(vanilla_fail=True))
+        self._run(tmp_path, monkeypatch)                       # every no-KG call throttled
+        monkeypatch.setattr(runner, 'build_engine', lambda *a: _engine())
+        report, asked = self._run(tmp_path, monkeypatch)        # same key, healthy engine
+        assert asked == 4, 'throttled runs must be redone, not carried forward'
+        assert all(s['n_vanilla_errors'] == 0
+                   for agg in report['settings'].values() for s in agg['per_run'])
+
 
 class TestProvenance:
     def test_records_inference_config_and_source_hashes(self, monkeypatch):
@@ -256,7 +296,15 @@ class TestProvenance:
         p = runner.provenance(runner.CountingGenerator(FakeGenerator()))
         assert p['git_sha'] == 'abc123-dirty'
         assert p['inference']['model_name'] == 'fake-model'
-        assert set(p) == {'git_sha', 'byokg_rag_source_sha256', 'byokg_rag_prompts_sha256', 'inference'}
+        assert set(p) == {'git_sha', 'byokg_rag_source_sha256', 'byokg_rag_prompts_sha256',
+                          'benchmark_code_sha256', 'data_sha256', 'inference'}
+
+    def test_tree_hash_skips_pycache(self, tmp_path):
+        (tmp_path / 'm.py').write_text('x = 1')
+        before = runner._tree_sha256(str(tmp_path), ('.py',))
+        (tmp_path / '__pycache__').mkdir()
+        (tmp_path / '__pycache__' / 'stale.py').write_text('x = 2')
+        assert runner._tree_sha256(str(tmp_path), ('.py',)) == before
 
     def test_tree_hash_changes_with_content_and_ignores_other_files(self, tmp_path):
         (tmp_path / 'a.yaml').write_text('prompt: v1')
@@ -335,8 +383,11 @@ class TestStackEntryPoint:
         runner.WebqspByokgKgqa()._run_test(handler, params)
         assert handler.outputs['single_best_match-off.hit'] == 100.0
         assert handler.outputs['single_best_match-on.showcase_distinct'] == 1
-        # Deltas against each structured reference: 100.0 - 82.8 (Haiku-3.5, full system).
-        assert handler.outputs['single_best_match-off.delta_vs_claude-3.5-haiku_full'] == 17.2
+        # paper_ deltas against each structured reference, keyed by the question set:
+        # 100.0 - 82.8 (Haiku-3.5, full system, other 500-Q subset); 100.0 - 87.1 (full set).
+        assert handler.outputs['single_best_match-off.paper_delta_vs_claude-3.5-haiku_full_ih500'] == 17.2
+        assert handler.outputs['single_best_match-off.paper_delta_vs_claude-3.5-sonnet_full'] == 12.9
+        assert not any(k.startswith('single_best_match-off.delta_vs') for k in handler.outputs)
         assert 'inference' in handler.outputs['provenance']
         assert 'byokg_kgqa' not in params, 'shared suite params must not carry per-dataset results'
         # Each finished run is uploaded as it completes, then the dataset dir for aggregate.json.
@@ -372,8 +423,17 @@ class TestStackEntryPoint:
         monkeypatch.setattr(runner, 'build_engine', lambda *a: _engine(fail=True))
         handler = FakeHandler()
         runner.run_byokg_kgqa_test(handler, {}, 'webqsp')
-        assert len(handler.failures) == 1 and 'questions errored' in handler.failures[0][1]
+        assert len(handler.failures) == 1 and 'KG path errored on 100.0%' in handler.failures[0][1]
         assert stack_env, 'results must upload before assertions run'
+
+    def test_throttled_no_kg_baseline_fails_the_test(self, stack_env, monkeypatch):
+        # KG path healthy, every no-KG call throttled: vanilla_hit would read 0.0.
+        monkeypatch.setattr(runner, 'build_engine', lambda *a: _engine(vanilla_fail=True))
+        handler = FakeHandler()
+        runner.run_byokg_kgqa_test(handler, {}, 'webqsp')
+        assert handler.outputs['single_best_match-off.hit'] == 100.0, 'KG result must survive'
+        assert len(handler.failures) == 1
+        assert 'no-KG baseline errored on 100.0%' in handler.failures[0][1]
 
     def test_missing_data_uri_fails_loud(self, monkeypatch):
         monkeypatch.delenv('BYOKG_DATA_S3_URI', raising=False)
