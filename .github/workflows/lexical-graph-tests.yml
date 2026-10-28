@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Check license headers
         run: |
@@ -63,10 +63,10 @@ jobs:
         working-directory: lexical-graph
 
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v7
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: ${{ matrix.python-version }}
 
@@ -111,14 +111,14 @@ jobs:
 
       - name: Upload HTML coverage report
         if: always()
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: coverage-report-${{ matrix.python-version }}
           path: lexical-graph/htmlcov/
 
       - name: Upload coverage percentage
         if: always() && matrix.python-version == '3.12'
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: coverage-percentage
           path: |
@@ -136,7 +136,7 @@ jobs:
     steps:
       - name: Download coverage percentage
         id: download
-        uses: actions/download-artifact@v8
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           name: coverage-percentage
           path: coverage-data
@@ -156,7 +156,7 @@ jobs:
           fi
 
       - name: Comment on PR with coverage report link
-        uses: actions/github-script@v9
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         env:
           # Pass via env, not inline ${{ }}, so the values can't break out of the
           # script into executable JS.
