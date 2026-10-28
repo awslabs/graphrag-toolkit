@@ -865,6 +865,15 @@ class TestRecordsTheBatchJobReportsAsErrors:
         assert str(raised.value).endswith(' - 500')
         llm.predict.assert_not_called()
 
+    def test_an_error_with_no_message_or_code_is_named_by_its_contents(self, tmp_path):
+        llm, process = self._process(tmp_path, [self._error('r1', detail='throttled'), self._error('r2', detail='throttled')])
+
+        with pytest.raises(BatchJobError) as raised:
+            process()
+
+        assert str(raised.value).endswith(" - {'detail': 'throttled'}")
+        llm.predict.assert_not_called()
+
     def test_a_success_in_another_output_file_keeps_the_batch(self, tmp_path):
         llm, process = self._process(tmp_path, None, files={
             'in.jsonl.out': [self._error('r1'), self._error('r2')],
