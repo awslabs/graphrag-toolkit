@@ -167,7 +167,7 @@ def get_schema_query(tenant_id):
     }}
     RETURN DISTINCT p'''
 
-    return cypher
+    return cypher, {}
 
 def get_sources_query(tenant_id, source_ids:Optional[List[str]]=None, filter:Optional[FilterType]=None):
 
@@ -233,7 +233,7 @@ def get_entities_query(tenant_id):
     RETURN p LIMIT 1000
     """
 
-    return cypher
+    return cypher, {}
 
 class GraphHolder():
     
@@ -521,9 +521,9 @@ class GraphNotebookVisualisation():
         self._display(cypher, params=params)
 
     def display_entities(self, tenant_id:Optional[str]=None):
-        cypher = get_entities_query(to_tenant_id(tenant_id))
+        cypher, params = get_entities_query(to_tenant_id(tenant_id))
         
-        self._display(cypher, 'value')
+        self._display(cypher, 'value', params=params)
         
     def display_schema(self, tenant_id:Optional[str]=None):
         
@@ -605,6 +605,6 @@ class GraphNotebookVisualisation():
 
         line = f'query  -d value --edge-display-property value -rel 25 -l 25'
 
-        cypher = get_schema_query(to_tenant_id(tenant_id))
+        cypher, _ = get_schema_query(to_tenant_id(tenant_id))
         
         g.oc(line, cell=cypher, local_ns={}) 

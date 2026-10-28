@@ -228,3 +228,12 @@ def test_display_without_params_adds_no_query_parameters():
 
     assert '-qp' not in g.oc.call_args.args[0]
     assert g.oc.call_args.kwargs['local_ns'] == {}
+
+
+def test_entities_and_schema_queries_return_a_query_and_empty_params():
+    tenant_id = TenantId()
+
+    for builder in (visualisation.get_entities_query, visualisation.get_schema_query):
+        cypher, params = builder(tenant_id)
+        assert isinstance(cypher, str)
+        assert params == {}
