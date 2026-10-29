@@ -323,6 +323,37 @@ class TestProvenance:
         assert 'provenance' in json.loads((tmp_path / 'out' / 'webqsp' / 'aggregate.json').read_text())
 
 
+class TestDatasetLimit:
+    def test_per_dataset_limit_overrides_the_global_one(self, monkeypatch):
+        monkeypatch.setenv('BENCHMARK_QA_LIMIT', '500')
+        monkeypatch.setenv('BYOKG_CWQ_LIMIT', '200')
+        assert runner.dataset_limit('cwq') == 200
+        assert runner.dataset_limit('cronquestions') == 500, 'unset dataset falls back to global'
+
+    def test_unset_means_full_set(self, monkeypatch):
+        for var in ('BENCHMARK_QA_LIMIT', 'BYOKG_CRONQUESTIONS_LIMIT'):
+            monkeypatch.delenv(var, raising=False)
+        assert runner.dataset_limit('cronquestions') is None
+
+    def test_sampling_one_dataset_leaves_the_other_in_full(self, tmp_path, fake_engine, monkeypatch):
+        monkeypatch.delenv('BENCHMARK_QA_LIMIT', raising=False)
+        monkeypatch.setenv('BYOKG_WEBQSP_LIMIT', '1')
+        (tmp_path / 'data').mkdir()
+        report = runner.run_benchmark('webqsp', _dataset_on_disk(tmp_path / 'data'),
+                                      str(tmp_path / 'out'), runs=1,
+                                      limit=runner.dataset_limit('webqsp'))
+        assert (report['n_questions'], report['n_available']) == (1, 1)
+
+
+def test_provenance_computed_once_for_both_settings(tmp_path, fake_engine, monkeypatch):
+    calls = []
+    real = runner.provenance
+    monkeypatch.setattr(runner, 'provenance', lambda *a, **k: calls.append(1) or real(*a, **k))
+    (tmp_path / 'data').mkdir()
+    runner.run_benchmark('webqsp', _dataset_on_disk(tmp_path / 'data'), str(tmp_path / 'out'), runs=1)
+    assert len(calls) == 1, 'hashing multi-GB data twice per dataset is waste'
+
+
 def test_run_benchmark_fails_loud_on_empty_question_set(tmp_path, fake_engine):
     (tmp_path / 'data').mkdir()
     data = _dataset_on_disk(tmp_path / 'data')

@@ -439,7 +439,8 @@ printf 'export BENCHMARK_USE_BATCH=%q\n' "${BENCHMARK_USE_BATCH:-true}" >> lexic
 # Forwarded only when set, so the notebook keeps the library defaults otherwise.
 for setting in EXTRACTION_NUM_WORKERS EXTRACTION_BATCH_SIZE EXTRACTION_NUM_THREADS_PER_WORKER \
 	SOURCE_ID_WIDTH DETECT_SOURCE_ID_COLLISIONS \
-	BYOKG_DATA_S3_URI BYOKG_KGQA_RUNS BYOKG_SINGLE_BEST_MATCH BYOKG_MAX_ITERATIONS; do
+	BYOKG_DATA_S3_URI BYOKG_KGQA_RUNS BYOKG_SINGLE_BEST_MATCH BYOKG_MAX_ITERATIONS \
+	BYOKG_WEBQSP_LIMIT BYOKG_CWQ_LIMIT BYOKG_CRONQUESTIONS_LIMIT BYOKG_MEDQA_LIMIT; do
 	if [[ "${!setting:-}" ]]; then
 		printf "export $setting=%q\n" "${!setting}" >> lexical-graph-examples/.env.testing
 	fi

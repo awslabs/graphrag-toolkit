@@ -365,6 +365,7 @@ def run_benchmark(dataset: str, data_dir: str, out: str, limit: Optional[int] = 
         before = len(questions)
         questions = filter_answer_in_kg(questions, graph)
         logger.info('medqa: kept %d/%d questions whose answer is a KG node', len(questions), before)
+    n_available = len(questions)
     questions = sample(questions, limit, seed)
     if not questions:
         raise ValueError(f'{dataset}: no questions to run (limit={limit})')
@@ -380,6 +381,8 @@ def run_benchmark(dataset: str, data_dir: str, out: str, limit: Optional[int] = 
 
     settings = SINGLE_BEST_MATCH_SETTINGS[single_best_match]
     report = {'dataset': dataset, 'n_questions': len(questions),
+              # n_questions < n_available means a seeded sample of the set.
+              'n_available': n_available,
               'question_ids': [q.id for q in questions], 'paper_reference': spec.paper_reference,
               'config': {'limit': limit, 'seed': seed, 'runs': runs, 'iterations': iterations,
                          'single_best_match': single_best_match, 'region': region,
@@ -391,9 +394,11 @@ def run_benchmark(dataset: str, data_dir: str, out: str, limit: Optional[int] = 
         engine, counter = build_engine(graph, model, region, sbm)
         tag = f"single_best_match-{'on' if sbm else 'off'}"
         report['config']['model'] = counter.model_name
-        prov = report.setdefault('provenance', provenance(counter, {
-            'questions': os.path.join(data_dir, spec.questions_file),
-            'graph': os.path.join(data_dir, spec.graph_file)}))
+        if 'provenance' not in report:  # once: it hashes the package and multi-GB data files
+            report['provenance'] = provenance(counter, {
+                'questions': os.path.join(data_dir, spec.questions_file),
+                'graph': os.path.join(data_dir, spec.graph_file)})
+        prov = report['provenance']
         key = run_key(report['question_ids'], sbm, iterations, prov)
         summaries = []
         for r in range(1, runs + 1):
@@ -424,11 +429,22 @@ def run_benchmark(dataset: str, data_dir: str, out: str, limit: Optional[int] = 
 RESULTS_DIR = os.path.join('benchmark-results', 'byokg-kgqa')
 
 
+def dataset_limit(dataset: str) -> Optional[int]:
+    """BYOKG_<DATASET>_LIMIT, else the harness-wide BENCHMARK_QA_LIMIT.
+
+    One suite run covers all four datasets, and the global limit samples every one of
+    them — including CronQuestions, whose references are on its full 600. The
+    per-dataset variable samples WebQSP and CWQ while the others run in full.
+    """
+    specific = env_int(f'BYOKG_{dataset.upper()}_LIMIT', None)
+    return specific if specific is not None else env_int('BENCHMARK_QA_LIMIT', None)
+
+
 def run_byokg_kgqa_test(handler: IntegrationTestHandler, params: Dict[str, Any], dataset: str):
     s3_uri = env_string('BYOKG_DATA_S3_URI')  # required: no silent local fallback on the stack
     data_dir = env_string('BYOKG_DATA_DIR', 'byokg-data')
     config = dict(
-        limit=env_int('BENCHMARK_QA_LIMIT', None),
+        limit=dataset_limit(dataset),
         runs=env_int('BYOKG_KGQA_RUNS', 3),
         single_best_match=env_string('BYOKG_SINGLE_BEST_MATCH', 'both'),
         iterations=env_int('BYOKG_MAX_ITERATIONS', 2),

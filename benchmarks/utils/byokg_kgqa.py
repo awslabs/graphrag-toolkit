@@ -196,8 +196,10 @@ def normalize(s: str, punctuation_as_space: bool = False) -> str:
     """Lowercase, handle punctuation, collapse whitespace, drop a *leading* article.
 
     Only a leading article goes: stripping a/an/the anywhere (the SQuAD-style rule)
-    turns 'Hepatitis A' into 'hepatitis', which then matches 'Hepatitis B'. A string
-    that is only an article normalizes to '' and matches nothing.
+    turns 'Hepatitis A' into 'hepatitis', which then matches 'Hepatitis B'. A bare
+    'the' normalizes to '' and matches nothing; a bare 'a' or 'an' is kept, since 'A'
+    is a real answer (blood type, vitamin, grade). No gold answer in the four
+    datasets is a bare article, so this changes no recorded score.
     """
     s = s.lower()
     if punctuation_as_space:
@@ -206,7 +208,7 @@ def normalize(s: str, punctuation_as_space: bool = False) -> str:
         s = ''.join(ch for ch in s if ch not in _PUNCTUATION)
     s = re.sub(r'\b(<pad>)\b', ' ', s)
     s = ' '.join(s.split())
-    if s in ('a', 'an', 'the'):
+    if s == 'the':
         return ''
     return re.sub(r'^(?:a|an|the) ', '', s)
 

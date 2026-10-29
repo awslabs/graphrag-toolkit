@@ -114,6 +114,13 @@ class TestScoring:
         # Only a leading article is dropped; one inside the string is part of the name.
         assert normalize('The  U.S.A.,  an Example!') == 'usa an example'
         assert normalize('the') == '' and normalize('Theodore') == 'theodore'
+        # A bare 'a' / 'an' is a real answer (blood type, vitamin, grade), not an article.
+        assert normalize('A') == 'a' and normalize('a dog') == 'dog'
+
+    def test_single_letter_gold_answers_match(self):
+        assert hit(['A'], ['A']) == 1
+        assert hit(['Type A'], ['A']) == 1
+        assert hit(['B'], ['A']) == 0
         assert normalize('1935-1945', punctuation_as_space=True) == '1935 1945'
 
     def test_hit_matches_gold_inside_a_single_prediction(self):

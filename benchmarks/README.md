@@ -223,10 +223,14 @@ sh build-tests.sh \
 The suite runs its four datasets one after another on one notebook. To run them in parallel, launch one stack per dataset with a distinct
 `STACK_PREFIX` and `--test benchmark_byokg_kgqa.<Dataset>ByokgKgqa`
 (`Medqa`, `Cronquestions`, `Webqsp`, `Cwq`), one `build-tests.sh` call at a time —
-calls share the local `temp/` and `target/` directories. `--benchmark-qa-limit` takes a
-seeded random subset and applies to every dataset in the run, so set it per stack: it
-is useful for WebQSP (1,628 Q) and CWQ (3,531 Q), while MedQA (236) and CronQuestions
-(600) are best run in full.
+calls share the local `temp/` and `target/` directories.
+
+To sample, set `BYOKG_WEBQSP_LIMIT` and `BYOKG_CWQ_LIMIT` in `.env` (e.g. `500`): each takes
+a seeded random subset of that dataset only, so MedQA (236) and CronQuestions (600) still
+run in full, matching their references. `BYOKG_CRONQUESTIONS_LIMIT` and
+`BYOKG_MEDQA_LIMIT` exist too. Avoid `--benchmark-qa-limit` for this suite: it is the
+harness-wide limit and samples every dataset in the run, CronQuestions included.
+`aggregate.json` records `n_questions` and `n_available`, so a sampled run is visible.
 
 Optional `.env` settings: `BYOKG_KGQA_RUNS` (repeats per setting, default 3),
 `BYOKG_SINGLE_BEST_MATCH` (`off`/`on`/`both`, default `both`), `BYOKG_MAX_ITERATIONS`
@@ -245,19 +249,22 @@ multi-entity or temporal reasoning.
 
 **Expected runtime and cost.** Questions run one at a time, and each runs once per
 `single_best_match` setting per repeat — 6 times with the defaults. Measured with Claude
-Haiku 4.5: wall clock is median KG-path latency × question-runs (the no-KG call adds a
-little on top); call counts include the no-KG call.
+Haiku 4.5 (`TEST_RESPONSE_LLM=us.anthropic.claude-haiku-4-5-20251001-v1:0`): wall clock
+is median KG-path latency × question-runs (the no-KG call adds a little on top); call
+counts include the no-KG call. The stack defaults `TEST_RESPONSE_LLM` to Sonnet 4.6, which
+will differ in both time and cost.
 
 | Dataset | Questions | Question-runs | Wall clock | Bedrock calls |
 |---|---|---|---|---|
 | MedQA | 236 | 1,416 | ~12 h | ~18k |
 | CronQuestions | 600 | 3,600 | ~13 h | ~34k |
-| WebQSP | 500 (`--benchmark-qa-limit 500`) | 3,000 | ~33 h | ~32k |
-| CWQ | 500 (`--benchmark-qa-limit 500`) | 3,000 | ~33 h | ~38k |
+| WebQSP | 500 (`BYOKG_WEBQSP_LIMIT=500`) | 3,000 | ~33 h | ~32k |
+| CWQ | 500 (`BYOKG_CWQ_LIMIT=500`) | 3,000 | ~33 h | ~38k |
 
 Slow questions have long tails (WebQSP p95 is ~140 s), so allow headroom. Unsampled, CWQ
 (3,531 Q) is ~21k question-runs — over 200 hours — which is why WebQSP and CWQ are
-sampled. Use `BYOKG_KGQA_RUNS=1` with a small `--benchmark-qa-limit` for a quick check.
+sampled. For a quick check, use `BYOKG_KGQA_RUNS=1` with a small `--benchmark-qa-limit`
+(here sampling every dataset is the point).
 
 **Resume.** A run whose `summary.json` already exists is reused only if its fingerprint
 matches: same question IDs, setting, iterations, inference config, and content hashes of
