@@ -26,13 +26,13 @@ $ pip install graphrag-lexical-graph
 To install a specific version from PyPI:
 
 ```
-$ pip install graphrag-lexical-graph==3.19.1
+$ pip install graphrag-lexical-graph==3.20.0
 ```
 
 Or install from a release zip file:
 
 ```
-$ pip install https://github.com/awslabs/graphrag-toolkit/archive/refs/tags/graphrag-lexical-graph/v3.19.1.zip#subdirectory=lexical-graph
+$ pip install https://github.com/awslabs/graphrag-toolkit/archive/refs/tags/graphrag-lexical-graph/v3.20.0.zip#subdirectory=lexical-graph
 ```
 
 ### Installing with uv
