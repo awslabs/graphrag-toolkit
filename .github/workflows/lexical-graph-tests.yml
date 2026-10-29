@@ -98,6 +98,14 @@ jobs:
             -l --tb=short --maxfail=1 --cov-fail-under=56 \
             tests/
 
+      - name: Run Claude batch request tests on anthropic 1.x
+        env:
+          UV_LINK_MODE: copy
+        run: |
+          uv pip install --python .venv/bin/python 'anthropic<2'
+          PYTHONPATH=src .venv/bin/python -m pytest --no-cov -q \
+            tests/unit/indexing/utils/test_batch_inference_utils.py
+
       - name: Package coverage reports
         id: coverage
         if: always()
