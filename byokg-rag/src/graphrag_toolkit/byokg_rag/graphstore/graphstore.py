@@ -169,9 +169,16 @@ class LocalKGStore(GraphStore):
         """
         Return a list of all node_ids in the graph.
 
+        Includes nodes that only appear as the destination of a triplet; the
+        graph has no top-level entry for a node without outgoing edges.
+
         :return: List[str] all node_ids in the graph
         """
-        return list(self._graph.keys())
+        # dict.fromkeys drops duplicates and keeps the first-seen order
+        node_ids = dict.fromkeys(self._graph)
+        for _, _, dst in self.get_triplets():
+            node_ids.setdefault(dst)
+        return list(node_ids)
 
     def get_nodes(self, node_ids):
         """
