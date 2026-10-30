@@ -10,7 +10,7 @@ from graphrag_toolkit.lexical_graph.tenant_id import TenantId
 from graphrag_toolkit.lexical_graph.config import SourceIdWidth
 from graphrag_toolkit.lexical_graph.indexing.id_generator import IdGenerator
 from graphrag_toolkit.lexical_graph.indexing.model import SourceType, SourceDocument
-from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
+from graphrag_toolkit.lexical_graph.storage.graph import GraphQueryOperation, GraphStore
 
 logger = logging.getLogger(__name__)
 
@@ -72,7 +72,8 @@ def recorded_source_id_width(graph_store:GraphStore) -> Optional[SourceIdWidth]:
     """
     results = graph_store.execute_query(
         'MATCH (c:`__SYS_Config__`) WHERE c.sourceIdWidth IS NOT NULL '
-        'RETURN c.sourceIdWidth AS width'
+        'RETURN c.sourceIdWidth AS width',
+        operation=GraphQueryOperation.GET_SOURCE_ID_WIDTH,
     )
     widths = sorted({SourceIdWidth.parse(r['width']) for r in results} - {None})
     if not widths:
@@ -98,7 +99,9 @@ def sampled_source_id_width(graph_store:GraphStore) -> Optional[SourceIdWidth]:
     """
     results = graph_store.execute_query(
         f'MATCH (s:`__Source__`) RETURN {graph_store.node_id("s.sourceId")} AS sourceId '
-        f'ORDER BY sourceId LIMIT {SOURCE_ID_SAMPLE_SIZE}'
+        'ORDER BY sourceId LIMIT $limit',
+        {'limit': SOURCE_ID_SAMPLE_SIZE},
+        operation=GraphQueryOperation.SAMPLE_SOURCE_IDS,
     )
     widths = sorted({
         IdGenerator.width_of_source_id(r['sourceId'])
@@ -155,7 +158,8 @@ def record_graph_source_id_width(graph_store:GraphStore, tenant_id:TenantId, wid
         {
             'configId': tenant_id.format_id('sys_config', SOURCE_ID_WIDTH_CONFIG_ID),
             'width': width.value
-        }
+        },
+        operation=GraphQueryOperation.RECORD_SOURCE_ID_WIDTH,
     )
     if not results:
         # A store that writes but returns nothing, the dummy store among them,
