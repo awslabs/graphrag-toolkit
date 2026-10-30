@@ -98,6 +98,7 @@ jobs:
         run: |
           PYTHONPATH=src .venv/bin/python -m pytest \
             -v --cov-config=.coveragerc --cov=graphrag_toolkit.lexical_graph \
+            --cov=graphrag_toolkit_contrib \
             -l --tb=short --maxfail=1 --cov-fail-under=56 \
             tests/ ../lexical-graph-contrib/sparql/tests/
 
