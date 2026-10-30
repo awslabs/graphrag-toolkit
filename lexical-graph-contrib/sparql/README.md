@@ -57,7 +57,9 @@ scheme. `graph_store_type='sparql'` selects this contributor. If
 ### Generic authentication
 
 HTTP Basic credentials can be supplied in the connection URL, as keyword
-arguments, or through `SPARQL_USER` and `SPARQL_PASSWORD`:
+arguments, or through `SPARQL_USER` and `SPARQL_PASSWORD` when
+`auth_type='basic'` is explicitly selected. IAM and bearer authentication ignore
+these environment variables:
 
 ```python
 graph_store = GraphStoreFactory.for_graph_store(

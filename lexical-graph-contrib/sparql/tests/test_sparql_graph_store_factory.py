@@ -172,3 +172,40 @@ def test_factory_rejects_invalid_update_endpoint():
             'https://example.test/query',
             update_endpoint='file:///tmp/update',
         )
+
+
+@pytest.mark.parametrize('auth_type', [None, 'basic', 'aws_iam'])
+@pytest.mark.parametrize('environment', [
+    {'SPARQL_USER': 'alice', 'SPARQL_PASSWORD': 'secret'},
+    {'SPARQL_USER': 'alice'},
+    {'SPARQL_PASSWORD': 'secret'},
+])
+def test_auth_environment_is_only_used_for_explicit_basic(monkeypatch, auth_type, environment):
+    for name, value in environment.items():
+        monkeypatch.setenv(name, value)
+    if auth_type == 'basic' and len(environment) == 1:
+        with pytest.raises(ValueError, match='both username and password'):
+            _create('https://example.test/sparql', auth_type=auth_type)
+        return
+    store = _create('https://example.test/sparql', auth_type=auth_type)
+    assert store.username == ('alice' if auth_type == 'basic' else None)
+    assert (store.password.get_secret_value() if store.password else None) == (
+        'secret' if auth_type == 'basic' else None
+    )
+    assert store.neptune_iam is (auth_type == 'aws_iam')
+
+
+def test_explicit_basic_credentials_take_precedence_over_environment(monkeypatch):
+    monkeypatch.setenv('SPARQL_USER', 'environment-user')
+    monkeypatch.setenv('SPARQL_PASSWORD', 'environment-password')
+    store = _create('https://example.test/query', auth_type='basic', username='alice', password='secret')
+    assert store.username == 'alice'
+    assert store.password.get_secret_value() == 'secret'
+
+
+def test_bearer_auth_ignores_basic_auth_environment(monkeypatch):
+    monkeypatch.setenv('SPARQL_USER', 'alice')
+    monkeypatch.setenv('SPARQL_PASSWORD', 'secret')
+    store = _create('https://example.test/query', headers={'Authorization': 'Bearer token'})
+    assert store.username is None
+    assert store.password is None

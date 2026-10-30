@@ -56,10 +56,13 @@ class SPARQLGraphStoreFactory(GraphStoreFactoryMethod):
         password_arg = kwargs.pop('password', None)
         username = (
             unquote(parsed.username) if parsed.username else username_arg
-        ) or os.environ.get('SPARQL_USER')
+        )
         password = (
             unquote(parsed.password) if parsed.password else password_arg
-        ) or os.environ.get('SPARQL_PASSWORD')
+        )
+        if auth_type == BASIC_AUTH_TYPE:
+            username = username or os.environ.get('SPARQL_USER')
+            password = password or os.environ.get('SPARQL_PASSWORD')
 
         if bool(username) != bool(password):
             raise ValueError('SPARQL Basic authentication requires both username and password')
