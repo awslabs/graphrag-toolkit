@@ -201,6 +201,58 @@ class TestLocalKGStoreNodes:
         assert 'DataCorp' in nodes
         assert 'CloudCorp' in nodes
 
+    def test_nodes_includes_destination_only_nodes(self):
+        """Verify nodes includes nodes that have no outgoing edges."""
+        graph = {
+            'Organization': {
+                'FOUNDED_BY': {'triplets': [('Organization', 'FOUNDED_BY', 'John Doe')]},
+                'LOCATED_IN': {'triplets': [('Organization', 'LOCATED_IN', 'Portland')]}
+            },
+            'DataCorp': {
+                'PARTNER_OF': {'triplets': [('DataCorp', 'PARTNER_OF', 'Organization')]}
+            }
+        }
+
+        store = LocalKGStore(graph=graph)
+        nodes = store.nodes()
+
+        assert nodes == ['Organization', 'DataCorp', 'John Doe', 'Portland']
+
+    def test_nodes_lists_each_node_once(self):
+        """Verify a node reached by several triplets is listed once."""
+        graph = {
+            'Organization': {
+                'FOUNDED_BY': {'triplets': [('Organization', 'FOUNDED_BY', 'John Doe')]}
+            },
+            'DataCorp': {
+                'FOUNDED_BY': {'triplets': [('DataCorp', 'FOUNDED_BY', 'John Doe')]},
+                'SELF_REF': {'triplets': [('DataCorp', 'SELF_REF', 'DataCorp')]}
+            }
+        }
+
+        store = LocalKGStore(graph=graph)
+        nodes = store.nodes()
+
+        assert nodes == ['Organization', 'DataCorp', 'John Doe']
+
+    def test_nodes_after_read_from_csv(self):
+        """Verify nodes includes the target column of a loaded CSV."""
+        with tempfile.NamedTemporaryFile(mode='w', suffix='.csv', delete=False) as f:
+            f.write('source,relation,target\n')
+            f.write('Organization,FOUNDED_BY,John Doe\n')
+            f.write('Organization,LOCATED_IN,Portland\n')
+            f.write('DataCorp,FOUNDED_BY,John Smith\n')
+            temp_path = f.name
+
+        try:
+            store = LocalKGStore()
+            store.read_from_csv(temp_path)
+            nodes = store.nodes()
+
+            assert sorted(nodes) == ['DataCorp', 'John Doe', 'John Smith', 'Organization', 'Portland']
+        finally:
+            os.unlink(temp_path)
+
 
 class TestLocalKGStoreGetNodes:
     """Tests for LocalKGStore get_nodes method."""
