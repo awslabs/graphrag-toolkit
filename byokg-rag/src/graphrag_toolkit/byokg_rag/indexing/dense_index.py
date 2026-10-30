@@ -56,6 +56,7 @@ class LocalFaissDenseIndex(DenseIndex):
         super().__init__(embedding)
 
     def reset(self):
+        self.faiss_index.reset()
         self.doc_store = []
         self.doc_ids = []
         # mapping from doc_id to index in doc_store
@@ -80,10 +81,13 @@ class LocalFaissDenseIndex(DenseIndex):
             allowed_ids = [self.id2idx[_id] for _id in id_selector]
             sel = faiss.IDSelectorBatch(allowed_ids)
             D, I = self.faiss_index.search(query_emb, topk, params=faiss.SearchParameters(sel=sel))
+        # FAISS pads each result row with index -1 when fewer than topk vectors
+        # can be returned (a small index, or an id_selector allowing fewer ids).
+        # Left in, -1 would read the last stored document.
         return {'hits': [{'document_id': self.doc_ids[match_idx],
                           'document': self.doc_store[match_idx],
                           'match_score': match_distance}
-                         for match_idx, match_distance in zip(I[0], D[0])]}
+                         for match_idx, match_distance in zip(I[0], D[0]) if match_idx != -1]}
 
     def match(self, inputs, topk=1, id_selector=None):
         """
@@ -104,7 +108,8 @@ class LocalFaissDenseIndex(DenseIndex):
         return {'hits': [{'document_id': self.doc_ids[match_idx],
                           'document': self.doc_store[match_idx],
                           'match_score': match_distance}
-                         for idx in range(len(inputs)) for match_idx, match_distance in zip(I[idx], D[idx])]}
+                         for idx in range(len(inputs)) for match_idx, match_distance in zip(I[idx], D[idx])
+                         if match_idx != -1]}
 
     def add(self, documents, embeddings=None):
         """
