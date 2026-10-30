@@ -137,10 +137,15 @@ def test_sparql_factory_rejects_distinct_iam_update_endpoint():
         )
 
 
-def test_registered_factory_handles_real_neptune_hostname_as_sparql():
+@pytest.mark.parametrize('endpoint', [
+    'https://cluster.us-east-1.neptune.amazonaws.com',
+    'https://cluster.us-east-1.neptune.amazonaws.com:8182',
+    'https://cluster.us-east-1.neptune.amazonaws.com:8182/sparql',
+])
+def test_registered_factory_handles_real_neptune_hostname_as_sparql(endpoint):
     GraphStoreFactory.register(SPARQLGraphStoreFactory)
     store = GraphStoreFactory.for_graph_store(
-        'https://cluster.us-east-1.neptune.amazonaws.com:8182/sparql',
+        endpoint,
         graph_store_type='sparql',
         auth_type='aws_iam',
         region_name='us-east-1',

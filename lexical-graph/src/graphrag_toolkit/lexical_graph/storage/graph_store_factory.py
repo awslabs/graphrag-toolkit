@@ -77,7 +77,8 @@ class GraphStoreFactory():
                 it will be returned directly. Otherwise, it is used to create the
                 GraphStore instance.
             **kwargs: Additional keyword arguments passed to factory methods during
-                GraphStore creation.
+                GraphStore creation. An explicit graph_store_type restricts selection
+                to registered factories declaring that discriminator.
 
         Returns:
             GraphStore: An instance of `GraphStore` created using the provided
@@ -92,7 +93,14 @@ class GraphStoreFactory():
         if graph_info and isinstance(graph_info, GraphStore):
             return graph_info
         
-        for factory in _graph_store_factories.values():
+        factories = list(_graph_store_factories.values())
+        graph_store_type = kwargs.get('graph_store_type')
+        if graph_store_type is not None:
+            factories = [factory for factory in factories if factory.graph_store_type == graph_store_type]
+            if not factories:
+                raise ValueError(f'Unrecognized graph store type: {graph_store_type}. Register a factory for this type first.')
+
+        for factory in factories:
             graph_store = factory.try_create(graph_info, **kwargs)
             if graph_store:
                 return graph_store

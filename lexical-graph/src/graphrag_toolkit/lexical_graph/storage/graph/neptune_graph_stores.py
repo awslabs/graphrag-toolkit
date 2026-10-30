@@ -249,9 +249,6 @@ class NeptuneDatabaseGraphStoreFactory(GraphStoreFactoryMethod):
             `graph_info` and `**kwargs`, or `None` if the `graph_info` does not lead to a
             valid endpoint.
         """
-        if kwargs.get('graph_store_type') == 'sparql':
-            return None
-
         graph_endpoint = None
 
         if graph_info.startswith(NEPTUNE_DATABASE):

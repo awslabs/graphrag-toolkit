@@ -27,6 +27,8 @@ SUPPORTED_ENDPOINT_SCHEMES = ('http', 'https')
 class SPARQLGraphStoreFactory(GraphStoreFactoryMethod):
     """Create a graph store from an ordinary SPARQL endpoint URL."""
 
+    graph_store_type = SPARQL_GRAPH_STORE_TYPE
+
     def try_create(self, graph_info: str, **kwargs) -> GraphStore:
         if kwargs.get('graph_store_type') != SPARQL_GRAPH_STORE_TYPE:
             return None

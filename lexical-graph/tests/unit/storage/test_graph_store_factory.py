@@ -174,3 +174,47 @@ class TestGraphStoreFactoryCustomFactory:
         # Should fall back to dummy factory
         result = GraphStoreFactory.for_graph_store("dummy://")
         assert isinstance(result, DummyGraphStore)
+
+
+@pytest.mark.parametrize('as_instance', [False, True])
+def test_explicit_registered_type_bypasses_other_factories(monkeypatch, as_instance):
+    from graphrag_toolkit.lexical_graph.storage import graph_store_factory as module
+    fallback = Mock(spec=GraphStoreFactoryMethod)
+    fallback.graph_store_type = None
+    selected_store = Mock(spec=GraphStore)
+
+    class SelectedFactory(GraphStoreFactoryMethod):
+        graph_store_type = 'custom'
+
+        def try_create(self, graph_info, **kwargs):
+            assert kwargs['graph_store_type'] == 'custom'
+            return selected_store
+
+    monkeypatch.setattr(module, '_graph_store_factories', {'fallback': fallback})
+    GraphStoreFactory.register(SelectedFactory() if as_instance else SelectedFactory)
+    assert GraphStoreFactory.for_graph_store('https://example.test', graph_store_type='custom') is selected_store
+    fallback.try_create.assert_not_called()
+
+
+def test_unknown_explicit_type_does_not_fall_back(monkeypatch):
+    from graphrag_toolkit.lexical_graph.storage import graph_store_factory as module
+    fallback = Mock(spec=GraphStoreFactoryMethod)
+    fallback.graph_store_type = None
+    monkeypatch.setattr(module, '_graph_store_factories', {'fallback': fallback})
+    with pytest.raises(ValueError, match='Unrecognized graph store type'):
+        GraphStoreFactory.for_graph_store('https://example.test', graph_store_type='missing')
+    fallback.try_create.assert_not_called()
+
+
+def test_selected_factory_declining_input_does_not_fall_back(monkeypatch):
+    from graphrag_toolkit.lexical_graph.storage import graph_store_factory as module
+    selected = Mock(spec=GraphStoreFactoryMethod)
+    selected.graph_store_type = 'custom'
+    selected.try_create.return_value = None
+    fallback = Mock(spec=GraphStoreFactoryMethod)
+    fallback.graph_store_type = None
+    monkeypatch.setattr(module, '_graph_store_factories', {'fallback': fallback, 'selected': selected})
+    with pytest.raises(ValueError, match='Unrecognized graph store info'):
+        GraphStoreFactory.for_graph_store('unsupported://', graph_store_type='custom')
+    selected.try_create.assert_called_once()
+    fallback.try_create.assert_not_called()
