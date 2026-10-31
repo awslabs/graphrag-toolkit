@@ -2,7 +2,6 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import logging
-import asyncio
 import time
 import os
 import json
@@ -444,64 +443,6 @@ def get_parse_output_text_fn(model_id:str):
         return _parse_output_text(json_data, provider.output_path, provider.output_mode)
     return parse_output
 
-async def process_batch_output(local_output_directory:str, input_filename:str, llm:LLMCache) -> Dict[str, str]:
-    """Process batch output files and return results."""
-    results = {}
-    failed_records = []
-
-    process_output_start = time.time()
-
-    parse_output_text = get_parse_output_text_fn(llm.llm.model)
-
-    logger.debug(f'[Batch outputs] Started processing all outputs for {input_filename}')
-
-    for filename in os.listdir(local_output_directory):
-        if filename.startswith(input_filename):
-            output_filepath = os.path.join(local_output_directory, filename)
-            logger.debug(f'[Batch outputs] Started parsing output file {output_filepath}')
-            with open(output_filepath, 'r', encoding='utf-8') as jsonl_file:
-                for line in jsonl_file:
-                    json_data = json.loads(line)
-                    record_id = json_data.get('recordId')
-                    error = json_data.get('error')
-                    if not error:
-                        model_output_text = parse_output_text(json_data)
-                        results[record_id] = model_output_text
-                    else:
-                        failed_records.append((record_id, json_data.get('modelInput', {}).get('messages', [{}])[0].get('content', [{}])[0].get('text', '')))
-
-    logger.debug(f'[Batch outputs] Finished parsing all outputs for {input_filename} [succeeded: {len(results.keys())}, failed: {len(failed_records)}]')
-
-    async def process_failed_record(record):
-        record_id, text = record
-        
-        def blocking_llm_call():
-            return llm.predict(PromptTemplate(text))
-        
-        try:
-            coro = asyncio.to_thread(blocking_llm_call)
-            response = await coro
-            logger.debug(f'[Batch outputs] Successfully processed failed record {record_id}')
-            return record_id, response
-        except Exception as e:
-            logger.error(f'[Batch outputs] Error processing failed record {record_id}: {str(e)}')
-            return record_id, None
-
-    if failed_records:
-        logger.debug(f'[Batch outputs] Processing failed records for {input_filename}')
-    
-    failed_results = await asyncio.gather(*[process_failed_record(record) for record in failed_records])
-    
-    for record_id, response in failed_results:
-        if response:
-            results[record_id] = response
-
-    process_output_end = time.time()
-
-    logger.debug(f'[Batch outputs] Finished processing all outputs for {input_filename} ({int((process_output_end - process_output_start) * 1000)} millis)')
-
-    return results
-
 def process_batch_output_sync(local_output_directory:str, input_filename:str, llm:LLMCache):
     
     success_count = 0
@@ -522,6 +463,8 @@ def process_batch_output_sync(local_output_directory:str, input_filename:str, ll
             return (record_id, None)
 
 
+    error_records = []
+
     for filename in os.listdir(local_output_directory):
         if filename.startswith(input_filename):
             output_filepath = os.path.join(local_output_directory, filename)
@@ -536,13 +479,29 @@ def process_batch_output_sync(local_output_directory:str, input_filename:str, ll
                         success_count += 1
                         yield (record_id, model_output_text)
                     else:
-                        (record_id, response) = process_failed_record(record_id, json_data.get('modelInput', {}).get('messages', [{}])[0].get('content', [{}])[0].get('text', ''), error)
-                        if response:
-                            success_count += 1
-                        else:
-                            failure_count += 1
-                            logger.debug
-                        yield (record_id, response)
+                        error_records.append((record_id, json_data.get('modelInput', {}).get('messages', [{}])[0].get('content', [{}])[0].get('text', ''), error))
+
+    if error_records:
+        total_count = success_count + len(error_records)
+        counts = f'succeeded: {success_count}, failed: {len(error_records)}, total: {total_count}'
+        any_recoverable = any(
+            isinstance(error, dict) and (error.get('retryable') is True or error.get('expired') is True)
+            for (_, _, error) in error_records
+        )
+        if not success_count and not any_recoverable:
+            first_error = error_records[0][2]
+            first_error_message = (first_error.get('errorMessage') or first_error.get('errorCode') or first_error) if isinstance(first_error, dict) else first_error
+            logger.error(f'[Batch outputs] Batch job failed every record [input_file: {input_filename}, {counts}]')
+            raise BatchJobError(f'Batch job failed every record [input_file: {input_filename}, {counts}] - {first_error_message}')
+        logger.warning(f'[Batch outputs] Batch job failed records, processing them individually [input_file: {input_filename}, {counts}]')
+
+    for (record_id, text, error) in error_records:
+        (record_id, response) = process_failed_record(record_id, text, error)
+        if response:
+            success_count += 1
+        else:
+            failure_count += 1
+        yield (record_id, response)
 
     process_output_end = time.time()
                         
