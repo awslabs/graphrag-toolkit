@@ -9,6 +9,7 @@ Covers:
   - Schema initialization on first connection (writeable=True)
   - Already initialized skips DDL
   - TLS settings passed to psycopg2.connect, and read from the connection string
+  - Hint added to the no-TLS error when the default sslmode was applied
 """
 
 import sys
@@ -161,6 +162,47 @@ class TestPGIndexTLS:
         kwargs = self._connect_kwargs(_make_pg_index(sslmode="verify-full", sslrootcert="/certs/global-bundle.pem"))
         assert kwargs["sslmode"] == "verify-full"
         assert kwargs["sslrootcert"] == "/certs/global-bundle.pem"
+
+
+class OperationalError(Exception):
+    pass
+
+
+class TestPGIndexNoTLSHint:
+
+    NO_TLS = 'connection to server at "127.0.0.1", port 5432 failed: server does not support SSL, but SSL was required'
+
+    def _connect_error(self, index, message):
+        with patch.object(pvi, "psycopg2") as mock_pg:
+            with patch.object(pvi, "register_vector"):
+                mock_pg.OperationalError = OperationalError
+                mock_pg.connect.side_effect = OperationalError(message)
+                index.initialized = True
+                with pytest.raises(OperationalError) as excinfo:
+                    index._get_connection()
+                return excinfo.value
+
+    def test_default_sslmode_adds_a_hint_when_the_server_has_no_tls(self, monkeypatch):
+        monkeypatch.delenv("PGSSLMODE", raising=False)
+        err = self._connect_error(_make_pg_index(), self.NO_TLS)
+        assert self.NO_TLS in str(err)
+        assert "sslmode=disable" in str(err)
+        assert str(err.__cause__) == self.NO_TLS
+
+    def test_configured_sslmode_keeps_the_libpq_error(self, monkeypatch):
+        monkeypatch.delenv("PGSSLMODE", raising=False)
+        err = self._connect_error(_make_pg_index(sslmode="require"), self.NO_TLS)
+        assert str(err) == self.NO_TLS
+
+    def test_pgsslmode_keeps_the_libpq_error(self, monkeypatch):
+        monkeypatch.setenv("PGSSLMODE", "require")
+        err = self._connect_error(_make_pg_index(), self.NO_TLS)
+        assert str(err) == self.NO_TLS
+
+    def test_other_errors_pass_through_unchanged(self, monkeypatch):
+        monkeypatch.delenv("PGSSLMODE", raising=False)
+        err = self._connect_error(_make_pg_index(), "password authentication failed")
+        assert str(err) == "password authentication failed"
 
 
 class TestPGIndexForIndexTLS:

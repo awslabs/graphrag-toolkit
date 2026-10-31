@@ -15,7 +15,8 @@ Skipped unless PG_TEST_URI is set. To run locally:
         pytest tests/integration/storage/vector/test_pg_vector_tls_live.py
     finch stop pg-tls-test && finch rm pg-tls-test
 
-Run it on its own. The unit tests replace psycopg2 with a fake for the whole session.
+Run it on its own. The unit tests replace psycopg2 with a fake for the whole
+session, and this file skips itself when it finds that fake.
 """
 
 import os
@@ -26,6 +27,9 @@ from llama_index.core.embeddings import MockEmbedding
 
 psycopg2 = pytest.importorskip('psycopg2')
 pytest.importorskip('pgvector')
+
+if not getattr(psycopg2, '__file__', None):
+    pytest.skip('psycopg2 is replaced by a unit-test fake; run this file on its own', allow_module_level=True)
 
 from graphrag_toolkit.lexical_graph.storage.vector.pg_vector_indexes import PGIndex
 
@@ -57,8 +61,9 @@ def _index(**kwargs):
 
 
 def test_default_connection_is_refused_without_tls(vector_extension):
-    with pytest.raises(psycopg2.OperationalError, match='server does not support SSL'):
+    with pytest.raises(psycopg2.OperationalError, match='server does not support SSL') as excinfo:
         _index()._get_connection()
+    assert 'sslmode=disable' in str(excinfo.value)
 
 
 def test_sslmode_disable_connects_without_tls(vector_extension):

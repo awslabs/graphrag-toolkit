@@ -312,22 +312,33 @@ class PGIndex(VectorIndex):
         password = token or self.password
 
         ssl_args = {}
+        default_sslmode = False
         if self.sslmode:
             ssl_args['sslmode'] = self.sslmode
         elif 'PGSSLMODE' not in os.environ:
             ssl_args['sslmode'] = DEFAULT_SSLMODE
+            default_sslmode = True
         if self.sslrootcert:
             ssl_args['sslrootcert'] = self.sslrootcert
 
-        dbconn = psycopg2.connect(
-            host=self.host,
-            user=self.username, 
-            password=password,
-            port=self.port, 
-            database=self.database,
-            connect_timeout=30,
-            **ssl_args
-        )
+        try:
+            dbconn = psycopg2.connect(
+                host=self.host,
+                user=self.username,
+                password=password,
+                port=self.port,
+                database=self.database,
+                connect_timeout=30,
+                **ssl_args
+            )
+        except psycopg2.OperationalError as e:
+            if default_sslmode and 'server does not support SSL' in str(e):
+                raise psycopg2.OperationalError(
+                    f'{e}\nThe Postgres vector store requires TLS by default. For a server without TLS, '
+                    'such as a local Docker container, add ?sslmode=disable to the connection string '
+                    'or set PGSSLMODE=disable.'
+                ) from e
+            raise
 
         dbconn.set_session(autocommit=True)
 
