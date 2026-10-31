@@ -58,10 +58,11 @@ class CypherSafetyCheck(IntegrationTestBase):
 
     This test confirms that:
     1. Comment-split keywords (CRE/**/ATE) are blocked
-    2. CALL/APOC procedures are blocked
-    3. Unicode lookalike keywords are blocked
-    4. The block_graph_modification flag works correctly
-    5. Legitimate read queries still execute successfully
+    2. Writes after a comment marker inside a string literal are blocked
+    3. CALL/APOC procedures are blocked
+    4. Unicode lookalike keywords are blocked
+    5. The block_graph_modification flag works correctly
+    6. Legitimate read queries still execute successfully
 
     Note: Neither Neptune Graph (Analytics) nor Neptune DB support a read-only
     query execution parameter. Write protection relies on application-level
@@ -111,6 +112,17 @@ class CypherSafetyCheck(IntegrationTestBase):
         for q in comment_queries:
             result = retriever.retrieve(q)
             bypass_results[f"comment:{q[:30]}"] = (
+                "Cannot execute query" in result[0]
+            )
+
+        # Comment markers inside string literals
+        quoted_comment_queries = [
+            "WITH '//' AS a CREATE (n:MaliciousNode {name: 'evil'}) RETURN a",
+            "WITH '/*' AS a CREATE (n:MaliciousNode {name: 'evil'}) WITH a, '*/' AS b RETURN a, b",
+        ]
+        for q in quoted_comment_queries:
+            result = retriever.retrieve(q)
+            bypass_results[f"quoted:{q[:30]}"] = (
                 "Cannot execute query" in result[0]
             )
 
@@ -175,6 +187,15 @@ class CypherSafetyCheck(IntegrationTestBase):
                     if k.startswith("comment:")
                 ]
                 self.assertTrue(all(comment_blocked))
+
+            def test_quoted_comment_bypass_blocked(self):
+                """Writes after a comment marker inside a string literal are blocked"""
+                quoted_blocked = [
+                    v for k, v in self._bypass_results.items()
+                    if k.startswith("quoted:")
+                ]
+                self.assertEqual(len(quoted_blocked), 2)
+                self.assertTrue(all(quoted_blocked))
 
             def test_call_bypass_blocked(self):
                 """CALL/APOC procedures are blocked"""
