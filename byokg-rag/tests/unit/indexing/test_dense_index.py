@@ -272,11 +272,9 @@ class TestDenseIndexQuerySimilarity:
         assert all(doc_id in ['company1', 'company3'] for doc_id in returned_ids)
     
     def test_dense_index_query_empty_index(self):
-        """Verify querying empty index behavior.
-        
-        NOTE: When the FAISS index is empty, it returns -1 for indices.
-        The current implementation will raise IndexError when trying to
-        access doc_ids[-1]. This test documents the current behavior.
+        """Verify querying an empty index returns no hits.
+
+        FAISS returns index -1 for every slot of an empty index.
         """
         mock_embedding = Mock()
         embedding_dim = 4
@@ -289,10 +287,63 @@ class TestDenseIndexQuerySimilarity:
         query_embedding = [1.0, 0.0, 0.0, 0.0]
         mock_embedding.embed.return_value = query_embedding
         
-        # Current implementation raises IndexError for empty index
-        # This is a known limitation that should be handled in the implementation
-        with pytest.raises(IndexError):
-            result = index.query('query', topk=1)
+        result = index.query('query', topk=1)
+        
+        assert result == {'hits': []}
+    
+    def test_dense_index_query_topk_larger_than_index(self):
+        """Verify topk above the index size returns each document once.
+
+        FAISS pads the missing slots with index -1, which must not be read
+        as the last stored document.
+        """
+        mock_embedding = Mock()
+        embedding_dim = 4
+        index = LocalFaissDenseIndex(
+            embedding=mock_embedding,
+            distance_type="l2",
+            embedding_dim=embedding_dim
+        )
+        
+        documents = ['Amazon', 'Microsoft']
+        embeddings = np.array([
+            [1.0, 0.0, 0.0, 0.0],
+            [0.0, 1.0, 0.0, 0.0]
+        ])
+        index.add(documents, embeddings=embeddings)
+        
+        mock_embedding.embed.return_value = [1.0, 0.0, 0.0, 0.0]
+        
+        result = index.query('query', topk=5)
+        
+        assert [hit['document'] for hit in result['hits']] == ['Amazon', 'Microsoft']
+    
+    def test_dense_index_query_id_selector_fewer_than_topk(self):
+        """Verify an id_selector allowing fewer ids than topk returns only allowed ids."""
+        mock_embedding = Mock()
+        embedding_dim = 4
+        index = LocalFaissDenseIndex(
+            embedding=mock_embedding,
+            distance_type="l2",
+            embedding_dim=embedding_dim
+        )
+        
+        ids = ['company1', 'company2', 'company3']
+        documents = ['Amazon', 'Microsoft', 'Google']
+        embeddings = np.array([
+            [1.0, 0.0, 0.0, 0.0],
+            [0.0, 1.0, 0.0, 0.0],
+            [0.0, 0.0, 1.0, 0.0]
+        ])
+        index.add_with_ids(ids, documents, embeddings=embeddings)
+        
+        mock_embedding.embed.return_value = [1.0, 0.0, 0.0, 0.0]
+        
+        result = index.query('query', topk=3, id_selector=['company1', 'company2'])
+        
+        # The padded third slot would otherwise read company3, which the
+        # selector excludes.
+        assert [hit['document_id'] for hit in result['hits']] == ['company1', 'company2']
 
 
 class TestDenseIndexQueryWithMockLLM:
@@ -366,6 +417,35 @@ class TestDenseIndexMatch:
         # Should return 2 results (1 per query)
         assert len(result['hits']) == 2
     
+    def test_dense_index_match_topk_larger_than_index(self):
+        """Verify match returns each document once per query when topk exceeds the index size."""
+        mock_embedding = Mock()
+        embedding_dim = 4
+        index = LocalFaissDenseIndex(
+            embedding=mock_embedding,
+            distance_type="l2",
+            embedding_dim=embedding_dim
+        )
+        
+        documents = ['Amazon', 'Microsoft']
+        embeddings = np.array([
+            [1.0, 0.0, 0.0, 0.0],
+            [0.0, 1.0, 0.0, 0.0]
+        ])
+        index.add(documents, embeddings=embeddings)
+        
+        mock_embedding.batch_embed.return_value = [
+            [1.0, 0.0, 0.0, 0.0],
+            [0.0, 1.0, 0.0, 0.0]
+        ]
+        
+        result = index.match(['query1', 'query2'], topk=3)
+        
+        assert [hit['document'] for hit in result['hits']] == [
+            'Amazon', 'Microsoft',
+            'Microsoft', 'Amazon'
+        ]
+    
     def test_dense_index_match_with_id_selector_not_implemented(self):
         """Verify match with id_selector raises NotImplementedError."""
         mock_embedding = Mock()
@@ -407,3 +487,30 @@ class TestDenseIndexReset:
         assert index.doc_store == []
         assert index.doc_ids == []
         assert index.id2idx == {}
+        assert index.faiss_index.ntotal == 0
+    
+    def test_dense_index_query_after_reset(self):
+        """Verify documents added after reset are matched against their own vectors."""
+        mock_embedding = Mock()
+        embedding_dim = 4
+        index = LocalFaissDenseIndex(
+            embedding=mock_embedding,
+            distance_type="l2",
+            embedding_dim=embedding_dim
+        )
+        
+        index.add(['Amazon', 'Microsoft'], embeddings=np.array([
+            [1.0, 0.0, 0.0, 0.0],
+            [0.0, 1.0, 0.0, 0.0]
+        ]))
+        index.reset()
+        index.add(['Google'], embeddings=np.array([
+            [0.0, 0.0, 1.0, 0.0]
+        ]))
+        
+        # Closest to the discarded 'Amazon' vector; only 'Google' is left.
+        mock_embedding.embed.return_value = [1.0, 0.0, 0.0, 0.0]
+        
+        result = index.query('query', topk=2)
+        
+        assert [hit['document'] for hit in result['hits']] == ['Google']
