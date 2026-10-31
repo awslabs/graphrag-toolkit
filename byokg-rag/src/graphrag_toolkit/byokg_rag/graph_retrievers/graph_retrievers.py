@@ -393,23 +393,23 @@ class GraphQueryRetriever(GRetriever):
         ]
         
         # Strip inline comments (/* ... */) and single-line comments (// ...)
-        query = re.sub(r'/\*.*?\*/', '', graph_query, flags=re.DOTALL)
-        query = re.sub(r'//[^\n]*', '', query)
-        
-        # Normalize Unicode characters (NFKC collapses fullwidth and lookalikes to ASCII)
-        query = unicodedata.normalize('NFKC', query)
-        
-        # Normalize query for case-insensitive matching
-        query_upper = query.upper()
-        
-        # Check for each blocked keyword
-        for keyword in modification_keywords:
-            # Use word boundaries to avoid matching keywords within other words
-            # re.MULTILINE flag ensures proper handling of multi-line queries with \n
-            pattern = r'\b' + re.escape(keyword) + r'\b'
-            if re.search(pattern, query_upper, re.MULTILINE):
-                return False
-        
+        stripped = re.sub(r'/\*.*?\*/', '', graph_query, flags=re.DOTALL)
+        stripped = re.sub(r'//[^\n]*', '', stripped)
+
+        # The stripper ignores string literals, so check the raw query too
+        for query in (graph_query, stripped):
+            # Normalize Unicode characters (NFKC collapses fullwidth and lookalikes to ASCII)
+            # and case for case-insensitive matching
+            query_upper = unicodedata.normalize('NFKC', query).upper()
+
+            # Check for each blocked keyword
+            for keyword in modification_keywords:
+                # Use word boundaries to avoid matching keywords within other words
+                # re.MULTILINE flag ensures proper handling of multi-line queries with \n
+                pattern = r'\b' + re.escape(keyword) + r'\b'
+                if re.search(pattern, query_upper, re.MULTILINE):
+                    return False
+
         return True
 
     def retrieve(self, graph_query: str, return_answers=False, **kwargs):

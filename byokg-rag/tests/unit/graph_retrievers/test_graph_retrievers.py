@@ -629,6 +629,28 @@ class TestGraphQueryRetrieverIsQuerySafe:
         RETURN n"""
         assert retriever.is_query_safe(query_with_create) is False
 
+    @pytest.mark.parametrize("query", [
+        "WITH '//' AS a CREATE (x:Pwned) RETURN a",
+        'WITH "//" AS a CREATE (x:Pwned) RETURN a',
+        "MATCH (n) WHERE n.name <> '//' DETACH DELETE n",
+        "WITH '/*' AS a CREATE (x:Pwned) WITH a, '*/' AS b RETURN a, b",
+        "MATCH (n) WHERE n.name <> '/*' MERGE (x:Pwned) WITH n WHERE n.name <> '*/' RETURN n",
+    ])
+    def test_is_query_safe_quoted_comment_marker(self, mock_graph_store, query):
+        """Verify a comment marker inside a string literal does not hide a write keyword."""
+        retriever = GraphQueryRetriever(graph_store=mock_graph_store)
+
+        assert retriever.is_query_safe(query) is False
+
+    def test_retrieve_quoted_comment_marker_not_executed(self, mock_graph_store):
+        """Verify a write hidden behind a quoted comment marker never reaches the store."""
+        retriever = GraphQueryRetriever(graph_store=mock_graph_store)
+
+        result = retriever.retrieve("WITH '//' AS a CREATE (x:Pwned) RETURN a")
+
+        assert result == ["Cannot execute query that modifies the graph"]
+        mock_graph_store.execute_query.assert_not_called()
+
 
 class TestGraphQueryRetrieverRetrieve:
     """Tests for GraphQueryRetriever retrieve method."""

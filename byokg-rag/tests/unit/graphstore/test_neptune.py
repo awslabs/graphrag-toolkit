@@ -1284,6 +1284,60 @@ class TestNeptuneReadOnlyPropagation:
         assert 'does not support read-only' not in caplog.text
 
     @patch('graphrag_toolkit.byokg_rag.graphstore.neptune.boto3.Session')
+    def test_neptune_db_read_only_warns_once_per_store(self, mock_session, mock_neptune_data_client, mock_s3_client, caplog):
+        """Repeated read_only=True queries on one Neptune DB store log the warning once."""
+        mock_session_instance = Mock()
+        mock_session.return_value = mock_session_instance
+        mock_session_instance.client.side_effect = lambda service, **kwargs: {
+            'neptunedata': mock_neptune_data_client,
+            's3': mock_s3_client
+        }[service]
+
+        mock_neptune_data_client.execute_open_cypher_query.return_value = {
+            'results': []
+        }
+
+        store = NeptuneDBGraphStore(
+            endpoint_url='https://test-cluster.us-west-2.neptune.amazonaws.com:8182',
+            region='us-west-2'
+        )
+
+        import logging
+        with caplog.at_level(logging.WARNING):
+            for _ in range(3):
+                store.execute_query("MATCH (n) RETURN n", read_only=True)
+
+        assert caplog.text.count('does not support read-only') == 1
+        assert mock_neptune_data_client.execute_open_cypher_query.call_count == 3
+
+    @patch('graphrag_toolkit.byokg_rag.graphstore.neptune.boto3.Session')
+    def test_neptune_analytics_read_only_warns_once_per_store(self, mock_session, mock_neptune_client, mock_s3_client, caplog):
+        """Repeated read_only=True queries on one Neptune Analytics store log the warning once."""
+        mock_session_instance = Mock()
+        mock_session.return_value = mock_session_instance
+        mock_session_instance.client.side_effect = lambda service, **kwargs: {
+            'neptune-graph': mock_neptune_client,
+            's3': mock_s3_client
+        }[service]
+
+        mock_neptune_client.execute_query.side_effect = lambda **kwargs: {
+            'payload': Mock(read=lambda: json.dumps({'results': []}).encode())
+        }
+
+        store = NeptuneAnalyticsGraphStore(
+            graph_identifier='test-graph-id',
+            region='us-west-2'
+        )
+
+        import logging
+        with caplog.at_level(logging.WARNING):
+            for _ in range(3):
+                store.execute_query("MATCH (n) RETURN n", read_only=True)
+
+        assert caplog.text.count('does not support read-only') == 1
+        assert mock_neptune_client.execute_query.call_count == 3
+
+    @patch('graphrag_toolkit.byokg_rag.graphstore.neptune.boto3.Session')
     def test_neptune_db_read_only_does_not_pass_to_api(self, mock_session, mock_neptune_data_client, mock_s3_client):
         """Neptune DB never passes readOnly to the openCypher API regardless of the flag."""
         mock_session_instance = Mock()
@@ -1951,35 +2005,36 @@ class TestNoUnescapedLabelSinks:
             '_escape_cypher_label:\n' + '\n'.join(offenders)
         )
 
-class TestNeptuneGraphReadOnlyParameterRejected:
-    """Validates that the neptune-graph service model does not accept readOnly.
+class TestNeptuneReadOnlyParameterRejected:
+    """Validates that neither Neptune query API accepts a readOnly parameter.
 
     Uses botocore's parameter validation directly (no network call, no boto3.client).
-    If this test starts failing, it means the service model re-added readOnly
-    and we could consider passing it again.
+    The README's statement that write protection is application-level rests on this.
     """
 
-    def test_neptune_graph_rejects_read_only_parameter(self):
-        """The neptune-graph execute_query API rejects readOnly in input validation."""
+    @pytest.mark.parametrize("service, operation, params", [
+        ('neptune-graph', 'ExecuteQuery', {
+            'graphIdentifier': 'test-graph',
+            'queryString': 'MATCH (n) RETURN n LIMIT 1',
+            'language': 'OPEN_CYPHER',
+        }),
+        ('neptunedata', 'ExecuteOpenCypherQuery', {
+            'openCypherQuery': 'MATCH (n) RETURN n LIMIT 1',
+        }),
+    ])
+    def test_query_api_rejects_read_only_parameter(self, service, operation, params):
+        """The Neptune query API rejects readOnly in input validation."""
         import botocore.session
         from botocore.validate import ParamValidator
 
         session = botocore.session.get_session()
-        service_model = session.get_service_model('neptune-graph')
-        operation_model = service_model.operation_model('ExecuteQuery')
-        input_shape = operation_model.input_shape
+        input_shape = session.get_service_model(service).operation_model(operation).input_shape
 
         validator = ParamValidator()
-        params = {
-            'graphIdentifier': 'test-graph',
-            'queryString': 'MATCH (n) RETURN n LIMIT 1',
-            'language': 'OPEN_CYPHER',
-            'readOnly': True,
-        }
-        report = validator.validate(params, input_shape)
+        assert not validator.validate(params, input_shape).has_errors()
+        report = validator.validate({**params, 'readOnly': True}, input_shape)
         assert report.has_errors(), (
-            "Expected readOnly to be rejected by the neptune-graph service model. "
-            "If this fails, the API now accepts readOnly and we should consider re-enabling it."
+            f"Expected readOnly to be rejected by the {service} {operation} service model."
         )
 
 
