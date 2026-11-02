@@ -29,6 +29,7 @@ from llama_index.core.schema import NodeRelationship, RelatedNodeInfo, TextNode
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import (
     COLLECTION_RECORD_NAME,
+    COMPLETION_MARKER_PREFIX,
     S3BasedDocs,
     is_completion_marker,
 )
@@ -118,6 +119,10 @@ def _delete(keys):
     )
 
 
+def _put(key, body):
+    GraphRAGConfig.s3.put_object(Bucket=S3_TEST_BUCKET, Key=key, Body=body)
+
+
 def _interrupt_before_the_marker(key_prefix, collection_id, source_id):
     """The state a run killed mid-document leaves: chunks written, no marker."""
     markers = [
@@ -167,6 +172,58 @@ class TestAnInterruptedRunReadsBackAsIncomplete:
         _stage(key_prefix, collection_id, [_doc('src-1'), _doc('src-2')], for_jsonl)
 
         assert _read_back(key_prefix, collection_id, for_jsonl) == ['src-1', 'src-2']
+
+
+@pytest.mark.parametrize('for_jsonl', [False, True], ids=['chunks', 'jsonl'])
+class TestAMalformedMarker:
+    """One bad marker costs its own document, not the read, and a re-stage settles it."""
+
+    def _markers_of(self, key_prefix, collection_id, source_id):
+        return [
+            key for key in _keys_under(f'{key_prefix}/{collection_id}/{source_id}/')
+            if is_completion_marker(key)
+        ]
+
+    def test_a_marker_overwritten_with_non_json_skips_only_its_document(self, key_prefix, for_jsonl):
+        collection_id = 'overwritten-marker'
+        _stage(key_prefix, collection_id, [_doc('src-1'), _doc('src-2'), _doc('src-3')], for_jsonl)
+
+        for key in self._markers_of(key_prefix, collection_id, 'src-2'):
+            _put(key, b'not json')
+
+        assert _read_back(key_prefix, collection_id, for_jsonl) == ['src-1', 'src-3']
+
+    def test_a_foreign_marker_is_ignored_once_the_document_is_staged_again(self, key_prefix, for_jsonl):
+        # Under a name no re-stage writes, so only ignoring it lets the
+        # document read again.
+        collection_id = 'foreign-marker'
+        _stage(key_prefix, collection_id, [_doc('src-1'), _doc('src-2')], for_jsonl)
+        _interrupt_before_the_marker(key_prefix, collection_id, 'src-2')
+        _put(f'{key_prefix}/{collection_id}/src-2/_markers/_COMPLETE-foreign', b'not json')
+
+        assert _read_back(key_prefix, collection_id, for_jsonl) == ['src-1']
+
+        _stage(key_prefix, collection_id, [_doc('src-2')], for_jsonl)
+
+        assert _read_back(key_prefix, collection_id, for_jsonl) == ['src-1', 'src-2']
+
+    def test_a_marker_the_earlier_writer_stored_still_reads(self, key_prefix, for_jsonl):
+        # The earlier writer was the chunk uploader alone. It cut the name's
+        # digest to five characters and stored only these three fields.
+        if for_jsonl:
+            pytest.skip('the earlier writer stored no JSONL markers')
+
+        collection_id = 'short-name'
+        _stage(key_prefix, collection_id, [_doc('src-1')], for_jsonl)
+
+        marker_key, = self._markers_of(key_prefix, collection_id, 'src-1')
+        written = json.loads(GraphRAGConfig.s3.get_object(Bucket=S3_TEST_BUCKET, Key=marker_key)['Body'].read())
+        earlier = {name: written[name] for name in ('chunk_ids', 'count', 'content_hash')}
+        short_key = marker_key[:marker_key.rindex(COMPLETION_MARKER_PREFIX) + len(COMPLETION_MARKER_PREFIX) + 5]
+        _put(short_key, json.dumps(earlier).encode('UTF-8'))
+        _delete([marker_key])
+
+        assert _read_back(key_prefix, collection_id, for_jsonl) == ['src-1']
 
 
 @pytest.mark.parametrize('for_jsonl', [False, True], ids=['chunks', 'jsonl'])

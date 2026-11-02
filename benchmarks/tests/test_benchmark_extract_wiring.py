@@ -34,6 +34,7 @@ BATCH_ENV = {
 EXTRACTION_VARS = (
     'EXTRACTION_NUM_WORKERS',
     'EXTRACTION_BATCH_SIZE',
+    'EXTRACTION_NUM_THREADS_PER_WORKER',
     'TEST_EXTRACTION_LLM',
 )
 
@@ -43,7 +44,11 @@ def clean_config(monkeypatch):
     """GraphRAGConfig is process-global, so put back what these tests overwrite."""
     saved = {
         name: getattr(GraphRAGConfig, name)
-        for name in ('extraction_batch_size', 'extraction_num_workers')
+        for name in (
+            'extraction_batch_size',
+            'extraction_num_workers',
+            'extraction_num_threads_per_worker',
+        )
     }
     for var in EXTRACTION_VARS:
         monkeypatch.delenv(var, raising=False)
@@ -62,27 +67,32 @@ class TestExtractionConfigReachesGraphRAGConfig:
     def test_environment_overrides_the_defaults(self, monkeypatch):
         monkeypatch.setenv('EXTRACTION_NUM_WORKERS', '8')
         monkeypatch.setenv('EXTRACTION_BATCH_SIZE', '999')
+        monkeypatch.setenv('EXTRACTION_NUM_THREADS_PER_WORKER', '32')
 
         apply_extraction_config()
 
         assert GraphRAGConfig.extraction_num_workers == 8
         assert GraphRAGConfig.extraction_batch_size == 999
+        assert GraphRAGConfig.extraction_num_threads_per_worker == 32
 
     def test_defaults_when_unset(self):
         apply_extraction_config()
 
         assert GraphRAGConfig.extraction_num_workers == 2
         assert GraphRAGConfig.extraction_batch_size == 15000
+        assert GraphRAGConfig.extraction_num_threads_per_worker == 4
 
     def test_empty_string_falls_back_rather_than_raising(self, monkeypatch):
         # int('') on the harness's empty string killed every run 27s in.
         monkeypatch.setenv('EXTRACTION_NUM_WORKERS', '')
         monkeypatch.setenv('EXTRACTION_BATCH_SIZE', '')
+        monkeypatch.setenv('EXTRACTION_NUM_THREADS_PER_WORKER', '')
 
         apply_extraction_config()
 
         assert GraphRAGConfig.extraction_num_workers == 2
         assert GraphRAGConfig.extraction_batch_size == 15000
+        assert GraphRAGConfig.extraction_num_threads_per_worker == 4
 
 
 class TestBatchConfigIsBuiltFromTheEnvironment:

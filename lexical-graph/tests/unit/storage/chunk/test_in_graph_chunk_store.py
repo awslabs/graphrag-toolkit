@@ -6,7 +6,7 @@
 from unittest.mock import Mock
 
 from graphrag_toolkit.lexical_graph.storage.chunk import ChunkStore, InGraphChunkStore
-from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
+from graphrag_toolkit.lexical_graph.storage.graph import GraphQueryOperation, GraphStore
 from graphrag_toolkit.lexical_graph.storage.graph.graph_store import format_id
 
 
@@ -49,6 +49,10 @@ class TestInGraphChunkStoreGetBatch:
             'chunk-1': 'text one',
             'chunk-2': 'text two',
         }
+        assert (
+            graph_client.execute_query.call_args.kwargs['operation']
+            is GraphQueryOperation.GET_CHUNKS
+        )
 
     def test_get_batch_omits_chunks_with_no_match(self):
         graph_client = Mock(spec=GraphStore)
@@ -97,6 +101,10 @@ class TestInGraphChunkStorePut:
         query, params = graph_client.execute_query_with_retry.call_args.args[:2]
         assert 'chunk.value' in query
         assert params['params'] == [{'chunk_id': 'chunk-1', 'text': 'new text'}]
+        assert (
+            graph_client.execute_query_with_retry.call_args.kwargs['operation']
+            is GraphQueryOperation.UPSERT_CHUNK
+        )
 
 
 class TestInGraphChunkStoreIsChunkStore:

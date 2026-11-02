@@ -9,16 +9,17 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "@astrojs/react": "^7.0.0",
-    "@astrojs/starlight": "0.42.5",
+    "@astrojs/react": "^7.1.2",
+    "@astrojs/starlight": "0.42.6",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.3.0",
-    "astro": "7.3.5",
+    "astro": "7.4.4",
     "react": "^19.2.8",
-    "react-dom": "^19.3.0",
+    "react-dom": "^19.3.1",
     "sharp": "^0.35.5"
   },
   "overrides": {
-    "postcss": "^8.5.10"
+    "postcss": "^8.5.10",
+    "postcss-selector-parser": "^7.1.6"
   }
 }

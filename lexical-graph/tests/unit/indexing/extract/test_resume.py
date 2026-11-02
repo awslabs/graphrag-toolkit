@@ -12,9 +12,11 @@ call per document, which at a million documents is its own scale problem.
 """
 
 import json
+import logging
 import threading
 import time
 
+import pytest
 from unittest.mock import Mock, PropertyMock, patch
 
 from graphrag_toolkit.lexical_graph.indexing.extract.resume import (
@@ -24,7 +26,12 @@ from graphrag_toolkit.lexical_graph.indexing.extract.resume import (
 )
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.indexing.extract import RunPlanStore
-from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import completion_marker_key
+from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import (
+    COMPLETION_MARKER_PREFIX,
+    S3ChunkUploader,
+    completion_marker_key,
+    node_ids_hash,
+)
 from graphrag_toolkit.lexical_graph.indexing.extract.run_manifest import (
     COMPLETE,
     SUBMITTED,
@@ -39,12 +46,19 @@ REGION = 'us-east-1'
 
 
 def _s3(keys, marker_bodies=None):
-    """A mock S3 that lists these keys and serves these marker bodies."""
+    """
+    A mock S3 that lists these keys and serves these marker bodies: bytes as
+    stored, anything else as JSON.
+    """
     marker_bodies = marker_bodies or {}
 
+    def body_of(key):
+        body = marker_bodies.get(key, {'chunk_ids': []})
+        return body if isinstance(body, bytes) else json.dumps(body).encode('UTF-8')
+
     def get_object(Bucket, Key):
-        body = json.dumps(marker_bodies.get(Key, {'chunk_ids': []}))
-        return {'Body': Mock(read=lambda: body.encode('UTF-8'))}
+        body = body_of(Key)
+        return {'Body': Mock(read=lambda: body)}
 
     s3_client = Mock()
     s3_client.get_paginator.return_value = Mock(
@@ -53,12 +67,19 @@ def _s3(keys, marker_bodies=None):
         ]
     )
     s3_client.download_fileobj.side_effect = (
-        lambda bucket, key, stream: stream.write(
-            json.dumps(marker_bodies.get(key, {'chunk_ids': []})).encode('UTF-8')
-        )
+        lambda bucket, key, stream: stream.write(body_of(key))
     )
     s3_client.get_object.side_effect = get_object
     return s3_client
+
+
+def _as_written(chunk_ids) -> bytes:
+    """The marker the chunk uploader stores on ending a source with these chunks."""
+    s3_client = Mock()
+    S3ChunkUploader(bucket_name=BUCKET, collection_prefix=f'{KEY_PREFIX}/{COLLECTION_ID}')._write_completion_marker(
+        'root', list(chunk_ids), s3_client, source_chunk_ids=list(chunk_ids)
+    )
+    return s3_client.put_object.call_args.kwargs['Body']
 
 
 def _collection(sources, extra_keys=(), stored=None):
@@ -308,3 +329,91 @@ class TestTheHandlerARestartStagesThrough:
         handler = self._handler(self._store(s3_client), s3_client, num_threads=3)
 
         assert handler.num_threads == 3
+
+
+class TestWhatARestartTrusts:
+    """
+    Markers are unsigned and name no run, so a restart takes any marker that
+    accounts for the chunks beside it, whoever wrote both. Write access to the
+    collection prefix is the boundary; these pin the behaviour inside it.
+    """
+
+    PLANTED = 'src-planted'
+
+    def _planted(self, chunk_ids, stored=None, body=None):
+        """
+        A source no run staged: chunk objects, and a marker as the writer
+        stores one unless body says otherwise. stored is what is actually
+        under the prefix.
+        """
+        root = f'{KEY_PREFIX}/{COLLECTION_ID}/{self.PLANTED}'
+        marker_key = completion_marker_key(root, chunk_ids)
+        keys = [f'{root}/{chunk_id}.json' for chunk_id in (chunk_ids if stored is None else stored)]
+        return _s3([*keys, marker_key], {marker_key: _as_written(chunk_ids) if body is None else body})
+
+    def _skipped(self, s3_client, partitions=None):
+        """What staging_handler leaves alone, for a run with these partition records."""
+        store = RunPlanStore(bucket_name=BUCKET, key_prefix=KEY_PREFIX, collection_id=COLLECTION_ID)
+        store.manifest_store = Mock(return_value=_manifest_store(partitions or {}))
+
+        with patch.object(type(GraphRAGConfig), 's3', new_callable=PropertyMock, return_value=s3_client):
+            return store.staging_handler(RUN_ID, region=REGION).skip_source_ids
+
+    @pytest.mark.parametrize('partitions', [
+        {},
+        {'done': _record('done', COMPLETE)},
+    ], ids=['a new run id', 'a restart'])
+    def test_a_source_no_run_staged_is_skipped_when_its_marker_accounts_for_it(self, partitions):
+        # Documented trust, not a defect: a run id in the marker would not stop
+        # this, since nothing about the chunks is signed either.
+        assert self._skipped(self._planted(['c1', 'c2']), partitions) == {self.PLANTED}
+
+    def test_a_chunk_added_beside_a_marker_is_not_skipped(self):
+        assert self._skipped(self._planted(['c1', 'c2'], stored=['c1', 'c2', 'c3'])) == set()
+
+    @pytest.mark.parametrize('body', [
+        b'{"chunk_ids": [',
+        b'["c1", "c2"]',
+        json.dumps({'chunk_ids': 'c1,c2'}).encode('UTF-8'),
+        json.dumps({'chunk_ids': ['c1', 'c2'], 'final': 'true'}).encode('UTF-8'),
+        b'{}',
+        json.dumps({'chunk_ids': [], 'final': True}).encode('UTF-8'),
+        json.dumps({'chunk_ids': ['c1', 'c2'], 'count': 99, 'final': True}).encode('UTF-8'),
+    ], ids=['not JSON', 'not an object', 'chunk ids not a list', 'final not a boolean',
+            'empty object', 'empty chunk ids', 'count disagrees'])
+    def test_a_marker_the_writer_could_not_have_written_leaves_its_source_to_be_staged_again(self, body, caplog):
+        s3_client = self._planted(['c1', 'c2'], body=body)
+
+        with caplog.at_level(logging.WARNING):
+            skipped = self._skipped(s3_client)
+
+        assert skipped == set()
+        marker_key = completion_marker_key(f'{KEY_PREFIX}/{COLLECTION_ID}/{self.PLANTED}', ['c1', 'c2'])
+        assert any(
+            marker_key in record.getMessage() and 'Ignoring a completion marker' in record.getMessage()
+            for record in caplog.records
+        ), 'the warning names the marker and says what clears it'
+
+    def test_a_marker_named_by_the_earlier_writer_still_counts(self):
+        # Before the digest was kept whole the writer cut the name to five
+        # characters, with this body.
+        root = f'{KEY_PREFIX}/{COLLECTION_ID}/{self.PLANTED}'
+        key = f'{root}/_markers/{COMPLETION_MARKER_PREFIX}{node_ids_hash(["c1", "c2"])[:5]}'
+        body = {'chunk_ids': ['c1', 'c2'], 'count': 2, 'content_hash': node_ids_hash(['c1', 'c2'])}
+        s3_client = _s3([f'{root}/c1.json', f'{root}/c2.json', key], {key: body})
+
+        assert self._skipped(s3_client) == {self.PLANTED}
+
+    def test_one_re_stage_settles_a_source_whose_bad_marker_it_cannot_replace(self):
+        # The re-stage writes the marker named for its chunks; the bad one,
+        # under another name, stays and is ignored, so the next restart skips
+        # the source rather than staging it again every time.
+        root = f'{KEY_PREFIX}/{COLLECTION_ID}/{self.PLANTED}'
+        written_key = completion_marker_key(root, ['c1', 'c2'])
+        foreign_key = completion_marker_key(root, ['foreign'])
+        s3_client = _s3(
+            [f'{root}/c1.json', f'{root}/c2.json', written_key, foreign_key],
+            {written_key: _as_written(['c1', 'c2']), foreign_key: b'not json'},
+        )
+
+        assert self._skipped(s3_client) == {self.PLANTED}

@@ -87,8 +87,11 @@ if [[ "$#" -gt 0 ]]; then
     echo "  --ssh-cidr <SSH CIDR block (default: auto-detected IP/32, use 0.0.0.0/0 for open access)>"
     echo "  --benchmark-data-dir <local directory containing benchmark data to upload>"
     echo "  --benchmark-data-s3-uri <S3 URI for benchmark data (synced at runtime instead of uploading)>"
+    echo "  --byokg-data-s3-uri <S3 prefix of the BYOKG KGQA datasets, for the benchmark.byokg-kgqa suite; BYOKG_KGQA_RUNS, BYOKG_SINGLE_BEST_MATCH, BYOKG_MAX_ITERATIONS are read from .env>"
     echo "  --benchmark-qa-limit <max number of QA pairs to evaluate (for prototype runs)>"
     echo "  --benchmark-extract-doc-limit <cap the number of source documents extracted by the batch_extract.py tests (only the first N docs are extracted); speeds up benchmark runs>"
+    echo "  --benchmark-restarts <interrupt extraction this many times and restart under the same run id, or 'every-document' for one interruption per document; needs BENCHMARK_DOC_STORE=s3; overrides BENCHMARK_RESTARTS from .env>"
+    echo "  --extraction-num-threads-per-worker <threads per extraction worker; overrides EXTRACTION_NUM_THREADS_PER_WORKER from .env>"
     echo "  --benchmark-prototype"
     echo "  --benchmark-all-retrievers  Run all retrievers in a single pass (loops query+evaluate per retriever)"
     echo "  --benchmark-dataset <dataset>  Dataset for all-retrievers mode (cuad|concurrentqa|pga|pga_bio|pga_stat|wikihow)"
@@ -184,8 +187,11 @@ while [[ "$#" -gt 0 ]]; do
         --ssh-cidr) SSHCIDR="$2"; shift ;;
         --benchmark-data-dir) BENCHMARK_DATA_DIR="$2"; shift ;;
         --benchmark-data-s3-uri) BENCHMARK_DATA_S3_URI="$2"; shift ;;
+        --byokg-data-s3-uri) BYOKG_DATA_S3_URI="$2"; shift ;;
         --benchmark-qa-limit) BENCHMARK_QA_LIMIT="$2"; shift ;;
         --benchmark-extract-doc-limit) BENCHMARK_EXTRACT_DOC_LIMIT="$2"; shift ;;
+        --benchmark-restarts) BENCHMARK_RESTARTS="$2"; shift ;;
+        --extraction-num-threads-per-worker) EXTRACTION_NUM_THREADS_PER_WORKER="$2"; shift ;;
         --benchmark-prototype) BENCHMARK_IS_PROTOTYPE=true ;;
         --benchmark-all-retrievers) BENCHMARK_ALL_RETRIEVERS=true ;;
         --benchmark-dataset) BENCHMARK_DATASET="$2"; shift ;;
@@ -375,6 +381,11 @@ printf 'export FAIL_FAST=%q\n' "$FAIL_FAST" >> lexical-graph-examples/.env.testi
 printf 'export TEST_EXTRACTION_LLM=%q\n' "$TEST_EXTRACTION_LLM" >> lexical-graph-examples/.env.testing
 printf 'export TEST_RESPONSE_LLM=%q\n' "$TEST_RESPONSE_LLM" >> lexical-graph-examples/.env.testing
 printf 'export BENCHMARK_JUDGE_LLM=%q\n' "$BENCHMARK_JUDGE_LLM" >> lexical-graph-examples/.env.testing
+GRAPHRAG_TOOLKIT_GIT_SHA=$(git -C "$GRAPHRAG_TOOLKIT_DIR" rev-parse HEAD 2>/dev/null || echo unknown)
+if [ -n "$(git -C "$GRAPHRAG_TOOLKIT_DIR" status --porcelain 2>/dev/null)" ]; then  # also catches untracked files
+	GRAPHRAG_TOOLKIT_GIT_SHA="$GRAPHRAG_TOOLKIT_GIT_SHA-dirty"
+fi
+printf 'export GRAPHRAG_TOOLKIT_GIT_SHA=%q\n' "$GRAPHRAG_TOOLKIT_GIT_SHA" >> lexical-graph-examples/.env.testing
 printf 'export INCLUDE_CLASSIFICATION_IN_ENTITY_ID=%q\n' "False" >> lexical-graph-examples/.env.testing
 if [[ "$TESTS" ]]; then
 	printf 'export TESTS=%q\n' "$TESTS" >> lexical-graph-examples/.env.testing
@@ -403,6 +414,10 @@ fi
 if [[ "${BENCHMARK_EXTRACT_DOC_LIMIT:-}" ]]; then
 	printf 'export BENCHMARK_EXTRACT_DOC_LIMIT=%q\n' "$BENCHMARK_EXTRACT_DOC_LIMIT" >> lexical-graph-examples/.env.testing
 fi
+
+if [[ "${BENCHMARK_RESTARTS:-}" ]]; then
+	printf 'export BENCHMARK_RESTARTS=%q\n' "$BENCHMARK_RESTARTS" >> lexical-graph-examples/.env.testing
+fi
 if [[ "$BENCHMARK_IS_PROTOTYPE" ]]; then
 	printf 'export BENCHMARK_IS_PROTOTYPE=%q\n' "$BENCHMARK_IS_PROTOTYPE" >> lexical-graph-examples/.env.testing
 fi
@@ -421,12 +436,15 @@ fi
 
 # Benchmarks require this. Defaulting to true.
 printf 'export BENCHMARK_USE_BATCH=%q\n' "${BENCHMARK_USE_BATCH:-true}" >> lexical-graph-examples/.env.testing
-if [[ "${EXTRACTION_NUM_WORKERS:-}" ]]; then
-	printf 'export EXTRACTION_NUM_WORKERS=%q\n' "$EXTRACTION_NUM_WORKERS" >> lexical-graph-examples/.env.testing
-fi
-if [[ "${EXTRACTION_BATCH_SIZE:-}" ]]; then
-	printf 'export EXTRACTION_BATCH_SIZE=%q\n' "$EXTRACTION_BATCH_SIZE" >> lexical-graph-examples/.env.testing
-fi
+# Forwarded only when set, so the notebook keeps the library defaults otherwise.
+for setting in EXTRACTION_NUM_WORKERS EXTRACTION_BATCH_SIZE EXTRACTION_NUM_THREADS_PER_WORKER \
+	SOURCE_ID_WIDTH DETECT_SOURCE_ID_COLLISIONS \
+	BYOKG_DATA_S3_URI BYOKG_KGQA_RUNS BYOKG_SINGLE_BEST_MATCH BYOKG_MAX_ITERATIONS \
+	BYOKG_WEBQSP_LIMIT BYOKG_CWQ_LIMIT BYOKG_CRONQUESTIONS_LIMIT BYOKG_MEDQA_LIMIT; do
+	if [[ "${!setting:-}" ]]; then
+		printf "export $setting=%q\n" "${!setting}" >> lexical-graph-examples/.env.testing
+	fi
+done
 
 zip -r graphrag-toolkit.zip graphrag-toolkit # zip under directory
 
@@ -486,15 +504,27 @@ echo "SSHCIDR                  : $SSHCIDR"
 echo "TESTS                    : $TESTS"
 echo "BENCHMARK_DATA_DIR       : $BENCHMARK_DATA_DIR"
 echo "BENCHMARK_DATA_S3_URI    : $BENCHMARK_DATA_S3_URI"
+echo "BYOKG_DATA_S3_URI        : ${BYOKG_DATA_S3_URI:-}"
 echo "BENCHMARK_QA_LIMIT       : $BENCHMARK_QA_LIMIT"
 echo "BENCHMARK_EXTRACT_DOC_LIMIT : ${BENCHMARK_EXTRACT_DOC_LIMIT:-}"
+echo "BENCHMARK_RESTARTS       : ${BENCHMARK_RESTARTS:-}"
+echo "EXTRACTION_NUM_WORKERS   : ${EXTRACTION_NUM_WORKERS:-}"
+echo "EXTRACTION_BATCH_SIZE    : ${EXTRACTION_BATCH_SIZE:-}"
+echo "EXTRACTION_NUM_THREADS_PER_WORKER : ${EXTRACTION_NUM_THREADS_PER_WORKER:-}"
 echo "BENCHMARK_ALL_RETRIEVERS : ${BENCHMARK_ALL_RETRIEVERS:-}"
 echo "BENCHMARK_DATASET        : ${BENCHMARK_DATASET:-}"
 echo "EXISTING_VPC_ID          : $EXISTING_VPC_ID"
 echo "EXISTING_SUBNET_IDS      : $EXISTING_SUBNET_IDS"
-echo "PREV_STACK_NAME"         : $PREV_STACK_NAME
+echo "PREV_STACK_NAME          : $PREV_STACK_NAME"
 echo "----------------------------------------------------"
 echo ""
+
+for setting in EXTRACTION_NUM_WORKERS EXTRACTION_BATCH_SIZE EXTRACTION_NUM_THREADS_PER_WORKER; do
+  if [[ "${!setting:-}" && ! "${!setting}" =~ ^[1-9][0-9]*$ ]]; then
+    echo "ERROR: $setting must be a positive integer, got '${!setting}'."
+    exit 1
+  fi
+done
 
 if [[ -z "$DRY_RUN" ]]; then
 
@@ -532,13 +562,11 @@ if [[ -z "$DRY_RUN" ]]; then
   if [[ "$PREV_STACK_NAME" ]]; then
     echo "Deleting previous stack: $PREV_STACK_NAME"
     aws cloudformation delete-stack --stack-name "$PREV_STACK_NAME" --region $REGION_NAME
-    STACK_STATUS=$(aws cloudformation describe-stacks --stack-name "$PREV_STACK_NAME" --region $REGION_NAME | jq -r ".Stacks[0].StackStatus")
-    while [[ "$STACK_STATUS" != "DELETE_COMPLETE" ]]
-    do
-      echo "Waiting for prev stack to be deleted ($STACK_STATUS), sleeping 10 seconds"
-      sleep 10
-      STACK_STATUS=$(aws cloudformation describe-stacks --stack-name "$PREV_STACK_NAME" --region $REGION_NAME | jq -r ".Stacks[0].StackStatus")
-    done
+    echo "Waiting for previous stack to be deleted"
+    if ! aws cloudformation wait stack-delete-complete --stack-name "$PREV_STACK_NAME" --region "$REGION_NAME"; then
+      echo "ERROR: Previous stack $PREV_STACK_NAME did not finish deleting. Check its status in the CloudFormation console."
+      exit 1
+    fi
   fi
 	aws cloudformation create-stack --stack-name "$GRAPH_NAME-tests" \
 	  --template-url "$S3_URL_ROOT/cloudformation-templates/graphrag-toolkit-tests.json" \

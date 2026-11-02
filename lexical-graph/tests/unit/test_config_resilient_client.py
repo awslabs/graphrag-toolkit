@@ -160,7 +160,8 @@ class TestResilientClientGetattr:
 
 class TestGraphRAGConfigSession:
 
-    def test_session_created_without_profile(self):
+    def test_session_created_without_profile(self, monkeypatch):
+        monkeypatch.delenv("AWS_PROFILE", raising=False)
         from graphrag_toolkit.lexical_graph.config import _GraphRAGConfig
         cfg = _GraphRAGConfig()
         cfg._aws_profile = None

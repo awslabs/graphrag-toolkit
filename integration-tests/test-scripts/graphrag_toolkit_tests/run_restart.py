@@ -199,6 +199,12 @@ class ExtractWithRunPlan(RestartTest):
             except RunPlanMismatch as e:
                 added_document = str(e)
 
+            removed_document = None
+            try:
+                extract(graph_index, docs[:-1])
+            except RunPlanMismatch as e:
+                removed_document = str(e)
+
             changed_batch_size = None
             try:
                 GraphRAGConfig.extraction_batch_size = 3
@@ -250,12 +256,14 @@ class ExtractWithRunPlan(RestartTest):
                     cls._plan_1_document_ids = plan_1.document_ids
                     cls._plan_1_num_workers = plan_1.num_workers
                     cls._plan_1_batch_size = plan_1.batch_size
+                    cls._plan_1_config = plan_1.config
                     cls._plan_2_num_workers = plan_2.num_workers
                     cls._plan_2_document_ids = plan_2.document_ids
                     cls._first_run_divided_into = first_run_divided_into
                     cls._second_run_divided_into = second_run_divided_into
                     cls._offered_num_workers = 1
                     cls._added_document = added_document
+                    cls._removed_document = removed_document
                     cls._changed_batch_size = changed_batch_size
                     cls._auto_tune_refused = auto_tune_refused
                     cls._staged_source_ids = sorted(d.source_id() for d in staged)
@@ -271,6 +279,11 @@ class ExtractWithRunPlan(RestartTest):
 
                     self.assertEqual(self._plan_1_batch_size, 2)
                     self.assertEqual(self._plan_1_num_workers, 2)
+
+                def test_the_first_run_records_the_configuration_it_ran_under(self):
+                    """Run plan holds the configuration snapshot, including the batch size the run set"""
+
+                    self.assertEqual(self._plan_1_config.get('_extraction_batch_size'), 2)
 
                 def test_the_second_run_divides_its_input_as_the_first_did(self):
                     """Restart divides into the recorded number of pieces, not the number it offered"""
@@ -295,6 +308,13 @@ class ExtractWithRunPlan(RestartTest):
                     self.assertIsNotNone(self._added_document)
                     self.assertIn('no longer present: []', self._added_document)
                     self.assertRegex(self._added_document, r"not in the plan: \['aws::[^']+'\]")
+
+                def test_a_removed_document_is_refused(self):
+                    """Restarting a run id with a document removed fails, naming the document"""
+
+                    self.assertIsNotNone(self._removed_document)
+                    self.assertIn('not in the plan: []', self._removed_document)
+                    self.assertRegex(self._removed_document, r"no longer present: \['aws::[^']+'\]")
 
                 def test_a_changed_batch_size_is_refused(self):
                     """Restarting a run id with a changed batch size fails, naming the setting"""

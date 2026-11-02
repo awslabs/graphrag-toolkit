@@ -34,10 +34,17 @@ See `integration-tests/env.template` for the full list of configuration variable
 - `BENCHMARK_DATA_S3_URI` — S3 URI containing your benchmark datasets
 - `BENCHMARK_DATA_DIR` — Local directory with benchmark data (alternative to S3)
 - `BENCHMARK_QA_LIMIT` — Limit QA pairs for quick prototype runs
-- `BENCHMARK_EXTRACT_DOC_LIMIT` — Cap the number of source documents extracted by the `batch_extract.py` tests (only the first N docs are extracted); speeds up benchmark runs
+- `BENCHMARK_EXTRACT_DOC_LIMIT` — Cap the number of source documents extracted, by the `batch_extract.py` tests and by the benchmark extract and build steps (only the first N docs are extracted, and the counts those steps assert drop to match); lets one corpus be run at several sizes
 - `BENCHMARK_IS_PROTOTYPE` — Use prototype (small) datasets
 - `BENCHMARK_DOC_STORE` — Where extracted documents are staged between extract and build: `file` (default) or `s3`
 - `BENCHMARK_S3_JSONL` — With `BENCHMARK_DOC_STORE=s3`, store one JSONL object per source document instead of one per chunk
+- `EXTRACTION_NUM_THREADS_PER_WORKER` — Threads each extraction worker runs, default 4. It sets LLM concurrency and the S3 upload pool size, so it is the knob a throughput sweep varies. No integration test pins it, so a high value also raises Bedrock concurrency for any other suite the same run executes
+- `BENCHMARK_RESTARTS` — Interrupt extraction this many times and restart it under the same run id, or `every-document` for one interruption per document. Needs `BENCHMARK_DOC_STORE=s3`, since a restart reads the collection it is resuming, and is refused with `BENCHMARK_S3_JSONL`, since a JSONL collection keeps its node ids where the listing a resume reads cannot see them. Unset is a single uninterrupted run, the baseline the restart profiles are compared against. The results carry `first_run_seconds`, `restart_seconds` and `documents_staged_per_run`
+
+Two things to know before quoting restart numbers:
+
+- **Pair `every-document` with `BENCHMARK_EXTRACT_DOC_LIMIT`.** Every run rebuilds its staging handler, which reads the manifest and lists a collection that keeps growing, so the listing work alone grows with the square of the document count. On the full NTSB corpus `every-document` is 1,103 runs. Measure the per-restart overhead at 100 documents and multiply it out before committing to a larger slice.
+- **An interruption is cheaper than a crash.** The run is stopped by raising inside the staging generator, and tearing that down runs the uploader's `ThreadPoolExecutor.__exit__`, which waits for the chunk uploads already in flight. A process killed outright does not. Restart timings are therefore slightly optimistic against a real crash.
 - `EXISTING_VPC_ID` / `EXISTING_SUBNET_IDS` — Reuse an existing VPC to avoid quota limits
 
 ## S3 Data Layout
@@ -187,6 +194,96 @@ sh build-tests.sh \
 **Resource requirements:**
 - Notebook: `ml.m5.xlarge` (16GB) — sufficient for 507 documents
 - Neptune: `db.r8g.2xlarge`
+
+### BYOKG KGQA (WebQSP, CWQ, CronQuestions, MedQA)
+
+BYOKG works on an existing knowledge graph, not a lexical graph built from documents, so
+it has its own suite on four KGQA datasets that ship with their KGs. There is no extract
+or build step: each test downloads its question and graph files from
+`BYOKG_DATA_S3_URI`, loads the graph in memory (`LocalKGStore`), and scores BYOKG with
+whole-token exact-match Hit (H@2 for MedQA: the first KG answer plus the LLM's own first
+answer). The stack's graph and vector stores are provisioned but not used.
+
+The data prefix must be in `BUCKET_NAME`: the notebook role's S3 access is scoped to
+that bucket, so a prefix anywhere else fails with AccessDenied. The response LLM is
+`TEST_RESPONSE_LLM`.
+
+```bash
+cd integration-tests
+source .env
+
+export STACK_PREFIX=byokg
+sh build-tests.sh \
+  --env-type neptune-graph \
+  --notebook-instance-type ml.m5.4xlarge \
+  --byokg-data-s3-uri s3://my-benchmarking-bucket/byokg-data/ \
+  --test-file benchmark.byokg-kgqa
+```
+
+The suite runs its four datasets one after another on one notebook. To run them in parallel, launch one stack per dataset with a distinct
+`STACK_PREFIX` and `--test benchmark_byokg_kgqa.<Dataset>ByokgKgqa`
+(`Medqa`, `Cronquestions`, `Webqsp`, `Cwq`), one `build-tests.sh` call at a time —
+calls share the local `temp/` and `target/` directories.
+
+To sample, set `BYOKG_WEBQSP_LIMIT` and `BYOKG_CWQ_LIMIT` in `.env` (e.g. `500`): each takes
+a seeded random subset of that dataset only, so MedQA (236) and CronQuestions (600) still
+run in full, matching their references. `BYOKG_CRONQUESTIONS_LIMIT` and
+`BYOKG_MEDQA_LIMIT` exist too. Avoid `--benchmark-qa-limit` for this suite: it is the
+harness-wide limit and samples every dataset in the run, CronQuestions included.
+`aggregate.json` records `n_questions` and `n_available`, so a sampled run is visible.
+
+Optional `.env` settings: `BYOKG_KGQA_RUNS` (repeats per setting, default 3),
+`BYOKG_SINGLE_BEST_MATCH` (`off`/`on`/`both`, default `both`), `BYOKG_MAX_ITERATIONS`
+(default 2). `build-tests.sh` sources `.env` after the shell environment, so values set
+there override inline ones. Results land under `benchmark-results/byokg-kgqa/<dataset>/`:
+`aggregate.json` (mean/min/max/spread per setting, with published reference scores)
+and per run `predictions.jsonl`, `summary.json`, `showcase_candidates.jsonl` — questions
+BYOKG answered from the graph that the LLM alone got wrong and that need multi-hop,
+multi-entity or temporal reasoning.
+
+**Resource requirements:**
+- Notebook: `ml.m5.4xlarge` (64GB) for WebQSP and CWQ — parsing the CWQ questions file
+  peaks at ~7.2 GB; `ml.m5.xlarge` is enough for MedQA and CronQuestions
+- Disk: the default 5 GB notebook volume fits all four datasets (~2.2 GB) because only
+  the question and graph files are fetched
+
+**Expected runtime and cost.** Questions run one at a time, and each runs once per
+`single_best_match` setting per repeat — 6 times with the defaults. Measured with Claude
+Haiku 4.5 (`TEST_RESPONSE_LLM=us.anthropic.claude-haiku-4-5-20251001-v1:0`): wall clock
+is median KG-path latency × question-runs (the no-KG call adds a little on top); call
+counts include the no-KG call. The stack defaults `TEST_RESPONSE_LLM` to Sonnet 4.6, which
+will differ in both time and cost.
+
+| Dataset | Questions | Question-runs | Wall clock | Bedrock calls |
+|---|---|---|---|---|
+| MedQA | 236 | 1,416 | ~12 h | ~18k |
+| CronQuestions | 600 | 3,600 | ~13 h | ~34k |
+| WebQSP | 500 (`BYOKG_WEBQSP_LIMIT=500`) | 3,000 | ~33 h | ~32k |
+| CWQ | 500 (`BYOKG_CWQ_LIMIT=500`) | 3,000 | ~33 h | ~38k |
+
+Slow questions have long tails (WebQSP p95 is ~140 s), so allow headroom. Unsampled, CWQ
+(3,531 Q) is ~21k question-runs — over 200 hours — which is why WebQSP and CWQ are
+sampled. For a quick check, use `BYOKG_KGQA_RUNS=1` with a small `--benchmark-qa-limit`
+(here sampling every dataset is the point).
+
+**Resume.** A run whose `summary.json` already exists is reused only if its fingerprint
+matches: same question IDs, setting, iterations, inference config, and content hashes of
+byokg-rag, this benchmark's code and the data files. A mismatch fails loudly, and a run
+whose KG or no-KG error rate exceeded 5% is rerun. Resume works within an output
+directory (a rerun on the same notebook, or locally — `--no-resume` forces a full rerun);
+each new stack starts fresh.
+
+**No regression gate yet.** The suite's assertions check that every run's KG and no-KG
+error rates are within 5% and that scores are valid percentages — they do not fail on a
+quality drop. `paper_delta_*` outputs compare against published scores from other models
+and question sets, so they are context, not a gate. To compare two runs, diff their
+`aggregate.json` files: the shared `question_ids` and the `provenance` hashes show whether
+they differ only in the code under test.
+
+Running locally instead (no stack): `pip install -e lexical-graph -e byokg-rag`, then
+`python -m benchmarks.scripts.benchmark_byokg_kgqa --dataset cronquestions --s3-data
+s3://my-benchmarking-bucket/byokg-data/`. Data defaults to `./byokg-data`; keep it out
+of `benchmarks/`, which `build-tests.sh` packages wholesale.
 
 ## Running Multi-Retriever Comparison
 
