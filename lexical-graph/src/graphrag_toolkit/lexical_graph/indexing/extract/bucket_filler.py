@@ -9,15 +9,12 @@ from llama_index.core.schema import BaseNode
 class BucketFiller:
     """Contiguous, count-based chunk accumulator for auto-tuning batch extraction.
 
-    Collects document chunks in arrival order and slices them into Bedrock batch
-    jobs of up to ``max_batch_size`` chunks, mirroring the fixed-``batch_size``
-    path's ``node_batcher``/``split_nodes`` packing: jobs are filled to
-    ``max_batch_size``. As ``split_nodes`` does, a trailing job below
-    ``min_batch_size`` is folded into the previous job rather than emitted as an
-    under-minimum job that falls back to synchronous extraction.
+    Collects document chunks in arrival order and slices each round evenly into
+    Bedrock batch jobs. A full round is ``num_workers`` jobs of ``max_batch_size``.
+    A shorter round uses as many of the workers as it can without a job falling
+    below ``min_batch_size``, because a round lasts as long as its largest job.
 
-    It deliberately does NOT balance occupancy across jobs or keep a document's
-    chunks within a single job: balancing under-fills jobs, and per-document
+    It does not keep a document's chunks within a single job: per-document
     integrity is guaranteed downstream by ``source_id``-keyed storage
     (``S3BasedDocs``), the same mechanism the fixed path relies on.
 
@@ -60,14 +57,13 @@ class BucketFiller:
         return bool(self._buffer) and (len(self._buffer) + num_chunks > self.round_capacity)
 
     def drain_round(self) -> List[List[BaseNode]]:
-        """Slice up to one round's worth of buffered chunks into contiguous jobs.
+        """Slice up to one round's worth of buffered chunks into even, contiguous jobs.
 
-        Takes at most ``round_capacity`` chunks off the front and slices them
-        into up to ``num_workers`` jobs of ``max_batch_size``. A trailing job
-        below ``min_batch_size`` is folded into the previous job (as
-        ``split_nodes`` does); a whole round below ``min_batch_size`` has no
-        previous job and is returned as one small job. Chunks beyond
-        ``round_capacity`` stay buffered. Returns [] when the buffer is empty.
+        Takes at most ``round_capacity`` chunks off the front and splits them into
+        ``min(num_workers, chunks // min_batch_size)`` jobs whose sizes differ by
+        at most one. A whole round below ``min_batch_size`` is returned as one
+        small job. Chunks beyond ``round_capacity`` stay buffered. Returns [] when
+        the buffer is empty.
         """
         if not self._buffer:
             return []
@@ -75,15 +71,14 @@ class BucketFiller:
         take = self._buffer[:self.round_capacity]
         self._buffer = self._buffer[self.round_capacity:]
 
-        jobs = [
-            take[i:i + self.max_batch_size]
-            for i in range(0, len(take), self.max_batch_size)
-        ]
+        num_jobs = max(1, min(self.num_workers, len(take) // self.min_batch_size))
+        size, larger_jobs = divmod(len(take), num_jobs)
 
-        # Mirror split_nodes: never leave a trailing job below the minimum when
-        # there is a prior job to absorb it.
-        if len(jobs) > 1 and len(jobs[-1]) < self.min_batch_size:
-            tail = jobs.pop()
-            jobs[-1].extend(tail)
+        jobs = []
+        start = 0
+        for index in range(num_jobs):
+            end = start + size + (1 if index < larger_jobs else 0)
+            jobs.append(take[start:end])
+            start = end
 
         return jobs

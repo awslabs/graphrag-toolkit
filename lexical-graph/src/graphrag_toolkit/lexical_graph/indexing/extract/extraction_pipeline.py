@@ -711,8 +711,9 @@ class ExtractionPipeline():
         """Run the extractor tail over a round's pre-sized job buckets.
 
         Buckets are processed across at most ``num_processes`` worker processes,
-        preserving the existing parallelism. Each bucket is <= max_batch_size
-        (except a tail-merged final job, which the batch extractor re-splits).
+        preserving the existing parallelism. Each bucket is <= max_batch_size,
+        unless the Bedrock minimum or a tail merge pushes it over, in which case
+        the batch extractor re-splits it.
         """
         num_workers = min(self.num_processes, len(round_buckets))
 
@@ -743,8 +744,8 @@ class ExtractionPipeline():
         and accumulates the chunks in a :class:`BucketFiller`. When a round fills
         (``num_workers x max_batch_size`` chunks), it is sliced contiguously into
         jobs of ``max_batch_size`` and submitted. At input exhaustion the
-        remainder is submitted as a final round, or merged into the previous
-        round if it is below the Bedrock minimum. The user-supplied ``batch_size``
+        remainder is split evenly and submitted as a final round, or merged into
+        the previous round if it is below the Bedrock minimum. The user-supplied ``batch_size``
         (if any) acts only as an upper bound on documents consumed per round.
 
         Args:
@@ -829,7 +830,7 @@ class ExtractionPipeline():
             if len(round_jobs) < self.num_workers:
                 logger.info(
                     f'Round holds {len(round_jobs)} job(s) '
-                    f'(num_workers={self.num_workers}) - fewer jobs than workers minimises per-job overhead'
+                    f'(num_workers={self.num_workers}) - too few chunks to give every worker a job of at least the Bedrock minimum'
                 )
             logger.debug(f'Auto-tuned round job sizes: {job_sizes}')
             finished_sources = sources_finished_by(round_jobs)

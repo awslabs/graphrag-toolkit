@@ -312,10 +312,8 @@ class TestAutoTunedRounds:
 
     def test_consolidation_round_never_emits_sub_min_job(self):
         # num_workers=3, max_batch_size=100 -> capacity 300. 210 chunks fill no
-        # round, so they all drain in one consolidation round. Naive slicing
-        # would give [100, 100, 10] (the 10 falls back to sync extraction);
-        # split_nodes-style tail-merge gives [100, 110] instead - no sub-min job
-        # even though the round total (210) is well above the minimum.
+        # round, so they all drain in one round. Three even jobs of 70 would all
+        # fall back to sync extraction, so the round uses two jobs of 105.
         pipeline = ExtractionPipeline(
             components=[make_batch_extractor(auto_tune=True, max_batch_size=100)],
             num_workers=3,
@@ -326,7 +324,7 @@ class TestAutoTunedRounds:
         submitted = [len(b) for r in rounds for b in r]
         assert sum(submitted) == 210
         assert all(size >= 100 for size in submitted), rounds
-        assert [len(b) for b in rounds[0]] == [100, 110]
+        assert [len(b) for b in rounds[0]] == [105, 105]
 
     def test_overshoot_flush_never_emits_sub_min_job(self):
         # num_workers=3, max_batch_size=100 -> capacity 300. A 80-chunk doc then
@@ -355,30 +353,29 @@ class TestAutoTunedRounds:
         total_submitted = sum(len(b) for r in rounds for b in r)
         assert total_submitted == 230
 
-    def test_jobs_filled_to_max_batch_size(self):
-        # Regression guard: the contiguous packing must fill every job to
-        # max_batch_size except the last job of each round. (The prior
-        # least-filled+keep-whole design under-filled every job.)
+    def test_jobs_in_a_round_are_even_and_within_limits(self):
         pipeline = ExtractionPipeline(
-            components=[make_batch_extractor(auto_tune=True, max_batch_size=100)],
+            components=[make_batch_extractor(auto_tune=True, max_batch_size=200)],
             num_workers=3,
         )
         docs = make_multichunk_documents([70] * 20)  # 1400 chunks
         _, rounds = self._run(pipeline, docs)
 
+        assert sum(len(job) for r in rounds for job in r) == 1400
         for r in rounds:
-            # Every job except the last in the round is exactly max_batch_size.
-            for job in r[:-1]:
-                assert len(job) == 100
-            # The last job of a round holds the remainder and, when that would be
-            # below the Bedrock minimum, absorbs it (as split_nodes' tail-merge
-            # does), so it can exceed max_batch_size but never by more than the
-            # minimum. It is never itself sub-minimum.
-            assert 100 <= len(r[-1]) <= 100 + 100
-        # Total jobs should be close to the theoretical minimum (1400/100 = 14),
-        # not inflated by under-filling. Allow a small slack for round tails.
-        total_jobs = sum(len(r) for r in rounds)
-        assert total_jobs <= 16
+            sizes = [len(job) for job in r]
+            assert max(sizes) - min(sizes) <= 1, rounds
+            assert 100 <= min(sizes) and max(sizes) <= 200, rounds
+
+    def test_final_round_uses_every_worker(self):
+        pipeline = ExtractionPipeline(
+            components=[make_batch_extractor(auto_tune=True, max_batch_size=1000)],
+            num_workers=4,
+        )
+        docs = make_source_documents(1040)
+        _, rounds = self._run(pipeline, docs)
+
+        assert [[len(job) for job in r] for r in rounds] == [[260, 260, 260, 260]]
 
 
 class TestDocumentContiguity:

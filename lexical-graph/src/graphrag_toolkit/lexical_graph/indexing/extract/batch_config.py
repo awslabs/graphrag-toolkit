@@ -32,8 +32,8 @@ class BatchConfig:
         auto_tune (bool): When True, enables auto-tuning batch extraction. The
             framework streams and chunks documents incrementally, filling
             num_workers buckets up to max_batch_size chunks each before
-            submitting a round of batch jobs (consolidating into fewer jobs for
-            small inputs). Under auto-tuning the user only needs to specify
+            submitting a round of batch jobs (splitting a short round evenly
+            across them). Under auto-tuning the user only needs to specify
             num_workers and max_batch_size; batch_size becomes a derived value.
             Default is False (fixed batch_size behavior).
     """
