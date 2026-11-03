@@ -392,25 +392,55 @@ class GraphQueryRetriever(GRetriever):
             'DROP', 'DETACH', 'CALL'
         ]
         
-        # Strip inline comments (/* ... */) and single-line comments (// ...)
-        stripped = re.sub(r'/\*.*?\*/', '', graph_query, flags=re.DOTALL)
-        stripped = re.sub(r'//[^\n]*', '', stripped)
+        # Normalize Unicode characters (NFKC collapses fullwidth and lookalikes to ASCII)
+        # and case for case-insensitive matching
+        query_upper = unicodedata.normalize('NFKC', self._strip_comments(graph_query)).upper()
 
-        # The stripper ignores string literals, so check the raw query too
-        for query in (graph_query, stripped):
-            # Normalize Unicode characters (NFKC collapses fullwidth and lookalikes to ASCII)
-            # and case for case-insensitive matching
-            query_upper = unicodedata.normalize('NFKC', query).upper()
-
-            # Check for each blocked keyword
-            for keyword in modification_keywords:
-                # Use word boundaries to avoid matching keywords within other words
-                # re.MULTILINE flag ensures proper handling of multi-line queries with \n
-                pattern = r'\b' + re.escape(keyword) + r'\b'
-                if re.search(pattern, query_upper, re.MULTILINE):
-                    return False
+        # Check for each blocked keyword
+        for keyword in modification_keywords:
+            # Use word boundaries to avoid matching keywords within other words
+            # re.MULTILINE flag ensures proper handling of multi-line queries with \n
+            pattern = r'\b' + re.escape(keyword) + r'\b'
+            if re.search(pattern, query_upper, re.MULTILINE):
+                return False
 
         return True
+
+    @staticmethod
+    def _strip_comments(graph_query: str) -> str:
+        """
+        Remove /* ... */ and // comments that sit outside string literals.
+
+        Quoted strings and backtick identifiers are kept as written, backslash
+        escapes included, so a comment marker inside one is not treated as a
+        comment. Comments are removed without leaving a space, so a keyword split
+        by a comment (CRE/**/ATE) is joined back together. An unterminated block
+        comment is kept as written.
+        """
+        result = []
+        i, n = 0, len(graph_query)
+        while i < n:
+            char = graph_query[i]
+            if char in ('\'', '"', '`'):
+                end = i + 1
+                while end < n and graph_query[end] != char:
+                    end += 2 if graph_query[end] == '\\' else 1
+                result.append(graph_query[i:end + 1])
+                i = end + 1
+            elif graph_query.startswith('//', i):
+                end = graph_query.find('\n', i)
+                i = n if end == -1 else end
+            elif graph_query.startswith('/*', i):
+                end = graph_query.find('*/', i + 2)
+                if end == -1:
+                    result.append(graph_query[i:])
+                    i = n
+                else:
+                    i = end + 2
+            else:
+                result.append(char)
+                i += 1
+        return ''.join(result)
 
     def retrieve(self, graph_query: str, return_answers=False, **kwargs):
         """

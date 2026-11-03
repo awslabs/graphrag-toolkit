@@ -635,12 +635,27 @@ class TestGraphQueryRetrieverIsQuerySafe:
         "MATCH (n) WHERE n.name <> '//' DETACH DELETE n",
         "WITH '/*' AS a CREATE (x:Pwned) WITH a, '*/' AS b RETURN a, b",
         "MATCH (n) WHERE n.name <> '/*' MERGE (x:Pwned) WITH n WHERE n.name <> '*/' RETURN n",
+        "WITH '//' AS a CRE/**/ATE (x:Pwned) RETURN a",
+        'WITH "//" AS a CRE/**/ATE (x:Pwned) RETURN a',
+        "WITH 'it\\'s //' AS a CRE/**/ATE (x:Pwned) RETURN a",
+        "WITH `//` AS a CRE/**/ATE (x:Pwned) RETURN a",
     ])
     def test_is_query_safe_quoted_comment_marker(self, mock_graph_store, query):
         """Verify a comment marker inside a string literal does not hide a write keyword."""
         retriever = GraphQueryRetriever(graph_store=mock_graph_store)
 
         assert retriever.is_query_safe(query) is False
+
+    @pytest.mark.parametrize("query", [
+        "MATCH (n) /* CREATE */ RETURN n",
+        "MATCH (n) RETURN n // DELETE n",
+        "MATCH (n) WHERE n.url = 'http://x/*y' RETURN n",
+    ])
+    def test_is_query_safe_keyword_only_in_comment(self, mock_graph_store, query):
+        """Verify a write keyword that appears only inside a comment does not block a read."""
+        retriever = GraphQueryRetriever(graph_store=mock_graph_store)
+
+        assert retriever.is_query_safe(query) is True
 
     def test_retrieve_quoted_comment_marker_not_executed(self, mock_graph_store):
         """Verify a write hidden behind a quoted comment marker never reaches the store."""
