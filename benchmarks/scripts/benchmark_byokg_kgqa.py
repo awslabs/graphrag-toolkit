@@ -21,20 +21,22 @@ import hashlib
 import json
 import logging
 import os
+import re
 import subprocess
 import sys
 import time
 import unittest
+from dataclasses import asdict, dataclass
 from typing import Any, Callable, Dict, List, Optional, Sequence
 
 from benchmarks.scripts.integration_test_base import IntegrationTestBase
 from benchmarks.scripts.integration_test_handler import IntegrationTestHandler
-from benchmarks.utils.benchmark_env import env_int, env_string
+from benchmarks.utils.benchmark_env import env_bool, env_int, env_string
 from benchmarks.utils.s3_utils import upload_benchmark_results_to_s3
 from benchmarks.utils.byokg_kgqa import (
     DATASETS, Question, answer_in_context, build_schema, f1, filter_answer_in_kg,
-    hit, hit_at_2, hop_distance, load_questions, sample, showcase_reasons, summarize,
-    validate_graph,
+    hit, hit_at_2, hop_distance, load_questions, sample, seed_recall, showcase_reasons,
+    summarize, validate_graph,
 )
 
 logger = logging.getLogger(__name__)
@@ -63,16 +65,93 @@ class CountingGenerator:
         return getattr(self._inner, name)
 
 
+@dataclass(frozen=True)
+class RetrievalConfig:
+    """Optional retrieval changes under test; all off reproduces the library defaults."""
+    text_retrieval: bool = False      # TextTripletRetriever merged with agentic retrieval
+    embedding_linking: bool = False   # HybridEntityMatcher: fuzzy + embedding linking
+    text_topk: int = 10
+    embed_model: Optional[str] = None  # None: ByoKGConfig.embed_model
+
+    def __post_init__(self):
+        if not isinstance(self.text_topk, int) or self.text_topk < 1:
+            raise ValueError(f'text_topk must be a positive integer, got {self.text_topk!r}')
+
+    @property
+    def enabled(self) -> bool:
+        return self.text_retrieval or self.embedding_linking
+
+    def resolved_model(self) -> str:
+        if self.embed_model:
+            return self.embed_model
+        from graphrag_toolkit.byokg_rag.config import ByoKGConfig
+        return ByoKGConfig.embed_model
+
+
+EMBED_MAX_ATTEMPTS = 10
+
+
+def embedding_cache_key(graph_sha256: str, model: str) -> str:
+    """Directory name for a graph's embeddings: changes with the graph or the model."""
+    return f"{graph_sha256[:16]}-{re.sub(r'[^A-Za-z0-9._-]', '_', model)}"
+
+
+@dataclass
+class RetrievalParts:
+    """Built once per dataset and shared by every engine: embedding a graph is costly."""
+    text_triplet_retriever: Any = None
+    entity_matcher: Any = None
+    embedding_dim: Optional[int] = None
+
+
+def build_retrieval_parts(graph: Dict[str, Any], retrieval: RetrievalConfig, region: Optional[str],
+                          cache_dir: Optional[str]) -> RetrievalParts:
+    if not retrieval.enabled:
+        return RetrievalParts()
+    from graphrag_toolkit.byokg_rag.config import ByoKGConfig
+    from graphrag_toolkit.byokg_rag.graph_retrievers import TextTripletRetriever
+    from graphrag_toolkit.byokg_rag.graphstore.graphstore import LocalKGStore
+    from graphrag_toolkit.byokg_rag.indexing import GraphEmbeddings, HybridEntityMatcher
+
+    from botocore.config import Config
+
+    model_id = retrieval.resolved_model()
+    # A graph is thousands of embedding calls: adaptive retries ride out throttling
+    # that the default 5 attempts would turn into a failed build.
+    kwargs = {'model_id': model_id,
+              'config': Config(retries={'max_attempts': EMBED_MAX_ATTEMPTS, 'mode': 'adaptive'})}
+    if region:
+        kwargs['region_name'] = region
+    embedding = ByoKGConfig.to_embedding(**kwargs)
+    store = LocalKGStore(graph)
+    triplets = store.get_triplets()
+    embeddings = GraphEmbeddings.build(triplets, embedding, cache_dir, extra_nodes=store.nodes(),
+                                       model_id=model_id)
+    return RetrievalParts(
+        text_triplet_retriever=(TextTripletRetriever(triplets, embeddings, embedding,
+                                                     topk=retrieval.text_topk)
+                                if retrieval.text_retrieval else None),
+        entity_matcher=(HybridEntityMatcher.from_nodes(store.nodes(), embedding, embeddings.nodes)
+                        if retrieval.embedding_linking else None),
+        embedding_dim=embeddings.nodes.dim,
+    )
+
+
 def build_engine(graph: Dict[str, Any], model: Optional[str], region: Optional[str],
-                 single_best_match: bool):
-    """Engine with library defaults; only the graph store and LLM are supplied."""
+                 single_best_match: bool, parts: Optional[RetrievalParts] = None):
+    """Engine with library defaults; only the graph store, LLM and any parts under
+    test are supplied."""
     from graphrag_toolkit.byokg_rag.byokg_query_engine import ByoKGQueryEngine
+    from graphrag_toolkit.byokg_rag.graph_retrievers import EntityLinker
     from graphrag_toolkit.byokg_rag.graphstore.graphstore import LocalKGStore
     from graphrag_toolkit.byokg_rag.llm.bedrock_llms import BedrockGenerator
 
+    parts = parts or RetrievalParts()
     counter = CountingGenerator(BedrockGenerator(model_name=model, region_name=region))
-    engine = ByoKGQueryEngine(graph_store=LocalKGStore(graph), llm_generator=counter,
-                              single_best_match=single_best_match)
+    engine = ByoKGQueryEngine(
+        graph_store=LocalKGStore(graph), llm_generator=counter, single_best_match=single_best_match,
+        entity_linker=EntityLinker(parts.entity_matcher) if parts.entity_matcher else None,
+        text_triplet_retriever=parts.text_triplet_retriever)
     return engine, counter
 
 
@@ -106,7 +185,10 @@ BENCHMARK_CODE = (os.path.abspath(__file__),
                                'byokg_kgqa.py'))
 
 
-def provenance(counter, data_files: Optional[Dict[str, str]] = None) -> Dict[str, Any]:
+def provenance(counter, data_files: Optional[Dict[str, str]] = None,
+               retrieval: Optional[RetrievalConfig] = None,
+               data_sha256: Optional[Dict[str, str]] = None,
+               embedding_dim: Optional[int] = None) -> Dict[str, Any]:
     """What produced a result, so two runs can be shown to differ only in the code
     under test.
 
@@ -116,6 +198,10 @@ def provenance(counter, data_files: Optional[Dict[str, str]] = None) -> Dict[str
     a scorer change or a wrong graph file at the expected path is visible. The git
     SHA (GRAPHRAG_TOOLKIT_GIT_SHA from build-tests.sh, else a local checkout) is
     recorded for humans but not trusted: '-dirty' stays the same across edits.
+
+    'retrieval' records the optional retrieval changes, and the embedding model only
+    when one is in use, so baseline and optimized runs fingerprint differently.
+    data_sha256 skips re-hashing files the caller already hashed.
     """
     git_sha = os.environ.get('GRAPHRAG_TOOLKIT_GIT_SHA')
     if not git_sha:
@@ -138,10 +224,37 @@ def provenance(counter, data_files: Optional[Dict[str, str]] = None) -> Dict[str
         'byokg_rag_source_sha256': source,
         'byokg_rag_prompts_sha256': prompts,
         'benchmark_code_sha256': code.hexdigest(),
-        'data_sha256': {label: _file_sha256(path) for label, path in (data_files or {}).items()},
+        'data_sha256': data_sha256 if data_sha256 is not None else {
+            label: _file_sha256(path) for label, path in (data_files or {}).items()},
         'inference': {name: getattr(counter, name, None) for name in (
             'model_name', 'max_new_tokens', 'inference_config', 'reasoning_config', 'max_retries')},
+        'retrieval': retrieval_provenance(retrieval or RetrievalConfig(), embedding_dim),
     }
+
+
+def retrieval_provenance(retrieval: RetrievalConfig, embedding_dim: Optional[int]) -> Dict[str, Any]:
+    record = asdict(retrieval)
+    # Settings only count when they are used, so unused ones never split the fingerprint.
+    record['embed_model'] = retrieval.resolved_model() if retrieval.enabled else None
+    record['text_topk'] = retrieval.text_topk if retrieval.text_retrieval else None
+    record['embedding_dim'] = embedding_dim
+    return record
+
+
+def linked_nodes(result) -> List[str]:
+    """The nodes ByoKGQueryEngine seeds from one EntityLinker.link() result.
+
+    Grouped results (List[List[str]], the single_best_match path) seed the first
+    candidate per mention; flat results (List[str]) seed every node; a return_dict
+    result seeds its hits.
+    """
+    if isinstance(result, dict):
+        return [hit['document_id'] for hit in result['hits']]
+    if isinstance(result, list) and result and all(isinstance(c, list) for c in result):
+        return [candidates[0] for candidates in result if candidates]
+    if isinstance(result, list) and all(isinstance(n, str) for n in result):
+        return list(result)
+    raise TypeError(f'unexpected EntityLinker.link() result: {result!r}')
 
 
 def run_question(engine, counter: CountingGenerator, question: Question,
@@ -155,17 +268,27 @@ def run_question(engine, counter: CountingGenerator, question: Question,
     linker = engine.kg_linker
     shadowed = 'parse_response' in vars(linker)  # normally a class attribute
     parse = linker.parse_response
+    seeds: List[str] = []
+    entity_linker = engine.entity_linker
+    link_shadowed = 'link' in vars(entity_linker)
+    link = entity_linker.link
 
     def recording_parse(response):
         parsed = parse(response)
         artifacts.append(parsed)
         return parsed
 
+    def recording_link(*args, **kwargs):
+        result = link(*args, **kwargs)
+        seeds.extend(linked_nodes(result))
+        return result
+
     record: Dict[str, Any] = {
         'id': question.id, 'question': question.question, 'answers': question.answers,
         'q_entities': question.q_entities, 'qtype': question.qtype, 'hops': hops,
     }
     linker.parse_response = recording_parse
+    entity_linker.link = recording_link
     try:
         engine.schema = schema
         counter.calls = 0
@@ -184,7 +307,14 @@ def run_question(engine, counter: CountingGenerator, question: Question,
             linker.parse_response = parse
         else:
             del linker.parse_response  # back to the class lookup, exactly as before
+        if link_shadowed:
+            entity_linker.link = link
+        else:
+            del entity_linker.link
     record['kg_linker_artifacts'] = artifacts
+    # Mentions and draft answers both seed retrieval, so both count.
+    record['linked_seeds'] = list(dict.fromkeys(seeds))
+    record['seed_recall'] = seed_recall(question.q_entities, record['linked_seeds'])
 
     # No-KG answer: the BYOKG answer prompt with an empty graph context. Feeds the
     # LLM-only baseline, MedQA's H@2 second guess and the showcase gate. Its own try,
@@ -248,7 +378,9 @@ def aggregate(summaries: Sequence[Dict[str, Any]], metric: str) -> Dict[str, Any
     # The repeats share one question list, so showcase counts are per run (mean) or
     # distinct questions across runs — never summed, which multiplies by the run count.
     distinct = set().union(*(s['showcase_ids'] for s in summaries))
+    recalls = [s['seed_recall'] for s in summaries if s.get('seed_recall') is not None]
     return {'metric': key, 'runs': len(scores), 'mean': round(sum(scores) / len(scores), 1),
+            'seed_recall_mean': round(sum(recalls) / len(recalls), 1) if recalls else None,
             'min': min(scores), 'max': max(scores), 'spread': round(max(scores) - min(scores), 1),
             'showcase_per_run_mean': round(sum(s['n_showcase'] for s in summaries) / len(summaries), 1),
             'showcase_distinct': len(distinct),
@@ -291,7 +423,8 @@ def run_key(question_ids: Sequence[str], single_best_match: bool, iterations: in
     payload = {'question_ids': list(question_ids), 'single_best_match': single_best_match,
                'iterations': iterations, 'inference': prov['inference'],
                'byokg_rag_source': prov['byokg_rag_source_sha256'],
-               'benchmark_code': prov['benchmark_code_sha256'], 'data': prov['data_sha256']}
+               'benchmark_code': prov['benchmark_code_sha256'], 'data': prov['data_sha256'],
+               'retrieval': prov['retrieval']}
     return hashlib.sha256(json.dumps(payload, sort_keys=True, default=str).encode()).hexdigest()
 
 
@@ -318,6 +451,17 @@ def completed_run(run_dir: str, key: str) -> Optional[Dict[str, Any]]:
                        100 * MAX_ERROR_RATE, unhealthy)
         return None
     return summary
+
+
+def embedding_cache_dir(data_dir: str, graph_sha256: str, retrieval: RetrievalConfig) -> str:
+    return os.path.join(data_dir, 'embeddings',
+                        embedding_cache_key(graph_sha256, retrieval.resolved_model()))
+
+
+def embedding_cache_complete(cache_dir: str) -> bool:
+    # GraphEmbeddings writes vectors.npy last in each table.
+    return all(os.path.exists(os.path.join(cache_dir, table, 'vectors.npy'))
+               for table in ('nodes', 'relations'))
 
 
 def _aws(*args: str) -> None:
@@ -348,15 +492,25 @@ def run_benchmark(dataset: str, data_dir: str, out: str, limit: Optional[int] = 
                   iterations: int = 2, model: Optional[str] = None, region: Optional[str] = None,
                   medqa_kg_filter: bool = True,
                   after_run: Optional[Callable[[str, str], None]] = None,
-                  resume: bool = True) -> Dict[str, Any]:
+                  resume: bool = True,
+                  retrieval: Optional[RetrievalConfig] = None,
+                  before_embeddings: Optional[Callable[[str], None]] = None,
+                  after_embeddings: Optional[Callable[[str], None]] = None) -> Dict[str, Any]:
     """Run every (single_best_match setting × repeat) and write aggregate.json.
 
     after_run(run_dir, relative_path) is called as each run finishes, so callers can
     persist completed runs before a later one crashes. With resume, a run whose
     summary.json already exists for the same fingerprint is reused, not rerun.
+    retrieval switches on the optional retrieval changes; their embeddings are
+    cached under data_dir/embeddings/<embedding_cache_key>. before_embeddings(cache_dir)
+    runs before they are loaded or built (to fetch a shared cache) and
+    after_embeddings(cache_dir) once they exist, before any question runs.
     """
     validate_config(single_best_match, runs, iterations)
+    retrieval = retrieval or RetrievalConfig()
     spec = DATASETS[dataset]
+    data_sha256 = {'questions': _file_sha256(os.path.join(data_dir, spec.questions_file)),
+                   'graph': _file_sha256(os.path.join(data_dir, spec.graph_file))}
     with open(os.path.join(data_dir, spec.graph_file), encoding='utf-8') as f:
         graph = json.load(f)
     validate_graph(graph, spec.graph_file)
@@ -378,6 +532,13 @@ def run_benchmark(dataset: str, data_dir: str, out: str, limit: Optional[int] = 
         spec.schema_mode, graph, questions[0])
     schemas = {q.id: shared or build_schema(spec.schema_mode, graph, q) for q in questions}
     hops = {q.id: hop_distance(graph, q.q_entities, q.a_entities) for q in questions}
+    cache_dir = (embedding_cache_dir(data_dir, data_sha256['graph'], retrieval)
+                 if retrieval.enabled else None)
+    if cache_dir and before_embeddings:
+        before_embeddings(cache_dir)
+    parts = build_retrieval_parts(graph, retrieval, region, cache_dir)
+    if cache_dir and after_embeddings:
+        after_embeddings(cache_dir)
 
     settings = SINGLE_BEST_MATCH_SETTINGS[single_best_match]
     report = {'dataset': dataset, 'n_questions': len(questions),
@@ -391,13 +552,12 @@ def run_benchmark(dataset: str, data_dir: str, out: str, limit: Optional[int] = 
     for sbm in settings:
         # Drop the previous engine (and its node index) before building the next.
         engine = counter = None
-        engine, counter = build_engine(graph, model, region, sbm)
+        engine, counter = build_engine(graph, model, region, sbm, parts)
         tag = f"single_best_match-{'on' if sbm else 'off'}"
         report['config']['model'] = counter.model_name
-        if 'provenance' not in report:  # once: it hashes the package and multi-GB data files
-            report['provenance'] = provenance(counter, {
-                'questions': os.path.join(data_dir, spec.questions_file),
-                'graph': os.path.join(data_dir, spec.graph_file)})
+        if 'provenance' not in report:  # once: it hashes the byokg-rag package
+            report['provenance'] = provenance(counter, retrieval=retrieval, data_sha256=data_sha256,
+                                              embedding_dim=parts.embedding_dim)
         prov = report['provenance']
         key = run_key(report['question_ids'], sbm, iterations, prov)
         summaries = []
@@ -440,6 +600,70 @@ def dataset_limit(dataset: str) -> Optional[int]:
     return specific if specific is not None else env_int('BENCHMARK_QA_LIMIT', None)
 
 
+def retrieval_from_env() -> RetrievalConfig:
+    return RetrievalConfig(
+        text_retrieval=env_bool('BYOKG_TEXT_RETRIEVAL', False),
+        embedding_linking=env_bool('BYOKG_EMBEDDING_LINKING', False),
+        text_topk=env_int('BYOKG_TEXT_TOPK', 10),
+        embed_model=env_string('BYOKG_EMBED_MODEL', None),
+    )
+
+
+def _s3_client():
+    import boto3
+    return boto3.client('s3')
+
+
+def _split_s3_uri(uri: str):
+    if not uri.startswith('s3://'):
+        raise ValueError(f'expected an s3:// URI, got {uri!r}')
+    bucket, _, key = uri[len('s3://'):].partition('/')
+    return bucket, key
+
+
+def _vectors_last(path: str):
+    # vectors.npy marks a cache complete, so it moves last in both directions.
+    return (path.endswith('vectors.npy'), path)
+
+
+def sync_embedding_cache(s3_uri: str, local_dir: str, upload: bool) -> None:
+    """Fetch (or publish) one graph's embedding cache under <s3_uri>/embeddings/<key>/.
+
+    Embedding a graph is thousands of model calls, so later stacks reuse the first
+    stack's vectors instead of recomputing them. A prefix with no objects yet fetches
+    nothing, and the cache is built locally. In-progress checkpoints are not published.
+    """
+    bucket, prefix = _split_s3_uri(f"{s3_uri.rstrip('/')}/embeddings/{os.path.basename(local_dir)}/")
+    client = _s3_client()
+    if upload:
+        files = [os.path.join(root, name) for root, _, names in os.walk(local_dir) for name in names]
+        rels = [os.path.relpath(f, local_dir).replace(os.sep, '/') for f in files]
+        for rel in sorted((r for r in rels if 'partial' not in r.split('/')), key=_vectors_last):
+            client.upload_file(os.path.join(local_dir, *rel.split('/')), bucket, prefix + rel)
+        return
+    keys = [obj['Key'] for page in client.get_paginator('list_objects_v2').paginate(Bucket=bucket, Prefix=prefix)
+            for obj in page.get('Contents', []) if not obj['Key'].endswith('/')]  # skip folder markers
+    root = os.path.abspath(local_dir)
+    downloads = []
+    for key in sorted(keys, key=_vectors_last):
+        dest = os.path.abspath(os.path.join(root, *key[len(prefix):].split('/')))
+        if os.path.commonpath([root, dest]) != root:  # e.g. a '..' segment in the key
+            raise ValueError(f'S3 key {key!r} resolves outside {root}')
+        downloads.append((key, dest))
+    for key, dest in downloads:
+        os.makedirs(os.path.dirname(dest), exist_ok=True)
+        client.download_file(bucket, key, dest)
+    logger.info('fetched %d embedding cache files from s3://%s/%s', len(keys), bucket, prefix)
+
+
+def fetch_embedding_cache(s3_uri: str, cache_dir: str) -> bool:
+    """Fetch the shared cache unless a complete one is already local; return whether
+    a complete cache is now local."""
+    if not embedding_cache_complete(cache_dir):
+        sync_embedding_cache(s3_uri, cache_dir, upload=False)
+    return embedding_cache_complete(cache_dir)
+
+
 def run_byokg_kgqa_test(handler: IntegrationTestHandler, params: Dict[str, Any], dataset: str):
     s3_uri = env_string('BYOKG_DATA_S3_URI')  # required: no silent local fallback on the stack
     data_dir = env_string('BYOKG_DATA_DIR', 'byokg-data')
@@ -450,7 +674,17 @@ def run_byokg_kgqa_test(handler: IntegrationTestHandler, params: Dict[str, Any],
         iterations=env_int('BYOKG_MAX_ITERATIONS', 2),
     )
     validate_config(config['single_best_match'], config['runs'], config['iterations'])
+    retrieval = retrieval_from_env()
     fetch_dataset(s3_uri, dataset, data_dir)
+    shared = {}
+
+    def fetch_embeddings(cache_dir: str) -> None:
+        shared['complete'] = fetch_embedding_cache(s3_uri, cache_dir)
+
+    def publish_embeddings(cache_dir: str) -> None:
+        # Published as soon as it exists: a later crash must not cost the embedding calls.
+        if not shared.get('complete'):
+            sync_embedding_cache(s3_uri, cache_dir, upload=True)
 
     def upload_run(run_dir: str, rel: str) -> None:
         # Each finished run is persisted now: the notebook volume is ephemeral, and a
@@ -462,11 +696,15 @@ def run_byokg_kgqa_test(handler: IntegrationTestHandler, params: Dict[str, Any],
         model=env_string('TEST_RESPONSE_LLM', None),
         region=env_string('AWS_REGION_NAME', None),
         after_run=upload_run,
+        retrieval=retrieval,
+        before_embeddings=fetch_embeddings,
+        after_embeddings=publish_embeddings,
     )
     for tag, agg in report['settings'].items():
         handler.add_output(f"{tag}.{agg['metric']}", agg['mean'])
         handler.add_output(f'{tag}.spread', agg['spread'])
         handler.add_output(f'{tag}.showcase_distinct', agg['showcase_distinct'])
+        handler.add_output(f'{tag}.seed_recall', agg['seed_recall_mean'])
         # Published scores were measured with other models (and, where the reference
         # key is suffixed, other question sets): context for a reader, not a
         # like-for-like comparison, hence the paper_ prefix.
@@ -547,6 +785,12 @@ def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
                    help='keep MedQA questions whose answer is not a KG node')
     p.add_argument('--no-resume', action='store_true',
                    help='rerun runs that already have a summary.json for this configuration')
+    p.add_argument('--text-retrieval', action='store_true',
+                   help='merge text-based triplet retrieval with agentic retrieval')
+    p.add_argument('--embedding-linking', action='store_true',
+                   help='fuse embedding-based entity linking with fuzzy matching')
+    p.add_argument('--text-topk', type=int, default=10, help='triplets from text retrieval')
+    p.add_argument('--embed-model', help='embedding model id (default: ByoKGConfig.embed_model)')
     return p.parse_args(argv)
 
 
@@ -554,12 +798,19 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s %(message)s')
     args = parse_args(argv)
     validate_config(args.single_best_match, args.runs, args.iterations)
+    retrieval = RetrievalConfig(text_retrieval=args.text_retrieval,
+                                embedding_linking=args.embedding_linking,
+                                text_topk=args.text_topk, embed_model=args.embed_model)
     if args.s3_data:
         fetch_dataset(args.s3_data, args.dataset, args.data_dir)
+    # Reuse vectors a stack already paid for instead of re-embedding the graph.
+    fetch = ((lambda cache_dir: fetch_embedding_cache(args.s3_data, cache_dir))
+             if args.s3_data and retrieval.enabled else None)
     run_benchmark(args.dataset, args.data_dir, args.out, limit=args.limit, seed=args.seed,
                   runs=args.runs, single_best_match=args.single_best_match,
                   iterations=args.iterations, model=args.model, region=args.region,
-                  medqa_kg_filter=not args.no_medqa_kg_filter, resume=not args.no_resume)
+                  medqa_kg_filter=not args.no_medqa_kg_filter, resume=not args.no_resume,
+                  retrieval=retrieval, before_embeddings=fetch)
     if args.s3_out:
         _aws('sync', args.out, args.s3_out)
     return 0

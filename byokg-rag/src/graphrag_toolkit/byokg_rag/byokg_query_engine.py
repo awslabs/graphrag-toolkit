@@ -24,7 +24,8 @@ class ByoKGQueryEngine:
                  kg_linker=None,
                  cypher_kg_linker=None,
                  direct_query_linking=False,
-                 single_best_match=False):
+                 single_best_match=False,
+                 text_triplet_retriever=None):
         """
         Initialize the query engine.
 
@@ -47,6 +48,13 @@ class ByoKGQueryEngine:
                 seeded in full regardless of this flag. Off by default; when off, the
                 seed set is unchanged. Requires an entity_linker whose link() honours
                 group_by_mention.
+            text_triplet_retriever: Optional retriever of triplets by similarity to the
+                question (e.g. TextTripletRetriever), independent of entity linking. Run
+                once per question, in the first iteration and whether or not any entity
+                was linked; its triplets join the context before agentic retrieval, so
+                the next iteration's KG-Linker sees them. Part of the KG-Linker loop, so
+                unused when kg_linker is None (cypher-only). None (default) leaves the
+                pipeline unchanged.
         """
         self.graph_store = graph_store
         self.schema = graph_store.get_schema()
@@ -63,6 +71,7 @@ class ByoKGQueryEngine:
         self.entity_linker = entity_linker
         self.direct_query_linking = direct_query_linking
         self.single_best_match = single_best_match
+        self.text_triplet_retriever = text_triplet_retriever
 
         # Fail at construction for the ordinary case. entity_linker is public, so
         # this cannot be the only check — see the call site in query() for a linker
@@ -296,6 +305,10 @@ class ByoKGQueryEngine:
             # dict.fromkeys dedups while preserving first-seen order, so the
             # seed order is reproducible (plain set() ordering is not).
             source_entities = list(dict.fromkeys(semantic_linked_entities + linked_entities + linked_answers))
+
+            # Once per question: it depends only on the question, not on what was linked.
+            if iteration == 0 and self.text_triplet_retriever is not None:
+                self._add_to_context(retrieved_context, self.text_triplet_retriever.retrieve(query))
 
             if source_entities and self.triplet_retriever:
                 triplet_context = self.triplet_retriever.retrieve(query, source_entities)

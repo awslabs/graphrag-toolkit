@@ -59,7 +59,8 @@ query_engine = ByoKGQueryEngine(
     kg_linker=custom_kg_linker,
     cypher_kg_linker=custom_cypher_linker,
     direct_query_linking=False,
-    single_best_match=False
+    single_best_match=False,
+    text_triplet_retriever=None
 )
 ```
 
@@ -162,7 +163,9 @@ When a `kg_linker` is provided, the engine performs multi-strategy retrieval:
 
 1. **Generate LLM response** - Use KGLinker to extract entities, paths, and queries
 2. **Link entities** - Connect extracted entities to graph nodes
-3. **Retrieve triplets** - Use AgenticRetriever for contextual triplet extraction
+3. **Retrieve triplets** - Use AgenticRetriever for contextual triplet extraction. With a
+   `text_triplet_retriever`, the first iteration also adds the triplets most similar to the
+   question, whether or not any entity was linked
 4. **Process paths** - Follow extracted metapaths between entities
 5. **Execute queries** - Run structured graph queries (Cypher, SPARQL)
 6. **Check completion** - Stop if task completion signal is detected
@@ -287,6 +290,28 @@ query_engine = ByoKGQueryEngine(
     graph_store=graph_store,
     llm_generator=llm_generator,
     direct_query_linking=True
+)
+```
+
+#### Text triplet retrieval
+
+Add the triplets most similar to the question, independent of entity linking. This reaches
+facts that traversal from linked entities misses, such as dates folded into relation labels
+(`award received (1952)`). Requires a graph store that can enumerate its triplets
+(`LocalKGStore`):
+
+```python
+from graphrag_toolkit.byokg_rag.config import ByoKGConfig
+from graphrag_toolkit.byokg_rag.graph_retrievers import TextTripletRetriever
+
+text_retriever = TextTripletRetriever.from_graph_store(
+    graph_store, ByoKGConfig.to_embedding(), cache_dir='embeddings/my-graph',
+    model_id=ByoKGConfig.embed_model, topk=10)
+
+query_engine = ByoKGQueryEngine(
+    graph_store=graph_store,
+    llm_generator=llm_generator,
+    text_triplet_retriever=text_retriever
 )
 ```
 

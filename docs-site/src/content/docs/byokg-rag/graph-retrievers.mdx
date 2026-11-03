@@ -12,6 +12,7 @@ Graph retrievers implement the various retrieval strategies used by BYOKG-RAG to
   - [Graph Scoring Retriever](#graph-scoring-retriever)
   - [Path Retriever](#path-retriever)
   - [Graph Query Retriever](#graph-query-retriever)
+  - [Text Triplet Retriever](#text-triplet-retriever)
   - [Usage examples](#usage-examples)
 
 ### Overview
@@ -23,6 +24,7 @@ The graph retrievers component provides multiple strategies for retrieving relev
 - **Graph Scoring Retriever** - Applies scoring and ranking to multi-hop graph traversal
 - **Path Retriever** - Specializes in finding and verbalizing paths between entities
 - **Graph Query Retriever** - Executes structured graph queries and verbalizes results
+- **Text Triplet Retriever** - Ranks every triplet by similarity to the question, without entity linking
 
 ### Entity Linker
 
@@ -209,6 +211,45 @@ Parameters:
 Returns:
 - If `return_answers=True`: Tuple of (verbalized results, raw answers)
 - If `return_answers=False`: List of verbalized results
+
+### Text Triplet Retriever
+
+The Text Triplet Retriever returns the triplets most similar to the question, whichever
+entities were or weren't linked. It scores each triplet as cos(q, head) + cos(q, relation)
++ cos(q, tail) from node and relation embeddings computed once per graph, rather than one
+embedding per triplet. That reaches facts traversal misses, such as dates folded into
+relation labels (`award received (1990)`). Opaque Freebase ids (`m.0abc`, `g.11xyz`) are
+not embedded and score 0.
+
+#### Architecture
+
+```python
+from graphrag_toolkit.byokg_rag.config import ByoKGConfig
+from graphrag_toolkit.byokg_rag.graph_retrievers import TextTripletRetriever
+
+text_retriever = TextTripletRetriever.from_graph_store(
+    graph_store,                      # must provide get_triplets(), e.g. LocalKGStore
+    ByoKGConfig.to_embedding(),
+    cache_dir='embeddings/my-graph',  # optional: reuse the embeddings across runs
+    model_id=ByoKGConfig.embed_model, # recorded in the cache, checked on reuse
+    topk=10
+)
+```
+
+#### Key methods
+
+**`retrieve(query, source_nodes=None, topk=None)`**
+
+Returns the top-k triplets for the question, verbalized as `head -> relation -> tail`.
+
+Parameters:
+- `query` (str): The question, embedded with `embed_query`
+- `source_nodes`: Accepted for interface compatibility and ignored
+- `topk` (int, optional): Overrides the constructor's `topk`
+
+Pass it to `ByoKGQueryEngine(text_triplet_retriever=...)` to run it alongside agentic
+retrieval. Embeddings built from a different graph, a question embedding of the wrong
+dimension, or a zero vector raise rather than return an empty result.
 
 ### Usage examples
 
