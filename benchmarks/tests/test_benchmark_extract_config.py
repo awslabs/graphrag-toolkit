@@ -202,7 +202,7 @@ class TestInferenceModeIsExplicit:
         )
 
     @pytest.mark.parametrize(
-        'class_name', ['WikihowBenchmarkExtract', 'PgaBenchmarkExtract', 'ConcurrentQaBenchmarkExtract']
+        'class_name', ['WikihowBenchmarkExtract', 'PgaBenchmarkExtract', 'ConcurrentQaBenchmarkExtract', 'CuadBenchmarkExtract']
     )
     def test_every_benchmark_passes_use_batch(self, class_name):
         assert 'use_batch' in _call_kwargs(class_name), (
@@ -211,7 +211,7 @@ class TestInferenceModeIsExplicit:
 
 
     @pytest.mark.parametrize(
-        'class_name', ['WikihowBenchmarkExtract', 'PgaBenchmarkExtract']
+        'class_name', ['WikihowBenchmarkExtract', 'PgaBenchmarkExtract', 'CuadBenchmarkExtract']
     )
     def test_call_site_does_not_default_the_env_read(self, class_name):
         run_test = _function('_run_test', scope=_class(class_name))

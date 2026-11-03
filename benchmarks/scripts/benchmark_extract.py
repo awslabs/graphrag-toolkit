@@ -305,3 +305,15 @@ class PgaBenchmarkExtract(IntegrationTestBase):
         run_benchmark_extract(handler, 'pga', BENCHMARK_DATA_DIR,
                               expected_docs=507,
                               use_batch=env_bool('BENCHMARK_USE_BATCH'))
+
+
+class CuadBenchmarkExtract(IntegrationTestBase):
+
+    @property
+    def description(self):
+        return 'Extract propositions and topics from CUAD documents'
+
+    def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
+        run_benchmark_extract(handler, 'cuad', BENCHMARK_DATA_DIR,
+                              expected_docs=510,
+                              use_batch=env_bool('BENCHMARK_USE_BATCH'))
