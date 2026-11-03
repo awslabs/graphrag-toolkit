@@ -9,11 +9,11 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "@astrojs/react": "^7.1.1",
-    "@astrojs/starlight": "0.42.6",
+    "@astrojs/react": "^7.1.2",
+    "@astrojs/starlight": "0.42.8",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.3.0",
-    "astro": "7.4.2",
+    "astro": "7.4.4",
     "react": "^19.2.8",
     "react-dom": "^19.3.1",
     "sharp": "^0.35.5"
