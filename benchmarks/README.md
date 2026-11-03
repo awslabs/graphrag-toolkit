@@ -337,6 +337,50 @@ done
 | `chunk_based_semantic` | Single sub-retriever | ChunkBasedSemanticSearch only |
 | `semantic_guided` | Beam search | StatementCosine + KeywordRanking + SemanticBeamGraph |
 | `semantic-path_weighted` | Contributor config | StatementCosine + RerankingBeamGraph |
+| `custom:<module>.<attribute>` | Custom | Your own retriever (see [Custom Retrievers](#custom-retrievers)) |
+
+### Custom Retrievers
+
+To benchmark a retriever that is not built in, set `BENCHMARK_RETRIEVER` to `custom:` followed by the dotted path of a class or factory function:
+
+```bash
+export BENCHMARK_RETRIEVER=custom:my_package.my_module.MyRetriever
+# Optional: extra constructor keyword arguments, as a JSON object
+export BENCHMARK_CUSTOM_RETRIEVER_KWARGS='{"top_k": 10}'
+```
+
+The query stage imports `MyRetriever` and calls it with keyword arguments `graph_store`, `vector_store` and `llm` (the token-tracking LLM cache the built-in retrievers use, so token usage is reported when your retriever generates its answer with it), plus the keys of `BENCHMARK_CUSTOM_RETRIEVER_KWARGS`. The returned object must satisfy the `CustomRetriever` protocol in `benchmarks/utils/custom_retriever.py`:
+
+```python
+class MyRetriever:
+    def __init__(self, graph_store, vector_store, llm=None, top_k=5):
+        ...
+
+    def query(self, question: str):
+        # Return an object with .response (the answer text) and, optionally,
+        # .metadata with retrieve_ms / answer_ms / total_ms for latency.
+        # A LexicalGraphQueryEngine response already has this shape.
+        ...
+
+    def get_config(self) -> dict:  # optional
+        return {'top_k': self.top_k}
+```
+
+The module must be importable on the notebook: put it under `benchmarks/` (which `build-tests.sh` packages) or install it there. Results are written to `benchmark-results/<dataset>/custom:<module>.<attribute>/` like any other retriever, and evaluation and the comparison report treat it the same way. The `retriever_config` block in `metrics_summary.json` records `module_path`, `constructor_kwargs` and `hyperparameters`, which is the result of `get_config()` if the retriever defines it and the constructor keyword arguments otherwise.
+
+Runs with the same `BENCHMARK_RETRIEVER` write to the same directory, so to compare two configurations of one retriever, expose each as its own class or factory function rather than changing only `BENCHMARK_CUSTOM_RETRIEVER_KWARGS`.
+
+`benchmarks/examples/prefetch_traversal_retriever.py` is a worked example. It packages the chunk-search prefetch proposed in PR #221 as a custom retriever, with a baseline that has the prefetch turned off:
+
+```bash
+for RETRIEVER in \
+    custom:benchmarks.examples.prefetch_traversal_retriever.without_prefetch \
+    custom:benchmarks.examples.prefetch_traversal_retriever.PrefetchTraversalRetriever; do
+  export BENCHMARK_RETRIEVER=$RETRIEVER
+  export TESTS="benchmark_query.<Dataset>BenchmarkQuery benchmark_evaluate.<Dataset>BenchmarkEvaluate"
+  python test_suite.py
+done
+```
 
 ### Step 3: Copy results to S3
 

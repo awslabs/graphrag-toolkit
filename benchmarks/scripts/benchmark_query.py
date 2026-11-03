@@ -18,6 +18,7 @@ from benchmarks.utils.token_tracker import TokenTrackingLLMCache, extract_token_
 from benchmarks.utils.metrics_summary import compute_metrics_summary
 from benchmarks.utils.hop_classifier import classify_hop
 from benchmarks.utils.agentic_retriever import AgenticRetriever, AgenticQueryResult
+from benchmarks.utils.custom_retriever import read_custom_retriever_kwargs
 
 from graphrag_toolkit.lexical_graph import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.storage import GraphStoreFactory, VectorStoreFactory
@@ -52,7 +53,8 @@ def run_benchmark_query(handler: IntegrationTestHandler,
                         qa_limit: Optional[int] = None,
                         retriever_id: str = 'traversal',
                         agentic_max_iterations: int = 3,
-                        byokg_max_iterations: int = 2):
+                        byokg_max_iterations: int = 2,
+                        custom_retriever_kwargs: Optional[Dict[str, Any]] = None):
     """
     Queries a benchmark dataset's QA pairs and writes responses in run_evaluation.py format.
 
@@ -79,11 +81,15 @@ def run_benchmark_query(handler: IntegrationTestHandler,
         response_llm: Bedrock model ID for generating query responses.
         qa_limit: Optional cap on the number of QA pairs to query (for prototype runs).
         retriever_id: Retriever identifier to use (default 'traversal'). Must be one of
-            the valid IDs defined in RetrieverFactory.VALID_RETRIEVER_IDS.
+            the valid IDs defined in RetrieverFactory.VALID_RETRIEVER_IDS, or
+            'custom:<module>.<attribute>' for a custom retriever.
         agentic_max_iterations: Maximum iterations for the agentic retriever (default 3,
             range 1-10). Only used when retriever_id is 'agentic'.
         byokg_max_iterations: Maximum iterations for the BYOKG agentic retriever
             (default 2). Only used when retriever_id is 'byokg_agentic'.
+        custom_retriever_kwargs: Extra constructor keyword arguments for a custom
+            retriever (from BENCHMARK_CUSTOM_RETRIEVER_KWARGS). Only used when
+            retriever_id is a 'custom:' ID.
     """
     sync_benchmark_data_from_s3(dataset, data_dir)
 
@@ -124,6 +130,7 @@ def run_benchmark_query(handler: IntegrationTestHandler,
             agentic_max_iterations=agentic_max_iterations,
             byokg_max_iterations=byokg_max_iterations,
             llm=llm_cache,
+            custom_retriever_kwargs=custom_retriever_kwargs,
         )
 
         retriever_dir = os.path.join('benchmark-results', dataset, retriever_id)
@@ -227,6 +234,8 @@ def run_benchmark_query(handler: IntegrationTestHandler,
             response_llm=response_llm,
             agentic_max_iterations=agentic_max_iterations,
             byokg_max_iterations=byokg_max_iterations,
+            query_engine=query_engine,
+            custom_retriever_kwargs=custom_retriever_kwargs,
         )
         metrics_summary = compute_metrics_summary(
             per_query_data, retriever_id, dataset, response_llm, num_empty,
@@ -288,6 +297,7 @@ class CuadBenchmarkQuery(IntegrationTestBase):
             retriever_id=retriever_id,
             agentic_max_iterations=agentic_max_iterations,
             byokg_max_iterations=byokg_max_iterations,
+            custom_retriever_kwargs=read_custom_retriever_kwargs(),
         )
 
 
@@ -323,6 +333,7 @@ class ConcurrentQaBenchmarkQuery(IntegrationTestBase):
             retriever_id=retriever_id,
             agentic_max_iterations=agentic_max_iterations,
             byokg_max_iterations=byokg_max_iterations,
+            custom_retriever_kwargs=read_custom_retriever_kwargs(),
         )
 
 
@@ -356,6 +367,7 @@ class WikihowBenchmarkQuery(IntegrationTestBase):
             retriever_id=retriever_id,
             agentic_max_iterations=agentic_max_iterations,
             byokg_max_iterations=byokg_max_iterations,
+            custom_retriever_kwargs=read_custom_retriever_kwargs(),
         )
 
 
@@ -390,4 +402,5 @@ class PgaBenchmarkQuery(IntegrationTestBase):
             retriever_id=retriever_id,
             agentic_max_iterations=agentic_max_iterations,
             byokg_max_iterations=byokg_max_iterations,
+            custom_retriever_kwargs=read_custom_retriever_kwargs(),
         )
