@@ -85,7 +85,8 @@ def build_indexing_config(dataset_name: str) -> IndexingConfig:
         key_prefix=f'{os.environ["S3_RESULTS_PREFIX"]}/batch-extract/{dataset_name}',
         role_arn=os.environ['BATCH_INFERENCE_ROLE'],
         max_batch_size=env_int('BENCHMARK_MAX_BATCH_SIZE', 40000),
-        max_num_concurrent_batches=env_int('BENCHMARK_MAX_NUM_CONCURRENT_BATCHES', 1, minimum=1)
+        max_num_concurrent_batches=env_int('BENCHMARK_MAX_NUM_CONCURRENT_BATCHES', 1, minimum=1),
+        auto_tune=env_bool('BENCHMARK_AUTO_TUNE', False)
     )
     return IndexingConfig(batch_config=batch_config)
 

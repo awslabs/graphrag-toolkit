@@ -304,6 +304,11 @@ class TestBatchConfigIsOverridable:
             f'{keyword} must read {variable} with the default it had before it was configurable'
         )
 
+    def test_auto_tune_is_read_from_the_environment_and_off_by_default(self):
+        value = self._batch_config_keywords()['auto_tune']
+        assert getattr(value.func, 'id', '') == 'env_bool'
+        assert [getattr(a, 'value', None) for a in value.args] == ['BENCHMARK_AUTO_TUNE', False]
+
     def test_concurrency_has_a_floor_that_names_the_variable(self):
         value = self._batch_config_keywords()['max_num_concurrent_batches']
         assert {k.arg: getattr(k.value, 'value', None) for k in value.keywords} == {'minimum': 1}
@@ -326,6 +331,7 @@ class TestVariableNameIsPinned:
         'BENCHMARK_USE_BATCH',
         'BENCHMARK_IS_PROTOTYPE',
         'BENCHMARK_S3_JSONL',
+        'BENCHMARK_AUTO_TUNE',
     }
 
     def test_call_sites_read_the_expected_names(self):
@@ -361,6 +367,7 @@ class TestVariableNameIsPinned:
             'EXTRACTION_NUM_THREADS_PER_WORKER',
             'BENCHMARK_MAX_BATCH_SIZE',
             'BENCHMARK_MAX_NUM_CONCURRENT_BATCHES',
+            'BENCHMARK_AUTO_TUNE',
         ],
     )
     def test_harness_forwards_the_extraction_variables(self, name):

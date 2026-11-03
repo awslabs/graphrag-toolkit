@@ -431,7 +431,7 @@ fi
 printf 'export BENCHMARK_USE_BATCH=%q\n' "${BENCHMARK_USE_BATCH:-true}" >> lexical-graph-examples/.env.testing
 # Forwarded only when set, so the notebook keeps the library defaults otherwise.
 for setting in EXTRACTION_NUM_WORKERS EXTRACTION_BATCH_SIZE EXTRACTION_NUM_THREADS_PER_WORKER \
-	BENCHMARK_MAX_BATCH_SIZE BENCHMARK_MAX_NUM_CONCURRENT_BATCHES \
+	BENCHMARK_MAX_BATCH_SIZE BENCHMARK_MAX_NUM_CONCURRENT_BATCHES BENCHMARK_AUTO_TUNE \
 	SOURCE_ID_WIDTH DETECT_SOURCE_ID_COLLISIONS; do
 	if [[ "${!setting:-}" ]]; then
 		printf "export $setting=%q\n" "${!setting}" >> lexical-graph-examples/.env.testing
