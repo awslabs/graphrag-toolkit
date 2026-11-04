@@ -1182,6 +1182,7 @@ class TestNeptuneReadOnlyPropagation:
         assert call_args['queryString'] == "MATCH (n) RETURN n"
         assert call_args['language'] == 'OPEN_CYPHER'
         assert "does not support read-only query execution" in caplog.text
+        assert "neptune-graph:GetGraph" in caplog.text
 
     @patch('graphrag_toolkit.byokg_rag.graphstore.neptune.boto3.Session')
     def test_neptune_analytics_read_only_false_omits_param(self, mock_session, mock_neptune_client, mock_s3_client):

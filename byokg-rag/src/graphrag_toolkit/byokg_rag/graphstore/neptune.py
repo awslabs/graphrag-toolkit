@@ -261,7 +261,7 @@ class NeptuneAnalyticsGraphStore(BaseNeptuneGraphStore):
         :param graph_identifier: Str. An existing graph identifier (required)
         :param region: Str AWS region
         """
-
+        self._read_only_warned = False
 
         if region is None:
             self.region = None
@@ -347,12 +347,13 @@ class NeptuneAnalyticsGraphStore(BaseNeptuneGraphStore):
 
     def execute_query(self, cypher, parameters={}, read_only=False):
         logger.info(f"GraphQuery:: {cypher}")
-        if read_only and not getattr(self, '_read_only_warned', False):
+        if read_only and not self._read_only_warned:
             logger.warning(
                 "Neptune Graph does not support read-only query execution. "
                 "Write protection relies solely on application-level Cypher validation. "
                 "For stronger guarantees, restrict the IAM role "
-                "to neptune-graph:ReadDataViaQuery."
+                "to neptune-graph:ReadDataViaQuery and neptune-graph:GetGraph "
+                "(see the byokg-rag README)."
             )
             self._read_only_warned = True
         query_args = dict(
@@ -448,6 +449,7 @@ class NeptuneDBGraphStore(BaseNeptuneGraphStore):
         :param endpoint_url: Str. The endpoint url of the Neptune DB cluster in the format https://{cluster_endpoint}:{port}
         :param region: Str AWS region
         """
+        self._read_only_warned = False
         self.region = region
         if self.region is None:
             raise ValueError("region needs to be passed in or inferrable from current environment")
@@ -611,12 +613,12 @@ class NeptuneDBGraphStore(BaseNeptuneGraphStore):
         
     def execute_query(self, cypher, parameters={}, read_only=False):
         logger.info(f"GraphQuery:: {cypher}")
-        if read_only and not getattr(self, '_read_only_warned', False):
+        if read_only and not self._read_only_warned:
             logger.warning(
                 "Neptune DB does not support read-only query execution. "
                 "Write protection relies solely on application-level Cypher validation. "
                 "For stronger guarantees, restrict the IAM role "
-                "to neptune-db:ReadDataViaQuery."
+                "to neptune-db:ReadDataViaQuery (see the byokg-rag README)."
             )
             self._read_only_warned = True
         response = self.neptune_data_client.execute_open_cypher_query(

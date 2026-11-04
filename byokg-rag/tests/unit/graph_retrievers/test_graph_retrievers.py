@@ -660,9 +660,22 @@ class TestGraphQueryRetrieverIsQuerySafe:
         assert retriever.is_query_safe(query) is False
 
     @pytest.mark.parametrize("query", [
+        "MATCH (n:Victim) SET/**/n.pwned = true RETURN n",
+        "MATCH (n:Victim) DETACH/**/DELETE/**/n",
+        "WITH 1 AS a/**/CREATE (m:Pwned) RETURN a",
+        "MATCH (n:Victim) WITH n/**/SET n.pwned = true",
+    ])
+    def test_is_query_safe_block_comment_as_separator(self, mock_graph_store, query):
+        """Verify a /* */ comment between a keyword and the next token does not hide the keyword."""
+        retriever = GraphQueryRetriever(graph_store=mock_graph_store)
+
+        assert retriever.is_query_safe(query) is False
+
+    @pytest.mark.parametrize("query", [
         "MATCH (n) /* CREATE */ RETURN n",
         "MATCH (n) RETURN n // DELETE n",
         "MATCH (n) WHERE n.url = 'http://x/*y' RETURN n",
+        "MATCH (n)/**/RETURN n",
     ])
     def test_is_query_safe_keyword_only_in_comment(self, mock_graph_store, query):
         """Verify a write keyword that appears only inside a comment does not block a read."""

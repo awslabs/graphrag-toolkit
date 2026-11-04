@@ -392,10 +392,12 @@ class GraphQueryRetriever(GRetriever):
             'DROP', 'DETACH', 'CALL'
         ]
         
-        # Neo4j reads a backslash inside backticks as a literal character and
-        # Neptune doesn't document its rule, so check the query under both.
-        for backtick_escapes in (False, True):
-            stripped = self._strip_comments(graph_query, backtick_escapes)
+        # Neo4j reads a backslash inside backticks as a literal character, and a
+        # /* */ comment as a token separator. Neptune documents neither, so check
+        # every combination: CRE/**/ATE is caught with no separator, SET/**/n
+        # with a space.
+        for backtick_escapes, sep in ((False, ''), (True, ''), (False, ' '), (True, ' ')):
+            stripped = self._strip_comments(graph_query, backtick_escapes, sep)
             query_upper = unicodedata.normalize('NFKC', stripped).upper()
 
             for keyword in modification_keywords:
@@ -406,15 +408,16 @@ class GraphQueryRetriever(GRetriever):
         return True
 
     @staticmethod
-    def _strip_comments(graph_query: str, backtick_escapes: bool = False) -> str:
+    def _strip_comments(graph_query: str, backtick_escapes: bool = False, sep: str = '') -> str:
         """
         Remove // and /* */ comments outside quoted strings and backtick identifiers.
 
         A comment marker inside quotes or backticks is left alone. A backslash
         escapes the next character inside quotes, and inside backticks only when
         backtick_escapes is True. A // comment runs to the next \\r or \\n.
-        Comments are removed without a space, so CRE/**/ATE becomes CREATE. An
-        unterminated /* is left in place.
+        A /* */ comment is replaced with sep, so with the default CRE/**/ATE
+        becomes CREATE and with ' ' SET/**/n becomes SET n. An unterminated /*
+        is left in place.
         """
         result = []
         i, n = 0, len(graph_query)
@@ -437,6 +440,7 @@ class GraphQueryRetriever(GRetriever):
                     i = n
                 else:
                     i = end + 2
+                    result.append(sep)
             else:
                 result.append(char)
                 i += 1

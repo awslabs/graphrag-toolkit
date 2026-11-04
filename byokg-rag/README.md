@@ -93,7 +93,7 @@ NOTE: Additional permissions may be required for Neptune Database (`neptune-db:*
 
 ## Security: Query Modification Protection
 
-The `GraphQueryRetriever` blocks Cypher queries containing modification keywords (CREATE, MERGE, DELETE, SET, REMOVE, DROP, DETACH, CALL) to protect against LLM-generated or user-supplied queries that could modify graph data. The check removes comments outside string literals before matching, so a comment marker inside a string literal can't hide a keyword (`'//' CREATE ...`), and a keyword split by a comment (`CRE/**/ATE`) is joined back together and refused.
+The `GraphQueryRetriever` blocks Cypher queries containing modification keywords (CREATE, MERGE, DELETE, SET, REMOVE, DROP, DETACH, CALL) to protect against LLM-generated or user-supplied queries that could modify graph data. The check removes comments outside string literals before matching, so a comment marker inside a string literal can't hide a keyword (`'//' CREATE ...`), and a comment between or inside keywords (`CRE/**/ATE`, `SET/**/n`) can't hide a keyword either.
 
 Treat `is_query_safe()` as defence in depth. A keyword check has to match each engine's lexer exactly. To block writes, rely on a read-only IAM role, described below.
 
