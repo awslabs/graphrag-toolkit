@@ -121,6 +121,8 @@ class CypherSafetyCheck(IntegrationTestBase):
             "WITH '/*' AS a CREATE (n:MaliciousNode {name: 'evil'}) WITH a, '*/' AS b RETURN a, b",
             "WITH '//' AS a CRE/**/ATE (n:MaliciousNode {name: 'evil'}) RETURN a",
             "WITH 1 AS `\\` WITH 1 AS `x//` CREATE (n:MaliciousNode {name: 'evil'}) RETURN 1",
+            "WITH 1 AS `a\\`//` CREATE (n:MaliciousNode {name: 'evil'}) RETURN 1",
+            "WITH 1 AS c //x\rCREATE (n:MaliciousNode {name: 'evil'}) RETURN c",
         ]
         for q in quoted_comment_queries:
             result = retriever.retrieve(q)
@@ -196,7 +198,7 @@ class CypherSafetyCheck(IntegrationTestBase):
                     v for k, v in self._bypass_results.items()
                     if k.startswith("quoted:")
                 ]
-                self.assertEqual(len(quoted_blocked), 3)
+                self.assertEqual(len(quoted_blocked), len(quoted_comment_queries))
                 self.assertTrue(all(quoted_blocked))
 
             def test_call_bypass_blocked(self):

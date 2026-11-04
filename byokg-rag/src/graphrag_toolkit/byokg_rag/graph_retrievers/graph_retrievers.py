@@ -392,45 +392,44 @@ class GraphQueryRetriever(GRetriever):
             'DROP', 'DETACH', 'CALL'
         ]
         
-        # Normalize Unicode characters (NFKC collapses fullwidth and lookalikes to ASCII)
-        # and case for case-insensitive matching
-        query_upper = unicodedata.normalize('NFKC', self._strip_comments(graph_query)).upper()
+        # Neo4j reads a backslash inside backticks as a literal character and
+        # Neptune doesn't document its rule, so check the query under both.
+        for backtick_escapes in (False, True):
+            stripped = self._strip_comments(graph_query, backtick_escapes)
+            query_upper = unicodedata.normalize('NFKC', stripped).upper()
 
-        # Check for each blocked keyword
-        for keyword in modification_keywords:
-            # Use word boundaries to avoid matching keywords within other words
-            # re.MULTILINE flag ensures proper handling of multi-line queries with \n
-            pattern = r'\b' + re.escape(keyword) + r'\b'
-            if re.search(pattern, query_upper, re.MULTILINE):
-                return False
+            for keyword in modification_keywords:
+                pattern = r'\b' + re.escape(keyword) + r'\b'
+                if re.search(pattern, query_upper, re.MULTILINE):
+                    return False
 
         return True
 
     @staticmethod
-    def _strip_comments(graph_query: str) -> str:
+    def _strip_comments(graph_query: str, backtick_escapes: bool = False) -> str:
         """
-        Remove /* ... */ and // comments that sit outside string literals.
+        Remove // and /* */ comments outside quoted strings and backtick identifiers.
 
-        Quoted strings and backtick identifiers are kept as written, so a comment
-        marker inside one is not treated as a comment. Backslash escapes apply
-        only to quoted strings; backtick identifiers have none. Comments are
-        removed without leaving a space, so a keyword split by a comment
-        (CRE/**/ATE) is joined back together. An unterminated block comment is
-        kept as written.
+        A comment marker inside quotes or backticks is left alone. A backslash
+        escapes the next character inside quotes, and inside backticks only when
+        backtick_escapes is True. A // comment runs to the next \\r or \\n.
+        Comments are removed without a space, so CRE/**/ATE becomes CREATE. An
+        unterminated /* is left in place.
         """
         result = []
         i, n = 0, len(graph_query)
         while i < n:
             char = graph_query[i]
             if char in ('\'', '"', '`'):
+                escapes = char != '`' or backtick_escapes
                 end = i + 1
                 while end < n and graph_query[end] != char:
-                    end += 2 if graph_query[end] == '\\' and char != '`' else 1
+                    end += 2 if escapes and graph_query[end] == '\\' else 1
                 result.append(graph_query[i:end + 1])
                 i = end + 1
             elif graph_query.startswith('//', i):
-                end = graph_query.find('\n', i)
-                i = n if end == -1 else end
+                ends = [p for p in (graph_query.find('\n', i), graph_query.find('\r', i)) if p != -1]
+                i = min(ends) if ends else n
             elif graph_query.startswith('/*', i):
                 end = graph_query.find('*/', i + 2)
                 if end == -1:

@@ -640,9 +640,21 @@ class TestGraphQueryRetrieverIsQuerySafe:
         "WITH 'it\\'s //' AS a CRE/**/ATE (x:Pwned) RETURN a",
         "WITH `//` AS a CRE/**/ATE (x:Pwned) RETURN a",
         "WITH 1 AS `\\` WITH 1 AS `x//` CREATE (n) RETURN 1",
+        "WITH 1 AS `a\\`//` CREATE (n:Pwned) RETURN 1",
     ])
     def test_is_query_safe_quoted_comment_marker(self, mock_graph_store, query):
         """Verify a comment marker inside a string literal does not hide a write keyword."""
+        retriever = GraphQueryRetriever(graph_store=mock_graph_store)
+
+        assert retriever.is_query_safe(query) is False
+
+    @pytest.mark.parametrize("query", [
+        "WITH 1 AS c //x\rCREATE (m:Pwned) RETURN c",
+        "WITH 1 AS c //x\r\nCREATE (m:Pwned) RETURN c",
+        "WITH 1 AS c //x\nCREATE (m:Pwned) RETURN c",
+    ])
+    def test_is_query_safe_line_comment_ends_at_line_break(self, mock_graph_store, query):
+        """Verify a // comment ends at \\r or \\n, so a write on the next line is scanned."""
         retriever = GraphQueryRetriever(graph_store=mock_graph_store)
 
         assert retriever.is_query_safe(query) is False
