@@ -96,6 +96,8 @@ The graph query retriever executes structured queries (openCypher) against the g
 | `graph_store` | GraphStore | Required | Graph store instance for query execution | `NeptuneAnalyticsGraphStore(...)` |
 | `block_graph_modification` | bool | True | Block queries that modify the graph | `True` |
 
+WARNING: Setting `block_graph_modification` to False allows DELETE, CREATE, and other modification operations. Only disable this in controlled environments where query safety is guaranteed.
+
 ### TextTripletRetriever
 
 The text triplet retriever scores every triplet against the question as cos(q, head) + cos(q, relation) + cos(q, tail), using node and relation embeddings computed once per graph.
@@ -111,8 +113,6 @@ The text triplet retriever scores every triplet against the question as cos(q, h
 | `topk` | int | 10 | Triplets returned per question | `10` |
 
 `TextTripletRetriever.from_graph_store(graph_store, embedding, graph_embeddings=None, cache_dir=None, model_id=None, **kwargs)` builds the embeddings (unless given) from a store that has `get_triplets()`; see [Indexing](../byokg-rag/indexing/#graph-embeddings) for the cache.
-
-WARNING: Setting `block_graph_modification` to False allows DELETE, CREATE, and other modification operations. Only disable this in controlled environments where query safety is guaranteed.
 
 ## Entity Linker Configuration
 

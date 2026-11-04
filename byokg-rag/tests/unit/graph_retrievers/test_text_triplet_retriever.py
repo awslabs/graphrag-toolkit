@@ -57,12 +57,21 @@ class TestRanking:
         r, _ = _retriever(TRIPLETS + [TRIPLETS[1]])
         assert len(r.retrieve('award 1990', topk=10)) == len(TRIPLETS)
 
-    def test_topk_zero_and_empty_graph(self):
+    def test_topk_zero(self):
         r, _ = _retriever()
         assert r.retrieve('anything', topk=0) == []
+
+    def test_empty_graph_returns_nothing_without_embedding(self):
         emb = HashingEmbedding()
-        g = GraphEmbeddings.build(TRIPLETS, emb)
-        assert TextTripletRetriever([], g, emb).retrieve('anything') == []
+        r = TextTripletRetriever([], GraphEmbeddings.build([], emb), emb)
+        assert r.retrieve('anything') == []
+        assert (emb.batch_calls, emb.query_calls) == (0, [])
+
+    def test_all_opaque_graph_ranks_by_relation_labels(self):
+        # The match is listed second: an all-tied ranking would return the first.
+        opaque = [('m.0c', 'film.film.directed_by', 'm.0d'), ('m.0a', 'people.person.place_of_birth', 'm.0b')]
+        r, _ = _retriever(opaque)
+        assert r.retrieve('place of birth', topk=1) == ['m.0a -> people.person.place_of_birth -> m.0b']
 
 
 class TestFailsLoud:
@@ -132,6 +141,11 @@ class TestFromGraphStore:
                                               model_id='cohere.embed-english-v3')
         import json
         assert json.loads((tmp_path / 'nodes' / 'meta.json').read_text())['model_id'] == 'cohere.embed-english-v3'
+
+    def test_empty_store(self):
+        emb = HashingEmbedding()
+        assert TextTripletRetriever.from_graph_store(LocalKGStore({}), emb).retrieve('anything') == []
+        assert (emb.batch_calls, emb.query_calls) == (0, [])
 
     def test_store_without_get_triplets(self):
         class NoTriplets:

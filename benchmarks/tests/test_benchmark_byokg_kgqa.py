@@ -505,9 +505,8 @@ def test_suite_file_resolves_like_the_stack_runner():
     assert sorted(datasets) == sorted(runner.DATASETS)
 
 
-# --- optional retrieval changes (text-based retrieval, embedding linking) -----------
+# --- optional text-based retrieval ------------------------------------------------
 
-LINKING = runner.RetrievalConfig(embedding_linking=True, embed_model='cohere.embed-english-v3')
 TEXT = runner.RetrievalConfig(text_retrieval=True, embed_model='cohere.embed-english-v3')
 
 
@@ -569,30 +568,30 @@ class TestRetrievalConfig:
     def test_flags_change_the_fingerprint(self):
         prov = runner.provenance(runner.CountingGenerator(FakeGenerator()), data_sha256={})
         keys = set()
-        for retrieval in (runner.RetrievalConfig(), LINKING, TEXT):
+        for retrieval in (runner.RetrievalConfig(), TEXT,
+                          runner.RetrievalConfig(text_retrieval=True, text_topk=5, embed_model='cohere.embed-english-v3')):
             p = {**prov, 'retrieval': runner.retrieval_provenance(retrieval, 1024)}
             keys.add(runner.run_key(['q1'], True, 2, p))
         assert len(keys) == 3, 'resume must never reuse a run across retrieval arms'
 
-    def test_unused_text_topk_does_not_split_the_fingerprint(self):
+    def test_unused_settings_do_not_split_the_fingerprint(self):
         model = 'cohere.embed-english-v3'  # explicit: resolving the default imports byokg-rag
-        linking = [runner.retrieval_provenance(
-            runner.RetrievalConfig(embedding_linking=True, text_topk=k, embed_model=model), 1024) for k in (5, 10)]
+        off = [runner.retrieval_provenance(runner.RetrievalConfig(text_topk=k, embed_model=model), None)
+               for k in (5, 10)]
         text = [runner.retrieval_provenance(
             runner.RetrievalConfig(text_retrieval=True, text_topk=k, embed_model=model), 1024) for k in (5, 10)]
-        assert linking[0] == linking[1] and linking[0]['text_topk'] is None
+        assert off[0] == off[1] and (off[0]['text_topk'], off[0]['embed_model']) == (None, None)
         assert text[0] != text[1]
 
     def test_from_env(self, monkeypatch):
         monkeypatch.setenv('BYOKG_TEXT_RETRIEVAL', 'true')
         monkeypatch.setenv('BYOKG_TEXT_TOPK', '5')
-        monkeypatch.delenv('BYOKG_EMBEDDING_LINKING', raising=False)
         r = runner.retrieval_from_env()
-        assert (r.text_retrieval, r.embedding_linking, r.text_topk) == (True, False, 5)
+        assert (r.text_retrieval, r.text_topk) == (True, 5)
 
     def test_parse_args(self):
         a = runner.parse_args(['--dataset', 'cronquestions', '--text-retrieval', '--text-topk', '7'])
-        assert (a.text_retrieval, a.embedding_linking, a.text_topk) == (True, False, 7)
+        assert (a.text_retrieval, a.text_topk) == (True, 7)
 
 
 class TestRetrievalWiring:
@@ -602,8 +601,7 @@ class TestRetrievalWiring:
 
         def build_parts(graph, retrieval, region, cache_dir):
             seen.update(retrieval=retrieval, cache_dir=cache_dir)
-            return runner.RetrievalParts(text_triplet_retriever='TEXT', entity_matcher='MATCH',
-                                         embedding_dim=1024)
+            return runner.RetrievalParts(text_triplet_retriever='TEXT', embedding_dim=1024)
         built = []
         monkeypatch.setattr(runner, 'build_retrieval_parts', build_parts)
         monkeypatch.setattr(runner, 'build_engine',
@@ -619,11 +617,11 @@ class TestRetrievalWiring:
 
     def test_parts_built_once_and_reach_every_engine(self, tmp_path, parts_spy):
         seen, built = parts_spy
-        report = self._run(tmp_path, retrieval=LINKING)
-        assert [p.entity_matcher for p in built] == ['MATCH', 'MATCH'], 'both settings, one build'
+        report = self._run(tmp_path, retrieval=TEXT)
+        assert [p.text_triplet_retriever for p in built] == ['TEXT', 'TEXT'], 'both settings, one build'
         assert '/embeddings/' in seen['cache_dir'] and seen['cache_dir'].endswith('-cohere.embed-english-v3')
         assert report['provenance']['retrieval'] == {
-            'text_retrieval': False, 'embedding_linking': True, 'text_topk': None,
+            'text_retrieval': True, 'text_topk': 10,
             'embed_model': 'cohere.embed-english-v3', 'embedding_dim': 1024}
 
     def test_no_cache_and_no_hook_when_off(self, tmp_path, parts_spy):
@@ -852,9 +850,8 @@ class TestReviewFixes:
         monkeypatch.setattr(graph_embeddings.GraphEmbeddings, 'build', classmethod(
             lambda cls, *a, **kw: seen.update(model_id=kw.get('model_id')) or real_build(cls, *a, **kw)))
         parts = runner.build_retrieval_parts(GRAPH, runner.RetrievalConfig(
-            text_retrieval=True, embedding_linking=True, embed_model='cohere.embed-english-v3'),
-            'us-west-2', str(tmp_path))
+            text_retrieval=True, embed_model='cohere.embed-english-v3'), 'us-west-2', str(tmp_path))
         assert seen['model_id'] == 'cohere.embed-english-v3' and seen['region_name'] == 'us-west-2'
         assert seen['config'].retries == {'max_attempts': runner.EMBED_MAX_ATTEMPTS, 'mode': 'adaptive'}
-        assert parts.text_triplet_retriever is not None and parts.entity_matcher is not None
+        assert parts.text_triplet_retriever is not None
         assert parts.embedding_dim == 2

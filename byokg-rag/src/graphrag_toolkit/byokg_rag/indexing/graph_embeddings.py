@@ -137,15 +137,18 @@ def _write_json_atomic(path: str, value) -> None:
 
 
 def load_or_embed(texts: Sequence[str], embedding, cache_dir: Optional[str] = None,
-                  model_id: Optional[str] = None) -> EmbeddingTable:
+                  model_id: Optional[str] = None, dim: Optional[int] = None) -> EmbeddingTable:
     """Embed texts, reusing cache_dir/{texts.json,meta.json,vectors.npy} when present.
 
     meta.json records the model and dimension. A cache whose texts, model, dimension
     or row count don't match raises instead of being reused or silently recomputed:
     it means the graph or the model changed under the key. A hit returns exactly the
     vectors the miss computed, so results don't depend on which run built the cache.
+    No texts makes an empty table, which needs dim since nothing is embedded.
     """
     texts = list(texts)
+    if not texts and dim is None:
+        raise ValueError('nothing to embed: an empty table needs dim')
     vectors_path = os.path.join(cache_dir, 'vectors.npy') if cache_dir else None
     if vectors_path and os.path.exists(vectors_path):
         with open(os.path.join(cache_dir, 'texts.json'), encoding='utf-8') as f:
@@ -170,8 +173,10 @@ def load_or_embed(texts: Sequence[str], embedding, cache_dir: Optional[str] = No
         return EmbeddingTable(texts, vectors)
 
     vectors = embed_texts(embedding, texts, model_id=model_id,
-                          checkpoint_dir=os.path.join(cache_dir, 'partial') if cache_dir else None)
+                          checkpoint_dir=os.path.join(cache_dir, 'partial') if cache_dir else None
+                          ) if texts else np.zeros((0, dim), dtype=np.float32)
     if cache_dir:
+        os.makedirs(cache_dir, exist_ok=True)  # an empty table writes no checkpoint that would create it
         # vectors.npy is written last: its presence is what marks a cache complete.
         _write_json_atomic(os.path.join(cache_dir, 'texts.json'), texts)
         _write_json_atomic(os.path.join(cache_dir, 'meta.json'),
@@ -194,13 +199,19 @@ class GraphEmbeddings:
         if self.nodes.dim != self.relations.dim:
             raise ValueError(f'node dim {self.nodes.dim} != relation dim {self.relations.dim}')
 
+    @property
+    def dim(self) -> int:
+        return self.nodes.dim
+
     @classmethod
     def build(cls, triplets: Iterable[Sequence[str]], embedding, cache_dir: Optional[str] = None,
               extra_nodes: Iterable[str] = (), model_id: Optional[str] = None) -> 'GraphEmbeddings':
         """Embed every named head/tail (plus extra_nodes) and every relation label.
 
         Sorted, so the row order — and therefore the cache — is reproducible.
-        model_id is recorded in the cache and checked on reuse.
+        model_id is recorded in the cache and checked on reuse. A table with nothing
+        to embed (every node opaque, or no triplets) is empty, with the other
+        table's dimension; an empty graph embeds nothing.
         """
         nodes, relations = set(extra_nodes), set()
         for triplet in triplets:
@@ -209,10 +220,16 @@ class GraphEmbeddings:
             head, relation, tail = triplet
             nodes.update((head, tail))
             relations.add(relation)
-        node_texts = sorted(n for n in nodes if not is_opaque_id(n))
-        return cls(
-            nodes=load_or_embed(node_texts, embedding,
-                                cache_dir and os.path.join(cache_dir, 'nodes'), model_id),
-            relations=load_or_embed(sorted(relations), embedding,
-                                    cache_dir and os.path.join(cache_dir, 'relations'), model_id),
-        )
+        texts = {'nodes': sorted(n for n in nodes if not is_opaque_id(n)), 'relations': sorted(relations)}
+
+        def table(name, dim=None):
+            return load_or_embed(texts[name], embedding, cache_dir and os.path.join(cache_dir, name),
+                                 model_id, dim=dim)
+        tables = {name: table(name) for name in texts if texts[name]}
+        dim = next(iter(tables.values())).dim if tables else 0
+        for name in texts:
+            if name not in tables:
+                logger.warning('graph has no %s to embed; its %s table is empty',
+                               'named nodes' if name == 'nodes' else 'relations', name)
+                tables[name] = table(name, dim)
+        return cls(nodes=tables['nodes'], relations=tables['relations'])

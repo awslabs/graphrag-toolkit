@@ -69,7 +69,6 @@ class CountingGenerator:
 class RetrievalConfig:
     """Optional retrieval changes under test; all off reproduces the library defaults."""
     text_retrieval: bool = False      # TextTripletRetriever merged with agentic retrieval
-    embedding_linking: bool = False   # HybridEntityMatcher: fuzzy + embedding linking
     text_topk: int = 10
     embed_model: Optional[str] = None  # None: ByoKGConfig.embed_model
 
@@ -79,7 +78,7 @@ class RetrievalConfig:
 
     @property
     def enabled(self) -> bool:
-        return self.text_retrieval or self.embedding_linking
+        return self.text_retrieval
 
     def resolved_model(self) -> str:
         if self.embed_model:
@@ -100,7 +99,6 @@ def embedding_cache_key(graph_sha256: str, model: str) -> str:
 class RetrievalParts:
     """Built once per dataset and shared by every engine: embedding a graph is costly."""
     text_triplet_retriever: Any = None
-    entity_matcher: Any = None
     embedding_dim: Optional[int] = None
 
 
@@ -111,7 +109,7 @@ def build_retrieval_parts(graph: Dict[str, Any], retrieval: RetrievalConfig, reg
     from graphrag_toolkit.byokg_rag.config import ByoKGConfig
     from graphrag_toolkit.byokg_rag.graph_retrievers import TextTripletRetriever
     from graphrag_toolkit.byokg_rag.graphstore.graphstore import LocalKGStore
-    from graphrag_toolkit.byokg_rag.indexing import GraphEmbeddings, HybridEntityMatcher
+    from graphrag_toolkit.byokg_rag.indexing import GraphEmbeddings
 
     from botocore.config import Config
 
@@ -125,15 +123,14 @@ def build_retrieval_parts(graph: Dict[str, Any], retrieval: RetrievalConfig, reg
     embedding = ByoKGConfig.to_embedding(**kwargs)
     store = LocalKGStore(graph)
     triplets = store.get_triplets()
+    # Every named node, not only those in triplets, so one cached node table serves
+    # any consumer of the graph's embeddings.
     embeddings = GraphEmbeddings.build(triplets, embedding, cache_dir, extra_nodes=store.nodes(),
                                        model_id=model_id)
     return RetrievalParts(
-        text_triplet_retriever=(TextTripletRetriever(triplets, embeddings, embedding,
-                                                     topk=retrieval.text_topk)
-                                if retrieval.text_retrieval else None),
-        entity_matcher=(HybridEntityMatcher.from_nodes(store.nodes(), embedding, embeddings.nodes)
-                        if retrieval.embedding_linking else None),
-        embedding_dim=embeddings.nodes.dim,
+        text_triplet_retriever=TextTripletRetriever(triplets, embeddings, embedding,
+                                                    topk=retrieval.text_topk),
+        embedding_dim=embeddings.dim,
     )
 
 
@@ -142,7 +139,6 @@ def build_engine(graph: Dict[str, Any], model: Optional[str], region: Optional[s
     """Engine with library defaults; only the graph store, LLM and any parts under
     test are supplied."""
     from graphrag_toolkit.byokg_rag.byokg_query_engine import ByoKGQueryEngine
-    from graphrag_toolkit.byokg_rag.graph_retrievers import EntityLinker
     from graphrag_toolkit.byokg_rag.graphstore.graphstore import LocalKGStore
     from graphrag_toolkit.byokg_rag.llm.bedrock_llms import BedrockGenerator
 
@@ -150,7 +146,6 @@ def build_engine(graph: Dict[str, Any], model: Optional[str], region: Optional[s
     counter = CountingGenerator(BedrockGenerator(model_name=model, region_name=region))
     engine = ByoKGQueryEngine(
         graph_store=LocalKGStore(graph), llm_generator=counter, single_best_match=single_best_match,
-        entity_linker=EntityLinker(parts.entity_matcher) if parts.entity_matcher else None,
         text_triplet_retriever=parts.text_triplet_retriever)
     return engine, counter
 
@@ -603,7 +598,6 @@ def dataset_limit(dataset: str) -> Optional[int]:
 def retrieval_from_env() -> RetrievalConfig:
     return RetrievalConfig(
         text_retrieval=env_bool('BYOKG_TEXT_RETRIEVAL', False),
-        embedding_linking=env_bool('BYOKG_EMBEDDING_LINKING', False),
         text_topk=env_int('BYOKG_TEXT_TOPK', 10),
         embed_model=env_string('BYOKG_EMBED_MODEL', None),
     )
@@ -787,8 +781,6 @@ def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
                    help='rerun runs that already have a summary.json for this configuration')
     p.add_argument('--text-retrieval', action='store_true',
                    help='merge text-based triplet retrieval with agentic retrieval')
-    p.add_argument('--embedding-linking', action='store_true',
-                   help='fuse embedding-based entity linking with fuzzy matching')
     p.add_argument('--text-topk', type=int, default=10, help='triplets from text retrieval')
     p.add_argument('--embed-model', help='embedding model id (default: ByoKGConfig.embed_model)')
     return p.parse_args(argv)
@@ -799,7 +791,6 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     args = parse_args(argv)
     validate_config(args.single_best_match, args.runs, args.iterations)
     retrieval = RetrievalConfig(text_retrieval=args.text_retrieval,
-                                embedding_linking=args.embedding_linking,
                                 text_topk=args.text_topk, embed_model=args.embed_model)
     if args.s3_data:
         fetch_dataset(args.s3_data, args.dataset, args.data_dir)

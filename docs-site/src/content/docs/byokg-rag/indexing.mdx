@@ -13,7 +13,6 @@ This document covers:
 - Dense indexes for semantic similarity matching
 - Fuzzy string indexes for approximate string matching
 - Graph-store indexes for embedding-based retrieval directly from Neptune Analytics
-- A hybrid entity matcher that fuses fuzzy and embedding candidates
 - Graph embeddings: node and relation embeddings computed once per graph and cached on disk
 - Guidance on selecting the appropriate index for your use case
 
@@ -230,49 +229,6 @@ results = graph_index.query("physicist who developed relativity", topk=3)
 - `distance_type` - Distance metric for similarity ("l2" or "cosine")
 - `embedding_s3_save_path` - S3 path for storing embeddings during bulk operations
 
-## Hybrid Entity Matcher
-
-### Purpose
-
-`HybridEntityMatcher` links a mention by combining fuzzy string matching with embedding
-similarity, so a paraphrase that fuzzy matching drops can still link, while exact names stay
-stable.
-
-### Architecture
-
-For each mention, each matcher contributes its top `candidate_depth` nodes (at least the
-requested `topk`), and the candidates are fused by reciprocal rank: score = sum of
-1 / (`rrf_k` + rank) over the matchers that returned the node. Ranks are used because fuzzy
-scores (0–100) and cosine similarities aren't comparable. Equal scores go to the better fuzzy
-rank, so fuzzy's first choice is displaced only by a node both matchers return, or when
-fuzzy returns nothing. A node whose name equals the mention always ranks first (verbatim,
-else case-insensitively). Dense search is an exact cosine scan in numpy over the node
-embeddings.
-
-### Configuration
-
-```python
-from graphrag_toolkit.byokg_rag.config import ByoKGConfig
-from graphrag_toolkit.byokg_rag.graph_retrievers import EntityLinker
-from graphrag_toolkit.byokg_rag.indexing import GraphEmbeddings, HybridEntityMatcher
-
-embedding = ByoKGConfig.to_embedding()
-graph_embeddings = GraphEmbeddings.build(
-    graph_store.get_triplets(), embedding,
-    cache_dir='embeddings/my-graph', extra_nodes=graph_store.nodes(),
-    model_id=ByoKGConfig.embed_model)
-matcher = HybridEntityMatcher.from_nodes(graph_store.nodes(), embedding, graph_embeddings.nodes)
-entity_linker = EntityLinker(matcher)  # works with group_by_mention / single_best_match
-```
-
-**Parameters:**
-
-- `node_ids` - Every graph node; node ids are used as their names, as in `LocalKGStore`
-- `embedding` - Embedding instance; mentions are embedded as documents, like node names
-- `node_table` - The `nodes` table of a `GraphEmbeddings` for the same graph
-- `rrf_k` - Reciprocal-rank constant (default 60)
-- `candidate_depth` - Candidates each matcher contributes before fusion (default 20)
-
 ## Graph Embeddings
 
 `GraphEmbeddings.build(triplets, embedding, cache_dir=None, extra_nodes=(), model_id=None)`
@@ -288,6 +244,9 @@ checkpointed under `partial/`, so a build interrupted by throttling resumes inst
 starting over. A cache whose texts, model, dimension or vector norms don't match raises
 rather than being reused; delete it to rebuild.
 
+A graph whose nodes are all opaque ids gets an empty node table and is ranked by its relation
+labels alone; an empty graph embeds nothing, and text retrieval over it returns no triplets.
+
 ## Index Selection Guide
 
 Choose the appropriate index type based on your requirements:
@@ -296,7 +255,6 @@ Choose the appropriate index type based on your requirements:
 |------------|----------|------|------|
 | Dense Index | Semantic matching, paraphrases, synonyms | Captures meaning, handles varied wording | Requires embedding model, higher latency |
 | Fuzzy String Index | Typos, abbreviations, exact name variations | Fast, no external dependencies | Limited to string similarity, no semantic understanding |
-| Hybrid Entity Matcher | Paraphrased or reworded mentions, on top of fuzzy matching | Keeps exact and fuzzy links, adds semantic candidates | Embeds every graph node once (cache it); needs node ids that are names |
 | Graph Store Index | Neptune Analytics deployments, unified storage | No separate index infrastructure, integrated with graph | Requires Neptune Analytics, S3 for bulk loading |
 
 **Recommendations:**

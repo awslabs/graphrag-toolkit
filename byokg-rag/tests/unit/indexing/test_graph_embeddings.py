@@ -212,3 +212,41 @@ class TestBuild:
     def test_malformed_triplet_fails_loud(self):
         with pytest.raises(ValueError, match=r'\(head, relation, tail\)'):
             GraphEmbeddings.build([('a', 'r')], HashingEmbedding())
+
+
+class TestEmptyTables:
+    OPAQUE = [('m.0a', 'people.person.place_of_birth', 'm.0b'), ('m.0c', 'film.film.directed_by', 'g.11x')]
+
+    def test_all_opaque_graph_gets_an_empty_node_table(self):
+        emb = HashingEmbedding()
+        g = GraphEmbeddings.build(self.OPAQUE, emb)
+        assert g.nodes.texts == [] and g.nodes.vectors.shape == (0, DIM)
+        assert g.relations.vectors.shape == (2, DIM) and g.dim == DIM
+        assert emb.batch_calls == 1, 'only the relation labels are embedded'
+
+    def test_isolated_nodes_without_triplets_get_an_empty_relation_table(self):
+        g = GraphEmbeddings.build([], HashingEmbedding(), extra_nodes=['Jamaica'])
+        assert g.nodes.texts == ['Jamaica'] and g.relations.vectors.shape == (0, DIM)
+
+    def test_empty_graph_embeds_nothing(self):
+        emb = HashingEmbedding()
+        g = GraphEmbeddings.build([], emb)
+        assert (g.nodes.vectors.shape, g.relations.vectors.shape, g.dim) == ((0, 0), (0, 0), 0)
+        assert emb.batch_calls == 0
+
+    def test_empty_table_round_trips_through_the_cache(self, tmp_path, monkeypatch):
+        GraphEmbeddings.build(self.OPAQUE, HashingEmbedding(), cache_dir=str(tmp_path), model_id='m1')
+        assert json.loads((tmp_path / 'nodes' / 'texts.json').read_text()) == []
+        assert json.loads((tmp_path / 'nodes' / 'meta.json').read_text()) == {'model_id': 'm1', 'dim': DIM, 'count': 0}
+        assert np.load(tmp_path / 'nodes' / 'vectors.npy').shape == (0, DIM), 'the completion marker exists'
+        # An empty table makes no model calls either way, so a hit shows as no writes.
+        writes = []
+        monkeypatch.setattr(ge, '_save_atomic', lambda path, array: writes.append(path))
+        monkeypatch.setattr(ge, '_write_json_atomic', lambda path, value: writes.append(path))
+        g = GraphEmbeddings.build(self.OPAQUE, HashingEmbedding(), cache_dir=str(tmp_path), model_id='m1')
+        assert writes == [], 'both tables, the empty one included, are cache hits'
+        assert g.nodes.vectors.shape == (0, DIM)
+
+    def test_empty_texts_without_a_dim_fail_loud(self):
+        with pytest.raises(ValueError, match='an empty table needs dim'):
+            load_or_embed([], HashingEmbedding())

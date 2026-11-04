@@ -31,7 +31,7 @@ class TextTripletRetriever(GRetriever):
         self.embedding = embedding
         self.graph_verbalizer = graph_verbalizer or TripletGVerbalizer()
         self.topk = topk
-        self.dim = graph_embeddings.nodes.dim
+        self.dim = graph_embeddings.dim
         # Duplicate triplets would fill top-k with copies of one fact.
         self._triplets: List[Tuple[str, str, str]] = list(dict.fromkeys(tuple(t) for t in triplets))
 
