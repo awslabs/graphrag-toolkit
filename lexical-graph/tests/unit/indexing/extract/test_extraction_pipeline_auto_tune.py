@@ -119,7 +119,18 @@ class TestDispatch:
 class TestAutoTunedRounds:
     """Exercise the streaming/bucket/round orchestration with the extractor tail
     stubbed so no worker processes are spawned. The stub returns its input nodes
-    unchanged, so output chunk identity can be compared to input."""
+    unchanged, so output chunk identity can be compared to input.
+
+    The pipeline caps num_workers at cpu_count(), so cpu_count is pinned above
+    every worker count used here to keep round shapes independent of the host."""
+
+    @pytest.fixture(autouse=True)
+    def _enough_cores(self):
+        with patch(
+            'graphrag_toolkit.lexical_graph.indexing.extract.extraction_pipeline.multiprocessing.cpu_count',
+            return_value=8,
+        ):
+            yield
 
     def _run(self, pipeline, docs):
         captured_rounds = []
