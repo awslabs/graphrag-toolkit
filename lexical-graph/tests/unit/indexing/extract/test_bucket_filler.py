@@ -176,8 +176,8 @@ class TestMinimumJobSize:
             BucketFiller(num_workers=2, max_batch_size=100, min_batch_size=0)
 
     def test_minimum_wins_over_maximum_when_both_cannot_hold(self):
-        # 210 chunks, max 100, min 100 cannot fit. Two jobs of 105 keep both batched;
-        # the batch extractor re-splits a job above max_batch_size.
+        # 210 chunks can't meet both max 100 and min 100. Two jobs of 105 keep both
+        # batched, and split_nodes keeps any job under max_batch_size + 100 whole.
         filler = BucketFiller(num_workers=3, max_batch_size=100, min_batch_size=100)
         filler.add_document_chunks(make_chunks(210))
         jobs = filler.drain_round()

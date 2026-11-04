@@ -711,9 +711,10 @@ class ExtractionPipeline():
         """Run the extractor tail over a round's pre-sized job buckets.
 
         Buckets are processed across at most ``num_processes`` worker processes,
-        preserving the existing parallelism. Each bucket is <= max_batch_size,
-        unless the Bedrock minimum or a tail merge pushes it over, in which case
-        the batch extractor re-splits it.
+        preserving the existing parallelism. Each bucket is at most
+        max_batch_size, except when the Bedrock minimum or a merged tail pushes
+        it over. The overshoot is always under 100 records, so split_nodes
+        submits the bucket as one job.
         """
         num_workers = min(self.num_processes, len(round_buckets))
 

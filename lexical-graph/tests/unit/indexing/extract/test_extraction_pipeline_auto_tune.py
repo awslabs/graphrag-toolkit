@@ -190,7 +190,7 @@ class TestAutoTunedRounds:
         assert len(set(submitted)) == 300
         assert len(output) == 300
 
-    def test_no_bucket_exceeds_max_batch_size(self):
+    def test_buckets_stay_within_max_batch_size_when_the_minimum_allows(self):
         pipeline = ExtractionPipeline(
             components=[make_batch_extractor(auto_tune=True, max_batch_size=100)],
             num_workers=3,
