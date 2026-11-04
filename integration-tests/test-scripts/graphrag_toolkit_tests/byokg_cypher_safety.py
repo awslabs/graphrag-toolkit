@@ -120,6 +120,7 @@ class CypherSafetyCheck(IntegrationTestBase):
             "WITH '//' AS a CREATE (n:MaliciousNode {name: 'evil'}) RETURN a",
             "WITH '/*' AS a CREATE (n:MaliciousNode {name: 'evil'}) WITH a, '*/' AS b RETURN a, b",
             "WITH '//' AS a CRE/**/ATE (n:MaliciousNode {name: 'evil'}) RETURN a",
+            "WITH 1 AS `\\` WITH 1 AS `x//` CREATE (n:MaliciousNode {name: 'evil'}) RETURN 1",
         ]
         for q in quoted_comment_queries:
             result = retriever.retrieve(q)

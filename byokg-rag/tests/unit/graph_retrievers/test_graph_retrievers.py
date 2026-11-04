@@ -639,6 +639,7 @@ class TestGraphQueryRetrieverIsQuerySafe:
         'WITH "//" AS a CRE/**/ATE (x:Pwned) RETURN a',
         "WITH 'it\\'s //' AS a CRE/**/ATE (x:Pwned) RETURN a",
         "WITH `//` AS a CRE/**/ATE (x:Pwned) RETURN a",
+        "WITH 1 AS `\\` WITH 1 AS `x//` CREATE (n) RETURN 1",
     ])
     def test_is_query_safe_quoted_comment_marker(self, mock_graph_store, query):
         """Verify a comment marker inside a string literal does not hide a write keyword."""

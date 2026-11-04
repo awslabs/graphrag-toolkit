@@ -411,11 +411,12 @@ class GraphQueryRetriever(GRetriever):
         """
         Remove /* ... */ and // comments that sit outside string literals.
 
-        Quoted strings and backtick identifiers are kept as written, backslash
-        escapes included, so a comment marker inside one is not treated as a
-        comment. Comments are removed without leaving a space, so a keyword split
-        by a comment (CRE/**/ATE) is joined back together. An unterminated block
-        comment is kept as written.
+        Quoted strings and backtick identifiers are kept as written, so a comment
+        marker inside one is not treated as a comment. Backslash escapes apply
+        only to quoted strings; backtick identifiers have none. Comments are
+        removed without leaving a space, so a keyword split by a comment
+        (CRE/**/ATE) is joined back together. An unterminated block comment is
+        kept as written.
         """
         result = []
         i, n = 0, len(graph_query)
@@ -424,7 +425,7 @@ class GraphQueryRetriever(GRetriever):
             if char in ('\'', '"', '`'):
                 end = i + 1
                 while end < n and graph_query[end] != char:
-                    end += 2 if graph_query[end] == '\\' else 1
+                    end += 2 if graph_query[end] == '\\' and char != '`' else 1
                 result.append(graph_query[i:end + 1])
                 i = end + 1
             elif graph_query.startswith('//', i):
