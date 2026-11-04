@@ -814,9 +814,9 @@ class ExtractionPipeline():
             return finished
 
         # Submission is deferred by one round (`held`) so a final remainder below
-        # BEDROCK_MIN_BATCH_SIZE can be merged into the previous round's last job
-        # rather than emitted as an undersized round that falls back to slow
-        # synchronous extraction - mirroring split_nodes' tail-merge.
+        # BEDROCK_MIN_BATCH_SIZE can be re-split with the previous round rather
+        # than emitted as an undersized round that falls back to slow
+        # synchronous extraction.
         held = {'jobs': None, 'docs': 0}
 
         def emit_jobs(round_jobs, trigger, docs_consumed):
@@ -898,18 +898,17 @@ class ExtractionPipeline():
         final_docs = round_state['docs']
         final_total = sum(len(j) for j in final_jobs)
 
-        merged_size = (len(held['jobs'][-1]) + final_total) if held['jobs'] is not None else 0
-        if (held['jobs'] is not None
-                and 0 < final_total < BEDROCK_MIN_BATCH_SIZE
-                and merged_size <= BEDROCK_MAX_BATCH_SIZE):
-            # Merge the undersized tail into the held round's last job (which may
-            # then exceed max_batch_size, as split_nodes' tail-merge does) so it
-            # is batched rather than routed to synchronous extraction. Guarded so
-            # the merged job never exceeds Bedrock's hard per-job record limit;
-            # if it would, the tail is left as its own (sync-fallback) round.
-            held['jobs'][-1].extend(node for job in final_jobs for node in job)
-            held['docs'] += final_docs
-            final_jobs = []
+        if held['jobs'] is not None and 0 < final_total < BEDROCK_MIN_BATCH_SIZE:
+            # Re-split the held round together with the undersized tail, so the
+            # tail is batched rather than routed to synchronous extraction and the
+            # round's jobs stay even. They may then exceed max_batch_size. If the
+            # largest would exceed Bedrock's hard per-job record limit, the tail
+            # is left as its own (sync-fallback) round.
+            merged = filler.split([node for job in held['jobs'] + final_jobs for node in job])
+            if len(merged[0]) <= BEDROCK_MAX_BATCH_SIZE:
+                held['jobs'] = merged
+                held['docs'] += final_docs
+                final_jobs = []
 
         if held['jobs'] is not None:
             yield from emit_jobs(held['jobs'], 'full', held['docs'])

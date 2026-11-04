@@ -162,7 +162,7 @@ class TestAutoTunedRounds:
     def test_full_buckets_trigger_round(self):
         # max_batch_size=100, num_workers=2, capacity 200. 250 chunks => one full
         # round of 200, then a 50-chunk tail. 50 < BEDROCK_MIN(100), so the tail
-        # merges into the round's last job (150) rather than a sub-min round.
+        # is re-split with the round ([125,125]) rather than a sub-min round.
         pipeline = ExtractionPipeline(
             components=[make_batch_extractor(auto_tune=True, max_batch_size=100)],
             num_workers=2,
@@ -171,7 +171,7 @@ class TestAutoTunedRounds:
         output, rounds = self._run(pipeline, docs)
 
         assert len(rounds) == 1
-        assert sorted(len(b) for b in rounds[0]) == [100, 150]  # tail merged into last job
+        assert sorted(len(b) for b in rounds[0]) == [125, 125]
         assert sum(len(b) for r in rounds for b in r) == 250
         assert len(output) == 250
 
@@ -254,6 +254,27 @@ class TestAutoTunedRounds:
         assert [[len(j) for j in r] for r in rounds] == [[120]]
         assert sum(len(b) for r in rounds for b in r) == 120
 
+    def test_sub_min_tail_is_spread_across_the_held_round(self):
+        pipeline = ExtractionPipeline(
+            components=[make_batch_extractor(auto_tune=True, max_batch_size=125)],
+            num_workers=4,
+        )
+        docs = make_multichunk_documents([450, 60])
+        _, rounds = self._run(pipeline, docs)
+
+        assert [[len(j) for j in r] for r in rounds] == [[128, 128, 127, 127]]
+
+    def test_sub_min_tail_can_add_a_job_to_a_short_held_round(self):
+        pipeline = ExtractionPipeline(
+            components=[make_batch_extractor(auto_tune=True, max_batch_size=1000)],
+            num_workers=2,
+            batch_size=1,
+        )
+        docs = make_multichunk_documents([150, 60])
+        _, rounds = self._run(pipeline, docs)
+
+        assert [[len(j) for j in r] for r in rounds] == [[105, 105]]
+
     def test_tail_not_merged_when_it_would_exceed_bedrock_max(self):
         # The tail-merge must never grow a job past Bedrock's hard per-job limit.
         # BEDROCK_MAX_BATCH_SIZE is patched low so the guard fires with small data:
@@ -287,9 +308,8 @@ class TestAutoTunedRounds:
         total_submitted = sum(len(b) for r in rounds for b in r)
         assert total_submitted == 250
         # A single 250-chunk doc drains a full round of 200 ([100,100]); the
-        # 50-chunk tail (< BEDROCK_MIN) merges into the last job -> [100,150].
-        # A merged tail may exceed max_batch_size (as split_nodes' tail-merge
-        # does), but never by more than BEDROCK_MIN.
+        # 50-chunk tail (< BEDROCK_MIN) is re-split with it -> [125,125].
+        # A merged tail may push jobs past max_batch_size, but never by more than BEDROCK_MIN.
         for r in rounds:
             for bucket in r:
                 assert len(bucket) <= 100 + 100  # max_batch_size + BEDROCK_MIN bound

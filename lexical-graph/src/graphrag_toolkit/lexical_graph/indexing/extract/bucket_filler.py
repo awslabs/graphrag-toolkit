@@ -59,11 +59,9 @@ class BucketFiller:
     def drain_round(self) -> List[List[BaseNode]]:
         """Slice up to one round's worth of buffered chunks into even, contiguous jobs.
 
-        Takes at most ``round_capacity`` chunks off the front and splits them into
-        ``min(num_workers, chunks // min_batch_size)`` jobs whose sizes differ by
-        at most one. A whole round below ``min_batch_size`` is returned as one
-        small job. Chunks beyond ``round_capacity`` stay buffered. Returns [] when
-        the buffer is empty.
+        Takes at most ``round_capacity`` chunks off the front and splits them
+        with :meth:`split`. Chunks beyond ``round_capacity`` stay buffered.
+        Returns [] when the buffer is empty.
         """
         if not self._buffer:
             return []
@@ -71,14 +69,26 @@ class BucketFiller:
         take = self._buffer[:self.round_capacity]
         self._buffer = self._buffer[self.round_capacity:]
 
-        num_jobs = max(1, min(self.num_workers, len(take) // self.min_batch_size))
-        size, larger_jobs = divmod(len(take), num_jobs)
+        return self.split(take)
+
+    def split(self, chunks: List[BaseNode]) -> List[List[BaseNode]]:
+        """Split chunks into even, contiguous jobs.
+
+        Uses ``min(num_workers, len(chunks) // min_batch_size)`` jobs whose sizes
+        differ by at most one. Fewer than ``min_batch_size`` chunks are returned
+        as one small job. Returns [] for no chunks.
+        """
+        if not chunks:
+            return []
+
+        num_jobs = max(1, min(self.num_workers, len(chunks) // self.min_batch_size))
+        size, larger_jobs = divmod(len(chunks), num_jobs)
 
         jobs = []
         start = 0
         for index in range(num_jobs):
             end = start + size + (1 if index < larger_jobs else 0)
-            jobs.append(take[start:end])
+            jobs.append(chunks[start:end])
             start = end
 
         return jobs
