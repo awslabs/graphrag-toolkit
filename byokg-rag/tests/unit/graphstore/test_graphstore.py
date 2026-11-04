@@ -289,6 +289,37 @@ class TestLocalKGStoreGetNodes:
         assert 'Organization' in nodes
         assert 'Nonexistent' not in nodes
 
+    def test_get_nodes_destination_only_node(self):
+        """Verify get_nodes returns empty details for nodes without outgoing edges."""
+        graph = {
+            'Organization': {
+                'FOUNDED_BY': {'triplets': [('Organization', 'FOUNDED_BY', 'John Doe')]}
+            }
+        }
+
+        store = LocalKGStore(graph=graph)
+        nodes = store.get_nodes(['John Doe', 'Nonexistent'])
+
+        assert nodes == {'John Doe': {}}
+
+    def test_get_nodes_covers_all_nodes(self):
+        """Verify get_nodes returns an entry for every id from nodes."""
+        graph = {
+            'Organization': {
+                'FOUNDED_BY': {'triplets': [('Organization', 'FOUNDED_BY', 'John Doe')]},
+                'LOCATED_IN': {'triplets': [('Organization', 'LOCATED_IN', 'Portland')]}
+            },
+            'DataCorp': {
+                'PARTNER_OF': {'triplets': [('DataCorp', 'PARTNER_OF', 'Organization')]}
+            }
+        }
+
+        store = LocalKGStore(graph=graph)
+        nodes = store.get_nodes(store.nodes())
+
+        assert list(nodes) == store.nodes()
+        assert nodes['Portland'] == {}
+
 
 class TestLocalKGStoreEdges:
     """Tests for LocalKGStore edges and get_edges methods."""
