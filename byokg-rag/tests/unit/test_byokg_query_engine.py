@@ -7,6 +7,8 @@ This module tests the query engine orchestration including initialization,
 query processing, context deduplication, and response generation.
 """
 
+import logging
+
 import pytest
 from unittest.mock import Mock, MagicMock, patch, call
 from graphrag_toolkit.byokg_rag.byokg_query_engine import ByoKGQueryEngine
@@ -215,38 +217,47 @@ class TestQueryEngineSeedOrdering:
         assert captured['path_entities'] == sorted({'Organization', 'Portland'})
 
 
+def _mention_kg_linker():
+    """A KG linker extracting two mentions and one draft answer, then FINISH."""
+    mock_kg_linker = Mock()
+    mock_kg_linker.task_prompts = "test"
+    mock_kg_linker.task_prompts_iterative = "test"
+    mock_kg_linker.generate_response.return_value = "<task-completion>FINISH</task-completion>"
+    mock_kg_linker.parse_response.return_value = {
+        'entity-extraction': ['MentionA', 'MentionB'],
+        'draft-answer-generation': ['DraftAnswer'],
+    }
+    return mock_kg_linker
+
+
+def _grouping_entity_linker():
+    """A linker that honours group_by_mention, like EntityLinker."""
+    mock_entity_linker = Mock()
+
+    def fake_link(entities, return_dict=True, group_by_mention=False):
+        if group_by_mention:
+            # MentionA -> [A1, A2], MentionB -> [B1]
+            return [['A1', 'A2'], ['B1']]
+        return ['ans1']
+
+    mock_entity_linker.link.side_effect = fake_link
+    return mock_entity_linker
+
+
 class TestQueryEngineSingleBestMatch:
     """Tests for the single_best_match seed-pruning flag."""
 
     def _kg_linker(self):
-        mock_kg_linker = Mock()
-        mock_kg_linker.task_prompts = "test"
-        mock_kg_linker.task_prompts_iterative = "test"
-        mock_kg_linker.generate_response.return_value = "<task-completion>FINISH</task-completion>"
-        mock_kg_linker.parse_response.return_value = {
-            'entity-extraction': ['MentionA', 'MentionB'],
-            'draft-answer-generation': ['DraftAnswer'],
-        }
-        return mock_kg_linker
+        return _mention_kg_linker()
 
     @staticmethod
     def _grouping_linker():
-        """A linker that honours group_by_mention, like EntityLinker."""
-        mock_entity_linker = Mock()
+        return _grouping_entity_linker()
 
-        def fake_link(entities, return_dict=True, group_by_mention=False):
-            if group_by_mention:
-                # MentionA -> [A1, A2], MentionB -> [B1]
-                return [['A1', 'A2'], ['B1']]
-            return ['ans1']
-
-        mock_entity_linker.link.side_effect = fake_link
-        return mock_entity_linker
-
-    def test_flag_off_by_default_preserves_current_behavior(
+    def test_flag_off_keeps_the_flat_union(
         self, mock_graph_store_with_schema, mock_llm_generator
     ):
-        """With the flag off (default), seeds come from link()'s flat union."""
+        """With the flag off, seeds come from link()'s flat union."""
         mock_entity_linker = Mock()
         # link() is called for extracted mentions then draft answers (current behavior).
         mock_entity_linker.link.side_effect = [
@@ -266,6 +277,7 @@ class TestQueryEngineSingleBestMatch:
             entity_linker=mock_entity_linker,
             triplet_retriever=mock_triplet_retriever,
             kg_linker=self._kg_linker(),
+            single_best_match=False,
         )
         assert engine.single_best_match is False
 
@@ -436,6 +448,180 @@ class TestQueryEngineSingleBestMatch:
 
         with pytest.raises(TypeError, match="of length 3 for 2 mention"):
             engine.query("q", iterations=1)
+
+
+class _FlatLinker:
+    """A pre-3.20 custom linker: a fixed link() signature without group_by_mention."""
+
+    def __init__(self, result=('A1', 'A2')):
+        self.result, self.calls = list(result), []
+
+    def link(self, queries, return_dict=True):
+        self.calls.append(list(queries))
+        return list(self.result)
+
+
+class _ForwardingLinker:
+    """Wraps another linker and forwards every argument, as thin adapters do."""
+
+    def __init__(self, inner):
+        self.inner = inner
+
+    def link(self, *args, **kwargs):
+        return self.inner.link(*args, **kwargs)
+
+
+class TestQueryEngineSingleBestMatchDefault:
+    """single_best_match=None (the default): on when link() takes group_by_mention,
+    otherwise the flat union with a warning, never an error."""
+
+    LOGGER = 'graphrag_toolkit.byokg_rag.byokg_query_engine'
+
+    @staticmethod
+    def _engine(store, llm, linker, captured, kg_linker=None):
+        retriever = Mock()
+        retriever.retrieve.side_effect = (
+            lambda query, source_entities: captured.__setitem__('seeds', source_entities) or ['ctx'])
+        return ByoKGQueryEngine(graph_store=store, llm_generator=llm, entity_linker=linker,
+                                triplet_retriever=retriever,
+                                kg_linker=kg_linker or _mention_kg_linker())
+
+    def test_on_for_a_linker_that_groups(self, mock_graph_store_with_schema, mock_llm_generator, caplog):
+        """A grouping linker turns it on, silently."""
+        captured = {}
+        with caplog.at_level(logging.WARNING, logger=self.LOGGER):
+            engine = self._engine(mock_graph_store_with_schema, mock_llm_generator,
+                                  _grouping_entity_linker(), captured)
+            engine.query("q", iterations=1)
+        assert engine.single_best_match is True
+        assert set(captured['seeds']) == {'A1', 'B1', 'ans1'}
+        assert caplog.text == ''
+
+    def test_real_entity_linker_seeds_one_node_per_mention(self, mock_graph_store_with_schema, mock_llm_generator):
+        """The shipped EntityLinker end to end, including a mention that matches nothing."""
+        from graphrag_toolkit.byokg_rag.graph_retrievers import EntityLinker
+        from graphrag_toolkit.byokg_rag.indexing import FuzzyStringIndex
+        index = FuzzyStringIndex()
+        index.add(['Portland', 'Portland Trail Blazers', 'Organization'])
+        kg_linker = _mention_kg_linker()
+        # The second mention is too long for any node to pass the fuzzy length filter.
+        kg_linker.parse_response.return_value = {
+            'entity-extraction': ['Portland', 'a mention far longer than any node in the graph'],
+            'draft-answer-generation': [],
+        }
+        captured = {}
+        engine = self._engine(mock_graph_store_with_schema, mock_llm_generator,
+                              EntityLinker(index.as_entity_matcher()), captured, kg_linker)
+        engine.query("q", iterations=1)
+        assert engine.single_best_match is True
+        assert captured['seeds'] == ['Portland'], 'top candidate only; the empty group adds nothing'
+
+    def test_off_with_a_warning_for_a_linker_that_cannot_group(
+        self, mock_graph_store_with_schema, mock_llm_generator, caplog
+    ):
+        """No TypeError, unlike single_best_match=True: the flat union, with a warning."""
+        linker, captured = _FlatLinker(), {}
+        with caplog.at_level(logging.WARNING, logger=self.LOGGER):
+            engine = self._engine(mock_graph_store_with_schema, mock_llm_generator, linker, captured)
+        assert engine.single_best_match is False
+        assert '_FlatLinker.link() does not take group_by_mention' in caplog.text
+        assert 'single_best_match=False to silence this' in caplog.text
+        engine.query("q", iterations=1)
+        assert set(captured['seeds']) == {'A1', 'A2'}
+
+    def test_no_construction_warning_without_mention_linking_or_when_explicitly_off(
+        self, mock_graph_store_with_schema, caplog
+    ):
+        """Graph-only engines never link mentions, and False is a choice, not a fallback."""
+        with caplog.at_level(logging.WARNING, logger=self.LOGGER):
+            ByoKGQueryEngine(graph_store=mock_graph_store_with_schema, entity_linker=_FlatLinker())
+            ByoKGQueryEngine(graph_store=mock_graph_store_with_schema, entity_linker=_FlatLinker(),
+                             llm_generator=Mock(), kg_linker=_mention_kg_linker(),
+                             single_best_match=False)
+        assert caplog.text == ''
+
+    def test_falls_back_once_when_the_linker_ignores_group_by_mention(
+        self, mock_graph_store_with_schema, mock_llm_generator, caplog
+    ):
+        """A link() that drops the flag has returned its flat union: reused, then off for good."""
+        linker = Mock()  # accepts any kwargs, drops group_by_mention, returns its flat result
+        linker.link.side_effect = [['A1', 'A2', 'B1'], ['ans1'], ['A1', 'A2', 'B1'], ['ans1']]
+        captured = {}
+        engine = self._engine(mock_graph_store_with_schema, mock_llm_generator, linker, captured)
+        assert engine.single_best_match is True
+        with caplog.at_level(logging.WARNING, logger=self.LOGGER):
+            engine.query("q", iterations=1)
+        assert 'returned list of length 3 for 2 mention(s)' in caplog.text
+        assert set(captured['seeds']) == {'A1', 'A2', 'B1', 'ans1'}
+        assert engine.single_best_match is False
+        engine.query("q", iterations=1)
+        assert linker.link.call_count == 4, 'no extra link() call to recover the flat result'
+        assert 'group_by_mention' not in linker.link.call_args_list[2].kwargs, 'later queries skip grouping'
+
+    def test_relinks_flat_when_the_grouping_has_the_wrong_shape(
+        self, mock_graph_store_with_schema, mock_llm_generator
+    ):
+        """Per-hit lists are not a flat result to reuse: link() is called again, flat, and stays flat."""
+        mentions = ['MentionA', 'MentionB']
+        linker = Mock()
+        linker.link.side_effect = [[['e1'], ['e2'], ['e3']], ['A1', 'B1'], ['ans1'], ['A1', 'B1'], ['ans1']]
+        captured = {}
+        engine = self._engine(mock_graph_store_with_schema, mock_llm_generator, linker, captured)
+        engine.query("q", iterations=1)
+        assert linker.link.call_args_list[1] == call(mentions, return_dict=False)
+        assert set(captured['seeds']) == {'A1', 'B1', 'ans1'}
+        engine.query("q", iterations=1)
+        assert linker.link.call_args_list[3] == call(mentions, return_dict=False), 'still flat'
+
+    def test_a_forwarding_linker_whose_target_rejects_the_flag_falls_back(
+        self, mock_graph_store_with_schema, mock_llm_generator, caplog
+    ):
+        """A **kwargs wrapper passes the signature check; the TypeError from its target is caught."""
+        inner, captured = _FlatLinker(), {}
+        engine = self._engine(mock_graph_store_with_schema, mock_llm_generator, _ForwardingLinker(inner), captured)
+        assert engine.single_best_match is True, 'precondition: the wrapper looks like it can group'
+        with caplog.at_level(logging.WARNING, logger=self.LOGGER):
+            engine.query("q", iterations=1)
+        assert '_ForwardingLinker.link() rejected group_by_mention' in caplog.text
+        assert set(captured['seeds']) == {'A1', 'A2'} and engine.single_best_match is False
+
+    def test_a_flat_linker_swapped_in_later_falls_back_instead_of_raising(
+        self, mock_graph_store_with_schema, mock_llm_generator, caplog
+    ):
+        """The default re-checks the current linker, so a swapped-in flat one is never asked to group."""
+        captured = {}
+        engine = self._engine(mock_graph_store_with_schema, mock_llm_generator,
+                              _grouping_entity_linker(), captured)
+        assert engine.single_best_match is True, 'precondition: the default turned it on'
+        engine.entity_linker = flat = _FlatLinker()
+        with caplog.at_level(logging.WARNING, logger=self.LOGGER):
+            engine.query("q", iterations=1)
+        assert '_FlatLinker.link() does not take group_by_mention' in caplog.text
+        assert set(captured['seeds']) == {'A1', 'A2'} and engine.single_best_match is False
+        assert flat.calls[0] == ['MentionA', 'MentionB'], 'called flat, never with the flag'
+
+    def test_explicit_true_still_raises_when_a_swapped_in_linker_rejects_the_flag(
+        self, mock_graph_store_with_schema, mock_llm_generator
+    ):
+        """The fallback is only for the default: True keeps main's error for a strict linker."""
+        engine = ByoKGQueryEngine(graph_store=mock_graph_store_with_schema, llm_generator=mock_llm_generator,
+                                  entity_linker=_grouping_entity_linker(),
+                                  triplet_retriever=Mock(**{'retrieve.return_value': []}),
+                                  kg_linker=_mention_kg_linker(), single_best_match=True)
+        engine.entity_linker = _FlatLinker()
+        with pytest.raises(TypeError, match="group_by_mention"):
+            engine.query("q", iterations=1)
+
+    def test_truthy_values_are_as_strict_as_true(self, mock_graph_store_with_schema, mock_llm_generator):
+        """single_best_match=1 (e.g. from config) raises like True rather than falling back."""
+        linker = Mock()
+        linker.link.return_value = ['A1', 'A2', 'B1']
+        strict = ByoKGQueryEngine(graph_store=mock_graph_store_with_schema, llm_generator=mock_llm_generator,
+                                  entity_linker=linker, triplet_retriever=Mock(**{'retrieve.return_value': []}),
+                                  kg_linker=_mention_kg_linker(), single_best_match=1)
+        assert strict.single_best_match is True
+        with pytest.raises(TypeError, match="one candidate list per mention"):
+            strict.query("q", iterations=1)
 
 
 class TestQueryEngineGenerateResponse:
