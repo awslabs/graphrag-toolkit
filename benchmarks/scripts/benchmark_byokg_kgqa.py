@@ -87,6 +87,51 @@ class RetrievalConfig:
         return ByoKGConfig.embed_model
 
 
+@dataclass(frozen=True)
+class AnswerSelectionConfig:
+    """Rerank and prune the context, then answer with the grounded prompt; off
+    reproduces the library defaults."""
+    enabled: bool = False
+    max_lines: int = 20
+
+    def __post_init__(self):
+        if not isinstance(self.max_lines, int) or self.max_lines < 1:
+            raise ValueError(f'context max_lines must be a positive integer, got {self.max_lines!r}')
+
+
+GROUNDED_ANSWER_PROMPT = 'generate-response-qa-grounded'
+
+
+@dataclass
+class AnswerParts:
+    """Built once per dataset and shared by every engine: loading the reranker is costly."""
+    context_selector: Any = None
+    prompt: Optional[str] = None
+    reranker_model: Optional[str] = None
+
+
+def build_answer_parts(answer: AnswerSelectionConfig) -> AnswerParts:
+    if not answer.enabled:
+        return AnswerParts()
+    import torch
+    from graphrag_toolkit.byokg_rag.graph_retrievers import ContextSelector, LocalGReranker
+    from graphrag_toolkit.byokg_rag.utils import load_yaml
+
+    reranker = LocalGReranker(device='cuda' if torch.cuda.is_available() else 'cpu')
+    return AnswerParts(context_selector=ContextSelector(reranker, max_lines=answer.max_lines),
+                       prompt=load_yaml('prompts/generation_prompts.yaml')[GROUNDED_ANSWER_PROMPT],
+                       reranker_model=reranker.model_name)
+
+
+def answer_selection_provenance(answer: AnswerSelectionConfig,
+                                reranker_model: Optional[str]) -> Dict[str, Any]:
+    # Settings only count when they are used, so the baseline's record stays stable.
+    return {'enabled': answer.enabled,
+            'max_lines': answer.max_lines if answer.enabled else None,
+            'reranker': reranker_model if answer.enabled else None,
+            'prompt': GROUNDED_ANSWER_PROMPT if answer.enabled else None}
+
+
 EMBED_MAX_ATTEMPTS = 10
 
 
@@ -135,7 +180,8 @@ def build_retrieval_parts(graph: Dict[str, Any], retrieval: RetrievalConfig, reg
 
 
 def build_engine(graph: Dict[str, Any], model: Optional[str], region: Optional[str],
-                 single_best_match: bool, parts: Optional[RetrievalParts] = None):
+                 single_best_match: bool, parts: Optional[RetrievalParts] = None,
+                 context_selector=None):
     """Engine with library defaults; only the graph store, LLM and any parts under
     test are supplied."""
     from graphrag_toolkit.byokg_rag.byokg_query_engine import ByoKGQueryEngine
@@ -146,7 +192,7 @@ def build_engine(graph: Dict[str, Any], model: Optional[str], region: Optional[s
     counter = CountingGenerator(BedrockGenerator(model_name=model, region_name=region))
     engine = ByoKGQueryEngine(
         graph_store=LocalKGStore(graph), llm_generator=counter, single_best_match=single_best_match,
-        text_triplet_retriever=parts.text_triplet_retriever)
+        text_triplet_retriever=parts.text_triplet_retriever, context_selector=context_selector)
     return engine, counter
 
 
@@ -183,7 +229,8 @@ BENCHMARK_CODE = (os.path.abspath(__file__),
 def provenance(counter, data_files: Optional[Dict[str, str]] = None,
                retrieval: Optional[RetrievalConfig] = None,
                data_sha256: Optional[Dict[str, str]] = None,
-               embedding_dim: Optional[int] = None) -> Dict[str, Any]:
+               embedding_dim: Optional[int] = None,
+               answer_selection: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
     """What produced a result, so two runs can be shown to differ only in the code
     under test.
 
@@ -224,6 +271,7 @@ def provenance(counter, data_files: Optional[Dict[str, str]] = None,
         'inference': {name: getattr(counter, name, None) for name in (
             'model_name', 'max_new_tokens', 'inference_config', 'reasoning_config', 'max_retries')},
         'retrieval': retrieval_provenance(retrieval or RetrievalConfig(), embedding_dim),
+        'answer_selection': answer_selection or answer_selection_provenance(AnswerSelectionConfig(), None),
     }
 
 
@@ -253,7 +301,8 @@ def linked_nodes(result) -> List[str]:
 
 
 def run_question(engine, counter: CountingGenerator, question: Question,
-                 schema: Dict[str, Any], hops: Optional[int], iterations: int) -> Dict[str, Any]:
+                 schema: Dict[str, Any], hops: Optional[int], iterations: int,
+                 answer_prompt: Optional[str] = None) -> Dict[str, Any]:
     """Score one question. Exceptions are recorded, not raised, and count as misses.
 
     schema and hops are precomputed by run_benchmark, so nothing here can raise
@@ -289,7 +338,9 @@ def run_question(engine, counter: CountingGenerator, question: Question,
         counter.calls = 0
         start = time.monotonic()
         context = engine.query(question.question, iterations=iterations)
-        predictions, _ = engine.generate_response(question.question, '\n'.join(context))
+        # answer_prompt is for the KG answer only; the LLM-only answer keeps the default.
+        predictions, _ = engine.generate_response(question.question, '\n'.join(context),
+                                                  task_prompt=answer_prompt)
         record.update(latency_s=round(time.monotonic() - start, 2), llm_calls=counter.calls,
                       predictions=predictions, context=context,
                       context_chars=sum(len(c) for c in context), error=None)
@@ -335,13 +386,15 @@ def run_question(engine, counter: CountingGenerator, question: Question,
 
 def run_once(engine, counter, questions: Sequence[Question], schemas: Dict[str, Any],
              hops: Dict[str, Optional[int]], metric: str, iterations: int,
-             out_dir: str, run_key: Optional[str] = None) -> Dict[str, Any]:
+             out_dir: str, run_key: Optional[str] = None,
+             answer_prompt: Optional[str] = None) -> Dict[str, Any]:
     os.makedirs(out_dir, exist_ok=True)
     records = []
     with open(os.path.join(out_dir, 'predictions.jsonl'), 'w', encoding='utf-8') as preds, \
             open(os.path.join(out_dir, 'showcase_candidates.jsonl'), 'w', encoding='utf-8') as show:
         for i, q in enumerate(questions, 1):
-            record = run_question(engine, counter, q, schemas[q.id], hops[q.id], iterations)
+            record = run_question(engine, counter, q, schemas[q.id], hops[q.id], iterations,
+                                  answer_prompt=answer_prompt)
             records.append(record)
             preds.write(json.dumps(record) + '\n')
             if record['showcase']:
@@ -419,7 +472,7 @@ def run_key(question_ids: Sequence[str], single_best_match: bool, iterations: in
                'iterations': iterations, 'inference': prov['inference'],
                'byokg_rag_source': prov['byokg_rag_source_sha256'],
                'benchmark_code': prov['benchmark_code_sha256'], 'data': prov['data_sha256'],
-               'retrieval': prov['retrieval']}
+               'retrieval': prov['retrieval'], 'answer_selection': prov['answer_selection']}
     return hashlib.sha256(json.dumps(payload, sort_keys=True, default=str).encode()).hexdigest()
 
 
@@ -489,6 +542,7 @@ def run_benchmark(dataset: str, data_dir: str, out: str, limit: Optional[int] = 
                   after_run: Optional[Callable[[str, str], None]] = None,
                   resume: bool = True,
                   retrieval: Optional[RetrievalConfig] = None,
+                  answer_selection: Optional[AnswerSelectionConfig] = None,
                   before_embeddings: Optional[Callable[[str], None]] = None,
                   after_embeddings: Optional[Callable[[str], None]] = None) -> Dict[str, Any]:
     """Run every (single_best_match setting × repeat) and write aggregate.json.
@@ -496,7 +550,9 @@ def run_benchmark(dataset: str, data_dir: str, out: str, limit: Optional[int] = 
     after_run(run_dir, relative_path) is called as each run finishes, so callers can
     persist completed runs before a later one crashes. With resume, a run whose
     summary.json already exists for the same fingerprint is reused, not rerun.
-    retrieval switches on the optional retrieval changes; their embeddings are
+    answer_selection reranks and prunes the context and answers with the grounded
+    prompt; the reranker is loaded once. retrieval switches on the optional retrieval
+    changes; their embeddings are
     cached under data_dir/embeddings/<embedding_cache_key>. before_embeddings(cache_dir)
     runs before they are loaded or built (to fetch a shared cache) and
     after_embeddings(cache_dir) once they exist, before any question runs.
@@ -534,6 +590,8 @@ def run_benchmark(dataset: str, data_dir: str, out: str, limit: Optional[int] = 
     parts = build_retrieval_parts(graph, retrieval, region, cache_dir)
     if cache_dir and after_embeddings:
         after_embeddings(cache_dir)
+    answer_selection = answer_selection or AnswerSelectionConfig()
+    answer = build_answer_parts(answer_selection)
 
     settings = SINGLE_BEST_MATCH_SETTINGS[single_best_match]
     report = {'dataset': dataset, 'n_questions': len(questions),
@@ -547,12 +605,13 @@ def run_benchmark(dataset: str, data_dir: str, out: str, limit: Optional[int] = 
     for sbm in settings:
         # Drop the previous engine (and its node index) before building the next.
         engine = counter = None
-        engine, counter = build_engine(graph, model, region, sbm, parts)
+        engine, counter = build_engine(graph, model, region, sbm, parts, answer.context_selector)
         tag = f"single_best_match-{'on' if sbm else 'off'}"
         report['config']['model'] = counter.model_name
         if 'provenance' not in report:  # once: it hashes the byokg-rag package
-            report['provenance'] = provenance(counter, retrieval=retrieval, data_sha256=data_sha256,
-                                              embedding_dim=parts.embedding_dim)
+            report['provenance'] = provenance(
+                counter, retrieval=retrieval, data_sha256=data_sha256, embedding_dim=parts.embedding_dim,
+                answer_selection=answer_selection_provenance(answer_selection, answer.reranker_model))
         prov = report['provenance']
         key = run_key(report['question_ids'], sbm, iterations, prov)
         summaries = []
@@ -564,7 +623,8 @@ def run_benchmark(dataset: str, data_dir: str, out: str, limit: Optional[int] = 
                 summaries.append(done)
                 continue
             summaries.append(run_once(engine, counter, questions, schemas, hops, spec.metric,
-                                      iterations, os.path.join(out, rel), run_key=key))
+                                      iterations, os.path.join(out, rel), run_key=key,
+                                      answer_prompt=answer.prompt))
             if after_run:
                 after_run(os.path.join(out, rel), rel)
         report['settings'][tag] = aggregate(summaries, spec.metric)
@@ -593,6 +653,11 @@ def dataset_limit(dataset: str) -> Optional[int]:
     """
     specific = env_int(f'BYOKG_{dataset.upper()}_LIMIT', None)
     return specific if specific is not None else env_int('BENCHMARK_QA_LIMIT', None)
+
+
+def answer_selection_from_env() -> AnswerSelectionConfig:
+    return AnswerSelectionConfig(enabled=env_bool('BYOKG_ANSWER_SELECTION', False),
+                                 max_lines=env_int('BYOKG_CONTEXT_MAX_LINES', 20))
 
 
 def retrieval_from_env() -> RetrievalConfig:
@@ -669,6 +734,7 @@ def run_byokg_kgqa_test(handler: IntegrationTestHandler, params: Dict[str, Any],
     )
     validate_config(config['single_best_match'], config['runs'], config['iterations'])
     retrieval = retrieval_from_env()
+    answer_selection = answer_selection_from_env()
     fetch_dataset(s3_uri, dataset, data_dir)
     shared = {}
 
@@ -691,6 +757,7 @@ def run_byokg_kgqa_test(handler: IntegrationTestHandler, params: Dict[str, Any],
         region=env_string('AWS_REGION_NAME', None),
         after_run=upload_run,
         retrieval=retrieval,
+        answer_selection=answer_selection,
         before_embeddings=fetch_embeddings,
         after_embeddings=publish_embeddings,
     )
@@ -783,6 +850,10 @@ def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
                    help='merge text-based triplet retrieval with agentic retrieval')
     p.add_argument('--text-topk', type=int, default=10, help='triplets from text retrieval')
     p.add_argument('--embed-model', help='embedding model id (default: ByoKGConfig.embed_model)')
+    p.add_argument('--answer-selection', action='store_true',
+                   help='rerank and prune the context, then answer with the grounded prompt')
+    p.add_argument('--context-max-lines', type=int, default=20,
+                   help='context lines kept by answer selection, plus the lines chained to them')
     return p.parse_args(argv)
 
 
@@ -801,7 +872,9 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                   runs=args.runs, single_best_match=args.single_best_match,
                   iterations=args.iterations, model=args.model, region=args.region,
                   medqa_kg_filter=not args.no_medqa_kg_filter, resume=not args.no_resume,
-                  retrieval=retrieval, before_embeddings=fetch)
+                  retrieval=retrieval, before_embeddings=fetch,
+                  answer_selection=AnswerSelectionConfig(enabled=args.answer_selection,
+                                                         max_lines=args.context_max_lines))
     if args.s3_out:
         _aws('sync', args.out, args.s3_out)
     return 0

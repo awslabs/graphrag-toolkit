@@ -478,6 +478,60 @@ class TestQueryEngineGenerateResponse:
 
 
 
+class TestQueryEngineAnswerSelection:
+    """context_selector shapes the context query() returns; task_prompt picks the answer prompt."""
+
+    @staticmethod
+    def _engine(store, llm, selector=None, seen_contexts=None):
+        kg_linker = Mock()
+        kg_linker.task_prompts, kg_linker.task_prompts_iterative = 'first', 'iterative'
+        kg_linker.generate_response.side_effect = (
+            lambda **kw: (seen_contexts if seen_contexts is not None else []).append(kw['graph_context']) or '')
+        kg_linker.parse_response.return_value = {'entity-extraction': ['Organization'],
+                                                 'draft-answer-generation': []}
+        return ByoKGQueryEngine(graph_store=store, llm_generator=llm,
+                                entity_linker=Mock(**{'link.return_value': ['Organization']}),
+                                triplet_retriever=Mock(**{'retrieve.return_value': ['f1', 'f2', 'f3']}),
+                                kg_linker=kg_linker, context_selector=selector)
+
+    def test_selector_shapes_only_the_returned_context(self, mock_graph_store_with_schema, mock_llm_generator):
+        """The KG-Linker's later iterations still see the full context."""
+        seen = []
+        selector = Mock(**{'select.side_effect': lambda query, context: context[-1:]})
+        engine = self._engine(mock_graph_store_with_schema, mock_llm_generator, selector, seen)
+        assert engine.query('q', iterations=2) == ['f3']
+        assert seen == ['', 'f1\nf2\nf3']
+        selector.select.assert_called_once_with('q', ['f1', 'f2', 'f3'])
+
+    def test_without_a_selector_the_context_is_unchanged(self, mock_graph_store_with_schema, mock_llm_generator):
+        """The default."""
+        engine = self._engine(mock_graph_store_with_schema, mock_llm_generator)
+        assert engine.context_selector is None
+        assert engine.query('q', iterations=1) == ['f1', 'f2', 'f3']
+
+    def test_custom_task_prompt_is_formatted_and_its_answers_parsed(
+        self, mock_graph_store_with_schema, mock_llm_generator
+    ):
+        """task_prompt used to raise NotImplementedError."""
+        mock_llm_generator.generate.return_value = 'The chain ends at Djibouti.\n<answers>\nDjibouti\n</answers>'
+        engine = self._engine(mock_graph_store_with_schema, mock_llm_generator)
+        answers, _ = engine.generate_response('Q?', 'a -> r -> b', task_prompt='Q={question} C={graph_context} U={user_input}')
+        assert answers == ['Djibouti']
+        assert mock_llm_generator.generate.call_args.kwargs['prompt'] == 'Q=Q? C=a -> r -> b U='
+
+    def test_grounded_prompt_ships_with_the_default_placeholders(self):
+        """generate-response-qa-grounded drops in wherever generate-response-qa is formatted."""
+        import string
+        from graphrag_toolkit.byokg_rag.utils import load_yaml
+        prompts = load_yaml('prompts/generation_prompts.yaml')
+
+        def fields(template):
+            return {field for _, field, _, _ in string.Formatter().parse(template) if field}
+        grounded = prompts['generate-response-qa-grounded']
+        assert fields(grounded) == fields(prompts['generate-response-qa']) == {'question', 'graph_context', 'user_input'}
+        assert '<answers>' in grounded and 'exactly as it is written in the graph context' in grounded
+
+
 class TestQueryEngineWithCypherLinker:
     """Tests for query engine with cypher linker."""
     

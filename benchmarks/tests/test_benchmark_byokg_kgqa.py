@@ -58,6 +58,7 @@ class FakeEngine:
             kg_answer, vanilla_answer, fail, kg_calls
         self.vanilla_fail = vanilla_fail
         self.schema = None
+        self.prompts = []  # task_prompt per generate_response() call
 
     def query(self, query, iterations=2):
         if self.fail:
@@ -68,7 +69,8 @@ class FakeEngine:
         self.entity_linker.link(['Lou Seal'], return_dict=False)  # as the engine does
         return ['Lou Seal -> mascot of -> Giants', 'Giants -> won -> 2014 World Series']
 
-    def generate_response(self, query, graph_context=''):
+    def generate_response(self, query, graph_context='', task_prompt=None, user_input=''):
+        self.prompts.append(task_prompt)
         if not graph_context and self.vanilla_fail:
             raise RuntimeError('ThrottlingException')
         self.counter.generate('p')
@@ -211,7 +213,7 @@ def _dataset_on_disk(tmp_path):
 def fake_engine(monkeypatch):
     built = []
 
-    def build(graph, model, region, sbm, parts=None):
+    def build(graph, model, region, sbm, parts=None, context_selector=None):
         engine, counter = _engine()
         built.append(sbm)
         return engine, counter
@@ -313,7 +315,7 @@ class TestProvenance:
         assert p['git_sha'] == 'abc123-dirty'
         assert p['inference']['model_name'] == 'fake-model'
         assert set(p) == {'git_sha', 'byokg_rag_source_sha256', 'byokg_rag_prompts_sha256',
-                          'benchmark_code_sha256', 'data_sha256', 'inference', 'retrieval'}
+                          'benchmark_code_sha256', 'data_sha256', 'inference', 'retrieval', 'answer_selection'}
 
     def test_tree_hash_skips_pycache(self, tmp_path):
         (tmp_path / 'm.py').write_text('x = 1')
@@ -605,7 +607,8 @@ class TestRetrievalWiring:
         built = []
         monkeypatch.setattr(runner, 'build_retrieval_parts', build_parts)
         monkeypatch.setattr(runner, 'build_engine',
-                            lambda graph, model, region, sbm, parts=None: built.append(parts) or _engine())
+                            lambda graph, model, region, sbm, parts=None, context_selector=None:
+                            built.append(parts) or _engine())
         return seen, built
 
     def _run(self, tmp_path, **kw):
@@ -855,3 +858,93 @@ class TestReviewFixes:
         assert seen['config'].retries == {'max_attempts': runner.EMBED_MAX_ATTEMPTS, 'mode': 'adaptive'}
         assert parts.text_triplet_retriever is not None
         assert parts.embedding_dim == 2
+
+
+# --- optional answer selection (context reranking + grounded answer prompt) ---------
+
+PROMPT = 'grounded: {question} | {graph_context} | {user_input}'
+
+
+class TestAnswerSelectionConfig:
+    def test_off_by_default_with_a_stable_record(self):
+        off = runner.AnswerSelectionConfig()
+        assert not off.enabled
+        assert runner.answer_selection_provenance(off, None) == {
+            'enabled': False, 'max_lines': None, 'reranker': None, 'prompt': None}
+        assert runner.answer_selection_provenance(runner.AnswerSelectionConfig(max_lines=5), 'x') == \
+            runner.answer_selection_provenance(off, None), 'unused settings never split the fingerprint'
+
+    @pytest.mark.parametrize('max_lines', [0, -2, 1.5])
+    def test_max_lines_must_be_positive(self, max_lines):
+        with pytest.raises(ValueError, match='max_lines must be a positive integer'):
+            runner.AnswerSelectionConfig(enabled=True, max_lines=max_lines)
+
+    def test_from_env_and_cli(self, monkeypatch):
+        monkeypatch.setenv('BYOKG_ANSWER_SELECTION', 'true')
+        monkeypatch.setenv('BYOKG_CONTEXT_MAX_LINES', '12')
+        assert runner.answer_selection_from_env() == runner.AnswerSelectionConfig(enabled=True, max_lines=12)
+        a = runner.parse_args(['--dataset', 'cwq', '--answer-selection', '--context-max-lines', '9'])
+        assert (a.answer_selection, a.context_max_lines) == (True, 9)
+
+    def test_build_parts_off_loads_nothing(self):
+        assert runner.build_answer_parts(runner.AnswerSelectionConfig()) == runner.AnswerParts()
+
+    def test_build_parts_on_loads_the_reranker_once_and_the_grounded_prompt(self, monkeypatch):
+        pytest.importorskip('graphrag_toolkit.byokg_rag')  # benchmarks CI does not install it
+        from graphrag_toolkit.byokg_rag import graph_retrievers
+        made = []
+
+        class FakeReranker:
+            model_name = 'BAAI/bge-reranker-base'
+
+            def __init__(self, device):
+                made.append(device)
+        monkeypatch.setattr(graph_retrievers, 'LocalGReranker', FakeReranker)
+        parts = runner.build_answer_parts(runner.AnswerSelectionConfig(enabled=True, max_lines=7))
+        assert len(made) == 1 and made[0] in ('cpu', 'cuda')
+        assert parts.context_selector.max_lines == 7 and parts.reranker_model == 'BAAI/bge-reranker-base'
+        assert '{graph_context}' in parts.prompt and 'exactly as it is written in the graph context' in parts.prompt
+
+
+class TestAnswerSelectionWiring:
+    @pytest.fixture
+    def spy(self, monkeypatch):
+        engines, selectors = [], []
+
+        def build(graph, model, region, sbm, parts=None, context_selector=None):
+            engine, counter = _engine()
+            engines.append(engine)
+            selectors.append(context_selector)
+            return engine, counter
+        monkeypatch.setattr(runner, 'build_engine', build)
+        monkeypatch.setattr(runner, 'build_answer_parts', lambda cfg: runner.AnswerParts(
+            context_selector='SELECTOR', prompt=PROMPT, reranker_model='BAAI/bge-reranker-base')
+            if cfg.enabled else runner.AnswerParts())
+        return engines, selectors
+
+    def _run(self, tmp_path, **kw):
+        data = tmp_path / 'data'
+        if not data.exists():
+            data.mkdir()
+            _dataset_on_disk(data)
+        return runner.run_benchmark('webqsp', str(data), str(tmp_path / 'out'), runs=1, **kw)
+
+    def test_on_reaches_every_engine_and_only_the_kg_answer(self, tmp_path, spy):
+        engines, selectors = spy
+        report = self._run(tmp_path, answer_selection=runner.AnswerSelectionConfig(enabled=True))
+        assert selectors == ['SELECTOR', 'SELECTOR'], 'both settings, one reranker'
+        # generate_response() order per question: the KG answer, then the LLM-only answer.
+        assert all(e.prompts == [PROMPT, None] for e in engines)
+        assert report['provenance']['answer_selection'] == {
+            'enabled': True, 'max_lines': 20, 'reranker': 'BAAI/bge-reranker-base',
+            'prompt': 'generate-response-qa-grounded'}
+
+    def test_off_passes_nothing(self, tmp_path, spy):
+        engines, selectors = spy
+        self._run(tmp_path)
+        assert selectors == [None, None] and all(e.prompts == [None, None] for e in engines)
+
+    def test_switching_it_on_refuses_the_baseline_results(self, tmp_path, spy):
+        self._run(tmp_path)
+        with pytest.raises(RuntimeError, match='different configuration'):
+            self._run(tmp_path, answer_selection=runner.AnswerSelectionConfig(enabled=True))
