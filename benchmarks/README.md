@@ -29,16 +29,19 @@ cp env.template .env
 # Edit .env with your bucket name, region, and benchmark preferences
 ```
 
-See `integration-tests/env.template` for the full list of configuration variables. Key benchmark variables:
+See `integration-tests/env.template` for the full list of configuration variables. `build-tests.sh` sources `.env` before it parses flags. A variable set in `.env` replaces the one exported in your shell, and a `--flag` replaces both. Settings with no flag, such as the three batch settings below, can only be changed in `.env`; the launch summary prints the values the run will use. Key benchmark variables:
 
 - `BENCHMARK_DATA_S3_URI` — S3 URI containing your benchmark datasets
 - `BENCHMARK_DATA_DIR` — Local directory with benchmark data (alternative to S3)
 - `BENCHMARK_QA_LIMIT` — Limit QA pairs for quick prototype runs
 - `BENCHMARK_EXTRACT_DOC_LIMIT` — Cap the number of source documents extracted, by the `batch_extract.py` tests and by the benchmark extract and build steps (only the first N docs are extracted, and the counts those steps assert drop to match); lets one corpus be run at several sizes
-- `BENCHMARK_IS_PROTOTYPE` — Use prototype (small) datasets
+- `BENCHMARK_IS_PROTOTYPE` — Use prototype (small) datasets. The CUAD, WikiHow and PGA extract benchmarks have no prototype data and ignore it; set `BENCHMARK_EXTRACT_DOC_LIMIT` for a small extract run
 - `BENCHMARK_DOC_STORE` — Where extracted documents are staged between extract and build: `file` (default) or `s3`
 - `BENCHMARK_S3_JSONL` — With `BENCHMARK_DOC_STORE=s3`, store one JSONL object per source document instead of one per chunk
 - `EXTRACTION_NUM_THREADS_PER_WORKER` — Threads each extraction worker runs, default 4. It sets LLM concurrency and the S3 upload pool size, so it is the knob a throughput sweep varies. No integration test pins it, so a high value also raises Bedrock concurrency for any other suite the same run executes
+- `BENCHMARK_MAX_BATCH_SIZE` — Most records in one Bedrock batch job for the extract benchmarks, from 100 to 50000, default 40000. It is not `EXTRACTION_BATCH_SIZE`, which counts documents per extraction group. Use it to vary job size across runs, for example 25000 to match the `BatchConfig` default
+- `BENCHMARK_MAX_NUM_CONCURRENT_BATCHES` — Size of each worker's batch job pool for the extract benchmarks, at least 1, default 1. Jobs inside one worker currently run one after another whatever this is set to, so a sweep over it measures nothing until that changes. Auto-tuning ignores it: with `BENCHMARK_AUTO_TUNE=true`, `EXTRACTION_NUM_WORKERS` sets how many jobs run at once, capped at the notebook's CPU count (4 on `ml.m5.xlarge`)
+- `BENCHMARK_AUTO_TUNE` — Turn on `BatchConfig.auto_tune` for the extract benchmarks, default false. Use it to compare auto-tuned job sizing with the fixed `EXTRACTION_BATCH_SIZE` path. Auto-tuning refuses a run plan, so it cannot be combined with `BENCHMARK_RESTARTS`. A batch run records all three batch settings in its outputs
 - `BENCHMARK_RESTARTS` — Interrupt extraction this many times and restart it under the same run id, or `every-document` for one interruption per document. Needs `BENCHMARK_DOC_STORE=s3`, since a restart reads the collection it is resuming, and is refused with `BENCHMARK_S3_JSONL`, since a JSONL collection keeps its node ids where the listing a resume reads cannot see them. Unset is a single uninterrupted run, the baseline the restart profiles are compared against. The results carry `first_run_seconds`, `restart_seconds` and `documents_staged_per_run`
 
 Two things to know before quoting restart numbers:
@@ -89,6 +92,8 @@ s3://<BUCKET>/benchmark-data/
 ### CUAD (Build → Query → Evaluate)
 
 CUAD is a contract understanding dataset with 510 documents and 500 QA pairs. Pre-extracted data is used by default.
+
+`benchmark_extract.CuadBenchmarkExtract` is a standalone extraction measurement. It writes to `cuad/extracted/` (or the S3 doc store with `BENCHMARK_DOC_STORE=s3`), but `CuadBenchmarkBuild` reads the pinned `extracted/2026-02-17` snapshot, so a build after it does not use the new extraction.
 
 ```bash
 cd integration-tests

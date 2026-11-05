@@ -145,6 +145,29 @@ class TestEnvInt:
         with pytest.raises(ValueError, match='X_NUM'):
             env_int('X_NUM', 2)
 
+    @pytest.mark.parametrize('value', ['0', '-2'])
+    def test_below_the_minimum_raises_naming_the_variable(self, monkeypatch, value):
+        monkeypatch.setenv('X_NUM', value)
+        with pytest.raises(ValueError, match='X_NUM'):
+            env_int('X_NUM', 1, minimum=1)
+
+    def test_value_at_the_minimum_is_accepted(self, monkeypatch):
+        monkeypatch.setenv('X_NUM', '1')
+        assert env_int('X_NUM', 3, minimum=1) == 1
+
+    def test_the_default_is_not_checked_against_the_minimum(self, monkeypatch):
+        monkeypatch.delenv('X_NUM', raising=False)
+        assert env_int('X_NUM', 0, minimum=1) == 0
+
+    def test_above_the_maximum_raises_naming_the_variable(self, monkeypatch):
+        monkeypatch.setenv('X_NUM', '11')
+        with pytest.raises(ValueError, match='X_NUM'):
+            env_int('X_NUM', 1, maximum=10)
+
+    def test_value_at_the_maximum_is_accepted(self, monkeypatch):
+        monkeypatch.setenv('X_NUM', '10')
+        assert env_int('X_NUM', 1, maximum=10) == 10
+
 
 class TestEnvString:
 
@@ -188,7 +211,7 @@ class TestInferenceModeIsExplicit:
         )
 
     @pytest.mark.parametrize(
-        'class_name', ['WikihowBenchmarkExtract', 'PgaBenchmarkExtract', 'ConcurrentQaBenchmarkExtract']
+        'class_name', ['WikihowBenchmarkExtract', 'PgaBenchmarkExtract', 'ConcurrentQaBenchmarkExtract', 'CuadBenchmarkExtract']
     )
     def test_every_benchmark_passes_use_batch(self, class_name):
         assert 'use_batch' in _call_kwargs(class_name), (
@@ -197,7 +220,7 @@ class TestInferenceModeIsExplicit:
 
 
     @pytest.mark.parametrize(
-        'class_name', ['WikihowBenchmarkExtract', 'PgaBenchmarkExtract']
+        'class_name', ['WikihowBenchmarkExtract', 'PgaBenchmarkExtract', 'CuadBenchmarkExtract']
     )
     def test_call_site_does_not_default_the_env_read(self, class_name):
         run_test = _function('_run_test', scope=_class(class_name))
@@ -266,6 +289,57 @@ class TestExtractionConfigIsOverridable:
         )
 
 
+class TestBatchConfigIsOverridable:
+
+    def _batch_config_keywords(self):
+        for node in ast.walk(_function('build_indexing_config')):
+            if isinstance(node, ast.Call) and getattr(node.func, 'id', '') == 'BatchConfig':
+                return {k.arg: k.value for k in node.keywords}
+        raise AssertionError('no BatchConfig call in build_indexing_config')
+
+    @pytest.mark.parametrize(
+        'keyword, variable, default',
+        [
+            ('max_batch_size', 'BENCHMARK_MAX_BATCH_SIZE', 40000),
+            ('max_num_concurrent_batches', 'BENCHMARK_MAX_NUM_CONCURRENT_BATCHES', 1),
+        ],
+    )
+    def test_read_from_the_environment_with_the_old_default(self, keyword, variable, default):
+        value = self._batch_config_keywords()[keyword]
+        assert isinstance(value, ast.Call) and getattr(value.func, 'id', '') == 'env_int', (
+            f'{keyword} is not read through env_int, so {variable} cannot override it'
+        )
+        assert [getattr(a, 'value', None) for a in value.args[:2]] == [variable, default], (
+            f'{keyword} must read {variable} with the default it had before it was configurable'
+        )
+
+    def test_auto_tune_is_read_from_the_environment_and_off_by_default(self):
+        value = self._batch_config_keywords()['auto_tune']
+        assert getattr(value.func, 'id', '') == 'env_bool'
+        assert [getattr(a, 'value', None) for a in value.args] == ['BENCHMARK_AUTO_TUNE', False]
+
+    def test_concurrency_has_a_floor_that_names_the_variable(self):
+        value = self._batch_config_keywords()['max_num_concurrent_batches']
+        assert {k.arg: getattr(k.value, 'value', None) for k in value.keywords} == {'minimum': 1}
+
+    def test_batch_size_is_bounded_by_the_bedrock_limits(self):
+        value = self._batch_config_keywords()['max_batch_size']
+        assert {k.arg: getattr(k.value, 'value', None) for k in value.keywords} == {'minimum': 100, 'maximum': 50000}
+
+
+class TestRunRecordsTheBatchSettings:
+
+    def test_batch_settings_are_written_to_the_run_outputs(self):
+        names = set()
+        for node in ast.walk(_function('run_benchmark_extract')):
+            if (isinstance(node, ast.Call)
+                    and getattr(node.func, 'attr', '') == 'add_output'
+                    and node.args and isinstance(node.args[0], ast.Constant)):
+                names.add(node.args[0].value)
+        missing = {'max_batch_size', 'max_num_concurrent_batches', 'auto_tune'} - names
+        assert not missing, f'run outputs do not record {sorted(missing)}, so runs with different batch settings look identical'
+
+
 class TestVariableNameIsPinned:
     """
     The Python call sites and the harness export are joined only by the string
@@ -283,6 +357,7 @@ class TestVariableNameIsPinned:
         'BENCHMARK_USE_BATCH',
         'BENCHMARK_IS_PROTOTYPE',
         'BENCHMARK_S3_JSONL',
+        'BENCHMARK_AUTO_TUNE',
     }
 
     def test_call_sites_read_the_expected_names(self):
@@ -316,6 +391,9 @@ class TestVariableNameIsPinned:
             'EXTRACTION_NUM_WORKERS',
             'EXTRACTION_BATCH_SIZE',
             'EXTRACTION_NUM_THREADS_PER_WORKER',
+            'BENCHMARK_MAX_BATCH_SIZE',
+            'BENCHMARK_MAX_NUM_CONCURRENT_BATCHES',
+            'BENCHMARK_AUTO_TUNE',
         ],
     )
     def test_harness_forwards_the_extraction_variables(self, name):
@@ -324,6 +402,24 @@ class TestVariableNameIsPinned:
         assert name in self._forwarded_settings(), (
             f'{name} is not forwarded to .env.testing, so a value set locally '
             f'never reaches the extraction run'
+        )
+
+    @pytest.mark.parametrize(
+        'name',
+        [
+            'EXTRACTION_NUM_WORKERS',
+            'EXTRACTION_BATCH_SIZE',
+            'EXTRACTION_NUM_THREADS_PER_WORKER',
+            'BENCHMARK_MAX_BATCH_SIZE',
+            'BENCHMARK_MAX_NUM_CONCURRENT_BATCHES',
+        ],
+    )
+    def test_harness_checks_the_integer_settings_before_launch(self, name):
+        text = self.BUILD_TESTS.read_text()
+        loop = re.search(r'for setting in ([^;]+); do\s+if [^\n]*\n[^\n]*must be a positive integer', text)
+        assert loop, 'build-tests.sh no longer has the positive-integer check'
+        assert name in loop.group(1).replace('\\\n', ' ').split(), (
+            f'{name} is not checked before the stack launches, so a typo only fails on the notebook'
         )
 
     def test_every_documented_variable_is_known_to_the_harness(self):
