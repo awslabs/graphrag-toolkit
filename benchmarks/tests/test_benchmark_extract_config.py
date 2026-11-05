@@ -159,6 +159,15 @@ class TestEnvInt:
         monkeypatch.delenv('X_NUM', raising=False)
         assert env_int('X_NUM', 0, minimum=1) == 0
 
+    def test_above_the_maximum_raises_naming_the_variable(self, monkeypatch):
+        monkeypatch.setenv('X_NUM', '11')
+        with pytest.raises(ValueError, match='X_NUM'):
+            env_int('X_NUM', 1, maximum=10)
+
+    def test_value_at_the_maximum_is_accepted(self, monkeypatch):
+        monkeypatch.setenv('X_NUM', '10')
+        assert env_int('X_NUM', 1, maximum=10) == 10
+
 
 class TestEnvString:
 
@@ -313,6 +322,23 @@ class TestBatchConfigIsOverridable:
         value = self._batch_config_keywords()['max_num_concurrent_batches']
         assert {k.arg: getattr(k.value, 'value', None) for k in value.keywords} == {'minimum': 1}
 
+    def test_batch_size_is_bounded_by_the_bedrock_limits(self):
+        value = self._batch_config_keywords()['max_batch_size']
+        assert {k.arg: getattr(k.value, 'value', None) for k in value.keywords} == {'minimum': 100, 'maximum': 50000}
+
+
+class TestRunRecordsTheBatchSettings:
+
+    def test_batch_settings_are_written_to_the_run_outputs(self):
+        names = set()
+        for node in ast.walk(_function('run_benchmark_extract')):
+            if (isinstance(node, ast.Call)
+                    and getattr(node.func, 'attr', '') == 'add_output'
+                    and node.args and isinstance(node.args[0], ast.Constant)):
+                names.add(node.args[0].value)
+        missing = {'max_batch_size', 'max_num_concurrent_batches', 'auto_tune'} - names
+        assert not missing, f'run outputs do not record {sorted(missing)}, so runs with different batch settings look identical'
+
 
 class TestVariableNameIsPinned:
     """
@@ -376,6 +402,24 @@ class TestVariableNameIsPinned:
         assert name in self._forwarded_settings(), (
             f'{name} is not forwarded to .env.testing, so a value set locally '
             f'never reaches the extraction run'
+        )
+
+    @pytest.mark.parametrize(
+        'name',
+        [
+            'EXTRACTION_NUM_WORKERS',
+            'EXTRACTION_BATCH_SIZE',
+            'EXTRACTION_NUM_THREADS_PER_WORKER',
+            'BENCHMARK_MAX_BATCH_SIZE',
+            'BENCHMARK_MAX_NUM_CONCURRENT_BATCHES',
+        ],
+    )
+    def test_harness_checks_the_integer_settings_before_launch(self, name):
+        text = self.BUILD_TESTS.read_text()
+        loop = re.search(r'for setting in ([^;]+); do\s+if [^\n]*\n[^\n]*must be a positive integer', text)
+        assert loop, 'build-tests.sh no longer has the positive-integer check'
+        assert name in loop.group(1).replace('\\\n', ' ').split(), (
+            f'{name} is not checked before the stack launches, so a typo only fails on the notebook'
         )
 
     def test_every_documented_variable_is_known_to_the_harness(self):

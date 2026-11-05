@@ -84,7 +84,7 @@ def build_indexing_config(dataset_name: str) -> IndexingConfig:
         bucket_name=os.environ['S3_RESULTS_BUCKET'],
         key_prefix=f'{os.environ["S3_RESULTS_PREFIX"]}/batch-extract/{dataset_name}',
         role_arn=os.environ['BATCH_INFERENCE_ROLE'],
-        max_batch_size=env_int('BENCHMARK_MAX_BATCH_SIZE', 40000),
+        max_batch_size=env_int('BENCHMARK_MAX_BATCH_SIZE', 40000, minimum=100, maximum=50000),
         max_num_concurrent_batches=env_int('BENCHMARK_MAX_NUM_CONCURRENT_BATCHES', 1, minimum=1),
         auto_tune=env_bool('BENCHMARK_AUTO_TUNE', False)
     )
@@ -139,6 +139,11 @@ def run_benchmark_extract(handler: IntegrationTestHandler,
 
     apply_extraction_config()
     indexing_config = build_indexing_config(dataset_name) if use_batch else None
+    if indexing_config:
+        batch_config = indexing_config.batch_config
+        handler.add_output('max_batch_size', batch_config.max_batch_size)
+        handler.add_output('max_num_concurrent_batches', batch_config.max_num_concurrent_batches)
+        handler.add_output('auto_tune', batch_config.auto_tune)
 
     if doc_store == 's3':
         extracted_docs = S3BasedDocs(

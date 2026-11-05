@@ -115,3 +115,26 @@ class TestBatchConfigIsBuiltFromTheEnvironment:
 
         with pytest.raises(KeyError):
             build_indexing_config('wikihow')
+
+    def test_max_batch_size_below_the_bedrock_minimum_names_the_variable(self, monkeypatch):
+        for name, value in BATCH_ENV.items():
+            monkeypatch.setenv(name, value)
+        monkeypatch.setenv('BENCHMARK_MAX_BATCH_SIZE', '99')
+
+        with pytest.raises(ValueError, match='BENCHMARK_MAX_BATCH_SIZE'):
+            build_indexing_config('wikihow')
+
+    def test_max_batch_size_at_the_bedrock_minimum_is_accepted(self, monkeypatch):
+        for name, value in BATCH_ENV.items():
+            monkeypatch.setenv(name, value)
+        monkeypatch.setenv('BENCHMARK_MAX_BATCH_SIZE', '100')
+
+        assert build_indexing_config('wikihow').batch_config.max_batch_size == 100
+
+    def test_max_batch_size_above_the_bedrock_maximum_names_the_variable(self, monkeypatch):
+        for name, value in BATCH_ENV.items():
+            monkeypatch.setenv(name, value)
+        monkeypatch.setenv('BENCHMARK_MAX_BATCH_SIZE', '50001')
+
+        with pytest.raises(ValueError, match='BENCHMARK_MAX_BATCH_SIZE'):
+            build_indexing_config('wikihow')
