@@ -196,7 +196,7 @@ Key environment variables (configured in `notebooks/.env`):
 
 ```bash
 # Database connections (Docker internal names)
-VECTOR_STORE="postgresql://postgres:password@pgvector-local:5432/graphrag"
+VECTOR_STORE="postgresql://postgres:password@pgvector-local:5432/graphrag?sslmode=disable"
 GRAPH_STORE="bolt://neo4j:password@neo4j-local:7687"
 
 # AWS Configuration (optional)

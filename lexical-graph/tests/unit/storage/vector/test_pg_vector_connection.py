@@ -8,6 +8,8 @@ Covers:
   - IAM auth path (token generation)
   - Schema initialization on first connection (writeable=True)
   - Already initialized skips DDL
+  - TLS settings passed to psycopg2.connect, and read from the connection string
+  - Hint added to the no-TLS error when the default sslmode was applied
 """
 
 import sys
@@ -48,7 +50,7 @@ _install_pg_mocks()
 import graphrag_toolkit.lexical_graph.storage.vector.pg_vector_indexes as pvi  # noqa: E402
 
 
-def _make_pg_index(writeable=True, enable_iam=False):
+def _make_pg_index(writeable=True, enable_iam=False, **kwargs):
     from graphrag_toolkit.lexical_graph.tenant_id import TenantId
 
     return pvi.PGIndex.model_construct(
@@ -65,6 +67,7 @@ def _make_pg_index(writeable=True, enable_iam=False):
         writeable=writeable,
         tenant_id=TenantId(),
         initialized=False,
+        **kwargs,
     )
 
 
@@ -127,3 +130,115 @@ class TestPGIndexGetConnection:
                 mock_pg.connect.return_value = mock_conn
                 index._get_connection()
                 mock_cur.execute.assert_not_called()
+
+
+class TestPGIndexTLS:
+
+    def _connect_kwargs(self, index):
+        with patch.object(pvi, "psycopg2") as mock_pg:
+            with patch.object(pvi, "register_vector"):
+                index.initialized = True
+                index._get_connection()
+                return mock_pg.connect.call_args.kwargs
+
+    def test_requires_tls_by_default(self, monkeypatch):
+        monkeypatch.delenv("PGSSLMODE", raising=False)
+        kwargs = self._connect_kwargs(_make_pg_index())
+        assert kwargs["sslmode"] == "require"
+        assert "sslrootcert" not in kwargs
+
+    def test_pgsslmode_applies_when_no_sslmode_is_configured(self, monkeypatch):
+        monkeypatch.setenv("PGSSLMODE", "verify-full")
+        kwargs = self._connect_kwargs(_make_pg_index())
+        assert "sslmode" not in kwargs
+
+    def test_configured_sslmode_is_passed(self, monkeypatch):
+        monkeypatch.setenv("PGSSLMODE", "verify-full")
+        kwargs = self._connect_kwargs(_make_pg_index(sslmode="disable"))
+        assert kwargs["sslmode"] == "disable"
+
+    def test_configured_sslrootcert_is_passed(self, monkeypatch):
+        monkeypatch.delenv("PGSSLMODE", raising=False)
+        kwargs = self._connect_kwargs(_make_pg_index(sslmode="verify-full", sslrootcert="/certs/global-bundle.pem"))
+        assert kwargs["sslmode"] == "verify-full"
+        assert kwargs["sslrootcert"] == "/certs/global-bundle.pem"
+
+
+class OperationalError(Exception):
+    pass
+
+
+class TestPGIndexNoTLSHint:
+
+    NO_TLS = 'connection to server at "127.0.0.1", port 5432 failed: server does not support SSL, but SSL was required'
+
+    def _connect_error(self, index, message):
+        with patch.object(pvi, "psycopg2") as mock_pg:
+            with patch.object(pvi, "register_vector"):
+                mock_pg.OperationalError = OperationalError
+                mock_pg.connect.side_effect = OperationalError(message)
+                index.initialized = True
+                with pytest.raises(OperationalError) as excinfo:
+                    index._get_connection()
+                return excinfo.value
+
+    def test_default_sslmode_adds_a_hint_when_the_server_has_no_tls(self, monkeypatch):
+        monkeypatch.delenv("PGSSLMODE", raising=False)
+        err = self._connect_error(_make_pg_index(), self.NO_TLS)
+        assert self.NO_TLS in str(err)
+        assert "sslmode=disable" in str(err)
+        assert str(err.__cause__) == self.NO_TLS
+
+    def test_configured_sslmode_keeps_the_libpq_error(self, monkeypatch):
+        monkeypatch.delenv("PGSSLMODE", raising=False)
+        err = self._connect_error(_make_pg_index(sslmode="require"), self.NO_TLS)
+        assert str(err) == self.NO_TLS
+
+    def test_pgsslmode_keeps_the_libpq_error(self, monkeypatch):
+        monkeypatch.setenv("PGSSLMODE", "require")
+        err = self._connect_error(_make_pg_index(), self.NO_TLS)
+        assert str(err) == self.NO_TLS
+
+    def test_other_errors_pass_through_unchanged(self, monkeypatch):
+        monkeypatch.delenv("PGSSLMODE", raising=False)
+        err = self._connect_error(_make_pg_index(), "password authentication failed")
+        assert str(err) == "password authentication failed"
+
+
+class TestPGIndexForIndexTLS:
+
+    def _for_index(self, connection_string, **kwargs):
+        for_index = pvi.PGIndex.for_index
+        with patch.object(pvi, "PGIndex") as mock_cls:
+            for_index("chunk", connection_string, embed_model=MagicMock(), dimensions=1024, **kwargs)
+            return mock_cls.call_args.kwargs
+
+    def test_reads_tls_settings_from_the_connection_string(self):
+        kwargs = self._for_index(
+            "postgresql://user:pass@db.example.com:5432/graphrag"
+            "?sslmode=verify-full&sslrootcert=/certs/global-bundle.pem&enable_iam_db_auth=true"
+        )
+        assert kwargs["sslmode"] == "verify-full"
+        assert kwargs["sslrootcert"] == "/certs/global-bundle.pem"
+        assert kwargs["enable_iam_db_auth"] is True
+
+    def test_connection_string_overrides_arguments(self):
+        kwargs = self._for_index(
+            "postgresql://user:pass@db.example.com:5432/graphrag?sslmode=disable",
+            sslmode="verify-full",
+        )
+        assert kwargs["sslmode"] == "disable"
+
+    def test_arguments_apply_when_the_connection_string_has_none(self):
+        kwargs = self._for_index(
+            "postgresql://user:pass@db.example.com:5432/graphrag",
+            sslmode="verify-full",
+            sslrootcert="/certs/global-bundle.pem",
+        )
+        assert kwargs["sslmode"] == "verify-full"
+        assert kwargs["sslrootcert"] == "/certs/global-bundle.pem"
+
+    def test_tls_settings_default_to_none(self):
+        kwargs = self._for_index("postgresql://user:pass@db.example.com:5432/graphrag")
+        assert kwargs["sslmode"] is None
+        assert kwargs["sslrootcert"] is None

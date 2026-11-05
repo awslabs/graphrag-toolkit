@@ -155,7 +155,7 @@ Enable development mode for active lexical-graph development:
 
 ### PostgreSQL (Vector Store)
 - **Container**: `pgvector-hybrid`
-- **URL**: `postgresql://postgres:password@pgvector-hybrid:5432/graphrag`
+- **URL**: `postgresql://postgres:password@pgvector-hybrid:5432/graphrag?sslmode=disable`
 - **Extensions**: pgvector, pg_trgm enabled
 
 ## Reader Providers

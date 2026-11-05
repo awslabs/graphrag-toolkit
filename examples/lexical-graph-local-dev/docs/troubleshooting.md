@@ -193,7 +193,7 @@ psycopg2.OperationalError: could not connect to server
 # Check connection string
 import os
 print(os.environ.get('VECTOR_STORE'))
-# Should be: postgresql://postgres:password@pgvector-local:5432/graphrag
+# Should be: postgresql://postgres:password@pgvector-local:5432/graphrag?sslmode=disable
 
 # Test connection
 import psycopg2
