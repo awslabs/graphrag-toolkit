@@ -102,6 +102,8 @@ sh build-tests.sh --test-file lexical.short --env-type neptune-db-postgresql
 
 `neptune-graph-postgresql` works too. Under any other env-type (OpenSearch Serverless, S3 Vectors, or Neptune Analytics built-in) the PGVector test skips itself, so it is safe to leave in the suite for every environment.
 
+`neptune_analytics_vector_filter.NeptuneAnalyticsVectorFilter` checks that the Neptune Analytics built-in vector index applies a source metadata filter inside `top_k`. It needs the `neptune-graph` env-type and skips itself under any other vector store.
+
 ## Running Tests from the SageMaker Notebook
 
 You can run tests directly from the SageMaker notebook. Use the **SagemakerNotebook** link from the CloudFormation **Outputs** tab to open the notebook. Then, from the **New** dropdown in Jupyter, open a terminal:
