@@ -7,6 +7,7 @@ from typing import Any, Dict, List, Optional, Callable
 import uuid
 
 from graphrag_toolkit.lexical_graph.metadata import FilterConfig, type_name_for_key_value, format_datetime
+from graphrag_toolkit.lexical_graph.versioning import VALID_FROM, VALID_TO, TIMESTAMP_LOWER_BOUND, TIMESTAMP_UPPER_BOUND
 from graphrag_toolkit.lexical_graph.storage.graph.graph_store import NodeId
 
 from llama_index.core.vector_stores.types import FilterCondition, FilterOperator, MetadataFilter, MetadataFilters
@@ -267,8 +268,14 @@ def parse_metadata_filters_recursive(metadata_filters:MetadataFilters) -> str:
     """
     def to_key(key: str) -> str:
         """Return the property reference for a filter key, backtick-quoted and escaped
-        so a key with special characters cannot break out of the identifier."""
-        return f"source.`{escape_cypher_label(key)}`"
+        so a key with special characters cannot break out of the identifier. A source
+        built without versioning has no version bounds, so they read as unbounded."""
+        reference = f"source.`{escape_cypher_label(key)}`"
+        if key == VALID_FROM:
+            return f"coalesce({reference}, {TIMESTAMP_LOWER_BOUND})"
+        if key == VALID_TO:
+            return f"coalesce({reference}, {TIMESTAMP_UPPER_BOUND})"
+        return reference
     
     def metadata_filter_to_opencypher_filter(f: MetadataFilter) -> str:
         """
@@ -296,7 +303,7 @@ def parse_metadata_filters_recursive(metadata_filters:MetadataFilters) -> str:
             type_name = type_name_for_key_value(f.key, f.value)
             type_formatter = formatter_for_type(type_name)
             if f.operator == FilterOperator.TEXT_MATCH_INSENSITIVE:
-                return f"({key}.toLower() {operator} {type_formatter(operator_formatter(str(f.value)))})"
+                return f"(toLower({key}) {operator} {type_formatter(operator_formatter(str(f.value)))})"
             else:
                 return f"({key} {operator} {type_formatter(operator_formatter(str(f.value)))})"
  
