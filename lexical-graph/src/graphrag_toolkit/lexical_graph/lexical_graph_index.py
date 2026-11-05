@@ -25,6 +25,7 @@ from graphrag_toolkit.lexical_graph.indexing.extract import LLMPropositionExtrac
 from graphrag_toolkit.lexical_graph.indexing.extract import TopicExtractor, BatchTopicExtractorSync
 from graphrag_toolkit.lexical_graph.indexing.extract import ExtractionPipeline
 from graphrag_toolkit.lexical_graph.indexing.extract import InferClassifications, InferClassificationsConfig
+from graphrag_toolkit.lexical_graph.indexing.extract import RunPlanStore
 from graphrag_toolkit.lexical_graph.indexing.build import BuildPipeline
 from graphrag_toolkit.lexical_graph.indexing.build import VectorIndexing
 from graphrag_toolkit.lexical_graph.indexing.build import GraphConstruction
@@ -448,6 +449,8 @@ class LexicalGraphIndex():
             checkpoint: Optional[Checkpoint] = None,
             show_progress: Optional[bool] = False,
             progress_monitor: Optional[ProgressMonitor] = None,
+            run_id: Optional[str] = None,
+            run_plan_store: Optional[RunPlanStore] = None,
             **kwargs: Any) -> None:
         """
         Executes the extraction process for a given set of nodes using the specified handler,
@@ -467,6 +470,10 @@ class LexicalGraphIndex():
                 callbacks as documents complete LLM extraction. Receives
                 increment_llm_processed_documents and increment_llm_processed_chunks calls at
                 document boundaries.
+            run_id (Optional[str]): Id that makes the run restartable. Extracting again with the
+                same run_id takes up where the interrupted run stopped. Needs run_plan_store.
+            run_plan_store (Optional[RunPlanStore]): Where the run records its plan and the Bedrock
+                batch job it submitted for each partition, so a restart can reuse them.
             **kwargs (Any): Additional keyword arguments for pipeline configurations or overrides.
 
         Example::
@@ -496,6 +503,8 @@ class LexicalGraphIndex():
             tenant_id=DEFAULT_TENANT_ID,
             extraction_filters=self.indexing_config.extraction.extraction_filters,
             source_id_width=self._source_id_width(),
+            run_id=run_id,
+            run_plan_store=run_plan_store,
             **kwargs
         )
 

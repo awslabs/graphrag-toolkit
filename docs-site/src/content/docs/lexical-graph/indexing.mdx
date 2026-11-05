@@ -244,6 +244,23 @@ The run records three things under `s3://<bucket>/<key_prefix>/<collection_id>/_
 
 The plan does not yet cover the auto-tuned batch extraction path; a run with a `run_id` and `auto_tune=True` raises a `ValueError`.
 
+**What a restart costs.** A restart of a run whose Bedrock batch jobs have all finished costs seconds. The figures below cover the extract stage only: NTSB accident narratives extracted with Haiku 4.5 on Bedrock batch inference in `us-west-2`, staged to S3. The 100 and 500-document runs used 2 extraction workers, the 1,000-document runs 8.
+
+| Documents | Restarts | First run | All restarts | Per restart |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| 100 | 10 | 3h 8m 35s | 2m 21s | 14.1 s |
+| 100 | 99 (one per document) | 2h 29m 28s | 21m 30s | 13.0 s |
+| 500 | 10 | 10h 11m 24s | 5m 14s | 31.4 s |
+| 1,000 | 10 | 8h 43m 22s | 8m 5s | 48.5 s |
+
+Three things to know before quoting these figures:
+
+- **Each per-restart figure includes that run's share of staging**, which an uninterrupted run also pays, so it overstates restart overhead. At 100 documents about 12.9 s of the 14.1 s is overhead; at 500 documents a restart stages about 45 documents for the first time.
+- **The two worker counts are not comparable with each other.** The rise from 14.1 s to 48.5 s spans a change of worker count and compute as well as a change of corpus size.
+- **Use the absolute cost, not a percentage of the run.** Wall clock is set by Bedrock batch queue and job time: the same 1,000-document extraction, same documents and the same 11,131 chunks, took 7h 39m once and 3h 11m another time. The 8m 5s of restarts is 1.5% of an 8h 43m run and 4.2% of a 3h 11m one.
+
+Every interruption in these runs came after the last Bedrock batch job had finished, so the figures cover downloading completed job output and staging, not waiting on a running job or submitting one again. All runs used batch inference; synchronous extraction was not measured.
+
 The identity under which the lexical-graph runs needs `s3:PutObject`, `s3:GetObject` and `s3:DeleteObject` on `arn:aws:s3:::<bucket>/<key_prefix>/*`, and `s3:ListBucket` on `arn:aws:s3:::<bucket>`. `s3:DeleteObject` is used when a run with a `run_id` finishes and its partition records are folded into the rollup. Both stages list the objects under a collection: the extract stage to decide what is already stored, the build stage to read a document's chunks and its markers. Without `s3:ListBucket` these listings fail with an access denied error.
 
 A restart trusts what it reads under this prefix: the plan, the partition records and the completion markers. Anyone who can write there can make a restart reuse other batch output in the same bucket, or skip a document it should store. Limit write access to the identity that runs the lexical-graph. The bucket always comes from your configuration, never from a record.
