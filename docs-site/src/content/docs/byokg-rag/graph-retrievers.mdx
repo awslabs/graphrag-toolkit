@@ -68,7 +68,7 @@ Returns:
 `group_by_mention` is declared on the `Linker` base class, whose default implementation
 groups by looking each mention up on its own — so a linker that implements only the flat
 path still honours the flag rather than returning empty groups. It is what
-`ByoKGQueryEngine(single_best_match=True)` uses to keep only each mention's best match —
+`ByoKGQueryEngine`'s `single_best_match` (on by default) uses to keep only each mention's best match —
 without it the caller cannot tell which candidate came from which mention.
 
 `link()` takes a flat `List[str]` of mentions (what `parse_response` returns). Nested

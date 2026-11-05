@@ -2,9 +2,15 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import inspect
+import logging
 from typing import List, Tuple, Optional, Set
 
 from .utils import load_yaml, parse_response
+
+logger = logging.getLogger(__name__)
+
+_FLAT_UNION_WARNING = ("single_best_match is off: %s, so every top-k candidate is seeded. "
+                       "Pass single_best_match=False to silence this, or True to require grouping.")
 
 
 class ByoKGQueryEngine:
@@ -24,7 +30,7 @@ class ByoKGQueryEngine:
                  kg_linker=None,
                  cypher_kg_linker=None,
                  direct_query_linking=False,
-                 single_best_match=False):
+                 single_best_match=None):
         """
         Initialize the query engine.
 
@@ -38,15 +44,18 @@ class ByoKGQueryEngine:
             kg_linker: Optional KG linker for multi-strategy retrieval
             cypher_kg_linker: Optional Cypher KG linker for cypher-based retrieval
             direct_query_linking: Flag whether to use entity linker with query embedding directly
-            single_best_match: If True, keep only the best-matching node per extracted
-                mention instead of unioning every top-k candidate. This narrows both
-                the triplet retriever's seed set and the entity set fed to the path
+            single_best_match: Keep only the best-matching node per extracted mention
+                instead of unioning every top-k candidate. This narrows both the
+                triplet retriever's seed set and the entity set fed to the path
                 retriever, so path coverage narrows with it. Draft-answer linking is
                 unaffected, and so is direct_query_linking: that path links the whole
                 query string rather than per-mention entities, so its top-k union is
-                seeded in full regardless of this flag. Off by default; when off, the
-                seed set is unchanged. Requires an entity_linker whose link() honours
-                group_by_mention.
+                seeded in full regardless of this flag. None (default) turns it on
+                when the entity_linker's link() accepts group_by_mention, as
+                EntityLinker's does. If it doesn't, or a grouped call fails or returns
+                the wrong shape, the engine logs a warning and seeds the flat union
+                from then on. True requires the grouping and raises TypeError without
+                it; False turns it off.
         """
         self.graph_store = graph_store
         self.schema = graph_store.get_schema()
@@ -62,11 +71,14 @@ class ByoKGQueryEngine:
             entity_linker = EntityLinker(entity_retriever)
         self.entity_linker = entity_linker
         self.direct_query_linking = direct_query_linking
-        self.single_best_match = single_best_match
+        # Only an explicit True is strict; the default falls back to the flat union.
+        self._single_best_match_required = single_best_match is not None and bool(single_best_match)
+        defaulted_off = single_best_match is None and not self._accepts_group_by_mention(self.entity_linker)
+        self.single_best_match = (not defaulted_off) if single_best_match is None else bool(single_best_match)
 
-        # Fail at construction for the ordinary case. entity_linker is public, so
-        # this cannot be the only check — see the call site in query() for a linker
-        # swapped in after construction.
+        # An explicit True fails at construction for the ordinary case. entity_linker is
+        # public, so this cannot be the only check — see the call site in query() for a
+        # linker swapped in after construction.
         if self.single_best_match and not self._accepts_group_by_mention(self.entity_linker):
             raise TypeError(
                 f"single_best_match=True requires an entity_linker whose link() "
@@ -107,6 +119,9 @@ class ByoKGQueryEngine:
                 graph_store=self.graph_store
             )
         self.kg_linker = kg_linker
+        if defaulted_off and self.kg_linker is not None:  # only the KG-Linker loop links mentions
+            logger.warning(_FLAT_UNION_WARNING,
+                           f"{type(self.entity_linker).__name__}.link() does not take group_by_mention")
         
         if self.kg_linker is not None:
             self.kg_linker_prompts = self.kg_linker.task_prompts
@@ -264,25 +279,49 @@ class ByoKGQueryEngine:
                     # signature; this checks the returned shape, because
                     # entity_linker is public and may be reassigned afterwards.
                     mentions = artifacts["entity-extraction"]
-                    grouped = self.entity_linker.link(
-                        mentions, return_dict=False, group_by_mention=True
-                    )
+                    linker_name = type(self.entity_linker).__name__
+                    grouped, problem = None, None
+                    if self._single_best_match_required or self._accepts_group_by_mention(self.entity_linker):
+                        try:
+                            grouped = self.entity_linker.link(
+                                mentions, return_dict=False, group_by_mention=True
+                            )
+                        except TypeError as e:
+                            if self._single_best_match_required:
+                                raise
+                            # e.g. a wrapper forwarding the flag to a link() without it
+                            problem = f"{linker_name}.link() rejected group_by_mention ({e})"
+                    else:  # a linker swapped in after construction
+                        problem = f"{linker_name}.link() does not take group_by_mention"
                     # One list per mention. The length check is what separates a
                     # real grouping from a flat result that happens to hold lists
                     # (one entry per hit, not per mention).
-                    if (not isinstance(grouped, list)
-                            or not all(isinstance(c, list) for c in grouped)
-                            or len(grouped) != len(mentions)):
-                        raise TypeError(
-                            f"single_best_match=True requires entity_linker.link(..., "
-                            f"group_by_mention=True) to return one candidate list per "
-                            f"mention; {type(self.entity_linker).__name__} returned "
-                            f"{type(grouped).__name__} of length "
-                            f"{len(grouped) if isinstance(grouped, list) else 'n/a'} "
-                            f"for {len(mentions)} mention(s). The linker likely ignores "
-                            f"group_by_mention."
-                        )
-                    linked_entities = [candidates[0] for candidates in grouped if candidates]
+                    if problem is None and (not isinstance(grouped, list)
+                                            or not all(isinstance(c, list) for c in grouped)
+                                            or len(grouped) != len(mentions)):
+                        if self._single_best_match_required:
+                            raise TypeError(
+                                f"single_best_match=True requires entity_linker.link(..., "
+                                f"group_by_mention=True) to return one candidate list per "
+                                f"mention; {linker_name} returned "
+                                f"{type(grouped).__name__} of length "
+                                f"{len(grouped) if isinstance(grouped, list) else 'n/a'} "
+                                f"for {len(mentions)} mention(s). The linker likely ignores "
+                                f"group_by_mention."
+                            )
+                        problem = (f"{linker_name}.link(..., group_by_mention=True) returned "
+                                   f"{type(grouped).__name__} of length "
+                                   f"{len(grouped) if isinstance(grouped, list) else 'n/a'} "
+                                   f"for {len(mentions)} mention(s)")
+                    if problem is None:
+                        linked_entities = [candidates[0] for candidates in grouped if candidates]
+                    else:
+                        # The default degrades to the flat union, for this and later queries.
+                        logger.warning(_FLAT_UNION_WARNING, problem)
+                        self.single_best_match = False
+                        # A linker that ignored the flag has already returned its flat result.
+                        flat = isinstance(grouped, list) and all(isinstance(c, str) for c in grouped)
+                        linked_entities = grouped if flat else self.entity_linker.link(mentions, return_dict=False)
                 else:
                     linked_entities = self.entity_linker.link(artifacts["entity-extraction"], return_dict=False)
                 explored_entities.update(linked_entities)

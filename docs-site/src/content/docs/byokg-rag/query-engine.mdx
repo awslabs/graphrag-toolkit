@@ -59,7 +59,7 @@ query_engine = ByoKGQueryEngine(
     kg_linker=custom_kg_linker,
     cypher_kg_linker=custom_cypher_linker,
     direct_query_linking=False,
-    single_best_match=False
+    single_best_match=None  # default: on when the entity linker can group per mention
 )
 ```
 
