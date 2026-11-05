@@ -34,6 +34,16 @@ class Embedding(ABC):
         - list: A list of floats representing the document embeddings.
         """
         pass
+
+    def embed_query(self, text_input):
+        """
+        Embeds a search query, as opposed to a document to be searched.
+
+        Asymmetric models (e.g. Cohere v3) encode the two differently, so retrieval
+        should embed the question with this and the corpus with batch_embed. Defaults
+        to embed() for models that make no distinction.
+        """
+        return self.embed(text_input)
 class LangChainEmbedding(Embedding):
     """
     Embedding class that accepts any lang_chain embedding but is compatabile with BYOKG retrievers
@@ -47,6 +57,11 @@ class LangChainEmbedding(Embedding):
 
     def batch_embed(self, text_inputs):
         return self.embedder.embed_documents(text_inputs)
+
+    def embed_query(self, text_input):
+        # embed_documents sends Cohere input_type 'search_document'; embed_query sends
+        # 'search_query' (langchain_aws BedrockEmbeddings).
+        return self.embedder.embed_query(text_input)
 
 class HuggingFaceEmbedding(LangChainEmbedding):
     """
@@ -78,6 +93,9 @@ class LLamaIndexEmbedding(Embedding):
 
     def batch_embed(self, text_inputs):
         return self.embedder.get_text_embedding_batch(text_inputs)
+
+    def embed_query(self, text_input):
+        return self.embedder.get_query_embedding(text_input)
 
 class LLamaIndexBedrockEmbedding(LLamaIndexEmbedding):
     """

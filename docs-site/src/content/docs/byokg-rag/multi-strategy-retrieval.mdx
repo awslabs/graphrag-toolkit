@@ -18,7 +18,9 @@ BYOKG-RAG implements a multi-strategy retrieval approach that combines different
 The multi-strategy retrieval system in BYOKG-RAG operates through the `ByoKGQueryEngine` using the `KGLinker` component. Unlike traditional single-pass retrieval systems, it employs an iterative approach that builds context progressively through multiple retrieval strategies:
 
 1. **Entity Extraction and Linking** - Identifies and links entities from natural language to graph nodes
-2. **Agentic Triplet Retrieval** - Uses LLM-guided exploration to find relevant triplets
+2. **Agentic Triplet Retrieval** - Uses LLM-guided exploration to find relevant triplets,
+   optionally joined by **text triplet retrieval** (`TextTripletRetriever`): the triplets
+   most similar to the question, independent of entity linking
 3. **Path-based Retrieval** - Follows metapaths between entities to discover relationships
 4. **Query-based Retrieval** - Executes structured graph queries (Cypher, SPARQL)
 

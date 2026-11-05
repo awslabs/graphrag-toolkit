@@ -84,6 +84,7 @@ NOTE: Additional permissions may be required for Neptune Database (`neptune-db:*
    - **AgenticRetriever**: LLM-guided iterative exploration with entity linking
    - **PathRetriever**: Multi-hop reasoning through entity relationship paths
    - **GraphQueryRetriever**: Direct Cypher query execution and result processing
+   - **TextTripletRetriever**: Ranks every triplet by similarity to the question, independent of entity linking
    - **Rerankers**: BGE-based semantic reranking for improving retrieval relevance
 
 4. **Graph Store** ([src/graphrag_toolkit/byokg_rag/graphstore](https://github.com/awslabs/graphrag-toolkit/tree/main/byokg-rag/src/graphrag_toolkit/byokg_rag/graphstore))
