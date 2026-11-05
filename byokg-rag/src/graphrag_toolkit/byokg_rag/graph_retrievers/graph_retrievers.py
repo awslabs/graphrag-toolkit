@@ -389,7 +389,7 @@ class GraphQueryRetriever(GRetriever):
         # Keywords that indicate graph modification operations
         modification_keywords = [
             'CREATE', 'MERGE', 'SET', 'REMOVE', 'DELETE', 'DETACH DELETE',
-            'DROP', 'DETACH', 'CALL'
+            'DROP', 'DETACH', 'CALL', 'INSERT'
         ]
         
         # Neo4j reads a backslash inside backticks as a literal character, and a

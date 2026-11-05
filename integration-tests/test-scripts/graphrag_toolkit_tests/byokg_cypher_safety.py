@@ -58,16 +58,19 @@ class CypherSafetyCheck(IntegrationTestBase):
 
     This test confirms that:
     1. Comment-split keywords (CRE/**/ATE) are blocked
-    2. Writes after a comment marker inside a string literal are blocked
+    2. Writes hidden by comment markers in strings or backticks, a \r line
+       end, or a comment used as a token separator are blocked
     3. CALL/APOC procedures are blocked
-    4. Unicode lookalike keywords are blocked
-    5. The block_graph_modification flag works correctly
-    6. Legitimate read queries still execute successfully
+    4. INSERT, the GQL alternative to CREATE, is blocked
+    5. Unicode lookalike keywords are blocked
+    6. The block_graph_modification flag works correctly
+    7. Legitimate read queries still execute successfully
 
     Note: Neither Neptune Graph (Analytics) nor Neptune DB support a read-only
     query execution parameter. Write protection relies on application-level
     Cypher validation. For stronger server-side guarantees, restrict the IAM
-    role to neptune-graph:ReadDataViaQuery or neptune-db:ReadDataViaQuery.
+    role to neptune-graph:ReadDataViaQuery and neptune-graph:GetGraph, or to
+    neptune-db:ReadDataViaQuery and neptune-db:GetGraphSummary.
     """
 
     @property
@@ -115,8 +118,8 @@ class CypherSafetyCheck(IntegrationTestBase):
                 "Cannot execute query" in result[0]
             )
 
-        # Comment markers inside string literals
-        quoted_comment_queries = [
+        # Writes hidden by comment markers, line ends or comment separators
+        hidden_write_queries = [
             "WITH '//' AS a CREATE (n:MaliciousNode {name: 'evil'}) RETURN a",
             "WITH '/*' AS a CREATE (n:MaliciousNode {name: 'evil'}) WITH a, '*/' AS b RETURN a, b",
             "WITH '//' AS a CRE/**/ATE (n:MaliciousNode {name: 'evil'}) RETURN a",
@@ -128,9 +131,9 @@ class CypherSafetyCheck(IntegrationTestBase):
             "WITH 1 AS a/**/CREATE (n:MaliciousNode {name: 'evil'}) RETURN a",
             "MATCH (n:Victim) WITH n/**/SET n.pwned = true",
         ]
-        for q in quoted_comment_queries:
+        for q in hidden_write_queries:
             result = retriever.retrieve(q)
-            bypass_results[f"quoted:{q[:30]}"] = (
+            bypass_results[f"hidden:{q[:30]}"] = (
                 "Cannot execute query" in result[0]
             )
 
@@ -142,6 +145,16 @@ class CypherSafetyCheck(IntegrationTestBase):
         for q in call_queries:
             result = retriever.retrieve(q)
             bypass_results[f"call:{q[:30]}"] = (
+                "Cannot execute query" in result[0]
+            )
+
+        insert_queries = [
+            "INSERT (n:MaliciousNode {name: 'evil'})",
+            "MATCH (a) INSERT (a)-[:R]->(b:MaliciousNode {name: 'evil'})",
+        ]
+        for q in insert_queries:
+            result = retriever.retrieve(q)
+            bypass_results[f"insert:{q[:30]}"] = (
                 "Cannot execute query" in result[0]
             )
 
@@ -196,14 +209,14 @@ class CypherSafetyCheck(IntegrationTestBase):
                 ]
                 self.assertTrue(all(comment_blocked))
 
-            def test_quoted_comment_bypass_blocked(self):
-                """Writes after a comment marker inside a string literal are blocked"""
-                quoted_blocked = [
+            def test_hidden_write_blocked(self):
+                """Writes hidden by comment markers, line ends or comment separators are blocked"""
+                hidden_blocked = [
                     v for k, v in self._bypass_results.items()
-                    if k.startswith("quoted:")
+                    if k.startswith("hidden:")
                 ]
-                self.assertEqual(len(quoted_blocked), len(quoted_comment_queries))
-                self.assertTrue(all(quoted_blocked))
+                self.assertEqual(len(hidden_blocked), len(hidden_write_queries))
+                self.assertTrue(all(hidden_blocked))
 
             def test_call_bypass_blocked(self):
                 """CALL/APOC procedures are blocked"""
@@ -212,6 +225,15 @@ class CypherSafetyCheck(IntegrationTestBase):
                     if k.startswith("call:")
                 ]
                 self.assertTrue(all(call_blocked))
+
+            def test_insert_blocked(self):
+                """INSERT, the GQL alternative to CREATE, is blocked"""
+                insert_blocked = [
+                    v for k, v in self._bypass_results.items()
+                    if k.startswith("insert:")
+                ]
+                self.assertEqual(len(insert_blocked), len(insert_queries))
+                self.assertTrue(all(insert_blocked))
 
             def test_unicode_bypass_blocked(self):
                 """Unicode lookalike keywords are blocked"""

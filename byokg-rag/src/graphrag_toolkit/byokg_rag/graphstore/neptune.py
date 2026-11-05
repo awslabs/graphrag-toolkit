@@ -618,7 +618,8 @@ class NeptuneDBGraphStore(BaseNeptuneGraphStore):
                 "Neptune DB does not support read-only query execution. "
                 "Write protection relies solely on application-level Cypher validation. "
                 "For stronger guarantees, restrict the IAM role "
-                "to neptune-db:ReadDataViaQuery (see the byokg-rag README)."
+                "to neptune-db:ReadDataViaQuery and neptune-db:GetGraphSummary "
+                "(see the byokg-rag README)."
             )
             self._read_only_warned = True
         response = self.neptune_data_client.execute_open_cypher_query(

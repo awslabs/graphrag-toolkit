@@ -1256,6 +1256,7 @@ class TestNeptuneReadOnlyPropagation:
             result = store.execute_query("MATCH (n) RETURN n", read_only=True)
 
         assert 'does not support read-only' in caplog.text
+        assert 'neptune-db:GetGraphSummary' in caplog.text
         assert result == [{'n': 'test'}]
         mock_neptune_data_client.execute_open_cypher_query.assert_called_once()
 

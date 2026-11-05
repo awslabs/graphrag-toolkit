@@ -607,7 +607,20 @@ class TestGraphQueryRetrieverIsQuerySafe:
         retriever = GraphQueryRetriever(graph_store=mock_graph_store)
         
         assert retriever.is_query_safe("DROP INDEX my_index") is False
-    
+
+    @pytest.mark.parametrize("query", [
+        "INSERT (n:Pwned {name: 'evil'})",
+        "MATCH (a) INSERT (a)-[:R]->(b:Pwned)",
+        "insert (n:Pwned)",
+        "IN/**/SERT (n:Pwned)",
+        "MATCH (a)/**/INSERT (b:Pwned)",
+    ])
+    def test_is_query_safe_insert_query(self, mock_graph_store, query):
+        """Verify INSERT, the GQL alternative to CREATE, is blocked."""
+        retriever = GraphQueryRetriever(graph_store=mock_graph_store)
+
+        assert retriever.is_query_safe(query) is False
+
     def test_is_query_safe_case_insensitive(self, mock_graph_store):
         """Verify query safety check is case insensitive."""
         retriever = GraphQueryRetriever(graph_store=mock_graph_store)
@@ -682,6 +695,16 @@ class TestGraphQueryRetrieverIsQuerySafe:
         retriever = GraphQueryRetriever(graph_store=mock_graph_store)
 
         assert retriever.is_query_safe(query) is True
+
+    def test_is_query_safe_backslash_in_backticks_refuses_commented_keyword(self, mock_graph_store):
+        """Verify the backtick-escape scan refuses a read whose keyword sits in a comment.
+
+        With backslash escapes inside backticks, `\\` never closes, so the
+        comment after it is scanned as text. The query is refused.
+        """
+        retriever = GraphQueryRetriever(graph_store=mock_graph_store)
+
+        assert retriever.is_query_safe("MATCH (n:`\\`) /* SET */ RETURN n") is False
 
     def test_retrieve_quoted_comment_marker_not_executed(self, mock_graph_store):
         """Verify a write hidden behind a quoted comment marker never reaches the store."""
@@ -781,7 +804,7 @@ class TestGraphQueryRetrieverRetrieve:
 # Strategies for generating obfuscated Cypher queries
 
 # Modification keywords that should be blocked
-MODIFICATION_KEYWORDS = ['CREATE', 'DELETE', 'MERGE', 'SET', 'REMOVE', 'DROP', 'DETACH']
+MODIFICATION_KEYWORDS = ['CREATE', 'DELETE', 'MERGE', 'SET', 'REMOVE', 'DROP', 'DETACH', 'INSERT']
 
 # Strategy: Comment bypass - insert /**/ within modification keywords
 @st.composite
@@ -1016,6 +1039,7 @@ def substring_keyword_queries(draw):
         'MERGED_FROM', 'EMERGED', 'SUBMERGED',
         'DROPPED_ITEMS', 'BACKDROP', 'RAINDROP',
         'DETACHED_FROM', 'DETACHMENT_DATE',
+        'INSERTED_AT', 'REINSERTED', 'INSERTION_ORDER',
     ]))
 
     # Build a read-only query using the identifier as a property or label
