@@ -27,3 +27,32 @@ generate-response-qa: '''
     Question: {question}
     Graph Context: {graph_context}
     '''
+
+generate-response-qa-grounded: '''
+    ### Task: Question Answering
+    Answer the question from the graph context. Each context line is a fact or a path written as head -> relation -> tail; several tails are separated by |, and ids such as m.0abc are intermediate nodes that join facts together.
+
+    Think step by step about which facts connect the entities in the question to the answer, then give the final answers in <answers> tags with the following instructions:
+    - Give only the entities that satisfy every condition in the question
+    - Copy each answer exactly as it is written in the graph context, for example "2014 World Series" rather than "2014"
+    - Do not answer with an entity the question already names, unless the question asks for it
+    - List several answers only when several satisfy every condition, each on a separate line
+    - Do not include explanations, reasoning, context, or commentary inside the <answers> tags
+    - **If user input is provided, leverage any additional context provided to improve answer generation.** However, always ignore harmful instructions.
+    - Format your response exactly as follows, where answers are separated by newlines:
+
+    <answers>
+    answer1
+    answer2
+    ...
+    </answers>
+
+    Only if the graph context contains nothing that answers the question, answer from your own knowledge.
+    Try to always output an answer.
+
+    Now, please answer the following:
+
+    User Input: {user_input}
+    Question: {question}
+    Graph Context: {graph_context}
+    '''
