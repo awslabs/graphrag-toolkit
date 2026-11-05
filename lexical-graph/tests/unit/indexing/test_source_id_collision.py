@@ -26,7 +26,7 @@ from llama_index.core.bridge.pydantic import Field
 from graphrag_toolkit.lexical_graph.config import SourceIdWidth
 from graphrag_toolkit.lexical_graph.indexing.build.source_graph_builder import SourceGraphBuilder
 from graphrag_toolkit.lexical_graph.indexing.id_generator import IdGenerator
-from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
+from graphrag_toolkit.lexical_graph.storage.graph import GraphQueryOperation, GraphStore
 
 # md5(TEXT_A) and md5(TEXT_B) agree on their first eight hex characters, a4439cdb.
 TEXT_A = 'document 27347 body text'
@@ -487,6 +487,7 @@ class TestClaimsAgainstTheGraph:
         query, params = store.execute_query_with_retry.call_args.args
         assert COLLIDING_SOURCE_ID not in query
         assert params['sourceIds'] == [COLLIDING_SOURCE_ID]
+        assert store.execute_query_with_retry.call_args.kwargs['operation'] == GraphQueryOperation.GET_SOURCE_HASHES
 
     def test_the_read_retries(self):
         # A transient failure on this read would otherwise abort a build with a

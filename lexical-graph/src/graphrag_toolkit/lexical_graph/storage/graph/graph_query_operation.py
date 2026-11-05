@@ -12,6 +12,10 @@ class GraphQueryOperation(str, Enum):
     """
 
     UPSERT_SOURCE = 'upsert_source'
+    GET_SOURCE_ID_WIDTH = 'get_source_id_width'
+    SAMPLE_SOURCE_IDS = 'sample_source_ids'
+    RECORD_SOURCE_ID_WIDTH = 'record_source_id_width'
+    GET_SOURCE_HASHES = 'get_source_hashes'
     UPSERT_CHUNK = 'upsert_chunk'
     LINK_CHUNK_SOURCE = 'link_chunk_source'
     LINK_CHUNKS = 'link_chunks'

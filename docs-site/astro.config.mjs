@@ -64,6 +64,7 @@ export default defineConfig({
                 { label: 'Neptune Database', slug: 'lexical-graph/graph-store-neptune-db' },
                 { label: 'Neo4j', slug: 'lexical-graph/graph-store-neo4j' },
                 { label: 'FalkorDB', slug: 'lexical-graph/graph-store-falkor-db' },
+                { label: 'RDF / SPARQL Stores', slug: 'lexical-graph/graph-store-sparql' },
               ],
             },
             {
