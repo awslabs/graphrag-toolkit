@@ -389,28 +389,62 @@ class GraphQueryRetriever(GRetriever):
         # Keywords that indicate graph modification operations
         modification_keywords = [
             'CREATE', 'MERGE', 'SET', 'REMOVE', 'DELETE', 'DETACH DELETE',
-            'DROP', 'DETACH', 'CALL'
+            'DROP', 'DETACH', 'CALL', 'INSERT'
         ]
         
-        # Strip inline comments (/* ... */) and single-line comments (// ...)
-        query = re.sub(r'/\*.*?\*/', '', graph_query, flags=re.DOTALL)
-        query = re.sub(r'//[^\n]*', '', query)
-        
-        # Normalize Unicode characters (NFKC collapses fullwidth and lookalikes to ASCII)
-        query = unicodedata.normalize('NFKC', query)
-        
-        # Normalize query for case-insensitive matching
-        query_upper = query.upper()
-        
-        # Check for each blocked keyword
-        for keyword in modification_keywords:
-            # Use word boundaries to avoid matching keywords within other words
-            # re.MULTILINE flag ensures proper handling of multi-line queries with \n
-            pattern = r'\b' + re.escape(keyword) + r'\b'
-            if re.search(pattern, query_upper, re.MULTILINE):
-                return False
-        
+        # Neo4j reads a backslash inside backticks as a literal character, and a
+        # /* */ comment as a token separator. Neptune documents neither, so check
+        # every combination: CRE/**/ATE is caught with no separator, SET/**/n
+        # with a space.
+        for backtick_escapes, sep in ((False, ''), (True, ''), (False, ' '), (True, ' ')):
+            stripped = self._strip_comments(graph_query, backtick_escapes, sep)
+            query_upper = unicodedata.normalize('NFKC', stripped).upper()
+
+            for keyword in modification_keywords:
+                pattern = r'\b' + re.escape(keyword) + r'\b'
+                if re.search(pattern, query_upper, re.MULTILINE):
+                    return False
+
         return True
+
+    @staticmethod
+    def _strip_comments(graph_query: str, backtick_escapes: bool = False, sep: str = '') -> str:
+        """
+        Remove // and /* */ comments outside quoted strings and backtick identifiers.
+
+        A comment marker inside quotes or backticks is left alone. A backslash
+        escapes the next character inside quotes, and inside backticks only when
+        backtick_escapes is True. A // comment runs to the next \\r or \\n.
+        A /* */ comment is replaced with sep, so with the default CRE/**/ATE
+        becomes CREATE and with ' ' SET/**/n becomes SET n. An unterminated /*
+        is left in place.
+        """
+        result = []
+        i, n = 0, len(graph_query)
+        while i < n:
+            char = graph_query[i]
+            if char in ('\'', '"', '`'):
+                escapes = char != '`' or backtick_escapes
+                end = i + 1
+                while end < n and graph_query[end] != char:
+                    end += 2 if escapes and graph_query[end] == '\\' else 1
+                result.append(graph_query[i:end + 1])
+                i = end + 1
+            elif graph_query.startswith('//', i):
+                ends = [p for p in (graph_query.find('\n', i), graph_query.find('\r', i)) if p != -1]
+                i = min(ends) if ends else n
+            elif graph_query.startswith('/*', i):
+                end = graph_query.find('*/', i + 2)
+                if end == -1:
+                    result.append(graph_query[i:])
+                    i = n
+                else:
+                    i = end + 2
+                    result.append(sep)
+            else:
+                result.append(char)
+                i += 1
+        return ''.join(result)
 
     def retrieve(self, graph_query: str, return_answers=False, **kwargs):
         """

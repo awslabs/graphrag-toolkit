@@ -93,9 +93,11 @@ NOTE: Additional permissions may be required for Neptune Database (`neptune-db:*
 
 ## Security: Query Modification Protection
 
-The `GraphQueryRetriever` blocks Cypher queries containing modification keywords (CREATE, MERGE, DELETE, SET, REMOVE, DROP, DETACH, CALL) to protect against LLM-generated or user-supplied queries that could modify graph data.
+The `GraphQueryRetriever` blocks Cypher queries containing modification keywords (CREATE, INSERT, MERGE, DELETE, SET, REMOVE, DROP, DETACH, CALL) to protect against LLM-generated or user-supplied queries that could modify graph data. The check removes comments outside string literals before matching, so a comment marker inside a string literal can't hide a keyword (`'//' CREATE ...`), and a comment between or inside keywords (`CRE/**/ATE`, `SET/**/n`) can't hide a keyword either.
 
-**Neptune Database and Neptune Analytics (Graph)**: Neither service supports a server-enforced `readOnly` query parameter. Write protection relies solely on application-level Cypher validation (`is_query_safe()`). For stronger server-side guarantees, restrict the IAM role to `neptune-db:ReadDataViaQuery` (Neptune DB) or `neptune-graph:ReadDataViaQuery` (Neptune Analytics).
+Treat `is_query_safe()` as defence in depth. A keyword check has to match each engine's lexer exactly. To block writes, rely on a read-only IAM role, described below.
+
+**Neptune Database and Neptune Analytics (Graph)**: Neither query API accepts a `readOnly` parameter, so the only write protection inside the toolkit is the keyword check (`is_query_safe()`). The store logs a warning the first time it runs a query with `read_only=True`. To have the server enforce read-only access, give the client role `neptune-db:ReadDataViaQuery` and `neptune-db:GetGraphSummary` (Neptune DB) or `neptune-graph:ReadDataViaQuery` and `neptune-graph:GetGraph` (Neptune Analytics), without `WriteDataViaQuery` or `DeleteDataViaQuery`. Writes then fail with `AccessDeniedException`.
 
 ## Performance
 
