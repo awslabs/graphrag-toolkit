@@ -93,6 +93,7 @@ The `lexical.short` suite includes security tests that run against the live envi
 - `lexical_graph_pgvector_safety.LexicalGraphPGVectorInjectionSafety` — SQL parameter binding at the PGVector store.
 - `lexical_graph_cypher_safety.LexicalGraphEmptyOrFilterSafety` — an empty OR metadata filter matches nothing at the graph store.
 - `lexical_graph_pgvector_safety.LexicalGraphPGVectorEmptyOrFilter` — an empty OR metadata filter matches nothing at the PGVector store.
+- `lexical_graph_prompt_safety.LexicalGraphPromptInjectionSafety` — proposition extraction ignores instructions injected into a chunk. It calls Bedrock directly, runs on `TEST_EXTRACTION_LLM` and on the default extraction model when they differ, and needs no graph or vector store.
 
 The PGVector tests need a Postgres-backed vector store (`VECTOR_STORE` set to a `postgres://` or `postgresql://` connection). Run them with a PostgreSQL env-type, which the CloudFormation template provisions along with the `VECTOR_STORE` value:
 
