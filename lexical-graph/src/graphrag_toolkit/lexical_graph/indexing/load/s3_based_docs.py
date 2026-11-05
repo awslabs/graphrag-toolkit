@@ -469,6 +469,11 @@ class CompletionMarkers:
         declaring what was stored. A run that dies never reaches here, so its
         sources stay open and their prefixes incomplete. A lost chunk raises out
         of the stream, so it ends a run the same way.
+
+        The end of the stream is the end of every source in it, even when one
+        handler stages several runs: extract() chunks whole documents and hands
+        the handler one stream per run, so no source continues into a later one.
+        Each stream ends only the sources it opened.
         """
         for source_id, (root_path, chunk_ids) in self._open_sources.items():
             logger.debug(f'Ending a source left open by the stream [source: {source_id}, chunks: {len(chunk_ids)}]')

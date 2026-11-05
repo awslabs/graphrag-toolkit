@@ -2050,7 +2050,7 @@ class TestASourceLeftOpenWhenTheStreamEnds:
             nodes.append(node)
         return SourceDocument(nodes=nodes, final_part=final_part)
 
-    def _markers_written(self, uploader, docs, on_put=None, expect_failure=False):
+    def _markers_written(self, stager, docs, on_put=None, expect_failure=False):
         puts = {}
 
         def record(**kwargs):
@@ -2062,11 +2062,12 @@ class TestASourceLeftOpenWhenTheStreamEnds:
             config.extraction_num_threads_per_worker = 2
             config.s3 = MagicMock()
             config.s3.put_object = record
+            stage = stager.accept if isinstance(stager, S3BasedDocs) else stager.upload
             if expect_failure:
                 with pytest.raises(RuntimeError, match='upload failed'):
-                    list(uploader.upload(docs))
+                    list(stage(docs))
             else:
-                list(uploader.upload(docs))
+                list(stage(docs))
 
         return [json.loads(body) for key, body in puts.items() if is_completion_marker(key)]
 
@@ -2125,6 +2126,16 @@ class TestASourceLeftOpenWhenTheStreamEnds:
         closing = [marker for marker in markers if marker['final']]
         assert len(closing) == 1
         assert closing[0]['source_chunk_ids'] == ['c3', 'c4']
+
+    def test_one_handler_staging_two_runs_ends_each_runs_own_sources(self):
+        handler = S3BasedDocs(region='us-east-1', bucket_name='b', key_prefix='p', collection_id='c')
+        handler._uploader = S3ChunkUploader(bucket_name='b', collection_prefix='p/c')
+
+        first = self._markers_written(handler, [self._doc('src-1', ['c1', 'c2'], final_part=False)])
+        second = self._markers_written(handler, [self._doc('src-2', ['c3'], final_part=False)])
+
+        assert [m['source_chunk_ids'] for m in first if m['final']] == [['c1', 'c2']]
+        assert [m['source_chunk_ids'] for m in second if m['final']] == [['c3']]
 
     def test_a_source_already_ended_is_not_ended_twice(self):
         uploader = S3ChunkUploader(bucket_name='b', collection_prefix='p/c')
