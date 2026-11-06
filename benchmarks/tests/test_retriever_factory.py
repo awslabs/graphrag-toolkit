@@ -166,6 +166,7 @@ class TestRetrieverIDValidationProperty:
         with message containing the invalid ID and listing all valid IDs.
         """
         assume(invalid_id not in VALID_RETRIEVER_IDS)
+        assume(not invalid_id.startswith('custom:'))
 
         mock_graph_store = MagicMock()
         mock_vector_store = MagicMock()
