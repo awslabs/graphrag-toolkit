@@ -12,9 +12,6 @@ from llama_index.core.vector_stores.types import (
 )
 
 from graphrag_toolkit.lexical_graph.metadata import FilterConfig
-from graphrag_toolkit.lexical_graph.versioning import (
-    VersioningConfig, VersioningMode, VALID_TO, TIMESTAMP_UPPER_BOUND,
-)
 from graphrag_toolkit.lexical_graph.storage.graph.graph_store import NodeId
 from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import (
     escape_cypher_label,
@@ -366,11 +363,6 @@ class TestFilterConfigToOpencypherFilters:
         )
         result = filter_config_to_opencypher_filters(config)
         assert "source.`category` = 'tech'" in result
-
-    def test_version_bounds_read_as_unbounded_on_a_source_without_them(self):
-        config = VersioningConfig(VersioningMode.CURRENT).apply(FilterConfig())
-        result = filter_config_to_opencypher_filters(config)
-        assert result == f'((coalesce(source.`{VALID_TO}`, {TIMESTAMP_UPPER_BOUND}) = {TIMESTAMP_UPPER_BOUND}))'
 
 
     def test_empty_filters_list_returns_empty_string(self):

@@ -190,6 +190,15 @@ class TestTopKMetadataFilter:
         assert 'topK: 35,' in cypher
         assert 'LIMIT 7\n' in cypher
 
+    def test_an_operator_the_query_cannot_express_raises(self):
+        idx, client = _make_index('chunk')
+        unsupported = MetadataFilter(key='category', value=['tech'], operator=FilterOperator.IN)
+
+        with pytest.raises(ValueError, match='Unsupported filter operator'):
+            _run_top_k(idx, client, filter_config=_filter_config(unsupported))
+
+        client.execute_query.assert_not_called()
+
     def test_filter_that_matches_nothing_runs_no_query(self):
         idx, client = _make_index('chunk')
 
