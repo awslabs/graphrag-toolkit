@@ -7,8 +7,15 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 from llama_index.core.schema import QueryBundle, TextNode
+from llama_index.core.vector_stores.types import (
+    FilterCondition,
+    FilterOperator,
+    MetadataFilter,
+    MetadataFilters,
+)
 
 from graphrag_toolkit.lexical_graph import TenantId
+from graphrag_toolkit.lexical_graph.metadata import FilterConfig
 from graphrag_toolkit.lexical_graph.storage.graph.graph_store import NodeId
 from graphrag_toolkit.lexical_graph.storage.graph.neptune_graph_stores import (
     NeptuneAnalyticsClient,
@@ -19,6 +26,16 @@ from graphrag_toolkit.lexical_graph.storage.vector.neptune_vector_indexes import
     NeptuneAnalyticsVectorIndexFactory,
     NeptuneIndex,
 )
+
+
+def _filter_config(*filters, condition=FilterCondition.AND):
+    return FilterConfig(source_filters=MetadataFilters(
+        filters=list(filters), condition=condition,
+    ))
+
+
+def _eq(key, value):
+    return MetadataFilter(key=key, value=value, operator=FilterOperator.EQ)
 
 
 def _stub_neptune_client():
@@ -116,6 +133,15 @@ class TestAddEmbeddings:
         assert client.execute_query_with_retry.call_count == 2
 
 
+def _run_top_k(idx, client, top_k=5, filter_config=None):
+    """Run top_k against the stubbed client and return the call's args."""
+    client.execute_query.return_value = []
+    with patch.object(mod, 'to_embedded_query') as q:
+        q.return_value = QueryBundle(query_str='q', embedding=[0.1, 0.2])
+        idx.top_k(QueryBundle('q'), top_k=top_k, filter_config=filter_config)
+    return client.execute_query.call_args
+
+
 class TestTopK:
     def test_returns_result_field_from_each_row(self):
         idx, client = _make_index('chunk')
@@ -127,6 +153,61 @@ class TestTopK:
             q.return_value = QueryBundle(query_str='q', embedding=[0.1, 0.2])
             result = idx.top_k(QueryBundle('q'), top_k=2)
         assert [r['chunk']['chunkId'] for r in result] == ['c1', 'c2']
+
+
+class TestTopKMetadataFilter:
+    @pytest.mark.parametrize('index_name', ['chunk', 'statement', 'topic'])
+    def test_filter_reaches_the_query_after_the_match_that_binds_source(self, index_name):
+        idx, client = _make_index(index_name)
+
+        cypher = _run_top_k(idx, client, filter_config=_filter_config(_eq('category', 'tech'))).args[0]
+
+        assert "WHERE ((source.`category` = 'tech'))" in cypher
+        assert cypher.index(f'MATCH {idx.path}') < cypher.index('WHERE')
+
+    def test_filtered_query_over_fetches_then_limits_to_top_k(self):
+        idx, client = _make_index('chunk')
+
+        cypher = _run_top_k(idx, client, top_k=5, filter_config=_filter_config(_eq('category', 'tech'))).args[0]
+
+        assert 'topK: 25,' in cypher
+        assert 'ORDER BY result.score ASC LIMIT 5\n' in cypher
+
+    @pytest.mark.parametrize('filter_config', [None, FilterConfig()])
+    def test_unfiltered_query_asks_for_top_k_and_adds_no_where(self, filter_config):
+        idx, client = _make_index('chunk')
+
+        cypher = _run_top_k(idx, client, top_k=5, filter_config=filter_config).args[0]
+
+        assert 'topK: 5,' in cypher
+        assert 'WHERE' not in cypher
+
+    def test_top_k_given_as_a_string_is_read_as_a_number(self):
+        idx, client = _make_index('chunk')
+
+        cypher = _run_top_k(idx, client, top_k='7', filter_config=_filter_config(_eq('category', 'tech'))).args[0]
+
+        assert 'topK: 35,' in cypher
+        assert 'LIMIT 7\n' in cypher
+
+    def test_an_operator_the_query_cannot_express_raises(self):
+        idx, client = _make_index('chunk')
+        unsupported = MetadataFilter(key='category', value=['tech'], operator=FilterOperator.IN)
+
+        with pytest.raises(ValueError, match='Unsupported filter operator'):
+            _run_top_k(idx, client, filter_config=_filter_config(unsupported))
+
+        client.execute_query.assert_not_called()
+
+    def test_filter_that_matches_nothing_runs_no_query(self):
+        idx, client = _make_index('chunk')
+
+        with patch.object(mod, 'to_embedded_query') as embed:
+            result = idx.top_k(QueryBundle('q'), top_k=5, filter_config=_filter_config(condition=FilterCondition.OR))
+
+        assert result == []
+        embed.assert_not_called()
+        client.execute_query.assert_not_called()
 
 
 class TestGetEmbeddings:

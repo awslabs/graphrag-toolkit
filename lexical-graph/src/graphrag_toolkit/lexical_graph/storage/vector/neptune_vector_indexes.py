@@ -20,7 +20,11 @@ from llama_index.core.schema import QueryBundle
 logger = logging.getLogger(__name__)
 
 NEPTUNE_ANALYTICS = 'neptune-graph://'
-    
+
+# Metadata filters run after the vector search, so filtered queries over-fetch by
+# this multiple of top_k, then keep the first top_k rows that pass the filter.
+FILTER_OVER_FETCH_FACTOR = 5
+
 class NeptuneAnalyticsVectorIndexFactory(VectorIndexFactoryMethod):
     def try_create(self, index_names:List[str], vector_index_info:str, **kwargs) -> List[VectorIndex]:
         """
@@ -214,16 +218,26 @@ class NeptuneIndex(VectorIndex):
 
         Returns:
             List[Dict]: A list of results where each result dictionary contains a 'score' field
-                and the fields specified in self.return_fields.
+                and the fields specified in self.return_fields. The filter applies to the
+                nearest FILTER_OVER_FETCH_FACTOR * top_k nodes, so a filtered call can return
+                fewer than top_k results when the matches lie further out.
         """
+        if filter_config and filter_config.matches_nothing:
+            return []
+
         query_bundle = to_embedded_query(query_bundle, self.embed_model)
         tenant_specific_label = self.tenant_id.format_label(self.label).replace('`', '')
+
+        top_k = max(1, int(top_k))
+        metadata_filters = filter_config_to_opencypher_filters(filter_config)
+        where_clause = f'WHERE {metadata_filters}' if metadata_filters else ''
+        vector_top_k = top_k * FILTER_OVER_FETCH_FACTOR if metadata_filters else top_k
 
         cypher = f'''
         CALL neptune.algo.vectors.topK.byEmbedding(
             {{   
                 embedding: {query_bundle.embedding},
-                topK: {top_k},
+                topK: {vector_top_k},
                 concurrency: 4,
                 vertexFilter:  {{equals:{{property: "~label", value: "{tenant_specific_label}"}}}}
             }}
@@ -231,6 +245,7 @@ class NeptuneIndex(VectorIndex):
         YIELD node, score       
         WITH node as {self.index_name}, score ORDER BY score ASC
         MATCH {self.path}
+        {where_clause}
         RETURN {{
             score: score,
             {self.return_fields}

@@ -293,7 +293,7 @@ class TestParseMetadataFiltersRecursive:
             condition=FilterCondition.AND,
         )
         result = parse_metadata_filters_recursive(filters)
-        assert 'source.`title`.toLower() CONTAINS' in result
+        assert 'toLower(source.`title`) CONTAINS' in result
         assert "'hello'" in result
 
     def test_nested_filters_recurse(self):
