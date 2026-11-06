@@ -2126,6 +2126,31 @@ class TestASourceLeftOpenWhenTheStreamEnds:
         assert len(closing) == 1
         assert closing[0]['source_chunk_ids'] == ['c3', 'c4']
 
+    @pytest.mark.parametrize('uploader_type', [S3ChunkUploader, S3DocUploader])
+    def test_a_stream_that_stopped_part_way_leaves_its_sources_for_no_later_stream(self, uploader_type):
+        uploader = uploader_type(bucket_name='b', collection_prefix='p/c')
+        puts = {}
+
+        def record(**kwargs):
+            puts[kwargs['Key']] = kwargs['Body'].decode('UTF-8')
+
+        with patch(f'{S3_BASED_DOCS}.GraphRAGConfig') as config:
+            config.extraction_num_threads_per_worker = 2
+            config.s3 = MagicMock()
+            config.s3.put_object = record
+            stopped = uploader.upload([
+                self._doc('src-1', ['c1', 'c2'], final_part=False),
+                self._doc('src-9', ['z1']),
+            ])
+            next(stopped)
+            stopped.close()
+            list(uploader.upload([self._doc('src-2', ['x1'])]))
+
+        markers = [json.loads(body) for key, body in puts.items() if is_completion_marker(key)]
+        declared = {chunk_id for marker in markers if marker['final'] for chunk_id in marker['source_chunk_ids']}
+        assert not {'c1', 'c2'} & declared
+        assert 'x1' in declared
+
     def test_a_source_already_ended_is_not_ended_twice(self):
         uploader = S3ChunkUploader(bucket_name='b', collection_prefix='p/c')
 

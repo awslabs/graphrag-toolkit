@@ -469,6 +469,11 @@ class CompletionMarkers:
         declaring what was stored. A run that dies never reaches here, so its
         sources stay open and their prefixes incomplete. A lost chunk raises out
         of the stream, so it ends a run the same way.
+
+        Each stream ends only the sources it opened. upload() forgets any source
+        an earlier stream left open, so a stream that stopped part way leaves its
+        prefixes incomplete rather than having the next stream through the same
+        handler declare them whole.
         """
         for source_id, (root_path, chunk_ids) in self._open_sources.items():
             logger.debug(f'Ending a source left open by the stream [source: {source_id}, chunks: {len(chunk_ids)}]')
@@ -845,6 +850,8 @@ class S3DocUploader(ConfiguredThreadCount, EncryptedPut, CompletionMarkers, Base
 
     def upload(self, source_documents: List[SourceDocument]):
 
+        self._open_sources.clear()
+
         if not self._queue:
             self._queue = queue.Queue(QUEUE_SIZE)
 
@@ -1042,6 +1049,8 @@ class S3ChunkUploader(ConfiguredThreadCount, EncryptedPut, CompletionMarkers, Ba
         A lost chunk raises, as it does for the JSONL format, so the document is
         neither yielded nor marked and a restart stages it again.
         """
+        self._open_sources.clear()
+
         s3_client = GraphRAGConfig.s3
         num_threads = self._num_threads()
 
