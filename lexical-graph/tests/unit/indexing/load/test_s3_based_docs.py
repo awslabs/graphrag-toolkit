@@ -2050,7 +2050,7 @@ class TestASourceLeftOpenWhenTheStreamEnds:
             nodes.append(node)
         return SourceDocument(nodes=nodes, final_part=final_part)
 
-    def _markers_written(self, stager, docs, on_put=None, expect_failure=False):
+    def _markers_written(self, uploader, docs, on_put=None, expect_failure=False):
         puts = {}
 
         def record(**kwargs):
@@ -2062,12 +2062,11 @@ class TestASourceLeftOpenWhenTheStreamEnds:
             config.extraction_num_threads_per_worker = 2
             config.s3 = MagicMock()
             config.s3.put_object = record
-            stage = stager.accept if isinstance(stager, S3BasedDocs) else stager.upload
             if expect_failure:
                 with pytest.raises(RuntimeError, match='upload failed'):
-                    list(stage(docs))
+                    list(uploader.upload(docs))
             else:
-                list(stage(docs))
+                list(uploader.upload(docs))
 
         return [json.loads(body) for key, body in puts.items() if is_completion_marker(key)]
 
@@ -2127,15 +2126,30 @@ class TestASourceLeftOpenWhenTheStreamEnds:
         assert len(closing) == 1
         assert closing[0]['source_chunk_ids'] == ['c3', 'c4']
 
-    def test_one_handler_staging_two_runs_ends_each_runs_own_sources(self):
-        handler = S3BasedDocs(region='us-east-1', bucket_name='b', key_prefix='p', collection_id='c')
-        handler._uploader = S3ChunkUploader(bucket_name='b', collection_prefix='p/c')
+    @pytest.mark.parametrize('uploader_type', [S3ChunkUploader, S3DocUploader])
+    def test_a_stream_that_stopped_part_way_leaves_its_sources_for_no_later_stream(self, uploader_type):
+        uploader = uploader_type(bucket_name='b', collection_prefix='p/c')
+        puts = {}
 
-        first = self._markers_written(handler, [self._doc('src-1', ['c1', 'c2'], final_part=False)])
-        second = self._markers_written(handler, [self._doc('src-2', ['c3'], final_part=False)])
+        def record(**kwargs):
+            puts[kwargs['Key']] = kwargs['Body'].decode('UTF-8')
 
-        assert [m['source_chunk_ids'] for m in first if m['final']] == [['c1', 'c2']]
-        assert [m['source_chunk_ids'] for m in second if m['final']] == [['c3']]
+        with patch(f'{S3_BASED_DOCS}.GraphRAGConfig') as config:
+            config.extraction_num_threads_per_worker = 2
+            config.s3 = MagicMock()
+            config.s3.put_object = record
+            stopped = uploader.upload([
+                self._doc('src-1', ['c1', 'c2'], final_part=False),
+                self._doc('src-9', ['z1']),
+            ])
+            next(stopped)
+            stopped.close()
+            list(uploader.upload([self._doc('src-2', ['x1'])]))
+
+        markers = [json.loads(body) for key, body in puts.items() if is_completion_marker(key)]
+        declared = {chunk_id for marker in markers if marker['final'] for chunk_id in marker['source_chunk_ids']}
+        assert not {'c1', 'c2'} & declared
+        assert 'x1' in declared
 
     def test_a_source_already_ended_is_not_ended_twice(self):
         uploader = S3ChunkUploader(bucket_name='b', collection_prefix='p/c')
