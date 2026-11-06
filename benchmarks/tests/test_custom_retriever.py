@@ -3,18 +3,18 @@
 
 """
 Tests for custom (external) retriever support: custom:<module_path> IDs in the
-retriever factory, config recording in metrics_summary.json, and the example
-custom retriever. All offline; no AWS calls.
+retriever factory and config recording in metrics_summary.json. All offline;
+no AWS calls.
 """
 
 import json
-from concurrent.futures import Future
 from unittest.mock import MagicMock, patch
 
 import pytest
 
 from benchmarks.utils.custom_retriever import (
     CustomRetriever,
+    custom_retriever_kwargs_for,
     get_module_path,
     is_custom_retriever_id,
     read_custom_retriever_kwargs,
@@ -68,6 +68,23 @@ class NotARetriever:
         pass
 
 
+class NonCallableQuery:
+    query = 'not a method'
+
+    def __init__(self, **kwargs):
+        pass
+
+
+class BadConfigRetriever(FakeRetrieverWithoutConfig):
+    def get_config(self):
+        return ['not', 'a', 'dict']
+
+
+class NanConfigRetriever(FakeRetrieverWithoutConfig):
+    def get_config(self):
+        return {'threshold': float('nan')}
+
+
 NOT_CALLABLE = 42
 
 
@@ -82,7 +99,7 @@ class TestCustomRetrieverId:
         assert not is_custom_retriever_id('traversal')
 
     def test_module_path_is_extracted(self):
-        assert get_module_path('custom:pkg.mod.Cls') == 'pkg.mod.Cls'
+        assert get_module_path('custom:pkg.mod.Cls') == ('pkg.mod', 'Cls')
 
     @pytest.mark.parametrize('retriever_id', ['custom:', 'custom:NoModule', 'custom:.Cls', 'custom:pkg.'])
     def test_malformed_custom_id_raises(self, retriever_id):
@@ -132,6 +149,18 @@ class TestCreateCustomRetriever:
         with pytest.raises(TypeError, match='query'):
             create_query_engine(custom_id('NotARetriever'), MagicMock(), MagicMock())
 
+    def test_non_callable_query_raises(self):
+        with pytest.raises(TypeError, match='callable query'):
+            create_query_engine(custom_id('NonCallableQuery'), MagicMock(), MagicMock())
+
+    def test_bad_get_config_fails_before_any_question_runs(self):
+        with pytest.raises(TypeError, match='must return a dict'):
+            create_query_engine(custom_id('BadConfigRetriever'), MagicMock(), MagicMock())
+
+    def test_nan_in_get_config_fails_before_any_question_runs(self):
+        with pytest.raises(ValueError, match='NaN'):
+            create_query_engine(custom_id('NanConfigRetriever'), MagicMock(), MagicMock())
+
 
 class TestCustomRetrieverConfig:
 
@@ -179,6 +208,14 @@ class TestCustomRetrieverConfig:
         assert config['hyperparameters']['top_k'] == 3
         assert isinstance(config['hyperparameters']['reranker'], str)
 
+    def test_non_string_keys_are_recorded_as_strings(self):
+        retriever = FakeRetriever(None, None)
+        retriever.get_config = lambda: {1: 'one', 'nested': {2.5: 'two and a half'}}
+
+        config = get_retriever_config(custom_id('FakeRetriever'), query_engine=retriever)
+
+        assert config['hyperparameters'] == {'1': 'one', 'nested': {'2.5': 'two and a half'}}
+
     def test_get_config_must_return_a_dict(self):
         retriever = FakeRetriever(None, None)
         retriever.get_config = lambda: ['not', 'a', 'dict']
@@ -223,6 +260,13 @@ class TestReadCustomRetrieverKwargs:
         with pytest.raises(ValueError, match=message):
             read_custom_retriever_kwargs()
 
+    def test_builtin_retrievers_never_read_the_variable(self, monkeypatch):
+        monkeypatch.setenv(self.ENV, '{not json')
+
+        assert custom_retriever_kwargs_for('traversal') is None
+        with pytest.raises(ValueError, match='not valid JSON'):
+            custom_retriever_kwargs_for(custom_id('FakeRetriever'))
+
 
 class TestRunBenchmarkQueryWithCustomRetriever:
     """The query stage benchmarks a custom retriever and records its config."""
@@ -264,80 +308,3 @@ class TestRunBenchmarkQueryWithCustomRetriever:
         assert summary['retriever_config']['constructor_kwargs'] == {'top_k': 9}
         assert summary['retriever_config']['hyperparameters'] == {'top_k': 9, 'strategy': 'fake'}
 
-
-class TestPrefetchTraversalExample:
-    """The example custom retriever in benchmarks/examples (PR #221 as a custom retriever)."""
-
-    EXAMPLE = 'benchmarks.examples.prefetch_traversal_retriever'
-
-    @pytest.mark.parametrize('name, prefetch', [('PrefetchTraversalRetriever', True), ('without_prefetch', False)])
-    def test_example_resolves_and_records_config(self, name, prefetch):
-        from benchmarks.examples import prefetch_traversal_retriever as example
-
-        with patch.object(example, 'LexicalGraphQueryEngine') as mock_engine:
-            retriever = create_query_engine(
-                f'custom:{self.EXAMPLE}.{name}', MagicMock(), MagicMock(),
-                custom_retriever_kwargs={'vss_top_k': 10},
-            )
-
-        assert isinstance(retriever, CustomRetriever)
-        expected_class = (example.PrefetchingCompositeTraversalBasedRetriever if prefetch
-                          else example.CompositeTraversalBasedRetriever)
-        assert mock_engine.call_args.kwargs['retriever'] is expected_class
-        assert mock_engine.call_args.kwargs['vss_top_k'] == 10
-        assert retriever.get_config() == {'prefetch': prefetch, 'vss_top_k': 10}
-
-    def test_prefetched_chunks_are_used_once_then_inline_search_resumes(self):
-        from benchmarks.examples.prefetch_traversal_retriever import PrefetchedChunkBasedSearch
-
-        future = Future()
-        future.set_result([{'chunk': {'chunkId': 'c1'}}, {'chunk': {'chunkId': 'c2'}}])
-        search = PrefetchedChunkBasedSearch(MagicMock(), MagicMock(), prefetched_chunks=future)
-
-        with patch(
-            'graphrag_toolkit.lexical_graph.retrieval.retrievers.chunk_based_search.get_diverse_vss_elements',
-            return_value=[{'chunk': {'chunkId': 'inline'}}],
-        ) as inline_search:
-            assert search.get_start_node_ids(MagicMock()) == ['c1', 'c2']
-            inline_search.assert_not_called()
-            assert search.get_start_node_ids(MagicMock()) == ['inline']
-            inline_search.assert_called_once()
-
-    def _composite(self, **kwargs):
-        from benchmarks.examples.prefetch_traversal_retriever import PrefetchingCompositeTraversalBasedRetriever
-        return PrefetchingCompositeTraversalBasedRetriever(
-            MagicMock(), MagicMock(), query_decomposition=MagicMock(), **kwargs
-        )
-
-    def test_chunk_search_is_handed_the_prefetch_during_retrieve(self):
-        from benchmarks.examples import prefetch_traversal_retriever as example
-
-        composite = self._composite()
-        original = composite.weighted_retrievers
-        seen = {}
-
-        def fake_base_retrieve(self, query_bundle):
-            seen['retrievers'] = [wr.retriever for wr in self.weighted_retrievers]
-            return ['nodes']
-
-        with patch.object(example, 'get_diverse_vss_elements', return_value=[{'chunk': {'chunkId': 'c1'}}]) as vss, \
-             patch.object(example.CompositeTraversalBasedRetriever, '_retrieve', fake_base_retrieve):
-            assert composite._retrieve('query') == ['nodes']
-
-        vss.assert_called_once()
-        chunk_factory, other = seen['retrievers']
-        assert chunk_factory.func is example.PrefetchedChunkBasedSearch
-        assert chunk_factory.keywords['prefetched_chunks'].result() == [{'chunk': {'chunkId': 'c1'}}]
-        assert other is original[1].retriever
-        assert composite.weighted_retrievers is original
-
-    def test_no_prefetch_when_deriving_subqueries(self):
-        from benchmarks.examples import prefetch_traversal_retriever as example
-
-        composite = self._composite(derive_subqueries=True)
-
-        with patch.object(example, 'get_diverse_vss_elements') as vss, \
-             patch.object(example.CompositeTraversalBasedRetriever, '_retrieve', return_value=['nodes']):
-            assert composite._retrieve('query') == ['nodes']
-
-        vss.assert_not_called()

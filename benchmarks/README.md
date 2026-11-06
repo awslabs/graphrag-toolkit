@@ -370,18 +370,6 @@ The module must be importable on the notebook: put it under `benchmarks/` (which
 
 Runs with the same `BENCHMARK_RETRIEVER` write to the same directory, so to compare two configurations of one retriever, expose each as its own class or factory function rather than changing only `BENCHMARK_CUSTOM_RETRIEVER_KWARGS`.
 
-`benchmarks/examples/prefetch_traversal_retriever.py` is a worked example. It packages the chunk-search prefetch proposed in PR #221 as a custom retriever, with a baseline that has the prefetch turned off:
-
-```bash
-for RETRIEVER in \
-    custom:benchmarks.examples.prefetch_traversal_retriever.without_prefetch \
-    custom:benchmarks.examples.prefetch_traversal_retriever.PrefetchTraversalRetriever; do
-  export BENCHMARK_RETRIEVER=$RETRIEVER
-  export TESTS="benchmark_query.<Dataset>BenchmarkQuery benchmark_evaluate.<Dataset>BenchmarkEvaluate"
-  python test_suite.py
-done
-```
-
 ### Step 3: Copy results to S3
 
 After all retrievers complete, copy results from the notebook to S3:

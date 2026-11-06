@@ -20,7 +20,7 @@ must satisfy :class:`CustomRetriever`.
 import importlib
 import json
 import logging
-from typing import Any, Callable, Dict, Optional, Protocol, runtime_checkable
+from typing import Any, Callable, Dict, Optional, Protocol, Tuple, runtime_checkable
 
 from benchmarks.utils.benchmark_env import env_string
 
@@ -60,8 +60,8 @@ def is_custom_retriever_id(retriever_id: str) -> bool:
     return retriever_id.startswith(CUSTOM_RETRIEVER_PREFIX)
 
 
-def get_module_path(retriever_id: str) -> str:
-    """Return the ``<module>.<attribute>`` part of a ``custom:`` retriever ID.
+def get_module_path(retriever_id: str) -> Tuple[str, str]:
+    """Split a ``custom:<module>.<attribute>`` retriever ID into ``(module, attribute)``.
 
     Raises:
         ValueError: If ``retriever_id`` is not of the form ``custom:<module>.<attribute>``.
@@ -74,7 +74,11 @@ def get_module_path(retriever_id: str) -> str:
             f"Expected '{CUSTOM_RETRIEVER_PREFIX}<module>.<attribute>', "
             f"e.g. '{CUSTOM_RETRIEVER_PREFIX}my_package.my_module.MyRetriever'."
         )
-    return module_path
+    return module_name, attribute
+
+
+def _dotted_path(retriever_id: str) -> str:
+    return '.'.join(get_module_path(retriever_id))
 
 
 def load_custom_retriever_factory(retriever_id: str) -> Callable[..., Any]:
@@ -85,15 +89,14 @@ def load_custom_retriever_factory(retriever_id: str) -> Callable[..., Any]:
             or the attribute is not callable.
         ImportError: If the module cannot be imported.
     """
-    module_path = get_module_path(retriever_id)
-    module_name, _, attribute = module_path.rpartition('.')
+    module_name, attribute = get_module_path(retriever_id)
 
     module = importlib.import_module(module_name)
     factory = getattr(module, attribute, None)
     if factory is None:
         raise ValueError(f"Module '{module_name}' has no attribute '{attribute}' (from '{retriever_id}').")
     if not callable(factory):
-        raise ValueError(f"'{module_path}' is not a class or callable (from '{retriever_id}').")
+        raise ValueError(f"'{module_name}.{attribute}' is not a class or callable (from '{retriever_id}').")
     return factory
 
 
@@ -106,22 +109,29 @@ def create_custom_retriever(
 ) -> CustomRetriever:
     """Instantiate the custom retriever named by ``retriever_id``.
 
+    ``get_config()``, if the retriever defines it, is called once here so that a
+    bad config fails before any question is run rather than after the whole run.
+
     Raises:
-        TypeError: If the constructed object does not satisfy :class:`CustomRetriever`.
+        TypeError: If the constructed object has no callable ``query`` method, or
+            its ``get_config()`` does not return a dict.
+        ValueError: If ``get_config()`` returns values that can't be written as
+            valid JSON (NaN or infinity).
     """
     factory = load_custom_retriever_factory(retriever_id)
-    logger.info(f"Creating custom retriever '{get_module_path(retriever_id)}' with kwargs {retriever_kwargs or {}}")
+    logger.info(f"Creating custom retriever '{_dotted_path(retriever_id)}' with kwargs {retriever_kwargs or {}}")
     retriever = factory(
         graph_store=graph_store,
         vector_store=vector_store,
         llm=llm,
         **(retriever_kwargs or {}),
     )
-    if not isinstance(retriever, CustomRetriever):
+    if not callable(getattr(retriever, 'query', None)):
         raise TypeError(
-            f"'{get_module_path(retriever_id)}' returned a {type(retriever).__name__}, which has no "
-            f"query(question) method. See benchmarks.utils.custom_retriever.CustomRetriever."
+            f"'{_dotted_path(retriever_id)}' returned a {type(retriever).__name__}, which has no "
+            f"callable query(question) method. See benchmarks.utils.custom_retriever.CustomRetriever."
         )
+    _get_hyperparameters(retriever)
     return retriever
 
 
@@ -140,22 +150,14 @@ def get_custom_retriever_config(
     JSON-serializable are recorded as strings rather than failing the run.
     """
     constructor_kwargs = dict(retriever_kwargs or {})
-    get_config = getattr(retriever, 'get_config', None)
-
-    if callable(get_config):
-        hyperparameters = get_config()
-        if not isinstance(hyperparameters, dict):
-            raise TypeError(
-                f"{type(retriever).__name__}.get_config() must return a dict, "
-                f"got {type(hyperparameters).__name__}."
-            )
-    else:
+    hyperparameters = _get_hyperparameters(retriever)
+    if hyperparameters is None:
         hyperparameters = constructor_kwargs
 
     return _to_json_safe({
         'retriever_id': retriever_id,
         'response_llm': response_llm,
-        'module_path': get_module_path(retriever_id),
+        'module_path': _dotted_path(retriever_id),
         'constructor_kwargs': constructor_kwargs,
         'hyperparameters': hyperparameters,
     })
@@ -184,5 +186,45 @@ def read_custom_retriever_kwargs(name: str = CUSTOM_RETRIEVER_KWARGS_ENV) -> Opt
     return kwargs
 
 
+def custom_retriever_kwargs_for(retriever_id: str) -> Optional[Dict[str, Any]]:
+    """Read ``BENCHMARK_CUSTOM_RETRIEVER_KWARGS`` for a ``custom:`` retriever only.
+
+    Built-in retrievers never read the variable, so a malformed value left in the
+    environment can't break their runs.
+    """
+    return read_custom_retriever_kwargs() if is_custom_retriever_id(retriever_id) else None
+
+
+def _get_hyperparameters(retriever: Any) -> Optional[Dict[str, Any]]:
+    """Return ``retriever.get_config()`` as JSON-safe data, or None if it has no ``get_config``."""
+    get_config = getattr(retriever, 'get_config', None)
+    if not callable(get_config):
+        return None
+    config = get_config()
+    if not isinstance(config, dict):
+        raise TypeError(
+            f"{type(retriever).__name__}.get_config() must return a dict, "
+            f"got {type(config).__name__}."
+        )
+    return _to_json_safe(config)
+
+
+def _stringify_keys(value: Any) -> Any:
+    if isinstance(value, dict):
+        return {str(key): _stringify_keys(item) for key, item in value.items()}
+    if isinstance(value, (list, tuple)):
+        return [_stringify_keys(item) for item in value]
+    return value
+
+
 def _to_json_safe(value: Dict[str, Any]) -> Dict[str, Any]:
-    return json.loads(json.dumps(value, default=str))
+    """Make ``value`` writable as strict JSON.
+
+    Keys become strings and other non-serializable values are recorded as
+    strings. NaN and infinity are rejected, since ``metrics_summary.json`` would
+    otherwise contain bare ``NaN`` that strict parsers such as ``jq`` refuse.
+    """
+    try:
+        return json.loads(json.dumps(_stringify_keys(value), default=str, allow_nan=False))
+    except ValueError as e:
+        raise ValueError(f'Retriever config contains NaN or infinity, which is not valid JSON: {e}') from None

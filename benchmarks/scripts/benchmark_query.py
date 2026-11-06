@@ -18,7 +18,7 @@ from benchmarks.utils.token_tracker import TokenTrackingLLMCache, extract_token_
 from benchmarks.utils.metrics_summary import compute_metrics_summary
 from benchmarks.utils.hop_classifier import classify_hop
 from benchmarks.utils.agentic_retriever import AgenticRetriever, AgenticQueryResult
-from benchmarks.utils.custom_retriever import read_custom_retriever_kwargs
+from benchmarks.utils.custom_retriever import custom_retriever_kwargs_for
 
 from graphrag_toolkit.lexical_graph import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.storage import GraphStoreFactory, VectorStoreFactory
@@ -297,7 +297,7 @@ class CuadBenchmarkQuery(IntegrationTestBase):
             retriever_id=retriever_id,
             agentic_max_iterations=agentic_max_iterations,
             byokg_max_iterations=byokg_max_iterations,
-            custom_retriever_kwargs=read_custom_retriever_kwargs(),
+            custom_retriever_kwargs=custom_retriever_kwargs_for(retriever_id),
         )
 
 
@@ -333,7 +333,7 @@ class ConcurrentQaBenchmarkQuery(IntegrationTestBase):
             retriever_id=retriever_id,
             agentic_max_iterations=agentic_max_iterations,
             byokg_max_iterations=byokg_max_iterations,
-            custom_retriever_kwargs=read_custom_retriever_kwargs(),
+            custom_retriever_kwargs=custom_retriever_kwargs_for(retriever_id),
         )
 
 
@@ -367,7 +367,7 @@ class WikihowBenchmarkQuery(IntegrationTestBase):
             retriever_id=retriever_id,
             agentic_max_iterations=agentic_max_iterations,
             byokg_max_iterations=byokg_max_iterations,
-            custom_retriever_kwargs=read_custom_retriever_kwargs(),
+            custom_retriever_kwargs=custom_retriever_kwargs_for(retriever_id),
         )
 
 
@@ -402,5 +402,5 @@ class PgaBenchmarkQuery(IntegrationTestBase):
             retriever_id=retriever_id,
             agentic_max_iterations=agentic_max_iterations,
             byokg_max_iterations=byokg_max_iterations,
-            custom_retriever_kwargs=read_custom_retriever_kwargs(),
+            custom_retriever_kwargs=custom_retriever_kwargs_for(retriever_id),
         )
