@@ -471,7 +471,9 @@ class LexicalGraphIndex():
                 increment_llm_processed_documents and increment_llm_processed_chunks calls at
                 document boundaries.
             run_id (Optional[str]): Id that makes the run restartable. Extracting again with the
-                same run_id takes up where the interrupted run stopped. Needs run_plan_store.
+                same run_id takes up where the interrupted run stopped. Needs run_plan_store, and
+                handler=run_plan_store.staging_handler(run_id) so a restart also skips the
+                documents already staged.
             run_plan_store (Optional[RunPlanStore]): Where the run records its plan and the Bedrock
                 batch job it submitted for each partition, so a restart can reuse them.
             **kwargs (Any): Additional keyword arguments for pipeline configurations or overrides.
