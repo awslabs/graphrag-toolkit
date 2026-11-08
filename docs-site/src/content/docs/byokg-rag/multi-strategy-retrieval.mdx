@@ -45,6 +45,8 @@ if "entity-extraction" in artifacts:
 **Entity linking strategies:**
 - **Fuzzy string matching** - Default approach using string similarity
 - **Semantic similarity** - Optional direct query linking using embeddings
+- **Hybrid matching** - Optional `HybridEntityMatcher`, fusing fuzzy and embedding candidates per mention
+- **Lines that list several entities** - Optional `KGLinker(split_entity_lines=True)` also links each part of the line, and `FuzzyStringIndex(keep_verbatim_names=True)` links the names written in a mention that fuzzy matching leaves unlinked
 - **Exact matching** - Direct node ID or label matching
 
 #### Agentic triplet retrieval

@@ -2,9 +2,28 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import os
+import re
 from typing import List, Tuple, Dict, Any, Optional
 
-from ..utils import parse_response, load_yaml, validate_input_length
+from ..utils import parse_response, load_yaml, validate_input_length, can_name_an_entity
+
+# A comma between digits groups thousands ("9,153,489"); it doesn't separate entities.
+_SEPARATOR = re.compile(r";|(?<!\d),|,(?!\d)")
+
+
+def _with_parts(lines: List[str]) -> List[str]:
+    """Each line, followed by its comma- or semicolon-separated parts when it has several.
+
+    Parts with no letter (years, numbers) and name suffixes are not linked on their own.
+    """
+    out = []
+    for line in lines:
+        out.append(line)
+        parts = [part.strip() for part in _SEPARATOR.split(line) if part.strip()]
+        if len(parts) > 1:
+            out.extend(part for part in parts if can_name_an_entity(part) and part not in out)
+    return out
+
 
 class KGLinker:
     """
@@ -15,7 +34,8 @@ class KGLinker:
     def __init__(self,
             llm_generator=None, 
             graph_store=None,
-            max_input_tokens: int = 32000
+            max_input_tokens: int = 32000,
+            split_entity_lines: bool = False
             ):
         """
         Initialize the KGLinker.
@@ -24,10 +44,16 @@ class KGLinker:
             llm_generator: Language model for generating responses
             graph_store: Component that provides access to graph data
             max_input_tokens: Maximum allowed tokens for inputs (default: 32000)
+            split_entity_lines: Also return the parts of an extracted entity line that
+                lists several entities ("Buffyverse, Australia, language"), each right
+                after the line. The line itself is kept, so a name containing a comma
+                still links whole. A comma between digits doesn't split, and parts with
+                no letter or that are name suffixes ("Jr.") are left out. Off by default.
         """
         if graph_store is None:
             raise ValueError("graph_store is required. Pass a graph store instance.")
         self.max_input_tokens = max_input_tokens
+        self.split_entity_lines = split_entity_lines
         self.AVAILABLE_TASKS = {
             "entity-extraction": {"pattern": r"<entities>(.*?)</entities>"},
             "path-extraction": {"pattern": r"<paths>(.*?)</paths>"},
@@ -130,6 +156,8 @@ class KGLinker:
         for task in self.tasks:
             pattern = self.AVAILABLE_TASKS[task]['pattern']
             artifacts[task] = parse_response(llm_response, pattern)
+        if self.split_entity_lines and artifacts.get("entity-extraction"):
+            artifacts["entity-extraction"] = _with_parts(artifacts["entity-extraction"])
         return artifacts
 
 

@@ -142,8 +142,11 @@ The KG linker coordinates LLM-based entity extraction and linking for multi-stra
 | `llm_generator` | BaseGenerator | Required | Language model for entity extraction | `BedrockGenerator(...)` |
 | `graph_store` | GraphStore | Required | Graph store for schema and entity information | `NeptuneAnalyticsGraphStore(...)` |
 | `max_input_tokens` | int | 32000 | Maximum tokens allowed in user input and question | 16000 |
+| `split_entity_lines` | bool | False | Also return each comma- or semicolon-separated part of an extracted entity line that lists several entities, right after the line | `True` |
 
 The `max_input_tokens` parameter prevents excessively long inputs that could cause LLM errors or high costs.
+
+With `split_entity_lines=True`, "Buffyverse, Australia, language" is linked as the line and as each of its three parts. The line itself is kept, so a name containing a comma ("Washington, D.C.") still links whole, though its parts are linked too. A comma between digits ("9,153,489") doesn't split, and parts with no letter ("1982") or that are name suffixes ("Jr.", "Inc.") aren't linked alone. Only entity extraction is split, not draft answers or paths. To use it, pass the linker to `ByoKGQueryEngine(kg_linker=...)`.
 
 ### CypherKGLinker
 
