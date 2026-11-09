@@ -627,8 +627,8 @@ class LexicalGraphIndex():
                 LLM increment calls during extraction, then graph/vector increment calls
                 during build.
             run_id (Optional[str]): Id that makes the extraction restartable. Running again with
-                the same run_id takes up where the interrupted run stopped, reusing the Bedrock
-                batch jobs it submitted. Needs run_plan_store. The plan does not yet cover the
+                the same run_id reuses the Bedrock batch jobs the interrupted run submitted; the
+                build stage runs over every document again. Needs run_plan_store. The plan does not yet cover the
                 auto-tuned batch extraction path; a run with a run_id and auto_tune=True raises a
                 ValueError.
             run_plan_store (Optional[RunPlanStore]): Where the run records its plan and the Bedrock
