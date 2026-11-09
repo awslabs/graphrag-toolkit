@@ -195,9 +195,10 @@ class TestAutoTunedRounds:
             components=[make_batch_extractor(auto_tune=True, max_batch_size=100)],
             num_workers=3,
         )
-        docs = make_source_documents(500)
+        docs = make_source_documents(600)
         _, rounds = self._run(pipeline, docs)
 
+        assert len(rounds) == 2
         for r in rounds:
             for bucket in r:
                 assert len(bucket) <= 100
@@ -278,8 +279,8 @@ class TestAutoTunedRounds:
     def test_tail_not_merged_when_it_would_exceed_bedrock_max(self):
         # The tail-merge must never grow a job past Bedrock's hard per-job limit.
         # BEDROCK_MAX_BATCH_SIZE is patched low so the guard fires with small data:
-        # held last job (250) + tail (60) = 310 > patched max (260), so the tail
-        # is left as its own round instead of being merged.
+        # re-splitting the held round (250) with the tail (60) gives one job of
+        # 310 > patched max (260), so the tail is left as its own round.
         pipeline = ExtractionPipeline(
             components=[make_batch_extractor(auto_tune=True, max_batch_size=250)],
             num_workers=1,
@@ -293,6 +294,52 @@ class TestAutoTunedRounds:
 
         assert [[len(j) for j in r] for r in rounds] == [[250], [60]]  # not merged
         assert sum(len(b) for r in rounds for b in r) == 310
+
+    @pytest.mark.parametrize("bedrock_max, expected", [
+        (270, [[265, 265, 265, 265]]),
+        (260, [[250, 250, 250, 250], [60]]),
+    ])
+    def test_bedrock_max_guard_checks_the_largest_re_split_job(self, bedrock_max, expected):
+        pipeline = ExtractionPipeline(
+            components=[make_batch_extractor(auto_tune=True, max_batch_size=250)],
+            num_workers=4,
+        )
+        docs = make_multichunk_documents([1000, 60])
+        with patch(
+            "graphrag_toolkit.lexical_graph.indexing.extract.extraction_pipeline.BEDROCK_MAX_BATCH_SIZE",
+            bedrock_max,
+        ):
+            _, rounds = self._run(pipeline, docs)
+
+        assert [[len(j) for j in r] for r in rounds] == expected
+
+    def test_tail_above_the_minimum_merges_when_jobs_stay_under_split_nodes_limit(self):
+        # The full round drains at doc 4 ([750]*4) and leaves a 1001-chunk
+        # tail. Re-split together the largest job is 1001 < 1000 + 100, which
+        # split_nodes still submits as one job, so one round replaces two.
+        pipeline = ExtractionPipeline(
+            components=[make_batch_extractor(auto_tune=True, max_batch_size=1000)],
+            num_workers=4,
+        )
+        docs = make_multichunk_documents([1000, 1000, 1000, 1001])
+        _, rounds = self._run(pipeline, docs)
+
+        assert [[len(j) for j in r] for r in rounds] == [[1001, 1000, 1000, 1000]]
+
+    @pytest.mark.parametrize("tail, expected", [
+        (150, [[1038, 1038, 1037, 1037]]),
+        (396, [[1099, 1099, 1099, 1099]]),
+        (397, [[1000, 1000, 1000, 1000], [133, 132, 132]]),
+    ])
+    def test_tail_merges_only_while_the_largest_job_is_under_max_plus_minimum(self, tail, expected):
+        pipeline = ExtractionPipeline(
+            components=[make_batch_extractor(auto_tune=True, max_batch_size=1000)],
+            num_workers=4,
+        )
+        docs = make_multichunk_documents([4000, tail])
+        _, rounds = self._run(pipeline, docs)
+
+        assert [[len(j) for j in r] for r in rounds] == expected
 
     def test_oversized_document_split_across_rounds(self):
         # A single document with more chunks than a whole round's capacity
@@ -327,19 +374,18 @@ class TestAutoTunedRounds:
         assert [[len(j) for j in r] for r in rounds] == [[30]]
         assert len(output) == 30
 
-    def test_above_min_tail_is_its_own_round(self):
-        # A final remainder >= BEDROCK_MIN is submitted as its own round (not
-        # merged), since it is a valid standalone batch job.
+    def test_tail_is_its_own_round_when_merging_reaches_split_nodes_limit(self):
+        # Re-splitting the full round (400) with the 200-chunk tail gives jobs
+        # of 300 = max_batch_size + BEDROCK_MIN, which split_nodes would cut in
+        # two, so the tail is submitted as its own round.
         pipeline = ExtractionPipeline(
-            components=[make_batch_extractor(auto_tune=True, max_batch_size=100)],
+            components=[make_batch_extractor(auto_tune=True, max_batch_size=200)],
             num_workers=2,
         )
-        docs = make_source_documents(300)  # 200 + 100; tail of 100 is >= BEDROCK_MIN
+        docs = make_source_documents(600)
         output, rounds = self._run(pipeline, docs)
-        assert len(rounds) == 2
-        assert sorted(len(b) for b in rounds[0]) == [100, 100]
-        assert [len(b) for b in rounds[1]] == [100]
-        assert len(output) == 300
+        assert [[len(b) for b in r] for r in rounds] == [[200, 200], [100, 100]]
+        assert len(output) == 600
 
     def test_consolidation_round_never_emits_sub_min_job(self):
         # num_workers=3, max_batch_size=100 -> capacity 300. 210 chunks fill no
@@ -392,11 +438,11 @@ class TestAutoTunedRounds:
         docs = make_multichunk_documents([70] * 20)  # 1400 chunks
         _, rounds = self._run(pipeline, docs)
 
-        assert sum(len(job) for r in rounds for job in r) == 1400
+        assert [[len(job) for job in r] for r in rounds] == [[187, 187, 186], [280, 280, 280]]
         for r in rounds:
             sizes = [len(job) for job in r]
             assert max(sizes) - min(sizes) <= 1, rounds
-            assert 100 <= min(sizes) and max(sizes) <= 200, rounds
+            assert 100 <= min(sizes) and max(sizes) < 200 + 100, rounds
 
     def test_final_round_uses_every_worker(self):
         pipeline = ExtractionPipeline(

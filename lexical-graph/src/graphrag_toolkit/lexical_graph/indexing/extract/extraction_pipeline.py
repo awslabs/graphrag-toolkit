@@ -745,8 +745,9 @@ class ExtractionPipeline():
         and accumulates the chunks in a :class:`BucketFiller`. When a round fills
         (``num_workers x max_batch_size`` chunks), it is sliced contiguously into
         jobs of ``max_batch_size`` and submitted. At input exhaustion the
-        remainder is split evenly and submitted as a final round, or merged into
-        the previous round if it is below the Bedrock minimum. The user-supplied ``batch_size``
+        remainder is re-split with the previous round when every job stays under
+        ``max_batch_size + BEDROCK_MIN_BATCH_SIZE``, or else split evenly and
+        submitted as a final round. The user-supplied ``batch_size``
         (if any) acts only as an upper bound on documents consumed per round.
 
         Args:
@@ -814,10 +815,10 @@ class ExtractionPipeline():
                     finished.add(source_id)
             return finished
 
-        # Submission is deferred by one round (`held`) so a final remainder below
-        # BEDROCK_MIN_BATCH_SIZE can be re-split with the previous round rather
-        # than emitted as an undersized round that falls back to slow
-        # synchronous extraction.
+        # Submission is deferred by one round (`held`) so the final remainder can
+        # be re-split with the previous round rather than waiting for a round of
+        # its own, or falling back to slow synchronous extraction when it is
+        # below BEDROCK_MIN_BATCH_SIZE.
         held = {'jobs': None, 'docs': 0}
 
         def emit_jobs(round_jobs, trigger, docs_consumed):
@@ -897,16 +898,15 @@ class ExtractionPipeline():
         # Drain the final remainder and reconcile with the held round.
         final_jobs = filler.drain_round()
         final_docs = round_state['docs']
-        final_total = sum(len(j) for j in final_jobs)
 
-        if held['jobs'] is not None and 0 < final_total < BEDROCK_MIN_BATCH_SIZE:
-            # Re-split the held round together with the undersized tail, so the
-            # tail is batched rather than routed to synchronous extraction and the
-            # round's jobs stay even. They may then exceed max_batch_size. If the
-            # largest would exceed Bedrock's hard per-job record limit, the tail
-            # is left as its own (sync-fallback) round.
+        if held['jobs'] is not None and final_jobs:
+            # Re-split the held round together with the tail, so the tail needs
+            # no round of its own. The jobs may then exceed max_batch_size, but
+            # only while split_nodes still submits each as one job and Bedrock's
+            # hard per-job record limit holds.
             merged = filler.split([node for job in held['jobs'] + final_jobs for node in job])
-            if len(merged[0]) <= BEDROCK_MAX_BATCH_SIZE:
+            largest = max(len(j) for j in merged)
+            if largest < max_batch_size + BEDROCK_MIN_BATCH_SIZE and largest <= BEDROCK_MAX_BATCH_SIZE:
                 held['jobs'] = merged
                 held['docs'] += final_docs
                 final_jobs = []
