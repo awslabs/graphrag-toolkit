@@ -464,7 +464,8 @@ class CompletionMarkers:
         chunks it has already extracted. The end of the stream ends those,
         declaring what was stored. A run that dies never reaches here, so its
         sources stay open and their prefixes incomplete. A lost chunk raises out
-        of the stream, so it ends a run the same way.
+        of the stream, so it ends a run the same way. open_sources is the calling
+        stream's own, so a stream that stopped part way leaves its sources open.
         """
         for source_id, (root_path, chunk_ids) in open_sources.items():
             logger.debug(f'Ending a source left open by the stream [source: {source_id}, chunks: {len(chunk_ids)}]')
@@ -655,7 +656,6 @@ class S3DocUploader(ConfiguredThreadCount, EncryptedPut, CompletionMarkers, Base
     s3_encryption_key_id:Optional[str]=None
     deterministic_document_key:bool=False
     _semaphore:Semaphore = PrivateAttr(default=None)
-    _queue:queue.Queue = PrivateAttr(default=None)
 
     def _doc_suffix(self, nodes:List[TextNode]) -> str:
         """
@@ -771,15 +771,15 @@ class S3DocUploader(ConfiguredThreadCount, EncryptedPut, CompletionMarkers, Base
             raise
 
         finally:
-            self._queue.put(count)
+            queue.put(count)
 
-    def _upload_batch(self, source_docs_batch:List[SourceDocument], open_sources:Dict):
+    def _upload_batch(self, source_docs_batch:List[SourceDocument], open_sources:Dict, results:queue.Queue):
 
         producer_errors:List[BaseException] = []
 
         def publish():
             try:
-                self._doc_publisher(source_documents=source_docs_batch, queue=self._queue, open_sources=open_sources)
+                self._doc_publisher(source_documents=source_docs_batch, queue=results, open_sources=open_sources)
             except BaseException as e:
                 producer_errors.append(e)
 
@@ -795,7 +795,7 @@ class S3DocUploader(ConfiguredThreadCount, EncryptedPut, CompletionMarkers, Base
 
         while target_count is None or count < target_count:
             try:
-                item = self._queue.get(timeout=QUEUE_POLL_SECONDS)
+                item = results.get(timeout=QUEUE_POLL_SECONDS)
                 if isinstance(item, int):
                     target_count = item
                 else:
@@ -804,7 +804,7 @@ class S3DocUploader(ConfiguredThreadCount, EncryptedPut, CompletionMarkers, Base
                         failures.append(item.cause)
                     else:
                         yield item
-                self._queue.task_done()
+                results.task_done()
             except queue.Empty:
                 # A producer that died before putting its count would otherwise
                 # keep the consumer here for the rest of the run. Reaching here
@@ -840,9 +840,7 @@ class S3DocUploader(ConfiguredThreadCount, EncryptedPut, CompletionMarkers, Base
     def upload(self, source_documents: List[SourceDocument]):
 
         open_sources = {}
-
-        if not self._queue:
-            self._queue = queue.Queue(QUEUE_SIZE)
+        results = queue.Queue(QUEUE_SIZE)
 
         if not self._semaphore:
             self._semaphore = Semaphore(BATCH_SIZE)
@@ -858,7 +856,7 @@ class S3DocUploader(ConfiguredThreadCount, EncryptedPut, CompletionMarkers, Base
             
             if len(source_docs_batch) == 1000:
 
-                for return_value in self._upload_batch(source_docs_batch, open_sources):
+                for return_value in self._upload_batch(source_docs_batch, open_sources, results):
                     total += 1
                     yield return_value
             
@@ -867,7 +865,7 @@ class S3DocUploader(ConfiguredThreadCount, EncryptedPut, CompletionMarkers, Base
                 
         if source_docs_batch:
 
-            for return_value in self._upload_batch(source_docs_batch, open_sources):
+            for return_value in self._upload_batch(source_docs_batch, open_sources, results):
                     total += 1
                     yield return_value
         

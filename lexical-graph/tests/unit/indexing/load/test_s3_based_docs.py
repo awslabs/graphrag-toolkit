@@ -1176,14 +1176,13 @@ class TestStagingSurfacesUploadFailures:
     def test_a_dead_producer_does_not_hang_the_consumer(self):
         uploader = S3DocUploader(bucket_name='b', collection_prefix='p', num_threads=2)
         uploader._semaphore = Semaphore(2)
-        uploader._queue = queue.Queue()
         consumed, finished = [], threading.Event()
 
         error = []
 
         def consume():
             try:
-                consumed.extend(uploader._upload_batch(self._docs(1), {}))
+                consumed.extend(uploader._upload_batch(self._docs(1), {}, queue.Queue()))
             except BaseException as e:
                 error.append(e)
             finished.set()
@@ -2193,6 +2192,42 @@ class TestASourceLeftOpenWhenTheStreamEnds:
         declared = {chunk_id for marker in markers if marker['final'] for chunk_id in marker['source_chunk_ids']}
         assert not {'c1', 'c2'} & declared
         assert 'x1' in declared
+
+    def test_a_publisher_still_running_after_its_stream_stopped_reports_nothing_to_a_later_stream(self):
+        # The stopped stream's last two uploads land, and its publisher
+        # finishes, before the next stream's own upload does.
+        uploader = S3DocUploader(bucket_name='b', collection_prefix='p/c')
+        publish = S3DocUploader._doc_publisher
+        release_stopped, stopped_finished = threading.Event(), threading.Event()
+        publishers = []
+
+        def track(self, *args, **kwargs):
+            publishers.append(1)
+            first = len(publishers) == 1
+            try:
+                return publish(self, *args, **kwargs)
+            finally:
+                if first:
+                    stopped_finished.set()
+
+        def hold(**kwargs):
+            if '/src-b/' in kwargs['Key'] or '/src-c/' in kwargs['Key']:
+                assert release_stopped.wait(timeout=8)
+            if '/src-x/' in kwargs['Key']:
+                assert stopped_finished.wait(timeout=8)
+
+        with patch(f'{S3_BASED_DOCS}.GraphRAGConfig') as config, \
+             patch.object(S3DocUploader, '_doc_publisher', new=track):
+            config.extraction_num_threads_per_worker = 4
+            config.s3 = MagicMock()
+            config.s3.put_object = hold
+            stopped = uploader.upload([self._doc(s, [f'{s}-1']) for s in ('src-a', 'src-b', 'src-c')])
+            next(stopped)
+            stopped.close()
+            release_stopped.set()
+            staged = list(uploader.upload([self._doc('src-x', ['src-x-1'])]))
+
+        assert [doc.source_id() for doc in staged] == ['src-x']
 
     def test_a_source_already_ended_is_not_ended_twice(self):
         uploader = S3ChunkUploader(bucket_name='b', collection_prefix='p/c')
