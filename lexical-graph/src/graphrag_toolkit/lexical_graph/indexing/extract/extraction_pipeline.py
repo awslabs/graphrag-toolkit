@@ -746,7 +746,8 @@ class ExtractionPipeline():
         (``num_workers x max_batch_size`` chunks), it is sliced contiguously into
         jobs of ``max_batch_size`` and submitted. At input exhaustion the
         remainder is re-split with the previous round when every job stays under
-        ``max_batch_size + BEDROCK_MIN_BATCH_SIZE``, or else split evenly and
+        ``max_batch_size + BEDROCK_MIN_BATCH_SIZE`` and within
+        ``BEDROCK_MAX_BATCH_SIZE``, or else split evenly and
         submitted as a final round. The user-supplied ``batch_size``
         (if any) acts only as an upper bound on documents consumed per round.
 
