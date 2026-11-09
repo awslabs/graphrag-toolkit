@@ -116,7 +116,7 @@ class TestOversizedDocument:
 
 
 class TestUniformShortRound:
-    """A round below capacity is split evenly so no worker sits idle."""
+    """A round below capacity is split evenly across as many workers as the minimum allows."""
 
     @pytest.mark.parametrize(
         "chunks, workers, max_size, expected",
