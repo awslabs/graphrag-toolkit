@@ -1183,7 +1183,7 @@ class TestStagingSurfacesUploadFailures:
 
         def consume():
             try:
-                consumed.extend(uploader._upload_batch(self._docs(1)))
+                consumed.extend(uploader._upload_batch(self._docs(1), {}))
             except BaseException as e:
                 error.append(e)
             finished.set()
@@ -2146,6 +2146,49 @@ class TestASourceLeftOpenWhenTheStreamEnds:
             stopped.close()
             list(uploader.upload([self._doc('src-2', ['x1'])]))
 
+        markers = [json.loads(body) for key, body in puts.items() if is_completion_marker(key)]
+        declared = {chunk_id for marker in markers if marker['final'] for chunk_id in marker['source_chunk_ids']}
+        assert not {'c1', 'c2'} & declared
+        assert 'x1' in declared
+
+    def test_a_publisher_still_running_after_its_stream_stopped_opens_nothing_for_a_later_stream(self):
+        # The stopped stream's publisher opens src-1 only once the next stream
+        # has started publishing.
+        uploader = S3DocUploader(bucket_name='b', collection_prefix='p/c')
+        submit = S3DocUploader._submit_proxy
+        resume_stopped, stopped_opened = threading.Event(), threading.Event()
+        puts = {}
+
+        def record(**kwargs):
+            puts[kwargs['Key']] = kwargs['Body'].decode('UTF-8')
+
+        def interleave(self, function, executor, queue, root_path, doc, *args):
+            source_id = doc.source_id()
+            if source_id == 'src-1':
+                stopped_opened.set()
+                return False
+            submitted = submit(self, function, executor, queue, root_path, doc, *args)
+            if source_id == 'src-0':
+                assert resume_stopped.wait(timeout=8)
+            if source_id == 'src-2':
+                resume_stopped.set()
+                assert stopped_opened.wait(timeout=8)
+            return submitted
+
+        with patch(f'{S3_BASED_DOCS}.GraphRAGConfig') as config, \
+             patch.object(S3DocUploader, '_submit_proxy', new=interleave):
+            config.extraction_num_threads_per_worker = 2
+            config.s3 = MagicMock()
+            config.s3.put_object = record
+            stopped = uploader.upload([
+                self._doc('src-0', ['a1']),
+                self._doc('src-1', ['c1', 'c2'], final_part=False),
+            ])
+            next(stopped)
+            stopped.close()
+            list(uploader.upload([self._doc('src-2', ['x1'])]))
+
+        assert stopped_opened.is_set()
         markers = [json.loads(body) for key, body in puts.items() if is_completion_marker(key)]
         declared = {chunk_id for marker in markers if marker['final'] for chunk_id in marker['source_chunk_ids']}
         assert not {'c1', 'c2'} & declared
