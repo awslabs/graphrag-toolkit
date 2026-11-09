@@ -222,13 +222,13 @@ class NeptuneIndex(VectorIndex):
                 nearest FILTER_OVER_FETCH_FACTOR * top_k nodes, so a filtered call can return
                 fewer than top_k results when the matches lie further out.
         """
-        if filter_config and filter_config.matches_nothing:
+        top_k = int(top_k)
+        if top_k < 1 or (filter_config and filter_config.matches_nothing):
             return []
 
         query_bundle = to_embedded_query(query_bundle, self.embed_model)
         tenant_specific_label = self.tenant_id.format_label(self.label).replace('`', '')
 
-        top_k = max(1, int(top_k))
         metadata_filters = filter_config_to_opencypher_filters(filter_config)
         where_clause = f'WHERE {metadata_filters}' if metadata_filters else ''
         vector_top_k = top_k * FILTER_OVER_FETCH_FACTOR if metadata_filters else top_k

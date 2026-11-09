@@ -209,6 +209,17 @@ class TestTopKMetadataFilter:
         embed.assert_not_called()
         client.execute_query.assert_not_called()
 
+    @pytest.mark.parametrize('top_k', [0, -1])
+    def test_top_k_below_one_runs_no_query(self, top_k):
+        idx, client = _make_index('chunk')
+
+        with patch.object(mod, 'to_embedded_query') as embed:
+            result = idx.top_k(QueryBundle('q'), top_k=top_k)
+
+        assert result == []
+        embed.assert_not_called()
+        client.execute_query.assert_not_called()
+
 
 class TestGetEmbeddings:
     def test_runs_one_query_per_unique_id(self):
