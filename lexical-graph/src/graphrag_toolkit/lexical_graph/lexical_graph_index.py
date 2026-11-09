@@ -473,7 +473,8 @@ class LexicalGraphIndex():
             run_id (Optional[str]): Id that makes the run restartable. Extracting again with the
                 same run_id takes up where the interrupted run stopped. Needs run_plan_store, and
                 handler=run_plan_store.staging_handler(run_id) so a restart also skips the
-                documents already staged.
+                documents already staged. The plan does not yet cover the auto-tuned batch
+                extraction path; a run with a run_id and auto_tune=True raises a ValueError.
             run_plan_store (Optional[RunPlanStore]): Where the run records its plan and the Bedrock
                 batch job it submitted for each partition, so a restart can reuse them.
             **kwargs (Any): Additional keyword arguments for pipeline configurations or overrides.
@@ -606,6 +607,8 @@ class LexicalGraphIndex():
             checkpoint: Optional[Checkpoint] = None,
             show_progress: Optional[bool] = False,
             progress_monitor: Optional[ProgressMonitor] = None,
+            run_id: Optional[str] = None,
+            run_plan_store: Optional[RunPlanStore] = None,
             **kwargs: Any
     ) -> None:
         """
@@ -623,6 +626,13 @@ class LexicalGraphIndex():
                 callbacks across both extraction and build stages. The same instance receives
                 LLM increment calls during extraction, then graph/vector increment calls
                 during build.
+            run_id (Optional[str]): Id that makes the extraction restartable. Running again with
+                the same run_id takes up where the interrupted run stopped, reusing the Bedrock
+                batch jobs it submitted. Needs run_plan_store. The plan does not yet cover the
+                auto-tuned batch extraction path; a run with a run_id and auto_tune=True raises a
+                ValueError.
+            run_plan_store (Optional[RunPlanStore]): Where the run records its plan and the Bedrock
+                batch job it submitted for each partition, so a restart can reuse them.
             **kwargs (Any): Additional parameters to pass to pipelines.
         """
 
@@ -640,6 +650,8 @@ class LexicalGraphIndex():
             tenant_id=DEFAULT_TENANT_ID,
             extraction_filters=self.indexing_config.extraction.extraction_filters,
             source_id_width=self._source_id_width(stored_width),
+            run_id=run_id,
+            run_plan_store=run_plan_store,
             **kwargs
         )
 

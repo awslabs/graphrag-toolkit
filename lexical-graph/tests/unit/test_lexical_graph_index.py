@@ -106,8 +106,9 @@ class TestLexicalGraphIndex:
 
 
 class TestRestartParameters:
-    """run_id and run_plan_store are named parameters of extract(), and reach
-    the extraction pipeline only. The build pipeline has no use for them."""
+    """run_id and run_plan_store are named parameters of extract() and
+    extract_and_build(), and reach the extraction pipeline only. The build
+    pipeline has no use for them."""
 
     MODULE = 'graphrag_toolkit.lexical_graph.lexical_graph_index'
 
@@ -146,6 +147,37 @@ class TestRestartParameters:
 
     def test_extract_without_restart_parameters_passes_none(self):
         extraction_kwargs, _ = self._extract()
+
+        assert extraction_kwargs['run_id'] is None
+        assert extraction_kwargs['run_plan_store'] is None
+
+    def _extract_and_build(self, **kwargs):
+        index = self._index()
+
+        with (
+            patch(f'{self.MODULE}.read_stored_source_id_width', return_value=None),
+            patch.object(LexicalGraphIndex, '_source_id_width', return_value=None),
+            patch(f'{self.MODULE}.GraphConstruction.for_graph_store', return_value=Mock()),
+            patch(f'{self.MODULE}.VectorIndexing.for_vector_store', return_value=Mock()),
+            patch(f'{self.MODULE}.ExtractionPipeline.create') as extraction_create,
+            patch(f'{self.MODULE}.BuildPipeline.create') as build_create,
+        ):
+            index.extract_and_build([], enable_versioning=False, **kwargs)
+
+        return extraction_create.call_args.kwargs, build_create.call_args.kwargs
+
+    def test_extract_and_build_passes_the_restart_parameters_to_the_extraction_pipeline(self):
+        run_plan_store = Mock()
+
+        extraction_kwargs, build_kwargs = self._extract_and_build(run_id='a-run', run_plan_store=run_plan_store)
+
+        assert extraction_kwargs['run_id'] == 'a-run'
+        assert extraction_kwargs['run_plan_store'] is run_plan_store
+        assert 'run_id' not in build_kwargs
+        assert 'run_plan_store' not in build_kwargs
+
+    def test_extract_and_build_without_restart_parameters_passes_none(self):
+        extraction_kwargs, _ = self._extract_and_build()
 
         assert extraction_kwargs['run_id'] is None
         assert extraction_kwargs['run_plan_store'] is None
