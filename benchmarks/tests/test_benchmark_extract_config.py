@@ -16,8 +16,10 @@ benchmarks/tests runs without either installed.
 """
 
 import ast
+import os
 import pathlib
 import re
+import subprocess
 
 import pytest
 
@@ -336,7 +338,7 @@ class TestRunRecordsTheBatchSettings:
                     and getattr(node.func, 'attr', '') == 'add_output'
                     and node.args and isinstance(node.args[0], ast.Constant)):
                 names.add(node.args[0].value)
-        missing = {'max_batch_size', 'max_num_concurrent_batches', 'auto_tune'} - names
+        missing = {'max_batch_size', 'max_num_concurrent_batches', 'auto_tune', 'num_workers'} - names
         assert not missing, f'run outputs do not record {sorted(missing)}, so runs with different batch settings look identical'
 
 
@@ -415,12 +417,47 @@ class TestVariableNameIsPinned:
         ],
     )
     def test_harness_checks_the_integer_settings_before_launch(self, name):
-        text = self.BUILD_TESTS.read_text()
-        loop = re.search(r'for setting in ([^;]+); do\s+if [^\n]*\n[^\n]*must be a positive integer', text)
-        assert loop, 'build-tests.sh no longer has the positive-integer check'
-        assert name in loop.group(1).replace('\\\n', ' ').split(), (
+        result = self._run_guard({name: 'many'})
+        assert result.returncode != 0, (
             f'{name} is not checked before the stack launches, so a typo only fails on the notebook'
         )
+        assert f'{name} must be a positive integer' in result.stdout
+
+    def _run_guard(self, env):
+        """Run the pre-launch setting checks from build-tests.sh on their own."""
+        text = self.BUILD_TESTS.read_text()
+        guard = re.search(
+            r'^for setting in [^;]+; do\s+if [^\n]*\n[^\n]*must be a positive integer.*?(?=^if \[\[ -z "\$DRY_RUN" \]\])',
+            text, re.DOTALL | re.MULTILINE,
+        )
+        assert guard, 'build-tests.sh no longer has the pre-launch setting checks'
+        return subprocess.run(
+            ['bash', '-c', guard.group(0)],
+            env={'PATH': os.environ['PATH'], **env},
+            capture_output=True, text=True, check=False,
+        )
+
+    @pytest.mark.parametrize('value', ['99', '60', '50001', '60000'])
+    def test_harness_rejects_a_batch_size_outside_the_bedrock_limits(self, value):
+        result = self._run_guard({'BENCHMARK_MAX_BATCH_SIZE': value})
+        assert result.returncode != 0, (
+            f'BENCHMARK_MAX_BATCH_SIZE={value} passes the pre-launch check, so the stack '
+            f'launches and the run fails on the notebook'
+        )
+        assert 'BENCHMARK_MAX_BATCH_SIZE must be between 100 and 50000' in result.stdout
+
+    @pytest.mark.parametrize('value', ['100', '40000', '50000'])
+    def test_harness_accepts_a_batch_size_inside_the_bedrock_limits(self, value):
+        result = self._run_guard({'BENCHMARK_MAX_BATCH_SIZE': value})
+        assert result.returncode == 0, result.stdout
+
+    def test_harness_rejects_a_concurrency_below_one(self):
+        result = self._run_guard({'BENCHMARK_MAX_NUM_CONCURRENT_BATCHES': '0'})
+        assert result.returncode != 0
+        assert 'BENCHMARK_MAX_NUM_CONCURRENT_BATCHES must be a positive integer' in result.stdout
+
+    def test_harness_accepts_the_settings_unset(self):
+        assert self._run_guard({}).returncode == 0
 
     def test_every_documented_variable_is_known_to_the_harness(self):
         # SOURCE_ID_WIDTH and DETECT_SOURCE_ID_COLLISIONS were documented here

@@ -360,7 +360,8 @@ class TestHowTheBenchmarkDrivesARestart:
     """
 
     @staticmethod
-    def _wire(monkeypatch, doc_store:str, for_jsonl:bool=False, stages:bool=False):
+    def _wire(monkeypatch, doc_store:str, for_jsonl:bool=False, stages:bool=False,
+              use_batch:bool=False, auto_tune:bool=False, num_workers:int=2):
         """
         Stand every collaborator of run_benchmark_extract up as a fake and
         return what it did, so the wiring below is exercised rather than read.
@@ -374,6 +375,10 @@ class TestHowTheBenchmarkDrivesARestart:
 
         monkeypatch.setenv('BENCHMARK_DOC_STORE', doc_store)
         monkeypatch.setenv('BENCHMARK_S3_JSONL', 'true' if for_jsonl else 'false')
+        monkeypatch.setenv('BENCHMARK_AUTO_TUNE', 'true' if auto_tune else 'false')
+        monkeypatch.delenv('BENCHMARK_MAX_BATCH_SIZE', raising=False)
+        monkeypatch.delenv('BENCHMARK_MAX_NUM_CONCURRENT_BATCHES', raising=False)
+        monkeypatch.setenv('BATCH_INFERENCE_ROLE', 'arn:aws:iam::123456789012:role/batch')
         monkeypatch.setenv('AWS_REGION_NAME', 'us-west-2')
         monkeypatch.setenv('S3_RESULTS_BUCKET', 'bucket')
         monkeypatch.setenv('S3_RESULTS_PREFIX', 'prefix')
@@ -460,7 +465,8 @@ class TestHowTheBenchmarkDrivesARestart:
         monkeypatch.setattr(benchmark_extract, 'LexicalGraphIndex', _Index)
         monkeypatch.setattr(benchmark_extract, 'GraphStoreFactory', _factory())
         monkeypatch.setattr(benchmark_extract, 'VectorStoreFactory', _factory())
-        monkeypatch.setattr(benchmark_extract, 'GraphRAGConfig', SimpleNamespace(s3='an-s3-client'))
+        monkeypatch.setattr(benchmark_extract, 'GraphRAGConfig',
+                            SimpleNamespace(s3='an-s3-client', extraction_num_workers=num_workers))
         monkeypatch.setattr(benchmark_extract, '_count_source_docs',
                             lambda docs: len(set(collection.stored)))
 
@@ -469,7 +475,7 @@ class TestHowTheBenchmarkDrivesARestart:
                 handler=SimpleNamespace(add_output=did.outputs.__setitem__,
                                         run_assertions=lambda c: None),
                 dataset_name='ntsb', data_dir='/tmp', expected_docs=len(loaded),
-                use_batch=False,
+                use_batch=use_batch,
             )
             return did
 
@@ -497,6 +503,34 @@ class TestHowTheBenchmarkDrivesARestart:
 
         with pytest.raises(ValueError, match='BENCHMARK_S3_JSONL'):
             run()
+
+    def test_a_restart_of_an_auto_tuned_batch_run_is_refused(self, monkeypatch):
+        monkeypatch.setenv('BENCHMARK_RESTARTS', '2')
+        run = self._wire(monkeypatch, doc_store='s3', use_batch=True, auto_tune=True)
+
+        with pytest.raises(ValueError, match='BENCHMARK_RESTARTS.*BENCHMARK_AUTO_TUNE'):
+            run()
+
+    def test_an_auto_tune_setting_on_an_on_demand_run_does_not_refuse_a_restart(self, monkeypatch):
+        # Auto-tune is a batch setting, so an on-demand run never reads it.
+        monkeypatch.setenv('BENCHMARK_RESTARTS', '2')
+        did = self._wire(monkeypatch, doc_store='s3', stages=True, auto_tune=True)()
+
+        assert did.outputs['runs'] == 3
+
+    @pytest.mark.parametrize('num_workers, cores, recorded', [(8, 4, 4), (2, 4, 2)])
+    def test_a_batch_run_records_the_worker_count_capped_at_the_cores(
+            self, monkeypatch, num_workers, cores, recorded):
+        # The pipeline caps extraction_num_workers at the core count, and under
+        # auto-tune that count is how many jobs run at once.
+        from benchmarks.scripts import benchmark_extract
+
+        monkeypatch.delenv('BENCHMARK_RESTARTS', raising=False)
+        monkeypatch.setattr(benchmark_extract.multiprocessing, 'cpu_count', lambda: cores)
+        did = self._wire(monkeypatch, doc_store='s3', stages=True, use_batch=True,
+                         auto_tune=True, num_workers=num_workers)()
+
+        assert did.outputs['num_workers'] == recorded
 
     def test_a_jsonl_run_with_no_restarts_is_left_alone(self, monkeypatch):
         # The refusal is about the restart profile, not about JSONL.

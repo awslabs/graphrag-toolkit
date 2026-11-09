@@ -531,6 +531,11 @@ for setting in EXTRACTION_NUM_WORKERS EXTRACTION_BATCH_SIZE EXTRACTION_NUM_THREA
   fi
 done
 
+if [[ "${BENCHMARK_MAX_BATCH_SIZE:-}" ]] && (( BENCHMARK_MAX_BATCH_SIZE < 100 || BENCHMARK_MAX_BATCH_SIZE > 50000 )); then
+  echo "ERROR: BENCHMARK_MAX_BATCH_SIZE must be between 100 and 50000, got '${BENCHMARK_MAX_BATCH_SIZE}'."
+  exit 1
+fi
+
 if [[ -z "$DRY_RUN" ]]; then
 
   validate_model() {

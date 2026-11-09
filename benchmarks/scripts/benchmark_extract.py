@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 import os
 import logging
+import multiprocessing
 import unittest
 import uuid
 from typing import Dict, Any, Optional
@@ -144,6 +145,10 @@ def run_benchmark_extract(handler: IntegrationTestHandler,
         handler.add_output('max_batch_size', batch_config.max_batch_size)
         handler.add_output('max_num_concurrent_batches', batch_config.max_num_concurrent_batches)
         handler.add_output('auto_tune', batch_config.auto_tune)
+        handler.add_output(
+            'num_workers',
+            min(GraphRAGConfig.extraction_num_workers, multiprocessing.cpu_count())
+        )
 
     if doc_store == 's3':
         extracted_docs = S3BasedDocs(
@@ -206,6 +211,12 @@ def run_benchmark_extract(handler: IntegrationTestHandler,
                     'BENCHMARK_RESTARTS cannot be used with BENCHMARK_S3_JSONL; a resume '
                     'of a JSONL collection skips nothing, so every run would restage from '
                     'the first document and the profile would measure duplicate staging'
+                )
+
+            if indexing_config and indexing_config.batch_config.auto_tune:
+                raise ValueError(
+                    'BENCHMARK_RESTARTS cannot be used with BENCHMARK_AUTO_TUNE=true; a restart '
+                    'resumes from a run plan, and the auto-tuned path does not follow one'
                 )
 
             # Imported here, not at module scope: a run with no restarts must
