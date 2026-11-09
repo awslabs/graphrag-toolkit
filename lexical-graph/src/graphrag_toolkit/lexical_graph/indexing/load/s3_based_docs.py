@@ -31,7 +31,6 @@ from s3transfer.exceptions import RetriesExceededError, S3DownloadFailedError
 from llama_index.core.schema import TextNode, BaseComponent
 from llama_index.core.bridge.pydantic import PrivateAttr
 
-QUEUE_SIZE = 1000
 BATCH_SIZE = 100
 
 # How often the staging consumer wakes to check whether its producer is still
@@ -840,7 +839,7 @@ class S3DocUploader(ConfiguredThreadCount, EncryptedPut, CompletionMarkers, Base
     def upload(self, source_documents: List[SourceDocument]):
 
         open_sources = {}
-        results = queue.Queue(QUEUE_SIZE)
+        results = queue.Queue()
 
         if not self._semaphore:
             self._semaphore = Semaphore(BATCH_SIZE)
