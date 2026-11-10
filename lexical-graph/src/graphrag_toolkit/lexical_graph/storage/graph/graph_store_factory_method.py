@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import abc
+from typing import Optional
 
 from graphrag_toolkit.lexical_graph.storage.graph.graph_store import GraphStore
 
@@ -14,11 +15,16 @@ class GraphStoreFactoryMethod():
     subclasses, specifying how `GraphStore` objects are instantiated based on
     graph configuration details.
 
+    Attributes:
+        graph_store_type: Optional discriminator for explicit factory selection.
+
     Methods:
         try_create(graph_info, **kwargs): Abstract method to attempt the creation
             of a `GraphStore` instance based on provided graph configuration
             and optional parameters.
     """
+    graph_store_type: Optional[str] = None
+
     @abc.abstractmethod
     def try_create(self, graph_info:str, **kwargs) -> GraphStore:
         """
