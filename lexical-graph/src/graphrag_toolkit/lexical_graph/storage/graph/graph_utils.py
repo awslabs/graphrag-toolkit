@@ -296,7 +296,7 @@ def parse_metadata_filters_recursive(metadata_filters:MetadataFilters) -> str:
             type_name = type_name_for_key_value(f.key, f.value)
             type_formatter = formatter_for_type(type_name)
             if f.operator == FilterOperator.TEXT_MATCH_INSENSITIVE:
-                return f"({key}.toLower() {operator} {type_formatter(operator_formatter(str(f.value)))})"
+                return f"(toLower({key}) {operator} {type_formatter(operator_formatter(str(f.value)))})"
             else:
                 return f"({key} {operator} {type_formatter(operator_formatter(str(f.value)))})"
  

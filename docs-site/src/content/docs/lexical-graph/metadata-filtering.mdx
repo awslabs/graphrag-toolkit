@@ -165,6 +165,8 @@ Metadata filters that you supply to a query engine are applied at two points in 
 
   - The filters are applied to all vector store top-k queries. The vector store is typically used to find starting points for graph traversals: filters therefore effectively constrain a retriever's entry points into the graph. 
   - The filters are subsequently applied to all the results returned from the graph.
+
+On Neptune Analytics the vector search runs first and the filter then applies to the nearest `5 × top_k` nodes, so a filtered top-k query can return fewer than `top_k` results when the matching nodes lie further out.
   
 By its very nature, a graph can often connect disparate sources: traversals can hop from topics and statements belonging to one source, to topics and statements associated with an entirely different source. It's not sufficient, therefore, to simply limit the starting points for a traversal; the retriever must also filter the results. The benefit of the dual application of a metadata filter is that it restricts the semantic similarity-based lookups that provide the start points of a query to a well-defined set of sources, but then allows the query to access structurally relevant but semantically dissimilar parts of the lexical graph, some of which may be allowed by the filter, some disallowed, before finally constraining the results to only those elements that pass the filter criteria.
 
