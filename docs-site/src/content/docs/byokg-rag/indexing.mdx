@@ -275,9 +275,12 @@ rank, so fuzzy's first choice is displaced only by a node both matchers return, 
 fuzzy returns nothing, and at a fixed `topk` embedding candidates can take the place of
 fuzzy's lower-ranked ones. A node in the fuzzy index whose name equals the mention always
 ranks first (verbatim, else case-insensitively). Dense search is an exact cosine scan in
-numpy over the node embeddings, plus one embedding call per lookup for the mentions; a
-graph whose nodes are all opaque ids has no node embeddings, and links by fuzzy matching
-alone.
+numpy over the node embeddings, restricted to the nodes in the fuzzy index, so both
+matchers draw from one node set: a node the table embeds but the fuzzy index lacks (a
+destination-only node, while `LocalKGStore.nodes()` lists source nodes only) is never a
+dense candidate. Mentions are embedded once each and cached (the `cache_size` most recent),
+since they repeat across questions and iterations. A graph whose nodes are all opaque ids
+has no node embeddings, and links by fuzzy matching alone.
 
 ### Configuration
 
@@ -304,8 +307,12 @@ entity_linker = EntityLinker(matcher)  # works with group_by_mention / single_be
 - `node_ids` - The nodes fuzzy matching and the exact-name rule cover, e.g. `graph_store.nodes()`; node ids are used as their names, as in `LocalKGStore`
 - `embedding` - Embedding instance; mentions are embedded as documents, like node names
 - `node_table` - The `nodes` table of a `GraphEmbeddings` for the same graph
-- `rrf_k` - Reciprocal-rank constant (default 60)
+- `rrf_k` - Reciprocal-rank constant, a positive number (default 60)
 - `candidate_depth` - Candidates each matcher contributes before fusion (default 20)
+- `cache_size` - Mention embeddings kept, least recently used dropped first; `0` disables the cache (default 10,000)
+
+`retrieve()` forwards `max_len_difference` to the fuzzy index and, like it, rejects
+`id_selector`; any other argument raises `TypeError`.
 
 To fuse a configured fuzzy index instead, such as one with `keep_verbatim_names=True`, pass
 it to the constructor: `HybridEntityMatcher(fuzzy_index, graph_embeddings.nodes, embedding)`.

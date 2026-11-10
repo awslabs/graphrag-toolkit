@@ -208,3 +208,135 @@ class TestWithAConfiguredFuzzyIndex:
         table = GraphEmbeddings.build([(n, 'r', n) for n in NODES], HashingEmbedding()).nodes
         with pytest.raises(ValueError, match='mention embeddings have dim 8, node table has 1024'):
             HybridEntityMatcher.from_nodes(NODES, HashingEmbedding(dim=8), table).retrieve(['Jordan'])
+
+
+class _CountingEmbedding(HashingEmbedding):
+    """Records the texts of every batch_embed call."""
+
+    def __init__(self):
+        super().__init__()
+        self.embedded = []
+
+    def batch_embed(self, text_inputs):
+        self.embedded.append(list(text_inputs))
+        return super().batch_embed(text_inputs)
+
+
+class TestOneNodeSet:
+    def test_a_node_the_fuzzy_index_lacks_is_never_a_dense_candidate(self):
+        from graphrag_toolkit.byokg_rag.graphstore.graphstore import LocalKGStore
+        graph = {'Pat LaFontaine': {'award received': {'triplets': [
+            ['Pat LaFontaine', 'award received', 'Bill Masterton Memorial Trophy']]}}}
+        store = LocalKGStore(graph)
+        assert store.nodes() == ['Pat LaFontaine'], 'precondition: nodes() lists sources only'
+        emb = HashingEmbedding()
+        # The table embeds every named node, the trophy (a destination only) included.
+        table = GraphEmbeddings.build(store.get_triplets(), emb, extra_nodes=store.nodes()).nodes
+        assert 'Bill Masterton Memorial Trophy' in table.texts
+        matcher = HybridEntityMatcher.from_nodes(store.nodes(), emb, table)
+        assert matcher._dense_candidates(['Bill Masterton Memorial Trophy'], 5) == [['Pat LaFontaine']]
+        ids = [h['document_id'] for h in matcher.retrieve(['Bill Masterton Memorial Trophy'], topk=3)['hits']]
+        assert ids == ['Pat LaFontaine']
+
+    def test_an_excluded_node_does_not_take_a_candidate_slot(self):
+        # The trophy (a destination only) is dense's best match; the two cups it would
+        # displace are what dense returns, still topk of them.
+        cups = ['Masterton Cup', 'Masterton Memorial Cup']
+        emb = HashingEmbedding()
+        table = GraphEmbeddings.build([(c, 'awarded with', 'Bill Masterton Memorial Trophy') for c in cups], emb).nodes
+        matcher = HybridEntityMatcher.from_nodes(cups, emb, table)
+        assert matcher._dense_candidates(['Bill Masterton Memorial Trophy'], 2) == [
+            ['Masterton Memorial Cup', 'Masterton Cup']]
+
+    def test_once_the_fuzzy_index_has_the_node_dense_finds_it(self):
+        nodes = ['Pat LaFontaine', 'Bill Masterton Memorial Trophy']
+        emb = HashingEmbedding()
+        table = GraphEmbeddings.build([(nodes[0], 'award received', nodes[1])], emb).nodes
+        matcher = HybridEntityMatcher.from_nodes(nodes, emb, table)
+        assert matcher._dense_candidates(['Masterton Trophy'], 1) == [['Bill Masterton Memorial Trophy']]
+
+
+class TestArguments:
+    def test_max_len_difference_reaches_the_fuzzy_index(self):
+        seen = []
+
+        class Recording(_StubFuzzy):
+            def match(self, inputs, topk=1, **kwargs):
+                seen.append(kwargs)
+                return super().match(inputs, topk=topk)
+        emb = HashingEmbedding()
+        table = GraphEmbeddings.build([(n, 'r', n) for n in NODES], emb).nodes
+        matcher = HybridEntityMatcher(Recording(NODES, NODES), table, emb)
+        matcher.retrieve(['Pat'], topk=1)
+        matcher.retrieve(['Pat'], topk=1, max_len_difference=10)
+        assert seen == [{}, {'max_len_difference': 10}], "the fuzzy index's own default when unset"
+
+    def test_max_len_difference_changes_what_fuzzy_returns(self):
+        # 'Jordan' is 8 characters shorter than the mention: dropped at the default 4.
+        fuzzy = FuzzyStringIndex()
+        fuzzy.add(['Jordan'])
+        emb = HashingEmbedding()
+        table = GraphEmbeddings.build([('Pat LaFontaine', 'r', 'Patrick Roy')], emb).nodes
+        matcher = HybridEntityMatcher(fuzzy, table, emb)
+        assert matcher.retrieve(['jordan river'], topk=1)['hits'] == []
+        assert matcher.retrieve(['jordan river'], topk=1, max_len_difference=10)['hits'][0]['document_id'] == 'Jordan'
+
+    def test_id_selector_is_refused_like_the_fuzzy_index(self):
+        with pytest.raises(NotImplementedError, match='id_selector not implemented for HybridEntityMatcher'):
+            _matcher().retrieve(['Pat'], topk=1, id_selector=['Pat LaFontaine'])
+
+    def test_unknown_arguments_fail_loud(self):
+        with pytest.raises(TypeError, match=r"unexpected arguments \['top_k'\]"):
+            _matcher().retrieve(['Pat'], top_k=1)
+
+    def test_the_fuzzy_index_is_exposed_as_index(self):
+        m = _matcher()
+        assert m.index is m.fuzzy_index
+
+    @pytest.mark.parametrize('rrf_k', [0, -5, True, '60'])
+    def test_invalid_rrf_k(self, rrf_k):
+        with pytest.raises(ValueError, match='rrf_k must be a positive number'):
+            HybridEntityMatcher(_StubFuzzy(['a'], ['a']), GraphEmbeddings.build([('a', 'r', 'a')], HashingEmbedding()).nodes,
+                                HashingEmbedding(), rrf_k=rrf_k)
+
+    @pytest.mark.parametrize('size', [-1, 2.5, True])
+    def test_invalid_cache_size(self, size):
+        with pytest.raises(ValueError, match='cache_size must be a non-negative integer'):
+            HybridEntityMatcher(_StubFuzzy(['a'], ['a']), GraphEmbeddings.build([('a', 'r', 'a')], HashingEmbedding()).nodes,
+                                HashingEmbedding(), cache_size=size)
+
+
+class TestMentionCache:
+    def _matcher(self, cache_size=10_000):
+        emb = _CountingEmbedding()
+        table = GraphEmbeddings.build([(n, 'r', n) for n in NODES], HashingEmbedding()).nodes
+        return HybridEntityMatcher.from_nodes(NODES, emb, table, cache_size=cache_size), emb
+
+    def test_a_repeated_mention_is_embedded_once(self):
+        matcher, emb = self._matcher()
+        first = matcher.retrieve(['Pat', 'Jordan'], topk=2)
+        assert matcher.retrieve(['Jordan', 'Pat'], topk=2)['hits'] == first['hits'][2:] + first['hits'][:2]
+        matcher.retrieve(['Pat', 'Islanders', 'Pat'], topk=1)
+        matcher.retrieve(['Roy', 'Roy'], topk=1)
+        assert emb.embedded == [['Pat', 'Jordan'], ['Islanders'], ['Roy']], 'only new mentions, each once'
+
+    def test_cached_and_fresh_results_agree(self):
+        cached, _ = self._matcher()
+        uncached, _ = self._matcher(cache_size=0)
+        for mentions in (['Pat'], ['Pat', 'Roy'], ['Roy', 'Pat']):
+            assert cached.retrieve(mentions, topk=3) == uncached.retrieve(mentions, topk=3)
+
+    def test_the_least_recently_used_mention_is_evicted(self):
+        matcher, emb = self._matcher(cache_size=2)
+        for mentions in (['a1'], ['a2'], ['a1'], ['a3'], ['a1'], ['a2']):
+            matcher.retrieve(mentions, topk=1)
+        # a2 was evicted by a3 (a1 had been used since); a1 stayed.
+        assert emb.embedded == [['a1'], ['a2'], ['a3'], ['a2']]
+        assert list(matcher._cache) == ['a1', 'a2']
+
+    def test_through_entity_linker_per_mention_calls(self):
+        matcher, emb = self._matcher()
+        linker = EntityLinker(matcher, topk=2)
+        for _ in range(3):  # three iterations of the single_best_match path
+            linker.link(['Pat LaFontaine', 'Jordan'], return_dict=False, group_by_mention=True)
+        assert sorted(t for call in emb.embedded for t in call) == ['Jordan', 'Pat LaFontaine']
