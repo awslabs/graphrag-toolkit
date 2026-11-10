@@ -79,26 +79,43 @@ def env_bool(name: str, default: Any = _REQUIRED) -> bool:
     )
 
 
-def env_int(name: str, default: Any = _REQUIRED) -> int:
+def env_int(
+    name: str,
+    default: Any = _REQUIRED,
+    minimum: Optional[int] = None,
+    maximum: Optional[int] = None,
+) -> int:
     """
     Read an integer environment variable.
 
     Args:
         name: Variable to read.
         default: Value to use when unset or empty. Omit to make it required.
+        minimum: Smallest accepted value. Applies to a value that is set, not to
+            the default.
+        maximum: Largest accepted value. Applies to a value that is set, not to
+            the default.
 
     Raises:
-        ValueError: The variable is required and absent, or its value is not an
-            integer.
+        ValueError: The variable is required and absent, its value is not an
+            integer, or it is outside the minimum or maximum.
     """
     raw = _raw(name, default)
     if raw is None:
         return default
 
     try:
-        return int(raw)
+        value = int(raw)
     except ValueError:
         raise ValueError(f'{name}={raw!r} is not an integer.') from None
+
+    if minimum is not None and value < minimum:
+        raise ValueError(f'{name}={value} is below the minimum of {minimum}.')
+
+    if maximum is not None and value > maximum:
+        raise ValueError(f'{name}={value} is above the maximum of {maximum}.')
+
+    return value
 
 
 def env_string(name: str, default: Any = _REQUIRED) -> str:

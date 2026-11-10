@@ -69,7 +69,7 @@ Scripts use environment variables from [`notebooks/.env`](../notebooks/.env.temp
 
 ```bash
 # Database connections (Docker internal names)
-VECTOR_STORE="postgresql://postgres:password@pgvector-hybrid:5432/graphrag"
+VECTOR_STORE="postgresql://postgres:password@pgvector-hybrid:5432/graphrag?sslmode=disable"
 GRAPH_STORE="bolt://neo4j:password@neo4j-hybrid:7687"
 
 # AWS Configuration

@@ -607,7 +607,20 @@ class TestGraphQueryRetrieverIsQuerySafe:
         retriever = GraphQueryRetriever(graph_store=mock_graph_store)
         
         assert retriever.is_query_safe("DROP INDEX my_index") is False
-    
+
+    @pytest.mark.parametrize("query", [
+        "INSERT (n:Pwned {name: 'evil'})",
+        "MATCH (a) INSERT (a)-[:R]->(b:Pwned)",
+        "insert (n:Pwned)",
+        "IN/**/SERT (n:Pwned)",
+        "MATCH (a)/**/INSERT (b:Pwned)",
+    ])
+    def test_is_query_safe_insert_query(self, mock_graph_store, query):
+        """Verify INSERT, the GQL alternative to CREATE, is blocked."""
+        retriever = GraphQueryRetriever(graph_store=mock_graph_store)
+
+        assert retriever.is_query_safe(query) is False
+
     def test_is_query_safe_case_insensitive(self, mock_graph_store):
         """Verify query safety check is case insensitive."""
         retriever = GraphQueryRetriever(graph_store=mock_graph_store)
@@ -628,6 +641,79 @@ class TestGraphQueryRetrieverIsQuerySafe:
         CREATE (m:Person {name: 'Jane'})
         RETURN n"""
         assert retriever.is_query_safe(query_with_create) is False
+
+    @pytest.mark.parametrize("query", [
+        "WITH '//' AS a CREATE (x:Pwned) RETURN a",
+        'WITH "//" AS a CREATE (x:Pwned) RETURN a',
+        "MATCH (n) WHERE n.name <> '//' DETACH DELETE n",
+        "WITH '/*' AS a CREATE (x:Pwned) WITH a, '*/' AS b RETURN a, b",
+        "MATCH (n) WHERE n.name <> '/*' MERGE (x:Pwned) WITH n WHERE n.name <> '*/' RETURN n",
+        "WITH '//' AS a CRE/**/ATE (x:Pwned) RETURN a",
+        'WITH "//" AS a CRE/**/ATE (x:Pwned) RETURN a',
+        "WITH 'it\\'s //' AS a CRE/**/ATE (x:Pwned) RETURN a",
+        "WITH `//` AS a CRE/**/ATE (x:Pwned) RETURN a",
+        "WITH 1 AS `\\` WITH 1 AS `x//` CREATE (n) RETURN 1",
+        "WITH 1 AS `a\\`//` CREATE (n:Pwned) RETURN 1",
+    ])
+    def test_is_query_safe_quoted_comment_marker(self, mock_graph_store, query):
+        """Verify a comment marker inside a string literal does not hide a write keyword."""
+        retriever = GraphQueryRetriever(graph_store=mock_graph_store)
+
+        assert retriever.is_query_safe(query) is False
+
+    @pytest.mark.parametrize("query", [
+        "WITH 1 AS c //x\rCREATE (m:Pwned) RETURN c",
+        "WITH 1 AS c //x\r\nCREATE (m:Pwned) RETURN c",
+        "WITH 1 AS c //x\nCREATE (m:Pwned) RETURN c",
+    ])
+    def test_is_query_safe_line_comment_ends_at_line_break(self, mock_graph_store, query):
+        """Verify a // comment ends at \\r or \\n, so a write on the next line is scanned."""
+        retriever = GraphQueryRetriever(graph_store=mock_graph_store)
+
+        assert retriever.is_query_safe(query) is False
+
+    @pytest.mark.parametrize("query", [
+        "MATCH (n:Victim) SET/**/n.pwned = true RETURN n",
+        "MATCH (n:Victim) DETACH/**/DELETE/**/n",
+        "WITH 1 AS a/**/CREATE (m:Pwned) RETURN a",
+        "MATCH (n:Victim) WITH n/**/SET n.pwned = true",
+    ])
+    def test_is_query_safe_block_comment_as_separator(self, mock_graph_store, query):
+        """Verify a /* */ comment between a keyword and the next token does not hide the keyword."""
+        retriever = GraphQueryRetriever(graph_store=mock_graph_store)
+
+        assert retriever.is_query_safe(query) is False
+
+    @pytest.mark.parametrize("query", [
+        "MATCH (n) /* CREATE */ RETURN n",
+        "MATCH (n) RETURN n // DELETE n",
+        "MATCH (n) WHERE n.url = 'http://x/*y' RETURN n",
+        "MATCH (n)/**/RETURN n",
+    ])
+    def test_is_query_safe_keyword_only_in_comment(self, mock_graph_store, query):
+        """Verify a write keyword that appears only inside a comment does not block a read."""
+        retriever = GraphQueryRetriever(graph_store=mock_graph_store)
+
+        assert retriever.is_query_safe(query) is True
+
+    def test_is_query_safe_backslash_in_backticks_refuses_commented_keyword(self, mock_graph_store):
+        """Verify the backtick-escape scan refuses a read whose keyword sits in a comment.
+
+        With backslash escapes inside backticks, `\\` never closes, so the
+        comment after it is scanned as text. The query is refused.
+        """
+        retriever = GraphQueryRetriever(graph_store=mock_graph_store)
+
+        assert retriever.is_query_safe("MATCH (n:`\\`) /* SET */ RETURN n") is False
+
+    def test_retrieve_quoted_comment_marker_not_executed(self, mock_graph_store):
+        """Verify a write hidden behind a quoted comment marker never reaches the store."""
+        retriever = GraphQueryRetriever(graph_store=mock_graph_store)
+
+        result = retriever.retrieve("WITH '//' AS a CREATE (x:Pwned) RETURN a")
+
+        assert result == ["Cannot execute query that modifies the graph"]
+        mock_graph_store.execute_query.assert_not_called()
 
 
 class TestGraphQueryRetrieverRetrieve:
@@ -718,7 +804,7 @@ class TestGraphQueryRetrieverRetrieve:
 # Strategies for generating obfuscated Cypher queries
 
 # Modification keywords that should be blocked
-MODIFICATION_KEYWORDS = ['CREATE', 'DELETE', 'MERGE', 'SET', 'REMOVE', 'DROP', 'DETACH']
+MODIFICATION_KEYWORDS = ['CREATE', 'DELETE', 'MERGE', 'SET', 'REMOVE', 'DROP', 'DETACH', 'INSERT']
 
 # Strategy: Comment bypass - insert /**/ within modification keywords
 @st.composite
@@ -953,6 +1039,7 @@ def substring_keyword_queries(draw):
         'MERGED_FROM', 'EMERGED', 'SUBMERGED',
         'DROPPED_ITEMS', 'BACKDROP', 'RAINDROP',
         'DETACHED_FROM', 'DETACHMENT_DATE',
+        'INSERTED_AT', 'REINSERTED', 'INSERTION_ORDER',
     ]))
 
     # Build a read-only query using the identifier as a property or label

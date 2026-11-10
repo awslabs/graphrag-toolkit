@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 import os
 import logging
+import multiprocessing
 import unittest
 import uuid
 from typing import Dict, Any, Optional
@@ -84,8 +85,9 @@ def build_indexing_config(dataset_name: str) -> IndexingConfig:
         bucket_name=os.environ['S3_RESULTS_BUCKET'],
         key_prefix=f'{os.environ["S3_RESULTS_PREFIX"]}/batch-extract/{dataset_name}',
         role_arn=os.environ['BATCH_INFERENCE_ROLE'],
-        max_batch_size=40000,
-        max_num_concurrent_batches=1
+        max_batch_size=env_int('BENCHMARK_MAX_BATCH_SIZE', 40000, minimum=100, maximum=50000),
+        max_num_concurrent_batches=env_int('BENCHMARK_MAX_NUM_CONCURRENT_BATCHES', 1, minimum=1),
+        auto_tune=env_bool('BENCHMARK_AUTO_TUNE', False)
     )
     return IndexingConfig(batch_config=batch_config)
 
@@ -138,6 +140,15 @@ def run_benchmark_extract(handler: IntegrationTestHandler,
 
     apply_extraction_config()
     indexing_config = build_indexing_config(dataset_name) if use_batch else None
+    if indexing_config:
+        batch_config = indexing_config.batch_config
+        handler.add_output('max_batch_size', batch_config.max_batch_size)
+        handler.add_output('max_num_concurrent_batches', batch_config.max_num_concurrent_batches)
+        handler.add_output('auto_tune', batch_config.auto_tune)
+        handler.add_output(
+            'num_workers',
+            min(GraphRAGConfig.extraction_num_workers, multiprocessing.cpu_count())
+        )
 
     if doc_store == 's3':
         extracted_docs = S3BasedDocs(
@@ -200,6 +211,12 @@ def run_benchmark_extract(handler: IntegrationTestHandler,
                     'BENCHMARK_RESTARTS cannot be used with BENCHMARK_S3_JSONL; a resume '
                     'of a JSONL collection skips nothing, so every run would restage from '
                     'the first document and the profile would measure duplicate staging'
+                )
+
+            if indexing_config and indexing_config.batch_config.auto_tune:
+                raise ValueError(
+                    'BENCHMARK_RESTARTS cannot be used with BENCHMARK_AUTO_TUNE=true; a restart '
+                    'resumes from a run plan, and the auto-tuned path does not follow one'
                 )
 
             # Imported here, not at module scope: a run with no restarts must
@@ -303,4 +320,16 @@ class PgaBenchmarkExtract(IntegrationTestBase):
     def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
         run_benchmark_extract(handler, 'pga', BENCHMARK_DATA_DIR,
                               expected_docs=507,
+                              use_batch=env_bool('BENCHMARK_USE_BATCH'))
+
+
+class CuadBenchmarkExtract(IntegrationTestBase):
+
+    @property
+    def description(self):
+        return 'Extract propositions and topics from CUAD documents'
+
+    def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
+        run_benchmark_extract(handler, 'cuad', BENCHMARK_DATA_DIR,
+                              expected_docs=510,
                               use_batch=env_bool('BENCHMARK_USE_BATCH'))

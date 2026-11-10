@@ -90,7 +90,7 @@ Services communicate using Docker internal networking:
 | From Service | To Service | Connection String |
 |--------------|------------|-------------------|
 | Jupyter | Neo4j | `bolt://neo4j:password@neo4j-local:7687` |
-| Jupyter | PostgreSQL | `postgresql://postgres:password@pgvector-local:5432/graphrag` |
+| Jupyter | PostgreSQL | `postgresql://postgres:password@pgvector-local:5432/graphrag?sslmode=disable` |
 
 ---
 
