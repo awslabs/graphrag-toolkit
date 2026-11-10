@@ -272,6 +272,19 @@ the resume fingerprint, so an arm never reuses another arm's runs. Each run also
 `seed_recall`: the share of a question's gold topic entities among the nodes BYOKG linked
 (not computed for MedQA, which has none).
 
+**Optional answer selection.** Off by default. `BYOKG_ANSWER_SELECTION=true` reranks the
+retrieved context against the question (`ContextSelector` with the BGE reranker, on GPU
+if there is one), keeps the top `BYOKG_CONTEXT_MAX_LINES` lines (default 20) plus up to as many
+lines chained to them through opaque ids, and answers with the `generate-response-qa-grounded`
+prompt. The LLM-only answer keeps the default prompt. Both settings enter the resume
+fingerprint. `answer_in_context` and `context_chars_median` are measured on the pruned
+context, so they show what pruning cost; `answer_in_retrieved_context` and
+`retrieved_context_lines` are measured before it, so a miss shows whether retrieval never
+found the answer or selection dropped it. Replayed on recorded CWQ and WebQSP contexts
+(scored with the same BGE reranker), 20 lines plus at most 20 chained ones lost the answer
+for 2.2 and 0.8 points of questions, cut the median context by 18% and 9%, and never
+returned more than 40 lines where the full context reached 237.
+
 **Expected runtime and cost.** Questions run one at a time, and each runs once per
 `single_best_match` setting per repeat — 6 times with the defaults. Measured with Claude
 Haiku 4.5 (`TEST_RESPONSE_LLM=us.anthropic.claude-haiku-4-5-20251001-v1:0`): wall clock

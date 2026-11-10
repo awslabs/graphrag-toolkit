@@ -25,7 +25,8 @@ class ByoKGQueryEngine:
                  cypher_kg_linker=None,
                  direct_query_linking=False,
                  single_best_match=False,
-                 text_triplet_retriever=None):
+                 text_triplet_retriever=None,
+                 context_selector=None):
         """
         Initialize the query engine.
 
@@ -55,6 +56,14 @@ class ByoKGQueryEngine:
                 the next iteration's KG-Linker sees them. Part of the KG-Linker loop, so
                 unused when kg_linker is None (cypher-only). None (default) leaves the
                 pipeline unchanged.
+            context_selector: Optional ContextSelector applied to the KG-Linker loop's
+                context before query() returns it: reranks it against the question and
+                keeps its top max_lines lines plus at most max_chain_lines lines chained
+                to them through opaque ids. It prunes the answer's input only: the
+                KG-Linker's own iterations still see the full context, so exploration is
+                unchanged. Cypher-linker results are never pruned, and cypher-only mode
+                (kg_linker None) does not use it. None (default) returns the context
+                unchanged.
         """
         self.graph_store = graph_store
         self.schema = graph_store.get_schema()
@@ -72,6 +81,7 @@ class ByoKGQueryEngine:
         self.direct_query_linking = direct_query_linking
         self.single_best_match = single_best_match
         self.text_triplet_retriever = text_triplet_retriever
+        self.context_selector = context_selector
 
         # Fail at construction for the ordinary case. entity_linker is public, so
         # this cannot be the only check — see the call site in query() for a linker
@@ -332,6 +342,8 @@ class ByoKGQueryEngine:
             task_completion = parse_response(response, r"<task-completion>(.*?)</task-completion>")
             if "FINISH" in " ".join(task_completion):
                 break
+        if self.context_selector is not None:
+            retrieved_context = self.context_selector.select(query, retrieved_context)
         return cypher_context_with_feedback + retrieved_context
 
     def generate_response(self, query: str, graph_context: str = "", task_prompt = None, user_input: str = "") -> Tuple[List[str], str]:
@@ -341,14 +353,15 @@ class ByoKGQueryEngine:
         Args:
             query: The search query
             graph_context: Retrieved graph context to use for generation
-            task_prompt: Optional custom task prompt. If None, uses default generation prompt
+            task_prompt: Optional prompt template with {question}, {graph_context} and
+                {user_input} placeholders, whose answers go in <answers> tags. None uses
+                the default generate-response-qa prompt. generate-response-qa-grounded
+                in prompts/generation_prompts.yaml answers from the graph context only,
+                copying entity names as written there.
             user_input: Optional user input for additional instructions or context
 
         Returns:
             tuple: (list of answers, full response text)
-
-        Raises:
-            NotImplementedError: If custom task_prompt is provided (not yet supported)
         """
         
         if self.llm_generator is None:
@@ -356,15 +369,13 @@ class ByoKGQueryEngine:
 
         if task_prompt is None:
             task_prompt = load_yaml("prompts/generation_prompts.yaml")["generate-response-qa"]
-            user_prompt_formatted = task_prompt.format(
-                question=query, 
-                graph_context=graph_context,
-                user_input=user_input
-            )
-            response =  self.llm_generator.generate(
-                prompt=user_prompt_formatted, 
-            )
-            answers = parse_response(response, r"<answers>(.*?)</answers>")
-            return answers, response
-        else:
-            raise NotImplementedError
+        user_prompt_formatted = task_prompt.format(
+            question=query, 
+            graph_context=graph_context,
+            user_input=user_input
+        )
+        response =  self.llm_generator.generate(
+            prompt=user_prompt_formatted, 
+        )
+        answers = parse_response(response, r"<answers>(.*?)</answers>")
+        return answers, response

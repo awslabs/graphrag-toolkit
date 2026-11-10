@@ -214,6 +214,45 @@ class TestLocalGRerankerCalculateScore:
     
     @patch('transformers.AutoTokenizer')
     @patch('transformers.AutoModelForSequenceClassification')
+    def test_scores_in_batches_in_input_order(self, mock_model_class, mock_tokenizer_class):
+        """A large input is scored batch_size pairs per forward pass, scores in input order."""
+        import torch
+
+        class Encoding(dict):  # transformers' BatchEncoding: a dict with .to(device)
+            def to(self, device):
+                return self
+
+        batches = []
+
+        def tokenize(pairs, **kwargs):
+            batches.append(len(pairs))
+            return Encoding(input_ids=torch.tensor([[len(text)] for _, text in pairs]))
+
+        class Model:  # a cross-encoder's logits are (batch, 1)
+            device = 'cpu'
+
+            def __call__(self, input_ids, return_dict=True):
+                return Mock(logits=input_ids.float())
+
+        mock_tokenizer_class.from_pretrained.return_value = tokenize
+        model = Model()
+        mock_model_class.from_pretrained.return_value.to.return_value = model
+        model.eval = lambda: None
+
+        reranker = LocalGReranker(device='cpu', batch_size=2)
+        texts = ['a', 'bbbbb', 'cc', 'dddd', 'eee']
+        scores = reranker.calculate_score([['q', t] for t in texts])
+        assert batches == [2, 2, 1]
+        assert scores.tolist() == [1.0, 5.0, 2.0, 4.0, 3.0]
+        assert reranker.rerank_input_with_query('q', texts, topk=5)[0] == ['bbbbb', 'dddd', 'eee', 'cc', 'a']
+
+    @pytest.mark.parametrize('batch_size', [0, -1, 2.5])
+    def test_invalid_batch_size(self, batch_size):
+        with pytest.raises(ValueError, match='batch_size must be a positive integer'):
+            LocalGReranker(batch_size=batch_size)
+
+    @patch('transformers.AutoTokenizer')
+    @patch('transformers.AutoModelForSequenceClassification')
     def test_calculate_score_unsupported_model(self, mock_model_class, mock_tokenizer_class):
         """Verify calculate_score raises NotImplementedError for unsupported models."""
         mock_tokenizer = Mock()

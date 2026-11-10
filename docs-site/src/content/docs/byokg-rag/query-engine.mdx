@@ -315,6 +315,29 @@ query_engine = ByoKGQueryEngine(
 )
 ```
 
+#### Answer selection
+
+On multi-hop questions the answer is often in the retrieved context but lost while answering.
+Prune the context, then answer with the grounded prompt, which answers from the context only
+and copies entity names exactly as written there:
+
+```python
+from graphrag_toolkit.byokg_rag.graph_retrievers import ContextSelector, LocalGReranker
+from graphrag_toolkit.byokg_rag.utils import load_yaml
+
+query_engine = ByoKGQueryEngine(
+    graph_store=graph_store,
+    llm_generator=llm_generator,
+    context_selector=ContextSelector(LocalGReranker(device='cpu'), max_lines=20)
+)
+context = query_engine.query(question)
+grounded = load_yaml('prompts/generation_prompts.yaml')['generate-response-qa-grounded']
+answers, response = query_engine.generate_response(question, '\n'.join(context), task_prompt=grounded)
+```
+
+`task_prompt` takes any template with `{question}`, `{graph_context}` and `{user_input}`
+placeholders whose answers go in `<answers>` tags; without it the default prompt is used.
+
 #### Custom LLM configuration
 
 ```python
