@@ -2,7 +2,6 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import json
-import os
 import unittest
 
 import pytest
@@ -33,19 +32,6 @@ class FakeLinker:
         return {'entity-extraction': ['Lou Seal'], 'path-extraction': ['mascot of -> won']}
 
 
-class FakeEntityLinker:
-    """EntityLinker.link() return shapes: flat List[str], or one list per mention
-    with group_by_mention (the single_best_match path)."""
-
-    def __init__(self, candidates=('Lou Seal', 'Lou Seal mascot')):
-        self.candidates = list(candidates)
-
-    def link(self, mentions, return_dict=True, group_by_mention=False, **kwargs):
-        if group_by_mention:
-            return [list(self.candidates) for _ in mentions]
-        return [self.candidates[0] for _ in mentions]
-
-
 class FakeEngine:
     """Return shapes of the real ByoKGQueryEngine: query() -> List[str],
     generate_response() -> (List[str], str)."""
@@ -53,7 +39,6 @@ class FakeEngine:
     def __init__(self, counter, kg_answer='2014 World Series', vanilla_answer='2010 World Series',
                  fail=False, kg_calls=4, vanilla_fail=False):
         self.kg_linker, self.counter = FakeLinker(), counter
-        self.entity_linker = FakeEntityLinker()
         self.kg_answer, self.vanilla_answer, self.fail, self.kg_calls = \
             kg_answer, vanilla_answer, fail, kg_calls
         self.vanilla_fail = vanilla_fail
@@ -65,7 +50,6 @@ class FakeEngine:
         for _ in range(self.kg_calls - 1):
             self.counter.generate('p')
         self.kg_linker.parse_response('<entities>Lou Seal</entities>')
-        self.entity_linker.link(['Lou Seal'], return_dict=False)  # as the engine does
         return ['Lou Seal -> mascot of -> Giants', 'Giants -> won -> 2014 World Series']
 
     def generate_response(self, query, graph_context=''):
@@ -211,7 +195,7 @@ def _dataset_on_disk(tmp_path):
 def fake_engine(monkeypatch):
     built = []
 
-    def build(graph, model, region, sbm, parts=None):
+    def build(graph, model, region, sbm):
         engine, counter = _engine()
         built.append(sbm)
         return engine, counter
@@ -313,7 +297,7 @@ class TestProvenance:
         assert p['git_sha'] == 'abc123-dirty'
         assert p['inference']['model_name'] == 'fake-model'
         assert set(p) == {'git_sha', 'byokg_rag_source_sha256', 'byokg_rag_prompts_sha256',
-                          'benchmark_code_sha256', 'data_sha256', 'inference', 'retrieval'}
+                          'benchmark_code_sha256', 'data_sha256', 'inference'}
 
     def test_tree_hash_skips_pycache(self, tmp_path):
         (tmp_path / 'm.py').write_text('x = 1')
@@ -503,355 +487,3 @@ def test_suite_file_resolves_like_the_stack_runner():
         assert issubclass(c, IntegrationTestBase)
         datasets.append(c.dataset)
     assert sorted(datasets) == sorted(runner.DATASETS)
-
-
-# --- optional text-based retrieval ------------------------------------------------
-
-TEXT = runner.RetrievalConfig(text_retrieval=True, embed_model='cohere.embed-english-v3')
-
-
-class TestLinkedNodes:
-    def test_flat_result_seeds_every_node(self):
-        assert runner.linked_nodes(['A', 'B']) == ['A', 'B']
-
-    def test_grouped_result_seeds_first_candidate_per_mention(self):
-        # What ByoKGQueryEngine does with single_best_match: candidates[0] per mention.
-        assert runner.linked_nodes([['A', 'A2'], [], ['B']]) == ['A', 'B']
-
-    def test_return_dict_result(self):
-        assert runner.linked_nodes({'hits': [{'document_id': 'A'}]}) == ['A']
-
-    def test_unknown_shape_fails_loud(self):
-        with pytest.raises(TypeError, match='unexpected EntityLinker.link'):
-            runner.linked_nodes([1, 2])
-
-
-class TestSeedRecall:
-    def test_recorded_against_gold_and_link_restored(self):
-        engine, counter = _engine()
-        assert 'link' not in vars(engine.entity_linker)
-        r = runner.run_question(engine, counter, QUESTION, QUESTION.schema, 2, 2)
-        assert (r['linked_seeds'], r['seed_recall']) == (['Lou Seal'], 1.0)
-        assert 'link' not in vars(engine.entity_linker), 'no instance attribute left behind'
-
-    def test_grouped_path_counts_only_the_seeds_used(self):
-        engine, counter = _engine()
-
-        def grouped_query(query, iterations=2):
-            engine.entity_linker.link(['Lou Seal'], return_dict=False, group_by_mention=True)
-            return []
-        engine.query = grouped_query
-        r = runner.run_question(engine, counter, QUESTION, QUESTION.schema, 2, 2)
-        assert r['linked_seeds'] == ['Lou Seal'], 'second candidate is not a seed'
-
-    def test_no_gold_entities_is_not_zero(self):
-        engine, counter = _engine()
-        q = Question('m1', 'medical question', ['Clopidogrel'])
-        assert runner.run_question(engine, counter, q, {}, None, 2)['seed_recall'] is None
-
-    def test_aggregate_mean(self):
-        agg = runner.aggregate([{**_summary(80.0, []), 'seed_recall': 60.0},
-                                {**_summary(80.0, []), 'seed_recall': 70.0}], 'hit')
-        assert agg['seed_recall_mean'] == 65.0
-
-
-class TestRetrievalConfig:
-    def test_off_by_default(self):
-        assert not runner.RetrievalConfig().enabled
-        assert runner.retrieval_provenance(runner.RetrievalConfig(), None)['embed_model'] is None
-
-    def test_cache_key_tracks_graph_and_model(self):
-        assert runner.embedding_cache_key('ab' * 32, 'cohere.embed-english-v3') == \
-            'abababababababab-cohere.embed-english-v3'
-        assert runner.embedding_cache_key('ab' * 32, 'arn:aws:x/y') == 'abababababababab-arn_aws_x_y'
-
-    def test_flags_change_the_fingerprint(self):
-        prov = runner.provenance(runner.CountingGenerator(FakeGenerator()), data_sha256={})
-        keys = set()
-        for retrieval in (runner.RetrievalConfig(), TEXT,
-                          runner.RetrievalConfig(text_retrieval=True, text_topk=5, embed_model='cohere.embed-english-v3')):
-            p = {**prov, 'retrieval': runner.retrieval_provenance(retrieval, 1024)}
-            keys.add(runner.run_key(['q1'], True, 2, p))
-        assert len(keys) == 3, 'resume must never reuse a run across retrieval arms'
-
-    def test_unused_settings_do_not_split_the_fingerprint(self):
-        model = 'cohere.embed-english-v3'  # explicit: resolving the default imports byokg-rag
-        off = [runner.retrieval_provenance(runner.RetrievalConfig(text_topk=k, embed_model=model), None)
-               for k in (5, 10)]
-        text = [runner.retrieval_provenance(
-            runner.RetrievalConfig(text_retrieval=True, text_topk=k, embed_model=model), 1024) for k in (5, 10)]
-        assert off[0] == off[1] and (off[0]['text_topk'], off[0]['embed_model']) == (None, None)
-        assert text[0] != text[1]
-
-    def test_from_env(self, monkeypatch):
-        monkeypatch.setenv('BYOKG_TEXT_RETRIEVAL', 'true')
-        monkeypatch.setenv('BYOKG_TEXT_TOPK', '5')
-        r = runner.retrieval_from_env()
-        assert (r.text_retrieval, r.text_topk) == (True, 5)
-
-    def test_parse_args(self):
-        a = runner.parse_args(['--dataset', 'cronquestions', '--text-retrieval', '--text-topk', '7'])
-        assert (a.text_retrieval, a.text_topk) == (True, 7)
-
-
-class TestRetrievalWiring:
-    @pytest.fixture
-    def parts_spy(self, monkeypatch, fake_engine):
-        seen = {}
-
-        def build_parts(graph, retrieval, region, cache_dir):
-            seen.update(retrieval=retrieval, cache_dir=cache_dir)
-            return runner.RetrievalParts(text_triplet_retriever='TEXT', embedding_dim=1024)
-        built = []
-        monkeypatch.setattr(runner, 'build_retrieval_parts', build_parts)
-        monkeypatch.setattr(runner, 'build_engine',
-                            lambda graph, model, region, sbm, parts=None: built.append(parts) or _engine())
-        return seen, built
-
-    def _run(self, tmp_path, **kw):
-        data = tmp_path / 'data'
-        if not data.exists():
-            data.mkdir()
-            _dataset_on_disk(data)
-        return runner.run_benchmark('webqsp', str(data), str(tmp_path / 'out'), runs=1, **kw)
-
-    def test_parts_built_once_and_reach_every_engine(self, tmp_path, parts_spy):
-        seen, built = parts_spy
-        report = self._run(tmp_path, retrieval=TEXT)
-        assert [p.text_triplet_retriever for p in built] == ['TEXT', 'TEXT'], 'both settings, one build'
-        assert '/embeddings/' in seen['cache_dir'] and seen['cache_dir'].endswith('-cohere.embed-english-v3')
-        assert report['provenance']['retrieval'] == {
-            'text_retrieval': True, 'text_topk': 10,
-            'embed_model': 'cohere.embed-english-v3', 'embedding_dim': 1024}
-
-    def test_no_cache_and_no_hook_when_off(self, tmp_path, parts_spy):
-        seen, _ = parts_spy
-        hooked = []
-        self._run(tmp_path, before_embeddings=hooked.append, after_embeddings=hooked.append)
-        assert seen['cache_dir'] is None and hooked == []
-
-    def test_hooks_bracket_the_build_with_its_cache_dir(self, tmp_path, parts_spy):
-        seen, _ = parts_spy
-        events = []
-        self._run(tmp_path, retrieval=TEXT,
-                  before_embeddings=lambda d: events.append(('before', d, 'cache_dir' in seen)),
-                  after_embeddings=lambda d: events.append(('after', d, 'cache_dir' in seen)))
-        assert events == [('before', seen['cache_dir'], False), ('after', seen['cache_dir'], True)]
-
-    def test_switching_an_arm_on_refuses_the_baseline_results(self, tmp_path, parts_spy):
-        self._run(tmp_path)
-        with pytest.raises(RuntimeError, match='different configuration'):
-            self._run(tmp_path, retrieval=TEXT)
-
-
-class FakeS3:
-    """boto3 S3 client surface used by sync_embedding_cache: upload_file(Filename, Bucket,
-    Key), download_file(Bucket, Key, Filename), and list_objects_v2 pages that omit
-    'Contents' when nothing matches."""
-
-    def __init__(self, objects=None, page_size=2):
-        self.objects = dict(objects or {})  # (bucket, key) -> bytes
-        self.page_size, self.ops = page_size, []
-
-    def upload_file(self, Filename, Bucket, Key):
-        with open(Filename, 'rb') as f:
-            self.objects[(Bucket, Key)] = f.read()
-        self.ops.append(('up', Key))
-
-    def download_file(self, Bucket, Key, Filename):
-        with open(Filename, 'wb') as f:
-            f.write(self.objects[(Bucket, Key)])
-        self.ops.append(('down', Key))
-
-    def get_paginator(self, name):
-        assert name == 'list_objects_v2'
-        return self
-
-    def paginate(self, Bucket, Prefix):
-        keys = sorted(k for b, k in self.objects if b == Bucket and k.startswith(Prefix))
-        if not keys:
-            yield {'KeyCount': 0, 'IsTruncated': False}
-        for i in range(0, len(keys), self.page_size):
-            yield {'Contents': [{'Key': k} for k in keys[i:i + self.page_size]],
-                   'KeyCount': len(keys[i:i + self.page_size])}
-
-
-CACHE_FILES = ['nodes/meta.json', 'nodes/texts.json', 'nodes/vectors.npy',
-               'relations/meta.json', 'relations/texts.json', 'relations/vectors.npy']
-
-
-def _write_cache(cache_dir, partial=True, tables=('nodes', 'relations')):
-    rels = [r for r in CACHE_FILES if r.split('/')[0] in tables]
-    for rel in rels + (['nodes/partial/000000-abcd.npy'] if partial else []):
-        path = os.path.join(cache_dir, *rel.split('/'))
-        os.makedirs(os.path.dirname(path), exist_ok=True)
-        with open(path, 'wb') as f:
-            f.write(rel.encode())
-
-
-class TestSyncEmbeddingCache:
-    PREFIX = 'byokg-data/embeddings/k1/'
-
-    def test_upload_skips_checkpoints_and_puts_vectors_last(self, tmp_path, monkeypatch):
-        s3 = FakeS3()
-        monkeypatch.setattr(runner, '_s3_client', lambda: s3)
-        _write_cache(str(tmp_path / 'k1'))
-        runner.sync_embedding_cache('s3://bucket/byokg-data/', str(tmp_path / 'k1'), upload=True)
-        keys = [k for _, k in s3.ops]
-        assert sorted(keys) == sorted(self.PREFIX + r for r in CACHE_FILES), 'no partial/ checkpoints'
-        assert all(k.endswith('vectors.npy') for k in keys[-2:]), 'completion markers last'
-
-    def test_download_round_trips_across_pages_with_vectors_last(self, tmp_path, monkeypatch):
-        s3 = FakeS3({('bucket', self.PREFIX + r): r.encode() for r in CACHE_FILES}, page_size=2)
-        monkeypatch.setattr(runner, '_s3_client', lambda: s3)
-        runner.sync_embedding_cache('s3://bucket/byokg-data', str(tmp_path / 'k1'), upload=False)
-        for rel in CACHE_FILES:
-            assert (tmp_path / 'k1' / rel).read_bytes() == rel.encode()
-        assert all(k.endswith('vectors.npy') for _, k in s3.ops[-2:])
-
-    def test_empty_prefix_fetches_nothing(self, tmp_path, monkeypatch):
-        s3 = FakeS3({('bucket', 'byokg-data/embeddings/other/nodes/vectors.npy'): b'x'})
-        monkeypatch.setattr(runner, '_s3_client', lambda: s3)
-        runner.sync_embedding_cache('s3://bucket/byokg-data/', str(tmp_path / 'k1'), upload=False)
-        assert s3.ops == [] and not (tmp_path / 'k1').exists()
-
-    def test_folder_markers_are_skipped(self, tmp_path, monkeypatch):
-        s3 = FakeS3({('bucket', self.PREFIX): b'', ('bucket', self.PREFIX + 'nodes/'): b'',
-                     ('bucket', self.PREFIX + 'nodes/texts.json'): b'[]'})
-        monkeypatch.setattr(runner, '_s3_client', lambda: s3)
-        runner.sync_embedding_cache('s3://bucket/byokg-data/', str(tmp_path / 'k1'), upload=False)
-        assert s3.ops == [('down', self.PREFIX + 'nodes/texts.json')]
-
-    def test_key_outside_the_cache_dir_fails_loud(self, tmp_path, monkeypatch):
-        s3 = FakeS3({('bucket', self.PREFIX + 'nodes/texts.json'): b'[]',
-                     ('bucket', self.PREFIX + '../../escape.txt'): b'x'})
-        monkeypatch.setattr(runner, '_s3_client', lambda: s3)
-        with pytest.raises(ValueError, match='resolves outside'):
-            runner.sync_embedding_cache('s3://bucket/byokg-data/', str(tmp_path / 'k1'), upload=False)
-        assert s3.ops == [], 'nothing fetched'
-        assert not (tmp_path / 'escape.txt').exists()
-
-    def test_complete_local_cache_is_not_fetched_again(self, tmp_path, monkeypatch):
-        s3 = FakeS3({('bucket', self.PREFIX + r): b'remote' for r in CACHE_FILES})
-        monkeypatch.setattr(runner, '_s3_client', lambda: s3)
-        _write_cache(str(tmp_path / 'k1'), partial=False)
-        assert runner.fetch_embedding_cache('s3://bucket/byokg-data/', str(tmp_path / 'k1'))
-        assert s3.ops == []
-
-    def test_non_s3_uri_fails_loud(self, tmp_path, monkeypatch):
-        monkeypatch.setattr(runner, '_s3_client', lambda: FakeS3())
-        with pytest.raises(ValueError, match='expected an s3:// URI'):
-            runner.sync_embedding_cache('/local/byokg-data', str(tmp_path / 'k1'), upload=False)
-
-
-class TestEmbeddingCacheOnStack:
-    @pytest.fixture
-    def stack(self, tmp_path, monkeypatch, fake_engine):
-        data = tmp_path / 'data'
-        data.mkdir()
-        _dataset_on_disk(data)
-        for var, value in {'BYOKG_DATA_S3_URI': 's3://bucket/byokg-data/', 'BYOKG_DATA_DIR': str(data),
-                           'BYOKG_KGQA_RUNS': '1', 'BYOKG_TEXT_RETRIEVAL': 'true',
-                           'BYOKG_EMBED_MODEL': 'cohere.embed-english-v3'}.items():
-            monkeypatch.setenv(var, value)
-        monkeypatch.setattr(runner, 'RESULTS_DIR', str(tmp_path / 'results'))
-        monkeypatch.setattr(runner, 'upload_benchmark_results_to_s3', lambda *a: None)
-        s3 = FakeS3()
-        monkeypatch.setattr(runner, '_s3_client', lambda: s3)
-        built = []
-
-        def build_parts(graph, retrieval, region, cache_dir):
-            # Mirrors the real one: off builds nothing; a miss leaves a full cache plus checkpoints.
-            if not retrieval.enabled:
-                return runner.RetrievalParts()
-            missing = [t for t in ('nodes', 'relations')
-                       if not os.path.exists(os.path.join(cache_dir, t, 'vectors.npy'))]
-            if missing:
-                _write_cache(cache_dir, tables=missing)
-            built.append(missing)
-            return runner.RetrievalParts(embedding_dim=1024)
-        monkeypatch.setattr(runner, 'build_retrieval_parts', build_parts)
-        key = runner.embedding_cache_key(
-            runner._file_sha256(str(data / runner.DATASETS['webqsp'].graph_file)), 'cohere.embed-english-v3')
-        return s3, built, f'byokg-data/embeddings/{key}/'
-
-    def test_miss_builds_then_publishes_once(self, stack):
-        s3, built, prefix = stack
-        runner.run_byokg_kgqa_test(FakeHandler(), {}, 'webqsp')
-        assert built == [['nodes', 'relations']]
-        assert sorted(k for _, k in s3.objects) == sorted(prefix + r for r in CACHE_FILES)
-
-    def test_incomplete_remote_cache_is_completed_and_republished(self, stack):
-        s3, built, prefix = stack
-        # A stack that died between the two tables' uploads left relations without vectors.
-        s3.objects = {('bucket', prefix + r): r.encode() for r in CACHE_FILES if r != 'relations/vectors.npy'}
-        runner.run_byokg_kgqa_test(FakeHandler(), {}, 'webqsp')
-        assert built == [['relations']], 'only the missing table is rebuilt'
-        assert ('up', prefix + 'relations/vectors.npy') in s3.ops
-
-    def test_second_stack_reuses_the_published_cache(self, stack, tmp_path):
-        s3, built, prefix = stack
-        runner.run_byokg_kgqa_test(FakeHandler(), {}, 'webqsp')
-        import shutil
-        shutil.rmtree(tmp_path / 'data' / 'embeddings')  # a fresh stack's volume
-        s3.ops.clear()
-        runner.run_byokg_kgqa_test(FakeHandler(), {}, 'webqsp')
-        assert s3.ops and all(op == 'down' for op, _ in s3.ops), 'fetched, not republished'
-        assert sorted(k for _, k in s3.ops) == sorted(prefix + r for r in CACHE_FILES)
-
-    def test_off_never_touches_the_cache(self, stack, monkeypatch):
-        s3, built, _ = stack
-        monkeypatch.setenv('BYOKG_TEXT_RETRIEVAL', 'false')
-        runner.run_byokg_kgqa_test(FakeHandler(), {}, 'webqsp')
-        assert s3.ops == [] and built == []
-
-
-class TestReviewFixes:
-    @pytest.mark.parametrize('topk', [0, -3, 2.5])
-    def test_text_topk_must_be_positive(self, topk):
-        with pytest.raises(ValueError, match='text_topk must be a positive integer'):
-            runner.RetrievalConfig(text_retrieval=True, text_topk=topk)
-
-    def test_cli_fetches_the_embedding_cache_with_s3_data(self, monkeypatch, tmp_path):
-        key = 'k1-cohere.embed-english-v3'
-        s3 = FakeS3({('bucket', f'byokg-data/embeddings/{key}/nodes/vectors.npy'): b'v'})
-        ran = []
-        monkeypatch.setattr(runner, '_s3_client', lambda: s3)
-        monkeypatch.setattr(runner, 'fetch_dataset', lambda *a: None)
-        monkeypatch.setattr(runner, 'run_benchmark', lambda *a, **k: ran.append(k))
-        runner.main(['--dataset', 'cronquestions', '--data-dir', str(tmp_path), '--s3-data',
-                     's3://bucket/byokg-data/', '--text-retrieval', '--embed-model', 'cohere.embed-english-v3'])
-        assert ran[0]['retrieval'].text_retrieval
-        ran[0]['before_embeddings'](str(tmp_path / 'embeddings' / key))  # as run_benchmark calls it
-        assert (tmp_path / 'embeddings' / key / 'nodes' / 'vectors.npy').read_bytes() == b'v'
-
-    @pytest.mark.parametrize('argv', [['--s3-data', 's3://b/p/'], ['--text-retrieval']])
-    def test_cli_fetches_only_with_s3_data_and_a_flag(self, monkeypatch, tmp_path, argv):
-        ran = []
-        monkeypatch.setattr(runner, 'fetch_dataset', lambda *a: None)
-        monkeypatch.setattr(runner, 'run_benchmark', lambda *a, **k: ran.append(k))
-        runner.main(['--dataset', 'cronquestions', '--data-dir', str(tmp_path), *argv])
-        assert ran[0]['before_embeddings'] is None
-
-    def test_build_parts_records_model_and_retries(self, monkeypatch, tmp_path):
-        pytest.importorskip('graphrag_toolkit.byokg_rag')  # benchmarks CI does not install it
-        from graphrag_toolkit.byokg_rag import config as byokg_config
-        from graphrag_toolkit.byokg_rag.indexing import graph_embeddings
-        seen = {}
-
-        class Emb:
-            def batch_embed(self, texts):
-                return [[1.0, 0.0] for _ in texts]
-
-            def embed_query(self, text):
-                return [1.0, 0.0]
-        monkeypatch.setattr(byokg_config.ByoKGConfig, 'to_embedding', lambda **kw: seen.update(kw) or Emb())
-        real_build = graph_embeddings.GraphEmbeddings.build.__func__
-        monkeypatch.setattr(graph_embeddings.GraphEmbeddings, 'build', classmethod(
-            lambda cls, *a, **kw: seen.update(model_id=kw.get('model_id')) or real_build(cls, *a, **kw)))
-        parts = runner.build_retrieval_parts(GRAPH, runner.RetrievalConfig(
-            text_retrieval=True, embed_model='cohere.embed-english-v3'), 'us-west-2', str(tmp_path))
-        assert seen['model_id'] == 'cohere.embed-english-v3' and seen['region_name'] == 'us-west-2'
-        assert seen['config'].retries == {'max_attempts': runner.EMBED_MAX_ATTEMPTS, 'mode': 'adaptive'}
-        assert parts.text_triplet_retriever is not None
-        assert parts.embedding_dim == 2

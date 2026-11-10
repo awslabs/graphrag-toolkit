@@ -245,27 +245,7 @@ multi-entity or temporal reasoning.
 - Notebook: `ml.m5.4xlarge` (64GB) for WebQSP and CWQ — parsing the CWQ questions file
   peaks at ~7.2 GB; `ml.m5.xlarge` is enough for MedQA and CronQuestions
 - Disk: the default 5 GB notebook volume fits all four datasets (~2.2 GB) because only
-  the question and graph files are fetched — with text retrieval (below) off. With it
-  on, add the embedding cache per dataset (~0.65 GB CronQuestions, ~1.2 GB
-  CWQ, ~1.35 GB WebQSP; up to twice that while the first stack builds it, since chunk
-  checkpoints are kept until the table is written), so run one stack per dataset
-
-**Optional text retrieval.** Off by default, so a run reproduces the library defaults;
-set `BYOKG_TEXT_RETRIEVAL=true` in `.env` to measure it, one stack per arm. It adds
-text-based triplet retrieval (`TextTripletRetriever`, top `BYOKG_TEXT_TOPK`, default 10)
-alongside agentic retrieval.
-
-It embeds the graph's node names and relation labels once with `BYOKG_EMBED_MODEL`
-(default `cohere.embed-english-v3`). The stack's notebook role may only invoke
-`cohere.embed-english-v3`, in the stack's region, so another model needs an IAM change.
-The vectors are cached under `<BYOKG_DATA_S3_URI>/embeddings/<graph-hash>-<model>/`: the
-first stack computes and uploads them (CronQuestions is ~1.8K embedding calls), later
-stacks and `--s3-data` local runs download them. A cache that no longer matches the graph
-or model (e.g. after a change to which nodes are embedded) fails the run rather than being
-reused; delete that prefix to rebuild it. The flag, `BYOKG_TEXT_TOPK` and the model enter
-the resume fingerprint, so an arm never reuses another arm's runs. Each run also reports
-`seed_recall`: the share of a question's gold topic entities among the nodes BYOKG linked
-(not computed for MedQA, which has none).
+  the question and graph files are fetched
 
 **Expected runtime and cost.** Questions run one at a time, and each runs once per
 `single_best_match` setting per repeat — 6 times with the defaults. Measured with Claude

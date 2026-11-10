@@ -310,18 +310,6 @@ def showcase_reasons(record: Dict[str, Any]) -> List[str]:
     return reasons
 
 
-def seed_recall(gold_entities: Sequence[str], seeds: Iterable[str]) -> Optional[float]:
-    """Share of the question's gold topic entities among the nodes BYOKG linked.
-
-    None when the dataset has no gold topic entities (MedQA), so it is left out of
-    the average instead of counting as 0.
-    """
-    gold = set(gold_entities)
-    if not gold:
-        return None
-    return len(gold & set(seeds)) / len(gold)
-
-
 def answer_in_context(context: Sequence[str], answers: Iterable[str]) -> bool:
     return hit(context, answers) == 1
 
@@ -364,8 +352,6 @@ def summarize(records: Sequence[Dict[str, Any]], metric: str) -> Dict[str, Any]:
         'context_chars_median': _quantile([r['context_chars'] for r in ok], 0.5),
         'n_showcase': sum(1 for r in records if r.get('showcase')),
         'showcase_ids': [r['id'] for r in records if r.get('showcase')],
-        # Over non-errored questions that have gold topic entities.
-        'seed_recall': _pct([r['seed_recall'] for r in ok if r.get('seed_recall') is not None]),
     }
     if metric == 'hit@2':
         summary['hit@2'] = _pct([r['hit@2'] for r in records])
