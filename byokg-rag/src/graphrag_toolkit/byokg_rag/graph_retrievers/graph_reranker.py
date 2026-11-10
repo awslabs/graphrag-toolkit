@@ -33,7 +33,7 @@ class LocalGReranker(GReranker):
     """
         Local reranker on single machine with BGE-reranker-base models.
     """
-    def __init__(self, model_name=None, topk=10, device="cuda"):
+    def __init__(self, model_name=None, topk=10, device="cuda", batch_size=64):
         """
         Initialize the LocalGReranker.
 
@@ -42,10 +42,14 @@ class LocalGReranker(GReranker):
                 "BAAI/bge-reranker-base", "BAAI/bge-reranker-large", "BAAI/bge-reranker-v2-m3"
             topk: Default number of top results to return
             device: Device to run the model on (e.g., "cuda" or "cpu")
+            batch_size: Pairs scored per forward pass, so a large input (a hub entity's
+                context) is scored in bounded memory
 
         Raises:
             AssertionError: If model_name is not supported
         """
+        if not isinstance(batch_size, int) or batch_size < 1:
+            raise ValueError(f'batch_size must be a positive integer, got {batch_size!r}')
         from ..config import ByoKGConfig
         model_name = model_name if model_name is not None else ByoKGConfig.reranking_model
         supported_models = ["BAAI/bge-reranker-base", "BAAI/bge-reranker-large", "BAAI/bge-reranker-v2-m3"]
@@ -58,8 +62,9 @@ class LocalGReranker(GReranker):
         self.reranker = AutoModelForSequenceClassification.from_pretrained(model_name)  # nosec B615 - model_name restricted to allowlist above
         self.reranker = self.reranker.to(device)
         self.reranker.eval()
-        
+
         self.topk = topk
+        self.batch_size = batch_size
 
 
     def calculate_score(self, pairs):
@@ -70,14 +75,18 @@ class LocalGReranker(GReranker):
             pairs: List of [query, text] pairs to score
 
         Returns:
-            torch.Tensor: Scores for each pair
+            torch.Tensor: Scores for each pair, in input order
         """
         if self.model_name in ["BAAI/bge-reranker-base", "BAAI/bge-reranker-large", "BAAI/bge-reranker-v2-m3"]:
+            # An empty input still goes through once, as before batching.
+            batches = [pairs[i:i + self.batch_size] for i in range(0, len(pairs), self.batch_size)] or [pairs]
+            scores = []
             with torch.no_grad():
-                inputs = self.tokenizer(pairs, padding=True, truncation=True, return_tensors='pt', max_length=512)
-                inputs = inputs.to(self.reranker.device)
-                scores = self.reranker(**inputs, return_dict=True).logits.view(-1, ).float()
-                return scores
+                for batch in batches:
+                    inputs = self.tokenizer(batch, padding=True, truncation=True, return_tensors='pt', max_length=512)
+                    inputs = inputs.to(self.reranker.device)
+                    scores.append(self.reranker(**inputs, return_dict=True).logits.view(-1, ).float())
+            return torch.cat(scores)
         else:
             raise NotImplementedError
     

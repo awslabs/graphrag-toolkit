@@ -879,6 +879,13 @@ class TestAnswerSelectionConfig:
         with pytest.raises(ValueError, match='max_lines must be a positive integer'):
             runner.AnswerSelectionConfig(enabled=True, max_lines=max_lines)
 
+    @pytest.mark.parametrize('leftover', ['0', 'twenty'])
+    def test_a_leftover_max_lines_does_not_abort_a_run_without_selection(self, monkeypatch, leftover):
+        assert not runner.AnswerSelectionConfig(max_lines=0).enabled  # off: not validated
+        monkeypatch.delenv('BYOKG_ANSWER_SELECTION', raising=False)
+        monkeypatch.setenv('BYOKG_CONTEXT_MAX_LINES', leftover)
+        assert runner.answer_selection_from_env() == runner.AnswerSelectionConfig()
+
     def test_from_env_and_cli(self, monkeypatch):
         monkeypatch.setenv('BYOKG_ANSWER_SELECTION', 'true')
         monkeypatch.setenv('BYOKG_CONTEXT_MAX_LINES', '12')
@@ -904,6 +911,56 @@ class TestAnswerSelectionConfig:
         assert len(made) == 1 and made[0] in ('cpu', 'cuda')
         assert parts.context_selector.max_lines == 7 and parts.reranker_model == 'BAAI/bge-reranker-base'
         assert '{graph_context}' in parts.prompt and 'exactly as it is written in the graph context' in parts.prompt
+
+
+class KeepFirstSelector:
+    """ContextSelector's surface: select(query, context) -> a subset of context."""
+
+    def select(self, query, context):
+        return list(context)[:1]
+
+
+class SelectingEngine(FakeEngine):
+    """Passes its retrieved context through context_selector, as ByoKGQueryEngine.query does."""
+
+    def __init__(self, counter, selector):
+        super().__init__(counter)
+        self.context_selector = selector
+
+    def query(self, query, iterations=2):
+        return self.context_selector.select(query, super().query(query, iterations))
+
+
+class TestContextBeforeSelection:
+    def test_a_miss_caused_by_selection_is_told_apart(self):
+        counter = runner.CountingGenerator(FakeGenerator())
+        selector = KeepFirstSelector()
+        r = runner.run_question(SelectingEngine(counter, selector), counter, QUESTION, QUESTION.schema, 2, 2)
+        assert r['context'] == ['Lou Seal -> mascot of -> Giants'] and not r['answer_in_context']
+        assert (r['retrieved_context_lines'], r['answer_in_retrieved_context']) == (2, True)
+        assert 'select' not in vars(selector), 'restored'
+
+    def test_without_selection_the_fields_are_empty(self):
+        engine, counter = _engine()
+        r = runner.run_question(engine, counter, QUESTION, QUESTION.schema, 2, 2)
+        assert (r['retrieved_context_lines'], r['answer_in_retrieved_context']) == (None, None)
+
+    def test_a_question_that_fails_before_selection_counts_as_not_found(self):
+        counter = runner.CountingGenerator(FakeGenerator())
+        engine = SelectingEngine(counter, KeepFirstSelector())
+        engine.fail = True
+        r = runner.run_question(engine, counter, QUESTION, QUESTION.schema, 2, 2)
+        assert (r['retrieved_context_lines'], r['answer_in_retrieved_context']) == (0, False)
+
+    def test_summary_reports_it_only_with_selection(self):
+        base = {'hit': 1, 'vanilla_hit': 0, 'f1': 1.0, 'llm_calls': 4, 'latency_s': 1.0, 'context_chars': 10,
+                'predictions': ['a'], 'error': None, 'vanilla_error': None, 'showcase': [], 'seed_recall': None}
+        on = [{**base, 'id': '1', 'answer_in_context': False, 'answer_in_retrieved_context': True},
+              {**base, 'id': '2', 'answer_in_context': True, 'answer_in_retrieved_context': True}]
+        s = runner.summarize(on, 'hit')
+        assert (s['answer_in_context'], s['answer_in_retrieved_context']) == (50.0, 100.0)
+        off = [{**base, 'id': '1', 'answer_in_context': True, 'answer_in_retrieved_context': None}]
+        assert runner.summarize(off, 'hit')['answer_in_retrieved_context'] is None
 
 
 class TestAnswerSelectionWiring:

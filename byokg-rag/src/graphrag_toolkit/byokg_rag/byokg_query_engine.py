@@ -56,11 +56,13 @@ class ByoKGQueryEngine:
                 the next iteration's KG-Linker sees them. Part of the KG-Linker loop, so
                 unused when kg_linker is None (cypher-only). None (default) leaves the
                 pipeline unchanged.
-            context_selector: Optional ContextSelector applied to the retrieved context
-                before query() returns it: reranks it against the question and caps its
-                size, keeping the lines chained to kept lines through opaque ids. The
-                KG-Linker's own iterations still see the full context. None (default)
-                returns the context unchanged.
+            context_selector: Optional ContextSelector applied to the KG-Linker loop's
+                context before query() returns it: reranks it against the question and
+                keeps at most its max_lines lines, chained lines included. It prunes the
+                answer's input only: the KG-Linker's own iterations still see the full
+                context, so exploration is unchanged. Cypher-linker results are never
+                pruned, and cypher-only mode (kg_linker None) does not use it. None
+                (default) returns the context unchanged.
         """
         self.graph_store = graph_store
         self.schema = graph_store.get_schema()

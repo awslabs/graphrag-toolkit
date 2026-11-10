@@ -358,6 +358,9 @@ def summarize(records: Sequence[Dict[str, Any]], metric: str) -> Dict[str, Any]:
         'vanilla_hit': _pct([r['vanilla_hit'] for r in records]),
         'f1': _pct([r['f1'] for r in records]),
         'answer_in_context': _pct([r['answer_in_context'] for r in records]),
+        # With answer selection only: the answer was in the context before it was pruned.
+        'answer_in_retrieved_context': _pct([r['answer_in_retrieved_context'] for r in records
+                                             if r.get('answer_in_retrieved_context') is not None]),
         'llm_calls_mean': round(sum(r['llm_calls'] for r in ok) / len(ok), 2) if ok else None,
         'latency_s_p50': _quantile([r['latency_s'] for r in ok], 0.5),
         'latency_s_p95': _quantile([r['latency_s'] for r in ok], 0.95),

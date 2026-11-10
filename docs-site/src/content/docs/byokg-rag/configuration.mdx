@@ -28,7 +28,7 @@ The query engine orchestrates the entire KGQA (Knowledge Graph Question Answerin
 | `cypher_kg_linker` | CypherKGLinker | None | Specialized linker for Cypher-based retrieval | `CypherKGLinker(...)` |
 | `direct_query_linking` | bool | False | Enable direct entity linking using query embeddings | `True` |
 | `text_triplet_retriever` | TextTripletRetriever | None | Retriever of the triplets most similar to the question, independent of entity linking. Runs once per question in the first iteration, whether or not any entity was linked; its triplets join the context before agentic retrieval, so the next KG-Linker call sees them. Unused without a `kg_linker` (cypher-only). | `TextTripletRetriever(...)` |
-| `context_selector` | ContextSelector | None | Reranks the retrieved context against the question and keeps the most relevant lines, plus the lines chained to them through opaque ids, before `query()` returns it. The KG-Linker's own iterations still see the full context. | `ContextSelector(LocalGReranker(device='cpu'))` |
+| `context_selector` | ContextSelector | None | Reranks the retrieved context against the question and keeps the most relevant lines, plus a capped number of lines chained to them through opaque ids, before `query()` returns it. The KG-Linker's own iterations still see the full context. | `ContextSelector(LocalGReranker(device='cpu'))` |
 | `single_best_match` | bool | False | Keep only the best-matching node per extracted mention instead of unioning every top-k candidate. Reduces seed-set noise. Narrows both the triplet retriever's seeds and the entity set fed to the path retriever, so path coverage narrows with it. Draft-answer linking is unaffected, and so is `direct_query_linking` — that path links the whole query string rather than per-mention entities, so its top-k union is seeded in full regardless of this flag. Requires an entity linker whose `link()` honours `group_by_mention`: the signature is checked at construction, and the returned shape is checked on first use, so a linker that accepts the flag but ignores it fails loudly instead of silently seeding the flat union. | `True` |
 
 NOTE: When parameters are not provided, the query engine creates default instances with standard configurations where possible. Components that require an LLM (`triplet_retriever`, `kg_linker`) are only auto-created when `llm_generator` is explicitly provided. Without `llm_generator`, the engine can still perform graph-only operations (entity linking, path retrieval).
@@ -126,8 +126,9 @@ The context selector reranks retrieved context lines against the question with a
 | `reranker` | GReranker | Required | Scores each line against the question | `LocalGReranker(device='cpu')` |
 | `max_lines` | int | 20 | Top-scoring lines kept | `20` |
 | `chain_depth` | int | 2 | Hops followed through opaque ids (`m.0abc`) from a kept line, so facts through intermediate nodes stay connected | `2` |
+| `max_chain_lines` | int | `max_lines` | Chained lines kept on top of `max_lines`, best-ranked first; `0` keeps only the top lines | `20` |
 
-Kept lines come best first, each chain line right after the line that led to it. The result is a reordered subset of the input, never larger. Pair it with the `generate-response-qa-grounded` prompt (see [Query Engine](../byokg-rag/query-engine/)).
+Chains are followed both ways: to the lines an id leads to, and to the line that leads to it. Kept lines come best first, each chain line right after the line that led to it. The result is a reordered subset of the input of at most `max_lines + max_chain_lines` lines, however many lines a hub entity has. Pair it with the `generate-response-qa-grounded` prompt (see [Query Engine](../byokg-rag/query-engine/)).
 
 ## Entity Linker Configuration
 

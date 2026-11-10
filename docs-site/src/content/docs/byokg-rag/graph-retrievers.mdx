@@ -258,8 +258,9 @@ dimension, or a zero vector raise rather than return an empty result.
 The Context Selector reranks the retrieved context against the question and keeps the most
 relevant lines, which helps on multi-hop questions where the answer is in a long, noisy
 context. Each kept line also brings the lines chained to it through opaque ids such as
-`m.0abc`, because a fact through an intermediate node is unreadable without the line that
-joins it.
+`m.0abc`, in both directions, because a fact through an intermediate node is unreadable
+without the line that joins it. Chained lines are capped by `max_chain_lines` (default:
+`max_lines`), so a hub entity cannot bring back the whole context.
 
 ```python
 from graphrag_toolkit.byokg_rag.graph_retrievers import ContextSelector, LocalGReranker
@@ -270,7 +271,8 @@ query_engine = ByoKGQueryEngine(graph_store=graph_store, llm_generator=llm_gener
 ```
 
 **`select(query, context)`** returns a reordered subset of `context`: the top `max_lines`
-lines best first, each followed by the lines chained to it. An empty context returns `[]`
+lines best first, each followed by its best-ranked chained lines, at most
+`max_lines + max_chain_lines` in all. An empty context returns `[]`
 without calling the reranker.
 
 ### Usage examples

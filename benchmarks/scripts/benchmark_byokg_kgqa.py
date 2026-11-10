@@ -95,7 +95,8 @@ class AnswerSelectionConfig:
     max_lines: int = 20
 
     def __post_init__(self):
-        if not isinstance(self.max_lines, int) or self.max_lines < 1:
+        # Checked only when used, so a leftover setting cannot abort a baseline run.
+        if self.enabled and (not isinstance(self.max_lines, int) or self.max_lines < 1):
             raise ValueError(f'context max_lines must be a positive integer, got {self.max_lines!r}')
 
 
@@ -316,6 +317,13 @@ def run_question(engine, counter: CountingGenerator, question: Question,
     entity_linker = engine.entity_linker
     link_shadowed = 'link' in vars(entity_linker)
     link = entity_linker.link
+    # The context before answer selection, so a miss can be told apart: retrieval
+    # never found the answer, or selection dropped it.
+    selector = getattr(engine, 'context_selector', None)
+    retrieved: List[List[str]] = []
+    if selector is not None:
+        select_shadowed = 'select' in vars(selector)
+        select = selector.select
 
     def recording_parse(response):
         parsed = parse(response)
@@ -327,12 +335,18 @@ def run_question(engine, counter: CountingGenerator, question: Question,
         seeds.extend(linked_nodes(result))
         return result
 
+    def recording_select(query, context):
+        retrieved.append(list(dict.fromkeys(context)))
+        return select(query, context)
+
     record: Dict[str, Any] = {
         'id': question.id, 'question': question.question, 'answers': question.answers,
         'q_entities': question.q_entities, 'qtype': question.qtype, 'hops': hops,
     }
     linker.parse_response = recording_parse
     entity_linker.link = recording_link
+    if selector is not None:
+        selector.select = recording_select
     try:
         engine.schema = schema
         counter.calls = 0
@@ -357,6 +371,11 @@ def run_question(engine, counter: CountingGenerator, question: Question,
             entity_linker.link = link
         else:
             del entity_linker.link
+        if selector is not None:
+            if select_shadowed:
+                selector.select = select
+            else:
+                del selector.select
     record['kg_linker_artifacts'] = artifacts
     # Mentions and draft answers both seed retrieval, so both count.
     record['linked_seeds'] = list(dict.fromkeys(seeds))
@@ -380,6 +399,14 @@ def run_question(engine, counter: CountingGenerator, question: Question,
         record['predictions'], record['vanilla_predictions'], question.answers)
     record['f1'] = f1(record['predictions'], question.answers)
     record['answer_in_context'] = answer_in_context(record['context'], question.answers)
+    # None without answer selection: the context is then the retrieved one. With it, a
+    # question that failed before selection counts as not found, as in answer_in_context.
+    if selector is not None:
+        before = retrieved[-1] if retrieved else []
+        record['retrieved_context_lines'] = len(before)
+        record['answer_in_retrieved_context'] = answer_in_context(before, question.answers)
+    else:
+        record['retrieved_context_lines'] = record['answer_in_retrieved_context'] = None
     record['showcase'] = showcase_reasons(record)
     return record
 
@@ -656,8 +683,9 @@ def dataset_limit(dataset: str) -> Optional[int]:
 
 
 def answer_selection_from_env() -> AnswerSelectionConfig:
-    return AnswerSelectionConfig(enabled=env_bool('BYOKG_ANSWER_SELECTION', False),
-                                 max_lines=env_int('BYOKG_CONTEXT_MAX_LINES', 20))
+    if not env_bool('BYOKG_ANSWER_SELECTION', False):
+        return AnswerSelectionConfig()  # BYOKG_CONTEXT_MAX_LINES is not read
+    return AnswerSelectionConfig(enabled=True, max_lines=env_int('BYOKG_CONTEXT_MAX_LINES', 20))
 
 
 def retrieval_from_env() -> RetrievalConfig:
