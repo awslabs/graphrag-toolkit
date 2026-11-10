@@ -881,7 +881,7 @@ def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
     p.add_argument('--answer-selection', action='store_true',
                    help='rerank and prune the context, then answer with the grounded prompt')
     p.add_argument('--context-max-lines', type=int, default=20,
-                   help='context lines kept by answer selection, plus the lines chained to them')
+                   help='context lines kept by answer selection, plus up to as many lines chained to them')
     return p.parse_args(argv)
 
 

@@ -58,11 +58,12 @@ class ByoKGQueryEngine:
                 pipeline unchanged.
             context_selector: Optional ContextSelector applied to the KG-Linker loop's
                 context before query() returns it: reranks it against the question and
-                keeps at most its max_lines lines, chained lines included. It prunes the
-                answer's input only: the KG-Linker's own iterations still see the full
-                context, so exploration is unchanged. Cypher-linker results are never
-                pruned, and cypher-only mode (kg_linker None) does not use it. None
-                (default) returns the context unchanged.
+                keeps its top max_lines lines plus at most max_chain_lines lines chained
+                to them through opaque ids. It prunes the answer's input only: the
+                KG-Linker's own iterations still see the full context, so exploration is
+                unchanged. Cypher-linker results are never pruned, and cypher-only mode
+                (kg_linker None) does not use it. None (default) returns the context
+                unchanged.
         """
         self.graph_store = graph_store
         self.schema = graph_store.get_schema()
