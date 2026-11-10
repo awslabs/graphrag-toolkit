@@ -3,7 +3,7 @@
 
 """Guards on the test ontologies.
 
-These are not tests of the loader - `test_ontology.py` does that with inline
+These are not tests of the loader - `test_ontology_extraction.py` does that with inline
 Turtle. These assert that the shared fixtures still are what the rest of the
 feature's tests assume they are, so a well-meaning edit to `company.ttl` cannot
 quietly remove the shape some later test depends on:
