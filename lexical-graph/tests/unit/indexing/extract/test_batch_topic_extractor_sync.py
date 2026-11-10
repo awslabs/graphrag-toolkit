@@ -118,4 +118,5 @@ class TestBatchTopicExtractorSyncRunNonBatchExtractor:
             source_metadata_field=None,
             entity_classification_provider=entity_classification_provider,
             topic_provider=topic_provider,
+            ontology_constraints="",
         )

@@ -110,4 +110,5 @@ class TestBatchLLMPropositionExtractorSyncRunNonBatchExtractor:
             llm=configured_llm,
             prompt_template="prompt",
             source_metadata_field=None,
+            ontology_constraints="",
         )
