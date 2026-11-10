@@ -9,7 +9,7 @@ from graphrag_toolkit.lexical_graph.utils import LLMCache, LLMCacheType
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.indexing.model import Propositions
 from graphrag_toolkit.lexical_graph.indexing.constants import PROPOSITIONS_KEY
-from graphrag_toolkit.lexical_graph.indexing.prompts import EXTRACT_PROPOSITIONS_PROMPT
+from graphrag_toolkit.lexical_graph.indexing.prompts import EXTRACT_PROPOSITIONS_PROMPT, with_ontology_constraints
 from graphrag_toolkit.lexical_graph.indexing.extract.progress import run_jobs_with_progress
 from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 
@@ -39,6 +39,9 @@ class LLMPropositionExtractor(BaseExtractor):
         source_metadata_field (Optional[str]): The metadata field in the input
             nodes from which propositions are extracted. If not specified,
             the node text is used instead.
+        ontology_constraints (str): Rendered ontology entity-type block,
+            composed into the prompt template at render time. Empty by
+            default, which leaves the prompt exactly as it is today.
     """
     llm: Optional[LLMCache] = Field(
         description='The LLM to use for extraction'
@@ -50,6 +53,11 @@ class LLMPropositionExtractor(BaseExtractor):
         
     source_metadata_field: Optional[str] = Field(
         description='Metadata field from which to extract propositions'
+    )
+
+    ontology_constraints:str = Field(
+        default='',
+        description='Rendered ontology vocabulary block, composed into the prompt template at render time'
     )
 
     @classmethod
@@ -66,7 +74,8 @@ class LLMPropositionExtractor(BaseExtractor):
                  llm:LLMCacheType=None,
                  prompt_template=None,
                  source_metadata_field=None,
-                 num_workers:Optional[int]=None):
+                 num_workers:Optional[int]=None,
+                 ontology_constraints:str=''):
         """
         Initializes the class with configuration options for processing language model outputs.
 
@@ -80,6 +89,10 @@ class LLMPropositionExtractor(BaseExtractor):
             source_metadata_field: Field name key to store or retrieve associated metadata
                 from source data.
             num_workers: Number of worker threads to use for processing tasks.
+            ontology_constraints: Rendered ontology entity-type block, composed
+                into the prompt template at render time. Empty by default,
+                which leaves the template - and therefore the LLM cache key -
+                exactly as it is today.
         """
         num_workers = coalesce(num_workers, GraphRAGConfig.extraction_num_threads_per_worker)
 
@@ -91,7 +104,8 @@ class LLMPropositionExtractor(BaseExtractor):
             ),
             prompt_template=prompt_template or EXTRACT_PROPOSITIONS_PROMPT, 
             source_metadata_field=source_metadata_field,
-            num_workers=num_workers
+            num_workers=num_workers,
+            ontology_constraints=ontology_constraints
         )
 
         logger.debug(f'Prompt template: {self.prompt_template}')
@@ -200,7 +214,9 @@ propositions: {proposition_collection}
         """
         def blocking_llm_call():
             return self.llm.predict(
-                PromptTemplate(template=self.prompt_template),
+                PromptTemplate(
+                    template=with_ontology_constraints(self.prompt_template, self.ontology_constraints)
+                ),
                 text=text,
                 source_info=source_info,
                 exclude_cache_keys=['source_info']

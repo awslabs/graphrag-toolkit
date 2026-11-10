@@ -422,6 +422,23 @@ class TestCreatePropertyAssignmentFn:
         fn = create_property_assigment_fn_for_neptune('extract_date', 'not-a-date')
         assert fn('y') == 'y'
 
+    @pytest.mark.parametrize('value', ['9' * 20, '9' * 40, 10 ** 30])
+    def test_a_datetime_key_with_an_out_of_range_number_falls_back(self, value):
+        """`dateutil.parse` raises `OverflowError`, not `ValueError`, for a number
+        too large for a C long. Nothing between here and `build_pipeline` catches
+        it - `graph_construction` re-raises - so it would kill the run mid-batch,
+        and with typed properties this value comes from LLM output rather than
+        from document metadata."""
+        fn = create_property_assigment_fn_for_neptune('founded_date', value)
+        assert fn('z') == 'z'
+
+    @pytest.mark.parametrize('value', [1994, 3.5, True, None])
+    def test_a_datetime_key_with_a_non_string_falls_back(self, value):
+        """Typed properties are the first source of native ints, floats and bools;
+        `format_datetime` hands a non-string straight to `dateutil.parse`."""
+        fn = create_property_assigment_fn_for_neptune('founded_date', value)
+        assert fn('z') == 'z'
+
 
 class TestNeptuneDatabaseFactoryEndpointHandling:
     def test_neptune_db_prefix_creates_client_with_default_port(self):

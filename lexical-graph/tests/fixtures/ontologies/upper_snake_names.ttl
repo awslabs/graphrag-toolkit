@@ -1,0 +1,33 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+#
+# The same vocabulary as company.ttl's core, authored in the other convention a
+# real ontology might use: UPPER_SNAKE property names and an already-spaced
+# class label. The naming contract says :WORKS_FOR and :worksFor must resolve
+# identically, and whichever the author wrote is what gets stored - which can
+# only be tested against an ontology that actually writes it the other way.
+#
+# Kept as a separate file rather than merged into company.ttl: :worksFor and
+# :WORKS_FOR share a resolution key, so declaring both in one ontology would
+# make the resolution deliberately ambiguous.
+
+@prefix :     <http://example.com/upper#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.com/upper> a owl:Ontology .
+
+:Person      a owl:Class .
+:Company     a owl:Class .
+# Authored with the spaces already in the label, and an underscored altLabel.
+:SPORTS_TEAM a owl:Class ; rdfs:subClassOf :Company ;
+             rdfs:label "Sports Team" ;
+             skos:altLabel "BALL_CLUB" .
+
+:WORKS_FOR   a owl:ObjectProperty ;
+             rdfs:domain :Person ; rdfs:range :Company .
+
+:FOUNDED_YEAR a owl:DatatypeProperty ;
+              rdfs:domain :Company ; rdfs:range xsd:integer .
