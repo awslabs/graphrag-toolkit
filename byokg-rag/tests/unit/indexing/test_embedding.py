@@ -357,3 +357,41 @@ class TestEmbeddingErrorHandling:
         
         with pytest.raises(Exception, match="Batch Error"):
             embedding.batch_embed(["text1", "text2"])
+
+
+class TestEmbedQuery:
+    """Questions are embedded with embed_query; asymmetric models encode them differently."""
+
+    def test_base_default_falls_back_to_embed(self):
+        class Symmetric(Embedding):
+            def embed(self, text_input):
+                return [1.0, 2.0]
+
+            def batch_embed(self, text_inputs):
+                return [[1.0, 2.0] for _ in text_inputs]
+
+        assert Symmetric().embed_query('q') == [1.0, 2.0]
+
+    def test_langchain_uses_embed_query_not_embed_documents(self):
+        mock_embedder = Mock()
+        mock_embedder.embed_query.return_value = [0.4, 0.5]
+        embedding = LangChainEmbedding(langchain_embedding=mock_embedder)
+        assert embedding.embed_query('who won in 1990?') == [0.4, 0.5]
+        mock_embedder.embed_query.assert_called_once_with('who won in 1990?')
+        mock_embedder.embed_documents.assert_not_called()
+
+    def test_embed_still_embeds_as_document(self):
+        # Existing callers of embed() are unchanged.
+        mock_embedder = Mock()
+        mock_embedder.embed_documents.return_value = [[0.1]]
+        LangChainEmbedding(langchain_embedding=mock_embedder).embed('doc')
+        mock_embedder.embed_documents.assert_called_once_with(['doc'])
+        mock_embedder.embed_query.assert_not_called()
+
+    def test_llama_index_uses_get_query_embedding(self):
+        mock_embedder = Mock()
+        mock_embedder.get_query_embedding.return_value = [0.7]
+        embedding = LLamaIndexEmbedding(llama_index_embedding=mock_embedder)
+        assert embedding.embed_query('q') == [0.7]
+        mock_embedder.get_query_embedding.assert_called_once_with('q')
+        mock_embedder.get_text_embedding.assert_not_called()

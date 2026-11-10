@@ -13,6 +13,7 @@ This document covers:
 - Dense indexes for semantic similarity matching
 - Fuzzy string indexes for approximate string matching
 - Graph-store indexes for embedding-based retrieval directly from Neptune Analytics
+- Graph embeddings: node and relation embeddings computed once per graph and cached on disk
 - Guidance on selecting the appropriate index for your use case
 
 ## Dense Index
@@ -227,6 +228,24 @@ results = graph_index.query("physicist who developed relativity", topk=3)
 - `embedding` - Embedding instance for generating vectors
 - `distance_type` - Distance metric for similarity ("l2" or "cosine")
 - `embedding_s3_save_path` - S3 path for storing embeddings during bulk operations
+
+## Graph Embeddings
+
+`GraphEmbeddings.build(triplets, embedding, cache_dir=None, extra_nodes=(), model_id=None)`
+embeds every named node and relation label of a graph once. Pass `model_id` so the cache
+records the model and refuses to be reused with another one. Opaque Freebase ids are skipped,
+and texts are cut to 2,048 characters, the Cohere Embed v3 limit on Bedrock. Graph texts go
+through `batch_embed`; questions go through `Embedding.embed_query`, which asymmetric models
+such as Cohere v3 encode differently (`search_query` vs `search_document`).
+
+With `cache_dir`, each table is saved as `texts.json`, `meta.json` (model id and dimension)
+and `vectors.npy`, which is written last and marks the table complete. Finished chunks are
+checkpointed under `partial/`, so a build interrupted by throttling resumes instead of
+starting over. A cache whose texts, model, dimension or vector norms don't match raises
+rather than being reused; delete it to rebuild.
+
+A graph whose nodes are all opaque ids gets an empty node table and is ranked by its relation
+labels alone; an empty graph embeds nothing, and text retrieval over it returns no triplets.
 
 ## Index Selection Guide
 
