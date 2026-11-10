@@ -7,6 +7,7 @@ import numpy as np
 
 from .graph_retrievers import GRetriever
 from .graph_verbalizer import TripletGVerbalizer
+from ..indexing.bm25_index import BM25Index, QUERY_STOPWORDS, tokenize
 from ..indexing.graph_embeddings import (
     GraphEmbeddings, is_opaque_id, top_k_indices, truncate_for_embedding,
 )
@@ -22,12 +23,26 @@ class TextTripletRetriever(GRetriever):
     This reaches facts that traversal from linked entities misses — e.g. dates
     folded into relation labels such as 'award received (1952)'. Opaque ids are not
     embedded and contribute 0.
+
+    With lexical=True, BM25 over each triplet's words (opaque ids left out) runs
+    alongside, and the two rankings are fused by reciprocal rank: score = sum of
+    1 / (rrf_k + rank) over the rankings that hold the triplet, each cut at
+    candidate_depth (at least topk), ties going to the better embedding rank. Exact
+    names and years that embeddings blur then still rank. Question words are not
+    searched.
     """
 
     def __init__(self, triplets: Sequence[Sequence[str]], graph_embeddings: GraphEmbeddings,
-                 embedding, graph_verbalizer=None, topk: int = 10):
+                 embedding, graph_verbalizer=None, topk: int = 10, lexical: bool = False,
+                 candidate_depth: int = 50, rrf_k: int = 60):
         if not isinstance(topk, int) or topk < 1:
             raise ValueError(f'topk must be a positive integer, got {topk!r}')
+        if not isinstance(candidate_depth, int) or candidate_depth < 1:
+            raise ValueError(f'candidate_depth must be a positive integer, got {candidate_depth!r}')
+        if not isinstance(rrf_k, (int, float)) or rrf_k <= 0:
+            raise ValueError(f'rrf_k must be a positive number, got {rrf_k!r}')
+        self.candidate_depth = candidate_depth
+        self.rrf_k = rrf_k
         self.embedding = embedding
         self.graph_verbalizer = graph_verbalizer or TripletGVerbalizer()
         self.topk = topk
@@ -65,6 +80,7 @@ class TextTripletRetriever(GRetriever):
                                   count=len(self._triplets))
         self._node_vectors = nodes.vectors
         self._relation_vectors = relations.vectors
+        self._lexical = BM25Index(map(_triplet_words, self._triplets)) if lexical else None
 
     @classmethod
     def from_graph_store(cls, graph_store, embedding, graph_embeddings: Optional[GraphEmbeddings] = None,
@@ -103,7 +119,35 @@ class TextTripletRetriever(GRetriever):
         node_sim = np.append(self._node_vectors @ q, np.float32(0.0))
         relation_sim = self._relation_vectors @ q
         scores = node_sim[self._heads] + relation_sim[self._relations] + node_sim[self._tails]
-        top = top_k_indices(scores, topk if topk is not None else self.topk)
+        k = topk if topk is not None else self.topk
+        if self._lexical is None:
+            top = top_k_indices(scores, k)
+        else:
+            depth = max(k, self.candidate_depth)
+            words = [w for w in tokenize(query) if w not in QUERY_STOPWORDS]
+            top = _fuse([int(i) for i in top_k_indices(scores, depth)], self._lexical.top(words, depth),
+                        k, self.rrf_k)
         if not len(top):  # verbalize() rejects an empty list
             return []
         return self.graph_verbalizer.verbalize([self._triplets[i] for i in top])
+
+
+def _triplet_words(triplet: Tuple[str, str, str]) -> List[str]:
+    head, relation, tail = triplet
+    return ((tokenize(head) if not is_opaque_id(head) else []) + tokenize(relation)
+            + (tokenize(tail) if not is_opaque_id(tail) else []))
+
+
+def _fuse(dense: List[int], lexical: List[int], k: int, rrf_k: float) -> List[int]:
+    """Reciprocal-rank fusion; ties go to the better dense rank, then lexical rank, then index."""
+    positions = {}
+    for name, ranking in (('dense', dense), ('lexical', lexical)):
+        for position, index in enumerate(ranking, start=1):
+            positions.setdefault(index, {})[name] = position
+    absent = float('inf')
+
+    def key(index):
+        found = positions[index]
+        return (-sum(1.0 / (rrf_k + p) for p in found.values()),
+                found.get('dense', absent), found.get('lexical', absent), index)
+    return sorted(positions, key=key)[:k]

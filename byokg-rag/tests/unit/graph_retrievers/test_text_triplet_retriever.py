@@ -165,3 +165,112 @@ class TestTopKIndices:
     def test_k_larger_than_scores_and_non_positive(self):
         assert top_k_indices(np.array([0.2, 0.3]), 5).tolist() == [1, 0]
         assert top_k_indices(np.array([0.2]), 0).tolist() == []
+
+
+class _YearBlindEmbedding(HashingEmbedding):
+    """Embeds like HashingEmbedding but ignores digits, as embeddings blur years."""
+
+    def _vector(self, text):
+        return super()._vector(''.join(c for c in text if not c.isdigit()) or text)
+
+
+AWARDS = [('Pat LaFontaine', 'award received (1995)', 'Lester Patrick Trophy'),
+          ('Mario Lemieux', 'award received (1993)', 'Hart Memorial Trophy'),
+          ('Gord Kluzak', 'award received (1990)', 'Bill Masterton Memorial Trophy'),
+          ('New York Islanders', 'league', 'National Hockey League')]
+
+
+class TestLexical:
+    def _pair(self, triplets=TRIPLETS, **kw):
+        emb = _YearBlindEmbedding()
+        table = GraphEmbeddings.build(triplets, emb)
+        return (TextTripletRetriever(triplets, table, emb, **kw),
+                TextTripletRetriever(triplets, table, emb, lexical=True, **kw))
+
+    def test_an_exact_year_the_embeddings_cut_off_enters_the_top_k(self):
+        dense, hybrid = self._pair(AWARDS)
+        q = 'Who received an award in 1990?'
+        target = 'Gord Kluzak -> award received (1990) -> Bill Masterton Memorial Trophy'
+        assert target not in dense.retrieve(q, topk=2), 'precondition: the year-blind ranking cuts it'
+        top = hybrid.retrieve(q, topk=2)
+        assert target in top and top[0] == dense.retrieve(q, topk=1)[0], "the embedding ranking's first stays first"
+
+    def test_off_by_default(self):
+        dense, _ = self._pair()
+        assert dense._lexical is None
+
+    def test_question_words_alone_leave_the_embedding_order(self):
+        dense, hybrid = self._pair()
+        assert hybrid.retrieve('what is the', topk=5) == dense.retrieve('what is the', topk=5)
+
+    def test_opaque_ids_are_not_searched(self):
+        from graphrag_toolkit.byokg_rag.graph_retrievers.text_triplet_retriever import _triplet_words
+        assert _triplet_words(('m.0abc', 'location.location.contains', 'm.0xyz')) == ['location', 'location', 'contains']
+
+    def test_reciprocal_rank_fusion(self):
+        from graphrag_toolkit.byokg_rag.graph_retrievers.text_triplet_retriever import _fuse
+        # 2 is in both rankings; 7 only lexically, yet still reachable; ties go to the dense rank.
+        assert _fuse([1, 2, 3], [2, 7], 4, 60) == [2, 1, 7, 3]
+        assert _fuse([1, 2], [], 5, 60) == [1, 2]
+        assert _fuse([], [4, 5], 1, 60) == [4]
+
+    @pytest.mark.parametrize('kw, field', [({'candidate_depth': 0}, 'candidate_depth'), ({'rrf_k': 0}, 'rrf_k'),
+                                           ({'candidate_depth': 2.5}, 'candidate_depth')])
+    def test_settings_are_validated(self, kw, field):
+        emb = HashingEmbedding()
+        with pytest.raises(ValueError, match=field):
+            TextTripletRetriever(TRIPLETS, GraphEmbeddings.build(TRIPLETS, emb), emb, **kw)
+
+    def test_from_graph_store_passes_it_on(self, tmp_path):
+        graph = {'Pat LaFontaine': {'award received (1990)': {'triplets': [
+            ['Pat LaFontaine', 'award received (1990)', 'Bill Masterton Memorial Trophy']]}}}
+        r = TextTripletRetriever.from_graph_store(LocalKGStore(graph), HashingEmbedding(), lexical=True)
+        assert r._lexical is not None and r.retrieve('award 1990', topk=1) == [
+            'Pat LaFontaine -> award received (1990) -> Bill Masterton Memorial Trophy']
+
+
+class TestFusionContract:
+    def test_question_words_never_reach_bm25(self):
+        _, hybrid = TestLexical()._pair()
+        searched = []
+        top = hybrid._lexical.top
+        hybrid._lexical.top = lambda words, k: searched.append(words) or top(words, k)
+        hybrid.retrieve('Who is a member of the team?')
+        assert searched == [['member', 'team']]
+
+    def test_a_name_made_of_question_words_is_not_promoted(self):
+        triplets = AWARDS + [('Who Did You Think I Was', 'music.album.release_type', 'Album')]
+        dense, hybrid = TestLexical()._pair(triplets)
+        q = 'Who did Gord Kluzak receive an award from in 1990?'
+        assert 'Who Did You Think I Was -> music.album.release_type -> Album' not in hybrid.retrieve(q, topk=2)
+
+    def test_ties_go_to_the_embedding_rank(self):
+        from graphrag_toolkit.byokg_rag.graph_retrievers.text_triplet_retriever import _fuse
+        assert _fuse([3, 4], [1, 2], 4, 60) == [3, 1, 4, 2]  # each first place ties; dense goes first
+        assert _fuse([6, 5], [5, 6], 2, 60) == [6, 5]        # crossed ranks tie
+
+    def test_rrf_k_sets_how_much_agreement_counts(self):
+        from graphrag_toolkit.byokg_rag.graph_retrievers.text_triplet_retriever import _fuse
+        dense = ['A'] + [f'x{i}' for i in range(8)] + ['B']   # B tenth
+        lexical = [f'y{i}' for i in range(9)] + ['B']         # B tenth
+        assert _fuse(dense, lexical, 1, 1) == ['A'] and _fuse(dense, lexical, 1, 60) == ['B']
+
+    def test_retrieve_fuses_with_its_own_rrf_k(self, monkeypatch):
+        import graphrag_toolkit.byokg_rag.graph_retrievers.text_triplet_retriever as ttr
+        _, hybrid = TestLexical()._pair(rrf_k=5)
+        seen = []
+        real_fuse = ttr._fuse
+        monkeypatch.setattr(ttr, '_fuse', lambda d, l, k, rrf_k: seen.append(rrf_k) or real_fuse(d, l, k, rrf_k))
+        hybrid.retrieve('award 1990', topk=2)
+        assert seen == [5]
+
+    def test_each_ranking_is_cut_at_candidate_depth_not_topk(self, monkeypatch):
+        import graphrag_toolkit.byokg_rag.graph_retrievers.text_triplet_retriever as ttr
+        _, hybrid = TestLexical()._pair(candidate_depth=7)
+        depths = []
+        real_top = hybrid._lexical.top
+        hybrid._lexical.top = lambda words, k: depths.append(('lexical', k)) or real_top(words, k)
+        real_dense = ttr.top_k_indices
+        monkeypatch.setattr(ttr, 'top_k_indices', lambda scores, k: depths.append(('dense', k)) or real_dense(scores, k))
+        hybrid.retrieve('award 1990', topk=2)
+        assert depths == [('dense', 7), ('lexical', 7)]

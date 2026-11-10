@@ -253,6 +253,14 @@ Pass it to `ByoKGQueryEngine(text_triplet_retriever=...)` to run it alongside ag
 retrieval. Embeddings built from a different graph, a question embedding of the wrong
 dimension, or a zero vector raise rather than return an empty result.
 
+With `lexical=True` (off by default), BM25 over each triplet's words (letters and digits;
+opaque ids left out) ranks the triplets too, and the two rankings are fused by reciprocal
+rank, each cut at `candidate_depth`. An exact name or year that the embeddings blur, such as
+the 1990 in `award received (1990)`, can then reach the top-k even when the embedding
+ranking cut it off. Ties go to the better embedding rank, and question words such as "who"
+or "the" are not searched. The BM25 index is built in memory with the retriever: about
+20 seconds and 160 MB for 2.3 million triplets.
+
 ### Context Selector
 
 The Context Selector reranks the retrieved context against the question and keeps the most

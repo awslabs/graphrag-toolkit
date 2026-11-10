@@ -31,6 +31,7 @@ from typing import Any, Callable, Dict, List, Optional, Sequence
 
 from benchmarks.scripts.integration_test_base import IntegrationTestBase
 from benchmarks.scripts.integration_test_handler import IntegrationTestHandler
+from benchmarks.utils.bedrock_usage import UsageRecordingClient
 from benchmarks.utils.benchmark_env import env_bool, env_int, env_string
 from benchmarks.utils.s3_utils import upload_benchmark_results_to_s3
 from benchmarks.utils.byokg_kgqa import (
@@ -51,18 +52,107 @@ ABORT_IF_FIRST_N_FAIL = 5
 
 
 class CountingGenerator:
-    """Delegates to a BYOKG generator and counts generate() calls per question."""
+    """Delegates to a BYOKG generator and counts generate() calls per question.
 
-    def __init__(self, inner):
+    With usage (the UsageRecordingClient the generator calls), a generate() that
+    returns without one successful Converse call raises: once its retries run out,
+    BedrockGenerator returns failure text rather than an error, and that text would
+    otherwise be scored as an answer.
+    """
+
+    def __init__(self, inner, usage: Optional[UsageRecordingClient] = None):
         self._inner = inner
+        self.usage = usage
         self.calls = 0
 
     def generate(self, *args, **kwargs):
         self.calls += 1
-        return self._inner.generate(*args, **kwargs)
+        before = self.usage.calls if self.usage is not None else None
+        response = self._inner.generate(*args, **kwargs)
+        if self.usage is not None and self.usage.calls == before:
+            raise RuntimeError(f'no successful Bedrock call; the generator returned: {str(response)[:200]!r}')
+        return response
 
     def __getattr__(self, name):
         return getattr(self._inner, name)
+
+
+_NEXT_ENTITIES = re.compile(r'<next-entities>(.*?)</next-entities>', re.DOTALL)
+
+
+class _RoundGenerator:
+    """The retriever's generator for one retrieve() call, counting its steps."""
+
+    def __init__(self, inner, relation_prefix: str, entity_prefix: str, round_: Dict[str, Any], traversal):
+        self._inner, self._relation, self._entity, self._round = inner, relation_prefix, entity_prefix, round_
+        self._traversal = traversal
+
+    def generate(self, prompt, *args, **kwargs):
+        response = self._inner.generate(prompt, *args, **kwargs)
+        if prompt.startswith(self._relation):
+            self._round['steps'] += 1
+            self._round['pending'] = False  # until this step's entity selection names more
+        elif prompt.startswith(self._entity):
+            # Read as AgenticRetriever reads it: FINISH stops the round, other names go next,
+            # and its next step skips names with no outgoing facts (leaves, non-nodes).
+            match = _NEXT_ENTITIES.search(response)
+            names = [line for line in match.group(1).strip().split('\n') if line != ''] if match else []
+            finished = any('FINISH' in name for name in names)
+            self._round['finished'] = self._round['finished'] or finished
+            self._round['pending'] = (bool(names) and not finished
+                                      and bool(self._traversal.one_hop_triplets([n.strip() for n in names])))
+        return response
+
+    def __getattr__(self, name):
+        return getattr(self._inner, name)
+
+
+class ExplorationRecorder:
+    """Records each AgenticRetriever.retrieve() call, one per round: its exploration
+    steps (relation-selection prompts), whether it ended on FINISH, and whether entities
+    were left to explore when it ended ('pending'), i.e. the step budget stopped it.
+
+    Prompts are told apart by the retriever's own templates, so a prompt edit cannot
+    silently zero the counts. A retriever without them, or without a graph_traversal to
+    tell explorable names apart, records nothing.
+    """
+
+    def __init__(self, retriever):
+        self.retriever = retriever
+        self.rounds: List[Dict[str, Any]] = []
+        prompts = getattr(retriever, 'prompt', None)
+        self.budget = getattr(retriever, 'max_num_iterations', None)
+        self._traversal = getattr(retriever, 'graph_traversal', None)
+        self.enabled = (isinstance(prompts, dict) and self.budget is not None
+                        and callable(getattr(self._traversal, 'one_hop_triplets', None))
+                        and {'relation_selection_prompt', 'entity_selection_prompt'} <= set(prompts))
+        if self.enabled:
+            self._relation = prompts['relation_selection_prompt'].split('{')[0]
+            self._entity = prompts['entity_selection_prompt'].split('{')[0]
+
+    def __enter__(self) -> 'ExplorationRecorder':
+        if self.enabled:
+            self._shadowed = 'retrieve' in vars(self.retriever)
+            self._retrieve = self.retriever.retrieve
+            self.retriever.retrieve = self._recording_retrieve
+        return self
+
+    def __exit__(self, *exc) -> None:
+        if self.enabled:
+            if self._shadowed:
+                self.retriever.retrieve = self._retrieve
+            else:
+                del self.retriever.retrieve  # back to the class lookup
+
+    def _recording_retrieve(self, *args, **kwargs):
+        round_ = {'steps': 0, 'finished': False, 'pending': False}
+        self.rounds.append(round_)
+        generator = self.retriever.llm_generator
+        self.retriever.llm_generator = _RoundGenerator(generator, self._relation, self._entity, round_, self._traversal)
+        try:
+            return self._retrieve(*args, **kwargs)
+        finally:
+            self.retriever.llm_generator = generator
 
 
 @dataclass(frozen=True)
@@ -72,12 +162,15 @@ class RetrievalConfig:
     embedding_linking: bool = False    # HybridEntityMatcher: fuzzy + embedding linking
     keep_verbatim_names: bool = False  # FuzzyStringIndex links names written in an unlinked mention
     split_entity_lines: bool = False   # KGLinker also links each part of a multi-entity line
+    text_lexical: bool = False         # text retrieval fuses BM25 with its embedding ranking
     text_topk: int = 10
     embed_model: Optional[str] = None  # None: ByoKGConfig.embed_model
 
     def __post_init__(self):
         if not isinstance(self.text_topk, int) or self.text_topk < 1:
             raise ValueError(f'text_topk must be a positive integer, got {self.text_topk!r}')
+        if self.text_lexical and not self.text_retrieval:
+            raise ValueError('text_lexical changes text retrieval, so it needs text_retrieval on')
 
     @property
     def needs_embeddings(self) -> bool:
@@ -88,6 +181,29 @@ class RetrievalConfig:
             return self.embed_model
         from graphrag_toolkit.byokg_rag.config import ByoKGConfig
         return ByoKGConfig.embed_model
+
+
+@dataclass(frozen=True)
+class GraphQueryAgentConfig:
+    """The LLM + graph-query baseline in place of BYOKG; off by default. graph is the
+    Neptune Analytics graph it queries (neptune-graph://<graph id>)."""
+    enabled: bool = False
+    graph: Optional[str] = None
+    # BYOKG's ceiling at its defaults: 2 KG-Linker + 12 exploration + 1 answer calls.
+    max_calls: int = 15
+    max_result_chars: int = 8000
+
+    def __post_init__(self):
+        for name in ('max_calls', 'max_result_chars'):
+            value = getattr(self, name)
+            if not isinstance(value, int) or isinstance(value, bool) or value < 2:
+                raise ValueError(f'{name} must be an integer >= 2, got {value!r}')
+        if self.enabled and not (self.graph or '').startswith('neptune-graph://'):
+            raise ValueError(f'the graph-query baseline needs graph=neptune-graph://<graph id>, got {self.graph!r}')
+
+    @property
+    def graph_id(self) -> str:
+        return self.graph[len('neptune-graph://'):]
 
 
 @dataclass(frozen=True)
@@ -191,7 +307,7 @@ def build_retrieval_parts(graph: Dict[str, Any], retrieval: RetrievalConfig, reg
         entity_matcher = fuzzy.as_entity_matcher() if fuzzy else None
     return RetrievalParts(
         text_triplet_retriever=(TextTripletRetriever(triplets, embeddings, embedding,
-                                                     topk=retrieval.text_topk)
+                                                     topk=retrieval.text_topk, lexical=retrieval.text_lexical)
                                 if retrieval.text_retrieval else None),
         entity_matcher=entity_matcher,
         embedding_dim=embeddings.dim,
@@ -200,18 +316,30 @@ def build_retrieval_parts(graph: Dict[str, Any], retrieval: RetrievalConfig, reg
 
 def build_engine(graph: Dict[str, Any], model: Optional[str], region: Optional[str],
                  single_best_match: bool, parts: Optional[RetrievalParts] = None,
-                 context_selector=None, split_entity_lines: bool = False):
+                 context_selector=None, split_entity_lines: bool = False,
+                 traversal_steps: Optional[int] = None):
     """Engine with library defaults; only the graph store, LLM and any parts under
-    test are supplied."""
+    test are supplied. traversal_steps, when set, replaces the agentic retriever's
+    exploration steps per round (AgenticRetriever.max_num_iterations)."""
     from graphrag_toolkit.byokg_rag.byokg_query_engine import ByoKGQueryEngine
+    from graphrag_toolkit.byokg_rag.config import ByoKGConfig
     from graphrag_toolkit.byokg_rag.graph_connectors import KGLinker
     from graphrag_toolkit.byokg_rag.graph_retrievers import EntityLinker
     from graphrag_toolkit.byokg_rag.graphstore.graphstore import LocalKGStore
     from graphrag_toolkit.byokg_rag.llm.bedrock_llms import BedrockGenerator
 
+    import boto3
+
+    validate_traversal_steps(traversal_steps)
     parts = parts or RetrievalParts()
     store = LocalKGStore(graph)
-    counter = CountingGenerator(BedrockGenerator(model_name=model, region_name=region))
+    # The client BedrockGenerator would build for itself (same region resolution),
+    # wrapped so every Converse call's token usage is kept.
+    client_region = region if region is not None else ByoKGConfig.region_name
+    usage = UsageRecordingClient(lambda: boto3.client(
+        'bedrock-runtime', **({'region_name': client_region} if client_region else {})))
+    counter = CountingGenerator(BedrockGenerator(model_name=model, region_name=region, client=usage),
+                                usage=usage)
     engine = ByoKGQueryEngine(
         graph_store=store, llm_generator=counter, single_best_match=single_best_match,
         entity_linker=EntityLinker(parts.entity_matcher) if parts.entity_matcher else None,
@@ -219,7 +347,17 @@ def build_engine(graph: Dict[str, Any], model: Optional[str], region: Optional[s
         kg_linker=(KGLinker(llm_generator=counter, graph_store=store, split_entity_lines=True)
                    if split_entity_lines else None),
         text_triplet_retriever=parts.text_triplet_retriever, context_selector=context_selector)
+    if traversal_steps is not None:
+        if not hasattr(engine.triplet_retriever, 'max_num_iterations'):
+            raise TypeError(f'traversal_steps needs the agentic triplet retriever, got '
+                            f'{type(engine.triplet_retriever).__name__}')
+        engine.triplet_retriever.max_num_iterations = traversal_steps
     return engine, counter
+
+
+def validate_traversal_steps(steps: Optional[int]) -> None:
+    if steps is not None and (not isinstance(steps, int) or isinstance(steps, bool) or steps < 1):
+        raise ValueError(f'traversal_steps must be a positive integer, got {steps!r}')
 
 
 def _tree_sha256(root: str, suffixes: Sequence[str]) -> str:
@@ -247,16 +385,18 @@ def _file_sha256(path: str) -> str:
 
 # The benchmark's own code: scoring, preprocessing and orchestration. It lives in this
 # repo, not in byokg_rag, so the package hash cannot see a scorer change.
-BENCHMARK_CODE = (os.path.abspath(__file__),
-                  os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'utils',
-                               'byokg_kgqa.py'))
+BENCHMARK_CODE = (os.path.abspath(__file__),) + tuple(
+    os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'utils', name)
+    for name in ('byokg_kgqa.py', 'bedrock_usage.py', 'graph_query_agent.py', 'kgqa_neptune.py', 'mcp_stdio.py'))
 
 
 def provenance(counter, data_files: Optional[Dict[str, str]] = None,
                retrieval: Optional[RetrievalConfig] = None,
                data_sha256: Optional[Dict[str, str]] = None,
                embedding_dim: Optional[int] = None,
-               answer_selection: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+               answer_selection: Optional[Dict[str, Any]] = None,
+               traversal: Optional[Dict[str, Any]] = None,
+               graph_query_agent: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
     """What produced a result, so two runs can be shown to differ only in the code
     under test.
 
@@ -269,6 +409,7 @@ def provenance(counter, data_files: Optional[Dict[str, str]] = None,
 
     'retrieval' records the optional retrieval changes, and the embedding model only
     when one is in use, so baseline and optimized runs fingerprint differently.
+    'traversal' records the exploration steps per round the engine actually uses.
     data_sha256 skips re-hashing files the caller already hashed.
     """
     git_sha = os.environ.get('GRAPHRAG_TOOLKIT_GIT_SHA')
@@ -298,6 +439,8 @@ def provenance(counter, data_files: Optional[Dict[str, str]] = None,
             'model_name', 'max_new_tokens', 'inference_config', 'reasoning_config', 'max_retries')},
         'retrieval': retrieval_provenance(retrieval or RetrievalConfig(), embedding_dim),
         'answer_selection': answer_selection or answer_selection_provenance(AnswerSelectionConfig(), None),
+        'traversal': traversal or {'steps': None},
+        'graph_query_agent': graph_query_agent,
     }
 
 
@@ -372,11 +515,16 @@ def run_question(engine, counter: CountingGenerator, question: Question,
     entity_linker.link = recording_link
     if selector is not None:
         selector.select = recording_select
+    exploration = ExplorationRecorder(getattr(engine, 'triplet_retriever', None))
+    usage = getattr(counter, 'usage', None)
     try:
         engine.schema = schema
         counter.calls = 0
+        if usage is not None:
+            usage.reset()
         start = time.monotonic()
-        context = engine.query(question.question, iterations=iterations)
+        with exploration:
+            context = engine.query(question.question, iterations=iterations)
         # answer_prompt is for the KG answer only; the LLM-only answer keeps the default.
         predictions, _ = engine.generate_response(question.question, '\n'.join(context),
                                                   task_prompt=answer_prompt)
@@ -402,20 +550,38 @@ def run_question(engine, counter: CountingGenerator, question: Question,
             else:
                 del selector.select
     record['kg_linker_artifacts'] = artifacts
+    # Tokens of every Converse call the KG path made, errored or not: it was billed.
+    record['llm_tokens'] = usage.snapshot() if usage is not None else None
+    record['exploration'] = exploration.rounds if exploration.enabled else None
+    record['exploration_budget'] = exploration.budget if exploration.enabled else None
     # Mentions and draft answers both seed retrieval, so both count.
     record['linked_seeds'] = list(dict.fromkeys(seeds))
     record['seed_recall'] = seed_recall(question.q_entities, record['linked_seeds'])
+    # The context before answer selection. A question that failed before selection
+    # counts as not found, as in answer_in_context.
+    if selector is not None:
+        before = retrieved[-1] if retrieved else []
+        record['retrieved_context_lines'] = len(before)
+        record['answer_in_retrieved_context'] = answer_in_context(before, question.answers)
+    return _finish_record(engine, usage, question, record)
 
+
+def _finish_record(engine, usage: Optional[UsageRecordingClient], question: Question,
+                   record: Dict[str, Any]) -> Dict[str, Any]:
+    """Add the no-KG answer and every score to a record whose KG path has run."""
     # No-KG answer: the BYOKG answer prompt with an empty graph context. Feeds the
     # LLM-only baseline, MedQA's H@2 second guess and the showcase gate. Its own try,
     # so a throttle here cannot turn a BYOKG success into a miss; outside the timer
     # and the call count.
+    if usage is not None:
+        usage.reset()
     try:
         record['vanilla_predictions'], _ = engine.generate_response(question.question, '')
         record['vanilla_error'] = None
     except Exception as e:
         logger.exception('question %s: no-KG answer failed', question.id)
         record.update(vanilla_predictions=[], vanilla_error=f'{type(e).__name__}: {e}')
+    record['vanilla_llm_tokens'] = usage.snapshot() if usage is not None else None
 
     record['hit'] = hit(record['predictions'], question.answers)
     record['vanilla_hit'] = hit(record['vanilla_predictions'], question.answers)
@@ -424,29 +590,52 @@ def run_question(engine, counter: CountingGenerator, question: Question,
         record['predictions'], record['vanilla_predictions'], question.answers)
     record['f1'] = f1(record['predictions'], question.answers)
     record['answer_in_context'] = answer_in_context(record['context'], question.answers)
-    # None without answer selection: the context is then the retrieved one. With it, a
-    # question that failed before selection counts as not found, as in answer_in_context.
-    if selector is not None:
-        before = retrieved[-1] if retrieved else []
-        record['retrieved_context_lines'] = len(before)
-        record['answer_in_retrieved_context'] = answer_in_context(before, question.answers)
-    else:
-        record['retrieved_context_lines'] = record['answer_in_retrieved_context'] = None
+    # Set by run_question with answer selection; None on the other paths.
+    record.setdefault('retrieved_context_lines', None)
+    record.setdefault('answer_in_retrieved_context', None)
     record['showcase'] = showcase_reasons(record)
     return record
+
+
+def run_agent_question(agent, engine, counter: CountingGenerator, question: Question,
+                       schema: Dict[str, Any], hops: Optional[int]) -> Dict[str, Any]:
+    """Score one question with the LLM + graph-query baseline in place of BYOKG's KG
+    path; the record has BYOKG's fields, so both arms are scored identically."""
+    usage = counter.usage
+    record: Dict[str, Any] = {
+        'id': question.id, 'question': question.question, 'answers': question.answers,
+        'q_entities': question.q_entities, 'qtype': question.qtype, 'hops': hops,
+    }
+    usage.reset()
+    start = time.monotonic()
+    try:
+        result = agent.answer(question.question, schema)
+        record.update(latency_s=round(time.monotonic() - start, 2), llm_calls=result.calls,
+                      predictions=result.predictions, context=result.context,
+                      context_chars=sum(len(c) for c in result.context), error=None,
+                      agent_trace=result.trace, agent_stop=result.stop)
+    except Exception as e:  # recorded per question; the run continues
+        logger.exception('question %s failed', question.id)
+        record.update(predictions=[], context=[], context_chars=0, latency_s=None, llm_calls=None,
+                      error=f'{type(e).__name__}: {e}', agent_trace=[], agent_stop=None)
+    record.update(kg_linker_artifacts=[], llm_tokens=usage.snapshot(), exploration=None,
+                  exploration_budget=None, linked_seeds=[], seed_recall=None)
+    return _finish_record(engine, usage, question, record)
 
 
 def run_once(engine, counter, questions: Sequence[Question], schemas: Dict[str, Any],
              hops: Dict[str, Optional[int]], metric: str, iterations: int,
              out_dir: str, run_key: Optional[str] = None,
-             answer_prompt: Optional[str] = None) -> Dict[str, Any]:
+             answer_prompt: Optional[str] = None,
+             question_runner: Optional[Callable[..., Dict[str, Any]]] = None) -> Dict[str, Any]:
     os.makedirs(out_dir, exist_ok=True)
     records = []
     with open(os.path.join(out_dir, 'predictions.jsonl'), 'w', encoding='utf-8') as preds, \
             open(os.path.join(out_dir, 'showcase_candidates.jsonl'), 'w', encoding='utf-8') as show:
         for i, q in enumerate(questions, 1):
-            record = run_question(engine, counter, q, schemas[q.id], hops[q.id], iterations,
-                                  answer_prompt=answer_prompt)
+            record = (question_runner(q, schemas[q.id], hops[q.id]) if question_runner else
+                      run_question(engine, counter, q, schemas[q.id], hops[q.id], iterations,
+                                   answer_prompt=answer_prompt))
             records.append(record)
             preds.write(json.dumps(record) + '\n')
             if record['showcase']:
@@ -524,7 +713,8 @@ def run_key(question_ids: Sequence[str], single_best_match: bool, iterations: in
                'iterations': iterations, 'inference': prov['inference'],
                'byokg_rag_source': prov['byokg_rag_source_sha256'],
                'benchmark_code': prov['benchmark_code_sha256'], 'data': prov['data_sha256'],
-               'retrieval': prov['retrieval'], 'answer_selection': prov['answer_selection']}
+               'retrieval': prov['retrieval'], 'answer_selection': prov['answer_selection'],
+               'traversal': prov.get('traversal'), 'graph_query_agent': prov.get('graph_query_agent')}
     return hashlib.sha256(json.dumps(payload, sort_keys=True, default=str).encode()).hexdigest()
 
 
@@ -596,7 +786,10 @@ def run_benchmark(dataset: str, data_dir: str, out: str, limit: Optional[int] = 
                   retrieval: Optional[RetrievalConfig] = None,
                   answer_selection: Optional[AnswerSelectionConfig] = None,
                   before_embeddings: Optional[Callable[[str], None]] = None,
-                  after_embeddings: Optional[Callable[[str], None]] = None) -> Dict[str, Any]:
+                  after_embeddings: Optional[Callable[[str], None]] = None,
+                  traversal_steps: Optional[int] = None,
+                  graph_query_agent: Optional[GraphQueryAgentConfig] = None,
+                  neptune_s3_uri: Optional[str] = None) -> Dict[str, Any]:
     """Run every (single_best_match setting × repeat) and write aggregate.json.
 
     after_run(run_dir, relative_path) is called as each run finishes, so callers can
@@ -608,8 +801,19 @@ def run_benchmark(dataset: str, data_dir: str, out: str, limit: Optional[int] = 
     cached under data_dir/embeddings/<embedding_cache_key>. before_embeddings(cache_dir)
     runs before they are loaded or built (to fetch a shared cache) and
     after_embeddings(cache_dir) once they exist, before any question runs.
+    traversal_steps sets the exploration steps per round (None: the library default);
+    rounds are iterations. graph_query_agent runs the LLM + graph-query baseline
+    instead of BYOKG, with its graph export published under neptune_s3_uri.
     """
     validate_config(single_best_match, runs, iterations)
+    validate_traversal_steps(traversal_steps)
+    agent_config = graph_query_agent or GraphQueryAgentConfig()
+    if agent_config.enabled:
+        if (retrieval or RetrievalConfig()) != RetrievalConfig() or traversal_steps is not None or (
+                answer_selection is not None and answer_selection.enabled):
+            raise ValueError('the graph-query baseline replaces BYOKG: run it with the BYOKG options off')
+        if not neptune_s3_uri:
+            raise ValueError('the graph-query baseline needs an S3 prefix for the graph export neptune.load reads')
     retrieval = retrieval or RetrievalConfig()
     spec = DATASETS[dataset]
     data_sha256 = {'questions': _file_sha256(os.path.join(data_dir, spec.questions_file)),
@@ -635,6 +839,11 @@ def run_benchmark(dataset: str, data_dir: str, out: str, limit: Optional[int] = 
         spec.schema_mode, graph, questions[0])
     schemas = {q.id: shared or build_schema(spec.schema_mode, graph, q) for q in questions}
     hops = {q.id: hop_distance(graph, q.q_entities, q.a_entities) for q in questions}
+    if agent_config.enabled:
+        return run_graph_query_baseline(
+            dataset, graph, data_sha256, questions, n_available, schemas, hops, data_dir, out, runs,
+            model, region, resume, after_run, agent_config, neptune_s3_uri,
+            {'limit': limit, 'seed': seed, 'runs': runs, 'region': region, 'medqa_kg_filter': medqa_kg_filter})
     cache_dir = (embedding_cache_dir(data_dir, data_sha256['graph'], retrieval)
                  if retrieval.needs_embeddings else None)
     if cache_dir and before_embeddings:
@@ -652,19 +861,22 @@ def run_benchmark(dataset: str, data_dir: str, out: str, limit: Optional[int] = 
               'question_ids': [q.id for q in questions], 'paper_reference': spec.paper_reference,
               'config': {'limit': limit, 'seed': seed, 'runs': runs, 'iterations': iterations,
                          'single_best_match': single_best_match, 'region': region,
-                         'medqa_kg_filter': medqa_kg_filter},
+                         'medqa_kg_filter': medqa_kg_filter, 'traversal_steps': traversal_steps},
               'settings': {}}
     for sbm in settings:
         # Drop the previous engine (and its node index) before building the next.
         engine = counter = None
         engine, counter = build_engine(graph, model, region, sbm, parts, answer.context_selector,
-                                       split_entity_lines=retrieval.split_entity_lines)
+                                       split_entity_lines=retrieval.split_entity_lines,
+                                       traversal_steps=traversal_steps)
         tag = f"single_best_match-{'on' if sbm else 'off'}"
         report['config']['model'] = counter.model_name
         if 'provenance' not in report:  # once: it hashes the byokg-rag package
             report['provenance'] = provenance(
                 counter, retrieval=retrieval, data_sha256=data_sha256, embedding_dim=parts.embedding_dim,
-                answer_selection=answer_selection_provenance(answer_selection, answer.reranker_model))
+                answer_selection=answer_selection_provenance(answer_selection, answer.reranker_model),
+                traversal={'steps': getattr(getattr(engine, 'triplet_retriever', None),
+                                            'max_num_iterations', None)})
         prov = report['provenance']
         key = run_key(report['question_ids'], sbm, iterations, prov)
         summaries = []
@@ -689,6 +901,108 @@ def run_benchmark(dataset: str, data_dir: str, out: str, limit: Optional[int] = 
         logger.info('%s %s: %s %.1f (min %.1f, max %.1f over %d runs) | %s', dataset, tag,
                     agg['metric'], agg['mean'], agg['min'], agg['max'], agg['runs'],
                     spec.paper_reference)
+    return report
+
+
+GRAPH_QUERY_TAG = 'graph-query-agent'
+
+
+def _neptune_clients(region: Optional[str]):
+    import boto3
+    from botocore.config import Config
+    region = region or boto3.session.Session().region_name
+    # Queries get the usual retries; a load runs for minutes and must never be resent.
+    query = boto3.client('neptune-graph', region_name=region,
+                         config=Config(read_timeout=300, retries={'total_max_attempts': 3, 'mode': 'standard'}))
+    load = boto3.client('neptune-graph', region_name=region,
+                        config=Config(read_timeout=3600, retries={'total_max_attempts': 1, 'mode': 'standard'}))
+    return region, query, load
+
+
+def prepare_neptune_graph(graph: Dict[str, Any], dataset: str, graph_sha256: str, data_dir: str,
+                          s3_uri: str, config: GraphQueryAgentConfig, region: Optional[str]):
+    """Export the graph (once per graph file), publish it under s3_uri/neptune/ and load
+    it into config's graph unless it already holds it. Returns the NeptuneGraph, the
+    export manifest and the loaded counts."""
+    from benchmarks.utils import kgqa_neptune
+    key = kgqa_neptune.export_key(graph_sha256)
+    local = os.path.join(data_dir, 'neptune', key)
+    manifest_path = os.path.join(local, 'manifest.json')
+    if os.path.exists(manifest_path):
+        with open(manifest_path, encoding='utf-8') as f:
+            manifest = json.load(f)
+    else:
+        manifest = kgqa_neptune.export_csv(graph, local, dataset, graph_sha256,
+                                           temporal_qualifiers=DATASETS[dataset].schema_mode == 'base_relations')
+    s3_prefix = f"{s3_uri.rstrip('/')}/neptune/{key}"
+    s3 = _s3_client()
+    if kgqa_neptune.published_manifest(s3, s3_prefix) is None:
+        kgqa_neptune.upload_export(s3, local, s3_prefix)
+    region, query_client, load_client = _neptune_clients(region)
+    neptune = kgqa_neptune.NeptuneGraph(query_client, config.graph_id, load_client=load_client)
+    counts = kgqa_neptune.ensure_loaded(neptune, manifest, s3_prefix, region)
+    return neptune, manifest, counts, region
+
+
+def run_graph_query_baseline(dataset: str, graph: Dict[str, Any], data_sha256: Dict[str, str],
+                             questions: Sequence[Question], n_available: int, schemas: Dict[str, Any],
+                             hops: Dict[str, Optional[int]], data_dir: str, out: str, runs: int,
+                             model: Optional[str], region: Optional[str], resume: bool,
+                             after_run: Optional[Callable[[str, str], None]],
+                             config: GraphQueryAgentConfig, s3_uri: str,
+                             base_config: Dict[str, Any]) -> Dict[str, Any]:
+    """run_benchmark's path for the LLM + graph-query baseline: one setting, scored and
+    written like BYOKG's, and a check after the runs that the graph is unchanged."""
+    from benchmarks.utils.graph_query_agent import NEPTUNE_MCP_COMMAND, SYSTEM_PROMPT, GraphQueryAgent
+    from benchmarks.utils.mcp_stdio import McpStdioClient
+
+    spec = DATASETS[dataset]
+    neptune, manifest, counts, region_name = prepare_neptune_graph(
+        graph, dataset, data_sha256['graph'], data_dir, s3_uri, config, region)
+    # The no-KG answer comes from BYOKG's own engine, so both arms share that baseline.
+    engine, counter = build_engine(graph, model, region, False)
+    report = {'dataset': dataset, 'n_questions': len(questions), 'n_available': n_available,
+              'question_ids': [q.id for q in questions], 'paper_reference': spec.paper_reference,
+              'config': {**base_config, 'model': counter.model_name, 'graph_query_agent': True},
+              'settings': {}}
+    tag_dir = os.path.join(out, dataset, GRAPH_QUERY_TAG)
+    os.makedirs(tag_dir, exist_ok=True)
+    # One attempt per query: the server's boto3 client would otherwise resend a query
+    # that outruns its 60 s read timeout while the first copy keeps a graph worker busy.
+    env = {**os.environ, 'NEPTUNE_ENDPOINT': config.graph, 'AWS_REGION': region_name,
+           'AWS_DEFAULT_REGION': region_name, 'AWS_MAX_ATTEMPTS': '1', 'FASTMCP_LOG_LEVEL': 'ERROR'}
+    with McpStdioClient(NEPTUNE_MCP_COMMAND, env=env, stderr_path=os.path.join(tag_dir, 'mcp-server.log')) as tools:
+        # BYOKG's output cap and retries, so throttling or long answers don't favor one arm.
+        max_tokens, max_retries = counter.max_new_tokens, counter.max_retries  # BedrockGenerator's
+        agent = GraphQueryAgent(counter.usage, counter.model_name, tools,
+                                temporal_qualifiers=manifest['temporal_qualifiers'],
+                                max_calls=config.max_calls, max_result_chars=config.max_result_chars,
+                                max_tokens=max_tokens, max_retries=max_retries, on_slow_query=neptune.cancel)
+        report['provenance'] = provenance(counter, data_sha256=data_sha256, graph_query_agent={
+            'max_calls': config.max_calls, 'max_result_chars': config.max_result_chars,
+            'max_tokens': max_tokens, 'max_retries': max_retries,
+            'mcp_server': ' '.join(NEPTUNE_MCP_COMMAND), 'server_info': tools.server_info,
+            'system_prompt_sha256': hashlib.sha256(SYSTEM_PROMPT.encode()).hexdigest(),
+            'export': {k: manifest[k] for k in ('graph_sha256', 'export_version', 'nodes', 'edges')}})
+        key = run_key(report['question_ids'], None, None, report['provenance'])
+        summaries = []
+        for r in range(1, runs + 1):
+            rel = os.path.join(dataset, GRAPH_QUERY_TAG, f'run{r}')
+            done = completed_run(os.path.join(out, rel), key) if resume else None
+            if done:
+                logger.info('%s: already complete with this configuration, reusing', rel)
+                summaries.append(done)
+                continue
+            summaries.append(run_once(
+                engine, counter, questions, schemas, hops, spec.metric, 0, os.path.join(out, rel), run_key=key,
+                question_runner=lambda q, schema, hop: run_agent_question(agent, engine, counter, q, schema, hop)))
+            if after_run:
+                after_run(os.path.join(out, rel), rel)
+    if neptune.counts() != counts:
+        raise RuntimeError(f'graph {config.graph_id} changed during the run ({neptune.counts()} != {counts})')
+    report['settings'][GRAPH_QUERY_TAG] = aggregate(summaries, spec.metric)
+    with open(os.path.join(out, dataset, 'aggregate.json'), 'w', encoding='utf-8') as f:
+        json.dump(report, f, indent=2)
     return report
 
 
@@ -720,6 +1034,7 @@ def retrieval_from_env() -> RetrievalConfig:
         embedding_linking=env_bool('BYOKG_EMBEDDING_LINKING', False),
         keep_verbatim_names=env_bool('BYOKG_KEEP_VERBATIM_NAMES', False),
         split_entity_lines=env_bool('BYOKG_SPLIT_ENTITY_LINES', False),
+        text_lexical=env_bool('BYOKG_TEXT_LEXICAL', False),
         text_topk=env_int('BYOKG_TEXT_TOPK', 10),
         embed_model=env_string('BYOKG_EMBED_MODEL', None),
     )
@@ -788,10 +1103,17 @@ def run_byokg_kgqa_test(handler: IntegrationTestHandler, params: Dict[str, Any],
         runs=env_int('BYOKG_KGQA_RUNS', 3),
         single_best_match=env_string('BYOKG_SINGLE_BEST_MATCH', 'both'),
         iterations=env_int('BYOKG_MAX_ITERATIONS', 2),
+        traversal_steps=env_int('BYOKG_TRAVERSAL_STEPS', None),
     )
     validate_config(config['single_best_match'], config['runs'], config['iterations'])
+    validate_traversal_steps(config['traversal_steps'])
     retrieval = retrieval_from_env()
     answer_selection = answer_selection_from_env()
+    # The stack's own Neptune Analytics graph unless another one is named.
+    graph_query_agent = GraphQueryAgentConfig(
+        enabled=env_bool('BYOKG_GRAPH_QUERY_AGENT', False),
+        graph=env_string('BYOKG_NEPTUNE_GRAPH', None) or env_string('GRAPH_STORE', None),
+        max_calls=env_int('BYOKG_AGENT_MAX_CALLS', 15))
     fetch_dataset(s3_uri, dataset, data_dir)
     shared = {}
 
@@ -817,6 +1139,8 @@ def run_byokg_kgqa_test(handler: IntegrationTestHandler, params: Dict[str, Any],
         answer_selection=answer_selection,
         before_embeddings=fetch_embeddings,
         after_embeddings=publish_embeddings,
+        graph_query_agent=graph_query_agent,
+        neptune_s3_uri=s3_uri,
     )
     for tag, agg in report['settings'].items():
         handler.add_output(f"{tag}.{agg['metric']}", agg['mean'])
@@ -897,6 +1221,8 @@ def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
     p.add_argument('--runs', type=int, default=3, help='repeats per setting, for the noise floor')
     p.add_argument('--single-best-match', choices=['off', 'on', 'both'], default='both')
     p.add_argument('--iterations', type=int, default=2, help='retrieval iterations (library default 2)')
+    p.add_argument('--traversal-steps', type=int,
+                   help='exploration steps per retrieval iteration (default: the library default, 3)')
     p.add_argument('--model', help='Bedrock model id (default: ByoKGConfig.llm_model)')
     p.add_argument('--region')
     p.add_argument('--no-medqa-kg-filter', action='store_true',
@@ -906,6 +1232,8 @@ def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
     p.add_argument('--text-retrieval', action='store_true',
                    help='merge text-based triplet retrieval with agentic retrieval')
     p.add_argument('--text-topk', type=int, default=10, help='triplets from text retrieval')
+    p.add_argument('--text-lexical', action='store_true',
+                   help='fuse BM25 with the embedding ranking in text retrieval (needs --text-retrieval)')
     p.add_argument('--embedding-linking', action='store_true',
                    help='link entities by embedding as well as fuzzy matching')
     p.add_argument('--keep-verbatim-names', action='store_true',
@@ -917,6 +1245,11 @@ def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
                    help='rerank and prune the context, then answer with the grounded prompt')
     p.add_argument('--context-max-lines', type=int, default=20,
                    help='context lines kept by answer selection, plus up to as many lines chained to them')
+    p.add_argument('--graph-query-agent', action='store_true',
+                   help='run the LLM + graph-query baseline (Neptune MCP server) instead of BYOKG; '
+                        'needs --neptune-graph and --s3-data')
+    p.add_argument('--neptune-graph', help='neptune-graph://<graph id> the baseline loads and queries')
+    p.add_argument('--agent-max-calls', type=int, default=15, help="the baseline's LLM calls per question")
     return p.parse_args(argv)
 
 
@@ -924,10 +1257,12 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s %(message)s')
     args = parse_args(argv)
     validate_config(args.single_best_match, args.runs, args.iterations)
+    validate_traversal_steps(args.traversal_steps)
     retrieval = RetrievalConfig(text_retrieval=args.text_retrieval,
                                 embedding_linking=args.embedding_linking,
                                 keep_verbatim_names=args.keep_verbatim_names,
                                 split_entity_lines=args.split_entity_lines,
+                                text_lexical=args.text_lexical,
                                 text_topk=args.text_topk, embed_model=args.embed_model)
     if args.s3_data:
         fetch_dataset(args.s3_data, args.dataset, args.data_dir)
@@ -940,7 +1275,12 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                   medqa_kg_filter=not args.no_medqa_kg_filter, resume=not args.no_resume,
                   retrieval=retrieval, before_embeddings=fetch,
                   answer_selection=AnswerSelectionConfig(enabled=args.answer_selection,
-                                                         max_lines=args.context_max_lines))
+                                                         max_lines=args.context_max_lines),
+                  traversal_steps=args.traversal_steps,
+                  graph_query_agent=GraphQueryAgentConfig(enabled=args.graph_query_agent,
+                                                          graph=args.neptune_graph,
+                                                          max_calls=args.agent_max_calls),
+                  neptune_s3_uri=args.s3_data)
     if args.s3_out:
         _aws('sync', args.out, args.s3_out)
     return 0
