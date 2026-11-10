@@ -520,9 +520,19 @@ echo "PREV_STACK_NAME          : $PREV_STACK_NAME"
 echo "----------------------------------------------------"
 echo ""
 
-for setting in EXTRACTION_NUM_WORKERS EXTRACTION_BATCH_SIZE EXTRACTION_NUM_THREADS_PER_WORKER; do
+for setting in EXTRACTION_NUM_WORKERS EXTRACTION_BATCH_SIZE EXTRACTION_NUM_THREADS_PER_WORKER \
+	BYOKG_TEXT_TOPK; do
   if [[ "${!setting:-}" && ! "${!setting}" =~ ^[1-9][0-9]*$ ]]; then
     echo "ERROR: $setting must be a positive integer, got '${!setting}'."
+    exit 1
+  fi
+done
+
+# The notebook accepts only true or false, in any case (benchmark_env.env_bool).
+for setting in BYOKG_TEXT_RETRIEVAL; do
+  value="$(printf '%s' "${!setting:-}" | tr '[:upper:]' '[:lower:]')"
+  if [[ "$value" && "$value" != true && "$value" != false ]]; then
+    echo "ERROR: $setting must be true or false, got '${!setting}'."
     exit 1
   fi
 done
