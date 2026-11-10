@@ -225,6 +225,21 @@ class TestWhatReachesTheGraph:
         assert '1994' not in query
         assert row(params)['typedValue'] == 1994
 
+    def test_subject_write_coalesces_so_the_first_writer_wins(self):
+        """Two facts can assert the same declared property for one subject, and
+        builds run across spawn workers, so a plain `SET` would store whichever
+        committed last - a value that changes with build order. `coalesce` keeps
+        the existing value, matching the complement path in
+        `local_entity_rewrites_graph_builder`, so the result is stable within a run.
+        """
+        typed = [q for q in queries(build(attribute_fact(), 'subject'))
+                 if 'insert typed property' in q]
+
+        (query,) = typed
+        # The existing property is the first coalesce operand, so a later write for the
+        # same (entity, property) keeps it instead of overwriting it.
+        assert 'SET typed_subject.`foundedYear` = coalesce(typed_subject.`foundedYear`,' in query
+
     def test_complement_placement_sets_typed_value_and_datatype(self):
         typed = [(q, p) for (q, p) in build(attribute_fact(), 'complement')
                  if 'typed_value' in q or 'typedValue' in str(p)]

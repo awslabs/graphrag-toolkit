@@ -453,11 +453,13 @@ class EntityGraphBuilder(GraphBuilder):
                     # real key, so the store's name-based decisions are unchanged.
                     assigment = graph_client.property_assigment_fn(key, value)('params.typedValue')
 
+                    # `coalesce`, first writer wins, for the build-order reason given on
+                    # `local_entity_rewrites_graph_builder`'s complement write.
                     statements = [
                         '// insert typed property',
                         'UNWIND $params AS params',
                         f'MERGE ({e_var}:`__Entity__`{{{graph_client.node_id("entityId")}: params.entityId}})',
-                        f'SET {e_var}.`{e_key}` = {assigment}'
+                        f'SET {e_var}.`{e_key}` = coalesce({e_var}.`{e_key}`, {assigment})'
                     ]
 
                     query = '\n'.join(statements)
