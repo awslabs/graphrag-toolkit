@@ -72,6 +72,9 @@ class TestFactGraphBuilding:
             'statement_id': 'stmt-1',
             'fact_id': 'fact-1',
             'fact': 'GraphRAG combines knowledge graphs',
+            '_predicate': 'combines',
+            '_subject_literal': None,
+            '_object_literal': None,
         }
 
     def test_build_links_subject_and_object_entities(self):
