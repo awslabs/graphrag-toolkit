@@ -357,3 +357,71 @@ class TestKGLinkerPromptFinalization:
         
         assert isinstance(linker.task_prompts_iterative, str)
         assert len(linker.task_prompts_iterative) > 0
+
+
+class TestSplitEntityLines:
+    """split_entity_lines: a line listing several entities is also linked part by part."""
+
+    # Lines as the LLM wrote them in a recorded CWQ run, one tag per task.
+    RESPONSE = (
+        "<entities>\nBuffyverse, Australia, language\nWashington, D.C.\nPeru\nPeru; Lima\n</entities>\n"
+        "<paths>\nfilm.film.country -> location.country.languages_spoken\n</paths>\n"
+        "<answers>\nEnglish, Australian English\n</answers>"
+    )
+
+    @pytest.fixture
+    def make_linker(self, mock_llm_generator, mock_graph_store):
+        with patch('graphrag_toolkit.byokg_rag.graph_connectors.kg_linker.load_yaml',
+                   side_effect=get_mock_load_yaml()):
+            yield lambda **kw: KGLinker(llm_generator=mock_llm_generator, graph_store=mock_graph_store, **kw)
+
+    def test_off_by_default(self, make_linker):
+        linker = make_linker()
+        assert linker.split_entity_lines is False
+        assert linker.parse_response(self.RESPONSE)['entity-extraction'] == [
+            'Buffyverse, Australia, language', 'Washington, D.C.', 'Peru', 'Peru; Lima']
+
+    def test_parts_follow_their_line_which_is_kept(self, make_linker):
+        assert make_linker(split_entity_lines=True).parse_response(self.RESPONSE)['entity-extraction'] == [
+            'Buffyverse, Australia, language', 'Buffyverse', 'Australia', 'language',
+            'Washington, D.C.', 'Washington', 'D.C.',  # the whole name still links
+            'Peru', 'Peru; Lima', 'Lima']  # a part already listed is not repeated
+
+    def test_only_entity_extraction_is_split(self, make_linker):
+        on = make_linker(split_entity_lines=True).parse_response(self.RESPONSE)
+        off = make_linker().parse_response(self.RESPONSE)
+        assert on['draft-answer-generation'] == off['draft-answer-generation'] == ['English, Australian English']
+        assert on['path-extraction'] == off['path-extraction']
+
+    def test_finish_and_empty_extractions_are_unchanged(self, make_linker):
+        linker = make_linker(split_entity_lines=True)
+        assert linker.parse_response("<entities>\nFINISH\n</entities>")['entity-extraction'] == ['FINISH']
+        assert linker.parse_response("<entities>\n</entities>")['entity-extraction'] == []
+        assert linker.parse_response("no tags")['entity-extraction'] == []
+
+    def test_numbers_and_name_suffixes_are_not_linked_alone(self, make_linker):
+        # Lines as recorded on CWQ: a thousands separator is not a list, and "Jr." or
+        # "1982" would link unrelated nodes.
+        response = ("<entities>\nSammy Davis, Jr.\npopulation 9,153,489\nLaughlin, Nevada, hotel, 1982\n"
+                    "Apple, Inc.\n</entities>")
+        assert make_linker(split_entity_lines=True).parse_response(response)['entity-extraction'] == [
+            'Sammy Davis, Jr.', 'Sammy Davis', 'population 9,153,489',
+            'Laughlin, Nevada, hotel, 1982', 'Laughlin', 'Nevada', 'hotel', 'Apple, Inc.', 'Apple']
+
+    def test_a_comma_next_to_one_digit_still_splits(self, make_linker):
+        response = "<entities>\nApollo 11, Neil Armstrong\nHotel,1982\nRichmond, Virginia\nDenver, Colorado\n</entities>"
+        assert make_linker(split_entity_lines=True).parse_response(response)['entity-extraction'] == [
+            'Apollo 11, Neil Armstrong', 'Apollo 11', 'Neil Armstrong', 'Hotel,1982', 'Hotel',
+            'Richmond, Virginia', 'Richmond', 'Virginia',  # starts like a suffix, isn't one
+            'Denver, Colorado', 'Denver', 'Colorado']
+
+    def test_blank_parts_are_dropped(self, make_linker):
+        assert make_linker(split_entity_lines=True).parse_response(
+            "<entities>\nLima,, Peru,\nCuba,\n</entities>")['entity-extraction'] == [
+                'Lima,, Peru,', 'Lima', 'Peru', 'Cuba,']
+
+    def test_cypher_linker_keeps_the_default(self, mock_llm_generator, mock_graph_store_with_cypher):
+        with patch('graphrag_toolkit.byokg_rag.graph_connectors.kg_linker.load_yaml',
+                   side_effect=get_mock_load_yaml()):
+            linker = CypherKGLinker(llm_generator=mock_llm_generator, graph_store=mock_graph_store_with_cypher)
+        assert linker.split_entity_lines is False

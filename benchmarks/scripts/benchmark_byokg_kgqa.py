@@ -68,7 +68,10 @@ class CountingGenerator:
 @dataclass(frozen=True)
 class RetrievalConfig:
     """Optional retrieval changes under test; all off reproduces the library defaults."""
-    text_retrieval: bool = False      # TextTripletRetriever merged with agentic retrieval
+    text_retrieval: bool = False       # TextTripletRetriever merged with agentic retrieval
+    embedding_linking: bool = False    # HybridEntityMatcher: fuzzy + embedding linking
+    keep_verbatim_names: bool = False  # FuzzyStringIndex links names written in an unlinked mention
+    split_entity_lines: bool = False   # KGLinker also links each part of a multi-entity line
     text_topk: int = 10
     embed_model: Optional[str] = None  # None: ByoKGConfig.embed_model
 
@@ -77,8 +80,8 @@ class RetrievalConfig:
             raise ValueError(f'text_topk must be a positive integer, got {self.text_topk!r}')
 
     @property
-    def enabled(self) -> bool:
-        return self.text_retrieval
+    def needs_embeddings(self) -> bool:
+        return self.text_retrieval or self.embedding_linking
 
     def resolved_model(self) -> str:
         if self.embed_model:
@@ -145,19 +148,29 @@ def embedding_cache_key(graph_sha256: str, model: str) -> str:
 class RetrievalParts:
     """Built once per dataset and shared by every engine: embedding a graph is costly."""
     text_triplet_retriever: Any = None
+    entity_matcher: Any = None  # None: the engine's default fuzzy matcher
     embedding_dim: Optional[int] = None
 
 
 def build_retrieval_parts(graph: Dict[str, Any], retrieval: RetrievalConfig, region: Optional[str],
                           cache_dir: Optional[str]) -> RetrievalParts:
-    if not retrieval.enabled:
+    if not (retrieval.needs_embeddings or retrieval.keep_verbatim_names):
         return RetrievalParts()
     from graphrag_toolkit.byokg_rag.config import ByoKGConfig
     from graphrag_toolkit.byokg_rag.graph_retrievers import TextTripletRetriever
     from graphrag_toolkit.byokg_rag.graphstore.graphstore import LocalKGStore
-    from graphrag_toolkit.byokg_rag.indexing import GraphEmbeddings
+    from graphrag_toolkit.byokg_rag.indexing import FuzzyStringIndex, GraphEmbeddings, HybridEntityMatcher
 
     from botocore.config import Config
+
+    store = LocalKGStore(graph)
+    fuzzy = None
+    if retrieval.keep_verbatim_names or retrieval.embedding_linking:
+        # The index the engine builds by default, with the option under test.
+        fuzzy = FuzzyStringIndex(keep_verbatim_names=retrieval.keep_verbatim_names)
+        fuzzy.add(store.nodes())
+    if not retrieval.needs_embeddings:
+        return RetrievalParts(entity_matcher=fuzzy.as_entity_matcher())
 
     model_id = retrieval.resolved_model()
     # A graph is thousands of embedding calls: adaptive retries ride out throttling
@@ -167,32 +180,44 @@ def build_retrieval_parts(graph: Dict[str, Any], retrieval: RetrievalConfig, reg
     if region:
         kwargs['region_name'] = region
     embedding = ByoKGConfig.to_embedding(**kwargs)
-    store = LocalKGStore(graph)
     triplets = store.get_triplets()
     # Every named node, not only those in triplets, so one cached node table serves
     # any consumer of the graph's embeddings.
     embeddings = GraphEmbeddings.build(triplets, embedding, cache_dir, extra_nodes=store.nodes(),
                                        model_id=model_id)
+    if retrieval.embedding_linking:
+        entity_matcher = HybridEntityMatcher(fuzzy, embeddings.nodes, embedding)
+    else:
+        entity_matcher = fuzzy.as_entity_matcher() if fuzzy else None
     return RetrievalParts(
-        text_triplet_retriever=TextTripletRetriever(triplets, embeddings, embedding,
-                                                    topk=retrieval.text_topk),
+        text_triplet_retriever=(TextTripletRetriever(triplets, embeddings, embedding,
+                                                     topk=retrieval.text_topk)
+                                if retrieval.text_retrieval else None),
+        entity_matcher=entity_matcher,
         embedding_dim=embeddings.dim,
     )
 
 
 def build_engine(graph: Dict[str, Any], model: Optional[str], region: Optional[str],
                  single_best_match: bool, parts: Optional[RetrievalParts] = None,
-                 context_selector=None):
+                 context_selector=None, split_entity_lines: bool = False):
     """Engine with library defaults; only the graph store, LLM and any parts under
     test are supplied."""
     from graphrag_toolkit.byokg_rag.byokg_query_engine import ByoKGQueryEngine
+    from graphrag_toolkit.byokg_rag.graph_connectors import KGLinker
+    from graphrag_toolkit.byokg_rag.graph_retrievers import EntityLinker
     from graphrag_toolkit.byokg_rag.graphstore.graphstore import LocalKGStore
     from graphrag_toolkit.byokg_rag.llm.bedrock_llms import BedrockGenerator
 
     parts = parts or RetrievalParts()
+    store = LocalKGStore(graph)
     counter = CountingGenerator(BedrockGenerator(model_name=model, region_name=region))
     engine = ByoKGQueryEngine(
-        graph_store=LocalKGStore(graph), llm_generator=counter, single_best_match=single_best_match,
+        graph_store=store, llm_generator=counter, single_best_match=single_best_match,
+        entity_linker=EntityLinker(parts.entity_matcher) if parts.entity_matcher else None,
+        # The linker the engine builds by default, with the option under test.
+        kg_linker=(KGLinker(llm_generator=counter, graph_store=store, split_entity_lines=True)
+                   if split_entity_lines else None),
         text_triplet_retriever=parts.text_triplet_retriever, context_selector=context_selector)
     return engine, counter
 
@@ -279,7 +304,7 @@ def provenance(counter, data_files: Optional[Dict[str, str]] = None,
 def retrieval_provenance(retrieval: RetrievalConfig, embedding_dim: Optional[int]) -> Dict[str, Any]:
     record = asdict(retrieval)
     # Settings only count when they are used, so unused ones never split the fingerprint.
-    record['embed_model'] = retrieval.resolved_model() if retrieval.enabled else None
+    record['embed_model'] = retrieval.resolved_model() if retrieval.needs_embeddings else None
     record['text_topk'] = retrieval.text_topk if retrieval.text_retrieval else None
     record['embedding_dim'] = embedding_dim
     return record
@@ -579,7 +604,7 @@ def run_benchmark(dataset: str, data_dir: str, out: str, limit: Optional[int] = 
     summary.json already exists for the same fingerprint is reused, not rerun.
     answer_selection reranks and prunes the context and answers with the grounded
     prompt; the reranker is loaded once. retrieval switches on the optional retrieval
-    changes; their embeddings are
+    changes; the embeddings text retrieval and embedding linking need are
     cached under data_dir/embeddings/<embedding_cache_key>. before_embeddings(cache_dir)
     runs before they are loaded or built (to fetch a shared cache) and
     after_embeddings(cache_dir) once they exist, before any question runs.
@@ -611,7 +636,7 @@ def run_benchmark(dataset: str, data_dir: str, out: str, limit: Optional[int] = 
     schemas = {q.id: shared or build_schema(spec.schema_mode, graph, q) for q in questions}
     hops = {q.id: hop_distance(graph, q.q_entities, q.a_entities) for q in questions}
     cache_dir = (embedding_cache_dir(data_dir, data_sha256['graph'], retrieval)
-                 if retrieval.enabled else None)
+                 if retrieval.needs_embeddings else None)
     if cache_dir and before_embeddings:
         before_embeddings(cache_dir)
     parts = build_retrieval_parts(graph, retrieval, region, cache_dir)
@@ -632,7 +657,8 @@ def run_benchmark(dataset: str, data_dir: str, out: str, limit: Optional[int] = 
     for sbm in settings:
         # Drop the previous engine (and its node index) before building the next.
         engine = counter = None
-        engine, counter = build_engine(graph, model, region, sbm, parts, answer.context_selector)
+        engine, counter = build_engine(graph, model, region, sbm, parts, answer.context_selector,
+                                       split_entity_lines=retrieval.split_entity_lines)
         tag = f"single_best_match-{'on' if sbm else 'off'}"
         report['config']['model'] = counter.model_name
         if 'provenance' not in report:  # once: it hashes the byokg-rag package
@@ -691,6 +717,9 @@ def answer_selection_from_env() -> AnswerSelectionConfig:
 def retrieval_from_env() -> RetrievalConfig:
     return RetrievalConfig(
         text_retrieval=env_bool('BYOKG_TEXT_RETRIEVAL', False),
+        embedding_linking=env_bool('BYOKG_EMBEDDING_LINKING', False),
+        keep_verbatim_names=env_bool('BYOKG_KEEP_VERBATIM_NAMES', False),
+        split_entity_lines=env_bool('BYOKG_SPLIT_ENTITY_LINES', False),
         text_topk=env_int('BYOKG_TEXT_TOPK', 10),
         embed_model=env_string('BYOKG_EMBED_MODEL', None),
     )
@@ -877,6 +906,12 @@ def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
     p.add_argument('--text-retrieval', action='store_true',
                    help='merge text-based triplet retrieval with agentic retrieval')
     p.add_argument('--text-topk', type=int, default=10, help='triplets from text retrieval')
+    p.add_argument('--embedding-linking', action='store_true',
+                   help='link entities by embedding as well as fuzzy matching')
+    p.add_argument('--keep-verbatim-names', action='store_true',
+                   help='when fuzzy matching leaves a mention unlinked, link the names written in it')
+    p.add_argument('--split-entity-lines', action='store_true',
+                   help='also link each part of an extracted line that lists several entities')
     p.add_argument('--embed-model', help='embedding model id (default: ByoKGConfig.embed_model)')
     p.add_argument('--answer-selection', action='store_true',
                    help='rerank and prune the context, then answer with the grounded prompt')
@@ -890,12 +925,15 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     args = parse_args(argv)
     validate_config(args.single_best_match, args.runs, args.iterations)
     retrieval = RetrievalConfig(text_retrieval=args.text_retrieval,
+                                embedding_linking=args.embedding_linking,
+                                keep_verbatim_names=args.keep_verbatim_names,
+                                split_entity_lines=args.split_entity_lines,
                                 text_topk=args.text_topk, embed_model=args.embed_model)
     if args.s3_data:
         fetch_dataset(args.s3_data, args.dataset, args.data_dir)
     # Reuse vectors a stack already paid for instead of re-embedding the graph.
     fetch = ((lambda cache_dir: fetch_embedding_cache(args.s3_data, cache_dir))
-             if args.s3_data and retrieval.enabled else None)
+             if args.s3_data and retrieval.needs_embeddings else None)
     run_benchmark(args.dataset, args.data_dir, args.out, limit=args.limit, seed=args.seed,
                   runs=args.runs, single_best_match=args.single_best_match,
                   iterations=args.iterations, model=args.model, region=args.region,

@@ -7,3 +7,4 @@ from .dense_index import *
 from .graph_store_index import *
 from .embedding import *
 from .graph_embeddings import *
+from .hybrid_entity_matcher import *

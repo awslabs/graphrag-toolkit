@@ -11,6 +11,16 @@ from benchmarks.scripts import benchmark_byokg_kgqa as runner
 from benchmarks.utils.byokg_kgqa import Question, hop_distance
 
 
+@pytest.fixture(autouse=True)
+def _no_ambient_benchmark_env(monkeypatch):
+    # Operators `source .env` with arm flags exported (see the README); no test may
+    # inherit them, or reach real S3 through an arm that needs embeddings.
+    for var in list(os.environ):
+        if var.startswith('BYOKG_') or var == 'BENCHMARK_QA_LIMIT':
+            monkeypatch.delenv(var)
+    monkeypatch.setattr(runner, '_s3_client', lambda: pytest.fail('a test reached a real S3 client'))
+
+
 GRAPH = {
     'Lou Seal': {'mascot of': {'triplets': [['Lou Seal', 'mascot of', 'Giants']]}},
     'Giants': {'won': {'triplets': [['Giants', 'won', '2014 World Series']]}},
@@ -213,7 +223,7 @@ def _dataset_on_disk(tmp_path):
 def fake_engine(monkeypatch):
     built = []
 
-    def build(graph, model, region, sbm, parts=None, context_selector=None):
+    def build(graph, model, region, sbm, parts=None, context_selector=None, split_entity_lines=False):
         engine, counter = _engine()
         built.append(sbm)
         return engine, counter
@@ -299,9 +309,9 @@ class TestResume:
             self._run(tmp_path, monkeypatch)
 
     def test_unhealthy_run_is_rerun_not_reused(self, tmp_path, monkeypatch, fake_engine):
-        monkeypatch.setattr(runner, 'build_engine', lambda *a: _engine(vanilla_fail=True))
+        monkeypatch.setattr(runner, 'build_engine', lambda *a, **k: _engine(vanilla_fail=True))
         self._run(tmp_path, monkeypatch)                       # every no-KG call throttled
-        monkeypatch.setattr(runner, 'build_engine', lambda *a: _engine())
+        monkeypatch.setattr(runner, 'build_engine', lambda *a, **k: _engine())
         report, asked = self._run(tmp_path, monkeypatch)        # same key, healthy engine
         assert asked == 4, 'throttled runs must be redone, not carried forward'
         assert all(s['n_vanilla_errors'] == 0
@@ -448,7 +458,7 @@ class TestStackEntryPoint:
     def test_completed_runs_are_uploaded_before_a_later_run_crashes(self, stack_env, monkeypatch):
         built = []
 
-        def build(*a):
+        def build(*a, **k):
             built.append(a)
             # Second setting's engine dies on every question → run_once aborts.
             return _engine(fail=len(built) > 1)
@@ -469,7 +479,7 @@ class TestStackEntryPoint:
         assert fetched == [], 'config must be validated before any download'
 
     def test_error_rate_assertion_fails_the_test(self, stack_env, monkeypatch):
-        monkeypatch.setattr(runner, 'build_engine', lambda *a: _engine(fail=True))
+        monkeypatch.setattr(runner, 'build_engine', lambda *a, **k: _engine(fail=True))
         handler = FakeHandler()
         runner.run_byokg_kgqa_test(handler, {}, 'webqsp')
         assert len(handler.failures) == 1 and 'KG path errored on 100.0%' in handler.failures[0][1]
@@ -477,7 +487,7 @@ class TestStackEntryPoint:
 
     def test_throttled_no_kg_baseline_fails_the_test(self, stack_env, monkeypatch):
         # KG path healthy, every no-KG call throttled: vanilla_hit would read 0.0.
-        monkeypatch.setattr(runner, 'build_engine', lambda *a: _engine(vanilla_fail=True))
+        monkeypatch.setattr(runner, 'build_engine', lambda *a, **k: _engine(vanilla_fail=True))
         handler = FakeHandler()
         runner.run_byokg_kgqa_test(handler, {}, 'webqsp')
         assert handler.outputs['single_best_match-off.hit'] == 100.0, 'KG result must survive'
@@ -559,7 +569,9 @@ class TestSeedRecall:
 
 class TestRetrievalConfig:
     def test_off_by_default(self):
-        assert not runner.RetrievalConfig().enabled
+        off = runner.RetrievalConfig()
+        assert not (off.needs_embeddings or off.embedding_linking or off.keep_verbatim_names
+                    or off.split_entity_lines)
         assert runner.retrieval_provenance(runner.RetrievalConfig(), None)['embed_model'] is None
 
     def test_cache_key_tracks_graph_and_model(self):
@@ -607,8 +619,8 @@ class TestRetrievalWiring:
         built = []
         monkeypatch.setattr(runner, 'build_retrieval_parts', build_parts)
         monkeypatch.setattr(runner, 'build_engine',
-                            lambda graph, model, region, sbm, parts=None, context_selector=None:
-                            built.append(parts) or _engine())
+                            lambda graph, model, region, sbm, parts=None, context_selector=None,
+                            split_entity_lines=False: built.append(parts) or _engine())
         return seen, built
 
     def _run(self, tmp_path, **kw):
@@ -624,7 +636,8 @@ class TestRetrievalWiring:
         assert [p.text_triplet_retriever for p in built] == ['TEXT', 'TEXT'], 'both settings, one build'
         assert '/embeddings/' in seen['cache_dir'] and seen['cache_dir'].endswith('-cohere.embed-english-v3')
         assert report['provenance']['retrieval'] == {
-            'text_retrieval': True, 'text_topk': 10,
+            'text_retrieval': True, 'embedding_linking': False, 'keep_verbatim_names': False,
+            'split_entity_lines': False, 'text_topk': 10,
             'embed_model': 'cohere.embed-english-v3', 'embedding_dim': 1024}
 
     def test_no_cache_and_no_hook_when_off(self, tmp_path, parts_spy):
@@ -645,6 +658,167 @@ class TestRetrievalWiring:
         self._run(tmp_path)
         with pytest.raises(RuntimeError, match='different configuration'):
             self._run(tmp_path, retrieval=TEXT)
+
+
+LINKING_FLAGS = ('embedding_linking', 'keep_verbatim_names', 'split_entity_lines')
+
+
+class TestEntityLinkingOptions:
+    def test_only_text_retrieval_and_embedding_linking_need_embeddings(self):
+        assert runner.RetrievalConfig(text_retrieval=True).needs_embeddings
+        assert runner.RetrievalConfig(embedding_linking=True).needs_embeddings
+        assert not runner.RetrievalConfig(keep_verbatim_names=True, split_entity_lines=True).needs_embeddings
+
+    def test_each_option_changes_the_fingerprint(self):
+        prov = runner.provenance(runner.CountingGenerator(FakeGenerator()), data_sha256={})
+        model = 'cohere.embed-english-v3'
+        arms = [runner.RetrievalConfig(embed_model=model)] + [
+            runner.RetrievalConfig(embed_model=model, **{flag: True}) for flag in LINKING_FLAGS]
+        keys = {runner.run_key(['q1'], True, 2, {**prov, 'retrieval': runner.retrieval_provenance(r, 1024)})
+                for r in arms}
+        assert len(keys) == len(arms), 'resume must never reuse a run across linking arms'
+
+    def test_options_without_embeddings_record_no_model(self):
+        record = runner.retrieval_provenance(
+            runner.RetrievalConfig(keep_verbatim_names=True, split_entity_lines=True), None)
+        assert record['embed_model'] is None and record['keep_verbatim_names'] and record['split_entity_lines']
+
+    def test_embedding_linking_records_its_model(self):
+        prov = runner.provenance(runner.CountingGenerator(FakeGenerator()), data_sha256={})
+        keys = {runner.run_key(['q1'], True, 2, {**prov, 'retrieval': runner.retrieval_provenance(
+            runner.RetrievalConfig(embedding_linking=True, embed_model=model), 1024)})
+            for model in ('cohere.embed-english-v3', 'cohere.embed-multilingual-v3')}
+        assert len(keys) == 2, 'two same-dimension models must not share runs'
+
+    @pytest.mark.parametrize('flag', LINKING_FLAGS)
+    def test_each_env_var_sets_only_its_option(self, monkeypatch, flag):
+        monkeypatch.setenv(f'BYOKG_{flag.upper()}', 'true')
+        r = runner.retrieval_from_env()
+        assert {f: getattr(r, f) for f in LINKING_FLAGS + ('text_retrieval',)} == {
+            f: f == flag for f in LINKING_FLAGS + ('text_retrieval',)}
+
+    @pytest.mark.parametrize('flag', LINKING_FLAGS)
+    def test_each_cli_flag_sets_only_its_option(self, monkeypatch, tmp_path, flag):
+        ran = []
+        monkeypatch.setattr(runner, 'run_benchmark', lambda *a, **k: ran.append(k))
+        runner.main(['--dataset', 'cwq', '--data-dir', str(tmp_path), '--' + flag.replace('_', '-')])
+        r = ran[0]['retrieval']
+        assert {f: getattr(r, f) for f in LINKING_FLAGS + ('text_retrieval',)} == {
+            f: f == flag for f in LINKING_FLAGS + ('text_retrieval',)}
+
+    @pytest.mark.parametrize('flag, fetches', [('--embedding-linking', True), ('--keep-verbatim-names', False),
+                                               ('--split-entity-lines', False)])
+    def test_cli_fetches_the_embedding_cache_only_when_needed(self, monkeypatch, tmp_path, flag, fetches):
+        ran = []
+        monkeypatch.setattr(runner, 'fetch_dataset', lambda *a: None)
+        monkeypatch.setattr(runner, 'run_benchmark', lambda *a, **k: ran.append(k))
+        runner.main(['--dataset', 'cwq', '--data-dir', str(tmp_path), '--s3-data', 's3://b/p/', flag])
+        assert (ran[0]['before_embeddings'] is not None) is fetches
+
+
+class TestEntityLinkingWiring:
+    @pytest.fixture
+    def spy(self, monkeypatch):
+        seen = {'cache_dirs': [], 'matchers': [], 'split': []}
+
+        def build_parts(graph, retrieval, region, cache_dir):
+            seen['cache_dirs'].append(cache_dir)
+            return runner.RetrievalParts(entity_matcher='MATCHER')
+
+        def build(graph, model, region, sbm, parts=None, context_selector=None, split_entity_lines=False):
+            seen['matchers'].append(parts.entity_matcher)
+            seen['split'].append(split_entity_lines)
+            return _engine()
+        monkeypatch.setattr(runner, 'build_retrieval_parts', build_parts)
+        monkeypatch.setattr(runner, 'build_engine', build)
+        return seen
+
+    def _run(self, tmp_path, **kw):
+        data = tmp_path / 'data'
+        data.mkdir()
+        _dataset_on_disk(data)
+        return runner.run_benchmark('webqsp', str(data), str(tmp_path / 'out'), runs=1, **kw)
+
+    def test_options_reach_every_engine_without_touching_embeddings(self, tmp_path, spy):
+        hooked = []
+        report = self._run(tmp_path, retrieval=runner.RetrievalConfig(keep_verbatim_names=True,
+                                                                      split_entity_lines=True),
+                           before_embeddings=hooked.append, after_embeddings=hooked.append)
+        assert spy == {'cache_dirs': [None], 'matchers': ['MATCHER', 'MATCHER'], 'split': [True, True]}
+        assert hooked == [] and report['provenance']['retrieval']['embed_model'] is None
+
+    def test_split_is_off_by_default(self, tmp_path, spy):
+        self._run(tmp_path)
+        assert spy['split'] == [False, False]
+
+
+class TestBuildWithLinkingOptions:
+    """The real build_retrieval_parts / build_engine; benchmarks CI does not install byokg-rag."""
+
+    class Emb:
+        def batch_embed(self, texts):
+            return [[1.0, 0.0] for _ in texts]
+
+        def embed_query(self, text):
+            return [1.0, 0.0]
+
+    @pytest.fixture
+    def byokg(self, monkeypatch):
+        pytest.importorskip('graphrag_toolkit.byokg_rag')
+        from graphrag_toolkit.byokg_rag import config as byokg_config
+        from graphrag_toolkit.byokg_rag.llm import bedrock_llms
+        embedded = []
+        monkeypatch.setattr(byokg_config.ByoKGConfig, 'to_embedding',
+                            lambda **kw: embedded.append(kw) or self.Emb())
+        monkeypatch.setattr(bedrock_llms, 'BedrockGenerator', lambda **kw: FakeGenerator())
+        return embedded
+
+    def test_verbatim_names_alone_builds_a_fuzzy_matcher_without_embeddings(self, byokg):
+        parts = runner.build_retrieval_parts(GRAPH, runner.RetrievalConfig(keep_verbatim_names=True), None, None)
+        index = parts.entity_matcher.index
+        assert index.keep_verbatim_names and index.vocab == sorted(GRAPH)
+        assert (parts.text_triplet_retriever, parts.embedding_dim, byokg) == (None, None, [])
+
+    @pytest.mark.parametrize('keep', [False, True])
+    def test_embedding_linking_fuses_the_configured_fuzzy_index(self, byokg, tmp_path, keep):
+        from graphrag_toolkit.byokg_rag.indexing import HybridEntityMatcher
+        parts = runner.build_retrieval_parts(GRAPH, runner.RetrievalConfig(
+            embedding_linking=True, keep_verbatim_names=keep, embed_model='cohere.embed-english-v3'),
+            None, str(tmp_path))
+        assert isinstance(parts.entity_matcher, HybridEntityMatcher)
+        assert parts.entity_matcher.fuzzy_index.keep_verbatim_names is keep
+        assert parts.entity_matcher.node_table.texts == sorted(GRAPH)
+        assert parts.text_triplet_retriever is None and parts.embedding_dim == 2
+
+    def test_text_retrieval_alone_keeps_the_default_matcher(self, byokg, tmp_path):
+        parts = runner.build_retrieval_parts(GRAPH, runner.RetrievalConfig(
+            text_retrieval=True, embed_model='cohere.embed-english-v3'), None, str(tmp_path))
+        assert parts.entity_matcher is None and parts.text_triplet_retriever is not None
+
+    @pytest.mark.parametrize('linking', [False, True])
+    def test_text_retrieval_combined_with_linking_options_builds_both(self, byokg, tmp_path, linking):
+        from graphrag_toolkit.byokg_rag.indexing import HybridEntityMatcher
+        parts = runner.build_retrieval_parts(GRAPH, runner.RetrievalConfig(
+            text_retrieval=True, embedding_linking=linking, keep_verbatim_names=True,
+            embed_model='cohere.embed-english-v3'), None, str(tmp_path))
+        assert parts.text_triplet_retriever is not None
+        assert isinstance(parts.entity_matcher, HybridEntityMatcher) is linking
+        index = parts.entity_matcher.fuzzy_index if linking else parts.entity_matcher.index
+        assert index.keep_verbatim_names
+
+    def test_engine_defaults_are_the_library_defaults(self, byokg):
+        engine, counter = runner.build_engine(GRAPH, None, None, False)
+        assert engine.entity_linker.retriever.index.keep_verbatim_names is False
+        assert engine.kg_linker.split_entity_lines is False
+
+    def test_engine_takes_the_options_under_test(self, byokg):
+        from graphrag_toolkit.byokg_rag.indexing import FuzzyStringIndex
+        matcher = FuzzyStringIndex(keep_verbatim_names=True).as_entity_matcher()
+        engine, counter = runner.build_engine(GRAPH, None, None, True, runner.RetrievalParts(entity_matcher=matcher),
+                                              split_entity_lines=True)
+        assert engine.entity_linker.retriever is matcher
+        # The linker's LLM calls are counted like the default linker's.
+        assert engine.kg_linker.split_entity_lines is True and engine.kg_linker.llm_generator is counter
 
 
 class FakeS3:
@@ -765,7 +939,7 @@ class TestEmbeddingCacheOnStack:
 
         def build_parts(graph, retrieval, region, cache_dir):
             # Mirrors the real one: off builds nothing; a miss leaves a full cache plus checkpoints.
-            if not retrieval.enabled:
+            if not retrieval.needs_embeddings:
                 return runner.RetrievalParts()
             missing = [t for t in ('nodes', 'relations')
                        if not os.path.exists(os.path.join(cache_dir, t, 'vectors.npy'))]
@@ -805,6 +979,22 @@ class TestEmbeddingCacheOnStack:
     def test_off_never_touches_the_cache(self, stack, monkeypatch):
         s3, built, _ = stack
         monkeypatch.setenv('BYOKG_TEXT_RETRIEVAL', 'false')
+        runner.run_byokg_kgqa_test(FakeHandler(), {}, 'webqsp')
+        assert s3.ops == [] and built == []
+
+    def test_embedding_linking_alone_builds_and_publishes_the_same_cache(self, stack, monkeypatch):
+        s3, built, prefix = stack
+        monkeypatch.setenv('BYOKG_TEXT_RETRIEVAL', 'false')
+        monkeypatch.setenv('BYOKG_EMBEDDING_LINKING', 'true')
+        runner.run_byokg_kgqa_test(FakeHandler(), {}, 'webqsp')
+        assert built == [['nodes', 'relations']]
+        assert sorted(k for _, k in s3.objects) == sorted(prefix + r for r in CACHE_FILES)
+
+    def test_linking_options_without_embeddings_never_touch_the_cache(self, stack, monkeypatch):
+        s3, built, _ = stack
+        monkeypatch.setenv('BYOKG_TEXT_RETRIEVAL', 'false')
+        monkeypatch.setenv('BYOKG_KEEP_VERBATIM_NAMES', 'true')
+        monkeypatch.setenv('BYOKG_SPLIT_ENTITY_LINES', 'true')
         runner.run_byokg_kgqa_test(FakeHandler(), {}, 'webqsp')
         assert s3.ops == [] and built == []
 
@@ -968,7 +1158,7 @@ class TestAnswerSelectionWiring:
     def spy(self, monkeypatch):
         engines, selectors = [], []
 
-        def build(graph, model, region, sbm, parts=None, context_selector=None):
+        def build(graph, model, region, sbm, parts=None, context_selector=None, split_entity_lines=False):
             engine, counter = _engine()
             engines.append(engine)
             selectors.append(context_selector)

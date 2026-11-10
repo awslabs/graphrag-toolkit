@@ -235,3 +235,104 @@ class TestFuzzyStringIndexMatch:
         
         with pytest.raises(NotImplementedError):
             index.match(['Amazon'], topk=1, id_selector=['id1'])
+
+
+
+class TestKeepVerbatimNames:
+    """keep_verbatim_names: an input the length filter leaves empty links the names written in it."""
+
+    LINE = 'Buffyverse, Australia, language'  # as an LLM wrote it on one line
+
+    @staticmethod
+    def _hits(vocab, mention, keep=True, topk=3):
+        index = FuzzyStringIndex(keep_verbatim_names=keep)
+        index.add(vocab)
+        return [(hit['document_id'], hit['match_score']) for hit in index.match([mention], topk=topk)['hits']]
+
+    def _match(self, *args, **kwargs):
+        return [name for name, _ in self._hits(*args, **kwargs)]
+
+    def test_off_by_default(self):
+        assert FuzzyStringIndex().keep_verbatim_names is False
+        assert self._match(['Australia', 'Buffyverse'], self.LINE, keep=False) == []
+
+    def test_names_listed_on_one_line_are_linked(self):
+        # Each covers a third of the line's words; equal runs go longer name first.
+        assert self._hits(['Australia', 'Buffyverse', 'Language'], self.LINE) == [
+            ('Buffyverse', pytest.approx(100 / 3)), ('Australia', pytest.approx(100 / 3)),
+            ('Language', pytest.approx(100 / 3))]
+
+    def test_a_mention_fuzzy_matching_links_is_unchanged(self):
+        # Fuzzy keeps 'Francisco de Goya'; names written in the mention would give 'Francisco'.
+        vocab = ['Francisco', 'Francisco de Goya']
+        assert self._hits(vocab, 'Francisco Goya') == self._hits(vocab, 'Francisco Goya', keep=False)
+        assert self._match(vocab, 'Francisco Goya') == ['Francisco de Goya']
+
+    def test_the_longest_name_comes_first_and_names_inside_it_are_skipped(self):
+        vocab = ['Boat', 'Galápagos Islands', 'Islands']
+        assert self._hits(vocab, 'the galapagos islands boat tours') == [('Galápagos Islands', 40.0), ('Boat', 20.0)]
+        assert self._match(vocab, 'the galapagos islands boat tours', topk=1) == ['Galápagos Islands']
+
+    def test_longest_run_then_longer_name_then_leftmost(self):
+        assert self._match(['Boat', 'Galápagos Islands'], 'Boat tours of the Galapagos Islands', topk=1) == [
+            'Galápagos Islands']
+        assert self._match(['Argentina', 'Peru'], 'Peru, Argentina, football rivalry', topk=1) == ['Argentina']
+        assert self._match(['Cuba', 'Peru'], 'Peru, Cuba, trade routes', topk=1) == ['Peru']
+
+    def test_a_name_inside_a_longer_one_is_skipped_and_repeats_count_once(self):
+        assert self._match(['Francisco', 'Francisco Goya', 'Prado'], 'Francisco Goya paintings in the Prado') == [
+            'Francisco Goya', 'Prado']
+        assert self._match(['Chile', 'Peru'], 'Peru, Peru, Chile') == ['Chile', 'Peru']
+
+    def test_the_spelling_written_comes_first_and_variants_dont_crowd_out_other_names(self):
+        vocab = ['Lima', 'PARIS', 'Paris', 'Paris.']
+        assert self._match(vocab, 'Paris, Lima, Peru') == ['Paris', 'Lima', 'PARIS']
+        assert self._match(vocab, 'Paris, Lima, Peru', topk=2) == ['Paris', 'Lima']
+        assert self._match(['Brazil', 'Sao Paulo', 'São Paulo'], 'São Paulo, Brazil, football', topk=1) == ['São Paulo']
+
+    def test_names_that_cant_name_an_entity_alone_are_skipped(self):
+        assert self._match(['1982', 'Peru', 'World Cup'], 'Peru, 1982, World Cup') == ['World Cup', 'Peru']
+        assert self._match(['153', '489', 'Population'], 'population 9,153,489') == ['Population']
+        assert self._match(['Jr.', 'Las Vegas', 'Sammy Davis'], 'Sammy Davis Jr. Las Vegas show') == [
+            'Sammy Davis', 'Las Vegas']
+
+    def test_a_name_not_written_in_the_input_is_not_linked(self):
+        # Fuzzy-close to Australia, but not written in the line.
+        assert self._match(['Austria'], self.LINE) == []
+
+    def test_case_and_accents_are_ignored(self):
+        assert self._match(['Galápagos Islands'], 'the GALAPAGOS islands boat tours') == ['Galápagos Islands']
+        assert self._match(['Sao Paulo'], 'São Paulo, Brazil, football') == ['Sao Paulo']
+
+    def test_whole_words_only(self):
+        assert self._match(['Rome', 'Romeo'], 'Romeo and Juliet by Shakespeare') == ['Romeo']
+        assert self._match(['Rome'], 'Jerome Kern, Broadway, musicals') == []
+
+    def test_other_scripts_and_names_with_punctuation(self):
+        assert self._match(['Москва'], 'Москва, Россия, столица страны') == ['Москва']
+        # Vowel signs stay inside words: Rama is not a word of Ramayana.
+        assert self._match(['राम'], 'रामायण, वाल्मीकि, संस्कृत') == []
+        assert self._match(['राम'], 'राम, सीता, अयोध्या') == ['राम']
+        assert self._match(['Washington, D.C.'], 'Washington, D.C. Peru Lima travel') == ['Washington, D.C.']
+
+    def test_one_character_and_blank_names_are_skipped(self):
+        assert self._match(['Girl', 'I'], 'Because I Got a Girl') == ['Girl']
+        assert self._match([' ', '...'], self.LINE) == []
+
+    def test_at_most_topk_names(self):
+        assert self._match(['Australia', 'Buffyverse', 'Language'], self.LINE, topk=2) == ['Buffyverse', 'Australia']
+
+    def test_batched_inputs_each_get_their_names(self):
+        # The flat path EntityLinker takes without single_best_match.
+        index = FuzzyStringIndex(keep_verbatim_names=True)
+        index.add(['Australia', 'Buffyverse', 'Peru'])
+        assert [h['document_id'] for h in index.match(['Peru', self.LINE], topk=1)['hits']] == ['Peru', 'Buffyverse']
+
+    def test_names_added_later_are_found_and_reset_forgets_them(self):
+        index = FuzzyStringIndex(keep_verbatim_names=True)
+        index.add(['Australia'])
+        assert [h['document_id'] for h in index.match([self.LINE], topk=3)['hits']] == ['Australia']
+        index.add(['Buffyverse'])
+        assert [h['document_id'] for h in index.match([self.LINE], topk=3)['hits']] == ['Buffyverse', 'Australia']
+        index.reset()
+        assert index.match([self.LINE], topk=3)['hits'] == []

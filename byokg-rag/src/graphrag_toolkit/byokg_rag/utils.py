@@ -8,6 +8,17 @@ import re
 import string
 
 
+# Words that never name an entity alone: "Jr." in "Sammy Davis, Jr.".
+_NAME_SUFFIX = re.compile(r"(jr|sr|ii|iii|iv|v|vi|inc|ltd|llc|co|corp|plc|esq)\.?", re.IGNORECASE)
+_LETTER = re.compile(r"[^\W\d_]")
+
+
+def can_name_an_entity(text):
+    """False for text with no letter, such as a year, and for a name suffix such as "Jr."."""
+    text = text.strip()
+    return bool(_LETTER.search(text)) and not _NAME_SUFFIX.fullmatch(text)
+
+
 def load_yaml(file_path):
     file_path =  file_path if file_path.startswith('/') else osp.join(osp.dirname(osp.abspath(__file__)), file_path)
     with open(file_path, 'r') as file:
