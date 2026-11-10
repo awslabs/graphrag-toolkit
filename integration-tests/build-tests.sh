@@ -441,7 +441,8 @@ for setting in EXTRACTION_NUM_WORKERS EXTRACTION_BATCH_SIZE EXTRACTION_NUM_THREA
 	BENCHMARK_MAX_BATCH_SIZE BENCHMARK_MAX_NUM_CONCURRENT_BATCHES BENCHMARK_AUTO_TUNE \
 	SOURCE_ID_WIDTH DETECT_SOURCE_ID_COLLISIONS \
 	BYOKG_DATA_S3_URI BYOKG_KGQA_RUNS BYOKG_SINGLE_BEST_MATCH BYOKG_MAX_ITERATIONS \
-	BYOKG_WEBQSP_LIMIT BYOKG_CWQ_LIMIT BYOKG_CRONQUESTIONS_LIMIT BYOKG_MEDQA_LIMIT; do
+	BYOKG_WEBQSP_LIMIT BYOKG_CWQ_LIMIT BYOKG_CRONQUESTIONS_LIMIT BYOKG_MEDQA_LIMIT \
+	BYOKG_TEXT_RETRIEVAL BYOKG_TEXT_TOPK BYOKG_EMBED_MODEL; do
 	if [[ "${!setting:-}" ]]; then
 		printf "export $setting=%q\n" "${!setting}" >> lexical-graph-examples/.env.testing
 	fi
@@ -524,7 +525,7 @@ echo "----------------------------------------------------"
 echo ""
 
 for setting in EXTRACTION_NUM_WORKERS EXTRACTION_BATCH_SIZE EXTRACTION_NUM_THREADS_PER_WORKER \
-	BENCHMARK_MAX_BATCH_SIZE BENCHMARK_MAX_NUM_CONCURRENT_BATCHES; do
+	BENCHMARK_MAX_BATCH_SIZE BENCHMARK_MAX_NUM_CONCURRENT_BATCHES BYOKG_TEXT_TOPK; do
   if [[ "${!setting:-}" && ! "${!setting}" =~ ^[1-9][0-9]*$ ]]; then
     echo "ERROR: $setting must be a positive integer, got '${!setting}'."
     exit 1
@@ -535,6 +536,15 @@ if [[ "${BENCHMARK_MAX_BATCH_SIZE:-}" ]] && (( BENCHMARK_MAX_BATCH_SIZE < 100 ||
   echo "ERROR: BENCHMARK_MAX_BATCH_SIZE must be between 100 and 50000, got '${BENCHMARK_MAX_BATCH_SIZE}'."
   exit 1
 fi
+
+# The notebook accepts only true or false, in any case (benchmark_env.env_bool).
+for setting in BYOKG_TEXT_RETRIEVAL; do
+  value="$(printf '%s' "${!setting:-}" | tr '[:upper:]' '[:lower:]')"
+  if [[ "$value" && "$value" != true && "$value" != false ]]; then
+    echo "ERROR: $setting must be true or false, got '${!setting}'."
+    exit 1
+  fi
+done
 
 if [[ -z "$DRY_RUN" ]]; then
 

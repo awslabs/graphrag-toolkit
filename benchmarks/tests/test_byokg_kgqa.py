@@ -263,3 +263,17 @@ class TestSummarize:
 
     def test_hit_at_2_reported_for_medqa(self):
         assert summarize([self._rec()], 'hit@2')['hit@2'] == 100.0
+
+
+class TestSeedRecallMetric:
+    def test_share_of_gold_found(self):
+        from benchmarks.utils.byokg_kgqa import seed_recall
+        assert seed_recall(['A', 'B'], ['A', 'C']) == 0.5
+        assert seed_recall(['A'], []) == 0.0
+        assert seed_recall([], ['A']) is None
+
+    def test_summary_skips_missing_and_errored(self):
+        recs = [TestSummarize()._rec(seed_recall=1.0), TestSummarize()._rec(seed_recall=None),
+                TestSummarize()._rec(seed_recall=0.0, error='boom', hit=0, predictions=[],
+                                     llm_calls=None, latency_s=None)]
+        assert summarize(recs, 'hit')['seed_recall'] == 100.0
