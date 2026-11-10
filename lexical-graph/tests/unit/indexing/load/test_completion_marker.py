@@ -573,14 +573,15 @@ class TestEndingASourceThatWasNeverOpened:
         # for good. Leaving the source open costs a re-stage instead.
         uploader = _uploader()
 
-        assert uploader._end_source('never-opened') is None
+        assert uploader._end_source({}, 'never-opened') is None
 
     def test_it_returns_what_an_opened_source_stored(self):
         uploader = _uploader()
-        uploader._open_source('src-1', 'p/c/src-1', ['c1', 'c2'])
+        open_sources = {}
+        uploader._open_source(open_sources, 'src-1', 'p/c/src-1', ['c1', 'c2'])
 
-        assert uploader._end_source('src-1') == ['c1', 'c2']
-        assert uploader._end_source('src-1') is None, 'the source is closed now'
+        assert uploader._end_source(open_sources, 'src-1') == ['c1', 'c2']
+        assert uploader._end_source(open_sources, 'src-1') is None, 'the source is closed now'
 
 
 @pytest.mark.parametrize('uploader_cls', [S3ChunkUploader, S3DocUploader], ids=['chunks', 'jsonl'])
