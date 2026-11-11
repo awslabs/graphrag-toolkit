@@ -3,7 +3,10 @@
 
 """Unit tests for the ontology helpers and NamespaceConfig validation."""
 
+from importlib.resources import files
+
 import pytest
+from rdflib import Graph, Namespace, OWL, RDF, RDFS, XSD
 
 from graphrag_toolkit_contrib.lexical_graph.storage.graph.sparql.ontology import (
     NamespaceConfig,
@@ -43,3 +46,30 @@ def test_namespace_without_separator_gets_one_appended():
 ])
 def test_sparql_literal_renders_each_type(value, expected):
     assert sparql_literal(value) == expected
+
+
+@pytest.fixture
+def schema():
+    resource = files('graphrag_toolkit_contrib.lexical_graph.storage.graph.sparql').joinpath('lexical_graph.ttl')
+    return Graph().parse(data=resource.read_text(), format='turtle')
+
+
+def test_schema_property_types_match_ranges(schema):
+    for property_iri, range_iri in schema.subject_objects(RDFS.range):
+        expected_type = OWL.DatatypeProperty if str(range_iri).startswith(str(XSD)) else OWL.ObjectProperty
+        assert (property_iri, RDF.type, expected_type) in schema
+
+
+def test_schema_subproperties_share_object_property_type(schema):
+    for child, parent in schema.subject_objects(RDFS.subPropertyOf):
+        assert (child, RDF.type, OWL.ObjectProperty) in schema
+        assert (parent, RDF.type, OWL.ObjectProperty) in schema
+
+
+@pytest.mark.parametrize('property_name', ['subject', 'object'])
+def test_schema_preserves_mixed_fact_properties(schema, property_name):
+    lg = Namespace(NamespaceConfig().schema_namespace)
+    property_iri = lg[property_name]
+    assert set(schema.objects(property_iri, RDF.type)) == {RDF.Property}
+    assert (property_iri, RDFS.domain, lg.Fact) in schema
+    assert not list(schema.objects(property_iri, RDFS.range))
