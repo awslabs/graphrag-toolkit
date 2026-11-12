@@ -216,6 +216,21 @@ class TestCustomRetrieverConfig:
 
         assert config['hyperparameters'] == {'1': 'one', 'nested': {'2.5': 'two and a half'}}
 
+    def test_get_config_runs_once_across_creation_and_recording(self):
+        calls = []
+
+        class CountingRetriever(FakeRetriever):
+            def get_config(self):
+                calls.append(1)
+                return {'top_k': self.top_k, 'call': len(calls)}
+
+        with patch(f'{THIS_MODULE}.FakeRetriever', CountingRetriever):
+            retriever = create_query_engine(custom_id('FakeRetriever'), MagicMock(), MagicMock())
+            config = get_retriever_config(custom_id('FakeRetriever'), query_engine=retriever)
+
+        assert len(calls) == 1
+        assert config['hyperparameters'] == {'top_k': 3, 'call': 1}
+
     def test_get_config_must_return_a_dict(self):
         retriever = FakeRetriever(None, None)
         retriever.get_config = lambda: ['not', 'a', 'dict']

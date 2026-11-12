@@ -20,6 +20,7 @@ must satisfy :class:`CustomRetriever`.
 import importlib
 import json
 import logging
+import weakref
 from typing import Any, Callable, Dict, Optional, Protocol, Tuple, runtime_checkable
 
 from benchmarks.utils.benchmark_env import env_string
@@ -29,6 +30,10 @@ logger = logging.getLogger(__name__)
 CUSTOM_RETRIEVER_PREFIX = 'custom:'
 
 CUSTOM_RETRIEVER_KWARGS_ENV = 'BENCHMARK_CUSTOM_RETRIEVER_KWARGS'
+
+# get_config() results validated in create_custom_retriever, reused when the
+# config is recorded so get_config() runs once per retriever.
+_validated_configs: 'weakref.WeakKeyDictionary[Any, Optional[Dict[str, Any]]]' = weakref.WeakKeyDictionary()
 
 
 @runtime_checkable
@@ -131,7 +136,11 @@ def create_custom_retriever(
             f"'{_dotted_path(retriever_id)}' returned a {type(retriever).__name__}, which has no "
             f"callable query(question) method. See benchmarks.utils.custom_retriever.CustomRetriever."
         )
-    _get_hyperparameters(retriever)
+    config = _get_hyperparameters(retriever)
+    try:
+        _validated_configs[retriever] = config
+    except TypeError:
+        pass  # not weak-referenceable or hashable: get_config() runs again when recorded
     return retriever
 
 
@@ -150,7 +159,10 @@ def get_custom_retriever_config(
     JSON-serializable are recorded as strings rather than failing the run.
     """
     constructor_kwargs = dict(retriever_kwargs or {})
-    hyperparameters = _get_hyperparameters(retriever)
+    try:
+        hyperparameters = _validated_configs[retriever]
+    except (KeyError, TypeError):
+        hyperparameters = _get_hyperparameters(retriever)
     if hyperparameters is None:
         hyperparameters = constructor_kwargs
 
