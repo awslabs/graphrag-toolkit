@@ -33,30 +33,30 @@
 # Classes (LPG node labels -> RDF classes)
 #################################################################
 
-lg:Source     a rdfs:Class ; rdfs:label "Source" ;
+lg:Source     a owl:Class ; rdfs:label "Source" ;
     rdfs:comment "A source document (LPG __Source__)." .
-lg:Chunk      a rdfs:Class ; rdfs:label "Chunk" ;
+lg:Chunk      a owl:Class ; rdfs:label "Chunk" ;
     rdfs:comment "A text chunk extracted from a source (LPG __Chunk__)." .
-lg:Topic      a rdfs:Class ; rdfs:label "Topic" ;
+lg:Topic      a owl:Class ; rdfs:label "Topic" ;
     rdfs:comment "A topic extracted from chunks (LPG __Topic__)." .
-lg:Statement  a rdfs:Class ; rdfs:label "Statement" ;
+lg:Statement  a owl:Class ; rdfs:label "Statement" ;
     rdfs:comment "A statement/proposition within a topic (LPG __Statement__)." .
-lg:Fact       a rdfs:Class ; rdfs:label "Fact" ;
+lg:Fact       a owl:Class ; rdfs:label "Fact" ;
     rdfs:comment "A factual assertion supporting a statement, modelled as a reified subject-predicate-object statement (LPG __Fact__). An entity-entity relation is carried by the fact itself - there is no per-edge relation node - while the predicate is a shared lg:Relation resource referenced through lg:predicate." .
-lg:Entity     a rdfs:Class ; rdfs:label "Entity" ;
+lg:Entity     a owl:Class ; rdfs:label "Entity" ;
     rdfs:comment "A named entity (LPG __Entity__)." .
-lg:SysClass   a rdfs:Class ; rdfs:label "SysClass" ;
+lg:SysClass   a owl:Class ; rdfs:label "SysClass" ;
     rdfs:comment "An entity-classification summary node (LPG __SYS_Class__)." .
-lg:SysConfig  a rdfs:Class ; rdfs:label "SysConfig" ;
+lg:SysConfig  a owl:Class ; rdfs:label "SysConfig" ;
     rdfs:comment "Tenant-scoped ingestion configuration (LPG __SYS_Config__)." .
 
 # Shared predicate resource: one node per distinct (normalised) predicate value,
 # the object of lg:predicate — merged by value the way entities are.
-lg:Relation   a rdfs:Class ; rdfs:label "Relation" ;
+lg:Relation   a owl:Class ; rdfs:label "Relation" ;
     rdfs:comment "A predicate/relation type shared across all facts that use it (merged by normalised, case-insensitive value). Its lg:value holds the predicate label." .
 
 # Class-class summary relation (graph-summary aggregate).
-lg:SysRelation a rdfs:Class ; rdfs:label "SysRelation" ;
+lg:SysRelation a owl:Class ; rdfs:label "SysRelation" ;
     rdfs:comment "Reified class-class relation carrying a predicate label and an aggregate count (LPG __SYS_RELATION__ edge with 'value' and 'count' properties)." .
 
 #################################################################

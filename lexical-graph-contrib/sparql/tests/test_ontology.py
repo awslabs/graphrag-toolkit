@@ -8,6 +8,8 @@ from importlib.resources import files
 import pytest
 from rdflib import Graph, Namespace, OWL, RDF, RDFS, XSD
 
+from graphrag_toolkit.lexical_graph.indexing.extract.ontology import Ontology
+
 from graphrag_toolkit_contrib.lexical_graph.storage.graph.sparql.ontology import (
     NamespaceConfig,
     sparql_literal,
@@ -73,3 +75,16 @@ def test_schema_preserves_mixed_fact_properties(schema, property_name):
     assert set(schema.objects(property_iri, RDF.type)) == {RDF.Property}
     assert (property_iri, RDFS.domain, lg.Fact) in schema
     assert not list(schema.objects(property_iri, RDFS.range))
+
+
+def test_schema_loads_with_toolkit_ontology(schema):
+    index = Ontology.from_graph(schema).index()
+    lg = Namespace(NamespaceConfig().schema_namespace)
+    assert set(index.classes) == {
+        str(lg[name]) for name in (
+            'Source', 'Chunk', 'Topic', 'Statement', 'Fact', 'Entity',
+            'SysClass', 'SysConfig', 'Relation', 'SysRelation',
+        )
+    }
+    assert len(index.object_properties) == 15
+    assert len(index.datatype_properties) == 8
