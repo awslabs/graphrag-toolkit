@@ -10,11 +10,17 @@ construction logic, enabling multi-retriever comparison benchmarks.
 
 import logging
 import time
-from typing import Optional, Union
+from typing import Any, Dict, Optional, Union
 
 from graphrag_toolkit.lexical_graph import LexicalGraphQueryEngine
 
 from benchmarks.utils.agentic_retriever import AgenticRetriever
+from benchmarks.utils.custom_retriever import (
+    CustomRetriever,
+    create_custom_retriever,
+    get_custom_retriever_config,
+    is_custom_retriever_id,
+)
 from graphrag_toolkit.lexical_graph.retrieval.retrievers import (
     ChunkBasedSearch,
     ChunkBasedSemanticSearch,
@@ -50,6 +56,16 @@ VALID_RETRIEVER_IDS = [
     'byokg_agentic',
 ]
 
+
+def _validate_retriever_id(retriever_id: str) -> None:
+    if retriever_id not in VALID_RETRIEVER_IDS and not is_custom_retriever_id(retriever_id):
+        raise ValueError(
+            f"Invalid retriever identifier: '{retriever_id}'. "
+            f"Valid identifiers are: {VALID_RETRIEVER_IDS}, "
+            f"or 'custom:<module>.<attribute>' for a custom retriever"
+        )
+
+
 # Maps sub-retriever IDs to their corresponding search class
 _SUB_RETRIEVER_MAP = {
     'topic_based': TopicBasedSearch,
@@ -84,12 +100,15 @@ def create_query_engine(
     agentic_max_iterations: int = 3,
     byokg_max_iterations: int = 2,
     llm=None,
-) -> Union[LexicalGraphQueryEngine, AgenticRetriever, 'ByoKGQueryEngineWrapper']:
+    custom_retriever_kwargs: Optional[Dict[str, Any]] = None,
+) -> Union[LexicalGraphQueryEngine, AgenticRetriever, 'ByoKGQueryEngineWrapper', CustomRetriever]:
     """
     Creates a configured query engine for the given retriever identifier.
 
     Args:
-        retriever_id: One of VALID_RETRIEVER_IDS identifying the retrieval strategy.
+        retriever_id: One of VALID_RETRIEVER_IDS identifying the retrieval strategy,
+            or 'custom:<module>.<attribute>' naming a custom retriever (see
+            benchmarks.utils.custom_retriever).
         graph_store: Graph store instance (already opened/connected).
         vector_store: Vector store instance (already opened/connected).
         response_llm: Bedrock model ID for response generation.
@@ -98,17 +117,25 @@ def create_query_engine(
         llm: Optional pre-configured LLMCache instance (e.g. TokenTrackingLLMCache)
             to use for response generation. If provided, it is passed directly to
             the query engine constructor.
+        custom_retriever_kwargs: Extra keyword arguments for a custom retriever's
+            constructor. Only used when retriever_id is a 'custom:' ID.
 
     Returns:
-        A configured LexicalGraphQueryEngine instance.
+        A configured query engine: anything with a query(question) method.
 
     Raises:
-        ValueError: If retriever_id is not in VALID_RETRIEVER_IDS.
+        ValueError: If retriever_id is neither in VALID_RETRIEVER_IDS nor a
+            'custom:' ID.
     """
-    if retriever_id not in VALID_RETRIEVER_IDS:
-        raise ValueError(
-            f"Invalid retriever identifier: '{retriever_id}'. "
-            f"Valid identifiers are: {VALID_RETRIEVER_IDS}"
+    _validate_retriever_id(retriever_id)
+
+    if is_custom_retriever_id(retriever_id):
+        return create_custom_retriever(
+            retriever_id,
+            graph_store,
+            vector_store,
+            llm=llm,
+            retriever_kwargs=custom_retriever_kwargs,
         )
 
     if retriever_id == 'traversal':
@@ -163,6 +190,8 @@ def get_retriever_config(
     response_llm: str = 'us.anthropic.claude-sonnet-4-6',
     agentic_max_iterations: int = 3,
     byokg_max_iterations: int = 2,
+    query_engine=None,
+    custom_retriever_kwargs: Optional[Dict[str, Any]] = None,
 ) -> dict:
     """Return the hyperparameters the benchmark harness sets for ``retriever_id``.
 
@@ -174,13 +203,23 @@ def get_retriever_config(
     empty. The sub-retriever values reference ``_SUB_RETRIEVER_PROCESSOR_ARGS``
     directly, so they stay in sync if that dict changes.
 
+    For a ``custom:`` ID, ``query_engine`` is the custom retriever instance and
+    the config comes from its ``get_config()`` if it defines one, else from
+    ``custom_retriever_kwargs`` (see
+    :func:`benchmarks.utils.custom_retriever.get_custom_retriever_config`).
+
     Raises:
-        ValueError: If ``retriever_id`` is not in ``VALID_RETRIEVER_IDS``.
+        ValueError: If ``retriever_id`` is neither in ``VALID_RETRIEVER_IDS`` nor
+            a ``custom:`` ID.
     """
-    if retriever_id not in VALID_RETRIEVER_IDS:
-        raise ValueError(
-            f"Invalid retriever identifier: '{retriever_id}'. "
-            f"Valid identifiers are: {VALID_RETRIEVER_IDS}"
+    _validate_retriever_id(retriever_id)
+
+    if is_custom_retriever_id(retriever_id):
+        return get_custom_retriever_config(
+            retriever_id,
+            response_llm,
+            retriever=query_engine,
+            retriever_kwargs=custom_retriever_kwargs,
         )
 
     if retriever_id in _SUB_RETRIEVER_MAP:
