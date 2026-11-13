@@ -1,0 +1,76 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+#
+# Ontology for the ontology-guided extraction integration test. It covers the
+# Amazon Neptune overview page in collection-1.
+
+@prefix : <urn:graphrag-toolkit:test:neptune#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:graphrag-toolkit:test:neptune> a owl:Ontology .
+
+:Service a owl:Class ;
+    rdfs:label "Service" ;
+    rdfs:comment "A managed cloud service, such as Amazon Neptune." .
+
+:DBCluster a owl:Class ;
+    rdfs:label "DBCluster" ;
+    skos:altLabel "DB cluster" ;
+    rdfs:comment "A Neptune DB cluster: one primary DB instance, its replicas and a cluster volume." .
+
+:DBInstance a owl:Class ;
+    rdfs:label "DBInstance" ;
+    skos:altLabel "DB instance", "primary DB instance", "Neptune Replica", "replica" ;
+    rdfs:comment "A database instance in a cluster, either the primary or a read replica." .
+
+:StorageVolume a owl:Class ;
+    rdfs:label "StorageVolume" ;
+    skos:altLabel "cluster volume" ;
+    rdfs:comment "The storage volume a cluster's instances share." .
+
+:Location a owl:Class ;
+    rdfs:label "Location" ;
+    rdfs:comment "An AWS Region or Availability Zone." .
+
+:QueryLanguage a owl:Class ;
+    rdfs:label "QueryLanguage" ;
+    skos:altLabel "API", "graph API" ;
+    rdfs:comment "A graph query language or API, such as Gremlin, openCypher or SPARQL." .
+
+:GraphModel a owl:Class ;
+    rdfs:label "GraphModel" ;
+    rdfs:comment "A graph data model: property graph or RDF." .
+
+:partOf a owl:ObjectProperty ;
+    rdfs:label "partOf" ;
+    rdfs:comment "The subject is a component of the object, such as an instance of a cluster or a zone of a Region." .
+
+:supports a owl:ObjectProperty ;
+    rdfs:label "supports" ;
+    rdfs:comment "The subject offers the object, such as a service supporting a query language." .
+
+:connectsTo a owl:ObjectProperty ;
+    rdfs:label "connectsTo" ;
+    rdfs:domain :DBInstance ;
+    rdfs:range :StorageVolume ;
+    rdfs:comment "An instance reads from or writes to a storage volume." .
+
+:locatedIn a owl:ObjectProperty ;
+    rdfs:label "locatedIn" ;
+    rdfs:range :Location ;
+    rdfs:comment "The subject is placed in a Region or Availability Zone." .
+
+:queries a owl:ObjectProperty ;
+    rdfs:label "queries" ;
+    rdfs:domain :QueryLanguage ;
+    rdfs:range :GraphModel ;
+    rdfs:comment "A query language is used with a graph model." .
+
+:maxReplicas a owl:DatatypeProperty ;
+    rdfs:label "maxReplicas" ;
+    rdfs:domain :DBCluster ;
+    rdfs:range xsd:integer ;
+    rdfs:comment "The largest number of read replicas a cluster can have, as a whole number." .
