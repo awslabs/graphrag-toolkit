@@ -12,7 +12,7 @@ from graphrag_toolkit_tests.integration_test_handler import IntegrationTestHandl
 
 from graphrag_toolkit.lexical_graph import to_tenant_id
 from graphrag_toolkit.lexical_graph import LexicalGraphIndex, LexicalGraphQueryEngine, GraphRAGConfig
-from graphrag_toolkit.lexical_graph.config import DEFAULT_EXTRACTION_MODEL
+from graphrag_toolkit.lexical_graph.config import DEFAULT_EXTRACTION_MODEL, DEFAULT_RESPONSE_MODEL
 from graphrag_toolkit.lexical_graph.storage import GraphStoreFactory
 from graphrag_toolkit.lexical_graph.storage import VectorStoreFactory
 from graphrag_toolkit.lexical_graph.storage.graph import NonRedactedGraphQueryLogFormatting
@@ -108,7 +108,7 @@ class QueryVersionedData(IntegrationTestBase):
         
     def _run_test(self, handler:IntegrationTestHandler, params:Dict[str, Any]):
         
-        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-6')
+        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', DEFAULT_RESPONSE_MODEL)
            
         class VersioningAssertions(unittest.TestCase):
             
