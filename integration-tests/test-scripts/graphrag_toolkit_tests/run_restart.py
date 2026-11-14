@@ -11,6 +11,7 @@ from graphrag_toolkit_tests.integration_test_base import IntegrationTestBase, de
 from graphrag_toolkit_tests.integration_test_handler import IntegrationTestHandler
 
 from graphrag_toolkit.lexical_graph import LexicalGraphIndex, GraphRAGConfig
+from graphrag_toolkit.lexical_graph.config import DEFAULT_EXTRACTION_MODEL
 from graphrag_toolkit.lexical_graph.storage import GraphStoreFactory
 from graphrag_toolkit.lexical_graph.storage import VectorStoreFactory
 from graphrag_toolkit.lexical_graph.storage.graph import NonRedactedGraphQueryLogFormatting
@@ -86,7 +87,7 @@ class RestartTest(IntegrationTestBase):
 
     @contextmanager
     def _collection(self, params, name, collection_prefix):
-        GraphRAGConfig.extraction_llm = os.environ.get('TEST_EXTRACTION_LLM', 'anthropic.claude-sonnet-4-6')
+        GraphRAGConfig.extraction_llm = os.environ.get('TEST_EXTRACTION_LLM', DEFAULT_EXTRACTION_MODEL)
 
         original_batch_size = GraphRAGConfig.extraction_batch_size
         original_num_workers = GraphRAGConfig.extraction_num_workers
