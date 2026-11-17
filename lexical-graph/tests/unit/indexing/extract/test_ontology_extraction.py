@@ -460,6 +460,21 @@ class TestAxiomsThatShouldLoad:
 
         assert 'declares no owl:Class' not in caplog.text
 
+    def test_an_empty_graph_does_not_warn(self, caplog):
+        with caplog.at_level(logging.WARNING):
+            Ontology(Graph())
+
+        assert 'declares no owl:Class' not in caplog.text
+
+    def test_a_term_with_two_labels_warns_and_stores_the_first_in_sort_order(self, caplog):
+        with caplog.at_level(logging.WARNING):
+            ontology = Ontology.from_turtle_string(
+                self.PREFIXES + ':Company a owl:Class ; rdfs:label "Firm", "Business" .'
+            )
+
+        assert ontology.class_names() == ['Business']
+        assert 'declares 2 label values' in caplog.text
+
     def test_a_multiply_declared_datatype_range_warns(self, caplog):
         """`_class_reference` warns for exactly this ambiguity on a domain; the
         range was taken silently, and which of two ranges wins decides whether a
