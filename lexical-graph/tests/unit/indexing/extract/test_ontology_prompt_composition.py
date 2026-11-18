@@ -349,6 +349,7 @@ class TestTopicExtractorRenderPoint:
             text=format_text(TEXT),
             preferred_entity_classifications=format_list([]),
             preferred_topics=format_list([]),
+            schema_constraints='',
         )
         assert prompts == [expected]
 
