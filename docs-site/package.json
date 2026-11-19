@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@astrojs/react": "^7.1.4",
-    "@astrojs/starlight": "0.42.9",
+    "@astrojs/starlight": "0.42.11",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.3.0",
     "astro": "7.4.7",
