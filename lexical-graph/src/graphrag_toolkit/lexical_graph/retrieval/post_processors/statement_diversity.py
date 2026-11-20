@@ -8,7 +8,7 @@ from typing import List, Optional, Any, Callable
 from pydantic import Field
 
 from graphrag_toolkit.lexical_graph import ModelError
-from graphrag_toolkit.lexical_graph.retrieval.model import SearchResult
+from graphrag_toolkit.lexical_graph.retrieval.model import SearchResult, Statement
 
 from llama_index.core.postprocessor.types import BaseNodePostprocessor
 from llama_index.core.schema import NodeWithScore, QueryBundle, BaseNode
@@ -48,13 +48,14 @@ def _topics_and_statements(node:BaseNode) -> str:
 
     Returns:
         str: A string comprising the extracted topic and statements, with each entry separated by
-            a newline.
+            a newline. A missing topic is omitted, and a `Statement` contributes its statement text.
     """
     lines = []
     search_result = SearchResult.model_validate_json(node.text)
-    lines.append(search_result.topic)
+    if search_result.topic:
+        lines.append(search_result.topic)
     for statement in search_result.statements:
-        lines.append(statement)
+        lines.append(statement.statement if isinstance(statement, Statement) else statement)
     return '\n'.join(lines)
 
 def _topics(node:BaseNode) -> str:
