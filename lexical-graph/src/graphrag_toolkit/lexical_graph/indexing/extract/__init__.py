@@ -36,4 +36,4 @@ from .ontology import OntologyFilter
 from .extraction_stage import ExtractionStage
 from .extraction_schema import ExtractionSchema, EntityTypeConfig
 from .pipeline_builder import PipelineBuilder
-from .stages import LLMPropositionStage, LocalPropositionStage, LLMTopicExtractionStage, SchemaFilterStage, NERExtractionStage, EntityMergeStage, BatchLLMPropositionStage, BatchTopicExtractionStage
+from .stages import LLMPropositionStage, LocalPropositionStage, LLMTopicExtractionStage, SchemaFilterStage, NERExtractionStage, EntityMergeStage, BatchLLMPropositionStage, BatchTopicExtractionStage, CustomExtractionStage, FallbackExtractionStage

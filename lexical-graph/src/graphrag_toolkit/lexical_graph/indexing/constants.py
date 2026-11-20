@@ -69,6 +69,15 @@ COMPLEMENT_PLACEMENTS = ('complement', 'both')
 # What `typed_properties` resolves to when nothing asked for anything.
 TYPED_PROPERTIES_OFF = 'off'
 
+# Per-node status contract between CustomExtractionStage and
+# FallbackExtractionStage. Absence of EXTRACTION_STATUS_KEY (or any value
+# other than EXTRACTION_STATUS_FAILED) means success, so a stage that knows
+# nothing about this contract still works as a fallback target.
+EXTRACTION_STATUS_KEY = '__extraction_status__'
+EXTRACTION_ERROR_KEY = '__extraction_error__'
+EXTRACTION_STATUS_FAILED = 'failed'
+EXTRACTION_STATUS_QUARANTINED = 'quarantined'
+
 
 
 

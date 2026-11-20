@@ -8,3 +8,5 @@ from .schema_filter_stage import SchemaFilterStage
 from .ner_extraction_stage import NERExtractionStage
 from .entity_merge_stage import EntityMergeStage
 from .batch_stages import BatchLLMPropositionStage, BatchTopicExtractionStage
+from .custom_extraction_stage import CustomExtractionStage
+from .fallback_extraction_stage import FallbackExtractionStage
