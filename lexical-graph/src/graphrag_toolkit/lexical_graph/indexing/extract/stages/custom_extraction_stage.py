@@ -25,7 +25,10 @@ class CustomExtractionTransform(TransformComponent):
 
     A node is the atomic unit of success/failure: an exception from
     extractor_fn is caught and recorded on that node's metadata rather than
-    raised, so one bad document never aborts the rest of the batch.
+    raised, so one bad document never aborts the rest of the batch - the
+    same per-item degradation the retrieval post-processors use (e.g.
+    StatementEnhancementPostProcessor.enhance_statement), logged the same
+    way: at error level, naming the operation and the exception.
     """
 
     extractor_fn: ExtractorFn = Field(description='User-supplied per-node extraction callable')
@@ -43,7 +46,7 @@ class CustomExtractionTransform(TransformComponent):
                 node.metadata.pop(EXTRACTION_ERROR_KEY, None)
                 node.metadata.update(result)
             except Exception as e:
-                logger.warning(f'[{self.name}] extraction failed for node {node.node_id}: {e}')
+                logger.error(f'Error running {self.name} for node {node.node_id}: {e}')
                 node.metadata[EXTRACTION_STATUS_KEY] = EXTRACTION_STATUS_FAILED
                 node.metadata[EXTRACTION_ERROR_KEY] = str(e)
         return nodes

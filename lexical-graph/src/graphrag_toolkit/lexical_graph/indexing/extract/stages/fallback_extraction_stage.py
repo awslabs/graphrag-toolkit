@@ -34,6 +34,14 @@ class FallbackExtractionTransform(TransformComponent):
     batch call, which is the efficient path when nothing fails; if that call
     raises, the same nodes are retried one at a time so the exception is
     attributed to the actual offending node(s) rather than the whole batch.
+
+    Failures are logged the way the retrieval post-processors log theirs
+    (e.g. StatementEnhancementPostProcessor): at error level, naming the
+    operation and the exception, not warning/info. A node that exhausts the
+    chain carries that same degrade-on-failure outcome one step further -
+    it is tagged quarantined rather than silently returned unchanged,
+    because unlike a post-processor a later pipeline stage needs to be able
+    to tell a quarantined node from one that simply had nothing to extract.
     """
 
     # Not List[TransformComponent]: a fallback target may be any plain
@@ -57,7 +65,7 @@ class FallbackExtractionTransform(TransformComponent):
                 [result] = transform([node])
                 processed.append(result)
             except Exception as e:
-                logger.warning(f'Extraction failed for node {node.node_id}: {e}')
+                logger.error(f'Error running {type(transform).__name__} for node {node.node_id}: {e}')
                 node.metadata[EXTRACTION_STATUS_KEY] = EXTRACTION_STATUS_FAILED
                 node.metadata[EXTRACTION_ERROR_KEY] = str(e)
                 processed.append(node)
@@ -80,7 +88,7 @@ class FallbackExtractionTransform(TransformComponent):
             pending = still_failed
 
         for node in pending:
-            logger.info(f'Document {node.node_id} exhausted the fallback chain; quarantining')
+            logger.error(f'Node {node.node_id} exhausted the fallback chain; extraction will not succeed for this document')
             node.metadata[EXTRACTION_STATUS_KEY] = EXTRACTION_STATUS_QUARANTINED
             resolved.append(node)
 

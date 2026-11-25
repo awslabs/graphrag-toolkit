@@ -21,6 +21,27 @@ was built to preserve for `{ontology_constraints}`. Flagged for reviewers,
 not re-litigated here: the two features now coexist, but `schema_constraints`
 does not yet get the same byte-identical treatment ontology constraints do.
 
+## 0a. Vocabulary alignment with the retrieval post-processor chain
+
+The retrieval side (`retrieval/processors/`, `retrieval/post_processors/`,
+e.g. `StatementEnhancementPostProcessor`) already has an established
+error-handling vocabulary for "a pipeline step failed on one item, don't
+take the rest down with it": catch inside the step, log **at error level**
+naming the operation and the exception (e.g. `"Error enhancing statement:
+{e}"`), and degrade by returning that item unchanged.
+
+Extraction's `CustomExtractionStage`/`FallbackExtractionStage` adopt that
+logging level and message style directly - failures are now logged with
+`logger.error(...)`, not `warning`/`info`, phrased as "Error running X for
+node Y: {e}". What is **not** adopted is the retrieval side's "just return
+unchanged" semantics in place of the `EXTRACTION_STATUS_KEY` status-tag
+contract: the retrieval chain never needs a step to retry via a *different*
+step, so it has no equivalent concept to borrow a name from, and removing
+the status tag would remove `FallbackExtractionStage`'s ability to move a
+failed node to the next stage in the chain. The two chains' vocabularies are
+aligned where they describe the same thing (how a failure is logged) and
+left distinct where they don't (single-step degrade vs. multi-step retry).
+
 ## 1. Goal
 
 PR #241 gave the toolkit a composable extraction pipeline: `ExtractionStage`
@@ -178,6 +199,15 @@ contract tests (incl. an intentionally failing extractor)" (task 1.2).
     stage once per batch (no isolation cost when nothing fails); only a
     raising batch call is retried node-by-node to attribute the failure to
     the actual culprit. Full suite green: 4209 passed, 1 skipped.
+- [x] **3b. Vocabulary alignment with the retrieval post-processor chain**
+  - See §0a. Logging in `CustomExtractionStage`/`FallbackExtractionStage`
+    moved from `warning`/`info` to `error`, phrased like the retrieval
+    side's ("Error running X for node Y: {e}"); docstrings now name the
+    retrieval precedent explicitly. The `EXTRACTION_STATUS_KEY` status-tag
+    contract is kept as-is — deliberately not aligned to the retrieval
+    side's "just return unchanged," since that contract is what makes
+    multi-stage fallback retry possible and the retrieval chain has no
+    equivalent to borrow from. No behavior change; log level/text only.
 - [~] **4. Batch vs. real-time parity for custom pipelines (partially covered)**
   - `tests/unit/indexing/extract/test_custom_extraction_pipeline_real_time_and_batch.py`:
     - [x] A `from_stages([...])`-style pipeline (built via `PipelineBuilder`)
@@ -203,8 +233,9 @@ contract tests (incl. an intentionally failing extractor)" (task 1.2).
   - Usage guide section + notebook cell showing a custom extractor with a
     fallback to the default LLM stage (mirrors the design doc's task 1.3).
 - [ ] **6. Observability**
-  - `FallbackExtractionTransform` already logs one INFO line per quarantined
-    document; add a per-chain summary (counts succeeded/fell-back/quarantined)
+  - `FallbackExtractionTransform` already logs one error-level line per
+    quarantined document (see §0a); add a per-chain summary (counts
+    succeeded/fell-back/quarantined)
     so a user can see fallback activity in aggregate without instrumenting
     their own callable (design doc's `ExtractionFallbackToDefault` metric,
     scoped to a log line since the toolkit has no metrics sink of its own).
