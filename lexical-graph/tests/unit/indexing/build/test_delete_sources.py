@@ -205,6 +205,15 @@ class TestOrphanFactDetectionProperty:
         cypher_query = neptune_mock_store.execute_query.call_args[0][0]
         assert "id(f)" in cypher_query
 
+    def test_query_excludes_facts_that_still_support_a_statement(
+        self, neo4j_mock_store, mock_vector_store
+    ):
+        ds = make_delete_sources(neo4j_mock_store, mock_vector_store)
+        ds.get_orphaned_fact_ids(self.SAMPLE_FACT_IDS)
+
+        cypher_query = neo4j_mock_store.execute_query.call_args[0][0]
+        assert "NOT (f)-[:`__SUPPORTS__`]->()" in cypher_query
+
 class TestChunkDeletionProperty:
     """Regression tests for delete_chunks() property name.
     """
