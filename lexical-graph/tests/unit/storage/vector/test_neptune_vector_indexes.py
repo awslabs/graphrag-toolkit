@@ -194,9 +194,11 @@ class TestTopKMetadataFilter:
         idx, client = _make_index('chunk')
         unsupported = MetadataFilter(key='category', value=['tech'], operator=FilterOperator.IN)
 
-        with pytest.raises(ValueError, match='Unsupported filter operator'):
-            _run_top_k(idx, client, filter_config=_filter_config(unsupported))
+        with patch.object(mod, 'to_embedded_query') as embed:
+            with pytest.raises(ValueError, match='Unsupported filter operator'):
+                idx.top_k(QueryBundle('q'), filter_config=_filter_config(unsupported))
 
+        embed.assert_not_called()
         client.execute_query.assert_not_called()
 
     def test_filter_that_matches_nothing_runs_no_query(self):
