@@ -54,6 +54,9 @@ class ProcessorArgs():
         ecs_max_contexts (int): Limit on the number of entity contexts to handle.
         ecs_max_entities_per_context (int): Restriction on how many entities
             are considered per context.
+        max_entities_per_topic (int): Pre-expansion cap on entities collected
+            per topic in TopicBeamSearch's entity-overlap branch, applied
+            before those entities are re-expanded to their own neighbours.
     """
     bedrock_reranker_client_config: Mapping[str, Any] | None
 
@@ -103,6 +106,10 @@ class ProcessorArgs():
         self.use_entity_neighbors = kwargs.get('use_entity_neighbors', False)
         self.use_same_chunk_neighbors = kwargs.get('use_same_chunk_neighbors', True)
         self.use_adjacent_chunk_neighbors = kwargs.get('use_adjacent_chunk_neighbors', True)
+        # Pre-expansion cap on the number of entities collected per topic, applied
+        # BEFORE those entities are each re-expanded to their own facts/statements/
+        # topics — bounds the cost of that re-expansion, not just its result size.
+        self.max_entities_per_topic = kwargs.get('max_entities_per_topic', 6)
         # Cap on entity-overlap neighbours per topic (ranked by connection strength) to
         # bound the fan-out when use_entity_neighbors is enabled.
         self.max_entity_neighbors = kwargs.get('max_entity_neighbors', 100)

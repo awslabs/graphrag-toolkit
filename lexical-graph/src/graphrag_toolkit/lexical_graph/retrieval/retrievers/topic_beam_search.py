@@ -51,6 +51,7 @@ class TopicBeamSearch(TraversalBasedBaseRetriever, BeamSearch):
                  use_adjacent_chunk_neighbors: bool = None,
                  max_entity_neighbors: int = None,
                  max_chunk_neighbors: int = None,
+                 max_entities_per_topic: int = None,
                  max_statements_per_topic: int = 25,
                  scoring_mode: str = 'path_weighted',
                  **kwargs):
@@ -87,6 +88,7 @@ class TopicBeamSearch(TraversalBasedBaseRetriever, BeamSearch):
         self.use_adjacent_chunk_neighbors = pick(use_adjacent_chunk_neighbors, args.use_adjacent_chunk_neighbors)
         self.max_entity_neighbors = pick(max_entity_neighbors, args.max_entity_neighbors)
         self.max_chunk_neighbors = pick(max_chunk_neighbors, args.max_chunk_neighbors)
+        self.max_entities_per_topic = pick(max_entities_per_topic, args.max_entities_per_topic)
         self.max_statements_per_topic = max_statements_per_topic
         self._topic_cache: Dict[str, np.ndarray] = {}
         self._query_embedding = None
@@ -188,7 +190,7 @@ class TopicBeamSearch(TraversalBasedBaseRetriever, BeamSearch):
         if self.use_entity_neighbors:
             parts.append(f"""
             OPTIONAL MATCH (t)<-[:`__BELONGS_TO__`]-(s:`__Statement__`)<-[:`__SUPPORTS__`]-(f:`__Fact__`)<-[:`__SUBJECT__`|`__OBJECT__`]-(e:`__Entity__`)
-            WITH t, COLLECT(DISTINCT e) AS entities
+            WITH t, COLLECT(DISTINCT e)[..{int(self.max_entities_per_topic)}] AS entities
             UNWIND CASE WHEN size(entities) = 0 THEN [null] ELSE entities END AS entity
             OPTIONAL MATCH (entity)-[:`__SUBJECT__`|`__OBJECT__`]->(f2:`__Fact__`)-[:`__SUPPORTS__`]->(s2:`__Statement__`)-[:`__BELONGS_TO__`]->(nt:`__Topic__`)
             WHERE entity IS NOT NULL AND nt <> t
