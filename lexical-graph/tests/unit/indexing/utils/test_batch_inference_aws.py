@@ -5,7 +5,7 @@
 
 Covers:
   - create_and_run_batch_job (success, with VPC config, ClientError)
-  - wait_for_job_completion (Completed, Failed, Stopped)
+  - wait_for_job_completion (Completed, Failed, Stopped, no message)
   - download_output_files (finds folder, no folder found)
 """
 
@@ -139,6 +139,30 @@ class TestWaitForJobCompletion:
 
         with patch("graphrag_toolkit.lexical_graph.indexing.utils.batch_inference_utils.time.sleep"):
             with pytest.raises(BatchJobError):
+                wait_for_job_completion(bedrock, "arn:job/abc", "file.jsonl")
+
+    @pytest.mark.parametrize("status", ["PartiallyCompleted", "Expired", "Failed", "Stopped"])
+    def test_a_response_with_no_message_still_raises_batch_job_error(self, status):
+        from graphrag_toolkit.lexical_graph.indexing.utils.batch_inference_utils import wait_for_job_completion
+
+        bedrock = MagicMock()
+        bedrock.get_model_invocation_job.return_value = {"status": status}
+
+        with patch("graphrag_toolkit.lexical_graph.indexing.utils.batch_inference_utils.time.sleep"):
+            with pytest.raises(BatchJobError, match=f"status: {status}]$"):
+                wait_for_job_completion(bedrock, "arn:job/abc", "file.jsonl")
+
+    def test_the_message_is_kept_when_bedrock_sends_one(self):
+        from graphrag_toolkit.lexical_graph.indexing.utils.batch_inference_utils import wait_for_job_completion
+
+        bedrock = MagicMock()
+        bedrock.get_model_invocation_job.return_value = {
+            "status": "Failed",
+            "message": "Something went wrong"
+        }
+
+        with patch("graphrag_toolkit.lexical_graph.indexing.utils.batch_inference_utils.time.sleep"):
+            with pytest.raises(BatchJobError, match="status: Failed] - Something went wrong$"):
                 wait_for_job_completion(bedrock, "arn:job/abc", "file.jsonl")
 
     def test_polls_until_terminal_status(self):

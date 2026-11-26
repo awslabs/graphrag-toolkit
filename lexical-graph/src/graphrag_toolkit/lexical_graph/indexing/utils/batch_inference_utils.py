@@ -420,7 +420,10 @@ def wait_for_job_completion(bedrock_client: Any, job_arn: str, input_file:str) -
     
     if status != 'Completed':
         logger.error(f'Batch job failed [job_arn: {job_arn}, input_file: {input_file}, status: {status}]')
-        raise BatchJobError(f"Batch job failed [job_arn: {job_arn}, input_file: {input_file}, status: {status}] - {response['message']}") 
+        error = f'Batch job failed [job_arn: {job_arn}, input_file: {input_file}, status: {status}]'
+        if response.get('message'):
+            error += f" - {response['message']}"
+        raise BatchJobError(error)
     
     
 
