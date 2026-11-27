@@ -235,3 +235,18 @@ class TestTextFunctions:
         node = TextNode(text=SearchResult(source='s1', topic=None, statements=['a']).model_dump_json())
 
         assert TOPICS(node) == ''
+
+    def test_topics_with_topic_and_topics_set_includes_both_without_duplicates(self):
+        topics = [Topic(topic='A', topicId='t1'), Topic(topic='B', topicId='t2')]
+        node = TextNode(text=SearchResult(source='s1', topic='A', topics=topics).model_dump_json())
+
+        assert TOPICS(node) == 'A\nB'
+
+    def test_topics_and_statements_with_topic_and_topics_set_includes_both_without_duplicates(self):
+        topics = [
+            Topic(topic='A', topicId='t1', statements=['y']),
+            Topic(topic='B', topicId='t2', statements=['z']),
+        ]
+        node = TextNode(text=SearchResult(source='s1', topic='A', statements=['x'], topics=topics).model_dump_json())
+
+        assert TOPICS_AND_STATEMENTS(node) == 'A\nx\ny\nB\nz'
