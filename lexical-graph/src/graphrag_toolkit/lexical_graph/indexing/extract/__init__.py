@@ -32,3 +32,8 @@ from .ontology import Ontology, OntologyConfig, OntologyLoadError, OntologyType,
 # a user reading `extraction_components` should be able to import the type they
 # find there from the same place.
 from .ontology import OntologyFilter
+
+from .extraction_stage import ExtractionStage
+from .extraction_schema import ExtractionSchema, EntityTypeConfig
+from .pipeline_builder import PipelineBuilder
+from .stages import LLMPropositionStage, LocalPropositionStage, LLMTopicExtractionStage, SchemaFilterStage, NERExtractionStage, EntityMergeStage, BatchLLMPropositionStage, BatchTopicExtractionStage, CustomExtractionStage, FallbackExtractionStage
