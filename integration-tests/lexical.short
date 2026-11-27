@@ -17,6 +17,7 @@ query.SemanticGuidedRerankingBeamSearchQuery
 query.SemanticGuidedQueryWithPostProcessors
 query_gpu.RerankingBeamGraphSearchGPU
 extract_and_build.ExtractAndBuild
+ontology_guided_extraction.OntologyGuidedExtraction
 checkpoint.ExtractWithCheckpoint
 checkpoint.BuildWithCheckpoint
 run_restart.ExtractWithRunPlan

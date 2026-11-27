@@ -33,58 +33,55 @@
 # Classes (LPG node labels -> RDF classes)
 #################################################################
 
-lg:Source     a rdfs:Class ; rdfs:label "Source" ;
+lg:Source     a owl:Class ; rdfs:label "Source" ;
     rdfs:comment "A source document (LPG __Source__)." .
-lg:Chunk      a rdfs:Class ; rdfs:label "Chunk" ;
+lg:Chunk      a owl:Class ; rdfs:label "Chunk" ;
     rdfs:comment "A text chunk extracted from a source (LPG __Chunk__)." .
-lg:Topic      a rdfs:Class ; rdfs:label "Topic" ;
+lg:Topic      a owl:Class ; rdfs:label "Topic" ;
     rdfs:comment "A topic extracted from chunks (LPG __Topic__)." .
-lg:Statement  a rdfs:Class ; rdfs:label "Statement" ;
+lg:Statement  a owl:Class ; rdfs:label "Statement" ;
     rdfs:comment "A statement/proposition within a topic (LPG __Statement__)." .
-lg:Fact       a rdfs:Class ; rdfs:label "Fact" ;
+lg:Fact       a owl:Class ; rdfs:label "Fact" ;
     rdfs:comment "A factual assertion supporting a statement, modelled as a reified subject-predicate-object statement (LPG __Fact__). An entity-entity relation is carried by the fact itself - there is no per-edge relation node - while the predicate is a shared lg:Relation resource referenced through lg:predicate." .
-lg:Entity     a rdfs:Class ; rdfs:label "Entity" ;
+lg:Entity     a owl:Class ; rdfs:label "Entity" ;
     rdfs:comment "A named entity (LPG __Entity__)." .
-lg:SysClass   a rdfs:Class ; rdfs:label "SysClass" ;
+lg:SysClass   a owl:Class ; rdfs:label "SysClass" ;
     rdfs:comment "An entity-classification summary node (LPG __SYS_Class__)." .
-lg:SysConfig  a rdfs:Class ; rdfs:label "SysConfig" ;
+lg:SysConfig  a owl:Class ; rdfs:label "SysConfig" ;
     rdfs:comment "Tenant-scoped ingestion configuration (LPG __SYS_Config__)." .
 
 # Shared predicate resource: one node per distinct (normalised) predicate value,
 # the object of lg:predicate — merged by value the way entities are.
-lg:Relation   a rdfs:Class ; rdfs:label "Relation" ;
+lg:Relation   a owl:Class ; rdfs:label "Relation" ;
     rdfs:comment "A predicate/relation type shared across all facts that use it (merged by normalised, case-insensitive value). Its lg:value holds the predicate label." .
 
 # Class-class summary relation (graph-summary aggregate).
-lg:SysRelation a rdfs:Class ; rdfs:label "SysRelation" ;
+lg:SysRelation a owl:Class ; rdfs:label "SysRelation" ;
     rdfs:comment "Reified class-class relation carrying a predicate label and an aggregate count (LPG __SYS_RELATION__ edge with 'value' and 'count' properties)." .
 
 #################################################################
 # Datatype properties (node attributes)
 #################################################################
 
-lg:id a rdf:Property ; rdfs:label "id" ; rdfs:range xsd:string ;
+lg:id a owl:DatatypeProperty ; rdfs:label "id" ; rdfs:range xsd:string ;
     rdfs:comment "The node's original LPG id (sourceId/chunkId/.../sysClassId)." .
-lg:value a rdf:Property ; rdfs:label "value" ; rdfs:range xsd:string ;
+lg:value a owl:DatatypeProperty ; rdfs:label "value" ; rdfs:range xsd:string ;
     rdfs:comment "Primary textual value: chunk text, topic/entity name, or the statement/fact text (the fact's joined 'subject predicate object' rendering)." .
-lg:search_str a rdf:Property ; rdfs:label "search_str" ;
+lg:search_str a owl:DatatypeProperty ; rdfs:label "search_str" ;
     rdfs:domain lg:Entity ; rdfs:range xsd:string ;
     rdfs:comment "Normalised entity string used for keyword lookup." .
-lg:class a rdf:Property ; rdfs:label "class" ;
+lg:class a owl:DatatypeProperty ; rdfs:label "class" ;
     rdfs:domain lg:Entity ; rdfs:range xsd:string ;
     rdfs:comment "Entity classification (e.g. Person, Company)." .
-lg:details a rdf:Property ; rdfs:label "details" ;
+lg:details a owl:DatatypeProperty ; rdfs:label "details" ;
     rdfs:domain lg:Statement ; rdfs:range xsd:string ;
     rdfs:comment "Supporting detail lines for a statement." .
-lg:predicate a rdf:Property ; rdfs:label "predicate" ;
-    rdfs:domain lg:Fact ; rdfs:range lg:Relation ;
-    rdfs:comment "The reified fact's predicate: a shared lg:Relation resource whose lg:value is the predicate label (e.g. 'USES'). Facts with the same normalised predicate share one node." .
-lg:count a rdf:Property ; rdfs:label "count" ; rdfs:range xsd:integer ;
+lg:count a owl:DatatypeProperty ; rdfs:label "count" ; rdfs:range xsd:integer ;
     rdfs:comment "Aggregate count on SysClass / SysRelation summary nodes." .
-lg:sourceHash a rdf:Property ; rdfs:label "sourceHash" ;
+lg:sourceHash a owl:DatatypeProperty ; rdfs:label "sourceHash" ;
     rdfs:domain lg:Source ; rdfs:range xsd:string ;
     rdfs:comment "Full source digest used to detect source-ID collisions." .
-lg:sourceIdWidth a rdf:Property ; rdfs:label "sourceIdWidth" ;
+lg:sourceIdWidth a owl:DatatypeProperty ; rdfs:label "sourceIdWidth" ;
     rdfs:domain lg:SysConfig ; rdfs:range xsd:integer ;
     rdfs:comment "Source-ID digest width fixed on the tenant's first write." .
 
@@ -98,37 +95,40 @@ lg:sourceIdWidth a rdf:Property ; rdfs:label "sourceIdWidth" ;
 # Object properties (property-free LPG edges)
 #################################################################
 
-lg:extractedFrom a rdf:Property ; rdfs:label "extractedFrom" ;
+lg:extractedFrom a owl:ObjectProperty ; rdfs:label "extractedFrom" ;
     rdfs:domain lg:Chunk ; rdfs:range lg:Source ;
     rdfs:comment "Chunk -> Source (LPG __EXTRACTED_FROM__)." .
-lg:parent a rdf:Property ; rdfs:label "parent" ;
+lg:parent a owl:ObjectProperty ; rdfs:label "parent" ;
     rdfs:domain lg:Chunk ; rdfs:range lg:Chunk ; rdfs:comment "LPG __PARENT__." .
-lg:child a rdf:Property ; rdfs:label "child" ;
+lg:child a owl:ObjectProperty ; rdfs:label "child" ;
     rdfs:domain lg:Chunk ; rdfs:range lg:Chunk ; rdfs:comment "LPG __CHILD__." .
-lg:next a rdf:Property ; rdfs:label "next" ;
+lg:next a owl:ObjectProperty ; rdfs:label "next" ;
     rdfs:domain lg:Chunk ; rdfs:range lg:Chunk ; rdfs:comment "LPG __NEXT__ (chunk order)." .
-lg:previous a rdf:Property ; rdfs:label "previous" ;
+lg:previous a owl:ObjectProperty ; rdfs:label "previous" ;
     rdfs:comment "Abstract sequencing link (LPG __PREVIOUS__); the data uses the specialised subproperties below." .
-lg:chunkPrevious a rdf:Property ; rdfs:subPropertyOf lg:previous ; rdfs:label "chunkPrevious" ;
+lg:chunkPrevious a owl:ObjectProperty ; rdfs:subPropertyOf lg:previous ; rdfs:label "chunkPrevious" ;
     rdfs:domain lg:Chunk ; rdfs:range lg:Chunk ;
     rdfs:comment "Chunk -> Chunk reading order (LPG __PREVIOUS__)." .
-lg:statementPrevious a rdf:Property ; rdfs:subPropertyOf lg:previous ; rdfs:label "statementPrevious" ;
+lg:statementPrevious a owl:ObjectProperty ; rdfs:subPropertyOf lg:previous ; rdfs:label "statementPrevious" ;
     rdfs:domain lg:Statement ; rdfs:range lg:Statement ;
     rdfs:comment "Statement -> preceding statement in a topic (LPG __PREVIOUS__)." .
-lg:belongsTo a rdf:Property ; rdfs:label "belongsTo" ;
+lg:belongsTo a owl:ObjectProperty ; rdfs:label "belongsTo" ;
     rdfs:domain lg:Statement ; rdfs:range lg:Topic ;
     rdfs:comment "Statement -> Topic (LPG __BELONGS_TO__)." .
-lg:mentionedIn a rdf:Property ; rdfs:label "mentionedIn" ;
+lg:mentionedIn a owl:ObjectProperty ; rdfs:label "mentionedIn" ;
     rdfs:comment "Abstract 'mentioned in a Chunk' link (LPG __MENTIONED_IN__); the data uses the specialised subproperties below." .
-lg:statementMentionedIn a rdf:Property ; rdfs:subPropertyOf lg:mentionedIn ; rdfs:label "statementMentionedIn" ;
+lg:statementMentionedIn a owl:ObjectProperty ; rdfs:subPropertyOf lg:mentionedIn ; rdfs:label "statementMentionedIn" ;
     rdfs:domain lg:Statement ; rdfs:range lg:Chunk ;
     rdfs:comment "Statement -> Chunk (LPG __MENTIONED_IN__). The only direct Statement<->Chunk link; directed Statement->Chunk, so a chunk's statements are reached via the inverse path ^lg:statementMentionedIn (no Chunk->Statement property exists)." .
-lg:topicMentionedIn a rdf:Property ; rdfs:subPropertyOf lg:mentionedIn ; rdfs:label "topicMentionedIn" ;
+lg:topicMentionedIn a owl:ObjectProperty ; rdfs:subPropertyOf lg:mentionedIn ; rdfs:label "topicMentionedIn" ;
     rdfs:domain lg:Topic ; rdfs:range lg:Chunk ;
     rdfs:comment "Topic -> Chunk (LPG __MENTIONED_IN__)." .
-lg:supports a rdf:Property ; rdfs:label "supports" ;
+lg:supports a owl:ObjectProperty ; rdfs:label "supports" ;
     rdfs:domain lg:Fact ; rdfs:range lg:Statement ;
     rdfs:comment "Fact -> Statement (LPG __SUPPORTS__)." .
+lg:predicate a owl:ObjectProperty ; rdfs:label "predicate" ;
+    rdfs:domain lg:Fact ; rdfs:range lg:Relation ;
+    rdfs:comment "The reified fact's predicate: a shared lg:Relation resource whose lg:value is the predicate label (e.g. 'USES'). Facts with the same normalised predicate share one node." .
 lg:subject a rdf:Property ; rdfs:label "subject" ;
     rdfs:domain lg:Fact ;
     rdfs:comment "Reified fact -> its subject: an Entity (IRI) when the subject is a named entity, or a plain literal when it is a local/complement value (mixed range, symmetric with lg:object). LPG __SUBJECT__, reversed to read fact-first. Entity->entity traversal: ?a ^lg:subject/lg:object ?b (transitive: (^lg:subject/lg:object)+)." .
@@ -140,9 +140,9 @@ lg:object a rdf:Property ; rdfs:label "object" ;
 # Object properties on the class-class summary relation
 #################################################################
 
-lg:sysRelSubject a rdf:Property ; rdfs:label "sysRelSubject" ;
+lg:sysRelSubject a owl:ObjectProperty ; rdfs:label "sysRelSubject" ;
     rdfs:domain lg:SysRelation ; rdfs:range lg:SysClass ;
     rdfs:comment "SysRelation -> its subject SysClass." .
-lg:sysRelObject a rdf:Property ; rdfs:label "sysRelObject" ;
+lg:sysRelObject a owl:ObjectProperty ; rdfs:label "sysRelObject" ;
     rdfs:domain lg:SysRelation ; rdfs:range lg:SysClass ;
     rdfs:comment "SysRelation -> its object SysClass." .
