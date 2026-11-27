@@ -16,6 +16,7 @@ from graphrag_toolkit_tests.integration_test_handler import IntegrationTestHandl
 
 from graphrag_toolkit.lexical_graph import LexicalGraphIndex
 from graphrag_toolkit.lexical_graph import GraphRAGConfig, IndexingConfig, ExtractionConfig, BuildConfig, TenantId
+from graphrag_toolkit.lexical_graph.config import DEFAULT_EXTRACTION_MODEL
 from graphrag_toolkit.lexical_graph.storage import GraphStoreFactory
 from graphrag_toolkit.lexical_graph.storage import VectorStoreFactory
 from graphrag_toolkit.lexical_graph.storage.graph import NonRedactedGraphQueryLogFormatting, MultiTenantGraphStore
@@ -84,7 +85,7 @@ class BatchExtractToS3(IntegrationTestBase):
         
     def _run_test(self, handler:IntegrationTestHandler, params:Dict[str, Any]):
         
-        GraphRAGConfig.extraction_llm = os.environ.get('TEST_EXTRACTION_LLM', 'anthropic.claude-sonnet-4-6')
+        GraphRAGConfig.extraction_llm = os.environ.get('TEST_EXTRACTION_LLM', DEFAULT_EXTRACTION_MODEL)
         GraphRAGConfig.extraction_batch_size = 100
         GraphRAGConfig.extraction_num_workers = 2
 
@@ -189,7 +190,7 @@ class BatchExtractAutoTuneToS3(IntegrationTestBase):
 
     def _run_test(self, handler:IntegrationTestHandler, params:Dict[str, Any]):
 
-        GraphRAGConfig.extraction_llm = os.environ.get('TEST_EXTRACTION_LLM', 'anthropic.claude-sonnet-4-6')
+        GraphRAGConfig.extraction_llm = os.environ.get('TEST_EXTRACTION_LLM', DEFAULT_EXTRACTION_MODEL)
         # Under auto-tuning, batch_size is a derived value; the user only needs
         # to specify num_workers (here) and max_batch_size (on BatchConfig).
         GraphRAGConfig.extraction_num_workers = 2
@@ -301,7 +302,7 @@ class BatchExtractWithRunPlanToS3(IntegrationTestBase):
             handler.skip()
             return
 
-        GraphRAGConfig.extraction_llm = os.environ.get('TEST_EXTRACTION_LLM', 'anthropic.claude-sonnet-4-6')
+        GraphRAGConfig.extraction_llm = os.environ.get('TEST_EXTRACTION_LLM', DEFAULT_EXTRACTION_MODEL)
         GraphRAGConfig.extraction_batch_size = 100
         GraphRAGConfig.extraction_num_workers = 2
 
@@ -520,7 +521,7 @@ SECONDS_TO_WAIT_FOR_A_STOP = 1800
 
 def extract_under_a_run_plan(collection_id:str, run_id:str):
     """One batch extraction of the corpus under a run id. The killed run and the restart both call it."""
-    GraphRAGConfig.extraction_llm = os.environ.get('TEST_EXTRACTION_LLM', 'anthropic.claude-sonnet-4-6')
+    GraphRAGConfig.extraction_llm = os.environ.get('TEST_EXTRACTION_LLM', DEFAULT_EXTRACTION_MODEL)
     GraphRAGConfig.extraction_batch_size = 100
     GraphRAGConfig.extraction_num_workers = 2
 

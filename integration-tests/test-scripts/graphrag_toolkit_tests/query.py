@@ -8,6 +8,7 @@ from graphrag_toolkit_tests.integration_test_base import IntegrationTestBase
 from graphrag_toolkit_tests.integration_test_handler import IntegrationTestHandler
 
 from graphrag_toolkit.lexical_graph import LexicalGraphQueryEngine, TenantId, GraphRAGConfig
+from graphrag_toolkit.lexical_graph.config import DEFAULT_RESPONSE_MODEL
 from graphrag_toolkit.lexical_graph.metadata import FilterConfig
 from graphrag_toolkit.lexical_graph.storage import GraphStoreFactory
 from graphrag_toolkit.lexical_graph.storage import VectorStoreFactory
@@ -35,7 +36,7 @@ class TraversalBasedQuery(IntegrationTestBase):
         
     def _run_test(self, handler:IntegrationTestHandler, params:Dict[str, Any]):
         
-        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-6')
+        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', DEFAULT_RESPONSE_MODEL)
         
         with(
             GraphStoreFactory.for_graph_store(
@@ -80,7 +81,7 @@ class TraversalBasedQueryWithModelReranker(IntegrationTestBase):
         
     def _run_test(self, handler:IntegrationTestHandler, params:Dict[str, Any]):
         
-        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-6')
+        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', DEFAULT_RESPONSE_MODEL)
         
         with(
             GraphStoreFactory.for_graph_store(
@@ -126,7 +127,7 @@ class TraversalBasedQueryWithBedrockReranker(IntegrationTestBase):
         
     def _run_test(self, handler:IntegrationTestHandler, params:Dict[str, Any]):
         
-        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-6')
+        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', DEFAULT_RESPONSE_MODEL)
         
         with(
             GraphStoreFactory.for_graph_store(
@@ -172,7 +173,7 @@ class ChunkBasedTraversalQuery(IntegrationTestBase):
         
     def _run_test(self, handler:IntegrationTestHandler, params:Dict[str, Any]):
         
-        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-6')
+        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', DEFAULT_RESPONSE_MODEL)
         
         with(
             GraphStoreFactory.for_graph_store(
@@ -218,7 +219,7 @@ class MetadataFilteringQuery(IntegrationTestBase):
         
     def _run_test(self, handler:IntegrationTestHandler, params:Dict[str, Any]):
         
-        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-6')
+        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', DEFAULT_RESPONSE_MODEL)
         
         with(
             GraphStoreFactory.for_graph_store(
@@ -284,7 +285,7 @@ class SemanticGuidedQuery(IntegrationTestBase):
         
     def _run_test(self, handler:IntegrationTestHandler, params:Dict[str, Any]):
         
-        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-6')
+        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', DEFAULT_RESPONSE_MODEL)
         
         with(
             GraphStoreFactory.for_graph_store(
@@ -329,7 +330,7 @@ class SemanticGuidedQueryWithSubRetrievers(IntegrationTestBase):
         
     def _run_test(self, handler:IntegrationTestHandler, params:Dict[str, Any]):
         
-        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-6')
+        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', DEFAULT_RESPONSE_MODEL)
         
         with(
             GraphStoreFactory.for_graph_store(
@@ -379,7 +380,7 @@ class SemanticGuidedRerankingBeamSearchQuery(IntegrationTestBase):
         
     def _run_test(self, handler:IntegrationTestHandler, params:Dict[str, Any]):
         
-        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-6')
+        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', DEFAULT_RESPONSE_MODEL)
         
         with(
             GraphStoreFactory.for_graph_store(
@@ -454,7 +455,7 @@ class SemanticGuidedQueryWithPostProcessors(IntegrationTestBase):
         
     def _run_test(self, handler:IntegrationTestHandler, params:Dict[str, Any]):
         
-        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-6')
+        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', DEFAULT_RESPONSE_MODEL)
         
         with(
             GraphStoreFactory.for_graph_store(
@@ -507,7 +508,7 @@ class MultiHopQuery(IntegrationTestBase):
         
     def _run_test(self, handler:IntegrationTestHandler, params:Dict[str, Any]):
         
-        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-6')
+        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', DEFAULT_RESPONSE_MODEL)
         
         with(
             GraphStoreFactory.for_graph_store(
@@ -556,7 +557,7 @@ class ChunkBasedSemanticSearchMultiHopQuery(IntegrationTestBase):
         
     def _run_test(self, handler:IntegrationTestHandler, params:Dict[str, Any]):
         
-        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-6')
+        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', DEFAULT_RESPONSE_MODEL)
         
         with(
             GraphStoreFactory.for_graph_store(
