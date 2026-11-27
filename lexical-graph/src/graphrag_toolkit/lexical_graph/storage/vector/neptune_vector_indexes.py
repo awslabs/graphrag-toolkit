@@ -226,10 +226,11 @@ class NeptuneIndex(VectorIndex):
         if top_k < 1 or (filter_config and filter_config.matches_nothing):
             return []
 
+        metadata_filters = filter_config_to_opencypher_filters(filter_config)
+
         query_bundle = to_embedded_query(query_bundle, self.embed_model)
         tenant_specific_label = self.tenant_id.format_label(self.label).replace('`', '')
 
-        metadata_filters = filter_config_to_opencypher_filters(filter_config)
         where_clause = f'WHERE {metadata_filters}' if metadata_filters else ''
         vector_top_k = top_k * FILTER_OVER_FETCH_FACTOR if metadata_filters else top_k
 
