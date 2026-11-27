@@ -213,3 +213,41 @@ def test_entity_overlap_query_caps_entities_before_unwind():
     # The cap must land before the UNWIND that fans each entity out to its own
     # facts/statements/topics, not after.
     assert cypher.index(collect_entities) < cypher.index('UNWIND')
+
+
+def test_entity_overlap_query_zero_cap_collects_no_entities():
+    # max_entities_per_topic=0 is a valid way to disable entity-overlap
+    # neighbours (COLLECT(...)[..0] is always empty) via a different path
+    # than use_entity_neighbors=False — must not error, and must still emit
+    # a well-formed slice rather than, say, an empty/omitted one.
+    gs = MagicMock()
+    gs.node_id.side_effect = lambda x: x
+    gs.execute_query.return_value = []
+    r = _make(graph_store=gs, max_entities_per_topic=0)
+    r.use_entity_neighbors = True
+
+    r.get_neighbors_batch(['t1'])
+    cypher = gs.execute_query.call_args[0][0]
+    assert 'COLLECT(DISTINCT e)[..0] AS entities' in cypher
+
+
+def test_entity_overlap_query_none_cap_is_uncapped_and_does_not_raise():
+    # max_entities_per_topic=None must not crash (int(None) would raise before
+    # any query is built) and must leave entity collection genuinely uncapped
+    # — no '[..N]' slice at all — rather than silently defaulting to some N.
+    # Set via ProcessorArgs, not the constructor kwarg: a constructor-level
+    # None means "no override, use the ProcessorArgs value" (see pick() in
+    # __init__), so it would silently fall back to the default of 6 instead
+    # of exercising the real None case.
+    from graphrag_toolkit.lexical_graph.retrieval.processors import ProcessorArgs
+
+    gs = MagicMock()
+    gs.node_id.side_effect = lambda x: x
+    gs.execute_query.return_value = []
+    r = _make(graph_store=gs, processor_args=ProcessorArgs(max_entities_per_topic=None))
+    r.use_entity_neighbors = True
+
+    r.get_neighbors_batch(['t1'])
+    cypher = gs.execute_query.call_args[0][0]
+    assert 'COLLECT(DISTINCT e) AS entities' in cypher
+    assert 'COLLECT(DISTINCT e)[..' not in cypher

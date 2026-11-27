@@ -188,9 +188,15 @@ class TopicBeamSearch(TraversalBasedBaseRetriever, BeamSearch):
         """
 
         if self.use_entity_neighbors:
+            # Only slice when set — int(None) would raise.
+            entities_clause = (
+                f"COLLECT(DISTINCT e)[..{int(self.max_entities_per_topic)}] AS entities"
+                if self.max_entities_per_topic is not None
+                else "COLLECT(DISTINCT e) AS entities"
+            )
             parts.append(f"""
             OPTIONAL MATCH (t)<-[:`__BELONGS_TO__`]-(s:`__Statement__`)<-[:`__SUPPORTS__`]-(f:`__Fact__`)<-[:`__SUBJECT__`|`__OBJECT__`]-(e:`__Entity__`)
-            WITH t, COLLECT(DISTINCT e)[..{int(self.max_entities_per_topic)}] AS entities
+            WITH t, {entities_clause}
             UNWIND CASE WHEN size(entities) = 0 THEN [null] ELSE entities END AS entity
             OPTIONAL MATCH (entity)-[:`__SUBJECT__`|`__OBJECT__`]->(f2:`__Fact__`)-[:`__SUPPORTS__`]->(s2:`__Statement__`)-[:`__BELONGS_TO__`]->(nt:`__Topic__`)
             WHERE entity IS NOT NULL AND nt <> t
