@@ -426,6 +426,20 @@ class TestAJobAnEarlierRunLeftRunning:
         assert submit.called
         assert '-a2-' in submit.call_args.kwargs['job_name']
 
+    def test_one_that_ends_partially_completed_with_no_message_is_resubmitted(self, tmp_path):
+        store = _store(record=_record(SUBMITTED, attempt=1))
+        bedrock_client = Mock()
+        statuses = iter(['InProgress'])
+        bedrock_client.get_model_invocation_job.side_effect = (
+            lambda **_: {'status': next(statuses, 'PartiallyCompleted')}
+        )
+
+        with patch('graphrag_toolkit.lexical_graph.indexing.utils.batch_inference_utils.time.sleep'):
+            _, submit = _run(_extractor(manifest_store=store, tmp_path=tmp_path), bedrock_client)
+
+        assert submit.called
+        assert '-a2-' in submit.call_args.kwargs['job_name']
+
 
 class TestARecoveryDirectoryIsItsOwn:
 
