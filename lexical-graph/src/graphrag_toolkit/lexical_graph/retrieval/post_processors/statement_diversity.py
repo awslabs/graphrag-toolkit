@@ -32,6 +32,9 @@ def _all_text(node:BaseNode) -> str:
     """
     return node.text
 
+def _statement_text(statement) -> str:
+    return statement.statement if isinstance(statement, Statement) else statement
+
 def _topics_and_statements(node:BaseNode) -> str:
     """
     Constructs a string containing topics and statements retrieved from a given node's text by
@@ -48,14 +51,17 @@ def _topics_and_statements(node:BaseNode) -> str:
 
     Returns:
         str: A string comprising the extracted topic and statements, with each entry separated by
-            a newline. A missing topic is omitted, and a `Statement` contributes its statement text.
+            a newline. A missing topic is omitted, a `Statement` contributes its statement text, and
+            a result with several topics contributes each topic followed by its statements.
     """
     lines = []
     search_result = SearchResult.model_validate_json(node.text)
     if search_result.topic:
         lines.append(search_result.topic)
-    for statement in search_result.statements:
-        lines.append(statement.statement if isinstance(statement, Statement) else statement)
+    lines.extend(_statement_text(statement) for statement in search_result.statements)
+    for topic in search_result.topics:
+        lines.append(topic.topic)
+        lines.extend(_statement_text(statement) for statement in topic.statements)
     return '\n'.join(lines)
 
 def _topics(node:BaseNode) -> str:
@@ -70,14 +76,16 @@ def _topics(node:BaseNode) -> str:
             processed.
 
     Returns:
-        The topic extracted from the `SearchResult` object as a string.
+        The topic extracted from the `SearchResult` object as a string. A result with several
+        topics returns them separated by newlines, and a result with no topic returns ''.
 
     Raises:
         ValidationError: If the JSON validation for the `SearchResult` fails.
     """
-    lines = []
     search_result = SearchResult.model_validate_json(node.text)
-    return search_result.topic
+    if search_result.topic:
+        return search_result.topic
+    return '\n'.join(topic.topic for topic in search_result.topics)
 
 ALL_TEXT = _all_text
 TOPICS_AND_STATEMENTS = _topics_and_statements
