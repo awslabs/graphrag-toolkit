@@ -9,3 +9,5 @@ pgvector>=0.5.1
 sentence-transformers>=6.2.0
 torch>=2.14.1
 aiobotocore>=3.10.0
+# uvx runs the Amazon Neptune MCP server for the BYOKG graph-query baseline in its own environment.
+uv>=0.8.0

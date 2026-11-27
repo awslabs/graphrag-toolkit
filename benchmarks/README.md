@@ -260,6 +260,8 @@ defaults; turn them on in `.env` to measure them, one stack per arm:
 
 - `BYOKG_TEXT_RETRIEVAL=true` — adds text-based triplet retrieval (`TextTripletRetriever`,
   top `BYOKG_TEXT_TOPK`, default 10) alongside agentic retrieval.
+- `BYOKG_TEXT_LEXICAL=true` — with text retrieval on, also ranks triplets by BM25 and fuses
+  the two rankings (`TextTripletRetriever(lexical=True)`), for exact names and years.
 - `BYOKG_EMBEDDING_LINKING=true` — links entities by embedding as well as fuzzy matching
   (`HybridEntityMatcher`).
 - `BYOKG_KEEP_VERBATIM_NAMES=true` — when the fuzzy length filter leaves a mention with no
@@ -280,6 +282,20 @@ reused; delete that prefix to rebuild it. Every flag, `BYOKG_TEXT_TOPK` and the 
 enter the resume fingerprint, so an arm never reuses another arm's runs. Each run also reports
 `seed_recall`: the share of a question's gold topic entities among the nodes BYOKG linked
 (not computed for MedQA, which has none).
+
+**Optional traversal steps.** `BYOKG_TRAVERSAL_STEPS` (default: the library's 3) sets how
+many exploration steps the agentic retriever takes per round; `BYOKG_MAX_ITERATIONS` sets the
+rounds. Both enter the resume fingerprint, so give each setting of a sweep its own stack or
+`--out`. Each record lists, per round, the steps taken, whether it ended on FINISH, and
+whether entities were left to explore; `exploration_capped` in `summary.json` is the share
+of questions where a round used every step with entities still to explore, so more steps
+might have helped.
+
+**Token usage and failed calls.** Every Bedrock Converse call's tokens are recorded, per
+question for the KG path (`llm_tokens`) and the no-KG answer (`vanilla_llm_tokens`), with
+per-run means and totals in `summary.json`. Embedding calls are not counted. A model call
+that never succeeds within the generator's retries now errors the question: the generator
+returns failure text instead of raising, which used to be scored as an answer.
 
 **Optional answer selection.** Off by default. `BYOKG_ANSWER_SELECTION=true` reranks the
 retrieved context against the question (`ContextSelector` with the BGE reranker, on GPU
@@ -326,6 +342,49 @@ quality drop. `paper_delta_*` outputs compare against published scores from othe
 and question sets, so they are context, not a gate. To compare two runs, diff their
 `aggregate.json` files: the shared `question_ids` and the `provenance` hashes show whether
 they differ only in the code under test.
+
+**LLM + graph-query baseline.** `BYOKG_GRAPH_QUERY_AGENT=true` replaces BYOKG with an LLM
+that answers by querying the graph in Neptune through the official
+[Amazon Neptune MCP server](https://github.com/awslabs/mcp/tree/main/src/amazon-neptune-mcp-server),
+run with `uvx` (pinned to 1.1.1; for a local run, `pip install uv`). It gets the question and the schema BYOKG's KG-Linker gets,
+the same model, Converse API, output cap and throttling retries, and up to
+`BYOKG_AGENT_MAX_CALLS` model calls (default 15, BYOKG's ceiling at its defaults), and
+answers in BYOKG's `<answers>` format, so both arms are scored the same way, with the same
+no-KG answer beside them. The run is one setting
+(`graph-query-agent`); turn off the BYOKG options above for it.
+
+The dataset's graph is exported to openCypher CSV under `<BYOKG_DATA_S3_URI>/neptune/` (once
+per graph file) and loaded with `CALL neptune.load` into the stack's own Neptune Analytics
+graph, or the one `BYOKG_NEPTUNE_GRAPH` names. A marker node records the load, so a rerun
+reuses it. A graph holding anything else is refused rather than cleared, so **run one
+dataset per stack** (`--test benchmark_byokg_kgqa.<Dataset>ByokgKgqa`). CronQuestions'
+relations are loaded without their year suffix, with `start_year`/`end_year`/`qualifier`
+properties, matching the schema BYOKG gives the model. The MCP server runs whatever query it
+is sent, so the harness rejects any query with a write or procedure clause, and fails the
+run if the graph's node or edge count changed. A query that outruns the server's 60 s read
+timeout is not resent; the model is told it timed out, and the harness cancels it on the
+graph if the notebook role may (`neptune-graph:ListQueries` and `CancelQuery`; otherwise it
+holds a graph worker until the graph's own query timeout). Note that the stack's graph has a public
+endpoint (IAM-authenticated). For a private one, the notebook needs a VPC and the graph a
+private endpoint.
+
+**LLM-judge scoring.** `python -m benchmarks.scripts.judge_byokg_kgqa --results <dir>`
+rescores saved runs (`<dataset>/<setting>/<run>/predictions.jsonl`, the layout the suite
+writes to S3) with Claude Opus 5.5 on Bedrock (`global.anthropic.claude-opus-5-5`, effort
+`low`). For each answer list, the judge says whether any answer names a gold answer, allowing
+aliases and format variants: string Hit's any-match rule. MedQA's H@2 judges the first KG
+answer and the first no-KG answer, and either being right is a hit. Each run gets
+`judge.jsonl` and `judge_summary.json` beside the string scores, which it recomputes with
+the current scorer; `judge_aggregate.json` keys each setting by its path under `--results`,
+so stacks and arms are never averaged together. A refusal or an unparsable reply is
+counted, never scored as a miss; more than 5% of them stops judging early. If any judged
+score of a run (KG, no-KG, MedQA's H@2) lacks a verdict for more than 5% of its questions,
+the files are still written with `gate.passed: false` and the command exits non-zero, unless
+`--allow-unscored` is passed. Verdicts are cached in `judge_cache.jsonl`, keyed by
+the prompt texts, so arms with the same answers, and reruns, are judged once; a truncated
+verdict is not cached, so a rerun with a larger `--max-tokens` retries it. `--dry-run` counts the calls (10,768 for the baseline's 24 runs);
+`--limit 50` is a smoke run. It needs the `anthropic` SDK (installed with lexical-graph) and
+`bedrock:InvokeModel` on the profile.
 
 Running locally instead (no stack): `pip install -e lexical-graph -e byokg-rag`, then
 `python -m benchmarks.scripts.benchmark_byokg_kgqa --dataset cronquestions --s3-data

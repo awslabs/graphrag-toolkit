@@ -339,15 +339,33 @@ def _quantile(values: Sequence[float], q: float) -> Optional[float]:
     return round(_percentile(sorted(values), 100 * q), 2)
 
 
+def _tokens_mean(records: Sequence[Dict[str, Any]], field_: str) -> Optional[Dict[str, float]]:
+    usages = [r[field_] for r in records if r.get(field_)]
+    if not usages:
+        return None  # recorded by neither path, e.g. the baseline runs
+    return {name: round(sum(u[name] for u in usages) / len(usages), 1) for name in usages[0]}
+
+
+def _tokens_total(records: Sequence[Dict[str, Any]]) -> Optional[Dict[str, int]]:
+    usages = [r[f] for r in records for f in ('llm_tokens', 'vanilla_llm_tokens') if r.get(f)]
+    if not usages:
+        return None
+    return {name: sum(u[name] for u in usages) for name in usages[0]}
+
+
 def summarize(records: Sequence[Dict[str, Any]], metric: str) -> Dict[str, Any]:
     """Per-run summary.
 
     Errored questions count as misses in `hit` and `hit@2`; `hit_ok` is over the non-errored ones,
     so throttling noise can be told apart from a quality change. `vanilla_*` is the
     BYOKG answer prompt with an empty graph context, not a separate LLM-only prompt.
+    Token means are per non-errored question; `llm_tokens_total` is every billed call of
+    both paths. `exploration_capped` is the share of questions where some round used
+    every exploration step with entities still to explore, i.e. more steps might have helped.
     """
     ok = [r for r in records if not r.get('error')]
     vanilla_ok = [r for r in records if not r.get('vanilla_error')]
+    explored = [r for r in ok if r.get('exploration') is not None]
     summary = {
         'n': len(records),
         'n_errors': len(records) - len(ok),
@@ -369,6 +387,13 @@ def summarize(records: Sequence[Dict[str, Any]], metric: str) -> Dict[str, Any]:
         'showcase_ids': [r['id'] for r in records if r.get('showcase')],
         # Over non-errored questions that have gold topic entities.
         'seed_recall': _pct([r['seed_recall'] for r in ok if r.get('seed_recall') is not None]),
+        'llm_tokens_mean': _tokens_mean(ok, 'llm_tokens'),
+        'vanilla_llm_tokens_mean': _tokens_mean(vanilla_ok, 'vanilla_llm_tokens'),
+        'llm_tokens_total': _tokens_total(records),
+        'exploration_steps_mean': (round(sum(sum(rd['steps'] for rd in r['exploration']) for r in explored)
+                                         / len(explored), 2) if explored else None),
+        'exploration_capped': _pct([any(rd['steps'] >= r['exploration_budget'] and rd.get('pending')
+                                        for rd in r['exploration']) for r in explored]),
     }
     if metric == 'hit@2':
         summary['hit@2'] = _pct([r['hit@2'] for r in records])

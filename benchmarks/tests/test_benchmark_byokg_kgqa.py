@@ -223,7 +223,8 @@ def _dataset_on_disk(tmp_path):
 def fake_engine(monkeypatch):
     built = []
 
-    def build(graph, model, region, sbm, parts=None, context_selector=None, split_entity_lines=False):
+    def build(graph, model, region, sbm, parts=None, context_selector=None, split_entity_lines=False,
+                  traversal_steps=None):
         engine, counter = _engine()
         built.append(sbm)
         return engine, counter
@@ -325,7 +326,8 @@ class TestProvenance:
         assert p['git_sha'] == 'abc123-dirty'
         assert p['inference']['model_name'] == 'fake-model'
         assert set(p) == {'git_sha', 'byokg_rag_source_sha256', 'byokg_rag_prompts_sha256',
-                          'benchmark_code_sha256', 'data_sha256', 'inference', 'retrieval', 'answer_selection'}
+                          'benchmark_code_sha256', 'data_sha256', 'inference', 'retrieval', 'answer_selection',
+                          'traversal', 'graph_query_agent'}
 
     def test_tree_hash_skips_pycache(self, tmp_path):
         (tmp_path / 'm.py').write_text('x = 1')
@@ -620,7 +622,7 @@ class TestRetrievalWiring:
         monkeypatch.setattr(runner, 'build_retrieval_parts', build_parts)
         monkeypatch.setattr(runner, 'build_engine',
                             lambda graph, model, region, sbm, parts=None, context_selector=None,
-                            split_entity_lines=False: built.append(parts) or _engine())
+                            split_entity_lines=False, traversal_steps=None: built.append(parts) or _engine())
         return seen, built
 
     def _run(self, tmp_path, **kw):
@@ -637,7 +639,7 @@ class TestRetrievalWiring:
         assert '/embeddings/' in seen['cache_dir'] and seen['cache_dir'].endswith('-cohere.embed-english-v3')
         assert report['provenance']['retrieval'] == {
             'text_retrieval': True, 'embedding_linking': False, 'keep_verbatim_names': False,
-            'split_entity_lines': False, 'text_topk': 10,
+            'split_entity_lines': False, 'text_lexical': False, 'text_topk': 10,
             'embed_model': 'cohere.embed-english-v3', 'embedding_dim': 1024}
 
     def test_no_cache_and_no_hook_when_off(self, tmp_path, parts_spy):
@@ -725,7 +727,8 @@ class TestEntityLinkingWiring:
             seen['cache_dirs'].append(cache_dir)
             return runner.RetrievalParts(entity_matcher='MATCHER')
 
-        def build(graph, model, region, sbm, parts=None, context_selector=None, split_entity_lines=False):
+        def build(graph, model, region, sbm, parts=None, context_selector=None, split_entity_lines=False,
+                  traversal_steps=None):
             seen['matchers'].append(parts.entity_matcher)
             seen['split'].append(split_entity_lines)
             return _engine()
@@ -1158,7 +1161,8 @@ class TestAnswerSelectionWiring:
     def spy(self, monkeypatch):
         engines, selectors = [], []
 
-        def build(graph, model, region, sbm, parts=None, context_selector=None, split_entity_lines=False):
+        def build(graph, model, region, sbm, parts=None, context_selector=None, split_entity_lines=False,
+                  traversal_steps=None):
             engine, counter = _engine()
             engines.append(engine)
             selectors.append(context_selector)
@@ -1195,3 +1199,526 @@ class TestAnswerSelectionWiring:
         self._run(tmp_path)
         with pytest.raises(RuntimeError, match='different configuration'):
             self._run(tmp_path, answer_selection=runner.AnswerSelectionConfig(enabled=True))
+
+
+# --- token usage, failed calls and exploration steps -------------------------------
+
+from benchmarks.utils.bedrock_usage import UsageRecordingClient  # noqa: E402
+
+
+def _converse(input_tokens=100, output_tokens=20, cache_read=None, text='<answers>x</answers>'):
+    """A Converse response as boto3 returns it."""
+    usage = {'inputTokens': input_tokens, 'outputTokens': output_tokens, 'totalTokens': input_tokens + output_tokens}
+    if cache_read is not None:
+        usage['cacheReadInputTokens'] = cache_read
+    return {'output': {'message': {'role': 'assistant', 'content': [{'text': text}]}},
+            'stopReason': 'end_turn', 'usage': usage, 'metrics': {'latencyMs': 400}}
+
+
+class FakeBedrockRuntime:
+    def __init__(self, responses=None):
+        self.responses, self.calls = responses, []
+
+    def converse(self, **kwargs):
+        self.calls.append(kwargs)
+        return self.responses.pop(0) if self.responses else _converse()
+
+
+class BedrockGeneratorLike:
+    """BedrockGenerator's contract: converse() through its client, the last content
+    block's text returned; once its retries run out it returns failure text, not an error."""
+    model_name, max_new_tokens, max_retries = 'fake-model', 4096, 10
+
+    def __init__(self, client, give_up=False):
+        self.client, self.give_up = client, give_up
+
+    def generate(self, prompt, system_prompt=None):
+        if self.give_up:
+            return 'Failed to generate a response after multiple attempts.'
+        response = self.client.converse(modelId='m', messages=[{'role': 'user', 'content': [{'text': prompt}]}])
+        return response['output']['message']['content'][-1]['text']
+
+
+class TestUsageRecording:
+    def test_sums_usage_and_builds_the_client_lazily(self):
+        made = []
+        usage = UsageRecordingClient(lambda: made.append(1) or FakeBedrockRuntime(
+            [_converse(100, 20), _converse(50, 5, cache_read=30)]))
+        assert made == [], 'no client until the first call'
+        usage.converse(modelId='m', messages=[])
+        usage.converse(modelId='m', messages=[])
+        assert usage.calls == 2
+        assert usage.snapshot() == {'input': 150, 'output': 25, 'cache_read': 30, 'cache_write': 0}
+        usage.reset()
+        assert (usage.calls, usage.snapshot()['input'], made) == (0, 0, [1])
+
+    def test_a_response_without_usage_fails_loud(self):
+        usage = UsageRecordingClient(lambda: FakeBedrockRuntime([{'output': {}, 'stopReason': 'end_turn'}]))
+        with pytest.raises(ValueError, match='no token usage'):
+            usage.converse()
+
+    def test_other_attributes_are_the_clients(self):
+        client = FakeBedrockRuntime()
+        client.meta = 'region'
+        assert UsageRecordingClient(lambda: client).meta == 'region'
+
+
+class TestFailedCalls:
+    def test_a_generate_without_a_successful_call_raises(self):
+        usage = UsageRecordingClient(FakeBedrockRuntime)
+        counter = runner.CountingGenerator(BedrockGeneratorLike(usage, give_up=True), usage=usage)
+        with pytest.raises(RuntimeError, match='no successful Bedrock call'):
+            counter.generate('p')
+
+    def test_a_given_up_question_is_an_error_not_an_answer(self):
+        usage = UsageRecordingClient(FakeBedrockRuntime)
+        counter = runner.CountingGenerator(BedrockGeneratorLike(usage, give_up=True), usage=usage)
+        r = runner.run_question(FakeEngine(counter), counter, QUESTION, QUESTION.schema, 2, 2)
+        assert r['error'].startswith('RuntimeError: no successful Bedrock call') and r['hit'] == 0
+
+    def test_tokens_split_between_the_kg_path_and_the_no_kg_answer(self):
+        usage = UsageRecordingClient(lambda: FakeBedrockRuntime([_converse(1000, 50)] * 3 + [_converse(200, 10)]))
+        counter = runner.CountingGenerator(BedrockGeneratorLike(usage), usage=usage)
+        r = runner.run_question(FakeEngine(counter, kg_calls=3), counter, QUESTION, QUESTION.schema, 2, 2)
+        assert r['llm_tokens'] == {'input': 3000, 'output': 150, 'cache_read': 0, 'cache_write': 0}
+        assert r['vanilla_llm_tokens'] == {'input': 200, 'output': 10, 'cache_read': 0, 'cache_write': 0}
+
+
+class FakeTraversal:
+    """GTraversal.one_hop_triplets over GRAPH: the source nodes' facts, as tuples."""
+
+    def one_hop_triplets(self, source_nodes):
+        return {tuple(t) for node in source_nodes for rel in GRAPH.get(node, {}).values() for t in rel['triplets']}
+
+
+class FakeAgenticRetriever:
+    """AgenticRetriever's surface: its prompt templates, max_num_iterations,
+    graph_traversal and llm_generator, and per step a relation- then an entity-selection call."""
+    prompt = {'relation_selection_prompt': "' Your task is to select relations. <question> {question}",
+              'entity_selection_prompt': "' Given a question, select entities. Question: {question}"}
+
+    def __init__(self, generator, max_num_iterations=3, finish_at=None):
+        self.llm_generator, self.max_num_iterations, self.finish_at = generator, max_num_iterations, finish_at
+        self.graph_traversal = FakeTraversal()
+        self.responses = generator  # the scripted model, behind whatever wraps llm_generator
+
+    def retrieve(self, query, source_nodes, history_context=None):
+        for step in range(1, self.max_num_iterations + 1):
+            self.llm_generator.generate(self.prompt['relation_selection_prompt'].format(question=query))
+            self.responses.finish = step == self.finish_at
+            response = self.llm_generator.generate(self.prompt['entity_selection_prompt'].format(question=query))
+            if 'FINISH' in response:
+                return []
+        return []
+
+
+class EntityResponses:
+    finish = False
+
+    def generate(self, prompt, system_prompt=None):
+        return '<next-entities>\nFINISH\n</next-entities>' if self.finish else '<next-entities>\nGiants\n</next-entities>'
+
+
+class TestExplorationRecorder:
+    def test_rounds_record_steps_and_whether_they_finished(self):
+        retriever = FakeAgenticRetriever(EntityResponses(), max_num_iterations=3, finish_at=2)
+        recorder = runner.ExplorationRecorder(retriever)
+        with recorder:
+            retriever.retrieve('q', ['Lou Seal'])
+            retriever.finish_at = None
+            retriever.retrieve('q', ['Giants'])
+        assert recorder.rounds == [{'steps': 2, 'finished': True, 'pending': False},
+                                   {'steps': 3, 'finished': False, 'pending': True}]
+        assert recorder.budget == 3
+        assert 'retrieve' not in vars(retriever) and isinstance(retriever.llm_generator, EntityResponses), 'restored'
+
+    def test_a_retriever_without_the_templates_records_nothing(self):
+        recorder = runner.ExplorationRecorder(object())
+        with recorder:
+            pass
+        assert not recorder.enabled and recorder.rounds == []
+        no_traversal = FakeAgenticRetriever(EntityResponses())
+        del no_traversal.graph_traversal
+        assert not runner.ExplorationRecorder(no_traversal).enabled
+
+    def test_real_agentic_retriever_prompts_are_recognized(self):
+        pytest.importorskip('graphrag_toolkit.byokg_rag')
+        from graphrag_toolkit.byokg_rag.graph_retrievers import AgenticRetriever, GTraversal, TripletGVerbalizer
+        from graphrag_toolkit.byokg_rag.graphstore.graphstore import LocalKGStore
+
+        class Scripted:
+            def generate(self, prompt, system_prompt=None):
+                if '<selected>' in prompt:
+                    return '<selected>\nmascot of\nwon\n</selected>'
+                return '<next-entities>\nFINISH\n</next-entities>'
+        retriever = AgenticRetriever(GTraversal(LocalKGStore(GRAPH)), TripletGVerbalizer(), llm_generator=Scripted())
+        recorder = runner.ExplorationRecorder(retriever)
+        with recorder:
+            context = retriever.retrieve(QUESTION.question, ['Lou Seal'])
+        assert context == ['Lou Seal -> mascot of -> Giants']
+        assert recorder.rounds == [{'steps': 1, 'finished': True, 'pending': False}] and recorder.budget == 3
+
+    @pytest.mark.parametrize('last_relation, last_entities', [
+        ('<selected>\nnot a relation\n</selected>', None),  # the selected relation matches no fact
+        ('<selected>\nwon\n</selected>', 'I cannot tell.'),   # the entity reply names nothing
+        # It names only a node with no outgoing facts, or a name that is no node: the next
+        # step would skip them, so more steps would not have helped.
+        ('<selected>\nwon\n</selected>', '<next-entities>\n2014 World Series\n</next-entities>'),
+        ('<selected>\nwon\n</selected>', '<next-entities>\n- Giants\n</next-entities>'),
+    ])
+    def test_a_round_that_dead_ends_on_its_last_step_is_not_capped(self, last_relation, last_entities):
+        pytest.importorskip('graphrag_toolkit.byokg_rag')
+        from graphrag_toolkit.byokg_rag.graph_retrievers import AgenticRetriever, GTraversal, TripletGVerbalizer
+        from graphrag_toolkit.byokg_rag.graphstore.graphstore import LocalKGStore
+
+        class Scripted:
+            def __init__(self):
+                self.relations = ['<selected>\nmascot of\n</selected>', last_relation]
+                self.entities = ['<next-entities>\nGiants\n</next-entities>', last_entities]
+
+            def generate(self, prompt, system_prompt=None):
+                return self.relations.pop(0) if '<selected>' in prompt else self.entities.pop(0)
+        retriever = AgenticRetriever(GTraversal(LocalKGStore(GRAPH)), TripletGVerbalizer(),
+                                     llm_generator=Scripted(), max_num_iterations=2)
+        recorder = runner.ExplorationRecorder(retriever)
+        with recorder:
+            retriever.retrieve(QUESTION.question, ['Lou Seal'])
+        assert recorder.rounds == [{'steps': 2, 'finished': False, 'pending': False}]
+        base = {'hit': 1, 'vanilla_hit': 0, 'f1': 1.0, 'answer_in_context': True, 'llm_calls': 4, 'latency_s': 1.0,
+                'context_chars': 10, 'predictions': ['a'], 'error': None, 'vanilla_error': None, 'showcase': []}
+        summary = runner.summarize([{**base, 'id': '1', 'exploration': recorder.rounds, 'exploration_budget': 2}], 'hit')
+        assert summary['exploration_capped'] == 0.0
+
+    def test_a_round_stopped_with_an_explorable_name_is_pending(self):
+        pytest.importorskip('graphrag_toolkit.byokg_rag')
+        from graphrag_toolkit.byokg_rag.graph_retrievers import AgenticRetriever, GTraversal, TripletGVerbalizer
+        from graphrag_toolkit.byokg_rag.graphstore.graphstore import LocalKGStore
+
+        class Scripted:
+            def generate(self, prompt, system_prompt=None):
+                return '<selected>\nmascot of\n</selected>' if '<selected>' in prompt else '<next-entities>\nGiants\n</next-entities>'
+        retriever = AgenticRetriever(GTraversal(LocalKGStore(GRAPH)), TripletGVerbalizer(),
+                                     llm_generator=Scripted(), max_num_iterations=1)
+        recorder = runner.ExplorationRecorder(retriever)
+        with recorder:
+            retriever.retrieve(QUESTION.question, ['Lou Seal'])
+        assert recorder.rounds == [{'steps': 1, 'finished': False, 'pending': True}]
+
+    def test_run_question_records_the_rounds(self):
+        engine, counter = _engine()
+        engine.triplet_retriever = FakeAgenticRetriever(EntityResponses(), max_num_iterations=2)
+        query = engine.query
+
+        def exploring_query(q, iterations=2):
+            engine.triplet_retriever.retrieve(q, ['Lou Seal'])
+            return query(q, iterations)
+        engine.query = exploring_query
+        r = runner.run_question(engine, counter, QUESTION, QUESTION.schema, 2, 2)
+        assert (r['exploration'], r['exploration_budget']) == ([{'steps': 2, 'finished': False, 'pending': True}], 2)
+
+
+def test_summary_reports_tokens_and_capped_exploration():
+    base = {'hit': 1, 'vanilla_hit': 0, 'f1': 1.0, 'answer_in_context': True, 'llm_calls': 4, 'latency_s': 1.0,
+            'context_chars': 10, 'predictions': ['a'], 'error': None, 'vanilla_error': None, 'showcase': [],
+            'exploration_budget': 3}
+    records = [{**base, 'id': '1', 'llm_tokens': {'input': 1000, 'output': 100, 'cache_read': 0, 'cache_write': 0},
+                'vanilla_llm_tokens': {'input': 100, 'output': 10, 'cache_read': 0, 'cache_write': 0},
+                'exploration': [{'steps': 3, 'finished': False, 'pending': True},
+                                {'steps': 1, 'finished': True, 'pending': False}]},
+               {**base, 'id': '2', 'llm_tokens': {'input': 3000, 'output': 300, 'cache_read': 0, 'cache_write': 0},
+                'vanilla_llm_tokens': {'input': 300, 'output': 30, 'cache_read': 0, 'cache_write': 0},
+                'exploration': [{'steps': 3, 'finished': False, 'pending': False}]}]  # a dead end, not capped
+    s = runner.summarize(records, 'hit')
+    assert s['llm_tokens_mean'] == {'input': 2000.0, 'output': 200.0, 'cache_read': 0.0, 'cache_write': 0.0}
+    assert s['llm_tokens_total']['input'] == 4400
+    assert (s['exploration_steps_mean'], s['exploration_capped']) == (3.5, 50.0)
+    old = runner.summarize([{k: v for k, v in r.items() if k not in ('llm_tokens', 'vanilla_llm_tokens', 'exploration')}
+                     for r in records], 'hit')
+    assert (old['llm_tokens_mean'], old['llm_tokens_total'], old['exploration_capped']) == (None, None, None)
+
+
+class TestTraversalSteps:
+    @pytest.mark.parametrize('steps', [0, -1, 2.5, True])
+    def test_must_be_a_positive_integer(self, steps):
+        with pytest.raises(ValueError, match='traversal_steps'):
+            runner.validate_traversal_steps(steps)
+
+    def test_build_engine_sets_the_agentic_retrievers_steps(self, monkeypatch):
+        pytest.importorskip('graphrag_toolkit.byokg_rag')
+        from graphrag_toolkit.byokg_rag.llm import bedrock_llms
+        monkeypatch.setattr(bedrock_llms, 'BedrockGenerator', lambda **kw: FakeGenerator())
+        default, _ = runner.build_engine(GRAPH, None, None, False)
+        engine, _ = runner.build_engine(GRAPH, None, None, False, traversal_steps=5)
+        assert (default.triplet_retriever.max_num_iterations, engine.triplet_retriever.max_num_iterations) == (3, 5)
+
+    def test_steps_reach_the_engine_and_split_the_fingerprint(self, tmp_path, monkeypatch):
+        seen = []
+
+        def build(graph, model, region, sbm, parts=None, context_selector=None, split_entity_lines=False,
+                  traversal_steps=None):
+            engine, counter = _engine()
+            engine.triplet_retriever = FakeAgenticRetriever(FakeGenerator(), max_num_iterations=traversal_steps or 3)
+            seen.append(traversal_steps)
+            return engine, counter
+        monkeypatch.setattr(runner, 'build_engine', build)
+        (tmp_path / 'data').mkdir()
+        data = _dataset_on_disk(tmp_path / 'data')
+        five = runner.run_benchmark('webqsp', data, str(tmp_path / 'a'), runs=1, single_best_match='on', traversal_steps=5)
+        default = runner.run_benchmark('webqsp', data, str(tmp_path / 'b'), runs=1, single_best_match='on')
+        assert seen == [5, None]
+        assert (five['provenance']['traversal'], default['provenance']['traversal']) == ({'steps': 5}, {'steps': 3})
+        assert five['config']['traversal_steps'] == 5
+        keys = [r['settings']['single_best_match-on']['per_run'][0]['run_key'] for r in (five, default)]
+        assert keys[0] != keys[1]
+
+    def test_env_and_cli(self, monkeypatch, tmp_path):
+        ran = []
+        monkeypatch.setattr(runner, 'run_benchmark', lambda *a, **k: ran.append(k))
+        runner.main(['--dataset', 'cwq', '--data-dir', str(tmp_path), '--traversal-steps', '5'])
+        assert ran[-1]['traversal_steps'] == 5
+        with pytest.raises(ValueError, match='traversal_steps'):
+            runner.main(['--dataset', 'cwq', '--data-dir', str(tmp_path), '--traversal-steps', '0'])
+
+
+class TestTextLexical:
+    def test_needs_text_retrieval(self):
+        with pytest.raises(ValueError, match='needs text_retrieval'):
+            runner.RetrievalConfig(text_lexical=True)
+
+    def test_env_cli_and_fingerprint(self, monkeypatch, tmp_path):
+        monkeypatch.setenv('BYOKG_TEXT_RETRIEVAL', 'true')
+        monkeypatch.setenv('BYOKG_TEXT_LEXICAL', 'true')
+        assert runner.retrieval_from_env().text_lexical
+        ran = []
+        monkeypatch.setattr(runner, 'run_benchmark', lambda *a, **k: ran.append(k))
+        runner.main(['--dataset', 'cwq', '--data-dir', str(tmp_path), '--text-retrieval', '--text-lexical'])
+        assert ran[0]['retrieval'].text_lexical
+        prov = runner.provenance(runner.CountingGenerator(FakeGenerator()), data_sha256={})
+        model = 'cohere.embed-english-v3'
+        keys = {runner.run_key(['q1'], True, 2, {**prov, 'retrieval': runner.retrieval_provenance(
+            runner.RetrievalConfig(text_retrieval=True, text_lexical=lexical, embed_model=model), 1024)})
+            for lexical in (False, True)}
+        assert len(keys) == 2
+
+    def test_parts_build_the_lexical_index(self, monkeypatch, tmp_path):
+        pytest.importorskip('graphrag_toolkit.byokg_rag')
+        from graphrag_toolkit.byokg_rag import config as byokg_config
+        monkeypatch.setattr(byokg_config.ByoKGConfig, 'to_embedding', lambda **kw: TestBuildWithLinkingOptions.Emb())
+        parts = runner.build_retrieval_parts(GRAPH, runner.RetrievalConfig(
+            text_retrieval=True, text_lexical=True, embed_model='cohere.embed-english-v3'), None, str(tmp_path))
+        assert parts.text_triplet_retriever._lexical is not None
+
+
+# --- the LLM + graph-query baseline -----------------------------------------------
+
+class TestGraphQueryAgentConfig:
+    def test_off_by_default_and_needs_a_neptune_graph_when_on(self):
+        assert not runner.GraphQueryAgentConfig().enabled
+        with pytest.raises(ValueError, match='neptune-graph://'):
+            runner.GraphQueryAgentConfig(enabled=True, graph='g-0123456789')
+        assert runner.GraphQueryAgentConfig(enabled=True, graph='neptune-graph://g-0123456789').graph_id == 'g-0123456789'
+
+    @pytest.mark.parametrize('field_, value', [('max_calls', 1), ('max_result_chars', 0), ('max_calls', 2.5)])
+    def test_budgets_are_validated(self, field_, value):
+        with pytest.raises(ValueError, match=field_):
+            runner.GraphQueryAgentConfig(**{field_: value})
+
+
+AGENT_ON = runner.GraphQueryAgentConfig(enabled=True, graph='neptune-graph://g-0123456789')
+
+
+class AgentBedrock:
+    """Converse for the baseline's turns (toolConfig present) and the no-KG answer."""
+
+    def __init__(self):
+        self.calls = []
+
+    def converse(self, **kwargs):
+        self.calls.append(kwargs)
+        if 'toolConfig' not in kwargs:
+            return _converse(200, 10)
+        if any('toolResult' in b for b in kwargs['messages'][-1]['content']):
+            return _converse(900, 30, text='<answers>\n2014 World Series\n</answers>')
+        return {'output': {'message': {'role': 'assistant', 'content': [{'toolUse': {
+            'toolUseId': 'tooluse_1', 'name': 'run_opencypher_query',
+            'input': {'query': "MATCH (:Entity {name: 'Giants'})-[:won]->(o) RETURN o.name"}}}]}},
+            'stopReason': 'tool_use', 'usage': {'inputTokens': 800, 'outputTokens': 40, 'totalTokens': 840}}
+
+
+class FakeMcp:
+    started = []
+
+    times_out = False
+
+    def __init__(self, command, env=None, stderr_path=None, **kw):
+        FakeMcp.started.append({'command': command, 'env': env, 'stderr_path': stderr_path})
+        self.server_info, self.calls = {'name': 'awslabs.neptune-mcp-server', 'version': '1.1.1'}, []
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *exc):
+        self.closed = True
+
+    def list_tools(self):
+        return [{'name': 'run_opencypher_query', 'description': 'Executes the provided openCypher against the graph.'}]
+
+    def call_tool(self, name, arguments):
+        self.calls.append(arguments)
+        if self.times_out:
+            from benchmarks.utils.mcp_stdio import McpTimeout
+            raise McpTimeout('tools/call: no response within 120 s')
+        return {'content': [{'type': 'text', 'text': '{\n  "o.name": "2014 World Series"\n}'}], 'isError': False}
+
+
+class FakeLoadedGraph:
+    def __init__(self, counts_after=None):
+        self.counts_after, self.cancelled = counts_after, []
+
+    def counts(self):
+        return self.counts_after or {'nodes': 3, 'edges': 2}
+
+    def cancel(self, query):
+        self.cancelled.append(query)
+        return 1
+
+
+class TestGraphQueryBaselineWiring:
+    @pytest.fixture
+    def baseline(self, tmp_path, monkeypatch):
+        bedrock = AgentBedrock()
+        usage = UsageRecordingClient(lambda: bedrock)
+        generator = BedrockGeneratorLike(usage)
+        generator.max_new_tokens, generator.max_retries = 6000, 4  # not the defaults, so a hard-coded copy shows
+        counter = runner.CountingGenerator(generator, usage=usage)
+        prepared = []
+        monkeypatch.setattr(runner, 'build_engine', lambda *a, **k: (FakeEngine(counter), counter))
+        graph = FakeLoadedGraph()
+        monkeypatch.setattr(runner, 'prepare_neptune_graph', lambda *a: prepared.append(a) or (
+            graph, {'temporal_qualifiers': False, 'graph_sha256': 'ab', 'export_version': 1, 'nodes': 3, 'edges': 2},
+            {'nodes': 3, 'edges': 2}, 'us-west-2'))
+        import benchmarks.utils.mcp_stdio as mcp_stdio
+        FakeMcp.started = []
+        monkeypatch.setattr(mcp_stdio, 'McpStdioClient', FakeMcp)
+        monkeypatch.setattr(FakeMcp, 'times_out', False)
+        (tmp_path / 'data').mkdir()
+        data = _dataset_on_disk(tmp_path / 'data')
+
+        def run(**kw):
+            return runner.run_benchmark('webqsp', data, str(tmp_path / 'out'), runs=1,
+                                        graph_query_agent=AGENT_ON, neptune_s3_uri='s3://bucket/byokg-data/', **kw)
+        return run, bedrock, prepared, graph, tmp_path
+
+    def test_one_setting_scored_like_byokg(self, baseline):
+        run, bedrock, prepared, _, tmp_path = baseline
+        report = run()
+        assert list(report['settings']) == ['graph-query-agent']
+        record = json.loads((tmp_path / 'out' / 'webqsp' / 'graph-query-agent' / 'run1' / 'predictions.jsonl')
+                            .read_text().splitlines()[0])
+        assert (record['predictions'], record['hit'], record['llm_calls'], record['agent_stop']) == (
+            ['2014 World Series'], 1, 2, 'end_turn')
+        assert record['context'] == ['{\n  "o.name": "2014 World Series"\n}'] and record['answer_in_context']
+        assert record['llm_tokens'] == {'input': 1700, 'output': 70, 'cache_read': 0, 'cache_write': 0}
+        assert record['vanilla_llm_tokens']['input'] == 200
+        assert [c['modelId'] for c in bedrock.calls[:2]] == ['fake-model', 'fake-model'], "BYOKG's model"
+        assert prepared[0][-2] == AGENT_ON and prepared[0][4] == 's3://bucket/byokg-data/'
+
+    def test_the_official_server_gets_the_graph_and_region(self, baseline):
+        run, bedrock, _, _, tmp_path = baseline
+        report = run()
+        (started,) = FakeMcp.started
+        assert started['command'][-1] == 'awslabs.amazon-neptune-mcp-server'
+        assert 'awslabs.amazon-neptune-mcp-server==1.1.1' in started['command']
+        assert (started['env']['NEPTUNE_ENDPOINT'], started['env']['AWS_REGION'],
+                started['env']['AWS_MAX_ATTEMPTS']) == ('neptune-graph://g-0123456789', 'us-west-2', '1')
+        assert started['stderr_path'].endswith('graph-query-agent/mcp-server.log')
+        assert report['provenance']['graph_query_agent']['server_info']['version'] == '1.1.1'
+        agent_prov = report['provenance']['graph_query_agent']
+        assert (agent_prov['max_tokens'], agent_prov['max_retries']) == (6000, 4), "BYOKG's generator settings"
+        agent_calls = [c for c in bedrock.calls if 'toolConfig' in c]
+        assert agent_calls and all(c['inferenceConfig'] == {'maxTokens': 6000} for c in agent_calls), 'and used'
+
+    def test_a_timed_out_query_is_cancelled_on_the_graph(self, baseline, monkeypatch):
+        run, _, _, graph, tmp_path = baseline
+        monkeypatch.setattr(FakeMcp, 'times_out', True)
+        run()
+        assert graph.cancelled == ["MATCH (:Entity {name: 'Giants'})-[:won]->(o) RETURN o.name"]
+        record = json.loads((tmp_path / 'out' / 'webqsp' / 'graph-query-agent' / 'run1' / 'predictions.jsonl')
+                            .read_text().splitlines()[0])
+        assert record['error'] is None and record['predictions'] == ['2014 World Series']
+
+    def test_a_graph_changed_during_the_run_fails(self, baseline):
+        run, _, _, graph, _ = baseline
+        graph.counts_after = {'nodes': 3, 'edges': 1}
+        with pytest.raises(RuntimeError, match='changed during the run'):
+            run()
+
+    def test_byokg_options_and_a_missing_prefix_are_refused(self, baseline, tmp_path):
+        run, *_ = baseline
+        with pytest.raises(ValueError, match='BYOKG options off'):
+            run(traversal_steps=5)
+        with pytest.raises(ValueError, match='BYOKG options off'):
+            run(retrieval=runner.RetrievalConfig(keep_verbatim_names=True))
+        (tmp_path / 'd2').mkdir()
+        with pytest.raises(ValueError, match='S3 prefix'):
+            runner.run_benchmark('webqsp', _dataset_on_disk(tmp_path / 'd2'), str(tmp_path / 'o2'),
+                                 graph_query_agent=AGENT_ON)
+
+    def test_stack_uses_its_own_graph_unless_another_is_named(self, monkeypatch, tmp_path):
+        data = tmp_path / 'data'
+        data.mkdir()
+        _dataset_on_disk(data)
+        for var, value in {'BYOKG_DATA_S3_URI': 's3://bucket/byokg-data/', 'BYOKG_DATA_DIR': str(data),
+                           'BYOKG_GRAPH_QUERY_AGENT': 'true', 'GRAPH_STORE': 'neptune-graph://g-aaaaaaaaaa'}.items():
+            monkeypatch.setenv(var, value)
+        seen = []
+        monkeypatch.setattr(runner, 'run_benchmark', lambda *a, **k: seen.append(k) or {'settings': {}, 'provenance': {}})
+        monkeypatch.setattr(runner, 'upload_benchmark_results_to_s3', lambda *a: None)
+        runner.run_byokg_kgqa_test(FakeHandler(), {}, 'webqsp')
+        monkeypatch.setenv('BYOKG_NEPTUNE_GRAPH', 'neptune-graph://g-bbbbbbbbbb')
+        runner.run_byokg_kgqa_test(FakeHandler(), {}, 'webqsp')
+        assert [k['graph_query_agent'].graph for k in seen] == ['neptune-graph://g-aaaaaaaaaa',
+                                                                'neptune-graph://g-bbbbbbbbbb']
+        assert seen[0]['neptune_s3_uri'] == 's3://bucket/byokg-data/'
+
+
+class PublishS3:
+    class exceptions:
+        class NoSuchKey(Exception):
+            pass
+
+    def __init__(self):
+        self.objects, self.uploads = {}, []
+
+    def upload_file(self, filename, bucket, key):
+        with open(filename, 'rb') as f:
+            self.objects[(bucket, key)] = f.read()
+        self.uploads.append(key)
+
+    def get_object(self, Bucket, Key):
+        if (Bucket, Key) not in self.objects:
+            raise self.exceptions.NoSuchKey()
+        import io
+        return {'Body': io.BytesIO(self.objects[(Bucket, Key)])}
+
+
+def test_prepare_exports_once_publishes_once_and_loads(tmp_path, monkeypatch):
+    from benchmarks.tests.test_kgqa_neptune import FakeNeptune
+    s3 = PublishS3()
+    monkeypatch.setattr(runner, '_s3_client', lambda: s3)
+    neptune = FakeNeptune(counts=(3, 2))
+    monkeypatch.setattr(runner, '_neptune_clients', lambda region: ('us-west-2', neptune, neptune))
+    sha = 'cd' * 32
+    graph, manifest, counts, region = runner.prepare_neptune_graph(
+        GRAPH, 'webqsp', sha, str(tmp_path), 's3://bucket/byokg-data', AGENT_ON, None)
+    key = f'{sha[:16]}-v1'
+    assert counts == {'nodes': 3, 'edges': 2} and manifest['temporal_qualifiers'] is False and region == 'us-west-2'
+    assert s3.uploads[-1] == f'byokg-data/neptune/{key}/manifest.json'
+    assert sum(q.startswith('CALL neptune.load') for q in neptune.queries) == 3  # nodes, one edges part, marker
+    # A second stack: the export is published and the graph is loaded, so nothing is redone.
+    loaded = FakeNeptune(marker={'dataset': 'webqsp', 'graph_sha256': sha, 'export_version': 1, 'nodes': 3, 'edges': 2},
+                         empty=False, counts=(3, 2))
+    monkeypatch.setattr(runner, '_neptune_clients', lambda region: ('us-west-2', loaded, loaded))
+    uploads = len(s3.uploads)
+    runner.prepare_neptune_graph(GRAPH, 'webqsp', sha, str(tmp_path), 's3://bucket/byokg-data', AGENT_ON, 'us-west-2')
+    assert len(s3.uploads) == uploads and not any(q.startswith('CALL') for q in loaded.queries)

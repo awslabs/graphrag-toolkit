@@ -112,6 +112,9 @@ The text triplet retriever scores every triplet against the question as cos(q, h
 | `embedding` | Embedding | Required | Model that embeds the question with `embed_query` | `ByoKGConfig.to_embedding()` |
 | `graph_verbalizer` | TripletGVerbalizer | `TripletGVerbalizer()` | Turns triplets into `head -> relation -> tail` text | `TripletGVerbalizer()` |
 | `topk` | int | 10 | Triplets returned per question | `10` |
+| `lexical` | bool | False | Also rank triplets by BM25 over their words and fuse the two rankings by reciprocal rank | `True` |
+| `candidate_depth` | int | 50 | With `lexical`, the triplets each ranking contributes before fusion (at least `topk`) | `50` |
+| `rrf_k` | float | 60 | With `lexical`, the reciprocal-rank constant: score = sum of 1 / (`rrf_k` + rank) | `60` |
 
 `TextTripletRetriever.from_graph_store(graph_store, embedding, graph_embeddings=None, cache_dir=None, model_id=None, **kwargs)` builds the embeddings (unless given) from a store that has `get_triplets()`; see [Indexing](../byokg-rag/indexing/#graph-embeddings) for the cache.
 

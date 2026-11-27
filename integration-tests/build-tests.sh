@@ -444,6 +444,8 @@ for setting in EXTRACTION_NUM_WORKERS EXTRACTION_BATCH_SIZE EXTRACTION_NUM_THREA
 	BYOKG_WEBQSP_LIMIT BYOKG_CWQ_LIMIT BYOKG_CRONQUESTIONS_LIMIT BYOKG_MEDQA_LIMIT \
 	BYOKG_TEXT_RETRIEVAL BYOKG_TEXT_TOPK BYOKG_EMBED_MODEL \
 	BYOKG_EMBEDDING_LINKING BYOKG_KEEP_VERBATIM_NAMES BYOKG_SPLIT_ENTITY_LINES \
+	BYOKG_TEXT_LEXICAL BYOKG_TRAVERSAL_STEPS \
+	BYOKG_GRAPH_QUERY_AGENT BYOKG_NEPTUNE_GRAPH BYOKG_AGENT_MAX_CALLS \
 	BYOKG_ANSWER_SELECTION BYOKG_CONTEXT_MAX_LINES; do
 	if [[ "${!setting:-}" ]]; then
 		printf "export $setting=%q\n" "${!setting}" >> lexical-graph-examples/.env.testing
@@ -527,7 +529,8 @@ echo "----------------------------------------------------"
 echo ""
 
 for setting in EXTRACTION_NUM_WORKERS EXTRACTION_BATCH_SIZE EXTRACTION_NUM_THREADS_PER_WORKER \
-	BENCHMARK_MAX_BATCH_SIZE BENCHMARK_MAX_NUM_CONCURRENT_BATCHES BYOKG_TEXT_TOPK; do
+	BENCHMARK_MAX_BATCH_SIZE BENCHMARK_MAX_NUM_CONCURRENT_BATCHES BYOKG_TEXT_TOPK \
+	BYOKG_TRAVERSAL_STEPS BYOKG_AGENT_MAX_CALLS; do
   if [[ "${!setting:-}" && ! "${!setting}" =~ ^[1-9][0-9]*$ ]]; then
     echo "ERROR: $setting must be a positive integer, got '${!setting}'."
     exit 1
@@ -539,8 +542,19 @@ if [[ "${BENCHMARK_MAX_BATCH_SIZE:-}" ]] && (( BENCHMARK_MAX_BATCH_SIZE < 100 ||
   exit 1
 fi
 
+# One query and an answer at the least (GraphQueryAgentConfig).
+if [[ "${BYOKG_AGENT_MAX_CALLS:-}" ]] && (( BYOKG_AGENT_MAX_CALLS < 2 )); then
+  echo "ERROR: BYOKG_AGENT_MAX_CALLS must be at least 2, got '${BYOKG_AGENT_MAX_CALLS}'."
+  exit 1
+fi
+
+if [[ "${BYOKG_NEPTUNE_GRAPH:-}" && ! "${BYOKG_NEPTUNE_GRAPH}" =~ ^neptune-graph://g-[a-z0-9]{10}$ ]]; then
+  echo "ERROR: BYOKG_NEPTUNE_GRAPH must look like neptune-graph://g-0123456789, got '${BYOKG_NEPTUNE_GRAPH}'."
+  exit 1
+fi
+
 # The notebook accepts only true or false, in any case (benchmark_env.env_bool).
-for setting in BYOKG_TEXT_RETRIEVAL; do
+for setting in BYOKG_TEXT_RETRIEVAL BYOKG_TEXT_LEXICAL BYOKG_GRAPH_QUERY_AGENT; do
   value="$(printf '%s' "${!setting:-}" | tr '[:upper:]' '[:lower:]')"
   if [[ "$value" && "$value" != true && "$value" != false ]]; then
     echo "ERROR: $setting must be true or false, got '${!setting}'."
