@@ -208,6 +208,7 @@ class TestOrphanFactDetectionProperty:
     def test_query_excludes_facts_that_still_support_a_statement(
         self, neo4j_mock_store, mock_vector_store
     ):
+        """The query must exclude facts that still support a statement."""
         ds = make_delete_sources(neo4j_mock_store, mock_vector_store)
         ds.get_orphaned_fact_ids(self.SAMPLE_FACT_IDS)
 
