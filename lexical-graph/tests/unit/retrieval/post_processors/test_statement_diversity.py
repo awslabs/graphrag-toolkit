@@ -10,7 +10,7 @@ import pytest
 from llama_index.core.schema import NodeWithScore, TextNode
 
 from graphrag_toolkit.lexical_graph import ModelError
-from graphrag_toolkit.lexical_graph.retrieval.model import SearchResult
+from graphrag_toolkit.lexical_graph.retrieval.model import SearchResult, Statement, Topic
 from graphrag_toolkit.lexical_graph.retrieval.post_processors.statement_diversity import (
     ALL_TEXT,
     TOPICS,
@@ -198,3 +198,55 @@ class TestTextFunctions:
         node = TextNode(text=SearchResult(source='s1', topic='T', statements=['a', 'b']).model_dump_json())
 
         assert TOPICS_AND_STATEMENTS(node) == 'T\na\nb'
+
+    def test_topics_and_statements_uses_statement_text_for_statement_objects(self):
+        statements = [Statement(statement='x', facts=['f1']), Statement(statement='y')]
+        node = TextNode(text=SearchResult(source='s1', topic='T', statements=statements).model_dump_json())
+
+        assert TOPICS_AND_STATEMENTS(node) == 'T\nx\ny'
+
+    def test_topics_and_statements_omits_missing_topic(self):
+        node = TextNode(text=SearchResult(source='s1', topic=None, statements=['a']).model_dump_json())
+
+        assert TOPICS_AND_STATEMENTS(node) == 'a'
+
+    def test_topics_and_statements_with_mixed_statements_and_no_topic(self):
+        statements = [Statement(statement='x'), 'a']
+        node = TextNode(text=SearchResult(source='s1', topic=None, statements=statements).model_dump_json())
+
+        assert TOPICS_AND_STATEMENTS(node) == 'x\na'
+
+    def test_topics_and_statements_includes_each_topic_of_a_multi_topic_result(self):
+        topics = [
+            Topic(topic='A', topicId='t1', statements=[Statement(statement='x')]),
+            Topic(topic='B', topicId='t2', statements=['y']),
+        ]
+        node = TextNode(text=SearchResult(source='s1', topics=topics).model_dump_json())
+
+        assert TOPICS_AND_STATEMENTS(node) == 'A\nx\nB\ny'
+
+    def test_topics_joins_the_topics_of_a_multi_topic_result(self):
+        topics = [Topic(topic='A', topicId='t1'), Topic(topic='B', topicId='t2')]
+        node = TextNode(text=SearchResult(source='s1', topics=topics).model_dump_json())
+
+        assert TOPICS(node) == 'A\nB'
+
+    def test_topics_returns_empty_string_for_missing_topic(self):
+        node = TextNode(text=SearchResult(source='s1', topic=None, statements=['a']).model_dump_json())
+
+        assert TOPICS(node) == ''
+
+    def test_topics_with_topic_and_topics_set_includes_both_without_duplicates(self):
+        topics = [Topic(topic='A', topicId='t1'), Topic(topic='B', topicId='t2')]
+        node = TextNode(text=SearchResult(source='s1', topic='A', topics=topics).model_dump_json())
+
+        assert TOPICS(node) == 'A\nB'
+
+    def test_topics_and_statements_with_topic_and_topics_set_includes_both_without_duplicates(self):
+        topics = [
+            Topic(topic='A', topicId='t1', statements=['y']),
+            Topic(topic='B', topicId='t2', statements=['z']),
+        ]
+        node = TextNode(text=SearchResult(source='s1', topic='A', statements=['x'], topics=topics).model_dump_json())
+
+        assert TOPICS_AND_STATEMENTS(node) == 'A\nx\ny\nB\nz'

@@ -8,7 +8,7 @@ from typing import List, Optional, Any, Callable
 from pydantic import Field
 
 from graphrag_toolkit.lexical_graph import ModelError
-from graphrag_toolkit.lexical_graph.retrieval.model import SearchResult
+from graphrag_toolkit.lexical_graph.retrieval.model import SearchResult, Statement
 
 from llama_index.core.postprocessor.types import BaseNodePostprocessor
 from llama_index.core.schema import NodeWithScore, QueryBundle, BaseNode
@@ -32,6 +32,16 @@ def _all_text(node:BaseNode) -> str:
     """
     return node.text
 
+def _statement_text(statement) -> str:
+    return statement.statement if isinstance(statement, Statement) else statement
+
+def _topic_names(search_result:SearchResult) -> List[str]:
+    names = []
+    for name in [search_result.topic, *(topic.topic for topic in search_result.topics)]:
+        if name and name not in names:
+            names.append(name)
+    return names
+
 def _topics_and_statements(node:BaseNode) -> str:
     """
     Constructs a string containing topics and statements retrieved from a given node's text by
@@ -48,13 +58,22 @@ def _topics_and_statements(node:BaseNode) -> str:
 
     Returns:
         str: A string comprising the extracted topic and statements, with each entry separated by
-            a newline.
+            a newline. Topics follow the same rule as `TOPICS` (`topic`, then each name in
+            `topics`, without duplicates), each followed by its statements. A `Statement`
+            contributes its statement text.
     """
     lines = []
+    added_topics = set()
     search_result = SearchResult.model_validate_json(node.text)
-    lines.append(search_result.topic)
-    for statement in search_result.statements:
-        lines.append(statement)
+    if search_result.topic:
+        lines.append(search_result.topic)
+        added_topics.add(search_result.topic)
+    lines.extend(_statement_text(statement) for statement in search_result.statements)
+    for topic in search_result.topics:
+        if topic.topic and topic.topic not in added_topics:
+            lines.append(topic.topic)
+            added_topics.add(topic.topic)
+        lines.extend(_statement_text(statement) for statement in topic.statements)
     return '\n'.join(lines)
 
 def _topics(node:BaseNode) -> str:
@@ -69,14 +88,14 @@ def _topics(node:BaseNode) -> str:
             processed.
 
     Returns:
-        The topic extracted from the `SearchResult` object as a string.
+        `topic` followed by each name in `topics`, separated by newlines and without
+        duplicates. A result with no topic returns ''.
 
     Raises:
         ValidationError: If the JSON validation for the `SearchResult` fails.
     """
-    lines = []
     search_result = SearchResult.model_validate_json(node.text)
-    return search_result.topic
+    return '\n'.join(_topic_names(search_result))
 
 ALL_TEXT = _all_text
 TOPICS_AND_STATEMENTS = _topics_and_statements
