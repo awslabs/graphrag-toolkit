@@ -32,6 +32,7 @@ def test_defaults_sourced_from_processor_args():
     assert r.use_adjacent_chunk_neighbors is True   # validated win, now default-on
     assert r.use_entity_neighbors is False
     assert r.max_entity_neighbors == 100            # entity fan-out cap
+    assert r.max_entities_per_topic == 6            # pre-expansion entity cap
     assert r.scoring_mode == 'path_weighted'
     assert (r.top_k, r.beam_width, r.max_depth) == (50, 100, 6)
 
@@ -43,6 +44,12 @@ def test_processor_args_override_and_constructor_override():
     assert r.use_adjacent_chunk_neighbors is False
     assert r.max_entity_neighbors == 25
     assert r.top_k == 8
+    # max_entities_per_topic flows from ProcessorArgs too, and a constructor
+    # argument overrides it the same way as the other knobs.
+    r3 = _make(processor_args=ProcessorArgs(max_entities_per_topic=8))
+    assert r3.max_entities_per_topic == 8
+    r4 = _make(processor_args=ProcessorArgs(max_entities_per_topic=8), max_entities_per_topic=3)
+    assert r4.max_entities_per_topic == 3
     # ... and an explicit constructor argument overrides ProcessorArgs
     r2 = _make(processor_args=ProcessorArgs(use_entity_neighbors=False), use_entity_neighbors=True)
     assert r2.use_entity_neighbors is True
@@ -183,3 +190,64 @@ def test_neighbor_query_caps_chunk_and_adjacent_neighbours():
     cypher = gs.execute_query.call_args[0][0]
     assert '[..100]' in cypher            # entity cap (pre-existing)
     assert cypher.count('[..50]') == 2    # same-chunk + adjacent-chunk caps (the fix)
+
+
+def test_entity_overlap_query_caps_entities_before_unwind():
+    # Regression test for https://github.com/awslabs/graphrag-toolkit/issues/704:
+    # max_entity_neighbors only trimmed the *result* of the entity -> fact ->
+    # statement -> topic re-expansion, not the entity set fed into it, so a
+    # densely-connected corpus could blow a handful of input rows up to
+    # hundreds of thousands of output rows per topic regardless of that cap.
+    # max_entities_per_topic must cap `entities` itself, before the UNWIND.
+    gs = MagicMock()
+    gs.node_id.side_effect = lambda x: x
+    gs.execute_query.return_value = []
+    r = _make(graph_store=gs, max_entities_per_topic=6, max_entity_neighbors=100)
+    r.use_entity_neighbors = True
+
+    r.get_neighbors_batch(['t1'])
+    cypher = gs.execute_query.call_args[0][0]
+
+    collect_entities = 'COLLECT(DISTINCT e)[..6] AS entities'
+    assert collect_entities in cypher
+    # The cap must land before the UNWIND that fans each entity out to its own
+    # facts/statements/topics, not after.
+    assert cypher.index(collect_entities) < cypher.index('UNWIND')
+
+
+def test_entity_overlap_query_zero_cap_collects_no_entities():
+    # max_entities_per_topic=0 is a valid way to disable entity-overlap
+    # neighbours (COLLECT(...)[..0] is always empty) via a different path
+    # than use_entity_neighbors=False — must not error, and must still emit
+    # a well-formed slice rather than, say, an empty/omitted one.
+    gs = MagicMock()
+    gs.node_id.side_effect = lambda x: x
+    gs.execute_query.return_value = []
+    r = _make(graph_store=gs, max_entities_per_topic=0)
+    r.use_entity_neighbors = True
+
+    r.get_neighbors_batch(['t1'])
+    cypher = gs.execute_query.call_args[0][0]
+    assert 'COLLECT(DISTINCT e)[..0] AS entities' in cypher
+
+
+def test_entity_overlap_query_none_cap_is_uncapped_and_does_not_raise():
+    # max_entities_per_topic=None must not crash (int(None) would raise before
+    # any query is built) and must leave entity collection genuinely uncapped
+    # — no '[..N]' slice at all — rather than silently defaulting to some N.
+    # Set via ProcessorArgs, not the constructor kwarg: a constructor-level
+    # None means "no override, use the ProcessorArgs value" (see pick() in
+    # __init__), so it would silently fall back to the default of 6 instead
+    # of exercising the real None case.
+    from graphrag_toolkit.lexical_graph.retrieval.processors import ProcessorArgs
+
+    gs = MagicMock()
+    gs.node_id.side_effect = lambda x: x
+    gs.execute_query.return_value = []
+    r = _make(graph_store=gs, processor_args=ProcessorArgs(max_entities_per_topic=None))
+    r.use_entity_neighbors = True
+
+    r.get_neighbors_batch(['t1'])
+    cypher = gs.execute_query.call_args[0][0]
+    assert 'COLLECT(DISTINCT e) AS entities' in cypher
+    assert 'COLLECT(DISTINCT e)[..' not in cypher
